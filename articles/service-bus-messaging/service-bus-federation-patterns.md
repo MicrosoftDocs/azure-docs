@@ -48,7 +48,7 @@ session-id.
 
 ### Service-assigned metadata 
 
-The service-assigned metadata of an message obtained from the source queue or topic,
+The service-assigned metadata of a message obtained from the source queue or topic,
 the original enqueue time and sequence number, are replaced by new
 service-assigned values in the target queue or topic, but with the default
 replication tasks that are provided in our samples, the original values are
@@ -68,7 +68,7 @@ interruptions, any such failure scenario will require performing a failover from
 one queue or topic to the next, telling producers and/or consumers to use the
 secondary endpoint.
 
-For all failover scenarios it is assumed that the required elements of the
+For all failover scenarios, it is assumed that the required elements of the
 namespaces are structurally identical, meaning that queues and topics are
 identically named and that shared access signature rules and/or role-based
 access control rules are set up in the same way. You can create (and update) a
@@ -82,7 +82,7 @@ errors, they should consult that location and adjust their configuration. There
 are numerous ways to share that configuration, but we point out two in the
 following: DNS and file shares.
 
-#### DNS based failover configuration
+#### DNS-based failover configuration
 
 One candidate approach is to hold the information in DNS SRV records in a DNS
 you control and point to the respective queue or topic endpoints. Mind that message
@@ -92,7 +92,7 @@ addresses and not to directly resolve IP address information.
 
 Assume you own the domain `example.com` and, for your application, a zone
 `test.example.com`. For two alternate Service Bus, you will now create two
-further nested zones, and a SRV record in each. 
+further nested zones, and an SRV record in each. 
 
 The SRV records are, following common convention, prefixed with
 `_azure_servicebus._amqp` and hold two endpoint records: One for AMQP-over-TLS on
@@ -143,7 +143,7 @@ replicated and therefore resilient against single-region outages.
 This procedure is similar to how the [Service Bus Geo-DR](service-bus-geo-dr.md)
 works, but fully under your own control and also works with active/active scenarios.
 
-#### File share based failover configuration
+#### File share-based failover configuration
 
 The simplest alternative to using DNS for sharing endpoint information is to put
 the name of the primary endpoint into a plain-text file and serve the file from
@@ -159,7 +159,7 @@ The merge pattern has one or more replication tasks pointing to one target,
 possibly concurrently with regular producers also sending messages to the same
 target. 
 
-Variations of this patters are:
+Variations of this pattern are:
 - Two or more replication functions concurrently acquiring messages from
   separate sources and sending them to the same target.
 - One more replication function acquiring messages from a source while the
@@ -223,7 +223,7 @@ are:
   have to verify the integrity of content and metadata relative to a signature
   carried in the message, or attach such a signature. 
 - ***Attestation*** - A replication task may attach metadata, potentially protected
-  by a digital signature, to an message that attests that the message has been
+  by a digital signature, to a message that attests that the message has been
   received through a specific channel or at a specific time.     
 - ***Chaining*** - A replication task may apply signatures to sequences of messages
   such that the integrity of the sequence is protected and missing messages can be

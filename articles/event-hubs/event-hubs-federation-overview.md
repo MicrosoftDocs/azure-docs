@@ -8,10 +8,10 @@ ms.author: spelluru
 # Multi-site and multi-region federation
 
 Many sophisticated solutions require the same event streams to be made available
-for consumption in multiple locations and/or event streams to be collected in
-multiple locations and then consolidated into a specific location for
-consumption. There's also often the need to enrich or reduce event streams or
-do event format conversions, also for within a single region and solution.
+for consumption in multiple locations, or they require event streams to be
+collected in multiple locations and then consolidated into a specific location
+for consumption. There's also often the need to enrich or reduce event streams
+or do event format conversions, also for within a single region and solution.
 
 Practically, that means your solution will maintain multiple Event Hubs, often
 in different regions and Event Hubs namespaces, and then replicate events between
@@ -21,13 +21,14 @@ IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache
 Kafka](https://kafka.apache.org). 
 
 Maintaining multiple active Event Hubs in different regions also allows clients
-to choose and switch between them, if their contents are being merged, which
+to choose and switch between them if their contents are being merged, which
 makes the overall system more resilient against regional availability issues.
 
-This "Federation" chapter explains federation patterns and how to [realize these
-patterns using the serverless Azure Functions runtime environment][1], with the
-option of having your own transformation or enrichment code right in the event
-flow path. 
+This "Federation" chapter explains federation patterns and how to realize these
+patterns using the serverless [Azure Stream
+Analytics](../stream-analytics/stream-analytics-introduction.md) or the [Azure
+Functions][1] runtimes, with the option of having your own transformation or
+enrichment code right in the event flow path. 
 
 ## Federation Patterns
 
@@ -79,8 +80,8 @@ There are two foundational patterns to address such scenarios:
   originally produced into one of the Event Hubs included in the scheme is
   replicated to the other Event Hubs. As events are replicated, they are
   annotated such that they are subsequently ignored by the replication process
-  of the replication target. The result of the merge pattern are two or more
-  Event Hubs which will contain the same set of events in an eventually
+  of the replication target. The result of using the merge pattern are two or
+  more Event Hubs that will contain the same set of events in an eventually
   consistent fashion. 
   
 In either case, the contents of the Event Hubs will not be identical. Events
@@ -120,10 +121,10 @@ starve out concurrent consumers, it may be beneficial to place a copy of the
 event stream near the analytics processor to reduce the roundtrip
 latency. 
 
-Good examples for whens replication should be preferred over consuming events
+Good examples for when replication should be preferred over consuming events
 remotely from across regions are especially those where the regions are
 extremely far apart, for instance Europe and Australia being nearly antipodes,
-geographically and network latencies can easily exceed 250ms for any round trip.
+geographically and network latencies can easily exceed 250 ms for any round trip.
 You can't accelerate the speed of light, but you can reduce the number of
 high-latency round trips to interact with data.
 
@@ -141,7 +142,7 @@ dropped.
 
 In scenarios where clients are extremely bandwidth constrained as it is the case
 in many "Internet of Things" scenarios with metered bandwidth, or where events
-are originally sent over non-IP networks with very constrained packet sizes, the
+are originally sent over non-IP networks with constrained packet sizes, the
 events may have to be enriched with reference data to add further context for
 being usable by downstream event processors.
 
@@ -285,7 +286,7 @@ integrate [inputs](../stream-analytics/stream-analytics-add-inputs.md) and
 [outputs](../stream-analytics/stream-analytics-define-outputs.md) and integrate
 the data from the inputs through
 [queries](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
-that yield a result which is then made available on the outputs.
+that yield a result that is then made available on the outputs.
 
 Queries are based on the [SQL query
 language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
@@ -307,7 +308,7 @@ example, you can:
 - Send data to a Power BI dashboard for real-time dashboarding.
 - Store data in other Azure storage services (for example, Azure Data Lake,
   Azure Synapse Analytics, etc.) to perform batch analytics or train machine
-  learning models based on very large, indexed pools ofd historical data.
+  learning models based on very large, indexed pools of historical data.
 - Store projections (also called "materialized views") in databases ([SQL
   Database](../stream-analytics/sql-database-output.md), [Cosmos
   DB](../stream-analytics/azure-cosmos-db-output.md) ).
@@ -360,7 +361,7 @@ eventing, such as Apache Kafka's
 require you to provide a hosting environment and scale the replication
 engine yourself. That includes configuring and integrating the security and
 networking features and facilitating the flow of monitoring data, and then you
-usually still don't have an opportunity to inject custom replication tasks into
+still don't have an opportunity to inject custom replication tasks into
 the flow. 
 
 ### Choosing between Azure Functions and Azure Stream Analytics

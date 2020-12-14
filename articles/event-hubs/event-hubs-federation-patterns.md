@@ -103,7 +103,7 @@ interruptions, any such failure scenario will require performing a failover from
 one Event Hub to the next, telling producers and/or consumers to use the
 secondary endpoint.
 
-For all failover scenarios it is assumed that the required elements of the
+For all failover scenarios, it is assumed that the required elements of the
 namespaces are structurally identical, meaning that Event Hubs and Consumer
 Groups are identically named and that shared access signature rules and/or
 role-based access control rules are set up in the same way. You can create (and
@@ -118,7 +118,7 @@ errors, they should consult that location and adjust their configuration. There
 are numerous ways to share that configuration, but we point out two in the
 following: DNS and file shares.
 
-#### DNS based failover configuration
+#### DNS-based failover configuration
 
 One candidate approach is to hold the information in DNS SRV records in a DNS
 you control and point to the respective Event Hub endpoints. 
@@ -131,7 +131,7 @@ you control and point to the respective Event Hub endpoints.
 
 Assume you own the domain `example.com` and, for your application, a zone
 `test.example.com`. For two alternate Event Hubs, you will now create two
-further nested zones, and a SRV record in each.
+further nested zones, and an SRV record in each.
 
 The SRV records are, following common convention, prefixed with
 `_azure_eventhubs._amqp` and hold two endpoint records: One for AMQP-over-TLS on
@@ -198,8 +198,7 @@ file if a switch is needed.
 
 #### Extra considerations for failing over consumers
 
-For Event Hub consumers, further considerations for the failover strategy
-depends on the needs of the event processor.
+For Event Hub consumers, further considerations for the failover strategy depend on the needs of the event processor.
 
 If there is a disaster that requires rebuilding a system, including databases,
 from backup data, and the databases are fed directly or via intermediate
@@ -208,8 +207,7 @@ and then want to start replaying events into the system from the moment at which
 the database backup was created and not from the moment the original system was
 destroyed.
 
-If a failure only affects a slice of a system or indeed only a single Event Hub
-which has become unreachable, you will likely want to continue processing events
+If a failure only affects a slice of a system or indeed only a single Event Hub, which has become unreachable, you will likely want to continue processing events
 from about the same position where processing was interrupted.
 
 To realize either scenario and using the event processor of your respective
@@ -229,7 +227,7 @@ The merge pattern has one or more replication tasks pointing to one target,
 possibly concurrently with regular producers also sending events to the same
 target.
 
-Variations of this patters are:
+Variations of these patters are:
 
 - Two or more replication functions concurrently acquiring events from separate
   sources and sending them to the same target.
