@@ -208,6 +208,10 @@
     href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
+    - name: Custom policy overview
+      href: custom-policy-trust-frameworks.md
+    - name: Get started with custom policies
+      href: custom-policy-get-started.md
     - name: Create a policy
       items:
       - name: Resource owner password credentials
@@ -266,10 +270,6 @@
       href: analytics-with-application-insights.md
     - name: Reference
       items:
-      - name: Custom policy overview
-        href: custom-policy-trust-frameworks.md
-      - name: Get started with custom policies
-        href: custom-policy-get-started.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
       - name: BuildingBlocks
