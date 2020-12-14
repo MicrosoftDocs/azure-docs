@@ -238,7 +238,7 @@ The following parameter types are available for the message:
   * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
 * `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
+* `POCO` - The message is formatted as a C# object.
 
 # [JavaScript](#tab/javascript)
 

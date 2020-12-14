@@ -268,8 +268,8 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the queue in function code. |
 |**queueName**|**QueueName**| Name of the queue to send messages to. |
 |**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|**userName**|**UserName**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
-|**password**|**Password**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
+|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
 
@@ -293,9 +293,9 @@ Use the following parameter types for the output binding:
 
 * `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# [example](#example).
+* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received.
 
-When working with C# functions:
+When working with C# Script functions:
 
 * Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
