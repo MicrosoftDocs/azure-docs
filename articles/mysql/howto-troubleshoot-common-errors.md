@@ -70,7 +70,7 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 
 ## Common Connection Errors for Server admin login
 
-When an Azure Database for MySQL server is created, a server admin login is provided by the end user during the server creation. The server admin login allows you to create new databases, add new users and grant permissions. If the server admin login is deleted, its permissions is revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors
+When an Azure Database for MySQL server is created, a server admin login is provided by the end user during the server creation. The server admin login allows you to create new databases, add new users and grant permissions. If the server admin login is deleted, its permissions are revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors
 
 #### ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES)
 
@@ -87,10 +87,11 @@ The resolution for the error is
   ```sql
   select user from mysql.user;
   ```
-* If you cannot login to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](howto-create-manage-server-portal.md). The reset admin password with help recreate the user, reset the password and restore the admin permissions which will allow you to login using server admin login and perform further operations.
+* If you cannot log in to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](howto-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password and restore the admin permissions, which will allow you to log in using server admin and perform further operations.
 
 ## Next Steps
-If you did not find the answer you were looking for, consider following:
+If you did not find the answer you are looking for, consider following:
+
 - Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Send an email to the Azure Database for MySQL Team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address is not a technical support alias.
 - Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
