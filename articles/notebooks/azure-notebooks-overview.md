@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Notebooks Preview
-description: Run Jupyter notebooks in the cloud using the free Azure Notebooks Preview service, where no setup or configuration is required.
+description: Run Jupyter Notebooks in the cloud using the free Azure Notebooks Preview service, where no setup or configuration is required.
 ms.topic: overview
 ms.date: 04/05/2019
 ---
@@ -9,9 +9,9 @@ ms.date: 04/05/2019
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, called the *notebook* (image courtesy of jupyter.org):
+Azure Notebooks is a free hosted service to develop and run Jupyter Notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, called the *notebook* (image courtesy of jupyter.org):
 
-[![Examples of Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Examples of Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Because of this powerful combination of code, graphics, and explanatory text, Jupyter has become popular for many uses including data science instruction, data cleaning and transformation, numerical simulation, statistical modeling, and the development of machine learning models.
 
@@ -69,7 +69,7 @@ In addition to the base distributions, Azure Notebooks comes pre-installed with 
 Azure Notebooks is pre-configured with the following Jupyter extensions:
 
 - [RISE](https://github.com/damianavila/RISE): A Jupyter Slideshow Extension (also known as live_reveal).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): A full computational environment for working with Jupyter notebooks.
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): A full computational environment for working with Jupyter Notebooks.
 - [Altair](https://github.com/ellisonbg/altair): A declarative statistical visualization library for Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): An interactive plotting framework for Jupyter Notebooks.
 - [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): Interactive HTML widgets for Jupyter Notebooks.
@@ -87,4 +87,4 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
 - Quickstarts:
 
   - [Sign in and set a user ID](quickstart-sign-in-azure-notebooks.md)
-  - [Export a Jupyter notebook](quickstart-export-jupyter-notebook-project.md)
+  - [Export a Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)
