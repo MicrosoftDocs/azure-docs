@@ -29,39 +29,39 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 1. In the Azure portal, enter **Anomaly Detector on IoT Edge** into the search and open the Azure Marketplace result.
 2. It will take you to the Azure portal's [Target Devices for IoT Edge Module page](https://portal.azure.com/#create/azure-cognitive-service.edge-anomaly-detector). Provide the following required information.
 
-a. Select your subscription.
+    1. Select your subscription.
 
-b. Select your IoT Hub.
+    1. Select your IoT Hub.
 
-c. Select **Find device** and find an IoT Edge device.
+    1. Select **Find device** and find an IoT Edge device.
 
-4. Select the **Create** button.
+3. Select the **Create** button.
 
-5. Select the **AnomalyDetectoronIoTEdge** module.
+4. Select the **AnomalyDetectoronIoTEdge** module.
 
     :::image type="content" source="../media/deploy-anomaly-detection-on-iot-edge/iot-edge-modules.png" alt-text="Image of IoT Edge Modules user interface with AnomalyDetectoronIoTEdge link highlighted with a red box to indicate that this is the item to select.":::
 
-6. Navigate to **Environment Variables** and provide the following information.
+5. Navigate to **Environment Variables** and provide the following information.
 
-    a.  Keep the value accept for ***Eula**.
+    1.  Keep the value accept for ***Eula**.
 
-    b. Fill out **Billing** with your Cognitive Services endpoint.
+    1. Fill out **Billing** with your Cognitive Services endpoint.
 
-    c. Fill out **ApiKey** with your Cognitive Services API key.
+    1. Fill out **ApiKey** with your Cognitive Services API key.
 
     :::image type="content" source="../media/deploy-anomaly-detection-on-iot-edge/environment-variables.png" alt-text="Environment variables with red boxes around the areas that need values to be filled in for endpoint and API key":::
 
-7. Select **Update**
+6. Select **Update**
 
-8. Select **Next: Routes** to define your route. You define all messages from all modules to go to Azure IoT Hub.
+7. Select **Next: Routes** to define your route. You define all messages from all modules to go to Azure IoT Hub.
 
-9. Select **Next: Review + create**. You can preview the JSON file that defines all the modules that get deployed to your IoT Edge device.
+8. Select **Next: Review + create**. You can preview the JSON file that defines all the modules that get deployed to your IoT Edge device.
     
-10. Select **Create** to start the module deployment.
+9. Select **Create** to start the module deployment.
 
-11. After you complete module deployment, you'll go back to the IoT Edge page of your IoT hub. Select your device from the list of IoT Edge devices to see its details.
+10. After you complete module deployment, you'll go back to the IoT Edge page of your IoT hub. Select your device from the list of IoT Edge devices to see its details.
 
-12. Scroll down and see the modules listed. Check that the runtime status is running for your new module. 
+11. Scroll down and see the modules listed. Check that the runtime status is running for your new module. 
 
 To troubleshoot the runtime status of your IoT Edge device, consult the [troubleshooting guide](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
 
