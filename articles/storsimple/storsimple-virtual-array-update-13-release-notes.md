@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ms.author: alkohli
 ---
 
@@ -38,7 +38,7 @@ This update contains the following improvements:
 - Fix for backup failures due to blob timeouts.
 - Updated OS/.NET framework security patches:
   - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): March 2020 SSU (Servicing Stack Update)
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): July B 2020 rollup<!--Verify rollup date-->
+  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): July 2020 rollup
   - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): July 2020 .NET Framework update
 
 ## Download Update 1.3
@@ -48,23 +48,23 @@ To download this update, go to the [Microsoft Update Catalog](https://www.catalo
 - **KB4537819**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
 - **KB4539946**, which is a Microsoft Update Standalone Package file, WindowsTH-KB4539946-x64. This file is used to update the device software.
 
-Download KB4539946, and follow these instructions to [Apply the update via local web UI](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-install-update-11#use-the-local-web-ui).<!--Convert to internal link in GitHub-->
+Download KB4539946, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11#use-the-local-web-ui.md).
 
 ## Known issues in Update 1.3
-No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-12-release-notes#known-issues-in-update-12).
+No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](./storsimple-virtual-array-update-12-release-notes#known-issues-in-update-12.md).
 
 ## Next steps
-Download KB4539946 and [Apply the update via local web UI](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-install-update-11#use-the-local-web-ui).
+Download KB4539946 and [Apply the update via local web UI](./storsimple-virtual-array-install-update-11#use-the-local-web-ui.md).
 
 ## References
 Looking for an older release note? Go to:
 
-- [StorSimple Virtual Array Update 1.2 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-12-release-notes)
-- [StorSimple Virtual Array Update 1.1 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-11-release-notes)
-- [StorSimple Virtual Array Update 1.0 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-1-release-notes)
-- [StorSimple Virtual Array Update 0.6 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-06-release-notes)
-- [StorSimple Virtual Array Update 0.5 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-05-release-notes)
-- [StorSimple Virtual Array Update 0.4 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-virtual-array-update-04-release-notes)
-- [StorSimple Virtual Array Update 0.3 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-update-03-release-notes)
-- [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-update-01-release-notes)
+- [StorSimple Virtual Array Update 1.2 Release Notes](./storsimple-virtual-array-update-12-release-notes.md)
+- [StorSimple Virtual Array Update 1.1 Release Notes](./storsimple-virtual-array-update-11-release-notes.md)
+- [StorSimple Virtual Array Update 1.0 Release Notes](./storsimple-virtual-array-update-1-release-notes.md)
+- [StorSimple Virtual Array Update 0.6 Release Notes](./storsimple-virtual-array-update-06-release-notes.md)
+- [StorSimple Virtual Array Update 0.5 Release Notes](./storsimple-virtual-array-update-05-release-notes.md)
+- [StorSimple Virtual Array Update 0.4 Release Notes](./storsimple-virtual-array-update-04-release-notes.md)
+- [StorSimple Virtual Array Update 0.3 Release Notes](./storsimple-ova-update-03-release-notes.md)
+- [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](./storsimple-ova-update-01-release-notes.md)
 - [StorSimple Virtual Array General Availability Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-pp-release-notes)
