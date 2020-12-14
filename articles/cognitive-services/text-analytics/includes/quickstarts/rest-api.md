@@ -30,6 +30,7 @@ ms.author: aahi
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
@@ -43,7 +44,7 @@ To call the Text Analytics API, you need the following information:
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
 ## Sentiment Analysis
 
