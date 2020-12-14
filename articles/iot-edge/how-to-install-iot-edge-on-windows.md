@@ -21,7 +21,7 @@ This article lists the steps to install the Azure IoT Edge for Linux on Windows 
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An [Azure IoT Edge device](how-to-manual-provision-symmetric-key#register-a-new-device.md).
+* An [Azure IoT Edge device](how-to-manual-provision-symmetric-key.md#create-an-IoT-Edge-device-in-the-Azure-portal).
 * Access to [Windows Admin Center (WAC) with the Azure IoT Edge extension for WAC installed](https://microsoft.sharepoint.com/teams/AzureEFLOW/Wiki/Windows%20Admin%20Center.aspx). <!-- Update with proper links -->
 
 Minimum system requirements:
