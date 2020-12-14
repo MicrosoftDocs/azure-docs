@@ -70,8 +70,10 @@
         items:
         - name: SQL Vulnerability Assessment
           href: database/sql-vulnerability-assessment.md
-        - name: Vulnerability assessment rules
+        - name: Vulnerability Assessment rules
           href: database/sql-database-vulnerability-assessment-rules.md
+        - name: Vulnerability Assessment rules changelog
+          href: database/sql-database-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: database/sql-database-vulnerability-assessment-storage.md
       - name: Logins, user accounts, roles, and permissions
