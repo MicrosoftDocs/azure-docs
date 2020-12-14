@@ -34,6 +34,7 @@ Use the following commands to install the `azureml-contrib-fairness` and `fairle
 pip install azureml-contrib-fairness
 pip install fairlearn==0.4.6
 ```
+Later versions of Fairlearn should also work in the following example code.
 
 
 
