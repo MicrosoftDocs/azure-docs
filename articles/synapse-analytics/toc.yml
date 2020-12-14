@@ -584,7 +584,7 @@
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage libraries
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Use notebooks
+    - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
