@@ -68,6 +68,27 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 > [!Tip] 
 > Use sed or perl to modify a dump file or SQL script to replace the DEFINER= statement
 
+## Common Connection Errors for Server admin login
+
+When an Azure Database for MySQL server is created, a server admin login is provided by the end user during the server creation. The server admin login allows you to create new databases, add new users and grant permissions. If the server admin login is deleted, its permissions is revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors
+
+#### ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES)
+
+The above error occurs if:
+
+* The username does not exists
+* The user username was deleted
+* its password is changed or reset
+
+The resolution for the error is 
+
+**Resolution**: 
+* Validate if "username" exists as a valid user in the server or is accidently deleted. You can execute the following query by logging into the Azure Database for MySQL user:
+  ```sql
+  select user from mysql.user;
+  ```
+* If you cannot login to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](howto-create-manage-server-portal.md). The reset admin password with help recreate the user, reset the password and restore the admin permissions which will allow you to login using server admin login and perform further operations.
+
 ## Next Steps
 If you did not find the answer you were looking for, consider following:
 - Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
