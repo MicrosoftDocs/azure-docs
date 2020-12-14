@@ -1176,6 +1176,8 @@
         href: platform/workbooks-automate.md
       - name: Groups
         href: platform/workbooks-groups.md
+      - name: Bring your own storage
+        href: platform/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
         href: platform/workbooks-jsonpath.md
       - name: Move Workbooks to another region

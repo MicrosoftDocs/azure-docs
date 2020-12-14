@@ -102,7 +102,7 @@ In the General Purpose service tier every database file gets dedicated IOPS and 
 
 If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by [increasing the file size](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-There is also an instance-level limit on the max log write throughput (which is 22 MB/s), so you may not be able to reach the max file throughout on the log file because you are hitting the instance throughput limit.
+There is also an instance-level limit on the max log write throughput (see above for values e.g. 22 MB/s), so you may not be able to reach the max file throughout on the log file because you are hitting the instance throughput limit.
 
 ## Supported regions
 

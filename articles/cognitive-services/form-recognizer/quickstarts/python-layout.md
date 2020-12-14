@@ -86,7 +86,7 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
     source = r"<path to your form>"
     
     headers = {
@@ -126,7 +126,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 ``` 
 # [v2.1 preview](#tab/v2-1)  
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```  
 
 ---
