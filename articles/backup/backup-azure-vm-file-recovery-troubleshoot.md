@@ -79,16 +79,16 @@ To resolve this issue, we need to manually set the Read-Write Access to the stor
 1. Set Read-Write access.<br>
 Navigate to Server Manager > File and Storage Services > Volumes > Storage Pools<br>
 
-![Windows Storage](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
+   ![Windows Storage](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
 
 2. In the **Storage Pool** window, right-click the available storage pool and select **Set Read-Write Access** option.<br>
 
-![Windows Storage Read Write](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
+   ![Windows Storage Read Write](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
 
 3. After storage pool is assigned with read/write access, we have to attach the virtual disk. <br>
-Navigate to **Server Manager UI** under the Virtual Disks section, right-click to select **Attach Virtual Disk** option.<br>
+Navigate to **Server Manager UI**, under the Virtual Disks section > right-click to select **Attach Virtual Disk** option.<br>
 
-![Server manager Virtual Disk](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
+   ![Server manager Virtual Disk](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
 ### On Linux VM
 
@@ -107,7 +107,7 @@ While running the File recovery script data disk failed to attach with the below
 1. Login to the backed-up VM and run the command:<br>
 *lsblk -f*<br>
 
-![Disk without volume](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
+   ![Disk without volume](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
 2. Verify the filesystem and encryption
 3. If the volume is encrypted, then file recovery is not supported. [Learn more](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore)
@@ -120,36 +120,36 @@ While running the File recovery script data disk failed to attach with the below
 
 While running the file recovery script for windows there is a message that ***0 volumes are attached***, but the disks get discovered in disk management console. While attaching volumes through iSCSI, some volumes that get detected go to offline state. When the iSCSI channel communicates between the VM and service, it detects these volumes and bring them online, but they are not mounted
 
-![Disk not attached](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
+   ![Disk not attached](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
 
 To identify and resolve this issue, perform the following steps:
 
 1. Go to **Disk Management** by running **diskmgmt** command in cmd window
 2. Check whether any additional disks are displayed. In the below example, Disk 2 is an additional disk.
 
-![Disk management0](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
+   ![Disk management0](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
 
 3. Right click on the **Volume** and select **Change Drive Letter and Paths**.
 
-![Disk management1](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
+   ![Disk management1](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
 
 4. In the **Add Drive Letter or Path** window select **Assign the following drive letter** and assign an available drive and Click **OK**. 
 
-![Disk management2](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
+   ![Disk management2](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
 
 5. From the File explorer, you can view the Drive  
 
-![Disk management3](./media/backup-azure-restore-files-from-vm/disk-management-10.png)
+   ![Disk management3](./media/backup-azure-restore-files-from-vm/disk-management-10.png)
 
 The new volumes should get attached.  
 
-![Disk not mountiing](./media/backup-azure-restore-files-from-vm/disk-not-mounting-11.png)
+   ![Disk not mountiing](./media/backup-azure-restore-files-from-vm/disk-not-mounting-11.png)
 
 6. In the file explorer, the new volumes will be visible after rerunning the script.
 
-![Disk not mounting1](./media/backup-azure-restore-files-from-vm/disk-not-mounting-12.png)
+   ![Disk not mounting1](./media/backup-azure-restore-files-from-vm/disk-not-mounting-12.png)
 
-![Disk not mounting2](./media/backup-azure-restore-files-from-vm/disk-not-mounting-13.png)
+   ![Disk not mounting2](./media/backup-azure-restore-files-from-vm/disk-not-mounting-13.png)
 
 #### On Linux VMs 
 
