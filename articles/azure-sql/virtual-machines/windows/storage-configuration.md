@@ -8,6 +8,7 @@ tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -64,7 +65,7 @@ Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 
 Based on your choices, Azure performs the following storage configuration tasks after creating the VM:
 
-* Creates and attaches premium SSDs to the virtual machine.
+* Creates and attaches Premium SSDs to the virtual machine.
 * Configures the data disks to be accessible to SQL Server.
 * Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
 * Associates the storage pool with a new drive on the virtual machine.

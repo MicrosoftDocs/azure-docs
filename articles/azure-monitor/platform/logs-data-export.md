@@ -118,6 +118,10 @@ A data export rule defines data to be exported for a set of tables to a single d
 
 N/A
 
+# [PowerShell](#tab/powershell)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
@@ -129,13 +133,22 @@ az monitor log-analytics workspace table list -resource-group resourceGroupName 
 Use the following command to create a data export rule to a storage account using CLI.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Use the following command to create a data export rule to an event hub using CLI.
+Use the following command to create a data export rule to an event hub using CLI. A separate event hub is created for each table.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+Use the following command to create a data export rule to a specific event hub using CLI. All tables are exported to the provided event hub name. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # [REST](#tab/rest)
@@ -201,9 +214,13 @@ Following is a sample body for the REST request for an event hub where event hub
 ```
 ---
 
-## View data export configuration
+## View data export rule configuration
 
 # [Azure portal](#tab/portal)
+
+N/A
+
+# [PowerShell](#tab/powershell)
 
 N/A
 
@@ -227,6 +244,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## Disable an export rule
 
 # [Azure portal](#tab/portal)
+
+N/A
+
+# [PowerShell](#tab/powershell)
 
 N/A
 
@@ -268,6 +289,10 @@ Content-type: application/json
 
 N/A
 
+# [PowerShell](#tab/powershell)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to delete a data export rule using CLI.
@@ -291,6 +316,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 N/A
 
+# [PowerShell](#tab/powershell)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to view all data export rules in a workspace using CLI.
@@ -311,7 +340,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
-If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace.```
+If the data export rule includes a table that doesn't exist, it will fail with the error "Table <tableName> does not exist in the workspace".
 
 
 ## Supported tables
