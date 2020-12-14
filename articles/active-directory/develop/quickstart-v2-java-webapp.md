@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, learn how to implement Microsoft sign-in in a Java web application using OpenID Connect.
+description: In this quickstart, you'll learn how to add sign-in with Microsoft to a Java web application by using OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -17,52 +17,54 @@ ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
+In this quickstart, you'll download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
- See [How the sample works](#how-the-sample-works) for an illustration.
+ For an overview, see the [diagram of how the sample works](#how-the-sample-works).
 
 ## Prerequisites
 
-To run this sample you will need:
+To run this sample you'll need:
 
-- [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater, and [Maven](https://maven.apache.org/).
+- [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or later. 
+- [Maven](https://maven.apache.org/).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
-> You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
+> There are two ways to start your quickstart application: express (option 1) and manual (option 2).
 >
-> ### Option 1: Register and auto configure your app and then download your code sample
+> ### Option 1: Register and automatically configure your app, and then download the code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) quickstart experience.
-> 1. Enter a name for your application and select **Register**.
+> 1. Go to the [Azure portal > **Registration an application**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) quickstart experience.
+> 1. Enter a name for your application, and then select **Register**.
 > 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 >
 > ### Option 2: Register and manually configure your application and code sample
 >
 > #### Step 1: Register your application
 >
-> To register your application and manually add the app's registration information to your application, follow these steps:
+> To register your application and manually add the app's registration information to it, follow these steps:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directory + Subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application, for example `java-webapp`. Users of your app might see this name, and you can change it later.
+> 1. Under **Manage**, select **App registrations**.
+> 1. Select **New registration**.
+> 1. Enter a **Name** for your application, for example **java-webapp**. Users of your app might see this name. You can change it later.
 > 1. Select **Register**.
-> 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID** for later use.
+> 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Web**.
-> 1. From the **Redirect URIs** section, add `https://localhost:8443/msal4jsample/secure/aad`.
+> 1. In the **Redirect URIs** section, enter **https://localhost:8443/msal4jsample/secure/aad**.
 > 1. Select **Configure**.
-> 1. From the **Web** section, add `https://localhost:8443/msal4jsample/graph/me` as a second **Redirect URIs**.
-> 1. Under **Manage**, select the **Certificates & secrets**. From the **Client secrets** section, select **New client secret**.
-> 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
-> 1. Note the **Value** of the **Client Secret** for later use.
+> 1. In the **Web** section, under **Redirect URIs**, enter **https://localhost:8443/msal4jsample/graph/me** as a second redirect URI.
+> 1. Under **Manage**, select **Certificates & secrets**. In the **Client secrets** section, select **New client secret**.
+> 1. Type a key description (for example, **app secret**), leave the default expiration, and select **Add**.
+> 1. Note the **Value** of the client secret. You'll need it later.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure your application in the Azure portal
+> #### Step 2: Configure your application in the Azure portal
 >
-> For the code sample for this quickstart to work, you need to:
+> To use the code sample in this quickstart, you need to:
 >
 > 1. Add reply URLs as `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`
 > 1. Create a Client Secret.
@@ -72,7 +74,7 @@ To run this sample you will need:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download the code sample
+#### Step 3: Download the code sample
 > [!div renderon="docs"]
 > [Download the Code Sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
@@ -100,7 +102,7 @@ To run this sample you will need:
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### Step 3: Configure the code sample
+> #### Step 4: Configure the code sample
 > 1. Extract the zip file to a local folder.
 > 1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
 > 1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
@@ -133,9 +135,9 @@ To run this sample you will need:
 
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Run the code sample
+> #### Step 5: Run the code sample
 > [!div renderon="docs"]
-> #### Step 4: Run the code sample
+> #### Step 6: Run the code sample
 
 To run the project, you can either:
 
