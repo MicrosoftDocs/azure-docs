@@ -86,13 +86,13 @@ For example, this iframe allows both camera and microphone access:
 <iframe allow="camera *; microphone *">
 ```
 
-## The Communication Services calling client library currently supports
+## Calling client library streaming support
 The Communication Services calling client library supports the following streaming configurations:
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|# of outgoing stream that can be send simultaneously | 1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| up to 6 video + 1 |
+|# of outgoing streams that can be sent simultaneously |1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
 
 ## Next steps
