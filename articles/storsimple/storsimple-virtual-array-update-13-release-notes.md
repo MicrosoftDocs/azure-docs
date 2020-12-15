@@ -28,9 +28,9 @@ This update contains the following improvements:
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
 - Updated OS/.NET framework security patches:
-  - [KB4540725](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4540725): March 2020 SSU (Servicing Stack Update)
-  - [KB4565541](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4565541): July 2020 rollup
-  - [KB4565622](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4565622): July 2020 .NET Framework update
+  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): March 2020 SSU (Servicing Stack Update)
+  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): July 2020 rollup
+  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): July 2020 .NET Framework update
 
 ## Download Update 1.3
 
