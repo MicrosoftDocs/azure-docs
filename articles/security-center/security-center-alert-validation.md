@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  09/22/2020
+ms.date:  12/15/2020
 ms.author: memildin
 
 ---
@@ -21,6 +21,33 @@ This document helps you learn how to verify if your system is properly configure
 ## What are security alerts?
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 For more information, see [Security alerts in Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)
+
+
+## Create sample alerts from dummy resources
+
+If you're using the new, preview alerts experience as described in [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md), you can create sample alerts in a few clicks from the security alerts page in the Azure portal.
+
+> [!NOTE]
+> This procedure requires the new (preview) alerts experience available from the banner at the top of the **Security alerts** page.
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
+
+To create sample alerts from dummy resources:
+
+1. From the toolbar on the alerts page, select **Create sample alerts**. 
+1. Select the subscription.
+1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
+1. Select **Create sample alerts**.
+
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center":::
+    
+    A notification appears that the sample alerts are being created:
+
+    :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notification that the sample alerts are being generated.":::
+
+    After a few minutes, the alerts appear in the security alerts page:
+
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list":::
 
 ## Validate alerts on Windows VMs <a name="validate-windows"></a>
 

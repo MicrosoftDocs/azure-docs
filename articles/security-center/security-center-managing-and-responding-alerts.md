@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/25/2020
+ms.date: 12/15/2020
 ms.author: memildin
 
 ---
@@ -19,6 +19,8 @@ ms.author: memildin
 
 > [!TIP]
 > The information on this page refers to the new (preview) alerts experience available from the banner at the top of the security alerts page.
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
 This topic shows you how to view and process Security Center's alerts and protect your resources.
 
@@ -83,4 +85,5 @@ In this document, you learned how to view security alerts. See the following pag
 
 - [Configure alert suppression rules](alerts-suppression-rules.md)
 - [Automate responses to Security Center triggers](workflow-automation.md)
+- 
 - [Security alerts - a reference guide](alerts-reference.md)
