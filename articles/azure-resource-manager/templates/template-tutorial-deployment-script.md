@@ -16,15 +16,15 @@ ms.author: jgao
 
 # Tutorial: Use deployment scripts to create a self-signed certificate
 
-Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates). Deployment scripts can be used to perform custom steps that can't be done by ARM templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in ARM templates](./deployment-script-template.md).
+Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates). Deployment scripts can be used to perform custom steps that can't be done by ARM templates. For example, creating a self-signed certificate. In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in ARM templates](./deployment-script-template.md).
 
 > [!IMPORTANT]
-> Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean up deployment script resources](./deployment-script-template.md#clean-up-deployment-script-resources).
+> Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the script execution gets in a terminal state. You're billed for the resources until the resources are deleted. To learn more, see [Clean up deployment script resources](./deployment-script-template.md#clean-up-deployment-script-resources).
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a Quickstart template
+> * Open a quickstart template
 > * Edit the template
 > * Deploy the template
 > * Debug the failed script
@@ -164,7 +164,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     }
     ```
 
-1. Add a deploymentScripts resource:
+1. Add a `deploymentScripts` resource:
 
     > [!NOTE]
     > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The [PowerShell escape character](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#single-and-double-quoted-strings) is the backtick (`` ` ``).
@@ -250,17 +250,17 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     The `deploymentScripts` resource depends on the key vault resource and the role assignment resource. It has these properties:
 
     * `identity`: Deployment script uses a user-assigned managed identity to execute the scripts.
-    * `kind`: Specify the type of script. Currently, only PowerShell script is support.
-    * `forceUpdateTag`: Determine whether the deployment script should be executed even if the script source has not changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-template.md#run-script-more-than-once).
+    * `kind`: Specify the type of script. Currently, only PowerShell scripts are supported.
+    * `forceUpdateTag`: Determine whether the deployment script should be executed even if the script source hasn't changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: Specifies the Azure PowerShell module version to be used. Currently, deployment script supports version 2.7.0, 2.8.0, and 3.0.0.
     * `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
     * `arguments`: Specify the parameter values. The values are separated by spaces.
     * `scriptContent`: Specify the script content. To run an external script, use `primaryScriptURI` instead. For more information, see [Use external script](./deployment-script-template.md#use-external-scripts).
-        Declaring `$DeploymentScriptOutputs` is only required when testing the script on a local machine. Declaring the variable allows the script to be run on a local machine and in a deploymentScript resource without having to make changes. The value assigned to $DeploymentScriptOutputs is available as outputs in the deployments. For more information, see [Work with outputs from PowerShell deployment scripts](./deployment-script-template.md#work-with-outputs-from-powershell-script) or [Work with outputs from CLI deployment scripts](./deployment-script-template.md#work-with-outputs-from-cli-script).
-    * `cleanupPreference`: Specify the preference on when to delete the deployment script resources.  The default value is **Always**, which means the deployment script resources are deleted despite the terminal state (Succeeded, Failed, Canceled). In this tutorial, `OnSuccess` is used so that you get a chance to view the script execution results.
-    * `retentionInterval`: Specify the interval for which the service retains the script resources after it reaches a terminal state. Resources will be deleted when this duration expires. Duration is based on ISO 8601 pattern. This tutorial uses P1D, which means one day.  This property is used when `cleanupPreference` is set to **OnExpiration**. This property is not enabled currently.
+        Declaring `$DeploymentScriptOutputs` is only required when testing the script on a local machine. Declaring the variable allows the script to be run on a local machine and in a `deploymentScript` resource without having to make changes. The value assigned to `$DeploymentScriptOutputs` is available as outputs in the deployments. For more information, see [Work with outputs from PowerShell deployment scripts](./deployment-script-template.md#work-with-outputs-from-powershell-script) or [Work with outputs from CLI deployment scripts](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    * `cleanupPreference`: Specify the preference on when to delete the deployment script resources. The default value is **Always**, which means the deployment script resources are deleted despite the terminal state (Succeeded, Failed, Canceled). In this tutorial, **OnSuccess** is used so that you get a chance to view the script execution results.
+    * `retentionInterval`: Specify the interval for which the service retains the script resources after it reaches a terminal state. Resources will be deleted when this duration expires. Duration is based on ISO 8601 pattern. This tutorial uses **P1D**, which means one day. This property is used when `cleanupPreference` is set to **OnExpiration**. This property isn't enabled currently.
 
-    The deployment script takes three parameters: key vault name, certificate name, and subject name. It creates a certificate, and then adds the certificate to the key vault.
+    The deployment script takes three parameters: `keyVaultName`, `certificateName`, and `subjectName`. It creates a certificate, and then adds the certificate to the key vault.
 
     `$DeploymentScriptOutputs` is used to store output value. To learn more, see [Work with outputs from PowerShell deployment scripts](./deployment-script-template.md#work-with-outputs-from-powershell-script) or [Work with outputs from CLI deployment scripts](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
@@ -280,11 +280,11 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
 1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
 
-1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner. Restarting the shell is required when you switch.
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper-left corner. Restarting the shell is required when you switch.
 
     ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot.  Select the file you saved in the previous section. After uploading the file, you can use the `ls` command and the `cat` command to verify the file is uploaded successfully.
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot.  Select the file you saved in the previous section. After uploading the file, you can use the `ls` command and the `cat` command to verify the file was uploaded successfully.
 
 1. Run the following PowerShell script to deploy the template.
 
@@ -307,7 +307,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     The deployment script service needs to create additional deployment script resources for script execution. The preparation and the cleanup process can take up to one minute to complete in addition to the actual script execution time.
 
-    The deployment is failed because of the invalid command, `Write-Output1` is used in the script. You shall get an error saying:
+    The deployment failed because the invalid command, `Write-Output1` is used in the script. You will get an error saying:
 
     ```error
     The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
@@ -319,21 +319,21 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 ## Debug the failed script
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open the resource group. It is the project name with **rg** appended. You shall see two additional resources in the resource group. These resources are referred as *deployment script resources*.
+1. Open the resource group. It's the project name with **rg** appended. You will see two additional resources in the resource group. These resources are referred as *deployment script resources*.
 
     ![Resource Manager template deployment script resources](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
     Both files have the **azscripts** suffix. One is a storage account and the other is a container instance.
 
-    Select **Show hidden types** to list the deploymentScripts resource.
+    Select **Show hidden types** to list the `deploymentScripts` resource.
 
 1. Select the storage account with the **azscripts** suffix.
-1. Select the **File shares** tile. You shall see an **azscripts** folder.  The folder contains the deployment script execution files.
-1. Select **azscripts**. You shall see two foldersL **azscriptinput** and **azscriptoutput**.  The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file is not there because the execution failed.
+1. Select the **File shares** tile. You will see an **azscripts** folder. The folder contains the deployment script execution files.
+1. Select **azscripts**. You will see two folders **azscriptinput** and **azscriptoutput**. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
 
 Remove the `Write-Output1` line and redeploy the template.
 
-When the second deployment run successfully, the deployment script resources shall be removed by the script service, because the `cleanupPreference` property is set to **OnSuccess**.
+When the second deployment runs successfully, the deployment script resources will be removed by the script service, because the `cleanupPreference` property is set to **OnSuccess**.
 
 ## Clean up resources
 
@@ -341,12 +341,12 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name.  You will see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
-In this tutorial, you learned how to use deployment script in ARM templates. To learn how to deploy Azure resources based on conditions, see:
+In this tutorial, you learned how to use a deployment script in ARM templates. To learn how to deploy Azure resources based on conditions, see:
 
 > [!div class="nextstepaction"]
 > [Use conditions](./template-tutorial-use-conditions.md)
