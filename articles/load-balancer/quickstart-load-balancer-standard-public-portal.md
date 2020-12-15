@@ -36,6 +36,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart border="false":::
+
+*Figure: Resources created in quickstart*
+
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
@@ -316,6 +320,10 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
+
+*Figure: Resources created in quickstart*
 
 In this section, you create a load balancer that load balances virtual machines. 
 
