@@ -72,7 +72,7 @@ The **session life time** is the amount of time the Azure AD B2C session cookie 
 
 ### Keep me signed-in
 
-The [Keep me signed-in](custom-policy-keep-me-signed-in.md) feature extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The Keep me signed-in feature only applies to sign-in with local accounts.
+The [Keep me signed-in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) feature extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The Keep me signed-in feature only applies to sign-in with local accounts.
 
 The Keep me signed-in feature takes precedence over the session life time. If the Keep me signed-in feature is enabled and the user selects it, this feature dictates when the session will expire. 
 
@@ -114,5 +114,5 @@ Applications must respond to this request by clearing any session that identifie
 
 ## Next steps
 
-- Learn how to [configure session behavior in user flow](session-behavior.md).
-- Learn how to [configure session behavior in custom policies](session-behavior-custom-policy.md).
+- Learn how to [configure session behavior](session-behavior.md).
+

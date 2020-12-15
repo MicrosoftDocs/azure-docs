@@ -9215,6 +9215,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-custom-attributes.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/configure-tokens-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-tokens",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-behavior-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-keep-me-signed-in.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
       "redirect_url": "/azure/active-directory-b2c/faq",
       "redirect_document_id": true
