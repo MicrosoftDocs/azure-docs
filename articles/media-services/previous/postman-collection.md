@@ -3250,7 +3250,7 @@ This article contains a definition of the **Postman** collection that contains g
 									"key": "access-control-expose-headers",
 									"value": "request-id, x-ms-request-id",
 									"name": "access-control-expose-headers",
-									"description": "Lets a server whitelist headers that browsers are allowed to access."
+									"description": "Lets a server allowlist headers that browsers are allowed to access."
 								},
 								{
 									"key": "request-id",
@@ -3453,7 +3453,7 @@ This article contains a definition of the **Postman** collection that contains g
 									"key": "access-control-expose-headers",
 									"value": "request-id, x-ms-request-id",
 									"name": "access-control-expose-headers",
-									"description": "Lets a server whitelist headers that browsers are allowed to access."
+									"description": "Lets a server allowlist headers that browsers are allowed to access."
 								},
 								{
 									"key": "request-id",
@@ -5588,3 +5588,4 @@ This article contains a definition of the **Postman** collection that contains g
 	]
 }
 ```
+

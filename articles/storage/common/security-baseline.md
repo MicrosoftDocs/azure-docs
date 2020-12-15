@@ -215,7 +215,7 @@ Storage Accounts should use a virtual network service endpoint
 
 ### 2.6: Monitor and Review Logs
 
-**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at http://accountname.blob.core.windows.net/$logs (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
+**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at `http://accountname.blob.core.windows.net/$logs` (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
 
 Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 

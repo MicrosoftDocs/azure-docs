@@ -4,7 +4,7 @@ description: Learn how to create Azure Analysis Services server name aliases. Us
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -49,5 +49,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## See also
 
-[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Connect from Power BI Desktop](analysis-services-connect-pbi.md)

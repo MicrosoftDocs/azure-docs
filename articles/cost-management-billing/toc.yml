@@ -50,6 +50,9 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
+    - name: Migrate from EA reporting to Azure Resource Manager APIs
+      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
+
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -186,15 +189,15 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create EA subscriptions programmatically with latest API
+      - name: Create EA subscriptions - REST
         href: manage/programmatically-create-subscription-enterprise-agreement.md
-      - name: Create MCA subscriptions programmatically with latest API
+      - name: Create MCA subscriptions - REST
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MPA subscriptions programmatically with latest API
+      - name: Create MPA subscriptions - REST
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions programmatically with an ARM template
+      - name: Create subscriptions - ARM template
         href: manage/create-subscription-template.md
-      - name: Create subscriptions programmatically with old preview API
+      - name: Create subscriptions - preview REST
         href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
@@ -327,7 +330,7 @@
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
     - name: View, Manage and Optimize after purchase
       items:
       - name: View reservations and utilization

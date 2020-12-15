@@ -109,7 +109,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](https://docs.microsoft.com/azure/cosmos-db/request-units)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
 
 ## Next steps
 

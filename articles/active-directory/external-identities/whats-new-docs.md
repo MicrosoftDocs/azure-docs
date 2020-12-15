@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,14 @@ manager: CelesteDG
 # Azure Active Directory external identities: What's new
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## November 2020
+
+### Updated articles
+- [Microsoft 365 external sharing and Azure Active Directory (Azure AD) B2B collaboration](o365-external-user.md)
+- [Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration](hybrid-on-premises-to-cloud.md)
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+
 
 ## October 2020
 

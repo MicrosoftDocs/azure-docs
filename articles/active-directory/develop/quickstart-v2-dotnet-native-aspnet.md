@@ -51,26 +51,24 @@ To register your apps manually, choose the Azure Active Directory (Azure AD) ten
 
 ### Register the TodoListService app
 
-1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
-1. Select **New registration**.
-1. When the **Register an application page** opens, enter your application's registration information:
-
-    1. In the **Name** section, enter a meaningful application name that will be displayed to app users. For example, enter **AppModelv2-NativeClient-DotNet-TodoListService**.
-    1. For **Supported account types**, select **Accounts in any organizational directory**.
-    1. Select **Register** to create the application.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `AppModelv2-NativeClient-DotNet-TodoListService`. Users of your app might see this name, and you can change it later.
+1. For **Supported account types**, select **Accounts in any organizational directory**.
+1. Select **Register** to create the application.
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You'll need it to configure the Visual Studio configuration file for this project (that is, `ClientId` in the *TodoListService\Web.config* file).
+1. Under **Manage**, select **Expose an API** > **Add a scope**. Accept the proposed Application ID URI (`api://{clientId}`) by selecting **Save and continue**, and then enter the following information:
 
-1. In the **Expose an API** section, select **Add a scope**, accept the proposed Application ID URI (`api://{clientId}`) by selecting **Save and Continue**, and then enter the following information:
-
-    1. For **Scope name**, enter **access_as_user**.
+    1. For **Scope name**, enter `access_as_user`.
     1. For **Who can consent**, ensure that the **Admins and users** option is selected.
-    1. In the **Admin consent display name** box, enter **Access TodoListService as a user**.
-    1. In the **Admin consent description** box, enter **Accesses the TodoListService web API as a user**.
-    1. In the **User consent display name** box, enter **Access TodoListService as a user**.
-    1. In the **User consent description** box, enter **Accesses the TodoListService web API as a user**.
+    1. In the **Admin consent display name** box, enter `Access TodoListService as a user`.
+    1. In the **Admin consent description** box, enter `Accesses the TodoListService web API as a user`.
+    1. In the **User consent display name** box, enter `Access TodoListService as a user`.
+    1. In the **User consent description** box, enter `Accesses the TodoListService web API as a user`.
     1. For **State**, keep **Enabled**.
-    1. Select **Add scope**.
+1. Select **Add scope**.
 
 ### Configure the service project
 

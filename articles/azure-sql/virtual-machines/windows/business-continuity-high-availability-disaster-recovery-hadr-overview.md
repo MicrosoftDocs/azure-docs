@@ -9,6 +9,7 @@ tags: azure-service-management
 
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -81,9 +82,13 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 
 If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery (DR) plans with SQL Server without incurring additional licensing costs for the passive disaster recovery instance.
 
-In the following image, the setup uses SQL Server running on an Azure virtual machine that uses 12 cores as a disaster recovery replica for an on-premises SQL Server deployment that uses 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises deployment and the Azure Virtual Machines deployment. The new benefit offers passive replica benefits for running on an Azure virtual machine. Now you would need to license only 12 cores of SQL Server running on-premises, as long as the disaster recovery criteria for the passive replica on Azure Virtual Machines are met.
+For example, you can have two free passive secondaries when all three replicas are hosted in Azure: 
 
-![Free disaster recovery replica in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Two free passives when everything in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Or you can configure a hybrid failover environment, with a licensed primary on-premises, one free passive for HA, one free passive for DR on-premises, and one free passive for DR in Azure:
+
+![Three free passives when environment is hybrid with one primary on-premises replica](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
 For more information, see the [product licensing terms](https://www.microsoft.com/licensing/product-licensing/products). 
 
@@ -98,7 +103,7 @@ Azure VMs, storage, and networking have different operational characteristics th
 ### High-availability nodes in an availability set
 Availability sets in Azure enable you to place the high-availability nodes into separate fault domains and update domains. The Azure platform assigns an update domain and a fault domain to each virtual machine in your availability set. This configuration within a datacenter ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure SLA of 99.95 percent. 
 
-To configure a high-availability setup, place all participating SQL Server virtual machines in the same availability set to avoid application or data loss during a maintenance event. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+To configure a high-availability setup, place all participating SQL Server virtual machines in the same availability set to avoid application or data loss during a maintenance event. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### High-availability nodes in an availability zone
 Availability zones are unique physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking. The physical separation of availability zones within a region helps protect applications and data from datacenter failures by ensuring that at least one virtual machine is available and meets the Azure SLA of 99.99 percent. 

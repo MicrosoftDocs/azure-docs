@@ -15,7 +15,7 @@ The metered billing APIs should be used when the publisher creates custom meteri
 
 For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](saas-metered-billing.md).
 
-For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](create-new-azure-apps-offer.md#technical-configuration)).
+For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see [Configure your Azure application offer setup details](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## Enforcing TLS 1.2 Note
 

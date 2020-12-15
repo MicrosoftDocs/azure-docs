@@ -51,7 +51,7 @@
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automate configuration using MS Graph
-      href: https://docs.microsoft.com/graph/application-provisioning-configure-api
+      href: /graph/application-provisioning-configure-api
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues

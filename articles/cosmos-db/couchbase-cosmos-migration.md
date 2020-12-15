@@ -176,7 +176,7 @@ You can read the document with or without specifying the partition key. If you d
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-That’s it, you can now use your application with Azure Cosmos DB. Complete code sample for the example described in this doc is available in the [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub repo.
+That’s it, you can now use your application with Azure Cosmos DB. Complete code sample for the example described in this doc is available in the [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub repo.
 
 ## Couchbase as a document repository & using N1QL queries
 
@@ -218,9 +218,9 @@ Use the Async Java SDK with the following steps:
     
    if(client==null)
    	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+   		.endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
    	    .connectionPolicy(cp)
-   	    .key(MasterKey)
+   	    .key(PrimaryKey)
    	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
    	    .build();	
    
@@ -301,7 +301,7 @@ CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub repo.
+Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub repo.
 
 ## Couchbase as a key/value pair
 
@@ -347,9 +347,9 @@ This is a simple type of workload in which you can perform lookups instead of qu
    
    if(client==null)
    	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+   		.endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
    	    .connectionPolicy(cp)
-   	    .key(MasterKey)
+   	    .key(PrimaryKey)
    	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
    	    .build();
     
@@ -423,7 +423,7 @@ CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub repo.
+Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub repo.
 
 ## Data Migration
 

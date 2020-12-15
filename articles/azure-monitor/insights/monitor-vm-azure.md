@@ -60,7 +60,7 @@ To enable all features of Azure Monitor for monitoring a virtual machine, you ne
 Each of these configuration steps is described in the following sections.
 
 ### Enable Azure Monitor for VMs
-[Azure Monitor for VMs](vminsights-overview.md) is an [insight](insights-overview.md) in Azure Monitor that is the primary tool for monitoring virtual machines in Azure Monitor. It provides the following additional value over standard Azure Monitor features.
+[Azure Monitor for VMs](vminsights-overview.md) is an [insight](../monitor-reference.md) in Azure Monitor that is the primary tool for monitoring virtual machines in Azure Monitor. It provides the following additional value over standard Azure Monitor features.
 
 - Simplified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
 - Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
@@ -136,7 +136,7 @@ Once you configure collection of monitoring data for a virtual machine, you have
 | Diagnostic settings | Enable and configure [diagnostics extension](../platform/diagnostics-extension-overview.md) for the current virtual machine. |
 | Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
 | Logs | Open [Log Analytics](../log-query/log-analytics-overview.md) with the [scope](../log-query/scope.md) set to the current virtual machine. |
-| Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-preview.md) to monitor connections between the current virtual machine and other virtual machines. |
+| Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
 
 
 ## Analyzing metric data
@@ -238,4 +238,3 @@ See [Connect Operations Manager to Azure Monitor](../platform/om-agents.md) for 
 
 * [Learn how to analyze data in Azure Monitor logs using log queries.](../log-query/get-started-queries.md)
 * [Learn about alerts using metrics and logs in Azure Monitor.](../platform/alerts-overview.md)
-

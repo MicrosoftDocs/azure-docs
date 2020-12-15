@@ -22,11 +22,11 @@ By default, your subscription uses Microsoft-managed encryption keys. There is a
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-QnA Maker uses CMK support from Azure search. Configure [CMK in Azure Search using Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). This Azure instance should be associated with QnA Maker service to make it CMK enabled.
+QnA Maker uses CMK support from Azure search. Configure [CMK in Azure Search using Azure Key Vault](../../search/search-security-manage-encryption-keys.md). This Azure instance should be associated with QnA Maker service to make it CMK enabled.
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-QnA Maker uses [CMK support from Azure search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
+QnA Maker uses [CMK support from Azure search](../../search/search-security-manage-encryption-keys.md), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
 
 ---
 
@@ -39,7 +39,7 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
+1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure Cognitive Search](../../search/search-security-manage-encryption-keys.md#prerequisites).
 
    ![View Encryption settings 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
@@ -58,14 +58,14 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 # [QnA Maker managed (preview release)](#tab/v2)
 
 1.	Go to the **Encryption** tab of your QnA Maker managed (Preview) service.
-2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) and click on **Save**.
+2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and click on **Save**.
 
      :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker managed (Preview) CMK setting" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
 
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
 > [!IMPORTANT]
-> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a QnA Maker service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) in Azure Cognitive search.
+> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a QnA Maker service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
 
 > [!NOTE]
 > To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
@@ -83,6 +83,6 @@ However, as the QnA Maker portal service is hosted in West-US, it is still not i
 
 ## Next steps
 
-* [Encryption in Azure Search using CMKs in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
-* [Data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Encryption in Azure Search using CMKs in Azure Key Vault](../../search/search-security-manage-encryption-keys.md)
+* [Data encryption at rest](../../security/fundamentals/encryption-atrest.md)
+* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

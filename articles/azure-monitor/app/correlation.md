@@ -143,7 +143,7 @@ Add the following configuration:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](/azure/azure-monitor/app/javascript#enable-correlation).
+> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-correlation).
 
 ## Telemetry correlation in OpenCensus Python
 
@@ -256,10 +256,8 @@ You might want to customize the way component names are displayed in the [Applic
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

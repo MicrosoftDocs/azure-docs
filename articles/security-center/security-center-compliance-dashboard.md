@@ -29,7 +29,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To step through the features covered in this tutorial, [Azure Defender](azure-defender.md) must be enabled. You can try Azure Defender for free for 30 days.
+To step through the features covered in this tutorial:
+
+- [Azure Defender](azure-defender.md) must be enabled. You can try Azure Defender for free for 30 days.
+- You need to be signed in with an account that has reader access to the policy compliance data (**Security Reader** is insufficient). The role of **Global reader** for the subscription will work. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ##  Assess your regulatory compliance
 
@@ -47,13 +50,13 @@ At the top of the screen, you see a dashboard with an overview of your complianc
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard":::
 
-1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), as well as the numbers of affected resources (5). Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Check the requirements for these and assess them in your environment on your own. Some of these may be process-related and not technical.
+1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), as well as the numbers of affected resources (5). Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Check the requirements for these and assess them in your environment on your own. Some of these might be process-related and not technical.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard":::
 
 1. To generate and download a PDF report summarizing your current compliance status for a particular standard, click **Download report**.
 
-    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data, and is organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and may serve to provide evidence to internal and external auditors.
+    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data, and is organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report":::
 

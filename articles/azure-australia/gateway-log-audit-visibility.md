@@ -269,7 +269,7 @@ Log Analytics is part of Azure Monitor and is used for log analysis. Log Analyti
 |Resources|Link|
 |---|---|
 |Log Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor](../azure-monitor/index.yml)|
-|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](../azure-monitor/log-query/get-started-portal.md)|
+|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](../azure-monitor/log-query/log-analytics-tutorial.md)|
 |
 
 ### Network Watcher

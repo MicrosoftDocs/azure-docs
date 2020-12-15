@@ -14,6 +14,9 @@ ms.topic: conceptual
 
 Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered.
 
+> [!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Core rule sets
 
 The Application Gateway WAF comes pre-configured with CRS 3.0 by default. But you can choose to use CRS 3.1 or CRS 2.2.9 instead. CRS 3.1 offers new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. CRS 3.0 offers reduced false positives compared with CRS 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).

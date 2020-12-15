@@ -133,6 +133,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Aruba User Experience Insight
+        href: aruba-user-experience-insight-tutorial.md
       - name: Asana
         href: asana-tutorial.md
       - name: ASC Contracts
@@ -165,6 +167,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: AwareGo
+        href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
       - name: Axiad Cloud
@@ -255,6 +259,8 @@
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-tutorial.md
+      - name: Burp Suite Enterprise Edition
+        href: burp-suite-enterprise-edition-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -399,6 +405,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: Contentsquare SSO
+        href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
         href: contractsafe-saml2-sso-tutorial.md
       - name: ContractWorks
@@ -417,6 +425,8 @@
         href: corptax-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
+      - name: Count Me In - Operations Dashboard
+        href: count-me-in-operations-dashboard-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
@@ -466,7 +476,7 @@
       - name: Direct
         href: direct-tutorial.md
       - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
+        href: ./tutorial-list.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -559,6 +569,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equinix Federation App
+        href: equinix-federation-app-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -648,6 +660,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -826,6 +840,8 @@
         href: infor-cloud-suite-tutorial.md
       - name: Infor Retail - Information Management
         href: inforretailinformationmanagement-tutorial.md
+      - name: InformaCast
+        href: informacast-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -896,6 +912,8 @@
         href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
+      - name: JLL TRIRIGA
+        href: jll-tririga-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
@@ -938,6 +956,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: KFAdvance
+        href: kfadvance-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1000,6 +1020,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: LinkedIn Talent Solutions
+        href: linkedin-talent-solutions-tutorial.md
       - name: Litmus
         href: litmus-tutorial.md
       - name: Learnster
@@ -1245,7 +1267,7 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md
+        href: pantheon-tutorial.md        
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -1272,6 +1294,8 @@
         href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Perimeter 81
+        href: perimeter-81-tutorial.md
       - name: PerimeterX
         href: perimeterx-tutorial.md
       - name: Periscope Data
@@ -1336,6 +1360,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: ProProfs Knowledge Base
+        href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
       - name: Proxyclick
@@ -1373,7 +1399,7 @@
       - name: Recognize
         href: recognize-tutorial.md
       - name: RedBrick Health
-        href: redbrickhealth-tutorial.md
+        href: ./redbrick-health-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
@@ -1390,6 +1416,8 @@
         href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
+      - name: RetrieverMediaDatabase
+        href: retrievermediadatabase-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1398,6 +1426,8 @@
         href: rfpio-tutorial.md
       - name: RightAnswers
         href: rightanswers-tutorial.md
+      - name: RightCrowd Workforce Management
+        href: rightcrowd-workforce-management-tutorial.md
       - name: Rightscale
         href: rightscale-tutorial.md
       - name: RingCentral
@@ -1596,6 +1626,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: Software AG Cloud
+        href: software-ag-cloud-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
@@ -1802,6 +1834,8 @@
         href: vocoli-tutorial.md
       - name: Vodeclic
         href: vodeclic-tutorial.md
+      - name: vonage
+        href: vonage-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
       - name: Vtiger CRM (SAML)
@@ -1954,9 +1988,11 @@
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
-        href: https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json 
+        href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Bizagi Studio for Digital Process Automation
+        href: bizagi-studio-for-digital-process-automation-provisioning-tutorial.md
       - name: Blink
         href: blink-provisioning-tutorial.md
       - name: BlogIn
@@ -2019,6 +2055,8 @@
         href: github-ae-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: GroupTalk
+        href: grouptalk-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
       - name: Hootsuite
@@ -2081,6 +2119,10 @@
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: PaperCut Cloud Print Management
+        href: papercut-cloud-print-management-provisioning-tutorial.md 
+      - name: Parsable
+        href: parsable-provisioning-tutorial.md 
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
@@ -2123,6 +2165,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Shopify Plus
+        href: shopify-plus-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake

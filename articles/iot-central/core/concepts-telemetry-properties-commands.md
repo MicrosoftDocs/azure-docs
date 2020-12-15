@@ -31,7 +31,7 @@ Each example shows a snippet from the device model that defines the type and exa
 
 The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
+For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 ## View raw data
 

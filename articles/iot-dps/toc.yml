@@ -13,7 +13,8 @@
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
-    - name: Azure RM template
+    - name: ARM template
+      displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
   - name: Provision a symmetric key device
     items:
@@ -47,6 +48,8 @@
        href: how-to-legacy-device-symm-key.md
      - name: Use custom allocation policies
        href: tutorial-custom-allocation-policies.md
+     - name: Provision multiple X.509 devices
+       href: tutorial-custom-hsm-enrollment-group-x509.md
   - name: 2 - Provision devices to multiple hubs
     items:
      - name: Link multiple hubs to DPS
