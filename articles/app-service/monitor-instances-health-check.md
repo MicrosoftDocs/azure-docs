@@ -1,6 +1,6 @@
 ---
-title: Route traffic to healthy instances in Azure App Service
-description: Learn how to route traffic to healthy instances on your App Service app.
+title: Monitor the health of App Service instances
+description: Learn how to monitor the health of App Service instances using health check.
 keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
 author: msangapu-msft
 
@@ -9,11 +9,16 @@ ms.date: 12/03/2020
 ms.author: msangapu
 
 ---
-# Route traffic to healthy instances
+# Monitor App Service instances using health check
 
 App Service makes it easy to automatically scale your apps when traffic increases. This increases the throughput, but what if there's an uncaught exception an instance? Health Check finds unhealthy instances and removes them from the load balancer rotation.
 
-This article uses the Azure Portal to work with Health Check. Health Check allows you to specify a path to ping on your App Service web app. If an instance fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation. This increases the app average availability and resiliency.
+This article uses the Azure Portal to work with Health Check. 
+
+What App Service does for you with health checks?
+-
+
+Health Check allows you to specify a path to ping on your App Service web app. If an instance fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation. This increases the app average availability and resiliency.
 
 ![Health check success diagram][1]
  If the path responds with an error HTTP status code or does not respond, then the instance is determined to be unhealthy and it is removed from the load balancer rotation. This prevents the load balancer from routing requests to the unhealthy instances.
@@ -34,7 +39,7 @@ Open the Portal to your App Service, then select **Health check** under **Monito
 >To enable the feature with ARM templates, set the `healthcheckpath` property of the `Microsoft.Web/sites` resource to the health check path on your site, for example: `"/api/health/"`. To disable the feature, set the property back to the empty string, `""`.
 >
 
-## Health check path
+## Health check path best practices
 
 The path must respond within one minute with a status code between 200 and 299 (inclusive). If the path does not respond within one minute, or returns a status code outside the range, then the instance is considered "unhealthy". App Service does not follow 302 redirects on the health check path. Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these security features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S**-Only  enabled, the healthcheck request will be sent via HTTP**S**.
 
@@ -44,9 +49,13 @@ The health check path should check the critical components of your application. 
 
 Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
 
-## Behavior
+## How health check works
 
-When the health check path is provided, App Service will ping the path on all instances. If a successful response code is not received after 5 pings, that instance is considered "unhealthy". Unhealthy instance(s) will be excluded from the load balancer rotation. You can configure the required number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This app setting can be set to any integer between 2 and 10. For example, if this is set to `2`, your instances will be removed from the load balancer after two failed pings. Furthermore, when you are scaling up or out, App Service will ping the health check path to ensure that the new instances are ready for requests before being added to the load balancer.
+When the health check path is provided, App Service will ping the path on all instances. If a successful response code is not received after 5 pings, that instance is considered "unhealthy". Unhealthy instance(s) will be excluded from the load balancer rotation. 
+
+## Customize health checks
+
+You can configure the required number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This app setting can be set to any integer between 2 and 10. For example, if this is set to `2`, your instances will be removed from the load balancer after two failed pings. Furthermore, when you are scaling up or out, App Service will ping the health check path to ensure that the new instances are ready for requests before being added to the load balancer.
 
 > [!NOTE]
 > Remember that your App Service Plan must be scaled out to 2 or more instances for the load balancer exclusion to occur. If you only have 1 instance, it will not be removed from the load balancer even if it is unhealthy.
