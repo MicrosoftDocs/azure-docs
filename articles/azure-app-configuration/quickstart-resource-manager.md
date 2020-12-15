@@ -44,7 +44,7 @@ Two Azure resources are defined in the template:
 - [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): create an App Configuration store.
 - Microsoft.AppConfiguration/configurationStores/keyValues: create a key-value inside the App Configuration store.
 
-> [!NOTE]
+> [!TIP]
 > The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource with name `myKey` creates a key-value without a label.
 >
 > Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
@@ -54,6 +54,13 @@ Two Azure resources are defined in the template:
 > 3. Replace `%` with `~`
 >
 > For example, to create a key-value pair with key name `AppName:DbEndpoint` and label name `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
+
+> [!NOTE]
+> App Configuration allows key-value data access over a [private link](/concept-private-endpoint) from your virtual network (VNET). By default, when the feature is enabled, all requests for your App Configuration data over the public network will be denied. As the ARM template runs outside of your VNET, data access from an ARM template will not be allowed. To allow data access from an ARM template when a private link is used, you can enable public network access using this Azure CLI command, but please take the security implication into consideration.
+>
+>```azurecli-interactive
+>az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+>```
 
 ## Deploy the template
 
