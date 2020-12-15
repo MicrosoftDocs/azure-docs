@@ -17,7 +17,7 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 
 ## IoT Hub's server TLS certificate
 
-During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its root is the Baltimore Cybertrust Root CA. Recently, there was a change in the issuers by new intermediate certificate authorities (ICAs). For more information, see [IoT Hub TLS certificate update](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)
+During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its root is the Baltimore Cybertrust Root CA. Recently, we rolled out a change to our TLS server certificate so that it is now issued by new intermediate certificate authorities (ICA). For more information, see [IoT Hub TLS certificate update](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
 ### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
 
@@ -26,7 +26,7 @@ IoT Hub ECC server TLS certificate is available for public preview. While offeri
 To preview IoT Hub's ECC server certificate:
 
 1. [Create a new IoT hub with preview mode on](iot-hub-preview-mode.md).
-1. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the cipher suites for the ECC certificate public preview:
+1. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the supported cipher suites for the ECC certificate public preview:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -128,7 +128,7 @@ Use this feature to specify the maximum plaintext fragment length to a value sma
 Official SDK support for this public preview feature isn't yet available. To get started
 
 1. [Create a new IoT hub with preview mode on](iot-hub-preview-mode.md).
-1. Configure your client to set `SSL_CTX_set_tlsext_max_fragment_length` to one of these values: 2^9, 2^10, 2^11, and 2^12.
+1. When using OpenSSL, call [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) to specify the fragment size.
 1. Connect your client to the preview IoT Hub.
 
 ## Next steps

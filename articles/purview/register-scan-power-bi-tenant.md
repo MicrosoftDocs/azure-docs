@@ -14,7 +14,7 @@ ms.date: 11/19/2020
 This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
 > [!Note]
-> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Purview instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).
+> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. 
 
 ## Create a security group for permissions
 
@@ -44,16 +44,12 @@ To set up authentication, create a security group and add the catalog's managed 
 
 ## Associate the security group with the tenant
 
-1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Append this feature flag to the URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1`. This flag enables the feature that allows you to associate your security group. For example,
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
 
     > [!Important]
     > You need to be a Power BI Admin to see the tenant settings page.
 
-1. Select **Developer settings** > **Allow service principals to use read-only Power BI APIs (Preview)**.
+1. Select **Developer settings** > **Allow service principals to use read-only Power BI admin APIs (Preview)**.
 1. Select **Specific security groups**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions":::

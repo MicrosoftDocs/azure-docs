@@ -22,6 +22,12 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.11.9 (3 December 2020)
+
+ - This release addresses couple issues with the Azure Cosmos DB Emulator functionality in addition to the general content update reflecting the latest features and improvements in Azure Cosmos DB:
+ * Fix for an issue where large document payload requests fail when using Direct mode and Java client applications.
+ * Fix for a connectivity issue with MongoDB endpoint version 3.6 when targeted by .NET based applications.
+
 ### 2.11.8 (6 November 2020)
 
  - This release includes an update for the Cosmos emulator Data Explorer and fixes an issue where TLS 1.3 clients try to open the Data Explorer.

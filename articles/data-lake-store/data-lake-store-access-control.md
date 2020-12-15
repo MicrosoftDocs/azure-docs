@@ -30,8 +30,6 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 Both Access ACLs and Default ACLs have the same structure.
 
-
-
 > [!NOTE]
 > Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
 >
@@ -70,7 +68,7 @@ Following are some common scenarios to help you understand which permissions are
 | Operation | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Read      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |

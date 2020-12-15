@@ -256,6 +256,8 @@ If you made the call to the asynchronous `/analyze` or `/health` endpoints, chec
 
 4. The response will be a single JSON document, with an item for each document ID provided in the request.
 
+Please note that for both asynchronous `/analyze` or `/health` operations, the results from the GET request in step 2 above are available for 24 hours from the time the job was created.  This time is indicated by the `expirationDateTime` value in the GET response.  After this time period, the results are purged and are no longer available for retrieval.    
+
 ## Example API responses
  
 # [Synchronous](#tab/synchronous)
@@ -339,5 +341,5 @@ See the following article for more information for the Text Analytics for health
 * [Text Analytics overview](../overview.md)
 * [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

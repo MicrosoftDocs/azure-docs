@@ -140,6 +140,10 @@ A [compute node](nodes-and-pools.md#nodes) is an Azure virtual machine (VM) or c
 
 Just as with other tasks, the node [start task](jobs-and-tasks.md#start-task) should be idempotent, as it will be rerun every time the node boots. An idempotent task is simply one that produces a consistent result when run multiple times.
 
+### Isolated nodes
+
+Consider using isolated VM size for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E64i_v3`, `Standard_E80ids_v4`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_M128ms`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+
 ### Manage long-running services via the operating system services interface
 
 Sometimes there is a need to run another agent alongside the Batch agent in the node. For example, you may want to gather data from the node and report it. We recommend that these agents be deployed as OS services, such as a Windows service or a Linux `systemd` service.
