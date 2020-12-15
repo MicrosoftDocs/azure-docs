@@ -236,7 +236,7 @@ You can monitor switch traffic by using the following methods:
 
 - [Remote SPAN (RSPAN)](#remote-span-rspan)
 
-- Active and passive aggregation TAP
+- [Active and passive aggregation TAP](#active-and-passive-aggregation-tap)
 
 SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
 
@@ -368,7 +368,7 @@ These models have been tested for compatibility. Other vendors and models might 
 
 | Garland TAP | US Robotics TAP |
 | ----------- | --------------- |
-| Make sure jumpers are set as follows:<br />:::image type="content" source="media/how-to-set-up-your-network/jumper-setup.jpg" alt-text="Screenshot of US Robotics switch.":::| Make sure Aggregation mode is active. |
+| Make sure jumpers are set as follows:<br />:::image type="content" source="media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::| Make sure Aggregation mode is active. |
 
 ## Deployment validation
 
