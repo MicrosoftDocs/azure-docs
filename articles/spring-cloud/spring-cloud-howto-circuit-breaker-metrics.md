@@ -21,7 +21,7 @@ Enable Java In-Process agent from this [guide](https://review.docs.microsoft.com
 
 ## Enable dimension collection from Application Insights
 
-Enable dimension collection for resilience4j metrics from this [guide](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
+Enable dimension collection for resilience4j metrics from this [guide](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
 
 ## Build and deploy apps
 
@@ -96,23 +96,23 @@ Navigate to the URL provided by gateway application, and access the endpoint fro
 
 1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and click **Application Insights**.
 
-   ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.PNG)
+   [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.PNG)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
 2. Select **Metics** from the **Application Insights** page.  Select **azure.applicationinsights** from **Metrics Namespace**.  Also select **resilience4j_circuitbreaker_buffered_calls** metrics with **Average**.
 
-   ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.PNG)
+   [ ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.PNG)](media/spring-cloud-resilience4j/resilience4J-1.PNG)
 
 3. Select **resilience4j_circuitbreaker_calls** metrics and **Average**.
 
-   ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.PNG)
+   [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.PNG)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
 4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Click **Add filter**, and then select name as **createNewAccount**.
 
-   ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.PNG)
+   [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.PNG)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
 5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then click **Apply splitting**, and select **kind**.
 
-   ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.PNG)
+   [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.PNG)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
 6.. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
 
