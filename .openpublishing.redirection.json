@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machine-scale-sets/orchestration-modes.md",
+      "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/orchestration-modes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/optimization.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/optimization",
       "redirect_document_id": false
@@ -9215,6 +9220,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-custom-attributes.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/configure-tokens-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-tokens",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-behavior-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-keep-me-signed-in.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
       "redirect_url": "/azure/active-directory-b2c/faq",
       "redirect_document_id": true
@@ -9293,6 +9323,11 @@
       "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
       "redirect_url": "/azure/active-directory-b2c/customize-ui-with-html",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/idp-pass-through-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/idp-pass-through-user-flow",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
