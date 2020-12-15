@@ -105,17 +105,40 @@ This section provides you with an overview of the covered diagnostics scenarios.
 
 This scenario results from applied conditional access policies that have the block grant control set.
 
+![Block access](./media/overview-sign-in-diagnostics/block-access.png)
+
 The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
 ### Failed Conditional Access
 
-These scenarios are often seen from sign-in failures due to access controls for device compliance, require hybrid Azure AD join, require approved client app, require app protection policy or similar scenarios. 
+This scenario is typically a result of a sign-in that failed because the requirements of a conditional access policy were not satisfied. Common examples are:
+
+![Require controls](./media/overview-sign-in-diagnostics/require-controls.png)
+
+- Require hybrid Azure AD joined device
+
+- Require approved client app
+
+- Require app protection policy   
+
 
 The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
 ### MFA from Conditional Access
+
+This scenario is caused by a conditional access policy that has the requirement to sign-in using multi-factor authentication set.
+
+![Require multi-factor authentication](./media/overview-sign-in-diagnostics/require-mfa.png)
+
+
+
+\<[Tim]: What about the diagnostics in this scenario? \> 
+
+
+
+
 
 ### MFA from other requirements
 
