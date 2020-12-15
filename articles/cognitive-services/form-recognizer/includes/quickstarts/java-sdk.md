@@ -254,11 +254,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
+## Recognize business cards
+
 #### [version 3.0](#tab/ga)
 
-#### [version 3.1 preview](#tab/preview)
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
 
-## Recognize business cards
+#### [version 3.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model.
 
@@ -273,7 +276,16 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## Recognize invoices
+
+#### [version 3.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 3.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model.
 

@@ -284,11 +284,15 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
+## Recognize business cards
+
 #### [version 3.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
 
 #### [version 3.1 preview](#tab/preview)
 
-## Recognize business cards
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model.
 
@@ -303,7 +307,16 @@ The returned value is a collection of `RecognizedForm` objects: one for each car
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
+---
+
 ## Recognize invoices
+
+#### [version 3.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 3.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model.
 
