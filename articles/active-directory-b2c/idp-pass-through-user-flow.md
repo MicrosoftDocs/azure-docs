@@ -10,7 +10,6 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
