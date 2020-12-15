@@ -13,7 +13,7 @@ ms.author: banders
 
 After you buy an Azure reservation, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
 
-If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they're fully used.
+If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. You should try to optimize reservations so that they're fully used.
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
@@ -49,32 +49,33 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 ## Who can manage a reservation by default
 
-By default, following users can view and manage reservations: 
-1. Person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
-2. Enterprise Agreement and Microsoft Cloud Agreement billing administrators. 
+By default, the following users can view and manage reservations:
 
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-To allow other people to manage reservations, you have two options: 
-1. Delegate access management for individual reservation order:
-   a. Sign in to the [Azure portal](https://portal.azure.com).
-   b. Select **All Services** > **Reservation** to list reservations that you have access to.
-   c. Click on the reservation that you want to delegate access to other users
-   d. From Reservation details, click on the reservation order
-   e. Select **Access control (IAM)**.
-   f. Select **Add role assignment** > **Role** > **Owner**. If you want to give limited access, select a different role.
-   g. Type the email address of the user you want to add as owner.
-   h. Select the user, and then select **Save**.
+To allow other people to manage reservations, you have two options:
 
-2. Add user as billing administrator to Enterprise agreement or Microsoft Cloud Agreement 
-a. For Enterprise Agreement users add users with _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
-Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM). 
+1. Delegate access management for an individual reservation order:
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    1. Select **All Services** > **Reservation** to list reservations that you have access to.
+    1. Select the reservation that you want to delegate access to other users.
+    1. From Reservation details, select the reservation order.
+    1. Select **Access control (IAM)**.
+    1. Select **Add role assignment** > **Role** > **Owner**. If you want to give limited access, select a different role.
+    1. Type the email address of the user you want to add as owner.
+    1. Select the user, and then select **Save**.
+2. Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
+    1. For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
-b. For Microsoft Customer Agreement, Users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. 
-For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+        _Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM)._
+    1. For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
+    For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-### How can Billing Administrators view or manage reservations?
+### How Billing Administrators view or manage reservations
+
 1. Go to **Cost Management + Billing** and then on the left side of the page, select **Reservation Transactions**.
-2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
+2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created.
 
 ## Split a single reservation into two reservations
 
@@ -115,7 +116,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Change optimize setting for Reserved VM Instances
 
- When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority prioritizes data center capacity for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
+ When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
 
 By default, when the scope of the reservation is shared, the instance size flexibility is on. The data center capacity isn't prioritized for VM deployments.
 
@@ -126,9 +127,9 @@ To update the optimize setting for the reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
-4. Select **Settings** > **Configuration**.  
+4. Select **Settings** > **Configuration**.
   ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
-5. Change the **Optimize for** setting.  
+5. Change the **Optimize for** setting.
   ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## Optimize reservation use
@@ -143,7 +144,7 @@ One way of viewing reservation usage is in the Azure portal.
 2. Select  **All services** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and note the **Utilization (%)** for a reservation.  
   ![Image showing the list of reservations](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Select a reservation.
-4. Review the reservation use trend over time.  
+4. Review the reservation use trend over time.
   ![Image showing reservation use ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### View reservation use with API
