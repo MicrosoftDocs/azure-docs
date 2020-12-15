@@ -266,4 +266,5 @@ This article describes the commands available to perform various system actions 
 
 ## See also
 
-[About the Defender for IoT sensor console](concept-sensor-console-overview.md)
+[Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+
