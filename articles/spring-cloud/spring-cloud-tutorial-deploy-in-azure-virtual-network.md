@@ -9,7 +9,7 @@ ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Deploy Azure Spring Cloud in a virtual network (VNet injection)
+# Tutorial: Deploy Azure Spring Cloud in a virtual network
 
 **This article applies to:** ✔️ Java ✔️ C#
 
