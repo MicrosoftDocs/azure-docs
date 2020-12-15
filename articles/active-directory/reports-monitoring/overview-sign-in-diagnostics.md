@@ -123,7 +123,7 @@ In addition to the explanation above, the diagnostic presents details about the 
 
 ### MFA Proof up Required
 
-These scenarios result from sign-ins that were interrupted to request that the user setup multi-factor authentication methods. This setup process is also known as “proof up”.
+These scenarios result from sign-ins that were interrupted by requests to setup multi-factor authentication. This setup process is also known as “proof up”.
 
 Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
