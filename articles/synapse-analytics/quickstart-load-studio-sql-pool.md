@@ -6,7 +6,7 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
@@ -35,29 +35,26 @@ You can easily bulk load data using dedicated SQL pools with a simple right-clic
 
 ### Steps
 
-1. Select the storage account and the file or folder you're loading from on the Source storage location panel. The wizard will automatically attempt to detect Parquet files. If the Parquet file type cannot be confirmed, delimited text (CSV) will be used by default.
+1. Select the storage account and the file or folder you're loading from on the Source storage location panel. The wizard will automatically attempt to detect Parquet files as well as delimited text (CSV) files including mapping the source fields from the file to the appropriate target SQL data types. 
 
    ![Selecting source location](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Select the file format settings including the storage account where you want to write rejected rows (error file). Currently only CSV and Parquet files are supported.
+2. Select the file format settings including your error settings for when there are rejected rows during the bulk load process. You can also select "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Select "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
 
-	![Selecting file format settings](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. You can select "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Select "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
    ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - Previewing the data with multi-character field terminators is not support in the bulk load wizard. The bulk load wizard will preview the data within a single column when a multi-character field terminator is specified. 
-> - Specifying multi-character row terminators is supported in the COPY statement; however, this is not supported in the bulk load wizard where an error willl be thrown.
+> - When selecting "Infer column names", the bulk load wizard will parse the columns names from the first row specified by the "First row" field. The bulk load wizard will automatically increment the FIRSTROW value in the COPY statement by 1 to ignore this header row. 
+> - Specifying multi-character row terminators is supported in the COPY statement; however, this is not supported in the bulk load wizard where an error will be thrown.
 
-4. Select the dedicated SQL pool you're using to load including whether the load will be for an existing table or new table:
+3. Select the dedicated SQL pool you're using to load including whether the load will be for an existing table or new table:
    ![Selecting target location](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Select "Configure column mapping" to make sure you have the appropriate column mapping. Note columns names will automatically be detected if "Infer column names" was enabled. For new tables, configuring the column mapping is critical for updating the target column data types:
 
-5. Select "Configure column mapping" to make sure you have the appropriate column mapping. Note columns names will automatically be detected if "Infer column names" was enabled. For new tables, configuring the column mapping is critical for updating the target column data types:
    ![Configuring column mapping](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Select "Open script" and a T-SQL script will be generated with the COPY statement to load from your data lake:
+5. Select "Open script" and a T-SQL script will be generated with the COPY statement to load from your data lake:
    ![Opening the SQL script](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## Next steps
