@@ -20,7 +20,7 @@ ms.date: 12/09/2020
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics /Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
-> - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 At a high level, this tutorial involves following steps:
 
@@ -272,7 +272,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     1. Select the checkbox for **Enable Staging**.
     1. Select **AzureStorageLinkedService** for **Store Account Linked Service**.
 
-1. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Make sure that there's no validation error. To close the **Pipeline Validation Report**, click **>>**.
+1. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Make sure that there's no validation error. To close the **Pipeline Validation Report**, click the double angle brackets **>>**.
 
 ### Create the pipeline GetTableListAndTriggerCopyData
 
@@ -280,6 +280,8 @@ This pipeline does two actions:
 
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
 * Triggers the pipeline "IterateAndCopySQLTables" to do the actual data copy.
+
+Here are the steps to create the pipeline:
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 1. In the General panel under **Properties**, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
