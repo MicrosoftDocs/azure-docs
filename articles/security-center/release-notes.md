@@ -529,7 +529,7 @@ Related pages:
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
 
-Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
