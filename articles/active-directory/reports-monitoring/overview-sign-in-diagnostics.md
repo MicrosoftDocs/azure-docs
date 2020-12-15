@@ -54,11 +54,11 @@ The sign-in diagnostics for Azure AD is designed to enable self-diagnosis of sig
 4. **Take** actions
 
  
-###Define sign-ins
+### Define sign-ins
 
 The goal of this step to define a scope for the list of sign-in events you want to investigate. Your scope is either based on a user or identifier and a time range. Additionally, you can also specify an app name if available. Azure AD uses the scope information to locate the right events for you.  
 
-###Select sign-in event 
+### Select sign-in event 
 
 Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view. 
 
@@ -68,7 +68,7 @@ Based on your search criteria, Azure AD retrieves all matching sign-in events an
  
 You can customize the columns displayed in this view.
 
-###Review diagnosis
+### Review diagnosis
 
 For the selected sign-in event, Azure AD provides you with a diagnostic result. 
 
@@ -84,30 +84,35 @@ At this point, you should have the information you need to fix your issue.
 
 ## Covered scenarios
 
-We need to 
-
+This section provides you with an overview of the covered diagnostics scenarios. currently, the following scenarios are implemented: 
  
-•	Blocked by Conditional Access
-•	Failed Conditional Access
-•	MFA from Conditional Access
-•	MFA from other requirements
-•	MFA Proof up Required
-•	MFA Proof up required but user sign-in attempt is not from secure location
-•	Successful Sign-in
+- Blocked by Conditional Access
+
+- Failed Conditional Access
+
+- MFA from Conditional Access
+
+- MFA from other requirements
+
+- MFA Proof up Required
+
+- MFA Proof up required but user sign-in attempt is not from secure location
+
+- Successful Sign-in
 
 
 ###	Blocked by Conditional Access
 
-These scenarios result from applied conditional access policies that have the block grant control set.
+This scenario results from applied conditional access policies that have the block grant control set.
 
-In addition to the explanation, the diagnostic presents details about the user sign-in and the policy or policies that were applied.
+The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
 ### Failed Conditional Access
 
 These scenarios are often seen from sign-in failures due to access controls for device compliance, require hybrid Azure AD join, require approved client app, require app protection policy or similar scenarios. 
 
-In addition to the explanation, the diagnostic presents details about the user sign-in and the policy or policies that were applied.
+The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
 ### MFA from Conditional Access
@@ -116,7 +121,7 @@ In addition to the explanation, the diagnostic presents details about the user s
 
 ### MFA Proof up Required
 
-These scenarios result from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
+This scenario results from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
 
 Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
@@ -124,7 +129,7 @@ The intent of this diagnostic scenario is to provide insight that the multi-fact
 
 ### MFA Proof up required but user sign-in attempt is not from secure location
 
-These scenarios result from sign-ins that were interrupted by a request to set up multi-factor authentication but the sign-in was seen to be risky. 
+This scenario results from sign-ins that were interrupted by a request to set up multi-factor authentication but the sign-in was seen to be risky. 
 
 Multi-factor authentication Proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
@@ -133,7 +138,7 @@ The intent of this diagnostic scenario is to provide insight that the multi-fact
 
 ### Successful Sign-in
 
-This diagnostic scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
+This scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
 
 The intent of this diagnostic scenario is to provide insight into what the user supplied during the sign-in in case there was a Conditional Access policy or policies which were expected to apply, or a configured Multi-Factor Authentication which was expected to interrupt the user sign-in.
 
