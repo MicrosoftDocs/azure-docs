@@ -112,14 +112,9 @@ Conditional Access: Block access
 
 ### Failed Conditional Access
 
-This diagnostic scenario covers the Azure AD STS error codes 50097, 53000, 53001, 53002, 70043, 70044, 530001, 530002, 530003, 530021, 700003, and 70044. These conditions result from Conditional Access failure results due to Access Controls or Session Controls.
-These events are often seen from sign-in failures due to Access Controls for device compliance, require hybrid Azure AD join, require approved client app, require app protection policy or similar scenarios. 
+These events are often seen from sign-in failures due to access controls for device compliance, require hybrid Azure AD join, require approved client app, require app protection policy or similar scenarios. 
 <insert sample text here>
-In addition to the explanation above, the diagnostic will present details about the user sign-in and the policy or policies which applied.
-The diagnostic will show one table for each of the applicable aspects of the policy to investigate.
-For this scenario, the diagnostic will present per-policy tables for Conditions, Access Controls and Session Controls. 
-Note that if configured settings for any of these items are not applicable to the sign-in event’s error then that table will not be shown. 
-The tables will also show the details from that specific client sign-in attempt which matched the applicable conditions or access controls. For example, if a group was selected for the “Users, Groups and Roles” condition in the Conditional Access policy the table will show the group which was configured in the policy and that the user was a member of that group.
+In addition to the explanation above, the diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
 ### MFA from Conditional Access
@@ -128,46 +123,26 @@ The tables will also show the details from that specific client sign-in attempt 
 
 ### MFA Proof up Required
 
-This diagnostic scenario covers the Azure AD STS error codes 50072 or 57006. These conditions result from a sign-in which was interrupted to request that the user setup Multi-Factor Authentication methods. This setup process is also known as “proof up”.
-Multi-Factor Authentication Proof up occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
-The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up and to provide the recommendation to have the user complete the Proof up.
-<insert sample text here>
-In addition to the explanation above, the diagnostic will present details about the user sign-in and the authentication details about that sign-in. 
-<insert an example snapshot>
-More information about the scenario can be found below:
-Common problems with two-factor verification and your work or school account
-https://docs.microsoft.com/en-us/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot 
+These scenarios result from sign-ins that were interrupted to request that the user setup multi-factor authentication methods. This setup process is also known as “proof up”.
 
-How it works: Azure Multi-Factor Authentication
-https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks
+Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
-Optimize reauthentication prompts and understand session lifetime for Azure Multi-Factor Authentication
-https://docs.microsoft.com/en-us/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime
-
+The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up and to provide the recommendation to have the user complete the Proof up.
 
 ### MFA Proof up required but user sign-in attempt is not from secure location
 
-This diagnostic scenario covers the Azure AD STS error code 53004. This condition results from a sign-in which was interrupted to request that the user set up Multi-Factor Authentication methods but the sign-in was seen to be risky. 
-Multi-Factor Authentication Proof up occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
-The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up, to provide the recommendation to have the user complete the Proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
-<insert sample text here>
-In addition to the explanation above, the diagnostic will present details about the user sign-in and the authentication details about that sign-in. 
-More information about the scenario can be found below:
-Common problems with two-factor verification and your work or school account
-https://docs.microsoft.com/en-us/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot 
+These scenarios result from sign-ins that were interrupted by a request to set up multi-factor authentication but the sign-in was seen to be risky. 
+
+Multi-factor authentication Proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
+
+The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up, to provide the recommendation to have the user complete the Proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
 
 
 ### Successful Sign-in
 
-This diagnostic scenario covers the Azure AD STS error codes 0. This condition results from a sign-in which saw no interruption from Conditional Access or Multi-Factor Authentication.
+This diagnostic scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
+
 The intent of this diagnostic scenario is to provide insight into what the user supplied during the sign-in in case there was a Conditional Access policy or policies which were expected to apply, or a configured Multi-Factor Authentication which was expected to interrupt the user sign-in.
-<insert sample text here>
-In addition to the explanation above, the diagnostic will present details about the user sign-in and the authentication details about that sign-in.
-<insert an example snapshot>
-
-
-
-
 
 
 
