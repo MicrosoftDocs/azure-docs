@@ -32,7 +32,7 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
     * Microsoft prefers to receive BGP community-tags from peers to indicate route origination.
     * We recommend peers set a max-prefix of 2000 (IPv4) and 500 (IPv6) routes on peering sessions with Microsoft.
     * Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
-    * In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes. Microsoft may announce some regional specifics. .
+    * In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes. Microsoft may announce some regional specifics.
     * Neither party will establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
     * Peer are required to register their routes in a public Internet Routing Registry (IRR) database, for the purpose of filtering, and will  keep this information up to date.      
     * Peers will adhere to MANRS industry standards for route security.  At its sole discretion, Microsoft may choose: 1.)  not to establish peering with companies that do not have routes signed and registered; 2.) to remove invalid RPKI routes; 3.) not to accept routes from established peers that are not registered and signed. 
