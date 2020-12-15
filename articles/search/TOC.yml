@@ -306,6 +306,8 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
+    - name: Manage costs
+      href: search-sku-manage-costs.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Adjust capacity
