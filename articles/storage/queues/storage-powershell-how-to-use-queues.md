@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Queue Storage from Python - Azure Storage
+title: How to use Azure Queue Storage from PowerShell - Azure Storage
 description: Perform operations on Azure Queue Storage via PowerShell. With Azure Queue Storage, you can store large numbers of messages that are accessible by HTTP/HTTPS.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -11,7 +11,7 @@ ms.subservice: queues
 ms.custom: devx-track-azurepowershell
 ---
 
-# How to use Azure Queue Storage from Python
+# How to use Azure Queue Storage from PowerShell
 
 Azure Queue Storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via HTTP or HTTPS. For detailed information, see [Introduction to Azure Queue Storage](storage-queues-introduction.md). This how-to article covers common Queue Storage operations. You learn how to:
 
