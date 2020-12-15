@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 
 ---
 
@@ -24,7 +24,7 @@ As part of capacity planning for Azure Cognitive Search, the following guidance 
 
 + Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-Additionally, visit [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for built-in tools and features related to spending.
+Billable events, billing formula, and billable rate are explained in [Choose a pricing tier](search-sku-tier.md). Additionally, you can visit [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for built-in tools and features related to spending.
 
 Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
 
