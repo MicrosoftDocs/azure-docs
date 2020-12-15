@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machine-scale-sets/orchestration-modes.md",
+      "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/orchestration-modes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/optimization.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/optimization",
       "redirect_document_id": false

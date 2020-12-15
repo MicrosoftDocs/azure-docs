@@ -36,7 +36,7 @@ The first section of this workflow specifies that the action triggers *on* a *pu
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -63,7 +63,7 @@ By default the GitHub action does not enable strict mode, meaning that the sync 
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -93,7 +93,7 @@ If your configuration is in multiple files, you can use the pattern below to tri
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'appsettings2.json'
@@ -122,7 +122,7 @@ Sync by prefix:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -148,7 +148,7 @@ Sync by label:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -178,7 +178,7 @@ The first section of this workflow specifies that the action triggers *on* a *pu
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -216,7 +216,7 @@ The GitHub Action can then be configured to do a strict sync on the appsettings.
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'secretreferences.json'
@@ -269,7 +269,7 @@ If the nested object is intended to be the value pushed to the Configuration ins
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
