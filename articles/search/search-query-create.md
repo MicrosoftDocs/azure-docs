@@ -72,31 +72,7 @@ If your query is full text search, a parser will be used to process the contents
 
 The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, is based on the [Apache Lucene Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Full syntax is an extension of the simple syntax, with more operators so that you can construct advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions. The following examples illustrate the point: same query, but with different **`queryType`** settings, which yield different results. In the first simple query, the `^3` after `historic` is treated as part of the search term. The top-ranked result for this query is "Marquis Plaza & Suites", which has *ocean* in its description.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-The same query using the full Lucene parser interprets `^3` as an in-field term booster. Switching parsers changes the rank, with results containing the term *historic* moving to the top.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+Full syntax is similar to the simple syntax, but with more operators so that you can construct advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions. Where the syntax overlaps, such as in the area of boolean and prefix queries, you can switch the query type to see if you get a different outcome. 
 
 ## Choose query methods
 
