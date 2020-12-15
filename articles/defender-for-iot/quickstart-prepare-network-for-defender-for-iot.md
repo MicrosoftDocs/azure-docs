@@ -48,4 +48,4 @@ After installing your Defender for IoT system components, you can configure your
 
 In this article, you learned how to prepare to use Defender for IoT. To learn more about getting started, see the following article:
 
-- [Getting started](getting-started.md)
+- [Getting started with Defender for IoT](quickstart-getting-started.md)

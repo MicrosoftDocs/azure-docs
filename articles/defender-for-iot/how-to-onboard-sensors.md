@@ -1,18 +1,12 @@
 ---
-title: How to: Onboard sensors in Defender for IoT
+title: Onboard sensors in Defender for IoT
 description: Learn how to deploy and onboard sensors for Defender for IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
 author: shhazam-ms
 manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/15/2020
 ms.author: shhazam
+ms.date: 12/15/2020
+ms.topic: how-to
+ms.service: azure
 ---
 
 # Deploy and onboard a sensor
@@ -154,9 +148,9 @@ To upload the activation file:
    - You want to reconfigure network parameters post installation
  You can also define proxy settings before activating your sensor.
 
-7. Select the **Sensor Network Configuration** link form the Activation dialog box.  
+7. Select the **Sensor Network Configuration** link from the Activation dialog box.  
 
-   :::image type="content" source="media/updates/network-config.png" alt-text="Screenshot of Edit Network Configuration view":::
+   :::image type="content" source="media/updates/network-config-v2.png" alt-text="Screenshot of Edit Network Configuration view":::
 
 8. The parameters defined during installation are displayed. An option is also available define proxy. Update as required and select **Save**.
  
@@ -165,4 +159,4 @@ To upload the activation file:
 
 In this article, you learned how to deploy and onboard sensors. To learn more about getting started, see the following article:
 
-- [Getting started](getting-started.md)
+- [Getting started with Defender for IoT](quickstart-getting-started.md)

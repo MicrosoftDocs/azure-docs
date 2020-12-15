@@ -7,14 +7,11 @@
     href: architecture.md
   - name: Security Module for Azure RTOS
     href: iot-security-azure-rtos.md
-  
   - name: Edge security module
     href: security-edge-architecture.md
     items:
-    - name: IoT Hub
-      href: iot-hub-integration.md
     - name: Security agents
-      href: security-agents.md
+      href: overview-security-agents.md
   - name: What's New
     href: overview-release-notes.md
 - name: Quickstarts
@@ -27,11 +24,13 @@
     - name: Set up and onboarding overview
       href: quickstart-prepare-network-for-defender-for-iot.md
     - name: Get started with Azure Defender for IoT
-      href: getting-started.md
+      href: quickstart-getting-started.md
   - name: Agent-based solution for Device Builders
     items: 
     - name: Configure Security Module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
+    - name: IoT Hub
+      href: quickstart-iot-hub-integration.md
     - name: Onboard Azure Defender for IoT in IoT Hub
       href: quickstart-onboard-iot-hub.md
     - name: Security agents
