@@ -1,6 +1,6 @@
 ---
 title: Viewing multiple resources in Metrics Explorer
-description: Learn how to visualize mulitiple resources on Azure Monitor Metrics Explorer
+description: Learn how to visualize multiple resources on Azure Monitor Metrics Explorer
 author: ritaroloff
 services: azure-monitor
 
