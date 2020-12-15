@@ -26,7 +26,7 @@ ms.date: 12/15/2020
     * Azure Arc enabled servers supports only the regions specified [here](../overview.md#supported-regions).
 
 > [!WARNING]
-> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
