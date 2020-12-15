@@ -123,7 +123,7 @@ In this section, you'll create a load balancer rule:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Load balancing rules**, then select **Add**.
+2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
 
 3. Use these values to configure the load-balancing rule:
     
@@ -139,7 +139,7 @@ In this section, you'll create a load balancer rule:
     | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move the slider to **15** minutes. |
     | TCP reset | Select **Enabled**. |
-    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 4. Leave the rest of the defaults and then select **OK**.
 
