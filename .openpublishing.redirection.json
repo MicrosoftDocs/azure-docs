@@ -1662,6 +1662,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-create-your-first-pipeline.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
+      "redirect_document_id": true
+    },
+    
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -9215,6 +9221,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-custom-attributes.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/configure-tokens-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-tokens",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/session-behavior-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-keep-me-signed-in.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
       "redirect_url": "/azure/active-directory-b2c/faq",
       "redirect_document_id": true
@@ -9293,6 +9324,11 @@
       "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
       "redirect_url": "/azure/active-directory-b2c/customize-ui-with-html",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/idp-pass-through-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/idp-pass-through-user-flow",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
@@ -22332,6 +22368,54 @@
       "source_path": "articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/language-support",
       "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/php.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Speech/index.md",

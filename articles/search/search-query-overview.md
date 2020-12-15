@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ---
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article summarizes the kinds of queries you can create.
+Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests, and what kinds of queries you can create.
 
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example uses the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels demo index](search-get-started-portal.md).
+In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example is a free text query with a boolean operator, using the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -29,7 +29,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Parameters used during query execution:
+Parameters used during query execution include:
 
 + **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
@@ -61,7 +61,7 @@ If your search app includes a search box that collects term inputs, then full te
 
 In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
 
-When matching terms are found, the query engine reconstitutes a search document containing the match, ranks the documents in order of relevance, and returns the top 50 (by default) in the response.
+When matching terms are found, the query engine reconstitutes a search document containing the match using the document key or ID to assemble field values, ranks the documents in order of relevance, and returns the top 50 (by default) in the response or a different number if you specified **`top`**.
 
 If you're implementing full text search, understanding how your content is tokenized will help you debug any query anomalies. Queries over hyphenated strings or special characters could necessitate using an analyzer other than the default standard Lucene to ensure the index contains the right tokens. You can override the default with [language analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized analyzers](index-add-custom-analyzers.md#AnalyzerTable) that modify lexical analysis. One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
@@ -73,7 +73,7 @@ If you anticipate heavy use of Boolean operators, which is more likely in indexe
 
 ## Filter search
 
-Filters are widely used in apps that include Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you could filter on a language if an index contains fields in both English and French. 
+Filters are widely used in apps that include Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
 
 You might also need filters to invoke a specialized query form, as described in the following table. You can use a filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, operators, and patterns.
 
