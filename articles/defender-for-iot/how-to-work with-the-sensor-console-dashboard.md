@@ -97,4 +97,4 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 ## See also
 
-[About the Defender for IoT sensor console](concept-sensor-console-overview.md)
+[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md)
