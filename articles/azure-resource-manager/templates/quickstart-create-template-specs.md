@@ -20,13 +20,13 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template
 
-When you create a template spec, you pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+You create a template spec from a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
 
 :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
 ## Create template spec
 
-The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template.
+The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use PowerShell, Azure CLI, the portal, or an ARM template.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -38,7 +38,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       -Location westus2
     ```
 
-1. Then, create the template spec in that resource group. Give the new template spec the name **storageSpec**.
+1. Create the template spec in that resource group. Give the new template spec the name **storageSpec**.
 
     ```azurepowershell
     New-AzTemplateSpec `
@@ -59,7 +59,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       --location westus2
     ```
 
-1. Then, create the template spec in that resource group. Give the new template spec the name **storageSpec**.
+1. Create the template spec in that resource group. Give the new template spec the name **storageSpec**.
 
     ```azurecli
     az ts create \
@@ -73,7 +73,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 # [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
+1. Search for **template specs**. Select **Template specs** from the available options.
 
     :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="search template specs":::
 
@@ -85,12 +85,12 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
     :::image type="content" source="./media/quickstart-create-template-specs/open-folder.png" alt-text="open folder":::
 
-1. Navigate to your template and select it. Select **Open**.
+1. Navigate to the local template you saved and select it. Select **Open**.
 1. Select **Import**.
 
     :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="select import option":::
 
-1. Select or enter the following values:
+1. Provide the following values:
 
     - **Name**: enter a name for the template spec.  For example, **storageSpec**
     - **Subscription**: select an Azure subscription used for creating the template spec.
@@ -106,7 +106,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 > [!NOTE]
 > Instead of using an ARM template, we recommend that you use PowerShell or CLI to create your template spec. Those tools automatically convert linked templates to artifacts connected to your main template. When you use an ARM template to create the template spec, you must manually add those linked templates as artifacts, which can be complicated.
 
-1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template and save it locally as **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. There are some changes you need to make to your local template. Copy the following template and save it locally as **azuredeploy.json**.
 
     > [!NOTE]
     > In the embedded template, all [template expressions](template-expressions.md) must be escaped with a second left bracket. Use `"[[` instead of `"[`. JSON arrays still use a single left bracket.
@@ -226,7 +226,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
 ## Deploy template spec
 
-To deploy the template spec, you use the same deployment commands. You pass in the resource ID of the template spec.
+To deploy a template spec, use the same deployment commands as you would use to deploy a template. Pass in the resource ID of the template spec to deploy.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -299,7 +299,7 @@ To deploy the template spec, you use the same deployment commands. You pass in t
 
 # [Portal](#tab/azure-portal)
 
-1. Select the template spec you created. For example, **storageSpec**.
+1. Select the template spec you created.
 
     :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="select template specs":::
 
@@ -307,13 +307,11 @@ To deploy the template spec, you use the same deployment commands. You pass in t
 
     :::image type="content" source="./media/quickstart-create-template-specs/deploy-template-spec.png" alt-text="deploy template specs":::
 
-1. Select or enter the following values:
+1. Provide the following values:
 
     - **Subscription**: select an Azure subscription for creating the resource.
     - **Resource group**: select **Create new** and then enter **storageRG**.
     - **Storage Account Type**: select **Standard_GRS**.
-
-    You create a new resource group, and deploy the template within the template spec to the new resource group.
 
 1. Select **Review + create**.
 1. Select **Create**.
@@ -384,17 +382,17 @@ If you want to let other users in your organization deploy your template spec, y
 
 ## Update template
 
-Let's suppose you've identified a change you want to make to the template in your template spec. The following template is similar to your earlier template but it adds a prefix for the storage account name. Update azuredeploy.json.
+Let's suppose you've identified a change you want to make to the template in your template spec. The following template is similar to your earlier template except it adds a prefix for the storage account name. Copy the following template and update your azuredeploy.json file.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/templatespecs/azuredeploy2.json":::
 
-## Add new version
+## Update template spec version
 
-In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version named `2.0` to the existing template spec. Users who want to continue using version `1.0` have that option.
+Rather than creating a new template spec for the revised template, add a new version named `2.0` to the existing template spec. Users can choose either version to deploy.
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Create a new version of the template spec.
+1. Create a new version for the template spec.
 
    ```powershell
    New-AzTemplateSpec `
@@ -405,13 +403,13 @@ In the earlier section, you created a template spec with version `1.0`. Rather t
      -TemplateFile "c:\Templates\azuredeploy.json"
    ```
 
-1. To deploy the new version, first get the resource ID for the `2.0` version.
+1. To deploy the new version, get the resource ID for the `2.0` version.
 
    ```powershell
    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "2.0").Versions.Id
    ```
 
-1. Now, deploy that version. Provide a prefix for the storage account name.
+1. Deploy that version. Provide a prefix for the storage account name.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -422,7 +420,7 @@ In the earlier section, you created a template spec with version `1.0`. Rather t
 
 # [CLI](#tab/azure-cli)
 
-1. Create a new version of the template spec.
+1. Create a new version for the template spec.
 
    ```azurecli
    az ts create \
@@ -433,13 +431,13 @@ In the earlier section, you created a template spec with version `1.0`. Rather t
      --template-file "c:\Templates\azuredeploy.json"
    ```
 
-1. To deploy the new version, first get the resource ID for the `2.0` version.
+1. To deploy the new version, get the resource ID for the `2.0` version.
 
    ```azurecli
    id=$(az ts show --name storageSpec --resource-group templateSpecRG --version "2.0" --query "id")
    ```
 
-1. Now, deploy that version. Provide a prefix for the storage account name.
+1. Deploy that version. Provide a prefix for the storage account name.
 
    ```azurecli
     az deployment group create \
@@ -449,8 +447,6 @@ In the earlier section, you created a template spec with version `1.0`. Rather t
     ```
 
 # [Portal](#tab/azure-portal)
-
-To save a new version:
 
 1. In your template spec, select **Create new version**.
 
@@ -463,9 +459,7 @@ To save a new version:
 1. Replace the contents of the template with your updated template. Select **Review + Save**.
 1. Select **Save changes**.
 
-To deploy a version:
-
-1. In your template spec, select **Versions**
+1. To deploy the new version, select **Versions**
 
    :::image type="content" source="./media/quickstart-create-template-specs/see-versions.png" alt-text="list versions":::
 
@@ -473,12 +467,160 @@ To deploy a version:
 
    :::image type="content" source="./media/quickstart-create-template-specs/deploy-version.png" alt-text="select version to deploy":::
 
-1. Fill in the fields as you did when deploying version `1.0`.
+1. Fill in the fields as you did when deploying the earlier version.
 1. Select **Review + create**.
 1. Select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
+1. Again, you must make some changes to your local template to make it work with template specs. Copy the following template and save it locally as azuredeploy.json.
+
+   ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.Resources/templateSpecs",
+          "apiVersion": "2019-06-01-preview",
+          "name": "storageSpec",
+          "location": "westus2",
+          "properties": {
+            "displayName": "Storage template spec"
+          },
+          "tags": {},
+          "resources": [
+            {
+              "type": "versions",
+              "apiVersion": "2019-06-01-preview",
+              "name": "2.0",
+              "location": "westus2",
+              "dependsOn": [ "storageSpec" ],
+              "properties": {
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "parameters": {
+                    "storageAccountType": {
+                      "type": "string",
+                      "defaultValue": "Standard_LRS",
+                      "allowedValues": [
+                        "Standard_LRS",
+                        "Standard_GRS",
+                        "Standard_ZRS",
+                        "Premium_LRS"
+                      ],
+                      "metadata": {
+                        "description": "Storage Account type"
+                      }
+                    },
+                    "location": {
+                      "type": "string",
+                      "defaultValue": "[[resourceGroup().location]",
+                      "metadata": {
+                        "description": "Location for all resources."
+                      }
+                    },
+                    "namePrefix": {
+                      "type": "string",
+                      "maxLength": 11,
+                      "defaultValue": "store",
+                      "metadata": {
+                        "description": "Prefix for storage account name"
+                      }
+                    }
+                  },
+                  "variables": {
+                    "storageAccountName": "[[concat(parameters('namePrefix'), uniquestring(resourceGroup().id))]"
+                  },
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[[variables('storageAccountName')]",
+                      "location": "[[parameters('location')]",
+                      "sku": {
+                        "name": "[[parameters('storageAccountType')]"
+                      },
+                      "kind": "StorageV2",
+                      "properties": {}
+                    }
+                  ],
+                  "outputs": {
+                    "storageAccountName": {
+                      "type": "string",
+                      "value": "[[variables('storageAccountName')]"
+                    }
+                  }
+                }
+              },
+              "tags": {}
+            }
+          ]
+        }
+      ],
+      "outputs": {}
+    }
+    ```
+
+1. To add the new version to your template spec, deploy your template with Azure CLI or PowerShell.
+
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -ResourceGroupName templateSpecRG `
+      -TemplateFile "c:\Templates\azuredeploy.json"
+    ```
+
+    ```azurecli
+    az deployment group create \
+      --name templateSpecRG \
+      --template-file "c:\Templates\azuredeploy.json"
+    ```
+
+1. Copy the following template and save it locally to a file named **storage.json**.
+
+    ```json
+       {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.Resources/deployments",
+          "apiVersion": "2020-06-01",
+          "name": "demo",
+          "properties": {
+            "templateLink": {
+              "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '2.0')]"
+            },
+            "parameters": {
+            },
+            "mode": "Incremental"
+          }
+        }
+      ],
+      "outputs": {}
+    }
+    ```
+
+1. Deploy your template with Azure CLI or PowerShell.
+
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -ResourceGroupName storageRG `
+      -TemplateFile "c:\Templates\storage.json"
+    ```
+
+    ```azurecli
+    az deployment group create \
+      --name storageRG \
+      --template-file "c:\Templates\storage.json"
+    ```
 
 ---
 
