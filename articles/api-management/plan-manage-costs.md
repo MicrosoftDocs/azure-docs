@@ -1,5 +1,5 @@
 ---
-title: Plan to manage costs for API Management
+title: Plan and manage costs for Azure API Management
 description: Learn how to plan for and manage costs for Azure API Management by using cost analysis in the Azure portal.
 author: dlepow
 ms.author: apimpm
@@ -10,14 +10,13 @@ ms.date: 12/15/2020
 ---
 
 
-# Plan and manage costs for <AzureServiceName>
+# Plan and manage costs for API Management
 
 This article describes how you plan for and manage costs for Azure API Management. First, you use the Azure pricing calculator to help plan for API Management costs before you add any resources for the service to estimate costs. After you've started using API Management resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
 
 Costs for API Management are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for API Management, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
-
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -87,9 +86,8 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 Review the [Feature-based comparison of the Azure API Management tiers](api-management-features.md) to help decide which service tier may be appropriate for your scenarios. The different service tiers support combinations of features and capabilities designed for various use cases, with different costs. [Upgrade](upgrade-and-scale.md) to a different service tier at any time.
 
-* The **Consumption**  service tier provides a lightweight, serverless option that incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. Capacity also scales automatically based on the load on the service.
-* The **Developer** tier is an economical option for non-production use and evaluations. 
-* For production scenarios, the **Basic**, **Standard**, or **Premium** tier is recommended, depending on required throughput, service-level agreement, integration with other Azure services, and other capabilities. These tiers incur monthly costs, and provide richer feature sets for large organizations and high-volume workloads.
+* The **Consumption** service tier provides a lightweight, serverless option that incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. Capacity also scales automatically based on the load on the service.
+* Other API Management tiers incur monthly costs, and provide greater throughput and richer feature sets for evaluation and production workloads.
 
 ### Scale using capacity units
 
@@ -101,8 +99,6 @@ As you add or remove units, capacity and cost scale proportionally. For example,
 
 [Monitor](api-management-howto-use-azure-monitor.md) the Capacity metric for your API Management instance to help make decisions whether to scale or upgrade an API Management instance to accommodate more load.
 
-See steps to scale and upgrade API Management using the [Azure portal](upgrade-and-scale.md), and learn about [autoscaling](api-management-howto-autoscale.md).
-
 ## Next steps
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
@@ -110,3 +106,4 @@ See steps to scale and upgrade API Management using the [Azure portal](upgrade-a
 - Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - Learn about API Management [capacity](api-management-capacity.md).
+- See steps to scale and upgrade API Management using the [Azure portal](upgrade-and-scale.md), and learn about [autoscaling](api-management-howto-autoscale.md).
