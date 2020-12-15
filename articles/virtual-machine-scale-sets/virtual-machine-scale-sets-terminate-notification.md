@@ -132,7 +132,7 @@ Scheduled Events is disabled for your scale set if the scale set instances don't
 For VNET enabled VMs, the Metadata Service is available from a static non-routable IP, 169.254.169.254.
 
 The full endpoint for the latest version of Scheduled Events is:
-> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
+> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01'
 
 ### Query response
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -189,7 +189,7 @@ If you get a ‘BadRequest’ error with an error message stating "Could not fin
 
 ### Failure to get Terminate events
 If you are not getting any **Terminate** events through Scheduled Events, then check the API version used for getting the events. Metadata Service API version **2019-01-01** or higher is required for Terminate events.
->'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
+>'http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01'
 
 ### Getting Terminate event with incorrect NotBefore time  
 After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
