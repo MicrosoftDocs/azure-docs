@@ -6,8 +6,7 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 12/02/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.custom: contperf-fy21q2 
+ms.custom: devx-track-java, contperf-fy21q2
 ---
 
 # What is Azure Spring Cloud?
