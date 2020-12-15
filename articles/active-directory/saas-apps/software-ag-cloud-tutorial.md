@@ -135,7 +135,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Import the **Federation Metadata XML** file in **Identity provider configuration** and click on **Next**.
 
-    d. Go to the **Conﬁguration** page and complete the ﬁelds as necessary.
+    d. Go to the **Configuration** page and complete the fields as necessary.
 
 ### Create Software AG Cloud test user
 

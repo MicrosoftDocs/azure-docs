@@ -189,7 +189,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 	a. Click on the **direct** tile in the Access Panel and you will be redirected to the application sign-on page.
 
-	b. Input your `subdomain` in the textbox displayed and press '次へ (Next)' and you should get automatically signed-on to your **direct** application .
+	b. Input your `subdomain` in the textbox displayed and select **Next**, and you should get automatically signed-on to your **direct** application .
 
 When you click the direct tile in the Access Panel, you should be automatically signed in to the direct for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 

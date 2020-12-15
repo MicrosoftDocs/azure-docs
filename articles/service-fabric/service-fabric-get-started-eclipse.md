@@ -61,7 +61,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 
     ![Service Fabric New Project page 2][create-application/p2]
 
-3.  In the list of templates, select **Service Template**. Select your service template type (Actor, Stateless, Container, or Guest Binary), and then click **Next**.
+3.  In the list of templates, select **Service Template**. Select your service template type (Actor, Stateless, Container, or Guest Binary), and then click **Next**.
 
     ![Service Fabric New Project page 3][create-application/p3]
 
