@@ -1,7 +1,7 @@
 ---
 title: Call flow topologies in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about call flows in Azure Communication Services.
+description: Learn about call flow topologies in Azure Communication Services.
 author:  nmurav
 services: azure-communication-services
 
@@ -64,7 +64,7 @@ There are four general principles that underpin Communication Services call flow
 * **Media traffic for peer-to-peer calls takes the most direct route that's available**, assuming the call doesn't need a media endpoint in the cloud. The preferred route is direct to the remote peer (client). If a direct route isn't available, one or more transport relays will relay traffic. Media traffic shouldn't transverse servers that act like packet shapers, VPN servers, or other functions that might delay processing and degrade the end-user experience.
 * **Signaling traffic always goes to whatever server is closest to the user.**
 
-To learn more about the details on the media path that is chosen, refer to the [Call Flows conceptual documentation](../call-flows.md).
+To learn more about the details on the media path that is chosen, refer to the [call flows conceptual documentation](./call-flows.md).
 
 
 ## Call flows in various topologies
