@@ -1,5 +1,5 @@
 ---
-title: Soft Delete will be enabled on all Azure Key Vaults | Microsoft Docs
+title: Enable Soft Delete on all Azure Key Vaults | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults.
 services: key-vault
 author: ShaneBala-keyvault
