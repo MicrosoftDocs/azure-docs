@@ -123,7 +123,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Single sign-out](session-overview.md#sign-out)  |  | X |  |  |
+| [Single sign-out](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### Security
 
