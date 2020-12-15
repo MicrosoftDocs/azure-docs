@@ -753,6 +753,8 @@
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: platform/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
     - name: Search
       href: app/diagnostic-search.md
     - name: Profiler
