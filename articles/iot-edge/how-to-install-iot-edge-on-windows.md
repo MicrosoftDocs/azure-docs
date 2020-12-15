@@ -51,6 +51,10 @@ Minimum system requirements:
 
 ## Create a new deployment
 
+Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
+
+# [WAC](#tab/wac)
+
 On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. In this guide, this local host connection will also serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
 
    ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
@@ -87,6 +91,47 @@ On the Windows Admin Center start page, under the list of connections, you will 
 
 Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
+# [PowerShell](#tab/powershell)
+
+Install IoT Edge for Linux on Windows onto your target device if you have not already.
+
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+
+   ```azurepowershell-interactive
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   ​Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   ```
+
+1. Install IoT Edge for Linux on Windows on your device.
+
+   ```azurepowershell-interactive
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
+   ```
+
+> [!NOTE]
+> To ensure the module can be loaded, temporarily change the execution policy to `AllSigned`.
+>
+>    ```azurepowershell-interactive
+>    Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+>    ```
+
+1. Create the IoT Edge for Linux on Windows deployment.
+
+   ```azurepowershell-interactive
+   Deploy-Eflow
+   ```
+
+1. Enter 'Y' to accept the license terms.
+
+1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
+
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment.png)
+
+Once your deployment is complete, you are ready to provision your device.
+
+---
+
 To provision your device, you have three options:
 
 * [Manual provisioning using your IoT Edge device's connection string](how-to-install-iot-edge-on-windows.md#provisioning-manually-using-the-connection-string)
@@ -101,21 +146,39 @@ Choose a method for provisioning your device and follow the instructions in the 
 
 This section covers provisioning your device manually using your Azure IoT Edge device's connection string.
 
+# [WAC](#tab/wac)
+
 1. On the **Azure IoT Edge device provisioning** pane, select **Connection String (Manual)** from the provisioning method dropdown.
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
 
-1. Click on the device ID of your device. Copy the **Primary Connection String** field. 
+1. Click on the device ID of your device. Copy the **Primary Connection String** field.
 
 1. Paste it into the device connection string field in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
 
    ![Choose provisioning with the selected method after pasting your device's connection string](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-connection-string.png)
 
-Continue to the [finish provisioning section](how-to-install-iot-edge-on-windows.md#finish-provisioning-your-device) for the final steps.
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+
+# [PowerShell](#tab/powershell)
+
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
+
+1. Click on the device ID of your device. Copy the **Primary Connection String** field.
+
+1. Paste over the placeholder text in the following command and run it.
+
+   ```azurepowershell-interactive
+   Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
+   ```
+
+---
 
 ### Provisioning via DPS using symmetric keys
 
 This section covers provisioning your device automatically using DPS and symmetric keys. To continue with these steps, follow the [instructions on how to use DPS and symmetric keys to automatically provision an IoT Edge device](how-to-auto-provision-symmetric-keys.md) to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. Once you complete these steps, return here.
+
+# [WAC](#tab/wac)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
 
@@ -131,19 +194,33 @@ This section covers provisioning your device automatically using DPS and symmetr
 
    ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-symmetric-key.png)
 
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`.
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-   ![Check to see that your device is now listed on the dashboard](./media/how-to-install-iot-edge-on-windows/updated-device-list.png)
+# [PowerShell](#tab/powershell)
 
-1. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
-   ![View the overview page of your IoT Edge device](./media/how-to-install-iot-edge-on-windows/device-overview.png)
+   ```azurepowershell-interactive
+   Provision-EflowVm -provisioningType symmetric -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
+   ```
 
-Continue to the [finish provisioning section](how-to-install-iot-edge-on-windows.md#finish-provisioning-your-device) for the final steps.
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
+
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it over the appropriate placeholder text in the command.
+
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it over the appropriate placeholder text in the command.
+
+1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it over the appropriate placeholder text in the command.
+
+1. Run the command.
+
+---
 
 ### Provisioning via DPS using X.509 certificates
 
 This section covers provisioning your device automatically using DPS and X.509 certificates. To continue with these steps, follow the [instructions on how to use DPS and X.509 certificates to automatically provision an IoT Edge device](how-to-auto-provision-x509-certs.md) to create test certificates if necessary, create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. Once you complete these steps, return here.
+
+# [WAC](#tab/wac)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **X.509 Certificate (DPS)** from the provisioning method dropdown.
 
@@ -159,17 +236,27 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
    ![Choose provisioning with the selected method after filling in the required fields for X.509 certificate provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
 
-Continue to the [finish provisioning section](how-to-install-iot-edge-on-windows.md#finish-provisioning-your-device) for the final steps.
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-### Finish provisioning your device
+# [PowerShell](#tab/powershell)
 
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`.
+1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
-   ![Check to see that your device is now listed on the dashboard](./media/how-to-install-iot-edge-on-windows/updated-device-list.png)
+   ```azurepowershell-interactive
+   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE>
+   ```
 
-1. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
-   ![View the overview page of your IoT Edge device](./media/how-to-install-iot-edge-on-windows/device-overview.png)
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it over the appropriate placeholder text in the command.
+
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it over the appropriate placeholder text in the command.
+
+1. Replace the appropriate placeholder text with the absolute source path to your certificate file.
+
+1. Replace the appropriate placeholder text with the absolute source path to your private key file.
+
+1. Run the command.
 
 ## Next steps
 
