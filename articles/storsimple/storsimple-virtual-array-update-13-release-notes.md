@@ -1,19 +1,10 @@
 ---
 title: StorSimple Virtual Array Update 1.3 release notes | Microsoft Docs
 description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 1.3.
-services: storsimple
-documentationcenter: ''
-author: v-dalc
-manager: twooley
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
+author: v-dalc
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/14/2020
+ms.date: 12/15/2020
 ms.author: alkohli
 ---
 
@@ -37,16 +28,16 @@ This update contains the following improvements:
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
 - Updated OS/.NET framework security patches:
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): March 2020 SSU (Servicing Stack Update)
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): July 2020 rollup
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): July 2020 .NET Framework update
+  - [KB4540725](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4540725): March 2020 SSU (Servicing Stack Update)
+  - [KB4565541](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4565541): July 2020 rollup
+  - [KB4565622](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4565622): July 2020 .NET Framework update
 
 ## Download Update 1.3
 
 To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4539946 package. This package contains the following packages:
 
 - **KB4537819**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
-- **KB4539946**, which is a Microsoft Update Standalone Package file, WindowsTH-KB4539946-x64. This file is used to update the device software.
+- **KB4539946**, which is a Microsoft Update Standalone Package file, WindowsTH-KB4539946-x64. This file is used to update the device software.<!--Should there be a link to thisKB? I'm not seeing KB4539946 in the Microsoft Update Catalog.-->
 
 Download KB4539946, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
