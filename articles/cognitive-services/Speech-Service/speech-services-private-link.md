@@ -1,5 +1,5 @@
 ---
-title: How To: Use private endpoints with Speech service
+title: How to use private endpoints with Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.author: alexeyo
 ---
 
@@ -41,17 +41,19 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 >
 > When you enable a custom domain name, the operation is [**not reversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
-> Especially in cases where your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/) we **strongly** recommend trying the configuration with a test resource before modifying the resource used in production.
+> If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/) we **strongly** recommend trying the configuration with a test resource before modifying the resource used in production.
 
 # [Azure portal](#tab/portal)
 
-- Go to [Azure portal](https://portal.azure.com/) and sign in to your Azure account
-- Select the required Speech Resource
-- Select *Networking* (*Resource management* group) 
-- In *Firewalls and virtual networks* tab (default) click **Generate Custom Domain Name** button
-- A new panel will appear with instructions to create a unique custom subdomain for your resource
+- Go to [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+- Select the required Speech Resource.
+- In the **Resource Management** group in the left navigation pane, click **Networking**.
+- In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
+- In the Generate Custom Domain Name panel, enter a custom domain name you have provisioned.
+
 > [!IMPORTANT]
-> After you have created a custom domain name it **cannot** be changed. See more information in the Important alert above.
+> After you create a custom domain name, it **cannot** be changed. See more information in the Important alert above.
+
 - After the operation is complete, you may want to select *Keys and Endpoint* (*Resource management* group) and verify the new endpoint name of your resource in the format of <p />`{your custom name}.cognitiveservices.azure.com`
 
 # [PowerShell](#tab/powershell)
