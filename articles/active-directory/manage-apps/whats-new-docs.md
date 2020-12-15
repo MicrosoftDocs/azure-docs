@@ -19,8 +19,15 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 
+- [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
 - [Use the AD FS application activity report (preview) to migrate applications to Azure AD](migrate-adfs-application-activity.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## November 2020
 
