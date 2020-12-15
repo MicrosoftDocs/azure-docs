@@ -168,7 +168,7 @@ You can add access restrictions programmatically by doing either of the followin
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0). For example:
+* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0&preserve-view=true). For example:
 
 
   ```azurepowershell-interactive
@@ -233,4 +233,4 @@ Access restrictions are also available for function apps with the same functiona
 
 <!--Links-->
 [serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[servicetags]: ../networking/service-tags-overview.md
+[servicetags]: ../virtual-network/service-tags-overview.md

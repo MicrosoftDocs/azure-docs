@@ -310,4 +310,4 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
-[servicetags]: ./networking/service-tags-overview.md
+[servicetags]: ../virtual-network/service-tags-overview.md
