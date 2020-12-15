@@ -127,7 +127,7 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 ### Q: Why is my remaining credit set to 0 after a redeploy or a stop/start?
 
-**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
+**A** : When a VM is redeployed and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
 
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 

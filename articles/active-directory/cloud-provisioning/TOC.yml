@@ -58,10 +58,14 @@
     items:
     - name: Agent automatic upgrade
       href: how-to-automatic-upgrade.md
+    - name: Agent registry options
+      href: how-to-manage-registry-options.md
   - name: Develop
     items:
     - name: Transformations
       href: how-to-transformation.md
+    - name: Inbound synchronization with the MS Graph API
+      href: how-to-inbound-synch-ms-graph.md
     - name: Azure AD synchronization API 
       href: /graph/api/resources/synchronization-overview
   

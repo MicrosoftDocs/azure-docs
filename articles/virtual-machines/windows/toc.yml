@@ -54,7 +54,7 @@
 - name: Concepts
   items:
   - name: Images
-    href: shared-image-galleries.md
+    href: ../shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     items:
@@ -74,7 +74,7 @@
     - name: Availability
       href: ../availability.md
     - name: Co-location
-      href: co-location.md
+      href: ../co-location.md
     - name: Network performance
       href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
@@ -419,7 +419,7 @@
     - name: Image builder (preview)
       items:
       - name: Overview
-        href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        href: ../image-builder-overview.md
       - name: Use Image Builder
         items:
         - name: CLI
@@ -580,9 +580,6 @@
       href: change-drive-letter.md
     - name: Change availability set
       href: change-availability-set.md
-    - name: Export ARM template
-      displayName: Azure Resource Manager
-      href: download-template.md
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
@@ -859,6 +856,8 @@
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
       href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Map Azure Disks to Guest Disks
+      href: azure-to-guest-disk-mapping.md
     - name: Disks FAQs
       href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Manage networking

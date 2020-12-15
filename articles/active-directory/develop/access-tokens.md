@@ -71,7 +71,7 @@ JWTs (JSON Web Tokens) are split into three pieces:
 
 Each piece is separated by a period (`.`) and separately Base64 encoded.
 
-Claims are present only if a value exists to fill it. Your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential] (v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications which don't have names). Claims used for access token validation will always be present.
+Claims are present only if a value exists to fill it. Your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential](v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications which don't have names). Claims used for access token validation will always be present.
 
 Some claims are used to help Azure AD secure tokens in case of reuse. These are marked as not being for public consumption in the description as "Opaque". These claims may or may not appear in a token, and new ones may be added without notice.
 

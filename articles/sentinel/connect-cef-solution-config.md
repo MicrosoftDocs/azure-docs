@@ -30,12 +30,13 @@ If your security solution already has an existing connector, use the connector-s
 - [Cisco](connect-cisco.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
 - [F5 ASM](connect-f5.md)  
+- [Forcepoint products](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
+- [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
-- [Zscaler](connect-zscaler.md)   
-
+- [Zscaler](connect-zscaler.md)
 ## Configure any other solution
 
 If a connector does not exist for your specific security solution, use the following generic instructions for forwarding logs to the CEF agent.
@@ -46,12 +47,22 @@ If a connector does not exist for your specific security solution, use the follo
     - Format = CEF
     - IP address - make sure to send the CEF messages to the IP address of the virtual machine you dedicated for this purpose.
 
-   > [!NOTE]
-   > This solution supports Syslog RFC 3164 or RFC 5424.
+   This solution supports Syslog RFC 3164 or RFC 5424.
 
-1. To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
+1. To search for CEF events in Log Analytics, enter `CommonSecurityLog` in the query window.
 
 1. Continue to STEP 3: [validate connectivity](connect-cef-verify.md).
+
+> [!NOTE]
+> **Changing the source of the TimeGenerated field**
+>
+> - By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Azure Sentinel.
+>
+> - You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## Next steps
 

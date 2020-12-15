@@ -93,8 +93,8 @@ The following properties are supported for an Azure Databricks Delta Lake linked
             "domain": "https://adb-xxxxxxxxx.xx.azuredatabricks.net",
             "clusterId": "<cluster id>",
             "accessToken": {
-            	"type": "SecureString", 
-            	"value": "<access token>"
+                "type": "SecureString", 
+                "value": "<access token>"
           	}
         }
     }

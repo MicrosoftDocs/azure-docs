@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with deploying the Azure Migrate appliance and discovering machines.
-author: musa-57
+description: Get help with appliance deployment and machine discovery.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
@@ -37,6 +37,13 @@ This can happen if the appliance machine is behind a proxy.
 - Make sure you provide the authorization credentials if the proxy needs them.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
+
+
+## Clicking on 'Login' button opens a new tab with no device code
+
+If after clicking on 'Login' on the appliance configuration manager, a new tab opens with no code, go back to the appliance configuration manager tab and you can find the device code in bold font under the 'Login' button as shown in the screenshot below. Copy the code and paste it on the login tab to authenticate with Azure.
+
+![Device code](./media/troubleshoot-appliance-discovery/code.png)
 
 ## Can't sign into Azure from the appliance web app
 

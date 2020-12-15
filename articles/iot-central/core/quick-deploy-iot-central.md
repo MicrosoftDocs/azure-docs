@@ -24,7 +24,7 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Navigate to the **Build** page:
 
-    ![Build your IoT application page](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Build your IoT application page":::
 
 1. Choose **Custom apps** and make sure that the **Custom application** template is selected.
 
@@ -32,9 +32,9 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Azure IoT Central also generates a unique **application URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like.
 
-    ![Azure IoT Central Create an application page](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Azure IoT Central Create an application page":::
 
-    ![Azure IoT Central billing info](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Azure IoT Central billing info":::
 
     > [!NOTE]
     > If you chose **Custom app** on the previous page, you will see an **Application template** dropdown. The dropdown might show other templates that have been made available to you by your organization.
@@ -52,7 +52,7 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Review the Terms and Conditions, and select **Create** at the bottom of the page. After a few minutes, you IoT Central application is ready to use:
 
-    ![Azure IoT Central application](media/quick-deploy-iot-central/iotcentral-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central application":::
 
 ## Next steps
 

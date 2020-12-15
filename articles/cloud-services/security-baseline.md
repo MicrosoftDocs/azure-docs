@@ -40,7 +40,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 - [Network Security Group overview](../virtual-network/network-security-groups-overview.md)
 
-- [Virtual Network peering](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Virtual Network peering](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -62,7 +62,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [Cloud Services Config file](schema-cscfg-file.md)
 
-- [List of services supported by Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [List of services supported by Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -93,9 +93,9 @@ Prevent incoming traffic to the default URL or name of your Cloud Services, for 
 
 Configure a Deny Apply rule to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
-- [How can I block/disable incoming traffic to the default URL of my cloud service](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [How can I block/disable incoming traffic to the default URL of my cloud service](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS protection](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS protection](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [Block a specific IP address](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
@@ -111,7 +111,7 @@ Configure flow logging on a network security group. Review details on how to dep
 
 - [Configure flow logging on a network security group](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [For more information about configuring flow logs visit](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [For more information about configuring flow logs visit](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -237,13 +237,13 @@ View the Change history for some events in the activity log within Azure Monitor
 
 Azure Cloud Services can be monitored by Application Insights for availability, performance, failures, and usage. Custom charts can be added to Application Insights so that you can see the data that matters the most. Role instance data can be collected by using the Application Insights SDK in your Azure Cloud Services project. 
 
-- [Turn on diagnostics in Visual Studio before deployment](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [Turn on diagnostics in Visual Studio before deployment](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [View change history](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
-- [Set up diagnostics for Azure Cloud service (Classic) and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
+- [Set up diagnostics for Azure Cloud service (Classic) and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
 **Azure Security Center monitoring**: Yes
 
@@ -295,7 +295,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: Microsoft Antimalware for Azure, protects Azure Cloud Services and virtual machines. You have the option to deploy third-party security solutions in addition, such as web application fire walls, network firewalls, antimalware, intrusion detection and prevention systems (IDS or IPS), and more.
 
-- [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -848,7 +848,7 @@ Enable the Antimalware extension with a PowerShell script in the Startup Task in
 
 Choose the Adaptive application control feature in Azure Security Center, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
-- [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 

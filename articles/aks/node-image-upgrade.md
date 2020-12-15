@@ -1,5 +1,5 @@
 ---
-title: Upgrade Azure Kubernetes Service (AKS) node images 
+title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.service: container-service
 ms.topic: conceptual
@@ -153,12 +153,12 @@ az aks nodepool show \
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
-- [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)][security-update]
+- [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
-[security-update]: node-updates-kured.md
+[github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az-extension-add
