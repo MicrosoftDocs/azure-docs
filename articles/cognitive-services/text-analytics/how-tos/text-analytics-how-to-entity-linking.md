@@ -121,6 +121,10 @@ Named Entity Recognition v3 uses separate endpoints for NER and entity linking r
 
 Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
 
+## Example requests
+
+#### [Version 3.1-preview](#tab/version-3-preview)
+
 ### Example synchronous NER request 
 
 The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
@@ -138,6 +142,8 @@ The following JSON is an example of content you might send to the API. The reque
 ```
 
 ### Example asynchronous NER request
+
+If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
 
 ```json
 {
@@ -172,6 +178,25 @@ The following JSON is an example of content you might send to the API. The reque
 }
 ```
 
+#### [Version 3.0](#tab/version-3)
+
+### Example synchronous NER request 
+
+Version 3.0 only includes synchronous operation. The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## Post the request
 
@@ -336,8 +361,6 @@ Example of an Entity linking response:
 ```
 
 ### Example asynchronous result
-
-If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
 
 ```json
 {

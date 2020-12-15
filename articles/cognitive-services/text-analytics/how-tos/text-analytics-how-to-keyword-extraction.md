@@ -22,6 +22,7 @@ For more information, see [Supported languages](../language-support.md).
 
 > [!TIP]
 > * Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
+> * See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
 
 ## Preparation
 
@@ -33,7 +34,7 @@ You must have JSON documents in this format: ID, text, language
 
 Document size must be 5,120 or fewer characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
 
-See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for more information on these request objects.  
+See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for more information on request and response objects.  
 
 ### Example synchronous request object
 
@@ -72,8 +73,8 @@ See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for 
 
 ### Example asynchronous request object
 
-> [!NOTE]
-> See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
+Starting in `v3.1-preview.3`, You can send NER requests asynchronously using the `/analyze` endpoint.
+
 
 ```json
 {
@@ -106,7 +107,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v3.0/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). if you're using the API synchronously, you must include `/text/analytics/v3.0/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
@@ -193,7 +194,7 @@ As noted, the analyzer finds and discards non-essential words, and it keeps sing
 
 ### Asynchronous result
 
-If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
+If you use the `/analyze` endpoint for asynchronous operation, you will get a response containing the tasks you sent to the API.
 
 ```json
 {
@@ -252,7 +253,7 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 
 + [Key phrase extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) is available for selected languages.
 + JSON documents in the request body include an ID, text, and language code.
-+ POST request is to a `/keyphrases` endpoint, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
++ POST request is to a `/keyphrases` or `/analyze` endpoint, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
 + Response output, which consists of key words and phrases for each document ID, can be streamed to any app that accepts JSON, including Microsoft Office Excel and Power BI, to name a few.
 
 ## See also
