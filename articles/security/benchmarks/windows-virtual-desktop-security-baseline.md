@@ -96,13 +96,17 @@ Use virtual network peering to connect two or more virtual networks together in 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40797).
 
-**Guidance**: Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+**Guidance**: Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. 
+
+Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
 - [Azure Firewall Documentation](/azure/firewall)
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
 - [Azure Security Center recommendations](../../security-center/recommendations-reference.md#recs-network)
+
+Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -113,9 +117,9 @@ Use virtual network peering to connect two or more virtual networks together in 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40798).
 
-**Guidance**: Use Azure Firewall with threat intelligence-based filtering to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party IDS/IPS solution from Azure Marketplace with payload inspection capabilities. Alternately you may choose to use host-based IDS/IPS or a host-based endpoint detection and response (EDR) solution in conjunction with or instead of network-based IDS/IPS.
+**Guidance**: Use Azure Firewall with threat intelligence based filtering to alert on and optionally block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection or prevention solution from the Azure Marketplace. Alternately you may choose a host-based endpoint detection and response (EDR) solution in conjunction or in-place of a network-based intrusion detection or prevention solution.
 
-Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that it is always tuned to provide high-quality alerts to your security information and event management (SIEM) solution.
+Note that If you have a regulatory or other requirement for intrusion detection or prevention solution usage, ensure that it is always tuned to provide high-quality alerts to your security information and event management (SIEM) solution.
 
 - [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md) 
 
@@ -132,7 +136,7 @@ Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40799).
 
-**Guidance**: Use Azure Virtual Network Service Tags to define network access controls on network security groups or Azure Firewall configured for your Windows Virtual Desktop resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: WindowsVirtualDesktop) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Azure Virtual Network service tags to define network access controls on network security groups or an Azure Firewall configured for your Windows Virtual Desktop resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: WindowsVirtualDesktop) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 - [Understand and using Service Tags](../../virtual-network/service-tags-overview.md)
 
@@ -150,7 +154,7 @@ Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Windows Virtual Desktop does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
+**Guidance**: Not applicable; Windows Virtual Desktop does not expose its underlying Domain Name Service (DNS) configurations, these settings are maintained by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -194,7 +198,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40781).
 
-**Guidance**: Windows Virtual Desktop uses Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. Windows Virtual Desktop can natively authenticate to the Azure services or resources that supports Azure Active Directory (Azure AD) authentication through pre-defined access-grants without using hardcoded credentials in source-code or configuration files.
+**Guidance**: Windows Virtual Desktop supports Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. 
 
 Windows Virtual Desktop recommends to use Azure AD to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (e.g., an Azure function) can retrieve the credential from the key vault.
 
@@ -321,7 +325,7 @@ Additionally, granular authentication session management policy can also be used
 **Guidance**: Windows Virtual Desktop does not directly allow customers to deploy or run {code, configurations or persisted data} potentially with identities/secretes. 
 However there is a possibility of using passwords in the command line for applications. 
 
-It is recommended to never include passwords in the custom command line parameters for applications when they are published to users.
+It is recommended to never include passwords in the custom command line parameters for applications (while adding them to an application group) when they are published to users.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -335,7 +339,7 @@ It is recommended to never include passwords in the custom command line paramete
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Windows Virtual Desktop doesn't access any legacy applications
+**Guidance**: Not applicable; Windows Virtual Desktop does not access any legacy applications
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -491,9 +495,9 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40801).
 
-**Guidance**: Discover, classify, and label your sensitive data so that you can design the appropriate controls to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems.
+**Guidance**: Discover, classify, and label your sensitive data so that you can design the appropriate controls. This is to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems.
 
-Use Azure Information Protection (and its associated scanning tool) for sensitive information within Office documents on Azure, on-premises, on Office 365, and in other locations.
+Use Azure Information Protection (and its associated scanning tool) for sensitive information within Office documents on Azure, on-premises, Office 365 and other locations.
 
 You can use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
 
@@ -514,7 +518,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
 
-For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
+Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
 - [Azure Role Based Access Control (RBAC)](../../role-based-access-control/overview.md) 
 
@@ -531,11 +535,11 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Monitor for unauthorized transfer of data to locations outside of enterprise visibility and control. This typically involves monitoring for anomalous activities (large or unusual transfers) that could indicate unauthorized data exfiltration.
 
-Azure Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on anomalous transfer of information that might indicate unauthorized transfers of sensitive information.
+Advanced Threat Protection (ATP) features with both Azure Storage and Azure SQL ATP can alert on anomalous transfer of information, indicating what might be unauthorized transfers of sensitive information.
 
 Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labeled.
 
-If required for compliance of data loss prevention (DLP), you can use a host-based DLP solution to enforce detective and/or preventative controls to prevent data exfiltration.
+Use data loss prevention solutions, such as the host-based ones, to enforce detective and/or preventative controls to prevent data exfiltration.
 
 - [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md) 
 
@@ -553,13 +557,11 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: To complement access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
+**Guidance**: To complement access controls, data in-transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
-Windows Virtual Desktop supports data encryption in transit with TLS v1.2 or greater.
+Windows Virtual Desktop supports data encryption in-transit with transport layer security (TLS) v1.2 or greater. While this is optional on private networks, it is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater. Any remote management, tasks should be performed over secure shell (SSH) for Linux or with Remote Desktop Protocol (RDP) over TLS (for Windows) instead of an unencrypted protocol. 
 
-While this is optional for traffic on private networks, this is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater. For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of an unencrypted protocol. Obsoleted SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled.
-
-By default, Azure provides encryption for data in transit between Azure data centers.
+Any obsolete SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled. By default, Azure provides encryption for data in transit between Azure data centers.
 
 - [Understand encryption in transit with Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
@@ -579,7 +581,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: To complement access controls, Windows Virtual Desktop encrypts data at rest to protect against ‘out of band’ attacks (such as accessing underlying storage) using encryption. This helps ensure that attackers cannot easily read or modify the data.
+**Guidance**: To complement access controls, Windows Virtual Desktop encrypts data-at-rest to protect against ‘out of band’ attacks, such as accessing underlying storage. This helps ensure that attackers cannot easily read or modify the data.
 
 - [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
@@ -621,13 +623,13 @@ Note that additional permissions might be required for visibility into workloads
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
+Use Azure Virtual Machine Inventory to automate the collection of information about software on Virtual Machines. Software Name, Version, publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+
 - [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
 
 - [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
-
-Use Azure Virtual Machine Inventory to automate the collection of information about software on Virtual Machines. Software Name, Version, publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
 - [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
 
@@ -657,14 +659,13 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40826).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Not applicable. Windows Virtual Desktop can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
-**Guidance**: Not applicable. Windows Virtual Desktop can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
+It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -684,7 +685,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40828).
 
-**Guidance**: Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+**Guidance**: Use Azure virtual machine Inventory to automate the collection of information about all software on virtual machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
 - [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
 
@@ -703,11 +704,11 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 **Guidance**: Use the Azure Security Center built-in threat detection capability and enable Azure Defender (Formally Azure Advanced Threat Protection) for your Windows Virtual Desktop resources. Azure Defender for Windows Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Windows Virtual Desktop resources.
 
+Forward any logs from Windows Virtual Desktop to your security information event management (SIEM) solution which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
+
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection) 
 
 - [Azure Security Center security alerts reference guide](../../security-center/alerts-reference.md)
-
-Forward any logs from Windows Virtual Desktop to your security information event management (SIEM) which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
 - [Create custom analytics rules to detect threats](../../sentinel/tutorial-detect-threats-custom.md) 
 
@@ -722,21 +723,19 @@ Forward any logs from Windows Virtual Desktop to your security information event
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40807).
 
-**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
+**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other security information and event management (SIEM) or monitoring tools for further sophisticated monitoring and analytics use cases:
 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, the Threat Protection module in Azure Security Center  can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you to have visibility on account anomalies inside the individual resources.
 
-Audit activity reports in the Azure Active Directory
-
-../../active-directory/reports-monitoring/concept-audit-logs.md 
+- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
 
@@ -751,7 +750,9 @@ Audit activity reports in the Azure Active Directory
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40808).
 
-**Guidance**: Enable and collect network security group (NSG) resource logs, NSG flow logs, Azure Firewall logs, and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
+**Guidance**: Windows Virtual Desktop does not produce or process DNS query logs. However resources that are registered to the service can produce flow logs.
+
+Enable and collect network security group resource and flow logs, Azure Firewall logs and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
 - [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
@@ -765,18 +766,16 @@ Audit activity reports in the Azure Active Directory
 
 - [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md)
 
-Windows Virtual Desktop does not produce or process DNS query logs.
-
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Shared
+**Responsibility**: Customer
 
 ### LT-4: Enable logging for Azure resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40809).
 
-**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Windows Virtual Desktop resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+**Guidance**: Activity logs, which are automatically enabled, contain all write operations (PUT, POST, DELETE) for your Windows Virtual Desktop resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
@@ -791,13 +790,11 @@ Windows Virtual Desktop does not produce or process DNS query logs.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40810).
 
-**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
+**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, the tools used to process and access the data, and data retention requirements.
 
 Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
-In addition, enable and onboard data to Azure Sentinel or a third-party security information event management (SIEM).
-
-Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
+In addition, enable and onboard data to Azure Sentinel or a third-party security information event management (SIEM). Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
@@ -970,7 +967,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Windows Virtual Desktop doesn't have any security configurations
+**Guidance**: Not applicable; Windows Virtual Desktop does not offer any security configuration features.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -984,7 +981,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Windows Virtual Desktop doesn't have any security configurations
+**Guidance**: Not applicable; Windows Virtual Desktop does not offer features to sustain security configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -996,18 +993,18 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40835).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
-- [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
-- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
 
 You can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
+
+- [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
+
+- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
 
 - [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md) 
 
 - [Upload a VHD and use it to create new Windows VMs in Azure](../../virtual-machines/windows/upload-generalized-managed.md) 
 
-- [Create a Linux VM from a custom disk with the Azure CLI](../../virtual-machines/linux/upload-vhd.md)
-
-Windows Virtual Desktop offers resource-specific configuration. Learn more here: Windows Virtual Desktop environment - Azure | Microsoft Docs
+- [Windows Virtual Desktop offers resource-specific configuration. Learn more here](../../virtual-desktop/environment-setup.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1021,6 +1018,7 @@ Windows Virtual Desktop offers resource-specific configuration. Learn more here:
 **Guidance**: Use Azure Security Center and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including VMs, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
 
 Also, note that Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft.
+
 Azure Security Center can also scan vulnerabilities in container image and performs continuous monitoring of your Docker configuration in containers against CIS Docker Benchmark. You can use the Azure Security Center recommendations page to view recommendations and remediate issues.
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
@@ -1065,6 +1063,10 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 
 **Guidance**: Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service as well as have SQL database running in the environment.
 
+Windows Virtual Desktop can use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
+
+As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated.
+
 Follow recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines (and SQL servers). Azure Security Center has a built-in vulnerability scanner for virtual machine, container images, and SQL database.
 
 As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you can pivot into the selected solution's portal to view historical scan data.
@@ -1073,10 +1075,6 @@ As require, export scan results at consistent intervals and compare the results 
 
 - [Integrated vulnerability scanner for virtual machines](/azure/security-center/built-in-vulnerability-assessment) 
 - [SQL vulnerability assessment](../../azure-sql/database/sql-vulnerability-assessment.md)
-
-Windows Virtual Desktop can use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
-
-As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1087,19 +1085,17 @@ As require, export scan results at consistent intervals and compare the results 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40839).
 
-**Guidance**: Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service.
+**Guidance**: Windows Virtual Desktop doesn't use or require any third-party software. However, Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service.
 
-Use Azure Automation Update Management or a 3rd party solution to ensure that the most recent security updates are installed on your Windows Server VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
+Use Azure Automation Update Management or a third-party solution to ensure that the most recent security updates are installed on your Windows Server virtual machines. For Windows virtual machines, ensure Windows Update has been enabled and set to update automatically.
 
-For 3rd party software, use a third-party patch management solution or System Center Updates Publisher for Configuration Manager.
+Use a third-party patch management solution for third-party software or System Center Updates Publisher for Configuration Manager.
 
 - [How to configure Update Management for virtual machines in Azure](/azure/automation/automation-update-management) 
 
 - [Manage updates and patches for your Azure VMs](/azure/automation/automation-tutorial-update-management)
 
 - [Configure Microsoft Endpoint Configuration Manager for Windows Virtual Desktop](../../virtual-desktop/configure-automatic-updates.md)
-
-Windows Virtual Desktop doesn't use or require any third-party software.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1125,9 +1121,11 @@ Windows Virtual Desktop doesn't use or require any third-party software.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40819).
 
-**Guidance**: Enable Endpoint Detection and Response (EDR) capabilities for servers and clients and integrate with SIEM and Security Operations processes.
+**Guidance**: Windows Virtual Desktop does not provide any of it's specific capabilities for Endpoint Detection and Response (EDR) processes. However resources registered to the service can benefit from EDR capabilities.
 
-Microsoft Defender Advanced Threat Protection provides EDR capability as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
+Enable Endpoint Detection and Response (EDR) capabilities for servers and clients and integrate with security information and event management (SIEM) solutions and Security Operations processes.
+
+Advanced Threat Protection from Microsoft Defender, provides Endpoint Detection and Response capabilities, as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
 
 - [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
@@ -1136,8 +1134,6 @@ Microsoft Defender Advanced Threat Protection provides EDR capability as part of
 - [Microsoft Defender ATP service for non-Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 - [Microsoft Defender ATP for non-persistent virtual desktop infrastructure](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-vdi)
-
-Windows Virtual Desktop does not provide any of it's specific capabilities for EDR processes.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1148,17 +1144,15 @@ Windows Virtual Desktop does not provide any of it's specific capabilities for E
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40820).
 
-**Guidance**: Protect your Windows Virtual Desktop resources with a centrally managed modern anti-malware software.
-
-Use a centrally managed endpoint anti-malware solution capable of real time and periodic scanning
+**Guidance**: Protect your Windows Virtual Desktop resources with a centrally managed and modern endpoint anti-malware solution capable of real time and periodic scanning.
 
 Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations.
 
-Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third party antimalware solution. Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts.
+Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). Also, you can use Threat detection with Azure Security Center for data services to detect malware uploaded to Azure Storage accounts.
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md) 
 
-- [Supported endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Supported endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1254,7 +1248,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Windows Virtual Desktop doesn't manage any keys
+**Guidance**: Not applicable; Windows Virtual Desktop doesn't manage any keys.
 
 **Azure Security Center monitoring**: Not applicable
 
