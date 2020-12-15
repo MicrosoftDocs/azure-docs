@@ -270,7 +270,7 @@ This procedure shows how to add a single user to Azure AD.
 For more information about “New-MsolUser” checkout, [/previous-versions/azure/dn194096(v=azure.100)](/previous-versions/azure/dn194096(v=azure.100))
 
 >[!NOTE]
->The “UserPrinciplName” value must match the value that you will send for “IDPEmail” in your SAML 2.0 claim and the “ImmutableID” value must match the value sent in your “NameID” assertion.
+>The “UserPrincipalName” value must match the value that you will send for “IDPEmail” in your SAML 2.0 claim and the “ImmutableID” value must match the value sent in your “NameID” assertion.
 
 ## Verify single sign-on with your SAML 2.0 IDP
 As the administrator, before you verify and manage single sign-on (also called identity federation), review the information and perform the steps in the following articles to set up single sign-on with your SAML 2.0 SP-Lite based identity provider:

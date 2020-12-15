@@ -742,7 +742,7 @@ This code reads the database to get the image URL, converts the image to a thumb
 In case something doesn't work while you're following the instructions in this tutorial, here are some common errors and how to resolve them.
 
 ### ServiceRuntime.RoleEnvironmentException
-The `RoleEnvironment` object is provided by Azure when you run an application in Azure or when you run locally using the Azure compute emulator.  If you get this error when you're running locally, make sure that you have set the ContosoAdsCloudService project as the startup project. This sets up the project to run using the Azure compute emulator.
+The `RoleEnvironment` object is provided by Azure when you run an application in Azure or when you run locally using the Azure Compute Emulator.  If you get this error when you're running locally, make sure that you have set the ContosoAdsCloudService project as the startup project. This sets up the project to run using the Azure Compute Emulator.
 
 One of the things the application uses the Azure RoleEnvironment for is to get the connection string values that are stored in the *.cscfg* files, so another cause of this exception is a missing connection string. Make sure that you created the StorageConnectionString setting for both Cloud and Local configurations in the ContosoAdsWeb project, and that you created both connection strings for both configurations in the ContosoAdsWorker project. If you do a **Find All** search for StorageConnectionString in the entire solution, you should see it 9 times in 6 files.
 
@@ -752,7 +752,7 @@ Try changing the port number used by the web project. Right-click the ContosoAds
 For another alternative that might resolve the problem, see the following  section.
 
 ### Other errors when running locally
-By default new cloud service projects use the Azure compute emulator express to simulate the Azure environment. This is a lightweight version of the full compute emulator, and under some conditions the full emulator will work when the express version does not.  
+By default new cloud service projects use the Azure Compute Emulator express to simulate the Azure environment. This is a lightweight version of the full compute emulator, and under some conditions the full emulator will work when the express version does not.  
 
 To change the project to use the full emulator, right-click the ContosoAdsCloudService project, and then click **Properties**. In the **Properties** window click the **Web** tab, and then click the **Use Full Emulator** radio button.
 
