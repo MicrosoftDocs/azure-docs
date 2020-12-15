@@ -17,7 +17,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
@@ -47,7 +47,7 @@
       href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: Key concepts
       href: concept-key-concepts.md    
@@ -81,7 +81,7 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Agentless Solution for Enterprises 
+  - name: Agentless Solution for Organizations
     items:
     - name: Prepare your network
       items:
@@ -107,8 +107,7 @@
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         href: how-to-set-up-high-availability.md
-    - name: Change the name of your console
-      href: how-to-change-the-name-of-your-console.md
+    - name: Manage users and user access
       items:
       - name: Create and manage users
         href: how-to-create-and-manage-users.md
@@ -209,7 +208,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md

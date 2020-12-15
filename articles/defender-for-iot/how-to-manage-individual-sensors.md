@@ -41,7 +41,7 @@ Sensors that are cloud connected are associated with the Defender for IoT hub. T
 
 ### Upload new activation files
 
-You may need to upload a new activation file for an onboarded sensor when: 
+You may need to upload a new activation file for an onboarded sensor when:
 
 - An activation file expires on a locally connected sensor. 
 
@@ -123,6 +123,41 @@ To connect:
 
 8. Assign the sensor to a zone in the management console, Site Management window.
 
+## Change the name of a sensor
+
+You can change the name of your sensor console. The new names appear in the console web browser, in various console windows, and in troubleshooting logs.
+
+The default name is **sensor**.
+
+The process for changing sensor names varies for locally connected sensors and cloud-connected sensors. The default name is **sensor**.
+
+### Change the name of a locally connected sensor
+
+To change the name:
+
+1. In the bottom of the left pane of the console, select the current sensor label.
+
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="Screenshot that shows the sensor label.":::
+
+1. In the **Edit sensor name** dialog box, enter a name.
+
+1. Select **Save**. The new name is applied.
+
+## Change the name of a cloud-connected sensor
+
+If your sensor was registered as a cloud-connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
+
+To change the name:
+
+1. In the Azure Defender for IoT portal, go to the **Sensor management** page.
+
+1. Delete the sensor from the **Sensor management** window.
+
+1. Register with the new name.
+
+1. Download and new activation file.
+
+1. Sign in to the sensor and upload the new activation file.
 ## Update sensor network configuration
 
 The sensor network configuration was defined during the sensor installation. You can change configuration parameters. You can also set up a proxy configuration.
