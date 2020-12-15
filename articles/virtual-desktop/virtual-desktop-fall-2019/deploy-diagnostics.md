@@ -3,7 +3,7 @@ title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -12,11 +12,6 @@ manager: lizross
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
-
->[!IMPORTANT]
->As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
->
->Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics-2019.md) for continued monitoring.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
