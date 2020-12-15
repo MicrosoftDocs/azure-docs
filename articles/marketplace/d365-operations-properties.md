@@ -1,6 +1,6 @@
 ---
-title: Configure Dynamics 365 Operations offer properties on Microsoft AppSource
-description: Learn how to configure Dynamics 365 Operations offer properties on Microsoft AppSource.
+title: Configure Dynamics 365 for Operations offer properties on Microsoft AppSource
+description: Configure Dynamics 365 for Operations offer properties on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 12/08/2020
 
 # Configure Dynamics 365 for Operations offer properties
 
-This page lets you define the categories used to group your Dynamics 365 for Operations offer on Microsoft AppSource, your application version, and the legal contracts that support your offer.
+This page lets you define the categories used to group your offer on Microsoft AppSource, your application version, and the legal contracts that support your offer.
 
 ## Categories
 
@@ -31,7 +31,7 @@ Enter an **App version** for your offer. Customers will see this number listed o
 
 ### Legal
 
-Provide the **Terms and conditions** that customers must accept before they can try your offer. <font color="red">[ Can they enter a link to a webpage? ]</font>
+Provide the **Terms and conditions** customers must accept before they can try your offer. <font color="red">[ Can they enter a link to a webpage? ]</font>
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Offer listing**.
 

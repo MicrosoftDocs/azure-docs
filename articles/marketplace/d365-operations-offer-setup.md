@@ -1,12 +1,12 @@
 ---
 title: Create a Dynamics 365 for Operations offer on Microsoft AppSource.
-description: Learn how to create a Dynamics 365 for Operations offer on Microsoft AppSource.
+description: Create a Dynamics 365 for Operations offer on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 11/25/2020
+ms.date: 12/14/2020
 ---
 
 # Create a Dynamics 365 for Operations offer
@@ -34,12 +34,12 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Resource Manager templates, if applicable.
+- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID combined with the Publisher ID must be under 40 characters in length. <font color="red">[ still true? ]</font>
 - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used on AppSource. It is different from the offer name and other values that are shown to customers.
 - This name can't be changed after you select **Create**.
@@ -52,11 +52,6 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-<!-- Select the **Package type** that applies to your offer: (Biz Central)
-
-- An **Add-on** app extends the experience and the existing functionality of Dynamics 365 Business Central. For details, see [Add-on apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-- A **Connect** app can be used in the scenario where there must be established a point-to-point connection between Dynamics 365 Business Central and a third-party solution or service. For details, see [Connect Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
--->
 For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use for this offer.
 
 - **Get it now (free)** – List your offer to customers for free.
@@ -69,7 +64,7 @@ For **How do you want potential customers to interact with this listing offer?**
 
 ## Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more, start with [What is a test drive?](what-is-test-drive.md).
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
