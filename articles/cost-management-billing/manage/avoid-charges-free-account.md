@@ -22,7 +22,7 @@ Your subscription and services are disabled when your credit runs out or expires
 
 ## Usage exceeds the limits of free services
 
-You get a limited quantity of free services each month with your Azure free account. The free quantity expires at the end of the month and doesn't roll over to the next month. For example, you get 5 GB of File storage each month. If in a month, you only use 2 GB, the remaining 3 GB doesn't roll over to the next month. To avoid getting charged, keep your usage within the limits. To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). To check your free service usage, see [Check usage of free services included with Azure free Account](check-free-service-usage.md). If your usage excess the specified quantity of free services, you'll need to pay for the exceeding amount at pay-as-you-go rates. 
+You get a limited quantity of free services each month with your Azure free account. The free quantity expires at the end of the month and doesn't roll over to the next month. For example, you get 5 GB of File storage each month. If in a month, you only use 2 GB, the remaining 3 GB doesn't roll over to the next month. To avoid getting charged, keep your usage within the limits. To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). To check your free service usage, see [Check usage of free services included with Azure free Account](check-free-service-usage.md). If your usage exceeds the specified quantity of free services, you'll need to pay for the exceeding amount at pay-as-you-go rates. Microsoft will you send you an email notifying you when your credits are exhausted.
 
 ## You used some services that aren't free
 
@@ -36,14 +36,16 @@ Your free services and quantities expire at the end of 12 months. You can find o
 1. In the left navigation area, select **All services**.
 1.	Select **Subscriptions**.
 1.	Select the subscription that was created when you signed up for free account.
-1.  Scroll down to find free services grid. Select the tooltip located on the top left of the grid.  
+1.  Scroll down to find free services grid. Select the tooltip located on the top left of the grid.
     ![Screenshot that shows where to find out when your free account benefits expire](./media/avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
+
+Microsoft will send you an email notifying you when it's time to upgrade.
 
 Once your free services and quantities expire, you're charged pay-as-you-go rates for any services you're using. You can use the Azure portal to delete the resources for the services that you don't use. If you don’t intend to use any Azure service, you can [cancel your subscription](cancel-azure-subscription.md).
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 - [Upgrade your Azure free account](upgrade-azure-subscription.md)
