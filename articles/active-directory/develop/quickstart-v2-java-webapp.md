@@ -79,7 +79,7 @@ To run this sample, you'll need:
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Download the project and extract the zip file to a local folder closer to the root folder. For example, `C:\Azure-Samples`.
+> Download the project and extract the zip file to a local folder that's closer to the root folder. For example, `C:\Azure-Samples`.
 >
 > To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
@@ -145,7 +145,7 @@ To run the project, take one of these steps:
 - Run it directly from your IDE by using the embedded Spring Boot server. 
 - Package it to a WAR file by using [Maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html), and then deploy it to a J2EE container solution like [Apache Tomcat](http://tomcat.apache.org/).
 
-##### Running the project from the IDE
+##### Running the project from an IDE
 
 To run the web application from an IDE, select run, and then go to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
@@ -205,7 +205,7 @@ If you want to deploy the web sample to Tomcat, you'll need to make a couple cha
     - This command will generate a msal-web-sample-0.1.0.war file in your `/targets` directory.
     - Rename this file to msal4jsample.war.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
-        - To deploy, the msal4jsample.war file, copy it to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
+        - To deploy the msal4jsample.war file, copy it to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
 
 5. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
