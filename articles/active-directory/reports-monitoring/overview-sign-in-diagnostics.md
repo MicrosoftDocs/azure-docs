@@ -116,11 +116,11 @@ In addition to the explanation, the diagnostic presents details about the user s
 
 ### MFA Proof up Required
 
-These scenarios result from sign-ins that were interrupted by requests to setup multi-factor authentication. This setup process is also known as “proof up”.
+These scenarios result from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
 
 Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
-The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up and to provide the recommendation to have the user complete the Proof up.
+The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up and to provide the recommendation to have the user complete the proof up.
 
 ### MFA Proof up required but user sign-in attempt is not from secure location
 
@@ -128,7 +128,7 @@ These scenarios result from sign-ins that were interrupted by a request to set u
 
 Multi-factor authentication Proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
 
-The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up, to provide the recommendation to have the user complete the Proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
+The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up, to provide the recommendation to have the user complete the proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
 
 
 ### Successful Sign-in
