@@ -18,7 +18,7 @@ ms.author: pafarley
 The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
 ## November 2020
-* Published a sample face enrollment app to demonstrate best practices for establishing meaningful consent and creating high-accuracy face recognition systems through high quality enrollments. The open source sample can be found in the [Build an enrollment app](build-enrollment-app.md) guide and on [Github](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), ready for developers to deploy or customize.  
+* Published a sample face enrollment app to demonstrate best practices for establishing meaningful consent and creating high-accuracy face recognition systems through high quality enrollments. The open source sample can be found in the [Build an enrollment app](build-enrollment-app.md) guide and on [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), ready for developers to deploy or customize.  
 
 ## June 2019
 
