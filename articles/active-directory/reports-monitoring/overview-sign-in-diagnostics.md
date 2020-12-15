@@ -27,20 +27,20 @@ ms.collection: M365-identity-device-management
 
 Azure AD provides you with a flexible security model to control what users can do with the managed resources. Access to these resources is not only controlled by who you are but also by how you access them. Typically, flexibility comes along with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
 
-As an IT admin, you need a tool (solution?) that gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostic for Azure AD are an example for such a tool. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
+As an IT admin, you need a tool (solution?) that gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostics for Azure AD are an example for such a tool. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
 
 This article gives you an overview of what this tool does and how you can use it.
 
 
 ## Licensing and prerequisites for Azure AD reporting and monitoring
 
-The sign-in diagnostic is available in all editions of Azure AD.<br> 
+The sign-in diagnostics is available in all editions of Azure AD.<br> 
 You must be a global administrator member in Azure AD to use this tool.
 
 ## How it works
 
-In Azure AD, the response to a sign-in attempt is not just tied to who you are but also how you access your tenant. For example, as an administrator, you might be able to configure all aspects of your tenant while you are signed-in from your corporate network. However, you might be even blocked when you sign-in using the same account from an untrusted network. 
-Due to the greater flexibility the system has to response to a sign-in attempt, you might end-up in scenarios where you need troubleshoot sign-in attempts. The sign-in diagnostic is a feature that analyzes data from the sign-in and presents specific messages about what happened, and recommendations on what to do to resolve problems. 
+In Azure AD, the response to a sign-in attempt is not just tied to who you are but also how you access your tenant. For example, as an administrator, you might be able to configure all aspects of your tenant while you are signed-in from your corporate network. However, you might be even blocked when you sign in using the same account from an untrusted network. 
+Due to the greater flexibility the system has to response to a sign-in attempt, you might end-up in scenarios where you need troubleshoot sign-in attempts. The sign-in diagnostics is a feature that analyzes data from the sign-in and presents specific messages about what happened, and recommendations on what to do to resolve problems. 
 The sign-in diagnostics for Azure AD is designed to enable self-diagnosis of sign-in errors. The diagnostics process consists of four main building blocks:
 
 ![Process](./media/overview-sign-in-diagnostics/process.png)
@@ -75,7 +75,7 @@ For the selected sign-in event, Azure AD provides you with a diagnostic result.
 ![Reporting](./media/overview-sign-in-diagnostics/diagnostics-results.png)
 
  
-The results starts with an assessment. The assessment explains in a few sentences what happened. The explanation helps you to understand the behavior of the system. As a next step, you get a summary of the related conditional access policies that were applied to the selected sign-in. 
+The result starts with an assessment. The assessment explains in a few sentences what happened. The explanation helps you to understand the behavior of the system. As a next step, you get a summary of the related conditional access policies that were applied to the selected sign-in. 
 This part is completed by recommended remediation steps to resolve your issue. Because it is not always possible to resolve issues without additional help, a recommended step might be to open a support ticket. 
 
 ### Take action 
@@ -91,8 +91,8 @@ We need to
 •	Failed Conditional Access
 •	MFA from Conditional Access
 •	MFA from other requirements
-•	MFA Proofup Required
-•	MFA Proofup required but user sign-in attempt is not from secure location
+•	MFA Proof up Required
+•	MFA Proof up required but user sign-in attempt is not from secure location
 •	Successful Sign-in
 
 
@@ -126,11 +126,11 @@ The tables will also show the details from that specific client sign-in attempt 
 
 ### MFA from other requirements
 
-### MFA Proofup Required
+### MFA Proof up Required
 
-This diagnostic scenario covers the Azure AD STS error codes 50072 or 57006. These conditions result from a sign-in which was interrupted to request that the user set up Multi-Factor Authentication methods. This setup process is also known as “proofup”.
-Multi-Factor Authentication Proofup occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
-The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up and to provide the recommendation to have the user complete the Proofup.
+This diagnostic scenario covers the Azure AD STS error codes 50072 or 57006. These conditions result from a sign-in which was interrupted to request that the user setup Multi-Factor Authentication methods. This setup process is also known as “proof up”.
+Multi-Factor Authentication Proof up occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
+The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up and to provide the recommendation to have the user complete the Proof up.
 <insert sample text here>
 In addition to the explanation above, the diagnostic will present details about the user sign-in and the authentication details about that sign-in. 
 <insert an example snapshot>
@@ -145,11 +145,11 @@ Optimize reauthentication prompts and understand session lifetime for Azure Mult
 https://docs.microsoft.com/en-us/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime
 
 
-### MFA Proofup required but user sign-in attempt is not from secure location
+### MFA Proof up required but user sign-in attempt is not from secure location
 
 This diagnostic scenario covers the Azure AD STS error code 53004. This condition results from a sign-in which was interrupted to request that the user set up Multi-Factor Authentication methods but the sign-in was seen to be risky. 
-Multi-Factor Authentication Proofup occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
-The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up, to provide the recommendation to have the user complete the Proofup but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proofup from the corporate network instead.
+Multi-Factor Authentication Proof up occurs when a user is required to use Multi-Factor Authentication but has never set it up before, or an administrator has configured the user to require setting it up anew.
+The intent of this diagnostic scenario is to provide insight that the Multi-Factor Authentication interruption was to set it up, to provide the recommendation to have the user complete the Proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
 <insert sample text here>
 In addition to the explanation above, the diagnostic will present details about the user sign-in and the authentication details about that sign-in. 
 More information about the scenario can be found below:
