@@ -21,7 +21,7 @@ This article provides a list of the rules used to assess the feasibility of migr
 ## Agentjobs
 
 **Title: SQL Server Agent jobs are not available in Azure SQL Database**   
-Rule ID:AgentJobs (Warning)  
+Rule ID: AgentJobs (Warning)  
 
 **Description**   
 SQL Server Agent is a Microsoft Windows service that executes scheduled administrative tasks, which are called jobs in SQL Server. SQL Server Agent jobs are not available in Azure SQL Database. 
@@ -70,7 +70,7 @@ FROM Sales.SalesOrderDetail
 GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP; 
 ```
 
-More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## CDC
 
@@ -78,7 +78,7 @@ More information: [Discontinued Database Engine functionality in SQL Server ](/p
 Rule ID: CDC (Issue)
 
 **Description**   
-Change data capture is designed to capture insert, update, and delete activity applied to SQL Server tables, and to make the details of the changes available in an easily consumed relational format. Change Data Capture (CDC) is not supported in Azure SQL Database
+Change data capture is designed to capture insert, update, and delete activity applied to SQL Server tables, and to make the details of the changes available in an easily consumed relational format. Change Data Capture (CDC) is not supported in Azure SQL Database.
 
 **Recommendation**   
 Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
@@ -109,7 +109,7 @@ Rule ID: CryptographicProvider (Issue)
 **Recommendation**   
 Review objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER'. In any such objects that are required, remove the uses of these features.
 
-## CrossDataseReferences
+## CrossDatabaseReferences
 
 **Title: Cross-database queries are not supported in Azure SQL Database**   
 Rule ID: CrossDataseReferences (Issue)
@@ -117,10 +117,10 @@ Rule ID: CrossDataseReferences (Issue)
 **Description**   
 Some selected databases on this server use cross-database queries, which are not supported in Azure SQL Database. 
 
-More information: [Check Azure SQL Database elastic database query (Preview)](../../database/elastic-query-overview.md)
-
 **Recommendation**   
 Azure SQL Database does not support cross-database queries. The following actions are recommended: Consider migrating to Azure SQL Managed Instance, Consider migrating the dependent database(s) to Azure SQL Database and use 'Elastic Database Query' (preview) functionality to query across Azure SQL databases, Consider moving the dependent datasets from other databases into the database that is being migrated.
+
+More information: [Check Azure SQL Database elastic database query (Preview)](../../database/elastic-query-overview.md)
 
 ## DatabaseCompatibility
 
@@ -158,7 +158,7 @@ SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL
 **Recommendation**   
 Use roles instead of aliases.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
 ## DisableDefCNSTCHK
@@ -169,7 +169,7 @@ Rule ID: DisableDefCNSTCHK  (Issue)
 **Description**   
 SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Database.  
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## FASTFIRSTROW
 
@@ -182,7 +182,7 @@ FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Databa
 **Recommendation**   
 Instead of FASTFIRSTROW query hint use OPTION (FAST n).
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## FileStream
 
@@ -264,7 +264,7 @@ Non ANSI style left outer join is discontinued and has been removed in Azure SQL
 **Recommendation**   
 Use ANSI join syntax.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
 ## NonANSIRightOuterJoinSyntax
@@ -278,7 +278,7 @@ Non ANSI style right outer join is discontinued and has been removed in Azure SQ
 **Recommendation**   
 Use ANSI join syntax.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## NextColumn 
 
@@ -302,7 +302,7 @@ RAISERROR calls like the below example are termed as legacy-style because they d
 **Recommendation**   
 Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern approach of TRY...CATCH...THROW is feasible.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## ServerAudits 
 
@@ -378,7 +378,7 @@ SQL Mail has been discontinued and removed in Azure SQL Database.
 **Recommendation**   
 Consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines and use Database Mail.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## SystemProcedures110
 
@@ -391,7 +391,7 @@ Following unsupported system and extended stored procedures cannot be used in Az
 **Recommendation**    
 Remove references to unsupported system procedures that have been removed in Azure SQL Database.
 
-More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## TraceFlags
 

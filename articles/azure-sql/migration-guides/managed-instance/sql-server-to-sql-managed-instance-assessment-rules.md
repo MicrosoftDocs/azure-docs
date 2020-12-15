@@ -1,7 +1,7 @@
 ---
-title: "Assessment rules for SQL Server to SQL Database migration"
-description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database. 
-ms.service: sql-database
+title: "Assessment rules for SQL Server to SQL Managed Instance migration"
+description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Managed Instance. 
+ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
@@ -11,7 +11,7 @@ ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
 ---
-# Assessment rules for SQL Server to SQL Database migration
+# Assessment rules for SQL Server to SQL Managed Instance migration
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Database. 
@@ -110,7 +110,7 @@ FROM Sales.SalesOrderDetail
 GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 ```
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## CryptographicProvider
 
@@ -143,10 +143,10 @@ Rule ID: DatabasePrincipalAlias (Issue)
 **Description**   
 SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Managed Instance.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
-
 **Recommendation**   
 Use roles instead of aliases.
+
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## DisableDefCNSTCHK
 
@@ -156,7 +156,7 @@ Rule ID: DisableDefCNSTCHK (Issue)
 **Description**   
 SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Managed Instance.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## FastFirstRowHint
 
@@ -169,7 +169,7 @@ FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Manage
 **Recommendation**   
 Instead of FASTFIRSTROW query hint use OPTION (FAST n).
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## FileStream
 
@@ -193,7 +193,12 @@ Rule ID: LinkedServerWithNonSQLProvider (Issue)
 Linked servers enable the SQL Server Database Engine to execute commands against OLE DB data sources outside of the instance of SQL Server.
 
 **Recommendation**   
-Azure SQL Managed Instance does not support linked server functionality if the remote server provider is non SQL Server like Oracle, Sybase etc. The following actions are recommended to eliminate the need for linked servers: 1. Identify the dependent database(s) from remote non SQL servers and consider moving these into the database being migrated. 2. Migrate the dependent database(s) to supported targets like SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 3. Consider creating linked server between Azure SQL Managed Instance and SQL Server on Azure Virtual Machine (SQL VM).  Then from SQL VM create linked server to Oracle, Sybase etc. This approach does involve two hops but can be used as temporary workaround.  
+Azure SQL Managed Instance does not support linked server functionality if the remote server provider is non SQL Server like Oracle, Sybase etc. 
+
+The following actions are recommended to eliminate the need for linked servers: 
+1. Identify the dependent database(s) from remote non SQL servers and consider moving these into the database being migrated. 
+1. Migrate the dependent database(s) to supported targets like SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 
+1. Consider creating linked server between Azure SQL Managed Instance and SQL Server on Azure Virtual Machine (SQL VM).  Then from SQL VM create linked server to Oracle, Sybase etc. This approach does involve two hops but can be used as temporary workaround.  
 
 More information: [Linked Server differences in Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)
 
@@ -260,7 +265,11 @@ Rule ID: MultipleLogFiles(Issue)
 SQL Server allows a database to log to multiple files. This database has multiple log files which is not supported in Azure SQL Managed Instance. This database can’t be migrated as the backup can’t be restored on Azure SQL Managed Instance. 
 
 **Recommendation**   
-Azure SQL Managed Instance supports only a single log per database. You need to delete all but one of the log files before migrating this database to Azure: ALTER DATABASE [database_name] REMOVE FILE [log_file_name];
+Azure SQL Managed Instance supports only a single log per database. You need to delete all but one of the log files before migrating this database to Azure: 
+
+```sql
+ALTER DATABASE [database_name] REMOVE FILE [log_file_name]
+```
 
 More information: [Unsupported database options in Azure SQL Managed Instance  ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#database-options)
 
@@ -301,7 +310,7 @@ Non ANSI style left outer join is discontinued and has been removed in Azure SQL
 **Recommendation**   
 Use ANSI join syntax.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## NonANSIRightOuterJoinSyntax
 
@@ -311,7 +320,7 @@ Rule ID: NonANSIRightOuterJoinSyntax (Issue)
 **Description**   
 Non ANSI style right outer join is discontinued and has been removed in Azure SQL Managed Instance. 
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 **Recommendation**   
 Use ANSI join syntax.
@@ -394,7 +403,7 @@ RAISERROR calls like the below example are termed as legacy-style because they d
 **Recommendation**   
 Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern  approach of TRY...CATCH...THROW is feasible.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## ServiceBrokerWithNonLocalAddress
 
@@ -421,7 +430,7 @@ SQL Mail has been discontinued and removed in Azure SQL Managed Instance.
 **Recommendation**   
 Use Database Mail.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
 ## SystemProcedures110
@@ -431,31 +440,39 @@ Rule ID: SystemProcedures110 (Warning)
 
 
 **Description**   
-Following unsupported system and extended stored procedures cannot be used in Azure SQL Managed Instance - sp_dboption,sp_addserver,sp_dropalias,sp_activedirectory_obj,sp_activedirectory_scp,sp_activedirectory_start
+Following unsupported system and extended stored procedures cannot be used in Azure SQL Managed Instance - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, and `sp_activedirectory_start`. 
 
 **Recommendation**   
 Remove references to unsupported system procedures that have been removed in Azure SQL Managed Instance.
 
-More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016?view=sql-server-2014#Denali)
+More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## TransactSqlJob
 
-**Title: TSQL job step includes unsupported commands in Azure SQL Managed Instance** 
+**Title: TSQL job step includes unsupported commands in Azure SQL Managed Instance**   
 Rule ID: TransactSqlJob (Warning)  
 
 **Description**   
 It is a job step that runs TSQL scripts at scheduled time. TSQL job step includes unsupported commands which is not supported in Azure SQL Managed Instance.
 
-More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
-
-
 **Recommendation**   
 Review impacted objects section to see all jobs that include unsupported commands in Azure SQL Managed Instance and evaluate if the job step or the impacted object can be removed.
 
+More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
+
+
+## TraceFlags
+
+**Title: Trace flags not supported in Azure SQL Managed Instance were found**   
+Rule ID: TraceFlags (Warning)  
+
+**Description**   
+Azure SQL Managed Instance supports only limited number of global trace flags. Session trace flags aren’t supported.
+
+
 ## WindowsAuthentication
 
-**Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance** 
-
+**Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance**   
 
 **Description**   
 Azure SQL Managed Instance  supports two types of authentication 1) SQL Authentication, which uses a username and password 2) Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance. 
@@ -464,15 +481,6 @@ Azure SQL Managed Instance  supports two types of authentication 1) SQL Authenti
 Federate the local Active Directory with Azure Active Directory. The Windows identity can then be replaced with the equivalent Azure Active Directory identities.
 
 More information: [Overview of Azure SQL Managed Instance security capabilities](../../database/security-overview.md)
-
-
-## TraceFlags
-
-**Title: Trace flags not supported in Azure SQL Managed Instance were found** 
-Rule ID: TraceFlags (Warning)  
-
-**Description**   
-Azure SQL Managed Instance supports only limited number of global trace flags. Session trace flags aren’t supported.
 
 ## XpCmdshell
 
