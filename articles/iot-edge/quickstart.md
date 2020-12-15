@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: rsameser
 manager: kgremban
 ms.author: riameser
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure Edge for Linux on Windows.
+Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
 
 In this quickstart you learn how to:
 
@@ -25,23 +25,21 @@ In this quickstart you learn how to:
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
-This quickstart walks you through how to set up your Azure Edge for Linux on Windows device and configuring it to be an IoT Edge device. Then, you deploy a module from the Azure portal to your device. The module used in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying additional modules that analyze the simulated data for business insights.
+This quickstart walks you through how to set up your Azure IoT Edge for Linux on Windows device. Then, you deploy a module from the Azure portal to your device. The module used in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying additional modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
-
-Add the Azure IoT extension to the Cloud Shell instance.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## Prerequisites
+
+Prepare your environment for the Azure CLI.
+
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) using the PowerShell environment.
+
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 Cloud resources:
 
@@ -53,12 +51,13 @@ Cloud resources:
 
 IoT Edge device:
 
-* In this module, you will be using your own device to set up the IoT Edge device for Linux on Windows.
+* In this module, you will be using your own device to set up the IoT Edge device.
 
-1. [Download Windows Admin Center (WAC)](https://aka.ms/WACDownloadEFLOW).
-2. Follow the installation wizard to set up WAC on your device.
+> [!NOTE]
+> Your device needs to be a Windows PC or server, version 1809 or later.
 
-**The next few steps will detail how to install the Azure IoT Edge Extension for WAC.**
+1. [Download Windows Admin Center](https://aka.ms/WACDownloadEFLOW).
+2. Follow the installation wizard to set up Windows Admin Center on your device.
 3. Once you are in Windows Admin Center, on the top right of the screen, select the **Settings Gear Icon**  
 4. From the Settings Menu, Under Gateway, select **Extensions**
 5. From the list of **Available extensions** select **Azure IoT Edge**
@@ -113,47 +112,45 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 2. You will see the local host connection representing the PC where you are running Windows Admin Center.
 
-![Screenshot - Windows Admin Start Page](./media/quickstart/EFLOW/WACStartPage.png)
+   ![Screenshot - Windows Admin Start Page](./media/quickstart/EFLOW/WACStartPage.png)
 
-3. If you do not see your desired target device in this list, please follow the Windows Admin Center [Getting Started - Connecting to managed nodes and clusters](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters) ​​instructions to add your device before proceeding to the next step.​
+3. Select **Add**.
 
-4. Click on the 'Add' button
+   ![Screenshot - Windows Admin Start Page Add Button](./media/quickstart/EFLOW/WACStartPageAdd.png)
 
-![Screenshot - Windows Admin Start Page Add Button](./media/quickstart/EFLOW/WACStartPageAdd.png)
+4. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
 
-5. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
+![Screenshot - Azure IoT Edge For Linux on Windows Tile](./media/quickstart/EFLOW/AzureEFLOWTile.png)
 
-![Screenshot - Azure Edge For Linux on Windows Tile](./media/quickstart/EFLOW/AzureEFLOWTile.png)
-
-6. Proceed through the installation wizard to accept the EULA and choose **Next**
+5. Proceed through the installation wizard to accept the EULA and choose **Next**
 
 ![Screenshot - Wizard Welcome](./media/quickstart/EFLOW/Wizard-Welcome.png)
 
-7. Choose the **Optional diagnostic data** if you would like to help us, and click **Next: Deploy**
+6. Choose the **Optional diagnostic data** if you would like to help us, and click **Next: Deploy**
 
 ![Screenshot - Diagnostic Data](./media/quickstart/EFLOW/Diagnostic-Data.png)
 
-8. On **Deploy - 2.1 Target Device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
+7. On **Select target device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
 
 ![Screenshot - Select Target Device](./media/quickstart/EFLOW/Wizard-SelectTargetDevice.png)
 
-9. ​Accept the default Settings by choosing **Next**
+8. ​Accept the default settings by choosing **Next**
 
-10. This will present the Deployment screen and proceed through the process of downloading the package, installing the package, configuring the host and final setting up the Linux VM​.  A successful deployment will look as follows:
+9. This will present the deployment screen and proceed through the process of downloading the package, installing the package, configuring the host and final setting up the Linux VM​.  A successful deployment will look as follows:
 
 ![Screenshot - Wizard Deploy Success](./media/quickstart/EFLOW/Wizard-DeploySuccess.png)
 
-11. Click **Next: Connect** to continue to the final step to connect your Azure EFLOW deployment to your Azure IoT Hub device instance.
+10. Click **Next: Connect** to continue to the final step to connect your Azure IoT Edge device for deployment to your Azure IoT Hub device instance.
 
-12. Copy the connection string from your device in Azure IoT Hub and paste it into the Device connection string field. Then choose **Provisioning with the selected method**​.
+11. Copy the connection string from your device in Azure IoT Hub and paste it into the device connection string field. Then choose **Provisioning with the selected method**​.
 
 ![Screenshot - Wizard Provisioning](./media/quickstart/EFLOW/Wizard-Provision.png)
 
-13. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure EFLOW Devices.
-![Screenshot - WAC EFLOW Device](./media/quickstart/EFLOW/WACEFLOWDevice.png)
+12. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure IoT Edge for Linux on Windows Device.
+![Screenshot - Windows Admin Center Azure IoT Edge Device](./media/quickstart/EFLOW/WACEFLOWDevice.png)
 
 
-Select your Azure EFLOW device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed.
+Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed.
 ​
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -214,10 +211,10 @@ You can confirm the resource group is removed by viewing the list of resource gr
 az group list
 ```
 
-### Clean Removal of Azure Edge for Linux on Windows
-You can uninstall Azure Edge for Linux on Windows on your device through the Dashboard Extension in Windows Admin Center (WAC).
-1. Connect to the Azure Edge for Linux on Windows device connection in WAC. The Azure dashboard tool extension will load.
-2. Press the 'Uninstall' button. Once Azure Edge for Linux on Windows is removed, WAC will navigate to the start page and remove the Azure EFLOW device connection entry from the list.
+### Clean Removal of Azure IoT Edge for Linux on Windows
+You can uninstall Azure IoT Edge for Linux on Windows on your device through the dashboard extension in Windows Admin Center.
+1. Connect to the Azure IoT Edge for Linux on Windows device connection in Windows Admin Center. The Azure dashboard tool extension will load.
+2. Select **Uninstall**. Once Azure IoT Edge for Linux on Windows is removed, Windows Admin Center will navigate to the start page and remove the Azure IoT Edge device connection entry from the list.
 
 You can also uninstall Windows Admin Center by searching for **Windows Admin Center** in your PC's search bar and right-clicking to select **uninstall**.
 
