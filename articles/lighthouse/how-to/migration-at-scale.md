@@ -34,7 +34,7 @@ This approach minimizes context switching for service providers working across m
 The workflow for this model will be similar to the following:
 
 1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
-1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/migrate/create-manage-projects.md), selecting the appropriate delegated customer subscription.
+1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/azure/migrate/create-manage-projects), selecting the appropriate delegated customer subscription.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md).
 
    For VMware VMs, before you configure the appliance, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs. To set the scope, assign permissions on the account that the appliance uses to access the vCenter Server. This is useful if multiple customers' VMs are hosted on the hypervisor. You can't limit the discovery scope of Hyper-V.
@@ -56,7 +56,7 @@ This approach enables services providers to start migration discovery and assess
 The workflow for this model will be similar to the following:
 
 1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
-1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/migrate/create-manage-projects.md) in a subscription belonging to the managing tenant.
+1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/azure/migrate/create-manage-projects) in a subscription belonging to the managing tenant.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md). The on-premises VMs will be discovered and assessed within the migration project created in the managing tenant, then migrated from there.
 
    If you are managing multiple customers in the same Hyper-V host, you can discover all workloads at once. Customer-specific VMs can be selected in the same group, then an assessment can be created, and migration can be performed by selecting the appropriate customer's subscription as the target destination. There is no need to limit the discovery scope, and you can maintain a  full overview of all customer workloads in one migration project.

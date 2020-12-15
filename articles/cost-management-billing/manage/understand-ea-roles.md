@@ -8,7 +8,7 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Managing Azure Enterprise roles

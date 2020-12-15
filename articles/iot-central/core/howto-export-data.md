@@ -7,7 +7,7 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Export IoT data to cloud destinations using data export
