@@ -95,7 +95,7 @@ Azure Data Factory defines pipeline run success and failure as follows:
 
 #### Recommendation
 - Implement activity level checks following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Use Azure Logic App to monitor pipelines in regular intervals following [Query By DataFactory]( https://docs.microsoft.com/en-us/rest/api/datafactory/pipelineruns/querybyfactory).
+- Use Azure Logic App to monitor pipelines in regular intervals following [Query By DataFactory]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## Next steps
 
