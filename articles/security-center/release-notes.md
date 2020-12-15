@@ -103,12 +103,13 @@ Azure Security Center's security alerts page has been redesigned to provide:
 - **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other
 - **Better performance** for large alerts lists
 - **Keyboard navigation** through the alert list
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
 
 To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
 
 :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
-To create sample alerts from the new alerts experience, see [Create sample alerts from dummy resources](security-center-alert-validation.md#create-sample-alerts-from-dummy-resources).
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
 
 ## November 2020
 
