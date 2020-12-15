@@ -54,7 +54,7 @@ To hide and display columns, customize the Device Inventory table:
 
 1. On the Device Inventory top-right menu, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/settings-icon.png" border="false":::.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-settings-screens.png" alt-text="Device inventory settings screen.":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-settings-screens-v2.png" alt-text="Device inventory settings screen.":::
 
 2. In the Device Inventory Settings window, select the columns that you want to display in the Device Inventory table
 
@@ -66,7 +66,7 @@ To hide and display columns, customize the Device Inventory table:
 
 You can set a filter that define what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning.png" alt-text="Devices learning.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning-v2.png" alt-text="Devices learning.":::
 
 The filter is not saved when you leave the Inventory.
 
@@ -96,13 +96,13 @@ To view filters:
 
 1. Open a left pane and view the filter(s) that you have saved:
 
- :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-from-left-pane.png" alt-text="View the filters from the left side pane.":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-from-left-pane-v2.png" alt-text="View the filters from the left side pane.":::
 
 ### View filtered information as a map group
 
 When switching to the map view, the filtered devices are highlighted and filtered and the filter group that you saved appears in the side menu under the Device Inventory Filters group.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view.png" alt-text="View filters when in the map view.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view-v2.png" alt-text="View filters when in the map view.":::
 
 ## Learn Windows registry details
 
