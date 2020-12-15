@@ -36,6 +36,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Synerise AI Growth Ecosystem supports **SP and IDP** initiated SSO
 * Synerise AI Growth Ecosystem supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 
 ## Adding Synerise AI Growth Ecosystem from the gallery
 
@@ -74,10 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type the URL:
-    `https://app.synerise.com`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.synerise.com/api-portal/uauth/saml/auth/<CUSTOMER_PROFILE_HASH>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
