@@ -110,7 +110,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 
@@ -136,7 +136,7 @@ By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopolo
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -299,7 +299,7 @@ Invoke `GraphTopologyGet` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```
@@ -397,7 +397,7 @@ Invoke the direct method `GraphInstanceSet` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1",
     "properties" : {
         "topologyName" : "MotionDetection",
@@ -457,7 +457,7 @@ Now activate the graph instance to start the flow of live video through the modu
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -481,7 +481,7 @@ Now invoke the direct method `GraphInstanceGet` by using the following payload.
 
 ```
  {
-     "@apiVersion" : "1.0",
+     "@apiVersion" : "2.0",
      "name" : "Sample-Graph-1"
  }
  ```
@@ -614,7 +614,7 @@ Invoke the direct method `GraphInstanceDeactivate` by using the following payloa
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -640,7 +640,7 @@ Invoke the direct method `GraphInstanceDelete` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -664,7 +664,7 @@ Invoke the direct method `GraphTopologyDelete` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```
