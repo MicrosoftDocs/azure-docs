@@ -20,7 +20,7 @@ In this tutorial, you will learn how to:
 * Explore simulated devices
 * Explore and configure rules
 * Configure jobs
-* Customize your application branding using whitelabeling
+* Customize your application branding using white labeling
 
 ## Prerequisites
 
@@ -78,8 +78,8 @@ After creating the application you land in the **Wide Waste connected waste mana
 
 As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
 
-[!NOTE]
-All data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
+>>[!NOTE]
+>> All data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
 
 The dashboard consists of different kinds of tiles:
 
@@ -178,8 +178,8 @@ The **Connected waste management** application has two simulated devices mapped 
 1. Navigate to the **Cloud Properties** tab try updating the `Bin full alert threshold` value from `95` to `100`. 
 * Explore the **Device Properties** tab and **Device Dashboard** tab. 
 
- [!NOTE]
-Note that all the tabs have been configured from the **Device template Views**.
+>> [!NOTE]
+>> All the tabs have been configured from the **Device template Views**.
 
 ### Add new devices
 
