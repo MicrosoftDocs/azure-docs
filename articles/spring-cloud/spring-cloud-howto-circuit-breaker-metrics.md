@@ -116,7 +116,7 @@ Navigate to the URL provided by gateway application, and access the endpoint fro
 
 6.. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
 
-   ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.PNG)
+   [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.PNG)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
 ## See also
 
