@@ -142,6 +142,16 @@ This scenario is caused by a conditional access policy that has the requirement 
 
 ### MFA from other requirements
 
+This scenario occurs when the requirement to sign-in using multi-factor authentication was not emposed by a conditional access policy. For example, you have configured multi-factor authentication on a per user basis in your tenant.
+
+
+![Require multi-factor authentication per user](./media/overview-sign-in-diagnostics/mfa-per-user.png)
+
+
+\<[Tim]: What about the diagnostics in this scenario? \> 
+
+
+
 ### MFA Proof up Required
 
 This scenario results from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
