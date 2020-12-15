@@ -246,28 +246,8 @@ To begin, you will need to add the new resources to your existing Resource Manag
 * A Load Balancer Resource using Standard SKU.
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
-
-An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
