@@ -120,15 +120,16 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application through the UI or application manifest.
 
-1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
-1. From the **Manage** section, select **App registrations**.
+1. Go to the [Azure portal](https://portal.azure.com). 
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
 
 **Configuring optional claims through the UI:**
 
 [![Configure optional claims in the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. From the **Manage** section, select **Token configuration**.
+1. Under **Manage**, select **Token configuration**.
 1. Select **Add optional claim**.
 1. Select the token type you want to configure.
 1. Select the optional claims to add.
@@ -141,7 +142,7 @@ You can configure optional claims for your application through the UI or applica
 
 [![Shows how to configure optional claims using the app manifest](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. From the **Manage** section, select **Manifest**. A web-based manifest editor opens, allowing you to edit the manifest. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application. For more information on the application manifest, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
+1. Under **Manage**, select **Manifest**. A web-based manifest editor opens, allowing you to edit the manifest. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application. For more information on the application manifest, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
     The following application manifest entry adds the auth_time, ipaddr, and upn optional claims to ID, access, and SAML tokens.
 
@@ -221,22 +222,19 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 
 ## Configuring groups optional claims
 
-   > [!NOTE]
-   > The ability to emit group names for users and groups synced from on-premises is Public Preview.
-
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
 
 > [!IMPORTANT]
-> For more details including important caveats for the public preview of group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> For more details including important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configuring groups optional claims through the UI:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
-1. Select **Azure Active Directory** from the left-hand menu.
-1. Under the **Manage** section, select **App registrations**.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
-1. Under the **Manage** section, select **Token configuration**.
+1. Under **Manage**, select **Token configuration**.
 1. Select **Add groups claim**.
 1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role.
@@ -246,9 +244,9 @@ This section covers the configuration options under optional claims for changing
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
-1. Select **Azure Active Directory** from the left-hand menu.
+1. Search for and select **Azure Active Directory**.
 1. Select the application you want to configure optional claims for in the list.
-1. Under the **Manage** section, select **Manifest**.
+1. Under **Manage**, select **Manifest**.
 1. Add the following entry using the manifest editor:
 
    The valid values are:
@@ -378,13 +376,13 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 
-1. Select **Azure Active Directory** from the left-hand menu.
+1. Search for and select **Azure Active Directory**.
 
-1. Under the **Manage** section, select **App registrations**.
+1. Under **Manage**, select **App registrations**.
 
 1. Find the application you want to configure optional claims for in the list and select it.
 
-1. Under the **Manage** section, select **Token configuration**.
+1. Under **Manage**, select **Token configuration**.
 
 1. Select **Add optional claim**, select the **ID** token type, select **upn** from the list of claims, and then select **Add**.
 
@@ -400,9 +398,9 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
-1. Select **Azure Active Directory** from the left-hand menu.
+1. Search for and select **Azure Active Directory**.
 1. Find the application you want to configure optional claims for in the list and select it.
-1. Under the **Manage** section, select **Manifest** to open the inline manifest editor.
+1. Under **Manage**, select **Manifest** to open the inline manifest editor.
 1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
     ```json
