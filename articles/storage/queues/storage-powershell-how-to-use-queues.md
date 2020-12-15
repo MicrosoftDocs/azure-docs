@@ -60,7 +60,7 @@ New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## Create storage account
 
-Create a standard general-purpose storage account with locally redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
+Create a standard general-purpose storage account with locally redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -74,7 +74,7 @@ $ctx = $storageAccount.Context
 
 ## Create a queue
 
-The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'howtoqueue'.
+The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/new-azstoragequeue) cmdlet to create a queue named `howtoqueue`.
 
 ```powershell
 $queueName = "howtoqueue"

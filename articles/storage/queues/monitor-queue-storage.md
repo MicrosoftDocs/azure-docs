@@ -300,7 +300,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Reading metric values
 
-You can read account-level metric values of your storage account or the Queue Storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+You can read account-level metric values of your storage account or the Queue Storage service. Use the [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) cmdlet.
 
 ```powershell
    $resourceId = "<resource-ID>"

@@ -194,7 +194,7 @@ Create a new method to send a message into the queue.
 
    # [.NET v11](#tab/dotnetv11)
 
-   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the `newMessage` to the queue by calling [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.AddMessageAsync).
+   This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the `newMessage` to the queue by calling [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
