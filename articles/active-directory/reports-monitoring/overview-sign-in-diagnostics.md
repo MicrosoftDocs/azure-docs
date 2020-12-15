@@ -82,7 +82,7 @@ This part is completed by recommended remediation steps to resolve your issue. B
 At this point, you should have the information you need to fix your issue.
 
 
-## Covered scenarios
+## Scenarios
 
 This section provides you with an overview of the covered diagnostics scenarios. currently, the following scenarios are implemented: 
  
