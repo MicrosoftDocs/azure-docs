@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 12/14/2020
 ---
 
 # Mapping data flow video tutorials
@@ -83,6 +83,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Rank transformation](https://youtu.be/6XvgkbMtws0)
 
 [Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
 
 ## Source and sink
 
