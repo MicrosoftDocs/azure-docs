@@ -11,11 +11,7 @@ services: iot-central
 
 
 # Water quality monitoring reference architecture 
-
-
-
 Water quality monitoring solutions can be built with the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
-
 
 ![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
@@ -23,8 +19,8 @@ Concepts:
 
 1. Devices and connectivity  
 1. IoT Central 
-2. Extensibility and integrations
-3. Business applications
+1. Extensibility and integrations
+1. Business applications
 
 Let's take a look at key components that generally play a part in a water quality monitoring solution.
 

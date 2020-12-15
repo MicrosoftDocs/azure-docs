@@ -1,9 +1,9 @@
 ---
 title: Reference architecture for connected waste management solution built with Azure IoT Central| Microsoft Docs
 description: Learn concepts for a connected waste management solution built with Azure IoT Central.
-author: miriambrus
-ms.author: miriamb
-ms.date: 10/23/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,8 +11,6 @@ services: iot-central
 
 
 # Connected waste monitoring reference architecture 
-
-
 
 A connected waste management solution can be built using the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
@@ -23,8 +21,8 @@ Concepts:
 
 1. Devices and connectivity  
 1. IoT Central 
-2. Extensibility and integrations
-3. Business applications
+1. Extensibility and integrations
+1. Business applications
 
 Let's take a look at key components that generally play a part in a water consumption monitoring solution.
 
