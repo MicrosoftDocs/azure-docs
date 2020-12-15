@@ -72,7 +72,7 @@ If your query is full text search, a parser will be used to process the contents
 
 The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, is based on the [Apache Lucene Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Full syntax is similar to the simple syntax, but with more operators so that you can construct advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions. Where the syntax overlaps, such as in the area of boolean and prefix queries, you can switch the query type to see if you get a different outcome. 
+Full syntax and simple syntax overlap to the extent that both support the same prefix and boolean operations, but the full syntax provides more operators. In full, there are more operators for boolean expressions, and more operators for advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions.
 
 ## Choose query methods
 
