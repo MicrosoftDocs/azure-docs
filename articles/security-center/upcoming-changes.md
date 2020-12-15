@@ -38,13 +38,13 @@ Currently, resources that are evaluated for a recommendation and found to be **n
 
 The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
-### 35 preview recommendations added to increase coverage of Azure Security Benchmark
+### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
 
 **Estimated date for change:** December 2020
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-The following 35 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
+The following 35 preview recommendations will be added to Security Center to increase the coverage of this benchmark.
 
 Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
