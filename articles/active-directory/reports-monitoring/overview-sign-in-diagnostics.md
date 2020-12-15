@@ -32,7 +32,7 @@ As an IT admin, you need a tool (solution?) that gives you the right level of in
 This article gives you an overview of what this tool does and how you can use it.
 
 
-## Licensing and prerequisites for Azure AD reporting and monitoring
+## Requirements
 
 The sign-in diagnostics is available in all editions of Azure AD.<br> 
 You must be a global administrator member in Azure AD to use this tool.
