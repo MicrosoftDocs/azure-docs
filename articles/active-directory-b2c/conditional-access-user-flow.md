@@ -7,6 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
