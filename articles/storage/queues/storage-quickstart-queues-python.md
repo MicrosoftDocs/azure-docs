@@ -181,7 +181,7 @@ Add this code to the end of the `try` block:
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [`peek_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `try` block:
 
@@ -198,7 +198,7 @@ Add this code to the end of the `try` block:
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
+Update the contents of a message by calling the [`update_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -210,7 +210,7 @@ Update the contents of a message by calling the [update_message](/python/api/azu
 
 ### Receive messages from a queue
 
-Download previously added messages by calling the [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) method.
+Download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) method.
 
 Add this code to the end of the `try` block:
 
@@ -244,7 +244,7 @@ Add this code to the end of the `try` block:
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
+The following code cleans up the resources the app created by deleting the queue using the [`delete_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
 
 Add this code to the end of the `try` block and save the file:
 
