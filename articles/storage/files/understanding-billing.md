@@ -107,7 +107,7 @@ There are five basic transaction categories: write, list, read, other, and delet
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which are provisioned, so a mapping of NFS-specific transactions is not necessary.
 
-# See also
+## See also
 - [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planning for an Azure Files deployment](./storage-files-planning.md) and [Planning for an Azure File Sync deployment](./storage-sync-files-planning.md).
 - [Create a file share](./storage-how-to-create-file-share.md) and [Deploy Azure File Sync](./storage-sync-files-deployment-guide.md).
