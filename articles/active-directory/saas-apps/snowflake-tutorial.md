@@ -21,7 +21,7 @@ Integrating Snowflake with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Snowflake (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -33,16 +33,16 @@ To configure Azure AD integration with Snowflake, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you will configure and test Azure AD single sign-on in a test environment.
 
-* Snowflake supports **SP and IDP** initiated SSO
-* Snowflake supports [Automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended)
+- Snowflake supports **SP and IDP** initiated SSO
+- Snowflake supports [Automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended)
 
 ## Adding Snowflake from the gallery
 
 To configure the integration of Snowflake into Azure AD, you need to add Snowflake from the gallery to your list of managed SaaS apps.
 
-**To add Snowflake from the gallery, perform the following steps:**
+**Add Snowflake from the gallery:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -58,11 +58,11 @@ To configure the integration of Snowflake into Azure AD, you need to add Snowfla
 
 4. In the search box, type **Snowflake**, select **Snowflake** from result panel then click **Add** button to add the application.
 
-	 ![Snowflake in the results list](common/search-new-app.png)
+	 ![Snowflake in the results list](common/search-new-app-snowflake.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Snowflake based on a test user called **Britta Simon**.
+In this section, you will configure and test Azure AD single sign-on with Snowflake based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Snowflake needs to be established.
 
 To configure and test Azure AD single sign-on with Snowflake, you need to complete the following building blocks:
@@ -92,7 +92,7 @@ To configure Azure AD single sign-on with Snowflake, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
+4. In the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
     ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 

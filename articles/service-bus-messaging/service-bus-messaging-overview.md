@@ -18,16 +18,16 @@ Data is transferred between different applications and services using *messages*
 Some common messaging scenarios are:
 
 * *Messaging*. Transfer business data, such as sales or purchase orders, journals, or inventory movements.
-* *Decouple applications*. Improve reliability and scalability of applications and services. Producer and consumer don't have to be online or readily available at the same time. The [load is leveled](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) such that traffic spikes don't overtax a service. 
-* *Load Balancing*. Allow for multiple [competing consumers](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) to read from a queue at the same time, each safely obtaining exclusive ownership to specific messages. 
-* *Topics and subscriptions*. Enable 1:*n* relationships between [publishers and subscribers](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber), allowing subscribers to select particular messages from a published message stream.
+* *Decouple applications*. Improve reliability and scalability of applications and services. Producer and consumer don't have to be online or readily available at the same time. The [load is leveled](/azure/architecture/patterns/queue-based-load-leveling) such that traffic spikes don't overtax a service. 
+* *Load Balancing*. Allow for multiple [competing consumers](/azure/architecture/patterns/competing-consumers) to read from a queue at the same time, each safely obtaining exclusive ownership to specific messages. 
+* *Topics and subscriptions*. Enable 1:*n* relationships between [publishers and subscribers](/azure/architecture/patterns/publisher-subscriber), allowing subscribers to select particular messages from a published message stream.
 * *Transactions*. Allows you to do several operations, all in the scope of an atomic transaction. For example, the following operations can be done in the scope of a transaction.  
 
     1. Obtain a message from one queue.
     2. Post results of processing to one or more different queues.
     3. Move the input message from the original queue. 
     
-    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) pattern in the greater solution context. 
+    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
 
 If you're familiar with other message brokers like Apache ActiveMQ, Service Bus concepts are similar to what you know. As Service Bus is a platform-as-a-service (PaaS) offering, a key difference is that you don't need to worry about the following actions. Azure takes care of those chores for you. 
@@ -133,11 +133,11 @@ For protection against unwanted traffic, Service Bus provides [security features
 
 Fully supported Service Bus client libraries are available via the Azure SDK.
 
-- [Azure Service Bus for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Azure Service Bus libraries for Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md) and it can be used from any AMQP 1.0 compliant protocol client. Several open-source AMQP clients have samples that explicitly demonstrate Service Bus interoperability. Review the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus'
 features with AMQP 1.0 clients directly.

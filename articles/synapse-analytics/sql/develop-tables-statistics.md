@@ -14,7 +14,7 @@ ms.custom:
 ---
 # Statistics in Synapse SQL
 
-Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: dedicated SQL pool and serverless SQL pool (preview).
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: dedicated SQL pool and serverless SQL pool.
 
 ## Statistics in dedicated SQL pool
 
@@ -551,7 +551,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Custom error 2767 isn't supported.
 
 
-## Statistics in serverless SQL pool (preview)
+## Statistics in serverless SQL pool
 
 Statistics are created per particular column for particular dataset (storage path).
 
@@ -560,7 +560,7 @@ Statistics are created per particular column for particular dataset (storage pat
 
 ### Why use statistics
 
-The more serverless SQL pool (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 
+The more serverless SQL pool knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 
 
 The serverless SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 

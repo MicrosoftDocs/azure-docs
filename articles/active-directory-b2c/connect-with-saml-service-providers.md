@@ -35,7 +35,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 | Scenario | Azure AD B2C role | How-to |
 | -------- | ----------------- | ------- |
 | My application expects a SAML assertion to complete an authentication. | **Azure AD B2C acts as the identity provider (IdP)**<br />Azure AD B2C acts as a SAML IdP to the applications. | This article. |
-| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](identity-provider-adfs2016-custom.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](identity-provider-salesforce-custom.md)</li></ul> |
+| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](identity-provider-adfs.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](identity-provider-salesforce.md)</li></ul> |
 
 ## Prerequisites
 
@@ -389,7 +389,7 @@ To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAss
 
 ## Enable identity provider initiated flow (Optional)
 
-In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). We don't currently support scenarios where the initiating identity provider is an external identity provider, for example [AD-FS](identity-provider-adfs2016-custom.md), or [Salesforce](identity-provider-salesforce-custom.md).
+In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). We don't currently support scenarios where the initiating identity provider is an external identity provider, for example [AD-FS](identity-provider-adfs.md), or [Salesforce](identity-provider-salesforce.md).
 
 To enable identity provider (Azure AD B2C) initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
 

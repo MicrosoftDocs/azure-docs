@@ -35,12 +35,16 @@ Follow the steps below to create an Azure Arc data controller using the Azure po
 6. Click on the **Data controller details** button.
 7. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be created on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
 8. Enter a name for your data controller.
-9. Only the Indirectly Connected mode is supported currently in the preview.
-10. Select a deployment configuration profile.
-11. Click the **Open in Azure Studio** button.
-12. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
-13. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
-14. Follow the prompts and instructions in the notebook to complete the data controller creation.
+9. Select the connectivity mode for the data controller. Learn more about [Connectivity modes and requirements](https://docs.microsoft.com/azure/azure-arc/data/connectivity). 
+
+   > [!NOTE] 
+   > If you select **direct** connectivity mode,  ensure the Service Principal credentials are set via environment variables as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Select a deployment configuration profile.
+1. Click the **Open in Azure Studio** button.
+1. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
+1. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
+1. Follow the prompts and instructions in the notebook to complete the data controller creation.
 
 ## Monitoring the creation status
 

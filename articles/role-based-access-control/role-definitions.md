@@ -334,4 +334,4 @@ For information about `AssignableScopes` for custom roles, see [Azure custom rol
 
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
-* [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+* [Azure resource provider operations](resource-provider-operations.md)

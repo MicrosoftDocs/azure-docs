@@ -516,7 +516,7 @@ The following code snippet gets a token for the first time by creating an `MSALI
 
 1. Creates `MSALInteractiveTokenParameters` with scopes.
 2. Calls `acquireToken()` with the created parameters.
-3. Handles errors. For more detail, refer to the [MSAL for iOS and macOS error handling guide](msal-handling-exceptions.md).
+3. Handles errors. For more detail, refer to the [MSAL for iOS and macOS error handling guide](msal-error-handling-ios.md).
 4. Handles the successful case.
 
 Add the following code to the `ViewController` class.

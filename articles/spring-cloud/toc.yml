@@ -25,10 +25,6 @@
         href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
-    - name: Manually scale an app
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Autoscale an app
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard
@@ -83,6 +79,12 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Use persistent storage
           href: spring-cloud-howto-persistent-storage.md
+    - name: Scale
+      items: 
+        - name: Manually scale an app
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Autoscale an app
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identify outbound public IP addresses
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
@@ -128,11 +130,23 @@
     - name: Migrate
       items:
         - name: Spring Cloud
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
         - name: Spring Boot
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: DevOps Deployment
+  items:
+  - name: CI/CD with Azure DevOps
+    href: spring-cloud-howto-cicd.md
+  - name: CI/CD with GitHub Actions
+    href: spring-cloud-howto-github-actions.md
+  - name: Auth with Key Vault in GitHub Actions
+    href: spring-cloud-github-actions-key-vault.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting Guide
+    href: spring-cloud-troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI Plugin
@@ -144,7 +158,7 @@
   - name: Frequently Asked Questions
     href: spring-cloud-faq.md
   - name: REST API reference
-    href: /rest/api/azurespringclould/
+    href: /rest/api/azurespringcloud/
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

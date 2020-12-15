@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 03/11/2020
 ---
 
-# Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output
+# Use Managed Identity (preview) to authenticate your Azure Stream Analytics job to Azure Blob Storage output
 
-[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
+[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) (preview) for output to Azure Blob storage gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
 This article shows you how to enable Managed Identity for the Blob output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 

@@ -256,10 +256,8 @@ You might want to customize the way component names are displayed in the [Applic
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

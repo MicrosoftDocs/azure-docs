@@ -25,4 +25,4 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 
 > [!NOTE]
 > The example shown here uses local keyword recognition, since it does not require a `SpeechConfig` 
-object for authentication context, and does not contact the back-end. However, you can run both keyword recognition and verification [utilizing a continuous back-end connection](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
+object for authentication context, and does not contact the back-end. However, you can run both keyword recognition and verification [utilizing a continuous back-end connection](../../../tutorial-voice-enable-your-bot-speech-sdk.md#view-the-source-code-that-enables-keyword).

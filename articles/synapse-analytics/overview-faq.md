@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure Synapse Analytics (workspaces preview)
-description: FAQ for Azure Synapse Analytics  (workspaces preview)
+title: FAQ - Azure Synapse Analytics
+description: FAQ for Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -11,38 +11,36 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (workspaces preview) frequently asked questions
+# Azure Synapse Analytics frequently asked questions
 
 In this guide, you'll find the most frequently asked questions for Azure Synapse Analytics.
 
-[!INCLUDE [preview](includes/note-preview.md)]
-
 ## General
 
-### Q: What RBAC roles exist and how I use them to secure a Synapse workspace?
+### Q: How can I use RBAC roles to secure my workspace?
 
 A: Azure Synapse introduces a number of roles and scopes to assign them on that will simplify securing your workspace.
 
 Synapse RBAC roles:
 * Synapse Administrator
-* Synapse Contributor
-* Synapse Artifact Author
-* Synapse Artifact Reader
-* Synapse Compute Manager
-* Synapse Credential User
-* Synapse Managed Private Endpoint Administrator
-* Synapse Reader
+* Synapse SQL Administrator
+* Synapse Spark Administrator
+* Synapse Contributor (preview)
+* Synapse Artifact Publisher (preview)
+* Synapse Artifact User (preview)
+* Synapse Compute Operator (preview)
+* Synapse Credential User (preview)
 
-Synapse RBAC Scopes:
-* Workspace 
-* Spark pool
-* Integration runtime
-* Linked service
-* Credential
+To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
+* Workspaces
+* Spark pools
+* Integration runtimes
+* Linked services
+* Credentials
 
 Additionally, with dedicated SQL pools you have all the same security features that you know and love.
 
-### Q: How can I cost control for the capabilities inside a Synapse workspace such as dedicated SQL pools, serverless Spark pools, and serverless SQL pools?
+### Q: How do I control cont dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
 
 A: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
 
@@ -80,7 +78,7 @@ A: Not at this time.
 
 ### Q: How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?
 
-A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts manually. 
+A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
 
 ## Apache Spark
 
@@ -98,7 +96,7 @@ A: Azure Synapse Apache Spark fully supports Spark 2.4. For a full list of core 
 
 A: Yes, Azure Synapse Apache Spark provides the **mssparkutils** library. For full documentation of the utility see [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md).
 
-### Q: How do I set Session parameters in Apache Spark?
+### Q: How do I set session parameters in Apache Spark?
 
 A: To set session parameters, use %%configure magic available. A session restart is required for the parameters to take effect. 
 
@@ -134,7 +132,7 @@ A: You can find a full list of differences in [T-SQL feature differences in Syna
 A: There is no “move” or “migration.” 
 You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you’ll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools.
 
-### Q: What is the default deployment of dedicated SQL Pools now? 
+### Q: What is the default deployment of dedicated SQL pools now? 
 
 A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
 

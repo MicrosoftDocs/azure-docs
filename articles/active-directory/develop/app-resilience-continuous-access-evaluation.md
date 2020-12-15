@@ -23,9 +23,9 @@ This article shows you how to use CAE-enabled APIs in your applications.
 
 ## Implementation considerations
 
-To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled. 
+To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled.
 
-If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE. 
+If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE.
 
 ## The code
 
@@ -112,4 +112,4 @@ You can test your application by signing in a user to the application then using
 
 ## Next steps
 
-To learn more, see [Continuous access evaluation](/conditional-access/concept-continuous-access-evaluation.md).
+To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).

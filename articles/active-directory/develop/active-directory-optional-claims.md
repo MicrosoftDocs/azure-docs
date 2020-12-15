@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -54,7 +54,7 @@ The set of optional claims available by default for applications to use are list
 | `verified_secondary_email` | Sourced from the user's SecondaryAuthoritativeEmail   | JWT        |           |        |
 | `vnet`                     | VNET specifier information. | JWT        |           |      |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `ctry`                     | User's country/region | JWT, SAML |  | Azure AD returns the `ctry` optional claim if it's present and the value of the field is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
+| `ctry`                     | User's country/region | JWT |  | Azure AD returns the `ctry` optional claim if it's present and the value of the field is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
 | `tenant_ctry`              | Resource tenant's country | JWT | | Same as `ctry` except set at a tenant level by an admin.  Must also be a standard two-letter value. |
 | `xms_pdl`             | Preferred data location   | JWT | | For Multi-Geo tenants, the preferred data location is the three-letter code showing the geographic region the user is in. For more info, see the [Azure AD Connect documentation about preferred data location](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user's preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC ("en-us"). |
@@ -135,7 +135,7 @@ You can configure optional claims for your application through the UI or applica
 1. Select **Add**.
 
 > [!NOTE]
-> The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant currently. For applications registered in a B2C tenant, the optional claims can be configured by modifying the application manifest. For more information see [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
+> The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant currently. For applications registered in a B2C tenant, the optional claims can be configured by modifying the application manifest. For more information see [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configuring optional claims through the application manifest:**
 

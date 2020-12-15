@@ -1,13 +1,13 @@
 ---
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
 description: Learn how to mount an Azure Blob storage container with blobfuse, a virtual file system driver on Linux.
-author: rishabpoh
+author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.date: 2/1/2019
-ms.author: ripohane
-ms.reviewer: dineshm
+ms.author: tamram
+ms.reviewer: twooley
 ---
 
 # How to mount Blob storage as a file system with blobfuse
@@ -25,7 +25,7 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 ## Install blobfuse on Linux
 Blobfuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-Blobfuse supports installation on Ubuntu 14.04, 16.04, and 18.04. Run this command to make sure that you have one of those versions deployed:
+Blobfuse supports installation on Ubuntu 14.04, 16.04, 18.04, and 20.04. Run this command to make sure that you have one of those versions deployed:
 ```
 lsb_release -a
 ```

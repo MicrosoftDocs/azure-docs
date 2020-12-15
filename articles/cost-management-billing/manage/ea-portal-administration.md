@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Azure EA portal administration
@@ -356,7 +356,7 @@ To delete a subscription where you're the account owner:
 
 Only account administrators can cancel subscriptions.
 
-For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## Delete an account
 

@@ -251,5 +251,7 @@
     items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: SLA
+      href: https://azure.microsoft.com/support/legal/sla/digital-twins
     - name: Regions and availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
