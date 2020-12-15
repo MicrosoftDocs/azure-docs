@@ -19,8 +19,8 @@ This quickstart shows you how to authorize access to the Administration and SMS 
 
 ## Prerequisites
 
- - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free)
- - An active Communication Services resource and connection string. [Create a Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+ - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+ - An active Communication Services resource and connection string. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
 
 ## Setting Up
 
