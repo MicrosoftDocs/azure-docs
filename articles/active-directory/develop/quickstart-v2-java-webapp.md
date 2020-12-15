@@ -66,8 +66,8 @@ To run this sample you'll need:
 >
 > To use the code sample in this quickstart, you need to:
 >
-> 1. Add reply URLs as `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`
-> 1. Create a Client Secret.
+> 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
+> 1. Create a client secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -76,15 +76,15 @@ To run this sample you'll need:
 
 #### Step 2: Download the code sample
 > [!div renderon="docs"]
-> [Download the Code Sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
+> Download the project and extract the zip file to a local folder closer to the root folder. For example, `C:\Azure-Samples`.
 >
-> To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
+> To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
+> Here's an example:
 >  ```
->   Example:
 >   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 >
 >   server.ssl.key-store-type=PKCS12
@@ -92,7 +92,7 @@ To run this sample you'll need:
 >   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
->   Put the generated keystore file in the "resources" folder.
+>   Put the generated keystore file in the `resources` folder.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
@@ -104,34 +104,35 @@ To run this sample you'll need:
 > [!div renderon="docs"]
 > #### Step 3: Configure the code sample
 > 1. Extract the zip file to a local folder.
-> 1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
-> 1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
+> 1. *Optional.* If you use an integrated development environment, open the sample in that environment.
+> 1. Open the application.properties file. You can find it in the `src/main/resources/` folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it will look like:
 >
 >    ```file
->    aad.clientId=Enter_the_Application_Id_here
->    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
->    aad.secretKey=Enter_the_Client_Secret_Here
+>    aad.clientId=Enter_the_application_ID_here
+>    aad.authority=https://login.microsoftonline.com/Enter_the_tenant_info_here/
+>    aad.secretKey=Enter_the_client_secret_here
 >    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
 >    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
-> Where:
+>    In the previous code:
 >
-> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
-> 1. To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
+>    - `Enter_the_application_ID_here` is the application ID for the application you registered.
+>    - `Enter_the_client_secret_here` is the **Client Secret** you created in **Certificates & secrets** for the application you registered.
+>    - `Enter_the_tenant_info_here` is the **Directory (tenant) ID** value of the application you registered.
+> 1. To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
->  ```
->   Example:
->   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>    Here's an example:
 >
->   server.ssl.key-store-type=PKCS12
->   server.ssl.key-store=classpath:keystore.p12
->   server.ssl.key-store-password=password
->   server.ssl.key-alias=testCert
->   ```
->   Put the generated keystore file in the "resources" folder.
+>     ```
+>      keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>
+>      server.ssl.key-store-type=PKCS12
+>      server.ssl.key-store=classpath:keystore.p12
+>      server.ssl.key-store-password=password
+>      server.ssl.key-alias=testCert
+>      ```
+>   1. Put the generated keystore file in the `resources` folder.
 
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -139,86 +140,87 @@ To run this sample you'll need:
 > [!div renderon="docs"]
 > #### Step 4: Run the code sample
 
-To run the project, you can either:
+To run the project, take one of these steps:
 
-Run it directly from your IDE by using the embedded spring boot server or package it to a WAR file using [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) and deploy it to a J2EE container solution such as [Apache Tomcat](http://tomcat.apache.org/).
+- Run it directly from your IDE by using the embedded Spring Boot server. 
+- Package it to a WAR file by using [Maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html), and then deploy it to a J2EE container solution like [Apache Tomcat](http://tomcat.apache.org/).
 
-##### Running from IDE
+##### Running the project from the IDE
 
-If you are running the web application from an IDE, select run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
+To run the web application from an IDE, select run, and then go to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
-1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
+1. On the front page, select the **Login** button to redirect users to Azure Active Directory and prompt them for credentials.
 
-1. After the user is authenticated, they are redirected to *https://localhost:8443/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
-    - *Sign Out*: Signs the current user out of the application and redirects them to the home page.
-    - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
+1. After users are authenticated, they're redirected to https://localhost:8443/msal4jsample/secure/aad. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
+    - **Sign Out**: Signs the current user out of the application and redirects that user to the home page.
+    - **Show User Info**: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request that contains the token, which returns basic information about the signed-in user.
 
-##### Running from Tomcat
+##### Running the project from Tomcat
 
-If you would like to deploy the web sample to Tomcat, you will need to make a couple of changes to the source code.
+If you want to deploy the web sample to Tomcat, you'll need to make a couple changes to the source code.
 
-1. Open ms-identity-java-webapp/pom.xml
-    - Under `<name>msal-web-sample</name>` add `<packaging>war</packaging>`
+1. Open ms-identity-java-webapp/pom.xml.
+    - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.
 
-2. Open ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication
+2. Open ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication.
 
-    - Delete all source code and replace with the following:
+    - Delete all source code and replace it with this code:
 
-   ```Java
-    package com.microsoft.azure.msalwebsample;
+      ```Java
+       package com.microsoft.azure.msalwebsample;
 
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-    import org.springframework.boot.builder.SpringApplicationBuilder;
-    import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+       import org.springframework.boot.SpringApplication;
+       import org.springframework.boot.autoconfigure.SpringBootApplication;
+       import org.springframework.boot.builder.SpringApplicationBuilder;
+       import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-    @SpringBootApplication
-    public class MsalWebSampleApplication extends SpringBootServletInitializer {
+       @SpringBootApplication
+       public class MsalWebSampleApplication extends SpringBootServletInitializer {
 
-     public static void main(String[] args) {
-      SpringApplication.run(MsalWebSampleApplication.class, args);
-     }
+        public static void main(String[] args) {
+         SpringApplication.run(MsalWebSampleApplication.class, args);
+        }
 
-     @Override
-     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-      return builder.sources(MsalWebSampleApplication.class);
-     }
-    }
-   ```
+        @Override
+        protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+         return builder.sources(MsalWebSampleApplication.class);
+        }
+       }
+      ```
 
-3.   Tomcat's default HTTP port is 8080, though an HTTPS connection over port 8443 is needed. To configure this:
-        - Go to tomcat/conf/server.xml
-        - Search for the `<connector>` tag, and replace the existing connector with:
+3.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
+        - Go to tomcat/conf/server.xml.
+        - Search for the `<connector>` tag, and replace the existing connector with this connector:
 
-        ```xml
-        <Connector
+          ```xml
+          <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ```
+          ```
 
-4. Open a command prompt, go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project
-    - This will generate a `msal-web-sample-0.1.0.war` file in your /targets directory.
-    - Rename this file to `msal4jsample.war`
-    - Deploy this war file using Tomcat or any other J2EE container solution.
-        - To deploy, copy the msal4jsample.war file to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
+4. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
+    - This command will generate a msal-web-sample-0.1.0.war file in your `/targets` directory.
+    - Rename this file to msal4jsample.war.
+    - Deploy the WAR file by using Tomcat or any other J2EE container solution.
+        - To deploy, the msal4jsample.war file, copy it to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
 
-5. Once deployed, go to https://localhost:8443/msal4jsample in your browser
+5. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](./active-directory-certificate-credentials.md).
+> This quickstart application uses a client secret to identify itself as a confidential client. Because the client secret is added as plain text to your project files, for security reasons we recommend that you use a certificate instead of a client secret before using the application in a production environment. For more information on how to use a certificate, see [Certificate credentials for application authentication](./active-directory-certificate-credentials.md).
 
 ## More information
 
 ### How the sample works
-![Shows how the sample app generated by this quickstart works](media/quickstart-v2-java-webapp/java-quickstart.svg)
+![Diagram that shows how the sample app generated by this quickstart works.](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-### Getting MSAL
+### Get MSAL
 
-MSAL for Java (MSAL4J) is the Java library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+MSAL for Java (MSAL4J) is the Java library used to sign in users and request tokens that are used to access an API that's protected by the Microsoft identity platform.
 
 Add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the application's pom.xml (Maven) or build.gradle (Gradle) file.
 
@@ -238,9 +240,9 @@ In build.gradle:
 compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
-### MSAL initialization
+### Initialize MSAL
 
-Add a reference to MSAL for Java by adding the following code to the top of the file where you will be using MSAL4J:
+Add a reference to MSAL for Java by adding the following code at the start of the file where you'll be using MSAL4J:
 
 ```Java
 import com.microsoft.aad.msal4j.*;
@@ -250,7 +252,7 @@ import com.microsoft.aad.msal4j.*;
 
 ## Next steps
 
-For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
+For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, see the multipart scenario series:
 
 > [!div class="nextstepaction"]
 > [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)
