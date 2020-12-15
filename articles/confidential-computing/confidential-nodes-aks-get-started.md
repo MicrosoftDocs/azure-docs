@@ -75,7 +75,7 @@ Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This fe
 2. SGX Attestation Quote Helper
 
 ```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
 ```
 It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
 
