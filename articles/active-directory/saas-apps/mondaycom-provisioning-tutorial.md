@@ -48,16 +48,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 
 1. Sign in to the monday.com account, and follow these steps:
-* On the left navigation pane , click on your profile picture.
-* Select **Admin**
-* Then select **Security** on the left side of Admin Page.
-* Click on **Open** in the **SCIM** section under the **Login** tab
+      * On the left navigation pane , click on your profile picture.
+      * Select **Admin**
+      * Then select **Security** on the left side of Admin Page.
+      * Click on **Open** in the **SCIM** section under the **Login** tab
 
 ![Scim Provisioning Tab](media/mondaycom-provisioning-tutorial/provisioning-tab-monday.png)
 
 2. Click on **Generate** . These are the **Tenant URL** and **Secret Token** you will need for step 5.
 
-**Note :** Do not share or save this secret token. You can always generate a new token whenever and wherever it is required.
+[!NOTE]
+Do not share or save this secret token. You can always generate a new token whenever and wherever it is required.
 
 ## Step 3. Add monday.com from the Azure AD application gallery
 
