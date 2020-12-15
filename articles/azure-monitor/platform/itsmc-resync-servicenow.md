@@ -12,7 +12,7 @@ ms.date: 04/12/2020
 
 ## Visualize and analyze the incident and change request data
 
-Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [next section](#additional-information) of this article.
+Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#additional-information) of this article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
 
