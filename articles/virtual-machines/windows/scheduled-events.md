@@ -67,7 +67,7 @@ If the VM is not created within a Virtual Network, the default cases for cloud s
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and region availability
-The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-01-01`.
+The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-08-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
@@ -172,7 +172,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 #### Bash sample
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 > [!NOTE] 
