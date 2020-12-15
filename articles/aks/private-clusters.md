@@ -64,7 +64,7 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 ### Configure Private DNS Zone
 
-The default value is "system", if the --private-dns-zone argument is ommitted. AKS will create a Private DNS Zone in the Node Resource Group. Passing the "none" parameter means AKS will not create a Private DNS Zone.  This relies on the creation of a Bring Your Own DNS Server and configuration of the DNS resolution for the Private FQDN.  If you don't configure DNS resolution,  DNS is only resolvable within the agent nodes and will cause cluster issues after deployment.
+The default value is "system", if the --private-dns-zone argument is omitted. AKS will create a Private DNS Zone in the Node Resource Group. Passing the "none" parameter means AKS will not create a Private DNS Zone.  This relies on the creation of a Bring Your Own DNS Server and configuration of the DNS resolution for the Private FQDN.  If you don't configure DNS resolution,  DNS is only resolvable within the agent nodes and will cause cluster issues after deployment.
 
 ## No Private DNS Zone Prerequisites
 No PrivateDNSZone
