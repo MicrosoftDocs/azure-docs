@@ -7,7 +7,7 @@ ms.date: 12/15/2020
 ms.author: alkohli
 ---
 
-Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Here is a list of the supported storage accounts and storage types for a Data Box device. For a complete list of all capabilities for all types of storage accounts, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 For import orders, following table shows the supported storage accounts.
 
