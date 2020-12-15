@@ -97,11 +97,12 @@ These new protections greatly enhance your resiliency against attacks from threa
 
 Azure Security Center's security alerts page has been redesigned to provide:
 
-- **improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options
-- **more information in the alerts list** - such as MITRE ATT&ACK tactics
-- **button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans
-- **better performance** for large alerts lists
-- **keyboard navigation** through the alert list
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other
+- **Better performance** for large alerts lists
+- **Keyboard navigation** through the alert list
 
 To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
 
