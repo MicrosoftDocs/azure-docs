@@ -18,7 +18,7 @@ ms.author: cynthn
 
 <sup>1</sup> Default limits vary by offer category type, such as Free Trial and Pay-As-You-Go, and by series, such as Dv2, F, and G. For example, the default for Enterprise Agreement subscriptions is 350.
 
-<sup>2</sup> Properties such as SSH public keys are also pushed as certificates and count towards this limit. To bypass this limit, use the [Azure Key Vault extension](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) to install certificates.
+<sup>2</sup> Properties such as SSH public keys are also pushed as certificates and count towards this limit. To bypass this limit, use the [Azure Key Vault extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) or the [Azure Key Vault extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)to install certificates.
 
 <sup>3</sup> With Azure Resource Manager, certificates are stored in the Azure Key Vault. The number of certificates is unlimited for a subscription. There's a 1-MB limit of certificates per deployment, which consists of either a single VM or an availability set.
 
