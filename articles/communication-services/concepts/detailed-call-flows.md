@@ -23,7 +23,7 @@ Before reviewing call flow topologies, we'll define some terms that are referred
 
 A **customer network** contains any network segments that you manage. This might include wired and wireless networks within your office or between offices, data centers, and internet service providers.
 
-A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing comprehensive network assessments to validate the performance of your on-premise Communication Services solutions. ----TODO: how, specifically?----
+A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](https://docs.microsoft.com/en-us/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
 
 The **Communication Services network** is the network segment that supports Azure Communication Services. This network is managed by Microsoft and is distributed worldwide with edges close to most customer networks. This network is responsible for transport relay, media processing for group calls, and other components that support rich real-time media communications.
 
@@ -31,7 +31,7 @@ The **Communication Services network** is the network segment that supports Azur
 
 Communication Services is built primarily on two types of traffic: **real-time media** and **signaling**.
 
-**Real-time media** is transmitted using the Real-time Transport Protocol (RTP). This protocol supports audio, video, and screen sharing data transmission. This data is sensitive to network latency issues. While it's possible to transmit real-time media using TCP or HTTP, we recommend using UDP as the transport-layer protocol to support high-performance end-user experiences. Media payloads transmitted over RTP are secured using SRTP. ---TODO: automatically if you use the ACS client libraries? Any cases where manual config is necessary?---
+**Real-time media** is transmitted using the Real-time Transport Protocol (RTP). This protocol supports audio, video, and screen sharing data transmission. This data is sensitive to network latency issues. While it's possible to transmit real-time media using TCP or HTTP, we recommend using UDP as the transport-layer protocol to support high-performance end-user experiences. Media payloads transmitted over RTP are secured using SRTP.
 
 Users of your Communication Services solution will be connecting to your services from their client devices. Communication between these devices and your servers is handled with **signaling**. For example: call initiation and real-time chat are supported by signaling between devices and your service. Most signaling traffic uses HTTPS REST, though in some scenarios, SIP can be used as a signaling traffic protocol. While this type of traffic is less sensitive to latency, low-latency signaling will the users of your solution a pleasant end-user experience.
 
@@ -41,11 +41,11 @@ Media flowing through Communication Services is restricted as follows:
 
 **Third-party media relays.** Interoperability with a third-party media relays isn't supported. If one of your media endpoints is Communication Services, your media can only traverse Microsoft-native media relays, including those that support Microsoft Teams and Skype for Business.
 
-A third-party Session Border Controller (SBC) on the boundary with PSTN should terminate the RTP/RTCP stream, secured using SRTP, and not relay it to the next hop. ---TODO: clarify---
+A third-party Session Border Controller (SBC) on the boundary with PSTN should terminate the RTP/RTCP stream, secured using SRTP, and not relay it to the next hop. If you relay the flow to the next hop, it might not be understood.
 
 **Third-party SIP proxy servers.** A Communication Services signaling SIP dialog with a third-party SBC and/or gateway may traverse Microsoft native SIP proxies (just like Teams). Interoperability with third-party SIP proxies is not supported.
 
-**Third-party B2BUA (or SBC).** Communication Services media flow to and from the ----TODO: Microsoft's PSTN?---- PSTN is terminated by a third-party SBC. Interoperability with a third-party SBC within the Communication Services network (where a third-party SBC mediates two Communication Services endpoints) is not supported.
+**Third-party B2BUA (or SBC).** Communication Services media flow to and from the PSTN is terminated by a third-party SBC. Interoperability with a third-party SBC within the Communication Services network (where a third-party SBC mediates two Communication Services endpoints) is not supported.
 
 ### Unsupported technologies
 
