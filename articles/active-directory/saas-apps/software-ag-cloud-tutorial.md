@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
 
 ---
@@ -143,15 +143,12 @@ In this section, a user called Britta Simon is created in Software AG Cloud. Sof
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following option. 
 
-* Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
-
-* Go to Software AG Cloud Sign-on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the Software AG Cloud tile in the My Apps, this will redirect to Software AG Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
-
+Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
 
 ## Next steps
 
-Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+
