@@ -196,7 +196,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
     Here is the sample output:
 
-    ```json
+    ```console
     Name              : ADFTutorialIR
     Type              : SelfHosted
     ResourceGroupName : <resourceGroupName>
@@ -213,7 +213,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
     Here is the sample output:
 
-    ```json
+    ```console
     State                     : NeedRegistration
     Version                   :
     CreateTime                : 9/10/2019 3:24:09 AM
@@ -340,7 +340,7 @@ In this step, you link your Azure storage account to the data factory.
 
    Here is a sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroup name>
     DataFactoryName   : <dataFactory name>
@@ -464,7 +464,7 @@ In this step, you define a dataset that represents data in the SQL Server databa
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : SqlServerDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -517,7 +517,7 @@ The linked service has the connection information that the data factory uses at 
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : AzureBlobDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -597,7 +597,7 @@ In this tutorial, you create a pipeline with a copy activity. The copy activity 
 
     Here is the sample output:
 
-    ```json
+    ```console
     PipelineName      : SQLServerToBlobPipeline
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -634,7 +634,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
     Here is the output of the sample run:
 
-    ```JSON
+    ```console
     ResourceGroupName    : <resourceGroupName>
     DataFactoryName      : <dataFactoryName>
     ActivityRunId        : 24af7cf6-efca-4a95-931d-067c5c921c25
