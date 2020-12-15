@@ -9320,6 +9320,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/idp-pass-through-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/idp-pass-through-user-flow",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
       "redirect_url": "/azure/active-directory-b2c/billing",
       "redirect_document_id": true
