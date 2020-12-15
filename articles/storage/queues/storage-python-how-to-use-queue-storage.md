@@ -219,7 +219,7 @@ print("Message count: " + str(count))
 
 ---
 
-The result is only approximate because messages can be added or removed after Queue Storage responds to your request.
+The result is only approximate because messages can be added or removed after the service responds to your request.
 
 ## Dequeue messages
 
