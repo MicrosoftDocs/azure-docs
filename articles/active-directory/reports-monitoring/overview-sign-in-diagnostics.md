@@ -131,24 +131,24 @@ This scenario is caused by a conditional access policy that has the requirement 
 
 ![Require multi-factor authentication](./media/overview-sign-in-diagnostics/require-mfa.png)
 
-
-
-\<[Tim]: What about the diagnostics in this scenario? \> 
-
-
+The diagnostic section shows details about the user sign-in and the applied policies.
 
 
 
 ### MFA from other requirements
 
-This scenario occurs when the requirement to sign-in using multi-factor authentication was not emposed by a conditional access policy. For example, you have configured multi-factor authentication on a per user basis in your tenant.
+This scenario occurs when multi-factor authentication was not enforced by a conditional access policy. For example, you have configured multi-factor authentication on a per user basis in your tenant.
 
 
 ![Require multi-factor authentication per user](./media/overview-sign-in-diagnostics/mfa-per-user.png)
 
 
-\<[Tim]: What about the diagnostics in this scenario? \> 
+The intent of this diagnostic scenario is to provide more details about:
 
+- The source of the multi-factor authentication interrupt. 
+- The result of the client interaction.
+
+Additionally, this section also provides you with all details about the user sign-in attempt. 
 
 
 ### MFA proof up required
