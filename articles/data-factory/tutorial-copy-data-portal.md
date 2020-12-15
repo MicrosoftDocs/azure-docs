@@ -21,7 +21,7 @@ ms.author: jingwang
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
-> - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you perform the following steps:
 
