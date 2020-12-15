@@ -19,18 +19,18 @@ ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
 [![1]][1]
 
-You can enable ExpressRoute circuit either by Layer 2 connections or managed Layer 3 connections. In both case, if there are one or more Layer-2 devices in the ExpressRoute connection path, the responsibility of detecting any link failures in the path lies with the overlying BGP.
+You can enable ExpressRoute circuit either by Layer 2 connections or managed Layer 3 connections. In both cases, if there are more than one Layer-2 devices in the ExpressRoute connection path, the responsibility of detecting any link failures in the path lies with the overlying BGP session.
 
 On the MSEE devices, BGP keep-alive and hold-time are typically configured as 60 and 180 seconds respectively. For that reason when a link failure happens it can take up to three minutes to detect any link failure and switch traffic to alternate connection.
 
-You can control the BGP timers by configuring lower BGP keep-alive and hold-time on your edge peering device. If the BGP timers aren't the same between the two peering devices, the BGP session would establish using the lower time value. The BGP keep-alive can be set as low as three seconds, and the hold-time as low as 10 seconds. However, setting BGP timers aggressively is less preferable because the protocol is process intensive.
+You can control the BGP timers by configuring a lower BGP keep-alive and hold-time on your edge peering device. If the BGP timers aren't the same between the two peering devices, the BGP session will establish using the lower time value. The BGP keep-alive can be set as low as three seconds, and the hold-time as low as 10 seconds. However, setting a very aggressive BGP timer is not recommended because the protocol is process intensive.
 
 In this scenario, BFD can help. BFD provides low-overhead link failure detection in a subsecond time interval. 
 
 
 ## Enabling BFD
 
-BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. As such, to enable BFD, you can just configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
+BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
 
 An example CE/PE (using Cisco IOS XE) configuration is shown below. 
 
@@ -62,7 +62,7 @@ router bgp 65020
 Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. In certain scenarios, the interval may be set at a higher value of 750 milliseconds. By configuring a higher value, you can force these intervals to be longer but it's not possible to make them shorter.
 
 >[!NOTE]
->If you have configured Geo-redundant ExpressRoute circuits or use Site-to-Site IPSec VPN connectivity as backup; enabling BFD would help failover quicker following an ExpressRoute connectivity failure. 
+>If you have configured Geo-redundant ExpressRoute circuits or use Site-to-Site IPSec VPN connectivity as backup. Enabling BFD would help failover quicker following an ExpressRoute connectivity failure. 
 >
 
 ## Next Steps
