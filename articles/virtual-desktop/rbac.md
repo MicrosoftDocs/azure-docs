@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -126,7 +126,7 @@ The following list describes which permissions this role can access:
 
 ## User Session Operator
 
-The User Session Contributor role lets you send messages, disconnect sessions, and sign sessions out of the session host. However, this role doesn't let you perform session host management like removing session host, changing drain mode, and so on. This role can see assignments, but can't modify admins. We recommend you assign this role to specific host pools. If you give this permission at a resource group level, the admin will have read permission on all host pools under a resource group.
+The User Session Operator role lets you send messages, disconnect sessions, and use the "logoff" funciton to sign sessions out of the session host. However, this role doesn't let you perform session host management like removing session host, changing drain mode, and so on. This role can see assignments, but can't modify admins. We recommend you assign this role to specific host pools. If you give this permission at a resource group level, the admin will have read permission on all host pools under a resource group.
 
 The following list describes which permissions this role can access:
 
