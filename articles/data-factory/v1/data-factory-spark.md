@@ -219,8 +219,8 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
     1. The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
-    > [!IMPORTANT]
-    > We recommend that you do not set this property to `Always` in a production environment unless you're troubleshooting an issue.
+       > [!IMPORTANT]
+       > We recommend not setting this property to `Always` in a production environment unless you're troubleshooting an issue.
 
     1. The **outputs** section has one output dataset. You must specify an output dataset even if the Spark program doesn't produce any output. The output dataset drives the schedule for the pipeline (hourly, daily).
 
