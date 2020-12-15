@@ -17,31 +17,32 @@ Connection to your Azure Database for MariaDB is established through a gateway t
 
 ![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-As client connect to the database, they get a connection string which connects to the gateway. This gateway has a public IP address that listens to port 3306. Inside the database cluster, traffic is forwarded to appropriate Azure Database for MariaDB. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the **client side firewall to allow outbound traffic to be able to reach our gateways**. Below you can find a complete list of the IP addresses used by our gateways per region.
+
+As client connects to the database, the connection string to the server resolves to the gateway IP address. The gateway listens on the IP address on port 3306. Inside the database cluster, traffic is forwarded to appropriate Azure Database for MariaDB. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the **client-side firewall to allow outbound traffic to be able to reach our gateways**. Below you can find a complete list of the IP addresses used by our gateways per region.
 
 ## Azure Database for MariaDB gateway IP addresses
 
-The gateway service is hosted on group of stateless compute nodes sitting behind an IP address which your client would reach first when trying to connect to a Azure Database for MariaDB server. 
+The gateway service is hosted on group of stateless compute nodes sitting behind an IP address, which your client would reach first when trying to connect to an Azure Database for MariaDB server. 
 
-As part of ongoing service maintenance, we will periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is build out first. This new ring serves the traffic for all the newly created Azure Database for MariaDB servers and it will have a different IP addresses from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing Azure Database for MariaDB servers are planned for deprecation. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal 3 months in advance of decommissioning. The decommissioning of gateways can impact the connectivity to your servers if 
+As part of ongoing service maintenance, we will periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MariaDB servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if 
 
-* You hard code the gateway IP addresses in the connection string of your application. This is **strongly not recommended**. 
-* You do not update the newer gateway IP addresses in the client side firewall to allow outbound traffic to be able to reach our new gateway rings.
+* You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**. 
+* You do not update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings.
 
-The following table lists the gateway IP addresses of the Azure Database for MariaDB gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent the following:
+The following table lists the gateway IP addresses of the Azure Database for MariaDB gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
 
-* **Gateway IP addresses:** These are the current IP addresses of the gateways hosted on the latest generation of hardware. If you are provisioning a new server, we recommend that you open the client side firewall to allow outbound traffic for the IP addresses listed in this column.
-* **Gateway IP addresses (deprecating soon):** These are the IP addresses of the gateways hosted on a older generation of hardware which will be deprecating soon. If you are provisioning a new server, you can ignore these IP addresses. If you have an existing server, please continue to retain the outbound rule for the firewall for these IP addresses as we have not decommissioned it yet. If you drop the firewall rules for these IP addresses, you can get connectivity errors so you should not drop these IP addresses yet until they are fully decommissioned. In addition, you can proactively add the current IP addresses listed in Gateway IP addressess to the outbound firewall rule so when your server is migrated to latest hardware, there is no interuptions for you. As mentioned before, before decommissioning the gateway hardware, an email and portal notification is send 3 months in advance during which you are expected to take this action.
-* **Gateway IP addresses (decommissioned):** These are the IP addressess of the gateway ring which are already decommisioned and are no longer in operations. You can safely remove these IP addresses from your outbound firewall rule. 
+* **Gateway IP addresses:** This column lists the current IP addresses of the gateways hosted on the latest generation of hardware. If you are provisioning a new server, we recommend that you open the client-side firewall to allow outbound traffic for the IP addresses listed in this column.
+* **Gateway IP addresses (decommissioning):** This column lists the IP addresses of the gateways hosted on an older generation of hardware that is being decommissioned right now. If you are provisioning a new server, you can ignore these IP addresses. If you have an existing server, continue to retain the outbound rule for the firewall for these IP addresses as we have not decommissioned it yet. If you drop the firewall rules for these IP addresses, you may get connectivity errors. Instead, you are expected to proactively add the new IP addresses listed in Gateway IP addresses column to the outbound firewall rule as soon as you receive the notification for decommissioning. This will ensure when your server is migrated to latest gateway hardware, there is no interruptions in connectivity to your server.
+* **Gateway IP addresses (decommissioned):** This columns lists the IP addresses of the gateway rings, which are decommissioned and are no longer in operations. You can safely remove these IP addresses from your outbound firewall rule. 
 
 
-| **Region name** | **Gateway IP addresses** |**Gateway IP addresses (deprecating soon)** | **Gateway IP addresses (decommissioned)** |
+| **Region name** | **Gateway IP addresses** |**Gateway IP addresses (decommissioning)** | **Gateway IP addresses (decommissioned)** |
 |:----------------|:-------------------------|:-------------------------------------------|:------------------------------------------|
 | Australia Central| 20.36.105.0  | | |
 | Australia Central2	 | 20.36.113.0  | | |
 | Australia East | 13.75.149.87, 40.79.161.1	 |  | |
 | Australia South East |191.239.192.109, 13.73.109.251	 |  | |
-| Brazil South | 104.41.11.5, 191.233.201.8, 191.233.200.16	 |  |191.237.232.75|
+| Brazil South |191.233.201.8, 191.233.200.16	 |  | 104.41.11.5|
 | Canada Central |40.85.224.249	 | | |
 | Canada East | 40.86.226.166	 | | |
 | Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 	 | | |
@@ -78,6 +79,7 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 | West US |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | West US 2 | 13.66.226.202	 | | |
 ||||
+
 ## Connection redirection
 
 Azure Database for MariaDB supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MariaDB servers. With this feature, after the initial TCP session is established to the Azure Database for MariaDB server, the server returns the backend address of the node hosting the MariaDB server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
