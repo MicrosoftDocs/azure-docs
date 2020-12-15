@@ -60,6 +60,8 @@ Transfer learning is a technique that applies knowledge gained from solving one 
 
 Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
 
+Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## Deep learning use cases
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
@@ -75,8 +77,6 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
-
-Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### Image caption generation
 
