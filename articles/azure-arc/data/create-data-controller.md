@@ -59,10 +59,10 @@ Regardless of the option you choose, during the creation process you will need t
 There are multiple options for creating the Azure Arc data controller:
 
 > **Just want to try things out?**  
-> Get started quickly with [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
 - [Create a data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Create a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
-- [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://aka.ms/AzureArcJumpstart)
+- [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)
