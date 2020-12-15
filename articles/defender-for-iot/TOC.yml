@@ -169,7 +169,6 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-      
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Work with Security Module for Azure RTOS
