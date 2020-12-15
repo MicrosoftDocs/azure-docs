@@ -30,26 +30,39 @@ The above configurations helps to ensure that as far as possible the data is in 
    https://hbase.apache.org/book.html#ops.date.tiered
   ```
 
-# Flush queue/region count tuning
-The advisory may indicate that your flushes may need tuning. This happens due to two reasons, either because the flush handlers are not enough as the flushes are slower or the region count is so large that the updates are getting blocked and the flusher threads needs to flush more frequently. 
+# Flush queue tuning
+The advisory may indicate that your flushes may need tuning. The flush handlers might not be enough.
 
 In the region server UI keep an eye on the flush queue and if it grows beyond 100 then it means that the flushes are slower and you may have to tune the  configuration  `hbase.hstore.flusher.count`. By default the value is 2. Ensure that the max flusher threads do not increase beyond 6.
+Also see if you have a recommendation for region count tuning. If so first try the region tuning to see if that helps in faster flushes.
 
-The most prominent reason why you have blocked updates is that the region count might be more than the optimally supported heap size. Generally how to tune the heap size, memstore size and the region count? Lets see with an example
+# Region count tuning
+The most prominent reason why you have blocked updates is that the region count might be more than the optimally supported heap size. Generally how to tune the heap size, memstore size and the region count? Let's see with an example
 
 Assume the heap size for the region server is 10GB. By default the `hbase.hregion.memstore.flush.size` is `128M`. The default value for `hbase.regionserver.global.memstore.size` is `0.4`. Which means that out of 10G, `4G` is allocated for memstore (globally).
-The configuration `hbase.hregion.memstore.block.multiplier` (default value 4) is the maximum size upto which a given region can grow which is (128*4) = 512M. Once this size is reached the updates to this region is blocked and the client will get `RegionTooBusyException`. This inturn might indicate hotspotting of a region. Avoiding hotspots is a different topic. We won't discuss on that here in this section.
+
 Assuming there is an even distribution of the write load on all the regions and assuming every region grows upto 128M only then the max number of regions in this setup is `32` regions. If a given region server is configured to have 32 regions then we won't end up seeing blocked updates.
 
 Now what happens with the above settings - we have 100 regions. The 4G global memstore is now splitted across 100 regions. So effectively each region gets only 40MB for memstore. When the writes are uniform this will result in frequent flushes and smaller size of the order < 40M. Having more flusher threads might increase the flush speed `hbase.hstore.flusher.count`.
-In this case since we have room for a region to grow upto 128M there will be frequent cases where the global limit of 4G might be breached and all the updates are blocked until we fall to 0.95 of 4G which is again the configuration `hbase.regionserver.global.memstore.size.lower.limit`. The advisory here means that it would be good to revisit the number of regions per server, the heap size and the global memstore size configuration along with the flush threads tuning so that such updates getting blocked can be avoided.
+The advisory here means that it would be good to revisit the number of regions per server, the heap size and the global memstore size configuration along with the flush threads tuning so that such updates getting blocked can be avoided.
 
 # Compaction queue tuning
-The compaction queue grows to more than 2000 and this seems to happen periodically. This suggests that you can increase the compaction threads to a bigger value. The configurations are `hbase.regionserver.thread.compaction.small` and `hbase.regionserver.thread.compaction.large` (the defaults are 1 each).
-Cap the max value for this configuration to be less than 5.
+The compaction queue grows to more than 2000 and this seems to happen periodically. This suggests that you can increase the compaction threads to a bigger value. 
+If there are more number of files for compaction, it may lead to more heap usage related to how the files interact with the Azure file system. So it is better to complete the compaction as quickly as possible. 
+Some times in older clusters the compaction configurations related to throttling might lead to slower compaction rate. Check the configurations
+`hbase.hstore.compaction.throughput.lower.bound` and `hbase.hstore.compaction.throughput.higher.bound`. If they are already set to 50M and 100M, leave them as it is - if you find them having a lower value (which was the case with older clusters) please change the limits to 50M and 100M respectively.
+The configurations are `hbase.regionserver.thread.compaction.small` and `hbase.regionserver.thread.compaction.large` (the defaults are 1 each).
+Cap the max value for this configuration to be less than 3.
+
 
 # Full table scan
-If you have happen to see this advisory it indicates that over 75% of the scans issued are full table/region scans. Revisiting how the scan is formed might help in faster query performance like setting proper start and stop row, cases where you really need full table/region scan check if there is a possibility of avoiding cache usage for those queries so that other queries that needs to make use of the cache might not evict the blocks that are really hot.
+If you have happen to see this advisory it indicates that over 75% of the scans issued are full table/region scans. Revisiting how the scan is formed might help in faster query performance like 
+1. Setting proper start and stop row
+2. Trying using a MultiRowRangeFilter so that you can query different ranges in one scan call.
+   ```
+   https://hbase.apache.org/2.1/apidocs/org/apache/hadoop/hbase/filter/MultiRowRangeFilter.html
+   ```
+3. Cases where you really need full table/region scan check if there is a possibility of avoiding cache usage for those queries so that other queries that needs to make use of the cache might not evict the blocks that are really hot.
 For ensuring the scans do not use cache use the below API while creating your scans,
   ```
     scan#setCaching(false)
