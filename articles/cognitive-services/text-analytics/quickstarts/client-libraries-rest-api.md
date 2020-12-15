@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/07/2020
+ms.date: 12/02/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Use the Text Analytics client library
+# Quickstart: Use the Text Analytics client library and REST API
 
-Use this article to get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for mining text.
-
-Use the Text Analytics client library to perform:
+Use this article to get started with the Text Analytics client library and REST API. Follow these steps to try out examples code for mining text:
 
 * Sentiment analysis
+* Opinion mining
 * Language detection
 * Entity recognition
+* Personal Identifying Information recognition
 * Key phrase extraction
-* Opinion mining
+
 
 ::: zone pivot="programming-language-csharp"
 
@@ -76,16 +76,13 @@ If you want to use Text Analytics for health or Asynchronous operations, see the
 
 ::: zone-end
 
-::: zone pivot="programming-language-other"
+::: zone pivot="rest-api"
 
-## Additional language support
+> [!IMPORTANT]
+> * The latest stable version of the Text Analytics API is `3.0`.
+>    * Be sure to only follow the instructions for the version you are using.
 
-If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available. Use the table to find the right sample for your programming language.
-
-| Language | Available version | 
-|----------|------------------------|
-| Ruby     | [Version 2.1](ruby-sdk.md) | 
-| Go       | [Version 2.1](go-sdk.md) | 
+[!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end
 
