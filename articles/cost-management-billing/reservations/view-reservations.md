@@ -14,37 +14,36 @@ ms.author: banders
 
 This article explains how to view Azure reservations in the Azure portal. You can view and manage a purchased reservation in the Azure portal.
 
-## Permissions to view a reservation
+## Who can manage a reservation by default
 
-The following users can view and manage reservations:
+By default, the following users can view and manage reservations:
 
-Two users get the Owner role for the reservation order and the reservation. The owners are the user that bought the reservation and the billing account administrator of the subscription where the reservation was bought. Both users can view and manage reservations.
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-To allow other people to view the reservation, you must add them as an **Owner** or a **Reader** for the Reservation order or the reservation. Adding someone to the subscription where the reservation was bought doesn't automatically add them to the reservation.
+To allow other people to manage reservations, you have two options:
 
-### Enterprise Agreement 
+1. Delegate access management for an individual reservation order:
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    1. Select **All Services** > **Reservation** to list reservations that you have access to.
+    1. Select the reservation that you want to delegate access to other users.
+    1. From Reservation details, select the reservation order.
+    1. Select **Access control (IAM)**.
+    1. Select **Add role assignment** > **Role** > **Owner**. If you want to give limited access, select a different role.
+    1. Type the email address of the user you want to add as owner.
+    1. Select the user, and then select **Save**.
 
-There are additional permissions related to Enterprise Agreement (EA) only. Users with the _Enterprise Administrator_ role can view and manage all reservation orders and reservations that apply to the Enterprise Agreement. Users with _Enterprise Administrator (read only)_ role can only view the reservation. 
+2. Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
+    1. For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
-To view or manage reservations:
+        _Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM)._
+    1. For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
+    For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-1. Go to **Cost Management + Billing** and then on left side of the page, select **Reservation Transactions**.
-2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
-
-Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
-
-Enterprise Administrators can take ownership of a reservation order and they can add other users a reservation using Access control (IAM). 
-
-### Microsoft Customer Agreement
-
-There are additional permissions related to Microsoft Customer Agreement only. Users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. 
-
-To view or manage reservations:
+### How Billing Administrators view or manage reservations
 
 1. Go to **Cost Management + Billing** and then on the left side of the page, select **Reservation Transactions**.
-2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
-
-For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)
+2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created.
 
 ## View reservation and utilization in the Azure portal
 
