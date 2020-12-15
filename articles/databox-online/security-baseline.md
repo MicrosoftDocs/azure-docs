@@ -37,7 +37,7 @@ Internal traffic is further secured by:
 
 - Transport Layer Security (TLS) version 1.2 is required for Azure portal and SDK management of the Azure Stack Edge device.
 
-- Any client access to their is through the local web User Interface of a browser, where standard TLS 1.2 is used, as the default secure protocol.
+- Any client access to the device is through the local web UI using standard TLS 1.2 as the default secure protocol.
 
 - Only an authorized Azure Stack Edge Pro device is allowed to join the Azure Stack Edge service that the customer's create in their Azure subscription.
  
@@ -54,15 +54,13 @@ Internal traffic is further secured by:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40445).
 
-**Guidance**: Customers can choose a point-to-site virtual private network to connect an Azure Stack Edge device from their on-premise private network to the Azure network. The virtual private network options provides a second layer of encryption for the data-in-motion over transport layer security from a customer's Azure Stack Edge device to Azure cloud. 
-
-A point-to-site virtual private network gateway connection lets customers create a secure connection to their virtual network from an individual client computer or their Azure Stack Edge device. The point-to-site connection is initiated from a client computer or the Azure Stack Edge device and uses IKEv2 VPN, a standards-based IPsec VPN solution. In addition, certificates are used to secure access between the on-premise and Azure networks. 
+**Guidance**: Customers can choose a point-to-site virtual private network (VPN) to connect an Azure Stack Edge device from their on-premise private network to the Azure network. VPN provides a second layer of encryption for the data-in-motion over transport layer security from the customer's device to Azure. 
 
 Customers can configure a virtual private network on their Azure Stack Edge device via the Azure portal or via the Azure PowerShell.
 
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device | Microsoft Docs: Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device | Microsoft Docs
+- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
 
 - [Tutorial: Configure certificates for your Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -75,31 +73,26 @@ Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device |
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40446).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Customers can choose a point-to-site virtual private network to connect an Azure Stack Edge device from their on-premise private network to the Azure network. The virtual private network options provides a second layer of encryption for the data-in-motion over transport layer security from a customer's Azure Stack Edge device to Azure cloud services. 
-
-A point-to-site virtual private network gateway connection lets customers create a secure connection to their virtual network from an individual client computer or their Azure Stack Edge device. The point-to-site connection is initiated from a client computer or the Azure Stack Edge device and uses IKEv2 VPN, a standards-based IPsec VPN solution. In addition, certificates are used to secure access between the on-premise and Azure networks. 
+**Guidance**: Customers can choose a point-to-site virtual private network (VPN) to connect an Azure Stack Edge device from their on-premise private network to the Azure network. VPN provides a second layer of encryption for the data-in-motion over transport layer security from the customer's device to Azure. 
 
 Customers can configure a virtual private network on their Azure Stack Edge device via the Azure portal or via the Azure PowerShell.
 
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device | Microsoft Docs: Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device | Microsoft Docs
+- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
 
 - [Tutorial: Configure certificates for your Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### NS-4: Protect applications and services from external network attacks
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40447).
 
-**Guidance**: The Azure Stack Edge device incorporates standard Windows Server network protection features, and are not configurable by customers.
+**Guidance**: The Azure Stack Edge device incorporates standard Windows Server network protection features, which are not configurable by customers.
 
 Customers can choose to secure their private network connected with Azure Stack Edge device from external attacks using a network virtual appliance, such as a firewall with advanced distributed denial of service (DDoS) protections.
 
@@ -131,7 +124,7 @@ The Stack Edge appliance uses its own intrusion detect features to protect the s
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40449).
 
-**Guidance**: Customers can simplify network security rules with the usage of parameters, which can be declared in a javascript object notation (JSON) file. 
+**Guidance**: Customers can simplify network security rules with the usage of parameters, which can be declared in a JavaScript object notation (JSON) file. 
 
 As an example, a customer can provide address spaces for a parameter called VnetIPv4AddressSpace which can be used instead of IP address ranges. 
 
@@ -788,7 +781,7 @@ It is recommended to implement security using standardized incident response pro
 
 **Responsibility**: Customer
 
-### IR-3: Detection and analysis – create incidents based on high quality alerts
+### IR-3: Detection and analysis – create incidents based on high-quality alerts 
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40465).
@@ -903,7 +896,7 @@ through the lifetime of the device.
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: The user-defined security configurations are limited in the Azure Edge Stack device. Most device security settings are not configurable and stay up to date with installation of the latest updates. 
+**Guidance**: The user-defined security configurations are limited in the Azure Edge Stack device. Most device security settings are not configurable and stay up-to-date with installation of the latest updates. 
 - [Apply updates on your Azure Stack Edge device](azure-stack-edge-gpu-install-update.md)
 
 - [Protect data in Edge local shares](azure-stack-edge-gpu-prepare-device-failure.md#protect-data-in-edge-local-shares)
@@ -919,7 +912,7 @@ through the lifetime of the device.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40485).
 
-**Guidance**: Azure Stack Edge does offer support to create secure configurations for the local virtual machines which are created by the customers. It is strongly recommend to use Microsoft provided guidelines to establish security baselines while creating local virtual machines,
+**Guidance**: Azure Stack Edge does offer support to create secure configurations for the local virtual machines which are created by the customers. It is strongly recommended to use Microsoft provided guidelines to establish security baselines while creating local virtual machines,
 
 - [Download the security baselines included in the Security compliance toolkit](windows/security/threat-protection/windows-security-baselines)
 
@@ -932,7 +925,7 @@ through the lifetime of the device.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40486).
 
-**Guidance**: Azure Stack Edge does not offer any support to sustain secure configurations for the local virtual machines which have been created by the customers. It is strongly recommend that customers use the Security compliance toolkits (SCT) to help sustain secure configurations for their compute resources.
+**Guidance**: Azure Stack Edge does not offer any support to sustain secure configurations for the local virtual machines which have been created by the customers. It is strongly recommended that customers use the Security compliance toolkits (SCT) to help sustain secure configurations for their compute resources.
 
 Host operating system and virtual machines managed by Azure Stack Edge maintain their security configurations. 
 
@@ -1133,7 +1126,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+-	Use of Azure native and third-party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
