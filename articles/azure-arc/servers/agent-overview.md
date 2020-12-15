@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
 ---
 
@@ -176,8 +176,9 @@ After installing the Connected Machine agent for Windows, the following addition
 
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |DscService |Guest Configuration Service |dsc_service.exe |The Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
+    |GCArcService |Guest Configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
+    |ExtensionService |Guest Configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
 
 * The following environmental variables are created during agent installation.
 
@@ -227,8 +228,9 @@ After installing the Connected Machine agent for Linux, the following additional
 
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |himdsd.service |Azure Connected Machine Agent Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
+    |gcad.servce |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
+    |extd.service |Extension Service |gc_linux_service | Installs the required extensions targeting the machine.|
 
 * There are several log files available for troubleshooting. They are described in the following table.
 
