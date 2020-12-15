@@ -36,7 +36,7 @@ For additional examples, see [Lucene query syntax examples](search-query-lucene-
 
 ## <a name="bkmk_syntax"></a> Syntax fundamentals  
 
-the following syntax fundamentals apply to all queries that use the Lucene syntax.  
+The following syntax fundamentals apply to all queries that use the Lucene syntax.  
 
 ### Operator evaluation in context
 
