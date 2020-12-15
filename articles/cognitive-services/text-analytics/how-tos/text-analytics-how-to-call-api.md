@@ -66,7 +66,7 @@ See the table below to see which features can be used asynchronously. Note that 
 
 ## API request formats
 
-You can send both synchronous and asynchronous calls to the Tenxt Analytics API.
+You can send both synchronous and asynchronous calls to the Text Analytics API.
 
 #### [Synchronous](#tab/synchronous)
 
