@@ -123,11 +123,11 @@ The "view detailed metrics" tab will open up the pre-populated workbook summariz
 
 The Network Insights workbook allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
 
-* Centralized console for monitoring and troubleshooting with both [metric](../network-insights-overview#resource-health-and-metrics) and log data.
+* Centralized console for monitoring and troubleshooting with both [metric](../insights/network-insights-overview.md#resource-health-and-metrics) and log data.
 
 * Flexible canvas to support creation of custom rich [visualizations](../platform/workbooks-overview.md#visualizations).
 
-* Ability to consume and [share workbook templates](../platform/workbooks-overview#workbooks-versus-workbook-templates) with wider community.
+* Ability to consume and [share workbook templates](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
 
 To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../platform/workbooks-overview.md)
 
