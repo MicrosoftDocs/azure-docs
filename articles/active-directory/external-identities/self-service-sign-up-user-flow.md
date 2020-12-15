@@ -49,7 +49,7 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 4. Set the **Enable guest self-service sign up via user flows (Preview)** toggle to **Yes**.
 
    ![Enable guest self-service sign-up](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Select **Save**.
 ## Create the user flow for self-service sign-up
 
 Next, you'll create the user flow for self-service sign-up and add it to an application.
