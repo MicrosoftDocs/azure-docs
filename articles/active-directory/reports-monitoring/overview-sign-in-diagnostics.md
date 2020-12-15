@@ -172,12 +172,11 @@ The intent of this diagnostic scenario is to provide insight that the multi-fact
 
 This scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
 
-The intent of this diagnostic scenario is to provide insight into what the user supplied during the sign-in in case there was a Conditional Access policy or policies which were expected to apply, or a configured Multi-Factor Authentication which was expected to interrupt the user sign-in.
+The intent of this diagnostic scenario is to provide insight into what the user supplied during the sign-in in case there was a Conditional Access policy or policies which were expected to apply, or a configured multi-factor authentication which was expected to interrupt the user sign-in.
 
 
 
 ## Next steps
 
-* [Activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md)
-* [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Send logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+* [What are Azure Active Directory reports?](overview-reports.md)
+* [What is Azure Active Directory monitoring?](overview-monitoring.md)
