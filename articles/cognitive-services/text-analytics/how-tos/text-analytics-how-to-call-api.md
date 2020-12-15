@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
+ms.custom: references_regions
 ---
 
 # How to call the Text Analytics REST API
@@ -31,7 +32,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 ## Using the API synchronously
 
-You can call Text Analytics synchornously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
+You can call Text Analytics synchronously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
 
 ## Using the API asynchronously
 
@@ -65,7 +66,7 @@ See the table below to see which features can be used asynchronously. Note that 
 
 ## API request formats
 
-You can send both synchronous and asyncronous calls to the Tenxt Analytics API.
+You can send both synchronous and asynchronous calls to the Tenxt Analytics API.
 
 #### [Synchronous](#tab/synchronous)
 
