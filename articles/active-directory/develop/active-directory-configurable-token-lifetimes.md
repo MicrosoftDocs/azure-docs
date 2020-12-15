@@ -18,7 +18,7 @@ ms.reviewer: hirsin, jlu, annaba
 # Configurable token lifetimes in Microsoft identity platform (preview)
 
 > [!IMPORTANT]
-> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation.
+> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation.
 >
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, visit the [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
