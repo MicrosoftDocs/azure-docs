@@ -84,7 +84,7 @@ At this point, you should have the information you need to fix your issue.
 
 ## Scenarios
 
-This section provides you with an overview of the covered diagnostics scenarios. currently, the following scenarios are implemented: 
+This section provides you with an overview of the covered diagnostics scenarios. The following scenarios are implemented: 
  
 - Blocked by conditional access
 
