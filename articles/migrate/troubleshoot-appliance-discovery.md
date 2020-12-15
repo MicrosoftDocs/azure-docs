@@ -38,6 +38,13 @@ This can happen if the appliance machine is behind a proxy.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
 
+
+## Clicking on 'Login' button opens a new tab with no device code
+
+If after clicking on 'Login' on the appliance configuration manager, a new tab opens with no code, go back to the appliance configuration manager tab and you can find the device code in bold font under the 'Login' button as shown in the screenshot below. Copy the code and paste it on the login tab to authenticate with Azure.
+
+![Device code](./media/troubleshoot-appliance-discovery/code.png)
+
 ## Can't sign into Azure from the appliance web app
 
 The error "Sorry, but we're having trouble signing you in" appears if you're using the incorrect Azure account to sign into Azure. This error occurs for a couple of reasons:
