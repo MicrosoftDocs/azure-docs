@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 12/15/2020
 ms.author: aahi
 ---
 
@@ -22,7 +22,6 @@ For more information, see [Supported languages](../language-support.md).
 
 > [!TIP]
 > * Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
-> * You can also use this feature [asynchronously](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
 ## Preparation
 
@@ -32,7 +31,12 @@ Key phrase extraction works best when you give it bigger amounts of text to work
 
 You must have JSON documents in this format: ID, text, language
 
-Document size must be 5,120 or fewer characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
+Document size must be 5,120 or fewer characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
+
+See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for more information on these request objects.  
+
+### Example synchronous request object
+
 
 ```json
     {
@@ -66,6 +70,36 @@ Document size must be 5,120 or fewer characters per document, and you can have u
     }
 ```
 
+### Example asynchronous request object
+
+> [!NOTE]
+> See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+    }
+}
+```
+
 ## Step 1: Structure the request
 
 For information about request definition, see [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
@@ -94,6 +128,8 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
 An example of the output for key phrase extraction from the v3.1-preview.2 endpoint is shown here:
+
+### Synchronous result
 
 ```json
     {
@@ -154,6 +190,61 @@ An example of the output for key phrase extraction from the v3.1-preview.2 endpo
 
 ```
 As noted, the analyzer finds and discards non-essential words, and it keeps single terms or phrases that appear to be the subject or object of a sentence.
+
+### Asynchronous result
+
+If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
 
 ## Summary
 
