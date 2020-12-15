@@ -31,17 +31,23 @@ ms.author: pafarley
 
 After installing Python, you can install the latest version of the Form Recognizer client library with:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### [version 3.1 preview](#tab/preview)
+> [!NOTE]
+> The latest Form Recognizer reflects API version 2.0
+
+#### [version 2.1 preview](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> The Form Recognizer preview SDK reflects API version 2.1 preview
 
 ---
 
@@ -86,7 +92,7 @@ With Form Recognizer, you can create two different client types. The first, `for
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -95,7 +101,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -192,12 +198,12 @@ Total: 1203.39 has confidence 0.774
 
 ## Recognize business cards
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model. To recognize business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
 
@@ -210,12 +216,12 @@ This section demonstrates how to recognize and extract common fields from Englis
 
 ## Recognize invoices
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model. To recognize invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
 
