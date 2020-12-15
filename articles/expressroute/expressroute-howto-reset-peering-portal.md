@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Reset circuit peering using the Azure portal'
-description: Learn how to disable and enable peerings of an Azure ExpressRoute circuit using the Azure portal.
+title: 'Azure ExpressRoute: Reset circuit peerings by using the Azure portal'
+description: Learn how to disable and enable peerings of an Azure ExpressRoute circuit by using the Azure portal.
 services: expressroute
 author: duongau
 
@@ -10,35 +10,37 @@ ms.date: 11/30/2020
 ms.author: duau
 ---
 
-# Reset ExpressRoute circuit peerings use the Azure portal
+# Reset ExpressRoute circuit peerings by using the Azure portal
 
-This article describes how to disable and enable peerings of an ExpressRoute circuit using the Azure portal. When you disable a peering, the BGP session for both the primary and the secondary connection of your ExpressRoute circuit will be shut down. You'll lose connectivity through this peering to Microsoft. When you enable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be brought up. You'll regain connectivity through this peering to Microsoft. You can enable and disable Microsoft Peering and Azure Private Peering on an ExpressRoute circuit independently. The first time you configure the peerings on your ExpressRoute circuit, the peerings are enabled by default.
+The first time you configure the peerings on your ExpressRoute circuit, they are enabled by default. You can enable and disable Microsoft Peering and Azure Private Peering on an ExpressRoute circuit independently.  Disable a peering to disconnect the Border Gateway Protocol (BGP) sessions for the primary and secondary connections of your ExpressRoute circuit. Re-enable a peering to reconnect the BGP sessions.
 
-There are a couple scenarios where you may find it helpful resetting your ExpressRoute peerings.
-* Test your disaster recovery design and implementation. For example, you have two ExpressRoute circuits. You can disable the peerings of one circuit and force your network traffic to fail over to the other circuit.
-* Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering or Microsoft Peering of your ExpressRoute circuit. BFD gets enabled by default on Azure Private Peering if your ExpressRoute circuit is created after August 1 2018 and on Microsoft Peering. If your ExpressRoute circuit gets created after January 10 2020. If your circuit was created before that, BFD wasn't enabled. You can enable BFD by disabling the peering and reenabling it. 
+Resetting your ExpressRoute peerings might be helpful in the following scenarios:
 
-### Sign in to the Azure portal
+* You are testing your disaster recovery design and implementation. For example, if you have two ExpressRoute circuits, you can disable the peerings of one circuit and force your network traffic to use the other circuit.
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+* You want to enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering or Microsoft Peering. If your ExpressRoute circuit was created before August 1, 2018 on Azure Private Peering or before January 10, 2020 on Microsoft Peering, BFD was not enabled by default. You can enable BFD by resetting the peering.
+
+## Sign in to the Azure portal
+
+From a browser, navigate to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
 
 ## Reset a peering
 
-1. Select the circuit you want that you want to make peering configuration changes.
+1. Choose the circuit that you want to change.
 
     :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit-list.png" alt-text="ExpressRoute circuit list":::
 
-1. Select the peering configuration you want to enable or disable.
+1. Choose the peering configuration that you want to enable or disable.
 
     :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit.png" alt-text="ExpressRoute circuit overview":::
 
-1. Uncheck **Enable Peering** and select **Save** to disable the peering configuration.
+1. Clear the **Enable Peering** check box, and then select **Save** to disable the peering configuration.
 
     :::image type="content" source="./media/expressroute-howto-reset-peering-portal/disable-peering.png" alt-text="Disable private peering":::
 
-1. You can enable the peering again by checking **Enable Peering** and select **Save**.
+1. Select the **Enable Peering** check box, and then select **Save** to re-enable the peering configuration.
 
 ## Next steps
-If you need help with troubleshooting an ExpressRoute problem, check out the following articles:
+To troubleshoot ExpressRoute problems, see the following articles:
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 * [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)
