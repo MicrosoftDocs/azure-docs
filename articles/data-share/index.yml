@@ -50,10 +50,10 @@ landingContent:
         links:
           - text: Share from Azure Storage
             url: how-to-share-from-storage.md
-          - text: Share from Azure SQL Database or Synapse Analytics
+          - text: Share from Azure SQL Database or Azure Synapse Analytics
             url: how-to-share-from-sql.md
           - text: Share from Azure Data Explorer
-            url: https://docs.microsoft.com/azure/data-explorer/data-share
+            url: /azure/data-explorer/data-share
 
   # Card (optional)
   - title: Monitor and manage

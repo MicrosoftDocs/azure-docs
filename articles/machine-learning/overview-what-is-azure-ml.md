@@ -44,7 +44,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
-+ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
++ [Machine learning extension for Visual Studio Code users](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 

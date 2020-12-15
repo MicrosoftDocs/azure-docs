@@ -65,7 +65,7 @@ landingContent:
           - text: Enable single sign-on (SSO)
             url: session-overview.md
           - text: Customize your UI/UX
-            url: customize-ui-overview.md
+            url: customize-ui-with-html.md
           - text: User and app migration
             url: user-migration.md
 

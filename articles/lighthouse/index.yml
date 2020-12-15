@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
+  ms.date: 12/03/2020
   
 landingContent:
   - title: About Azure Lighthouse
@@ -91,6 +91,8 @@ landingContent:
             url: ./how-to/deploy-policy-remediation.md
           - text: Manage hybrid machines with Azure Arc
             url: ./how-to/manage-hybrid-infrastructure-arc.md
+          - text: Manage migration projects
+            url: ./how-to/migration-at-scale.md
 
   - title: Reference - SDKs
     linkLists:

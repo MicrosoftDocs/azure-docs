@@ -53,11 +53,11 @@ To install the agent, follow these steps.
    ![Create gMSA](media/how-to-install/install-12.png)</br>
  11. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
  12. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
-  ![Order domain controlllers](media/how-to-install/install-2a.png)</br>
+  ![Order domain controllers](media/how-to-install/install-2a.png)</br>
  13. Select **Next**.
   ![Connect Active Directory screen](media/how-to-install/install-3a.png)</br>
  14.  On the **Agent Installation** screen confirm settings and the account that will be created and click **Confirm**.
-  ![Confirm settngs](media/how-to-install/install-11.png)</br>
+  ![Confirm settings](media/how-to-install/install-11.png)</br>
  15. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
   ![Configuration complete screen](media/how-to-install/install-4a.png)</br>
 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.

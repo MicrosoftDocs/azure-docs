@@ -234,7 +234,7 @@ In this section, you'll create the three virtual machines for the backend pool o
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Set an administrator username and password for the VMs with [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential).
+* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Create the virtual machines with:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)

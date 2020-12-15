@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,10 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## December 2020
+
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
 
 ## November 2020
 
@@ -52,7 +56,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * v3.0-preview.1
     
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-Preview.2](quickstarts/text-analytics-sdk.md)
+> [Learn more about Text Analytics API v3.1-Preview.2](quickstarts/client-libraries-rest-api.md)
 
 ### Text Analytics for health container updates
 
@@ -169,13 +173,13 @@ The names of the following properties in the JSON response have been changed, wh
 ### SDK support for Text Analytics API v3 Public Preview
 
 As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), the Text Analytics API v3 SDK is now available as a public preview for the following programming languages:
-   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
-   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
-   * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
-   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
+   * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
+> [Learn more about Text Analytics API v3 SDK](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
 

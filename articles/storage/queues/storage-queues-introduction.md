@@ -37,5 +37,8 @@ The Queue service contains the following components:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Getting started with Queues using .NET](storage-dotnet-how-to-use-queues.md)
+- [Getting started with Queues using Java](storage-java-how-to-use-queue-storage.md)
+- [Getting started with Queues using Python](storage-python-how-to-use-queue-storage.md)
+- [Getting started with Queues using JS](storage-nodejs-how-to-use-queues.md)
