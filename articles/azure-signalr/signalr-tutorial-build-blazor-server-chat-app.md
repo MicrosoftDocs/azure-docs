@@ -433,7 +433,7 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
 >      }
 >    }
 >    ```
-> 
+> NB: Remove the ```js "Azure:SignalR:ServerStickyMode": "Required", ``` line added above or you will get a `System.FormatException` due to the duplicate key.
 > 1. Assign hosting startup assembly to use Azure SignalR SDK. Edit `launchSettings.json` and add a configuration like below inside `environmentVariables`.
 >    ```js
 >    "environmentVariables": {
