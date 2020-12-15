@@ -19,8 +19,8 @@ ms.author: glenga
                 "prefetchCount": 512
             },
             "initialOffsetOptions": {
-                "type": "<fromStart OR fromEnd OR fromEnqueuedTime>",
-                "enqueuedTime": "<time in any format supported DateTime.Parse() e.g. 2020-10-26T20:31Z>"
+                "type": "fromStart",
+                "enqueuedTime": ""
             }
         }
     }
@@ -32,7 +32,7 @@ ms.author: glenga
 |batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.|
 |eventProcessorOptions/maxBatchSize|10|The maximum event count received per receive loop.|
 |eventProcessorOptions/prefetchCount|300|The default pre-fetch count used by the underlying `EventProcessorHost`. The minimum allowed value is 10.|
-|initialOffsetOptions/type|fromStart|The location in the event stream to start processing from if a checkpoint does not exist in storage. Applies to all partitions.|
+|initialOffsetOptions/type|fromStart|The location in the event stream to start processing from if a checkpoint does not exist in storage. Options are "fromStart" , "fromEnd" or "fromEnqueuedTime". "fromEnd" will process new events that were enqueued after the Function app started running. Applies to all partitions.|
 |initialOffsetOptions/enqueuedTime|N/A|When "initialOffsetOptions/type" is configured as "fromEnqueuedTime", this field is mandatory.  It specifies the enqueued time of the event in the stream to start processing from. Supports time in any format supported by [DateTime.Parse()](https://docs.microsoft.com/en-us/dotnet/standard/base-types/parsing-datetime) e.g. 2020-10-26T20:31Z. Specifying timezone is recommended for clarity, if timezone is not specified, local timezone of where the function runs is assumed, which is UTC when running on Azure.|
 > [!NOTE]
 > For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
