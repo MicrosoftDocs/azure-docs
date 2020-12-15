@@ -321,7 +321,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
 1. Copy the following template and save it locally to a file named **storage.json**.
 
     ```json
-       {
+    {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {},
@@ -583,7 +583,7 @@ Rather than creating a new template spec for the revised template, add a new ver
 1. Copy the following template and save it locally to a file named **storage.json**.
 
     ```json
-       {
+    {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {},
