@@ -36,6 +36,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 The following list contains the fully qualified domain names (FQDN) used by your workspace and private endpoint:
 
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
@@ -85,6 +86,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 > [!IMPORTANT]
 > Some FQDNs are not shown in listed by the private endpoint, but are required by the workspace. These FQDNs are listed in the following table, and must also be added to your DNS server:
 >
+> * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
