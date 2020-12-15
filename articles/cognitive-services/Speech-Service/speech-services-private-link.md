@@ -1,7 +1,7 @@
 ---
-title: Using Speech Services with private endpoints
+title: How To: Use private endpoints with Speech service
 titleSuffix: Azure Cognitive Services
-description: HowTo on using Speech Services with private endpoints provided by Azure Private Link
+description: Learn how to use Speech service with private endpoints provided by Azure Private Link
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -12,32 +12,36 @@ ms.date: 12/04/2020
 ms.author: alexeyo
 ---
 
-# Using Speech Services with private endpoints provided by Azure Private Link
+# Use Speech service through a private endpoint
 
-[Azure Private Link](../../private-link/private-link-overview.md) allows you to connect to various PaaS services in Azure via a [private endpoint](../../private-link/private-endpoint-overview.md). A private endpoint is a private IP address within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet.
+[Azure Private Link](../../private-link/private-link-overview.md) lets you to connect to services in Azure using a [private endpoint](../../private-link/private-endpoint-overview.md).
+A private endpoint is a private IP address only accessible within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet.
 
-This article explains how to set up and use Private Link and private endpoints with Azure Cognitive Speech Services. 
+This article explains how to set up and use Private Link and private endpoints with Azure Cognitive Speech Services.
 
 > [!NOTE]
-> This article explains the specifics of setting up and using Private Link with Azure Cognitive Speech Services. Before proceeding further please get familiar with the general article on [using virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
+> This article explains the specifics of setting up and using Private Link with Azure Cognitive Speech Services. 
+> Before proceeding, review how to [use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
 
-Enabling a Speech resource for the private endpoint scenarios requires performing of the following tasks:
-- [Create Speech resource custom domain name](#create-custom-domain-name)
-- [Create and configure private endpoint(s)](#enabling-private-endpoints)
-- [Adjust existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
+Perform the following tasks to use a Speech service through a private endpoint:
 
-If later you decide to remove all private endpoints, but continue to use the resource, the necessary actions are described in [this section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+1. [Create Speech resource custom domain name](#create-custom-domain-name)
+2. [Create and configure private endpoint(s)](#enabling-private-endpoints)
+3. [Adjust existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-## Create custom domain name
+To remove private endpoints later, but still use the Speech service, you will perform the tasks found in [this section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
 
-Private endpoints require the usage of [Cognitive Services custom subdomain names](../cognitive-services-custom-subdomains.md). Use the instructions below to create one for your Speech resource.
+## Create a custom domain name
 
-> [!WARNING]
-> A Speech resource with custom domain name enabled uses a different way to interact with Speech Services. Most likely you will have to adjust your application code for both [private endpoint enabled](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#using-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
+Private endpoints require a [Cognitive Services custom subdomain name](../cognitive-services-custom-subdomains.md). Follow the instructions below to create one for your Speech resource.
+
+> [!IMPORTANT]
+> A Speech resource with custom domain name enabled uses a different way to interact with the Speech service.
+> You probably need to adjust your application code for both [private endpoint enabled](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#using-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
 >
-> Operation of enabling custom domain name is [**not reversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource. 
+> When you enable a custom domain name, the operation is [**not reversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
-> Especially in cases where your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/) we **strongly** recommend trying the configuration with a test resource and only then modifying the one used in production.
+> Especially in cases where your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/) we **strongly** recommend trying the configuration with a test resource before modifying the resource used in production.
 
 # [Azure portal](#tab/portal)
 
@@ -46,8 +50,8 @@ Private endpoints require the usage of [Cognitive Services custom subdomain name
 - Select *Networking* (*Resource management* group) 
 - In *Firewalls and virtual networks* tab (default) click **Generate Custom Domain Name** button
 - A new panel will appear with instructions to create a unique custom subdomain for your resource
-> [!WARNING]
-> After you have created a custom domain name it **cannot** be changed. See more information in the Warning above.
+> [!IMPORTANT]
+> After you have created a custom domain name it **cannot** be changed. See more information in the Important alert above.
 - After the operation is complete, you may want to select *Keys and Endpoint* (*Resource management* group) and verify the new endpoint name of your resource in the format of <p />`{your custom name}.cognitiveservices.azure.com`
 
 # [PowerShell](#tab/powershell)
@@ -56,9 +60,11 @@ This section requires locally running PowerShell version 7.x or later with the A
 
 Before proceeding further run `Connect-AzAccount` to create a connection with Azure.
 
-## Verify custom domain name availability
+## Verify custom domain name is available
 
-You need to check whether the custom domain you would like to use is free. We will use [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from Cognitive Services REST API. See comments in the code block below explaining the steps.
+You need to check whether the custom domain you would like to use is available. 
+We check for domain availability using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Cognitive Services REST API.
+See comments in the code block below explaining the steps.
 
 > [!TIP]
 > The code below will **NOT** work in Azure Cloud Shell.
@@ -107,8 +113,8 @@ subdomainName        : my-custom-name
 
 To enable custom domain name for the selected Speech Resource, we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet. See comments in the code block below explaining the steps.
 
-> [!WARNING]
-> After successful execution of the code below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Warning above.
+> [!IMPORTANT]
+> After successful execution of the code below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Important alert above.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
@@ -179,8 +185,8 @@ Select the Azure subscription containing Speech resource. If your Azure account 
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and execute the command below.
-> [!WARNING]
-> After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Warning above.
+> [!IMPORTANT]
+> After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Important alert above.
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
