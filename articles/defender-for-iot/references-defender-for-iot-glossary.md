@@ -13,8 +13,6 @@ ms.service: azure
 
 This glossary provides a brief description of important Defender for IoT Platform terms and concepts. Select the **Learn more** links to navigate to related terms in the glossary. This will help you more quickly learn and leverage product tools.
 
-For a glossary explanations regarding industry terminology, such as Industrial Control System (ICS), Human-machine interface (HMI) or known attacks such as BlackEnergy 3 or TRITON.
-
 ## A
 
 | Term | Description | Learn more |
