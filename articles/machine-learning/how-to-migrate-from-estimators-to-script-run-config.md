@@ -25,7 +25,7 @@ This article covers common considerations when migrating from Estimators to Scri
 > To migrate to ScriptRunConfig from Estimators, make sure you are using >= 1.15.0 of the Python SDK.**
 
 ## ScriptRunConfig documentation and samples
-Azure ML documentation and samples have been updated to use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) for job configuration and submission.
+Azure ML documentation and samples have been updated to use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) for job configuration and submission.
 
 For information on using ScriptRunConfig, refer to the following documentation:
 * [Configure and submit training runs](how-to-set-up-training-targets.md)
@@ -102,7 +102,7 @@ For more information on using data for training, see:
 * [Train with datasets in Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
 
 ## Distributed training
-If you need to configure a distributed job for training, you can do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. You can pass in an [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py), or [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) for distributed jobs of the respective types.
+If you need to configure a distributed job for training, you can do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. You can pass in an [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true), or [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) for distributed jobs of the respective types.
 
 The following example configures a PyTorch training job to use distributed training with MPI/Horovod:
 ```python
