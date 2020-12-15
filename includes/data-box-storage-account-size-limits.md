@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy    
 ms.topic: include
-ms.date: 06/24/2020
+ms.date: 12/15/2020
 ms.author: alkohli
 ---
 
@@ -12,4 +12,7 @@ Here are the limits on the size of the data that is copied into storage account.
 | Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|
 | Block blob and page blob                                            | Maximum limit is the same as the [Storage limit defined for Azure Subscription](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) and it includes data from all the sources including Data Box. |
-| Azure Files                                                          | Data Box supports large file shares (100TiB) if enabled before creation of the Data Box order. <br> If not enabled before order creation, maximum file share size supported is 5 TiB. <br> Premium file shares are not yet supported.<br> All folders under *StorageAccount_AzureFiles* must follow this limit. <br> For more information, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md)      |
+| Azure Files                                                          | Data Box supports large file shares (100TiB) if enabled before creation of the Data Box order. <br> If not enabled before order creation, maximum file share size supported is 5 TiB. <br> All folders under *StorageAccount_AzureFiles* must follow this limit. <br> For more information, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md)      |
+
+> [!IMPORTANT]
+> Maximum capacity of a premium file share is 100 TiB. We can't validate whether a file share exceeds this limit during the **Prepare to ship** stage of your order. Any data beyond this limit won't be copied from the device to the file share.

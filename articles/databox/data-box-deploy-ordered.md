@@ -2,12 +2,12 @@
 title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 12/15/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -241,7 +241,7 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
 
-    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
@@ -249,7 +249,10 @@ Do the following steps in the Azure portal to order a device.
 
     ![Data Box import Order wizard, Data destination screen, with storage accounts selected](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
+    Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
+
+   > [!NOTE]
+   > If you select File Storage Premium accounts, the provisioned quota on the file shares will increase to the size of data being copied. After the quota is increased, it isn't adjusted automatically.
 
     Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
 
