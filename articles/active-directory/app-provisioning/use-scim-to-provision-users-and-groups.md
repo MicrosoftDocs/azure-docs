@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Tutorial - Build a SCIM endpoint and configure user provisioning with Azure AD

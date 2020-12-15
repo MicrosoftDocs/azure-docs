@@ -33,7 +33,12 @@ Hive now supports dynamic materialized views, or pre-computation of relevant sum
 
 ### Hive transactional tables
 
-HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolation, and durability compliance for transactional tables that live in the Hive warehouse. ACID-compliant tables and table data are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format. Insert-only tables support all file formats.
+HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolation, and durability compliance for transactional tables that live in the Hive warehouse. ACID-compliant tables and table data are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format. Insert-only tables support all file formats. 
+
+> [!Note]
+> ACID/transactional support only works for managed tables and not external tables. Hive external tables are designed so that external parties can read and write table data, without Hive perfoming any alteration of the underlying data. For ACID tables, Hive may alter the underlying data with compactions and transactions.
+
+Some benefits of ACID tables are the following:
 
 * ACID v2 has performance improvements in both storage format and the execution engine.
 

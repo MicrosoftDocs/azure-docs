@@ -8,7 +8,7 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Managing Azure Enterprise Agreement roles

@@ -193,9 +193,9 @@
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
   - name: Microsoft Cloud App Security baseline
-    href: /cloud-app-security/security-baseline.md
+    href: https://docs.microsoft.com/cloud-app-security/security-baseline
   - name: Microsoft Defender for Identity security baseline
-    href: /defender-for-identity/security-baseline.md
+    href: https://docs.microsoft.com/defender-for-identity/security-baseline
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
