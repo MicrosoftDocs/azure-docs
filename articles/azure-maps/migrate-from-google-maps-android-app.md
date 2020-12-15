@@ -767,7 +767,7 @@ Learn more about Azure Maps Android SDK:
 > [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Add shapes to an Android map](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Change map styles in Android maps](./set-android-map-styles.md)

@@ -20,7 +20,7 @@ Additional resources:
 * [API reference documentation](/javascript/api/@azure/storage-blob)
 * [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Samples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 

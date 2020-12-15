@@ -76,7 +76,7 @@ Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must
 ### Azure portal
 There are three options for configuring an existing workspace using the Azure portal. Each are described below.
 
-To configure a single workspace, select the **Other onboarding options** and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
+To configure a single workspace, go the the **Virtual Machines** option in the **Azure Monitor** menu, select the **Other onboarding options**, and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
 
 [![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

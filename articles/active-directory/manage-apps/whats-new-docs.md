@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,16 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## November 2020
+
+### New articles
+- [Header-based single sign-on for on-premises apps with Azure AD App Proxy (Preview)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### Updated articles
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## October 2020
 

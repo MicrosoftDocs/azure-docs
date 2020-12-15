@@ -134,7 +134,7 @@ The following list contains the languages supported for a QnA Maker resource.
 |Vietnamese|
 
 ## Query matching and relevance
-QnA Maker depends on [Azure Cognitive Search language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for providing results.
+QnA Maker depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
 While the Azure Cognitive Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
@@ -160,4 +160,4 @@ This additional ranking is an internal working of the QnA Maker's ranker.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Language selection](../how-to/language-knowledge-base.md)
+> [Language selection](../index.yml)

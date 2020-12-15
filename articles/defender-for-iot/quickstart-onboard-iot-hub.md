@@ -19,7 +19,7 @@ ms.author: mlottner
 
 # Quickstart: Onboard Azure Defender for IoT service in IoT Hub
 
-This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
+This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) to get started.
 
 > [!NOTE]
 > Defender for IoT currently only supports standard tier IoT Hubs.

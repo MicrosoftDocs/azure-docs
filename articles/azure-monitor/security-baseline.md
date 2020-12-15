@@ -155,7 +155,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](./log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](log-query/get-started-queries.md)
 

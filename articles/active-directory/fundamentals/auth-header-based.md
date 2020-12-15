@@ -44,8 +44,8 @@ Remote users need to securely single sign-on (SSO) into to on-premises applicati
 
 ## Implement header-based authentication with Azure AD
 
-* [Add an on-premises application for remote access through Application Proxy in Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Add an on-premises application for remote access through Application Proxy in Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [Header-based authentication for single sign-on with Application Proxy and PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [Header-based authentication for single sign-on with Application Proxy and PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [Secure legacy apps with app delivery controllers and networks](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [Secure legacy apps with app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)

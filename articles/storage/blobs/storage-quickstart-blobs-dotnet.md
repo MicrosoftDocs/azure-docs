@@ -28,7 +28,7 @@ Additional resources:
 * [API reference documentation](/dotnet/api/azure.storage.blobs)
 * [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

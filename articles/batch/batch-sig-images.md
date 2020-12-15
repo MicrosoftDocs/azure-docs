@@ -53,7 +53,7 @@ In Azure, you can prepare a shared image from a managed image, which can be crea
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports generalized Shared Images. You can't create a custom image pool from a specialized Shared Image at this time.
+> Batch only supports generalized Shared Images; a specialized Shared Image can't be used to create a pool.
 
 The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 

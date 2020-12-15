@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -76,6 +76,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the `aud` claim in a token returned by the identity provider is equal to the one specified in the IdTokenAudience metadata.  |
 | METADATA | Yes | A URL that points to an OpenID Connect identity provider configuration document, which is also known as OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name.  |
 | authorization_endpoint | No | A URL that points to an OpenID Connect identity provider configuration authorization endpoint. The value of authorization_endpoint metadata takes precedence over the `authorization_endpoint` specified in the OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name. |
+| end_session_endpoint | No | The URL of the end session endpoint. The value of authorization_endpoint metadata takes precedence over the `end_session_endpoint` specified in the OpenID well-known configuration endpoint. |
 | issuer | No | The unique identifier of an OpenID Connect identity provider. The value of issuer metadata takes precedence over the `issuer` specified in the OpenID well-known configuration endpoint.  If specified, Azure AD B2C checks whether the `iss` claim in a token returned by the identity provider is equal to the one specified in the issuer metadata. |
 | ProviderName | No | The name of the identity provider.  |
 | response_types | No | The response type according to the OpenID Connect Core 1.0 specification. Possible values: `id_token`, `code`, or `token`. |
@@ -88,7 +89,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |token_endpoint_auth_method| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-
+|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`.|
 
 ```xml
 <Metadata>
@@ -98,7 +99,7 @@ The technical profile also returns claims that aren't returned by the identity p
   <Item Key="response_mode">form_post</Item>
   <Item Key="scope">openid profile email</Item>
   <Item Key="HttpBinding">POST</Item>
-  <Item Key="UsePolicyInRedirectUri">0</Item>
+  <Item Key="UsePolicyInRedirectUri">false</Item>
   <Item Key="client_id">Your Microsoft application client ID</Item>
 </Metadata>
 ```
@@ -127,6 +128,6 @@ When you configure the redirect URI of your identity provider, enter `https://{y
 
 Examples:
 
-- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account-custom.md)
-- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant-custom.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account.md)
+- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant.md)
+- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant.md)

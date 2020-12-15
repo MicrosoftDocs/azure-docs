@@ -145,6 +145,10 @@
       href: tutorial-deploy-ssis-packages-azure-powershell.md
     - name: Join virtual network
       href: tutorial-deploy-ssis-virtual-network.md  
+  - name: Lineage
+    items:
+    - name: Push Data Factory lineage data to Azure Purview
+      href: turorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
     - name: Data integration using data factory and data share
@@ -259,7 +263,7 @@
       href: connector-azure-sql-database.md
     - name: Azure SQL Managed Instance
       href: connector-azure-sql-managed-instance.md
-    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
+    - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -688,6 +692,10 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+  - name: Lineage
+    items:
+    - name: Connect a Data Factory to Azure Purview
+      href: connect-data-factory-to-azure-purview.md
   - name: Scenarios
     items:    
     - name: Data migration for data lake & EDW
@@ -752,6 +760,10 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Continuous Integration and Deployment 
+      href: ci-cd-github-troubleshoot-guide.md      
+    - name: Security and access control
+      href: security-and-access-control-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime

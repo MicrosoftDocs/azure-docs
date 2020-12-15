@@ -183,6 +183,35 @@ FROM
     input A
 ```
 
+### toLocaleString()
+The **toLocaleString** method in JavaScript can be used to return a language sensitive string that represents the date time data from where this method is called.
+Even though Azure Stream Analtyics only accepts UTC date time as system timestamp, this method can be used to covert the system timestamp to another locale and timezone.
+This method follows the same implementation behavior as the one available in Internet Explorer .
+
+**JavaScript user-defined function definition:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Sample query: Pass a datetime as input value**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+The output of this query will be the input datetime in **de-DE** with the options provided.
+```
+Samstag, 28. Dezember 2019
+```
+
 ## Next steps
 
 * [Machine Learning UDF](./machine-learning-udf.md)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -24,6 +24,8 @@ Text Analytics for health is a feature of the Text Analytics API service that ex
 
 * The web-based API (asynchronous) 
 * A Docker container (synchronous)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Features
 

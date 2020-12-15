@@ -1,16 +1,16 @@
 ---
 title: Deploy VM extensions with template
-description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
+description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
 
-Learn how to use [Azure virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager (ARM) template to run a PowerShell script on a Windows VM.  The script installs Web Server on the VM.
+Learn how to use [Azure virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager template (ARM template) to run a PowerShell script on a Windows VM. The script installs Web Server on the VM.
 
 This tutorial covers the following tasks:
 
@@ -26,14 +26,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in your ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
 
 ## Prepare a PowerShell script
 
