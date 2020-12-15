@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
 ---
 
@@ -59,7 +59,7 @@ The user who purchases a reservation and the account administrator of the subscr
 
 You can delegate reservation management by adding people to roles on the reservation order or the reservation. You assign the roles in the Azure portal or by using APIs and PowerShell. 
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default) 
 
 ## Get reservation details and utilization after purchase
 

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ You can view and manage the purchased reservation from the Azure portal.
 
 To view or manage a reservation, you need to have reader or owner permission on it. By default, when you buy a reservation, you and the account administrator automatically get the Owner role on the reservation order and reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation. Adding someone to the subscription that's provided for billing the reservation, does not add them to reservation automatically. 
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## View reservation and utilization in the Azure portal
 
