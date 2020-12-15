@@ -270,7 +270,6 @@ Before proceeding further with authentication, register your application on **Az
 1. In the **Redirect URI** section, select the **Web** platform from the drop-down list, and then set the value to the application URL that's based on your web server.
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. 
 1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**.
