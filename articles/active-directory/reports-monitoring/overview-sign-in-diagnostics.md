@@ -27,7 +27,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD provides you with a flexible security model to control what users can do with the managed resources. Access to these resources is not only controlled by who you are but also by how you access them. Typically, flexibility comes along with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
 
-As an IT admin, you need a tool (solution?) that gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostics for Azure AD are an example for such a tool. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
+As an IT admin, you need a solution, which gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostics for Azure AD are an example for such a tool. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
 
 This article gives you an overview of what this tool does and how you can use it.
 
