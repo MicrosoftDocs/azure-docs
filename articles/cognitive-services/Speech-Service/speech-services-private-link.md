@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Use Speech service through a private endpoint
 
-[Azure Private Link](../../private-link/private-link-overview.md) lets you to connect to services in Azure using a [private endpoint](../../private-link/private-endpoint-overview.md).
+[Azure Private Link](../../private-link/private-link-overview.md) lets you connect to services in Azure using a [private endpoint](../../private-link/private-endpoint-overview.md).
 A private endpoint is a private IP address only accessible within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 This article explains how to set up and use Private Link and private endpoints with Azure Cognitive Speech Services.
@@ -25,7 +25,7 @@ This article explains how to set up and use Private Link and private endpoints w
 
 Perform the following tasks to use a Speech service through a private endpoint:
 
-1. [Create Speech resource custom domain name](#create-custom-domain-name)
+1. [Create Speech resource custom domain name](#create-a-custom-domain-name)
 2. [Create and configure private endpoint(s)](#enabling-private-endpoints)
 3. [Adjust existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
@@ -60,7 +60,7 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 
 This section requires locally running PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-Before proceeding further run `Connect-AzAccount` to create a connection with Azure.
+Before proceeding, run `Connect-AzAccount` to create a connection with Azure.
 
 ## Verify custom domain name is available
 
@@ -236,14 +236,14 @@ Check that the IP address resolved corresponds to the address of your private en
 
 #### (Optional check). DNS resolution from other networks
 
-This check is necessary if you plan to use your private endpoint enabled Speech resource in "hybrid" mode, that is you have enabled *All networks* or *Selected Networks and Private Endpoints* access option in the *Networking* section of your resource. If you plan to access the resource using only private endpoint, you can skip this section.
+This check is necessary if you plan to use your private endpoint enabled Speech resource in "hybrid" mode, where you have enabled either *All networks* or *Selected Networks and Private Endpoints* access option in the *Networking* section of your resource. If you plan to access the resource using only a private endpoint, you can skip this section.
 
-We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
+We use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
 
-On any machine attached to a network from which you allow access to the resource open Windows Command Prompt or Bash shell, execute 'nslookup' command and ensure it successfully resolves your resource custom domain name:
+On any machine attached to a network from which you allow access to the resource, open Windows Command Prompt or Bash shell, enter the  `nslookup` command and ensure it successfully resolves your resource custom domain name:
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
-Server:  UnKnown
+Server:  Unknown
 Address:  fe80::1
 
 Non-authoritative answer:
@@ -254,7 +254,7 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-Note that IP address resolved points to a VNet Proxy endpoint, which is used for dispatching the network traffic to the private endpoint enabled Cognitive Services resource. This behavior will be different for a resource with custom domain name enabled, but *without* private endpoints configured. See [this section](#dns-configuration).
+Note that the resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
 
 ## Adjusting existing applications and solutions 
 
@@ -333,11 +333,11 @@ We will use West Europe as a sample Azure Region and `my-private-link-speech.cog
 
 To get the list of the voices supported in the region one needs to do the following two operations:
 
-- Obtain authorization token via
+- Obtain authorization token:
 ```http
 https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
 ```
-- Using the obtained token get the list of voices via
+- Using the token, get the list of voices:
 ```http
 https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
 ```
