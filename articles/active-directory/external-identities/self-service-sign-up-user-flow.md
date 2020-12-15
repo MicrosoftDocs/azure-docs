@@ -67,6 +67,9 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
    ![Create a new user flow page](media/self-service-sign-up-user-flow/create-user-flow.png)
 
+> [!NOTE]
+> You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
+
 8. Select **Create**.
 9. The new user flow appears in the **User flows (Preview)** list. If necessary, refresh the page.
 
