@@ -41,7 +41,7 @@ To create sample alerts from dummy resources:
 
     :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center":::
     
-    A notification appears that the sample alerts are being created:
+    A notification appears letting you know that the sample alerts are being created:
 
     :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notification that the sample alerts are being generated.":::
 
