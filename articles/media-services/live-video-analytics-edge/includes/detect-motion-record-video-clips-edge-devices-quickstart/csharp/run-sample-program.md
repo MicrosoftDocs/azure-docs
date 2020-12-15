@@ -15,7 +15,7 @@
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -33,7 +33,7 @@
   
   ```
   {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "Sample-Graph",
     "properties": {
       "topologyName": "EVRToFilesOnMotionDetection",
