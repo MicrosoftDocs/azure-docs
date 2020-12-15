@@ -1,5 +1,5 @@
 ---
-title: Enable Soft Delete on all Azure Key Vaults | Microsoft Docs
+title: Enable soft delete on all Azure Key Vaults | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults.
 services: key-vault
 author: ShaneBala-keyvault
@@ -34,7 +34,7 @@ For full details on the soft-delete functionality, see [Azure Key Vault soft-del
 
 Key Vault names are globally unique. The names of secrets stored in a key vault are also unique. You will not be able to reuse the name of a key vault or key vault object that exists in the soft deleted state. 
 
-**Example #1** If your application programmatically creates a key vault named 'Vault A' and later deletes 'Vault A'. The key vault will be moved to the soft deleted state. Your application will not be able to recreate another key vault named 'Vault A' until thekey vault is purged from the soft deleted state. 
+**Example #1** If your application programmatically creates a key vault named 'Vault A' and later deletes 'Vault A'. The key vault will be moved to the soft deleted state. Your application will not be able to recreate another key vault named 'Vault A' until the key vault is purged from the soft deleted state. 
 
 **Example #2** If your application creates a key named `test key` in key vault A, and later deletes the key from vault A, your application will not be able to create a new key named `test key` in key vault A until the `test key` object is purged from the soft deleted state. 
 
