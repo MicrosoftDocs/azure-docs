@@ -23,7 +23,7 @@ Before reviewing call flow topologies, we'll define some terms that are referred
 
 A **customer network** contains any network segments that you manage. This might include wired and wireless networks within your office or between offices, data centers, and internet service providers.
 
-A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](https://docs.microsoft.com/en-us/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
+A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
 
 The **Communication Services network** is the network segment that supports Azure Communication Services. This network is managed by Microsoft and is distributed worldwide with edges close to most customer networks. This network is responsible for transport relay, media processing for group calls, and other components that support rich real-time media communications.
 
