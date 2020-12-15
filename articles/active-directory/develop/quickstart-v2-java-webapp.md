@@ -23,7 +23,7 @@ In this quickstart, you'll download and run a code sample that demonstrates how 
 
 ## Prerequisites
 
-To run this sample you'll need:
+To run this sample, you'll need:
 
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or later. 
 - [Maven](https://maven.apache.org/).
