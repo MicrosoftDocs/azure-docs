@@ -74,6 +74,7 @@ To learn more about the details on the media path that is chosen, refer to the [
 This topology is used by customers that use Communication Services from the cloud without any on-premises deployment, such as SIP Interface. In this topology, traffic to and from Communication Services flows over the Internet.
 
 :::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Azure Communication Services Topology.":::
+
 *Figure 1 - Communication Services topology*
 
 The direction of the arrows on the above diagram reflect the initiation direction of the communication that affects connectivity at the enterprise perimeters. In the case of UDP for media, the first packet(s) may flow in the reverse direction, but these packets may be blocked until packets in the other direction are flowing.
@@ -107,6 +108,7 @@ If one client is internal on the customer network and one client is external (fo
 ### Customer network (intranet)
 
 :::image type="content" source="./media/call-flows/one-to-one-internal.png" alt-text="Traffic Flow within the Customer Network.":::
+
 *Figure 2 - Within customer network*
 
 In Step 7, peer-to-peer media Flow 5 is selected.
@@ -116,6 +118,7 @@ This media transmission is bidirectional. The direction of Flow 5 indicates that
 ### Customer network to external user (media relayed by Teams Transport Relay)
 
 :::image type="content" source="./media/call-flows/one-to-one-via-relay.png" alt-text="One to One Call Flow via a Relay.":::
+
 *Figure 3 - Customer network to external user (media relayed by Azure Transport Relay)*
 
 In Step 7, Flow 4 (from the customer network to Communication Services) and Flow 3 (from a remote mobile Communication Services user to Azure Communication Services) are selected.
@@ -127,6 +130,7 @@ This media transmission is bidirectional. The direction indicates which side ini
 ### Customer network to external user (direct media)
 
 :::image type="content" source="./media/call-flows/one-to-one-with-extenal.png" alt-text="One to One Call Flow with an External User.":::
+
 *Figure 4 - Customer network to external user (direct media)*
 
 In step 7, Flow 2 (from customer network to the client's peer over the Internet) is selected.
@@ -138,6 +142,7 @@ This media transmission is bidirectional. The direction of Flow 2 to remote mobi
 ### VPN user to internal user (media relayed by Teams Transport Relay)
 
 :::image type="content" source="./media/call-flows/vpn-to-internal-via-relay.png" alt-text="One to One Call Flow with a VPN user via Relay.":::
+
 *Figure 5 - VPN user to internal user (media relayed by Azure Relay*
 
 Signaling between the VPN to the customer network uses Flow 2*. Signaling between the customer network and Azure uses Flow 4. However, media bypasses the VPN and is routed using Flows 3 and 4 through Azure Media Relay.
@@ -145,6 +150,7 @@ Signaling between the VPN to the customer network uses Flow 2*. Signaling betwee
 ### VPN user to internal user (direct media)
 
 :::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+
 *Figure 6 - VPN user to internal user (direct media)*
 
 Signaling between the VPN to the customer network uses Flow 2'. Signaling between the customer network and Azure  is using flow 4. However, media bypasses the VPN and is routed using flow 2 from the customer network to the Internet.
