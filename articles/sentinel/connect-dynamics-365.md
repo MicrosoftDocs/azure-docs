@@ -42,13 +42,12 @@ The [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
 1. From the **Data connectors** gallery, select **Dynamics 365 (Preview)**, and then select **Open connector page** on the preview pane.
-    <br><\screen shot>
 
 1. On the **Instructions** tab, under **Configuration**, click **Connect**. 
 
     Once the connector is activated, it will take around 30 minutes until you will be able to see data arriving in the graph. 
 
-    According to the [Office audit log in the compliance center](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#requirements-to-search-the-audit-log), it can take up to 30 minutes or up to 24 hours after an event occurs for the corresponding audit log record to be returned in the results.
+    According to the [Office audit log in the compliance center](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#requirements-to-search-the-audit-log), it can take up to 30 minutes or up to 24 hours after an event occurs for the corresponding audit log record to be returned in the results.
 
 1. The Microsoft Dynamics audit logs can be found in the `Dynamics365Activity` table. See the table's [schema reference](/azure/azure-monitor/reference/tables/dynamics365activity).
 
