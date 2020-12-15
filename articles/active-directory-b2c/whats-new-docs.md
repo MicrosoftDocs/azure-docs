@@ -15,6 +15,19 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
 
+## December 2020
+
+### New articles
+
+- [Create a user flow in Azure Active Directory B2C](create-user-flow.md)
+- [Set up phone sign-up and sign-in for user flows (preview)](phone-authentication-user-flows.md)
+
+### Updated articles
+
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Azure Active Directory B2C code samples](code-samples.md)
+- [Page layout versions](page-layout.md)
+
 ## November 2020
 
 ### Updated articles
