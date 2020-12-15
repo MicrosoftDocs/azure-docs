@@ -11,7 +11,7 @@ ms.author: gistefan
 ms.reviewer: mikben
 ---
 
-# Overview
+# Use managed identities (.NET)
 
 Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Administration and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
