@@ -234,6 +234,15 @@ The following are some guidelines to follow when you create the custom parameter
 * Specifying an array in the definition file indicates that the matching property in the template is an array. Data Factory iterates through all the objects in the array by using the definition that's specified in the integration runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
 * A definition can't be specific to a resource instance. Any definition applies to all resources of that type.
 * By default, all secure strings, like Key Vault secrets, and secure strings, like connection strings, keys, and tokens, are parameterized.
+
+### Custom parameter limit
+
+Number of parameters can not exceed 256. There are 3 options to overcome 256 parameter limit.
+
+* Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
+* Refactor logic in the dataflow to reduce parameters, e.g., parameterize pipeline parameters and all have the same value, just use global parameters instead.
+* Split one dataflow  into multiple dataflows.
+
  
 ### Sample parameterization template
 
