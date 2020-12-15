@@ -29,7 +29,7 @@ The dashboard allows you to quickly view the security status of your network. It
 
 - Timeline with the alert description.
 
-:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/dashboard-alert-screen.png" alt-text="Dashboard":::
+:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/dashboard-alert-screen-v2.png" alt-text="Dashboard":::
 
 ## Viewing the latest alerts
 

@@ -159,19 +159,19 @@ Two types of LDAP-based authentication are supported:
 
 Active Directory groups defined here can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group RO permissions. See [Create and manage users](how-to-create-and-manage-users.md) for details.
 
-**To configure Active Directory:**
+To configure Active Directory:
 
 1. From the left navigation pane, select **System Settings**.
 
-    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings.png" alt-text="View your Active Directory system settings.":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="View your Active Directory system settings.":::
 
 2. In the System Settings pane, select **Active Directory**.
 
-    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations.png" alt-text="Edit your Active Directory configurations.":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
 
 3. In the Edit Active Directory Configuration dialog box, select **Active Directory Integration Enabled** and select **Save**. The Edit Active Directory Configuration dialog box expands, and you can now enter the parameters to configure Active Directory.
 
-    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled.png" alt-text="Enter the parameters to configure Active Directory.":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
 
     > [!NOTE]
     > - You must define the LDAP parameters here exactly as they appear in Active Directory.

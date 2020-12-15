@@ -201,7 +201,7 @@ This view provides an at-a-glance view of devices represented as follows:
 
   - Black dots indicate devices with no alerts
 
-:::image type="content" source="media/how-to-work-with-maps/colored-dots.png" alt-text="Bird eye view":::
+:::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Bird eye view":::
 
 ### Device type and connection view 
 
@@ -237,7 +237,7 @@ To enable simplified map views:
 
   - Select **System Settings** and then toggle the **Simplified Map View** option.
 
-:::image type="content" source="media/how-to-work-with-maps/simplify-view.png" alt-text="Simplify map view":::
+:::image type="content" source="media/how-to-work-with-maps/simplify-view-v2.png" alt-text="Simplify map view":::
 
 ## Learn more about devices
 
@@ -394,11 +394,11 @@ Each slot appears with the number of underlying devices and the icon that shows 
 
 When you select a slot, the slot details appear:
 
-:::image type="content" source="media/how-to-work-with-maps/slot-selection.png" alt-text="select a slot":::
+:::image type="content" source="media/how-to-work-with-maps/slot-selection-v2.png" alt-text="select a slot":::
 
 To view the underlying devices behind the slot, select **VIEW ON MAP**. The slot is presented in the device map with all the underlying modules and devices connected to it.
 
-:::image type="content" source="media/how-to-work-with-maps/map-appearance.png" alt-text="VIEW ON MAP":::
+:::image type="content" source="media/how-to-work-with-maps/map-appearance-v2.png" alt-text="VIEW ON MAP":::
 
 ## View a timeline of events for the device
 
@@ -597,7 +597,7 @@ To merge devices:
 
 3. In the set merge device attributes dialog box, choose a device name.
 
-   :::image type="content" source="media/how-to-work-with-maps/name-the-device.png" alt-text="attributes dialog box":::
+   :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="attributes dialog box":::
 
 4. Select **Save**.
 
