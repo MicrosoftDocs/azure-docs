@@ -65,6 +65,7 @@ To allow other people to manage reservations, you have two options:
     1. Select **Add role assignment** > **Role** > **Owner**. If you want to give limited access, select a different role.
     1. Type the email address of the user you want to add as owner.
     1. Select the user, and then select **Save**.
+
 2. Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     1. For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
