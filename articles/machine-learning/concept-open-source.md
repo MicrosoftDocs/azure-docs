@@ -13,7 +13,7 @@ ms.date: 12/10/2020
 
 # Open Source
 
-Azure Machine Learning supports many of the open-source Python machine learning libraries and platforms used throughout the machine learning lifecycle. Using tools like Jupyter notebooks and Visual Studio Code, you're able to bring your existing tools and leverage Azure Machine Learning to train, deploy, and manage the end-to-end machine learning lifecycle.
+Many open-source Python machine learning libraries and platforms work with Azure Machine Learning in various stages of the project lifecycle. With development tools like Jupyter notebooks and Visual Studio Code, you can leverage existing models and scripts in Azure Machine Learning to train, deploy, and manage the end-to-end machine learning solution.
 
 ## Training
 
