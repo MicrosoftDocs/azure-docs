@@ -1,7 +1,7 @@
 ---
 title: Getting started with Teams interop on Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Chat SDK
+description: In this quickstart, you'll learn how to join a Teams meeting with the Azure Communication Chat client library
 author: askaur
 ms.author: askaur
 ms.date: 12/08/2020
