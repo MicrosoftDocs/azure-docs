@@ -32,7 +32,7 @@ Create a Ruby application. For instructions, see [Create a Ruby application in A
 
 To use Azure Storage, you need to download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
-<!-- docutune:casing "Terminal (Mac)" -->
+<!-- docutune:ignore Terminal -->
 
 ### Use RubyGems to obtain the package
 
@@ -116,7 +116,7 @@ azure_queue_service.delete_message("test-queue",
 
 ## How to: Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue. The code below uses the `update_message()` method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC `DateTime` value that represents when the message will be visible on the queue.
+You can change the contents of a message in-place in the queue. The following code uses the `update_message()` method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC `DateTime` value that represents when the message will be visible on the queue.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)

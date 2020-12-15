@@ -29,11 +29,11 @@ To create a blank Node.js application, see [Create a Node.js web app in Azure Ap
 
 ## Configure your application to access storage
 
-The [Azure Storage Client Library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript) includes a set of convenience libraries that communicate with the storage REST services.
+The [Azure Storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript) includes a set of convenience libraries that communicate with the storage REST services.
 
-<!-- docutune:casing "Terminal (Mac)" -->
+<!-- docutune:ignore Terminal -->
 
-### Use Node Package Manager (NPM) to obtain the package
+### Use Node package manager (npm) to obtain the package
 
 1. Use a command-line interface such as PowerShell (Windows), Terminal (Mac), or Bash (Unix), navigate to the folder where you created your sample application.
 
@@ -292,7 +292,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 # [JavaScript v12](#tab/javascript)
 
-To retrieve a list of queues, call [QueueServiceClient.listQueues](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix). To retrieve a list filtered by a specific prefix, set [options.prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) in your call to `listQueues`.
+To retrieve a list of queues, call [`QueueServiceClient.listQueues`](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix). To retrieve a list filtered by a specific prefix, set [options.prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) in your call to `listQueues`.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
 
@@ -345,4 +345,4 @@ To clear all messages from a queue without deleting it, call `clearMessages`.
 Now that you've learned the basics of Queue Storage, follow these links to learn about more complex storage tasks.
 
 - Visit the [Azure Storage team blog](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog) to learn what's new
-- Visit the [Azure Storage Client Library for JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) repository on GitHub
+- Visit the [Azure Storage client library for JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) repository on GitHub

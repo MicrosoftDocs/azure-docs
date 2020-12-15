@@ -68,7 +68,7 @@ You can use NuGet to obtain these packages. Follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
 1. Select **Browse**
-1. Search online for `Azure.Storage.Queues`, and select **Install** to install the Azure Storage Client Library and its dependencies. This will also install the Azure.Storage.Common and Azure.Core libraries, which are dependencies of the queue library.
+1. Search online for `Azure.Storage.Queues`, and select **Install** to install the Azure Storage client library and its dependencies. This will also install the Azure.Storage.Common and Azure.Core libraries, which are dependencies of the queue library.
 1. Search online for `System.Configuration.ConfigurationManager`, and select **Install** to install the Configuration Manager.
 
 # [.NET v11](#tab/dotnetv11)
@@ -83,7 +83,7 @@ You can use NuGet to obtain these packages. Follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
 1. Select **Browse**
-1. Search online for `Microsoft.Azure.Storage.Queue`, and select **Install** to install the Azure Storage Client Library and its dependencies. This will also install the Microsoft.Azure.Storage.Common library, which is a dependency of the queue library.
+1. Search online for `Microsoft.Azure.Storage.Queue`, and select **Install** to install the Azure Storage client library and its dependencies. This will also install the Microsoft.Azure.Storage.Common library, which is a dependency of the queue library.
 1. Search online for `Microsoft.Azure.ConfigurationManager`, and select **Install** to install the Azure Configuration Manager.
 
 ---
@@ -487,7 +487,7 @@ queue.Delete();
 Now that you've learned the basics of Queue Storage, follow these links to learn about more complex storage tasks.
 
 - View the Queue Storage reference documentation for complete details about available APIs:
-  - [Azure Storage Client Library for .NET reference](/dotnet/api/overview/azure/storage)
+  - [Azure Storage client library for .NET reference](/dotnet/api/overview/azure/storage)
   - [Azure Storage REST API reference](/rest/api/storageservices/)
 - View more feature guides to learn about additional options for storing data in Azure.
   - [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) to store structured data.

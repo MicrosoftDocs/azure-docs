@@ -28,7 +28,7 @@ Additional resources:
 
 - [API reference documentation](/javascript/api/@azure/storage-queue/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-- [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue)
 - [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## Prerequisites
@@ -150,7 +150,7 @@ These example code snippets show you how to do the following actions with the Az
 
 ### Get the connection string
 
-The code below retrieves the connection string for the storage account from the environment variable created in the [configure your storage connection string](#configure-your-storage-connection-string) section.
+The following code retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `main` function:
 
@@ -166,7 +166,7 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 
 ### Create a queue
 
-Decide on a name for the new queue. The code below appends a UUID value to the queue name to ensure that it's unique.
+Decide on a name for the new queue. The following code appends a UUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).

@@ -124,7 +124,7 @@ Set the connection limit before opening any connections.
 
 For other programming languages, see that language's documentation to determine how to set the connection limit.
 
-For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).
+For more information, see the blog post [Web services: Concurrent connections](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### Increase the minimum number of threads
 
@@ -134,7 +134,7 @@ If you are using synchronous calls together with asynchronous tasks, you may wan
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.
+For more information, see the [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads) method.
 
 ## Unbounded parallelism
 

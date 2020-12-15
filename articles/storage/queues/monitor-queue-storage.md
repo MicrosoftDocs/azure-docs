@@ -25,7 +25,7 @@ The **Overview** page in the Azure portal for each Queue Storage resource includ
 
 ## What is Azure Monitor?
 
-Azure Queue Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises.
+Azure Queue Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources as well as resources in other clouds and on-premises.
 
 Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
 

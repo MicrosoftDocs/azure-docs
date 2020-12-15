@@ -19,7 +19,7 @@ ms.custom: seo-javascript-october2019, devx-track-python
 
 This article demonstrates common scenarios using the Azure Queue Storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
 
-The examples in this article are written in Python and use the [Azure Queue Storage client library for Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). For more information on queues, see the [next steps](#next-steps) section.
+The examples in this article are written in Python and use the [Azure Queue Storage client library for Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -179,13 +179,13 @@ You can change the contents of a message in-place in the queue. If the message r
 
 # [Python v12](#tab/python)
 
-The code below uses the [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
+The following code uses the [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ChangeMessage":::
 
 # [Python v2](#tab/python2)
 
-The code below uses the [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
+The following code uses the [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -209,7 +209,7 @@ The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-que
 
 # [Python v2](#tab/python2)
 
-The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method returns queue properties  including the `approximate_message_count`.
+The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method returns queue properties including `approximate_message_count`.
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)

@@ -1,6 +1,6 @@
 ---
 title: How to use Queue Storage from Java - Azure Storage
-description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage Client Library for Java.
+description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage client library for Java.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 ## Overview
 
-This guide will show you how to code for common scenarios using the Azure Queue Storage service. The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage). Scenarios include **inserting**, **peeking**, **getting**, and **deleting** queue messages. Code for **creating** and **deleting** queues is also covered. For more information on queues, see the [next steps](#next-steps) section.
+This guide will show you how to code for common scenarios using the Azure Queue Storage service. The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage). Scenarios include **inserting**, **peeking**, **getting**, and **deleting** queue messages. Code for **creating** and **deleting** queues is also covered. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
