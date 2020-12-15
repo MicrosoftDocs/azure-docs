@@ -56,27 +56,26 @@ The sign-in diagnostics for Azure AD is designed to enable self-diagnosis of sig
  
 ### Define sign-ins
 
-The goal of this step to define a scope for the list of sign-in events you want to investigate. Your scope is either based on a user or identifier and a time range. Additionally, you can also specify an app name if available. Azure AD uses the scope information to locate the right events for you.  
+The goal of this step is to define the scope for sign-in events you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. Additionally, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
 
 ### Select sign-in event 
 
 Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view. 
 
 ![Authentication summary](./media/overview-sign-in-diagnostics/authentication-summary.png)
-
-
  
 You can customize the columns displayed in this view.
 
 ### Review diagnosis
 
-For the selected sign-in event, Azure AD provides you with a diagnostic result. 
+For the selected sign-in event, Azure AD provides you with a diagnostics result. 
 
 ![Diagnostic results](./media/overview-sign-in-diagnostics/diagnostics-results.png)
 
  
-The result starts with an assessment. The assessment explains in a few sentences what happened. The explanation helps you to understand the behavior of the system. As a next step, you get a summary of the related conditional access policies that were applied to the selected sign-in. 
-This part is completed by recommended remediation steps to resolve your issue. Because it is not always possible to resolve issues without additional help, a recommended step might be to open a support ticket. 
+The result starts with an assessment. The assessment explains in a few sentences what happened. The explanation helps you to understand the behavior of the system. 
+
+As a next step, you get a summary of the related conditional access policies that were applied to the selected sign-in. This part is completed by recommended remediation steps to resolve your issue. Because it is not always possible to resolve issues without additional help, a recommended step might be to open a support ticket. 
 
 ### Take action 
 At this point, you should have the information you need to fix your issue.
@@ -103,11 +102,11 @@ This section provides you with an overview of the covered diagnostics scenarios.
 
 ###	Blocked by conditional access
 
-This scenario results from applied conditional access policies that have the block grant control set.
+This scenario is caused by a sign-in that was blocked by a conditional access policy.
 
 ![Block access](./media/overview-sign-in-diagnostics/block-access.png)
 
-The diagnostic presents details about the user sign-in and the policy or policies that were applied.
+The diagnostic section shows details about the user sign-in and the applied policies.
 
 
 ### Failed conditional access
