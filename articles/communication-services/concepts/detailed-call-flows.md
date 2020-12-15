@@ -1,5 +1,5 @@
 ---
-title: Detailed Call flows in Azure Communication Services
+title: Call flow topologies in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about call flows in Azure Communication Services.
 author:  nmurav
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Overview
+# Call flow topologies
 This article describes Azure Communication Services call flow topologies. This is a great article to review if you're an enterprise customer integrating Communication Services within a network that you manage. For an introduction to Communication Services call flows, visit the [call flows conceptual documentation](./call-flows.md).
 
 ## Background
@@ -69,7 +69,7 @@ To learn more about the details on the media path that is chosen, refer to the [
 
 ## Call flows in various topologies
 
-### Communication Services topology (internet)
+### Communication Services (internet)
 
 This topology is used by customers that use Communication Services from the cloud without any on-premises deployment, such as SIP Interface. In this topology, traffic to and from Communication Services flows over the Internet.
 
@@ -104,7 +104,7 @@ If one client is internal on the customer network and one client is external (fo
 7.	User A and User B invoke ICE connectivity tests and the best available media path is selected (see diagrams below for various use cases).
 8.	Both users send telemetry to Communication Services using Flow 4.
 
-### Customer network topology (intranet)
+### Customer network (intranet)
 
 :::image type="content" source="./media/call-flows/one-to-one-internal.png" alt-text="Traffic Flow within the Customer Network.":::
 *Figure 2 - Within customer network*
@@ -113,7 +113,7 @@ In Step 7, peer-to-peer media Flow 5 is selected.
 
 This media transmission is bidirectional. The direction of Flow 5 indicates that one side initiates the communication from a connectivity perspective. In this case, it doesn't matter which direction is used because both endpoints are within the customer network.
 
-### Customer network to external user topology (media relayed by Teams Transport Relay)
+### Customer network to external user (media relayed by Teams Transport Relay)
 
 :::image type="content" source="./media/call-flows/one-to-one-via-relay.png" alt-text="One to One Call Flow via a Relay.":::
 *Figure 3 - Customer network to external user (media relayed by Azure Transport Relay)*
@@ -124,7 +124,7 @@ These flows are relayed by Teams Transport Relay within Azure.
 
 This media transmission is bidirectional. The direction indicates which side initiates the communication from a connectivity perspective. In this case, these flows are used for signaling and media, using different transport protocols and addresses.
 
-### Customer network to external user topology (direct media)
+### Customer network to external user (direct media)
 
 :::image type="content" source="./media/call-flows/one-to-one-with-extenal.png" alt-text="One to One Call Flow with an External User.":::
 *Figure 4 - Customer network to external user (direct media)*
