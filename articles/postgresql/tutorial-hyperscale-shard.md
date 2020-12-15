@@ -29,15 +29,17 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 ## Get started with distributed data
 
 Distributing table rows across multiple PostgreSQL servers is a key technique
-for scalable queries in Hyperscale (Citus). Multiple servers (workers) can hold
-more data than any individual worker, and in many cases can use worker CPUs in
+for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
+more data than a traditional database, and in many cases can use worker CPUs in
 parallel to execute queries.
+
+In the prerequisites section we created a Hyperscale (Citus) server group with
+two worker nodes.
 
 ![coordinator and two workers](tutorial-hyperscale-shard/nodes.png)
 
-In the prerequisites section we created a Hyperscale (Citus) server group with
-two worker nodes. The coordinator node's metadata tables track workers and
-distributed data. We can check the active workers in
+The coordinator node's metadata tables track workers and distributed data. We
+can check the active workers in
 [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 ```sql
@@ -56,15 +58,9 @@ select nodeid from pg_dist_node where isactive;
 
 ### Rows, shards, and placements
 
-Distributing a table assigns each row to to a logical group called a *shard.*
-Each shard is mapped to a physical table on a worker node by its *shard
-placement.* After distribution, a table's rows are stored in shard placements
-on worker nodes; no rows remain on the coordinator node in distributed tables.
-
-![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
-
-Let's create a table for users and distribute it, choosing `email` as its
-*distribution column*:
+To use the CPU and storage resources of worker nodes, we have to distribute
+table data throughout the server group.  Distributing a table assigns each row
+to to a logical group called a *shard.* Let's create a table and distribute it:
 
 ```sql
 -- create a table on the coordinator
@@ -72,14 +68,13 @@ create table users ( email text primary key, bday date not null );
 
 -- distribute it into shards on workers
 select create_distributed_table('users', 'email');
-
--- load sample data
-insert into users
-select
-	md5(random()::text) || '@test.com',
-	date_trunc('day', now() - random()*'100 years'::interval)
-from generate_series(1, 1000);
 ```
+
+Hyperscale (Citus) assigns each row to a shard based on the value of the
+*distribution column* which, in our case, we specified to be `email`. Every row
+will be in exactly one shard, and every shard can contain multiple rows.
+
+![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
 
 By default `create_distributed_table()` makes 32 shards, as we can see by
 counting in the metadata table
@@ -96,16 +91,15 @@ select logicalrelid, count(shardid)
  users        |    32
 ```
 
-Hyperscale (Citus) uses information in the `pg_dist_shard` table to match rows
-in a distributed table with shards, using a hash of the value in the
-distribution column. The hashing details are unimportant for this tutorial.
-What matters is that we can query to see which shard is assigned any value of
-the distribution column:
+Hyperscale (Citus) uses the `pg_dist_shard` table to assign rows to shards,
+based on a hash of the value in the distribution column. The hashing details
+are unimportant for this tutorial. What matters is that we can query to see
+which values map to which shard IDs:
 
 ```sql
 -- Where would a row containing hi@test.com be stored?
 -- (The value doesn't have to actually be present in users, the mapping
--- is just a mathematical operation consulting pg_dist_shard.)
+-- is a mathematical operation consulting pg_dist_shard.)
 select get_shard_id_for_distribution_column('users', 'hi@test.com');
 ```
 ```
@@ -114,13 +108,16 @@ select get_shard_id_for_distribution_column('users', 'hi@test.com');
                                102008
 ```
 
-To connect the dots and see which worker node physically holds which rows of a
-distributed table, we can look at the shard placements in
+The mapping of rows to shards is purely logical. Shards must be assigned to
+specific worker nodes for storage, in what Hyperscale (Citus) calls *shard
+placement*.
+
+![shards assigned to workers](tutorial-hyperscale-shard/shard-placement.png)
+
+We can look at the shard placements in
 [pg_dist_placement](reference-hyperscale-metadata.md#shard-placement-table).
 Joining it with the other metadata tables we've seen shows where each shard
 lives.
-
-![shards assigned to workers](tutorial-hyperscale-shard/shard-placement.png)
 
 ```sql
 -- limit the output to the first five placements
@@ -249,3 +246,10 @@ SELECT *
 FROM run_command_on_shards('foo', $cmd$
   SELECT pg_size_pretty(pg_table_size('%1$s'));
 $cmd$);
+
+-- load sample data
+insert into users
+select
+	md5(random()::text) || '@test.com',
+	date_trunc('day', now() - random()*'100 years'::interval)
+from generate_series(1, 1000);
