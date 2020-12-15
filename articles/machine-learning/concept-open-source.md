@@ -15,7 +15,7 @@ ms.date: 12/10/2020
 
 Many open-source Python machine learning libraries and platforms work with Azure Machine Learning in various stages of the project lifecycle. With development tools like Jupyter notebooks and Visual Studio Code, you can leverage existing models and scripts in Azure Machine Learning to train, deploy, and manage the end-to-end machine learning solution.
 
-## Training
+## Train open-source machine learning models
 
 The machine learning training process involves the application of algorithms to your data in order to achieve a task or solve a problem. Depending on the problem, you may choose different algorithms that best fit the task and your data. For more information on the different branches of machine learning, see the [deep learning vs machine learning article](./concept-deep-learning-vs-machine-learning.md) and the [machine learning algorithm cheat sheet](algorithm-cheat-sheet.md).
 
