@@ -1,8 +1,8 @@
 ---
 title: Reference architecture for connected waste management solution built with Azure IoT Central| Microsoft Docs
 description: Learn concepts for a connected waste management solution built with Azure IoT Central.
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: miriambrus
+ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central

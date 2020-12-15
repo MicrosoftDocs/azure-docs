@@ -1,15 +1,13 @@
 ---
 title: Connect your Azure IoT Central application with Dynamics 365 Field Services | Microsoft Docs
 description: Learn how to build an end-to-end solution with Azure IoT Central and Dynamics 365 Field Service 
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: miriambrus
+ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ---
-
-
 # Build end-to-end solution with Azure IoT Central and Dynamics 365 Field Service 
 As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
 

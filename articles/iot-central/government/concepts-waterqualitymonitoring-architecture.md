@@ -3,12 +3,11 @@ title: Reference architecture for water quality monitoring solution built with A
 description: Learn concepts for a water quality monitoring solution built with Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ---
-
 
 # Water quality monitoring reference architecture 
 Water quality monitoring solutions can be built with the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
