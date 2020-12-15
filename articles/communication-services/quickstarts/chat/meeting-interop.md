@@ -14,15 +14,16 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams using the JavaScript client library.
+Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams using the JavaScript client library. 
 
 ## Prerequisites 
 
 1. A [Teams deployment](https://docs.microsoft.com/en-us/deployoffice/teams-install). 
-2. An ACS user, joining the Teams meeting as a guest user, can access meeting chat only when they have joined the Teams meeting call. See [here](../voice-video-calling/get-started-teams-interop.md) on how to add an ACS user to a Teams’ meeting and join the call.
-3. A working chat app that the user will use to join the meeting. Refer [this](./get-started.md) to learn how to get started with chat SDK. 
+2. A working [chat app](./get-started.md). 
 
 ## Enable Teams Interoperability 
+
+A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
 
 The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email acsfeedback@microsoft.com with: 
 1. The Subscription ID of the Azure subscription that contains your Communication Services resource. 
