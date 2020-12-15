@@ -10,6 +10,12 @@ ms.date: 04/12/2020
 ---
 # Troubleshooting problems in ITSM Connector
 
+This article discusses common problems in ITSM Connector and how to troubleshoot them.
+
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see Overview of alerts in Microsoft Azure.
+The customer can select how they want to be notified on the alert whether it is by mail, SMS, Webhook or even to automate a solution. Another option to be notified is using ITSM.
+ITSM gives you the option to send the alerts to external ticketing system such as ServiceNow.
+
 ## Visualize and analyze the incident and change request data
 
 Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#additional-information) of this article.
