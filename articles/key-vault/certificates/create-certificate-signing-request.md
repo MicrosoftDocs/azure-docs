@@ -34,6 +34,33 @@ Key Vault partners with following two Certificate Authorities to simplify the cr
 The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is not a trusted key vault CA) 
 
 
+
+# [Portal](#tab/azure-portal)
+
+1.	To generate CSR for the CA of your choice, navigate to the Key vault you want to add the certificate.
+2.	On the Key Vault properties pages, select **Certificates**.
+3.	Select **Generate/Import** tab.
+4.	On the **Create a certificate** screen choose the following values:
+    - **Method of Certificate Creation:** Generate.
+    - **Certificate Name:** ContosoManualCSRCertificate.
+    - **Type of Certificate Authority (CA):** Certificate issued by a non-integrated CA
+    - **Subject:** `"CN=www.contosoHRApp.com"`
+    - Select the other values as desired. Click **Create**.
+
+    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
+6.	You will see that certificate has now been added in Certificates list. Select this new certificate you had just created. The current state of the certificate would be ‘disabled’ as it hasn’t been issued by the CA yet.
+7. Click on **Certificate Operation** tab and select **Download CSR**.
+
+   ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
+8.	Take .csr file to the CA for the request to get signed.
+9.	Once the request is signed by the CA, bring back the certificate file to **merge the Signed request** in the same Certificate Operation screen.
+
+The certificate request has now been successfully merged.
+
+
 # [PowerShell](#tab/azure-powershell)
 
 
@@ -66,37 +93,12 @@ After the certificate request has been signed by the Issuer, you can bring back 
     ```
 
     Certificate request has now been successfully merged.
-
-# [Portal](#tab/azure-portal)
-
-1.	To generate CSR for the CA of your choice, navigate to the Key vault you want to add the certificate.
-2.	On the Key Vault properties pages, select **Certificates**.
-3.	Select **Generate/Import** tab.
-4.	On the **Create a certificate** screen choose the following values:
-    - **Method of Certificate Creation:** Generate.
-    - **Certificate Name:** ContosoManualCSRCertificate.
-    - **Type of Certificate Authority (CA):** Certificate issued by a non-integrated CA
-    - **Subject:** `"CN=www.contosoHRApp.com"`
-    - Select the other values as desired. Click **Create**.
-
-    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)  
-
-
-6.	You will see that certificate has now been added in Certificates list. Select this new certificate you had just created. The current state of the certificate would be ‘disabled’ as it hasn’t been issued by the CA yet.
-7. Click on **Certificate Operation** tab and select **Download CSR**.
-
-   ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.	Take .csr file to the CA for the request to get signed.
-9.	Once the request is signed by the CA, bring back the certificate file to **merge the Signed request** in the same Certificate Operation screen.
-
-The certificate request has now been successfully merged.
+---
 
 > [!NOTE]
 > If your RDN values have commas, you also can add them in the **Subject** field by surrounding the value in double quotes as shown in step 4.
 > Example entry to "Subject": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
 > In this example, the RDN `OU` contains a value with a comma in the name. The resulting output for `OU` is **Docs, Contoso**.
-
 
 ## Adding more information to CSR
 
