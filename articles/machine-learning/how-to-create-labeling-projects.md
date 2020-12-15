@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-
+ms.custom: data4ml
 ---
 
 # Create a data labeling project and export labels 
