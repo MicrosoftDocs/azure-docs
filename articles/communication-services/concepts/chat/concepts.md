@@ -41,9 +41,9 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the user-generated text messages as well as the system messages in chronological order. This helps you identify when a member was added or removed or when the chat thread topic was updated. Supported message types are:  
 
- - `Text`: Plain text message composed and sent by user as part of chat conversation. 
- - `RichText/HTML`: Message type for formatted text messages. ACS user cant send RichText messages currently. This type is supported for Teams users. 
- - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
+ - `Text`: A plain text message composed and sent by a user as part of a chat conversation. 
+ - `RichText/HTML`: A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
+ - `ThreadActivity/AddMember`: A system message that indicates one or more members have been added to the chat thread. For example:
 
 ```xml
 
@@ -88,7 +88,7 @@ Communication Services Chat shares user-generated messages as well as system-gen
 
 ```
 
-- `ThreadActivity/MemberJoined`: System message generated when a guest user joins the Teams meeting chat. ACS user can join as a guest user to a Teams meeting chat. For example:  
+- `ThreadActivity/MemberJoined`: A system message generated when a guest user joins the Teams meeting chat. Communication Services users can join as a guest of Teams meeting chats. For example:  
 ```xml
 { 
   "id": "1606351443605", 
@@ -100,7 +100,7 @@ Communication Services Chat shares user-generated messages as well as system-gen
   "createdOn": "2020-11-29T00:44:03.6950000Z" 
 } 
 ```
-- `ThreadActivity/MemberLeft`: System message generated when a guest user leaves the meeting chat. ACS user can join as a guest user to a Teams meeting chat. For example: 
+- `ThreadActivity/MemberLeft`: A system message generated when a guest user leaves the meeting chat. Communication Services users can join as a guest of Teams meeting chats. For example: 
 ```xml
 { 
   "id": "1606347703429", 

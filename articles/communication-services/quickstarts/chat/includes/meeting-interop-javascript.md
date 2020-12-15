@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 
 Once Teams interoperability is enabled, an ACS user can join the Teams call as a guest user using the calling SDK (pre-requisite #2). Joining the call will add them as a participant to the meeting chat as well. From here on, they can access the meeting chat, send, and receive messages with other users on the call. They cant see the chat history, if any, from before joining the call. 
 
-## Get meeting chat thread for ACS user 
+## Get a Teams meeting chat thread for a Communication Services user
 
 To show the meeting chat history to ACS user in your chat app and enable them to send messages, you will first need to instantiate `ChatThreadClient` for the meeting chat thread. Parse the meeting link or use Graph APIs with meeting ID to get thread ID.  
 
