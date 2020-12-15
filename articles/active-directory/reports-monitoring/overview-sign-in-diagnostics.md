@@ -86,22 +86,22 @@ At this point, you should have the information you need to fix your issue.
 
 This section provides you with an overview of the covered diagnostics scenarios. currently, the following scenarios are implemented: 
  
-- Blocked by Conditional Access
+- Blocked by conditional access
 
-- Failed Conditional Access
+- Failed conditional access
 
-- MFA from Conditional Access
+- MFA from conditional access
 
 - MFA from other requirements
 
-- MFA Proof up Required
+- MFA Proof up required
 
 - MFA Proof up required but user sign-in attempt is not from secure location
 
 - Successful Sign-in
 
 
-###	Blocked by Conditional Access
+###	Blocked by conditional access
 
 This scenario results from applied conditional access policies that have the block grant control set.
 
@@ -110,7 +110,7 @@ This scenario results from applied conditional access policies that have the blo
 The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
-### Failed Conditional Access
+### Failed conditional access
 
 This scenario is typically a result of a sign-in that failed because the requirements of a conditional access policy were not satisfied. Common examples are:
 
@@ -126,7 +126,7 @@ This scenario is typically a result of a sign-in that failed because the require
 The diagnostic presents details about the user sign-in and the policy or policies that were applied.
 
 
-### MFA from Conditional Access
+### MFA from conditional access
 
 This scenario is caused by a conditional access policy that has the requirement to sign-in using multi-factor authentication set.
 
@@ -152,7 +152,7 @@ This scenario occurs when the requirement to sign-in using multi-factor authenti
 
 
 
-### MFA Proof up Required
+### MFA proof up required
 
 This scenario results from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
 
@@ -169,7 +169,7 @@ Multi-factor authentication Proof up occurs when a user is required to use multi
 The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up, to provide the recommendation to have the user complete the proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
 
 
-### Successful Sign-in
+### Successful sign-in
 
 This scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
 
