@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
 description: 'Tutorial: Learn how to create a solar panel application using Azure IoT Central application templates.'
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: op-ravi
+ms.author: omravi
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
