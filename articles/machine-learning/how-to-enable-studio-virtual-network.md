@@ -98,9 +98,9 @@ The following table describes why you must enable managed identity authenticatio
 |Workspace default file store| Stores AutoML experiment assets. You must enable managed identity authentication on this storage account to submit AutoML experiments. |
 
 > [!WARNING]
-> There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when a workspace is set to use a default filestore that is already in the VNet.
+> There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
 > 
-> To avoid this issue, make sure your filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+> To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
 >
 > To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
