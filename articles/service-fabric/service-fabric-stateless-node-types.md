@@ -20,6 +20,8 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 ## Enabling stateless node types in Service Fabric cluster
 To set one or more node types as stateless in a cluster resource, set the **isStateless** property to "true". When deploying a Service Fabric cluster with stateless node types, do remember to have atleast one primary node type in the cluster resource.
 
+* The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
+
 ```json
 {
     "nodeTypes": [
@@ -233,6 +235,8 @@ Standard Load Balancer and Standard Public IP introduce new abilities and differ
 
 
 ### Migrate to using Stateless node types from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
+For all migration scenarios, a new stateless-only node type needs to be added. Existing node type cannot be migrated to be stateless-only.
+
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
 
 The new LB and IP should be referenced in the new Stateless node types that you would like to use. In the example above, a new virtual machine scale set resources is added to be used for Stateless node types. These virtual machine scale sets reference the newly created LB and IP and are marked as stateless node types in the Service Fabric Cluster Resource.
@@ -242,28 +246,8 @@ To begin, you will need to add the new resources to your existing Resource Manag
 * A Load Balancer Resource using Standard SKU.
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
-
-An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
