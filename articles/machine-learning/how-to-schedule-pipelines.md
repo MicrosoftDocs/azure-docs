@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 11/12/2019
+ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 
@@ -97,10 +97,6 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 In addition to the arguments discussed previously, you may set the `status` argument to `"Disabled"` to create an inactive schedule. Finally, the `continue_on_step_failure` allows you to pass a Boolean that will override the pipeline's default failure behavior.
 
-### Use Azure Logic Apps for more complex workflows
-
-Azure Logic Apps supports more complex workflows and is far more broadly integrated than Azure Machine Learning pipelines. See [Trigger a run of a Machine Learning pipeline from a Logic App](how-to-trigger-published-pipeline.md) for more information.
-
 ## View your scheduled pipelines
 
 In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
@@ -139,9 +135,83 @@ stop_by_schedule_id(ws, schedule_id)
 
 If you then run `Schedule.list(ws)` again, you should get an empty list.
 
+## Use Azure Logic Apps for more complex triggering needs 
+
+More complex trigger rules or behavior can be created using an [Azure Logic App](../logic-apps/logic-apps-overview.md).
+
+To use an Azure Logic App to trigger a Machine Learning pipeline, you'll need the REST endpoint for a published Machine Learning pipeline. [Create and publish your pipeline](how-to-create-your-first-pipeline.md). Then find the REST endpoint of your `PublishedPipeline` by using the pipeline ID:
+
+```python
+# You can find the pipeline ID in Azure Machine Learning studio
+
+published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here>")
+published_pipeline.endpoint 
+```
+
+## Create a Logic App
+
+Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your Logic App.
+
+Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
+
+1. [Create a system-assigned managed identity](../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
+
+1. Navigate to the Logic App Designer view and select the Blank Logic App template. 
+    > [!div class="mx-imgBorder"]
+    > ![Blank template](media/how-to-trigger-published-pipeline/blank-template.png)
+
+1. In the Designer, search for **blob**. Select the **When a blob is added or modified (properties only)** trigger and add this trigger to your Logic App.
+    > [!div class="mx-imgBorder"]
+    > ![Add trigger](media/how-to-trigger-published-pipeline/add-trigger.png)
+
+1. Fill in the connection info for the Blob storage account you wish to monitor for blob additions or modifications. Select the Container to monitor. 
+ 
+    Choose the **Interval** and **Frequency** to poll for updates that work for you.  
+
+    > [!NOTE]
+    > This trigger will monitor the selected Container but will not monitor subfolders.
+
+1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action.
+
+  > [!div class="mx-imgBorder"]
+  > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
+
+  Use the following settings to configure your action:
+
+  | Setting | Value | 
+  |---|---|
+  | HTTP action | POST |
+  | URI |the endpoint to the published pipeline that you found as a [Prerequisite](#prerequisites) |
+  | Authentication mode | Managed Identity |
+
+1. Set up your schedule to set the value of any [DataPath PipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) you may have:
+
+    ```json
+    "DataPathAssignments": { 
+         "input_datapath": { 
+                            "DataStoreName": "<datastore-name>", 
+                            "RelativePath": "@triggerBody()?['Name']" 
+    } 
+    }, 
+    "ExperimentName": "MyRestPipeline", 
+    "ParameterAssignments": { 
+    "input_string": "sample_string3" 
+    },
+    ```
+
+    Use the `DataStoreName` you added to your workspace as a [Prerequisite](#prerequisites).
+     
+    > [!div class="mx-imgBorder"]
+    > ![HTTP settings](media/how-to-trigger-published-pipeline/http-settings.png)
+
+1. Select **Save** and your schedule is now ready.
+
+> [!IMPORTANT]
+> If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
+
 ## Next steps
 
-In this article, you used the Azure Machine Learning SDK for Python to schedule a pipeline in two different ways. One schedule recurs based on elapsed clock time. The other schedule runs if a file is modified on a specified `Datastore` or within a directory on that store. You saw how to use the portal to examine the pipeline and individual runs. Finally, you learned how to disable a schedule so that the pipeline stops running.
+In this article, you used the Azure Machine Learning SDK for Python to schedule a pipeline in two different ways. One schedule recurs based on elapsed clock time. The other schedule runs if a file is modified on a specified `Datastore` or within a directory on that store. You saw how to use the portal to examine the pipeline and individual runs. You learned how to disable a schedule so that the pipeline stops running. Finally, you created an Azure Logic App to trigger a pipeline. 
 
 For more information, see:
 
