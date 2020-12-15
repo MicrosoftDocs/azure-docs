@@ -22,7 +22,7 @@ For more information, see [Supported languages](../language-support.md).
 
 > [!TIP]
 > * Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
-> * See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
+> * You can also use this feature [asynchronously](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
 ## Preparation
 
