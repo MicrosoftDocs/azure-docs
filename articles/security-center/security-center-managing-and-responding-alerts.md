@@ -85,5 +85,4 @@ In this document, you learned how to view security alerts. See the following pag
 
 - [Configure alert suppression rules](alerts-suppression-rules.md)
 - [Automate responses to Security Center triggers](workflow-automation.md)
-- 
 - [Security alerts - a reference guide](alerts-reference.md)
