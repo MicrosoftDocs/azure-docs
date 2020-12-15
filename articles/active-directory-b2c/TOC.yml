@@ -153,6 +153,8 @@
       href: identity-provider-wechat.md
     - name: Weibo
       href: identity-provider-weibo.md
+    - name: Pass through identity provider token
+      href: idp-pass-through-user-flow.md
   - name: UX customization
     items:
     - name: Configure user input
@@ -206,8 +208,6 @@
         href: api-connectors-overview.md
       - name: Add an API connector
         href: add-api-connector.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-user-flow.md
   - name: Custom policy
     items:
     - name: Custom policy overview
@@ -231,8 +231,6 @@
       - name: SendGrid
         href: custom-email-sendgrid.md
       displayName: verification
-    - name: Pass through external IdP token
-      href: idp-pass-through-custom.md
     - name: Add your own business logic
       items:
       - name: Integrate REST API
