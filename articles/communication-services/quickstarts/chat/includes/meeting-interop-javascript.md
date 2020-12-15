@@ -18,7 +18,7 @@ First, instantiate a `ChatThreadClient` for the meeting chat thread. Parse the m
 - A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The thread ID will be where `meeting_chat_thread_id` is in that link. 
 - If you have the meeting ID, you can use [Graph API](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) to get the thread ID. The [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) response will have a `chatInfo` object that contains the `threadID`. 
 
-Once you have the chat thread ID, you can get chat thread client using Javascript chat client library: 
+Once you have the chat thread ID, you can get chat thread client using JavaScript chat client library: 
 
 ```javascript
 let chatThreadClient = await chatClient.getChatThreadClient(threadId); 
@@ -28,7 +28,7 @@ console.log(`Chat Thread client for threadId:${chatThreadClient.threadId}`);
   
 The `chatThreadClient` can be used to list members in the chat thread, get chat history, and send messages.  
 
-## Send & receive messages  
+## Send and receive messages  
 
 Use the `SendMessage` to send a message to the meeting chat. For receiving incoming messages, the ability to subscribe to events like `chatMessageReceived` is not supported as real-time signaling is not yet enabled for this scenario. To get the latest messages, you can poll the `ListMessages` API. For the interoperability scenario, the `ListMessages` API now supports returning three new message types:
 - `RichText/HTML`
