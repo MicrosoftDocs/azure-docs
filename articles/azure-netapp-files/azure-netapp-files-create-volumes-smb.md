@@ -296,7 +296,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * If you want to enable continuous availability (CA) for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]
-        > Using SMB CA shares for workloads other than SQL server is not supported. 
+        > You should enable CA only for SQL workloads. Using SMB CA shares for workloads other than SQL server is not supported. 
 
     ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
