@@ -60730,6 +60730,11 @@
       "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
       "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-deployment-guide.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
     }       
   ]
 }
