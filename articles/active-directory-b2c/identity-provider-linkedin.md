@@ -364,7 +364,7 @@ The **BuildingBlocks** element should be added near the top of the file. See the
 As part of the LinkedIn migration from v1.0 to v2.0, an additional call to another API is required to obtain the email address. If you need to obtain the email address during sign-up, do the following:
 
 1. Complete the steps above to allow Azure AD B2C to federate with LinkedIn to let the user sign in. As part of the federation, Azure AD B2C receives the access token for LinkedIn.
-1. Save the LinkedIn access token into a claim. [See the instructions here](idp-pass-through-custom.md).
+1. Save the LinkedIn access token into a claim. [See the instructions here](idp-pass-through-user-flow.md).
 1. Add the following claims provider that makes the request to LinkedIn's `/emailAddress` API. In order to authorize this request, you need the LinkedIn access token.
 
     ```xml
