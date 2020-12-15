@@ -61,9 +61,9 @@ The results from the cmdlet should look similar to this output:
     ValidationEnvironment : True
 ```
 
-## Enable or disable your validation environment with the Azure portal
+## Enable your validation environment with the Azure portal
 
-You can also use the Azure portal to enable or disable your validation environment.
+You can also use the Azure portal to enable your validation environment.
 
 To use the Azure portal to configure your validation host pool:
 
@@ -72,7 +72,7 @@ To use the Azure portal to configure your validation host pool:
 3. In the Windows Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.
 5. Select **Properties**.
-6. In the validation environment field, select **Yes** to enable the validation environment, or select **No** to disable it.
+6. In the validation environment field, select **Yes** to enable the validation environment.
 7. Select **Save**. This will apply the new settings.
 
 ## Update schedule
