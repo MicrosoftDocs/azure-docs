@@ -52,7 +52,7 @@ The following diagram shows how an identity provider token returns to your app:
 5. Select **Application claims**.
 6. Enable the **Identity Provider Access Token** claim.
 
-    ![Enable the Identity Provider Access Token claim](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
+    ![Enable the Identity Provider Access Token claim](./media/idp-pass-through-user-flow/identity-provider-pass-through-app-claim.png)
 
 7. Click **Save** to save the user flow.
 
@@ -66,7 +66,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
     You should see something similar to the following example:
 
-    ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
+    ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/identity-provider-pass-through-token.png)
 
 ::: zone-end
 
@@ -145,7 +145,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
     You should see something similar to the following example:
 
-    ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/idp-pass-through-custom-token.PNG)
+    ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/identity-provider-pass-through-token-custom.png)
 
 ::: zone-end
 
