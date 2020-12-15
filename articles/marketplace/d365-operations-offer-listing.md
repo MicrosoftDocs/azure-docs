@@ -18,20 +18,13 @@ ms.date: 12/08/2020
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-##### Call-out descriptions
+- The boxed section at the top contains your logo and offer name, followed by your search results summary, ratings, and pricing selection.
+- The **Overview** tab contains your search results summary, description, and sample screen shots and (optionally) linked video thumbnails.
+- The **Details + support** tab contains the information you provide for topics like pricing structure, version, license agreement, privacy policy, and support.
 
-1. Logo
-2. Products
-3. Categories
-4. Industries
-5. Support address (link)
-6. Terms of use
-7. Privacy policy
-8. Offer name
-9. Description
-10. Screenshots/videos
+Continue reading below for how to enter these marketplace details.
 
 ## Marketplace details
 
