@@ -28,7 +28,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 ## Planned changes
 
 - ["Not applicable" resources to be reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
-- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 ### "Not applicable" resources to be reported as "Compliant" in Azure Policy assessments
 
