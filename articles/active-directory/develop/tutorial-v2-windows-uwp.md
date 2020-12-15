@@ -55,7 +55,8 @@ This section provides step-by-step instructions to integrate a Windows Desktop .
 
 This guide creates an application that displays a button that queries the Microsoft Graph API and a button to sign out. It also displays text boxes that contain the results of the calls.
 
-Do you want to download this sample's Visual Studio project instead of creating it? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip), and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
+> [!Tip]
+> To see a completed version of the project you build in this tutorial, you can [download it from GitHub](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip).
 
 ### Create your application
 
@@ -285,6 +286,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
         }
     }
 ```
+
 MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. You need to support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
 
 #### More information about signing out<a name="more-information-on-sign-out"></a>
@@ -371,7 +373,7 @@ To enable Integrated Windows authentication when it's used with a federated Azur
    * **Private Networks (Client & Server)**
    * **Shared User Certificates**
 
-> [!NOTE]
+> [!IMPORTANT]
 > [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need Integrated Windows authentication with a federated Azure AD domain.
 
 ## Alternate approach to using WithDefaultRedirectURI()

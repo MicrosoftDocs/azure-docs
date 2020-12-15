@@ -40,7 +40,8 @@ While optional claims are supported in both v1.0 and v2.0 format tokens, as well
 
 The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](#configuring-directory-extension-optional-claims), below. When adding claims to the **access token**, the claims apply to access tokens requested *for* the application (a web API), not claims requested *by* the application. No matter how the client accesses your API, the right data is present in the access token that is used to authenticate against your API.
 
-The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).
+> [!NOTE]
+>The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).
 
 **Table 2: v1.0 and v2.0 optional claim set**
 
@@ -129,17 +130,13 @@ You can configure optional claims for your application through the UI or applica
 [![Configure optional claims in the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Under **Manage**, select **Token configuration**.
+   - The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant which can be configured by modifying the application manifest. For more information see  [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. Select **Add optional claim**.
 1. Select the token type you want to configure.
 1. Select the optional claims to add.
 1. Select **Add**.
 
-<<<<<<< HEAD
-The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant currently . For applications registered in a B2C tenant , the optional claims can be configured by modifying the application manifest . For more information see [Add claims and customize user input using custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
-=======
-> [!NOTE]
-> The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant currently. For applications registered in a B2C tenant, the optional claims can be configured by modifying the application manifest. For more information see [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
->>>>>>> 2438bd4dbde8ed90a3801d36d3f89ea0ac5f0dcc
 
 **Configuring optional claims through the application manifest:**
 
