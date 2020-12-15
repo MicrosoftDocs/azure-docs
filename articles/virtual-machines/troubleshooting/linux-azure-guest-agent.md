@@ -14,18 +14,18 @@ ms.author: axelg
 ---
 # Troubleshoot the Azure Linux Agent
 
-[Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) enables a virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
+The [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) enables a virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
 
 >[!NOTE]
->This IP address is a virtual public IP address that facilitates communication and should not be blocked. For more information, go to [What is IP address 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+>This IP address is a virtual public IP address that facilitates communication and should not be blocked. For more information, see [What is IP address 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Before you begin
 
-Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
+Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or see [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
 
 ## Troubleshoot a Not Ready status
 
-1. Check the service status of Azure Linux Agent to make sure it is running. The service name might be **walinuxagent** or **waagent**.
+1. Check the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
 
    ```
    root@nam-u18:/home/nam# service walinuxagent status
@@ -58,13 +58,13 @@ Check the agent status and version to make sure it is still supported. See [Mini
    AutoUpdate.Enabled=y
    ```
 
-   For more information on how to update the Azure Linux Agent, go to [How to update the Azure Linux Agent on a VM](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
+   For more information on how to update the Azure Linux Agent, see [How to update the Azure Linux Agent on a VM](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
 
-1. Make sure the VM can connect to the Fabric Controller. Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 443, and 32526. If the VM doesn’t connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, the VM agent might display unexpected behavior.
+1. Make sure the VM can connect to the Fabric Controller. Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 443, and 32526. If the VM doesn't connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, the VM agent might display unexpected behavior.
 
 ## Advanced troubleshooting
 
-Events for troubleshooting Azure Linux Agent are recorded in the **/var/log/waagent.log** file.
+Events for troubleshooting the Azure Linux Agent are recorded in the **/var/log/waagent.log** file.
 
 ### Unable to connect to WireServer IP (Host IP)
 
@@ -77,7 +77,7 @@ The following error appears in the **/var/log/waagent.log** file when the VM can
 To resolve this issue:
 
 * Connect to the VM by using SSH, and then try to access the following URL from curl: http://168.63.129.16/?comp=versions.
-* Check for any issues that might be caused by a firewall, a proxy, or other source that could be blocking access to the IP address 168.63.129.16.
+* Check for any issues that might be caused by a firewall, a proxy, or another source that might be blocking access to the IP address 168.63.129.16.
 * Check whether Linux IPTables or a third-party firewall is blocking access to ports 80, 443, and 32526.
 
 ## Next steps
