@@ -127,10 +127,30 @@ To access system properties:
 
 3. Select **System Properties** from the general section.
 
+## Change the name of the on-premises management console
+
+You can change the name of the on-premises management console. The new names appear in the console web browser, in various console windows, and in troubleshooting logs.
+
+The default name is **management console**.
+
+To change the name:
+
+1. In the bottom of the left pane, select the current name.
+
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of the on-premises management console version.":::
+
+2. In the **Edit management console configuration** dialog box, enter the new name. The name can't be longer than 25 characters.
+
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration.":::
+
+3. Select **Save**. The new name is applied.
+
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Screenshot that shows the changed name of the console.":::
+
 ## Next Steps
 
 You may also want to carry out the following on the management console:
 
 - [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
-- [About high availability](how-to-set-up-high-availability.md)
 
+- [About high availability](how-to-set-up-high-availability.md)

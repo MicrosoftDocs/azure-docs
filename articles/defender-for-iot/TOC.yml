@@ -17,14 +17,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
     - name: Set up and onboarding overview
       href: quickstart-prepare-network-for-defender-for-iot.md
     - name: Get started with Azure Defender for IoT
-      href: quickstart-getting-started.md
+      href: getting-started.md
   - name: Agent-based solution for Device Builders
     items: 
     - name: Configure Security Module for Azure RTOS
@@ -47,7 +47,7 @@
       href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: Key concepts
       href: concept-key-concepts.md    
@@ -81,7 +81,7 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Agentless Solution for Enterprises 
+  - name: Agentless Solution for Organizations
     items:
     - name: Prepare your network
       items:
@@ -107,8 +107,7 @@
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         href: how-to-set-up-high-availability.md
-    - name: Change the name of your console
-      href: how-to-change-the-name-of-your-console.md
+    - name: Manage users and user access
       items:
       - name: Create and manage users
         href: how-to-create-and-manage-users.md
@@ -116,18 +115,14 @@
         href: how-to-define-global-user-access-control.md
     - name: Control what traffic is monitored
       href: how-to-control-what-traffic-is-monitored.md
-    - name: Manage sensors in air gapped networks
-      items:
-      - name: Manage sensors from the on-premises management console
-        href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: Manage individual sensors
-        href: how-to-manage-individual-sensors.md
+    - name: Manage sensors from the on-premises management console
+      href: how-to-manage-sensors-from-the-on-premises-management-console.md
+    - name: Manage individual sensors
+      href: how-to-manage-individual-sensors.md
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
-      items:
-      - name: Backup and restore the management console 
-        href: how-to-manage-the-on-premises-management-console.md
+      href: how-to-manage-the-on-premises-management-console.md
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
@@ -140,8 +135,6 @@
       href: how-to-work-with-the-sensor-device-map.md
     - name: Work with alerts detected by a sensor
       items:
-      - name: Gain insight into global, regional, and local threats
-        href: how-to-gain-insight-into-global-regional-and-local-threats.md
       - name: Work with alert on your sensor
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Views alerts
@@ -154,7 +147,11 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
-      - name: Work with alerts on the on-premises management console
+    - name: Learn about threats across your enterprise
+      items:
+    - name: Gain insight into global, regional, and local threats
+      href: how-to-gain-insight-into-global-regional-and-local-threats.md
+    - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich device information
       items: 
@@ -211,7 +208,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Agentless Solution for Enterprises
+  - name: Agentless Solution for Organizations
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
