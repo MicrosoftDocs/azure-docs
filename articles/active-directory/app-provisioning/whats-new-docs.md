@@ -15,6 +15,14 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## December 2020
+
+### Updated articles
+- [Known issues: Application provisioning](known-issues.md)
+- [What is automated SaaS app user provisioning in Azure AD?](user-provisioning.md)
+- [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md)
+
+
 ## November 2020
 
 ### Updated articles
