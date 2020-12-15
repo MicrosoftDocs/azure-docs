@@ -170,7 +170,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
     |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the Guest Configuration agent files. |
     |%ProgramData%\GuestConfig |Contains the (applied) policies from Azure.|
-    |%ProgramFiles%\AzureConnectedMachineAgent\<br>ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
 
 * The following Windows services are created on the target machine during installation of the agent.
 
