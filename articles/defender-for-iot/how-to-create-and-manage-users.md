@@ -50,7 +50,7 @@ This section describes permissions available to administrators, security analyst
 
 Administrators can enhance user access control in Defender for IoT by assigning users to specific *access groups*. Access groups are assigned to zones, sites, regions, and business units where a sensor is located. By assigning users to access groups, administrators gain specific control over where users manage and analyze device detections. 
 
-Working this way accommodates large organizations where user permissions can be complex or determined by an organizational security policy. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
+Working this way accommodates large organizations where user permissions can be complex or determined by a global organizational security policy. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
 
 ### Role-based permissions to sensor tools
 
