@@ -95,6 +95,8 @@
           href: diagnostic-services.md
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
+        - name: Resilience4J Circuit Breaker Metrics
+          href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
