@@ -18,7 +18,7 @@ ms.author: memildin
 # Manage and respond to security alerts in Azure Security Center
 
 > [!TIP]
-> The information on this page refers to the new (preview) alerts experience available from the banner at the top of the security alerts page.
+> The information on this page refers to the new (preview) alerts experience available from the banner at the top of the security alerts page. 
 >
 > :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
