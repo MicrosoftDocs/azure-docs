@@ -70,6 +70,8 @@
     href: concepts/client-and-server-architecture.md
   - name: Call flows
     href: concepts/call-flows.md
+  - name: Call flow topologies
+    href: concepts/detailed-call-flows.md
   - name: Client libraries and REST APIs
     href: concepts/sdk-options.md 
   - name: Pricing model
