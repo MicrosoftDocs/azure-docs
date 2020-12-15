@@ -2,13 +2,13 @@
 title: Primary, foreign, and unique keys  
 description: Table constraints support using dedicated SQL pool in Azure Synapse Analytics
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 09/05/2019
-ms.author: xiaoyul
+ms.author: emtehran 
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
