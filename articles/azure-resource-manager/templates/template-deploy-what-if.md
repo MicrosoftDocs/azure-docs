@@ -95,8 +95,8 @@ To preview changes before deploying a template, use:
 
 * [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
 * [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
-* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) for management group deployments
-* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) for tenant deployments
+* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
@@ -381,11 +381,11 @@ You see the expected changes and can confirm that you want the deployment to run
 
 You can use the what-if operation through the Azure SDKs.
 
-* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
 
-* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
 
-* For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+* For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
 ## Next steps
 
