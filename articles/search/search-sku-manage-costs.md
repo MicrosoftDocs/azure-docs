@@ -1,5 +1,5 @@
 ---
-title: Manage costs and capacity
+title: Estimate capacity and costs
 titleSuffix: Azure Cognitive Search
 description: 'Review guidance for estimating capacity and managing search service costs, including infrastructure and tools in Azure, as well as best practices for using resources more effectively.'
 
@@ -12,7 +12,7 @@ ms.date: 12/01/2020
 
 ---
 
-# How to manage costs and estimate capacity of an Azure Cognitive Search service
+# How to estimate capacity and costs of an Azure Cognitive Search service
 
 As part of capacity planning for Azure Cognitive Search, the following guidance can help you lower costs or manage costs more effectively:
 
@@ -55,7 +55,7 @@ For full text search, the primary data structure is an [inverted index](https://
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one tier to another.
 >
 
-### Estimate with the Free tier
+## Estimate with the Free tier
 
 One approach for estimating capacity is to start with the Free tier. Remember that the Free service offers up to three indexes, 50 MB of storage, and 2 minutes of indexing time. It can be challenging to estimate a projected index size with these constraints, but these are the steps:
 
@@ -65,7 +65,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
-### Estimate with a billable tier
+## Estimate with a billable tier
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
