@@ -210,4 +210,6 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 ::: zone-end
 
+## Next steps
+
 Learn how to [pass Google token to your application](idp-pass-through-user-flow.md).
