@@ -1,5 +1,5 @@
 ---
-title: Knowledge mining partners
+title: Microsoft partners
 titleSuffix: Azure Cognitive Search
 description: Learn about end-to-end solutions offered by Microsoft partners that include Azure Cognitive Search.
 author: HeidiSteen
@@ -7,36 +7,30 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/18/2020
 ---
 
 # Partner solutions
 
-Get expert help building an end-to-end solution that includes Azure Cognitive Search as a key component. The following partners have expertise in leveraging the full-text search and AI enrichment capabilities of Azure Cognitive Search in solutions that address a range of business and technical scenarios.
+Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search, as well as AI enrichment, across a range of business and technical scenarios.
 
-The following partners have built proprietary machine learning modules that can be attached to an enrichment pipeline. Leveraging their technology and know-how can help you maximize the latent value of your existing content more efficiently.
+| Partner | Description | Website/Product link |
+|---------|-------------|----------------------|
+| ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | **OrangeNXT**<br/><br/>OrangeNXT offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>Building on top of Azure Cognitive Search, [**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources.<br/><br/>**digitalNXT Search** includes advanced custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)<br/><br/> [Company web site](https://orangenxt.com/)|
 
-## Agolo
+## More stuff
 
-[**Agolo**](https://www.agolo.com/) specializes in summarizing text in arbitrary files so that you can ascertain file contents without having to open and read them individually. Agolo's summarization technology is used by large news aggregators. 
-
-## Anzys
-
-[**Anzys**](https://www.anzyz.com/) uses proprietary skills and Cognitive Search's AI enrichment pipeline to analyze content for information and structure. 
-
-<!-- ## icertis
-
-[**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. GDPR risk analysis. -->
-
-## OrangeNXT
-
- [**OrangeNXT's**](https://orangenxt.com/solutions/digitalnxt-search/) digital **NXT Search** provides you with the tools to ingest unstructured data and gain key insights that enable your customer support teams to respond to customer issues.
+ [**OrangeNXT**](https://orangenxt.com/solutions/digitalnxt-search/) digital **NXT Search** provides you with the tools to ingest unstructured data and gain key insights that enable your customer support teams to respond to customer issues.
 
 An OrangeNXT solution enables rapid development of a customer support knowledge base. By leveraging this solution, you can get relevant information from existing content in front of customer support agents so that customer questions can be answered quickly. 
 
-## PriceWaterhouseCoopers (PwC)
+Customers investing in knowledge mining today are seeing tremendous impact resulting in increased business performance and profitability. Building on top of Azure Cognitive Search, digitalNXT Search creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources. Prebuilt custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways that help their companies get work done and grow. Two use cases arise above others, like: 
 
-[**PriceWaterhouseCoopers (PwC)**](https://www.pwc.com/us/en/services/managed-services.html) is a global network of firms delivering world-class assurance, tax, and consulting services for your business. The PwC regulatory risk classification skill scores each clause in every document to provide you with a risk profile that allows you easily find the most relevant documents.
+Tender Optimization: Grow business with  accurate cost estimations by enabling quick review of complex documents. Automated discovery/tagging of potential risks. Incorporation of engineering standards by collaborate & add notes to the existing knowledge base.
+
+Service Optimization: Provide better answers faster to foster customer loyalty by enabling employees to focus time/effort on customers. Intuitive, personalized and highly accurate data and ease of access to information from remote locations.
+
+
 
 ## Next steps
 
