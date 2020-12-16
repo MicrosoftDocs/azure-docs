@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 11/16/2020  
 --- 
 
-# QuickStart: Connect an Azure Purview Account to a Synapse workspace 
+# QuickStart: Connect an Azure Purview Account to a Synapse workspace 
 
 > [!IMPORTANT] 
 > The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
@@ -24,26 +24,26 @@ You can perform the following tasks in Synapse:
 - Connect those data to your workspace with linked services or integration datasets 
 - Analyze those datasets with Synapse Apache Spark, Synapse SQL, and Data Flow 
 
-## Prerequisites 
+## Prerequisites 
 - [Azure Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 
-## Sign in to a Synapse workspace 
+## Sign in to a Synapse workspace 
 
 Go to `https://web.azuresynapse.net` and sign in to your workspace. 
 
-## Permissions for connecting an Azure Purview Account 
+## Permissions for connecting an Azure Purview Account 
 
 - To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account.
 
-## Connect an Azure Purview Account  
+## Connect an Azure Purview Account  
 
 - In the Synapse workspace, go to **Manage** -> **Azure Purview**. Select **Connect to a Purview account**. 
 - You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
 - Once connected, you should be able to see the name of the Purview account in the tab **Azure Purview account**. 
 - You can use the Search bar at the top center of the Synapse workspace to search for data. 
 
-## Next steps 
+## Next steps 
 
 * [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 * [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md)   

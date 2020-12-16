@@ -11,16 +11,14 @@ ms.topic: how-to
 ms.date: 11/16/2020  
 --- 
 
- 
+# Discover, connect and explore data in Synapse using Azure Purview 
 
 > [!IMPORTANT] 
 > The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
 
-# Use the power of Azure Purview in Synapse 
-
 In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
 
-## Prerequisites 
+## Prerequisites 
 
 - [Azure Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
@@ -30,7 +28,7 @@ In this document, you will learn the type of interactions that you can p
 
 The use Azure Purview in Synapse requires you to have access to that Purview account. Synapse passes-through your Purview permission. As an example, if you have a curator permission role, you will be able to edit metadata scanned by Azure Purview. 
 
-## Data discovery: search datasets 
+### Data discovery: search datasets 
 
 To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Azure Purview to search for all of your organization data. 
 
@@ -43,7 +41,7 @@ Here is a list of the Azure Purview features that are available in Synapse:
 - View and edit **Contacts** to know who is an owner or expert over a dataset 
 - **Related** to understand the hierarchical dependencies of a specific dataset. This experience is helpful to browse through data hierarchy.
 
-## Actions that you can perform over datasets with Synapse resources 
+## Actions that you can perform over datasets with Synapse resources 
 
 ### Connect data to Synapse 
 
@@ -52,7 +50,7 @@ Here is a list of the Azure Purview features that are available in Synapse:
 
 We are not yet able to infer if there is an existing linked service or integration dataset. 
 
-### Develop in Synapse 
+###  Develop in Synapse 
 
 There are three actions that you can perform: **New SQL Script**, **New Notebook**, and **New Data Flow**. 
 
@@ -69,7 +67,7 @@ There are three actions that you can perform: **New SQL Script**, **New Notebook
  
 3. With **New data flow**, you will create an integration dataset that will be used a source in a data flow pipeline. Data flow is a no-code developer capability to perform data transformation. For more information about [using data flow in Synapse](../quickstart-data-flow.md).
 
-## Next steps 
+##  Next steps 
 
 * [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 * [How to Search Data in Azure Purview Data Catalog](../../purview/how-to-search-catalog.md)
