@@ -12,7 +12,7 @@ ms.custom: devx-track-java, contperf-fy21q2
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE appliesto-sql-api](includes/appliesto-sql-api.md)
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -42,13 +42,13 @@ Java SDK default connection mode is direct. You can configure the connection mod
 
 Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
+[!code-java](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)
 
 # [Sync](#tab/api-sync)
 
 Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientConnectionModeSync)]
+[!code-java](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientConnectionModeSync)
 
 --- 
 
