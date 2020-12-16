@@ -175,6 +175,12 @@ The Azure Kinect depth engine on Linux uses OpenGL. OpenGL requires a window ins
 2. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
 3. Start your Azure Kinect application.
 
+## Missing C# documentation
+
+The Sensor SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
+
+The Body Tracking SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
 ## Next steps
 
 [More support information](support.md)
