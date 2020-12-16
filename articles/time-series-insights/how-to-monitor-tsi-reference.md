@@ -45,7 +45,7 @@ This section lists all the automatically collected platform metrics collected fo
 
 ## Resource logs
 
-This section lists the types of resource logs you can collect for your Azure Time Series Insights workspace. Resource Providers and Type:  [Microsoft.TimeSeriesInsights/environments](place holder link). [Microsoft.TimeSeriesInsights/environments/eventsources](place holder link).
+This section lists the types of resource logs you can collect for your Azure Time Series Insights environment.
 
 | Category | Display Name | Description |
 |----- |----- |----- |
