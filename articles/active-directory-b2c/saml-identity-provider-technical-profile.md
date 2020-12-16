@@ -106,8 +106,8 @@ SAML assertion:
 ```xml
 <saml:Subject>
   <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
-	<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-	  <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+    <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
     </SubjectConfirmation>
   </saml:SubjectConfirmation>
 </saml:Subject>

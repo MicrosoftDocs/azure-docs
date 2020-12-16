@@ -147,7 +147,7 @@ The following code is an example of how to display a Bing Map centered and zoome
         function initMap() {
             map = new Microsoft.Maps.Map('#myMap', {
                 credentials: '<Your Bing Maps Key>',
-		  center: new Microsoft.Maps.Location(40.747, -73.985),
+          center: new Microsoft.Maps.Location(40.747, -73.985),
                 zoom: 12
             });
         }
@@ -204,11 +204,11 @@ The following code shows how to load a map with the same view in Azure Maps alon
             map.events.add('ready', function () {
                 //Add zoom and map style controls to top right of map.
                 map.controls.add([
-					new atlas.control.StyleControl(),
-					new atlas.control.ZoomControl()
-				], {
-					position: 'top-right'
-				});
+                    new atlas.control.StyleControl(),
+                    new atlas.control.ZoomControl()
+                ], {
+                    position: 'top-right'
+                });
             });
         }
     </script>
@@ -879,7 +879,7 @@ In Bing Maps, GeoJSON data can be loaded using the GeoJSON module. Pushpins can 
             var clusterSize = cluster.containedPushpins.length;
 
             var radius = 20;    //Default radius to 20 pixels.
-            var fillColor = 'lime'; 	//Default to lime green.
+            var fillColor = 'lime';   //Default to lime green.
 
             if (clusterSize >= 750) {
                 radius = 40;   //If point_count >= 750, radius is 40 pixels.
@@ -1426,26 +1426,26 @@ Running this code in a browser will display a map that looks like the following 
         function initMap() {
             map = new Microsoft.Maps.Map('#myMap', {
                 credentials: '<Your Bing Maps Key>',
-				center: new Microsoft.Maps.Location(40.747, -73.985),
+                center: new Microsoft.Maps.Location(40.747, -73.985),
                 zoom: 12
             });
 
-			Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
-				var callback = function (dataset) {
-					if (dataset.shapes) {
-						var l = new Microsoft.Maps.Layer();
-						l.add(dataset.shapes);
-						map.layers.insert(l);
-					}
-					if (dataset.layers) {
-						for (var i = 0, len = dataset.layers.length; i < len; i++) {
-							map.layers.insert(dataset.layers[i]);
-						}
-					}
-				};
-				Microsoft.Maps.GeoXml.readFromUrl('myKMLFile.kml', { error: function (msg) { alert(msg); } }, callback);
-			});                
-		}
+            Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
+                var callback = function (dataset) {
+                    if (dataset.shapes) {
+                        var l = new Microsoft.Maps.Layer();
+                        l.add(dataset.shapes);
+                        map.layers.insert(l);
+                    }
+                    if (dataset.layers) {
+                        for (var i = 0, len = dataset.layers.length; i < len; i++) {
+                            map.layers.insert(dataset.layers[i]);
+                        }
+                    }
+                };
+                Microsoft.Maps.GeoXml.readFromUrl('myKMLFile.kml', { error: function (msg) { alert(msg); } }, callback);
+            });                
+        }
     </script>
 
     <!-- Bing Maps Script Reference -->
@@ -1645,8 +1645,8 @@ In Azure Maps the drawing tools module needs to be loaded by loading the JavaScr
             //Initialize a map instance.
             map = new atlas.Map('myMap', {
                 view: 'Auto',
-				
-				//Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
+                
+                //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
                 authOptions: {
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
