@@ -229,7 +229,7 @@ The chart allows customers to troubleshoot the deployment on their own without h
 Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**. It is evaluated every **two minutes** by measuring Data Path Availability which determines whether your Frontend Load Balancing endpoints are available.
 
 | Resource health status | Description |
-| --- | --- |
+| ----- | --- |
 | Available | Your standard load balancer resource is healthy and available. |
 | Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing impacting your availability.
 | Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events impacting your availability. |
