@@ -35,7 +35,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 * Depending on the feature availability and service tier, additional charges may apply for use of [self-hosted gateways]().
 
-For additional pricing and feature details in the API Management service tiers, see:
+For additional pricing and feature details, see:
 
 * [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
 * [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
