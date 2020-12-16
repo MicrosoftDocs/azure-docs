@@ -45,16 +45,16 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 
 # [Azure portal](#tab/portal)
 
-- Go to [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
-- Select the required Speech Resource.
-- In the **Resource Management** group in the left navigation pane, click **Networking**.
-- In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
-- In the Generate Custom Domain Name panel, enter a custom domain name you have provisioned.
+1. Go to [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the required Speech Resource.
+1. In the **Resource Management** group in the left navigation pane, click **Networking**.
+1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
+1. In the Generate Custom Domain Name panel, enter a custom domain name you have provisioned.
 
 > [!IMPORTANT]
-> After you create a custom domain name, it **cannot** be changed. See more information in the Important alert above.
+> After you create a custom domain name, it **cannot** be changed.
 
-- After the operation is complete, you may want to select *Keys and Endpoint* (*Resource management* group) and verify the new endpoint name of your resource in the format of <p />`{your custom name}.cognitiveservices.azure.com`
+6. After the operation is complete, you may want to select *Keys and Endpoint* (*Resource management* group) and verify the new endpoint name of your resource in the format of <p />`{your custom name}.cognitiveservices.azure.com`
 
 # [PowerShell](#tab/powershell)
 
