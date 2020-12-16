@@ -157,7 +157,7 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
 ### Accept a call
-To accept a call, you have to call the 'accept' method on a call object.
+To accept a call, call the 'accept' method on a call object.
 
 ```java
 Context appContext = this.getApplicationContext();
