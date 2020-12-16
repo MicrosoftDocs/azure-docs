@@ -19,29 +19,27 @@ Learn about the data and resources collected by Azure Monitor from your Azure Ti
 ## Metrics
 
 This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
+The resource provider for these metrics is [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) and [Microsoft.TimeSeriesInsights/environments](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments)
 
 
 ### Ingress
  
-   |---------|---------|---------|---------|
-   |**Ingress Received Bytes** |  |  |Count of raw bytes read from event sources. Raw count usually includes the property name and value.|
-   |**Ingress Received Invalid Messages** |  |  |Count of messages read from all Event Hubs or IoT Hubs event sources. |
-   |**Ingress Received Messages** |  |  |Count of invalid messages read from all Azure Event Hubs or Azure IoT Hub event sources. |
-   |**Ingress Stored Bytes** |  |  |Total size of events stored and available for query. Size is computed only on the property value. |
-   |**Ingress Stored Events** |  |  |Count of flattened events stored and available for query. |
-   |**Ingress Received Message Time Lag** |  |  |Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress. |
-   |**Ingress Received Message Count Lag** |  |  |Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress. |
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|IngressReceivedBytes|Ingress Received Bytes|Bytes|Total|Count of bytes read from the event source|
+|IngressReceivedInvalidMessages|Ingress Received Invalid Messages|Count|Total|Count of invalid messages read from the event source|
+|IngressReceivedMessages|Ingress Received Messages|Count|Total|Count of messages read from the event source|
+|IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag|Count|Average|Difference between the sequence number of last enqueued message in the event source partition and sequence number of messages being processed in Ingress|
+|IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag|Seconds|Maximum|Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress|
+|IngressStoredBytes|Ingress Stored Bytes|Bytes|Total|Total size of events successfully processed and available for query|
+|IngressStoredEvents|Ingress Stored Events|Count|Total|Count of flattened events successfully processed and available for query|
 
 ### Storage
 
-   |Metric Display Name |Unit |Aggregation Type |Description |
-   |---------|---------|---------|---------|
-   |**Failed twin reads from back end** |Count |Total |The count of all failed back-end-initiated twin reads. |
-   |**Failed twin updates from back end** |Count |Total |The count of all failed back-end-initiated twin updates. |
-   |**Response size of twin reads from back end** |Bytes |Average |The count of all successful back-end-initiated twin reads. |
-   |**Size of twin updates from back end** |Bytes |Average |The total size of all successful back-end-initiated twin updates. |
-   |**Successful twin reads from back end** |Count |Total| The count of all successful back-end-initiated twin reads. |
-   |**Successful twin updates from back end** |Count |Total |The count of all successful back-end-initiated twin updates. |
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|WarmStorageMaxProperties|Warm Storage Max Properties|Count|Maximum|Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU|
+|WarmStorageUsedProperties|Warm Storage Used Properties |Count|Maximum|Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU|
 
 ## Resource logs
 
