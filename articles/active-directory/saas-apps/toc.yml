@@ -405,6 +405,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: Contentsquare SSO
+        href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
         href: contractsafe-saml2-sso-tutorial.md
       - name: ContractWorks
@@ -2095,6 +2097,8 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
+      - name: monday.com
+        href: mondaycom-provisioning-tutorial.md        
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle

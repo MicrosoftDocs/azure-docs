@@ -14,7 +14,7 @@ ms.date: 11/19/2020
 This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
 > [!Note]
-> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Purview instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).
+> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. 
 
 ## Create a security group for permissions
 
