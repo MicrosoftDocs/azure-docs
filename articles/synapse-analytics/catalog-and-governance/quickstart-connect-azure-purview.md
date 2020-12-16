@@ -1,4 +1,4 @@
---- 
+--- `
 title: 'Connect an Azure Purview Account'  
 description: Connect an Azure Purview Account to a Synapse workspace. 
 services: synapse-analytics 
