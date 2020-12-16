@@ -18,18 +18,6 @@ Get expert help from Microsoft partners who build end-to-end solutions that incl
 |---------|-------------|----------------------|
 | ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | [**OrangeNXT**](https://orangenxt.com/) offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>[**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) is an OrangeNXT solution that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search pipeline to help you extract search results from multiple structured and unstructured data sources. Integral to **digitalNXT Search** is advanced custom cognitive skills for interpreting and correlating selected data.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 
-<!-- ## More stuff
-
- [**OrangeNXT**](https://orangenxt.com/solutions/digitalnxt-search/) digital **NXT Search** provides you with the tools to ingest unstructured data and gain key insights that enable your customer support teams to respond to customer issues.
-
-An OrangeNXT solution enables rapid development of a customer support knowledge base. By leveraging this solution, you can get relevant information from existing content in front of customer support agents so that customer questions can be answered quickly. 
-
-Customers investing in knowledge mining today are seeing tremendous impact resulting in increased business performance and profitability. Building on top of Azure Cognitive Search, digitalNXT Search creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources. Prebuilt custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways that help their companies get work done and grow. Two use cases arise above others, like: 
-
-Tender Optimization: Grow business with  accurate cost estimations by enabling quick review of complex documents. Automated discovery/tagging of potential risks. Incorporation of engineering standards by collaborate & add notes to the existing knowledge base.
-
-Service Optimization: Provide better answers faster to foster customer loyalty by enabling employees to focus time/effort on customers. Intuitive, personalized and highly accurate data and ease of access to information from remote locations. -->
-
 ## Next steps
 
 Review [**digitalNXT** case studies](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) for a closer look at specific solutions.
