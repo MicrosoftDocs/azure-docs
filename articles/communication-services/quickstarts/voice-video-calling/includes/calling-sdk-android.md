@@ -165,7 +165,7 @@ Call incomingCall = retrieveIncomingCall();
 incomingCall.accept(context).get();
 ```
 
-To accept a call with video camera on, use:
+To accept a call with video camera on:
 
 ```java
 Context appContext = this.getApplicationContext();
