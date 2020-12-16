@@ -69,6 +69,8 @@ In the current preview phase, Azure Arc enabled data services are offered at no 
 
 ## Next steps
 
+* Start experiencing Arc enabled services from the [Jumpstart scenarios](https://azurearcjumpstart.io/azure_arc_jumpstart/)
+
 * To learn more about Arc enabled servers, see the following [overview](./servers/overview.md)
 
 * To learn more about Arc enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
