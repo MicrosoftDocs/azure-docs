@@ -144,9 +144,9 @@
     - name: Disaster recovery using AzAcSnap
       href: azacsnap-disaster-recovery.md
     - name: Tips and tricks for using AzAcSnap
-      href: azacsnap-tips-and-tricks.md
+      href: azacsnap-tips.md
     - name: Troubleshoot AzAcSnap
-      href: azacsnap-troubleshooting.md
+      href: azacsnap-troubleshoot.md
     - name: AzAcSnap command reference 
       items: 
       - name: Configure AzAcSnap
