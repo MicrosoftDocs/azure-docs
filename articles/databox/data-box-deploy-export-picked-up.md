@@ -13,7 +13,7 @@ ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box (Preview)
+# Tutorial: Return Azure Data Box
 
 This tutorial describes how to return Azure Data Box and the data is erased once the device is received at the Azure data.
 
