@@ -125,7 +125,7 @@ You will need to add configuration to the existing load balancer for the second 
 - Load-balancing rules
     - If using Standard Load Balancer, select HA ports
     - If using Basic Load Balancer, create Load balancing rules for the following ports
-          - 32**nr** TCP [**3202**]
+        - 32**nr** TCP [**3202**]
         - 36**nr** TCP [**3602**]
         - 39**nr** TCP [**3902**]
         - 81**nr** TCP [**8102**]
