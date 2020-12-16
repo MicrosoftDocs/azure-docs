@@ -81,7 +81,9 @@ If your app uses only username-password authentication, you don't need to regist
 However, you need to identify your application as a public client application. To do so:
 
 1. Still in the [Azure portal](https://portal.azure.com), select your app in **App registrations**, and then select **Authentication**.
-2. In **Advanced settings** > **Alow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
+1. In **Advanced settings** > **Alow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::
 
 ## API permissions
 
