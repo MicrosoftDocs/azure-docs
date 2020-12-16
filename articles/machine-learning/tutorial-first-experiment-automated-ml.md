@@ -108,29 +108,39 @@ Before you configure your experiment, upload your data file to your workspace in
     
     1. Select your dataset once it appears in the list.
     
-    1. Review the **Data preview**  to ensure you didn't include **day_of_week** then, select **OK**.
+    1. Review the **Data preview**  to ensure you didn't include **day_of_week** then, select **Close**.
 
     1. Select  **Next**.
 
-## Configure experiment run
+## Configure run
 
 After you load and configure your data, you can set up your experiment. This setup includes experiment design tasks such as, selecting the size of your compute environment and specifying what column you want to predict. 
+Create new experiment radio button
 
 1. Populate the **Configure Run** form as follows:
     1. Enter this experiment name: `my-1st-automl-experiment`
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
     
-    1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+    1. Select **+Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+    Scroll for compute size
+        1. Populate the **Virtual Machine** form as follws:
 
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|automl-compute
-        Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
-        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-        Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-        Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None
+            Field | Description | Value for tutorial
+            ----|---|---
+            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
+        include gif/image for settings
+        1. Select **Next** to populate the **Configure settings form**.
+        
+            Field | Description | Value for tutorial
+            ----|---|---
+            Compute name |	A unique name that identifies your compute context. | automl-compute
+            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
+
         1. Select **Create** to get the compute target. 
 
             **This takes a couple minutes to complete.** 
@@ -156,16 +166,22 @@ After you load and configure your data, you can set up your experiment. This set
         
         Select **Save**.
 
+
+Move day of week removal for to featurization 
 1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
 > Once running, it takes **2-3 minutes more for each iteration**.  
-> Select **Refresh** periodically to see the status of the run as the experiment progresses.
+> 
+
+Update notice for notifcation about starting run
 >
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the **Models** tab as they complete while the others are still running. 
 
 ##  Explore models
+
+Record new gif for exploration
 
 Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
@@ -232,6 +248,8 @@ Delete just the deployment instance from Azure Machine Learning at https:\//ml.a
 ## Next steps
 
 In this automated machine learning tutorial, you used Azure Machine Learning's automated ML interface to create and deploy a classification model. See these articles for more information and next steps:
+
+Update for ne2 power BI tutorial
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
