@@ -3,13 +3,18 @@ title: Troubleshoot Windows Virtual Desktop Agent Issues - Azure
 description: How to diagnose and resolve common agent and connectivity issues.
 author: Sefriend
 ms.topic: troubleshooting
-ms.date: 12/07/2020
+ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
 ---
-# Troubleshoot Common WVD Agent and Connectivity Issues
+# Troubleshoot common Windows Virtual Desktop Agent issues
 
-There may be a few scenarios where the Windows Virtual Desktop agent can cause connectivity issues. These issues may be because the broker throws an error that causes the agent to stop the service, or there are problems with the agent update. In addition, there are scenarios in which the stack installation, which happens simultaneously with agent installations, can cause issues. These failures can result in a loss of connectivity to the session host. This troubleshooting guide will walk through common issues that you may face and how to diagnose, explain, and resolve them.
+The Windows Virtual Desktop Agent can cause connection issues because of multiple factors:
+   - An error on the broker that causes the agent stop the service.
+   - Problems with updates.
+   - Issues with installing the stack while the agent is being installed, thus interfering with connecting to the session host.
+
+This article will guide you through these common scenarios and more to address connection issues.
 
 ## The agent status is stuck in upgrading or unavailable, or failed during installation.
 
