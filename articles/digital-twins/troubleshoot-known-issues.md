@@ -15,7 +15,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
-**Symptom:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token", followed by full stack trace.
+**Issue description:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token", followed by full stack trace.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## Missing role assignment after scripted setup
 
-**Symptom:** Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Data Owner* role is not successfully assigned to the user, and this issue will impact ability to create other resources down the road.
+**Issue description:** Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Data Owner* role is not successfully assigned to the user, and this issue will impact ability to create other resources down the road.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## Issue with interactive browser authentication
 
-**Symptom:** When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method.
+**Issue description:** When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method.
 
 The issue includes an error response of "Azure.Identity.AuthenticationFailedException" when trying to authenticate in a browser window. The browser window may fail to start up completely, or appear to authenticate the user successfully, while the client application still fails with the error.
 
