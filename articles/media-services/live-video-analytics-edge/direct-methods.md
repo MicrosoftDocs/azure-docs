@@ -139,8 +139,8 @@ This direct method retrieves a single graph topology.
 |---|---|---|
 |Entity found|	200	|N/A
 |General user errors	|400 range	||
-|Entity not found	|404		||
-|General server errors|	500 range		||
+|Entity not found	|404 ||
+|General server errors|	500 range ||
 
 ### GraphTopologySet
 
@@ -273,7 +273,7 @@ Retrieves a list of all the graph topologies that matches the filter criteria.
 
 #### Filter support
 
-|Operation		|Field(s)	|Operators|
+|Operation |Field(s)	|Operators|
 |---|---|---|
 |$orderby|name	|asc|
 

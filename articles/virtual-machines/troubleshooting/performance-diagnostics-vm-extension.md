@@ -127,57 +127,57 @@ To remove the extension from a virtual machine, follow these steps:
 ## Template deployment
 Azure virtual machine extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template. This runs the Azure Performance Diagnostics VM extension during an Azure Resource Manager template deployment. Here is a sample template:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
       "type": "string",
-	  "defaultValue": "yourVMName"
+    "defaultValue": "yourVMName"
     },
     "location": {
       "type": "string",
-	  "defaultValue": "southcentralus"
+    "defaultValue": "southcentralus"
     },
     "storageAccountName": {
       "type": "securestring"
-	  "defaultValue": "yourStorageAccount"
+    "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
       "type": "securestring"
-	  "defaultValue": "yourStorageAccountKey"
+    "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
       "type": "string",
-	  "defaultValue": "basic"
+    "defaultValue": "basic"
     },
     "srNumber": {
       "type": "string",
-	  "defaultValue": ""
+    "defaultValue": ""
     },
-	"traceDurationInSeconds": {
-	  "type": "int",
+  "traceDurationInSeconds": {
+    "type": "int",
     "defaultValue": 300
-	},
+  },
     "perfCounterTrace": {
       "type": "string",
-	  "defaultValue": "p"
+    "defaultValue": "p"
     },
     "networkTrace": {
       "type": "string",
-	  "defaultValue": ""
+    "defaultValue": ""
     },
     "xperfTrace": {
       "type": "string",
-	  "defaultValue": ""
+    "defaultValue": ""
     },
     "storPortTrace": {
       "type": "string",
-	  "defaultValue": ""
+    "defaultValue": ""
     },
     "requestTimeUtc": {
-	  "type": "string",
+    "type": "string",
       "defaultValue": "10/2/2017 11:06:00 PM"
     }		
   },

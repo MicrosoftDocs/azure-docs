@@ -58,7 +58,7 @@ The list of tags below are each attached to a specific Matroska element, and can
 These tags are viewable with tools such as `ffmpeg` and `mkvinfo`.
 The full list of tags is listed on the [Record and Playback](record-playback-api.md) page.
 
-| Tag Name             | Tag Target             | Tag Value 			|
+| Tag Name             | Tag Target             | Tag Value |
 |----------------------|------------------------|-----------------------|
 | K4A_COLOR_TRACK      | Color Track            | Matroska Track UID	|
 | K4A_DEPTH_TRACK      | Depth Track            | Matroska Track UID	|

@@ -108,7 +108,7 @@ Follow these steps:
 |    Properties          |    Additional properties from the manufacturer.   |
 |    **Device**             |                      |
 |   DeviceModelId     |     ID of the associated device model.  |
-|  HardwareId	       | Unique ID for the device, such as the MAC address.
+|  HardwareId | Unique ID for the device, such as the MAC address.
 |  ReportingInterval        |   Reporting interval in seconds.
 |  Location            |  Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
 |ParentDeviceId       |    ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway.  |
@@ -122,7 +122,7 @@ Follow these steps:
 |       SensorMeasures > Name	    | Name of the sensor measure. Only lowercase is supported. For measurements from different depths, specify the depth. For example, soil_moisture_15cm. This name must be consistent with the telemetry data.  |
 |          SensorMeasures > DataType	   |Telemetry data type. Currently, double is supported.|
 |    SensorMeasures > Type	  |Measurement type of the sensor telemetry data. The system-defined types are AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API.|
-|        SensorMeasures > Unit	            | Unit of sensor telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to the /ExtendedType API.|
+|        SensorMeasures > Unit | Unit of sensor telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to the /ExtendedType API.|
 |    SensorMeasures > AggregationType	 |  Values can be none, average, maximum, minimum, or StandardDeviation.  |
 |          Name            | Name to identify a resource. For example, the model name or product name.  |
 |    Description        | Provide a meaningful description of the model.|
@@ -131,9 +131,9 @@ Follow these steps:
 | HardwareId          |   Unique ID for the sensor set by the manufacturer.|
 |  SensorModelId     |    ID of the associated sensor model.|
 | Location          |  Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).|
-|   Port > Name	       |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.|
+|   Port > Name |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.|
 |    DeviceID  |    ID of the device that the sensor is connected to. |
-| Name	          |   Name to identify resource. For example, sensor name or product name and model number or product code.|
+| Name |   Name to identify resource. For example, sensor name or product name and model number or product code.|
 |    Description	  | Provide a meaningful description.|
 |    Properties        |Additional properties from the manufacturer.|
 
