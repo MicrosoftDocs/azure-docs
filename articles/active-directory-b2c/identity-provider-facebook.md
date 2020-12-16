@@ -73,7 +73,7 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 
 ## Create a policy key
 
-You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
+You need to store the App Secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
@@ -82,7 +82,7 @@ You need to store the client secret that you previously recorded in your Azure A
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Manual`.
 7. Enter a **Name** for the policy key. For example, `FacebookSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-8. In **Secret**, enter your client secret that you previously recorded.
+8. In **Secret**, enter your App Secret that you previously recorded.
 9. For **Key usage**, select `Signature`.
 10. Click **Create**.
 
