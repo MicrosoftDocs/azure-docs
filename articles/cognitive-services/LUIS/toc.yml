@@ -21,14 +21,8 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
-  - name: Use SDK
-    href: azure-sdk-quickstart.md
-  - name: Use REST APIs
-    items:
-    - name: Get intent
-      href: luis-get-started-rest-get-intent.md
-    - name: Change model
-      href: luis-get-started-rest-get-model.md
+  - name: Use the client libraries and REST API
+    href: client-libraries-rest-api.md
 - name: Tutorials
   items:
   - name: Build decomposable app

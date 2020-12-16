@@ -64,7 +64,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-The body of your request needs to have the following format. You'll need to enter the resource ID and region name of your target resource. You'll also need the model ID, access token, and expiration value that you copied from the previous step.
+The body of your request needs to have the following format. You'll need to enter the resource ID and region name of your target resource. You can find your resource ID on the **Properties** tab of your resource in the Azure portal, and you can find the region name on the **Keys and endpoint** tab. You'll also need the model ID, access token, and expiration value that you copied from the previous step.
 
 ```json
 {
