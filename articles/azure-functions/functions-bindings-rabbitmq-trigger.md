@@ -225,7 +225,7 @@ The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/r
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
 * `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [#example](example).
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -234,7 +234,7 @@ The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/r
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
 * `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [#example](example).
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [example](#example).
 
 # [JavaScript](#tab/javascript)
 
@@ -242,7 +242,7 @@ The queue message is available via context.bindings.<NAME> where <NAME> matches 
 
 # [Python](#tab/python)
 
-Refer to the Python [#example](example).
+Refer to the Python [example](#example).
 
 # [Java](#tab/java)
 

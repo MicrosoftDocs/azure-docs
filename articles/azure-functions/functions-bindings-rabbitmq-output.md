@@ -293,7 +293,7 @@ Use the following parameter types for the output binding:
 
 * `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received.
+* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# Script [example](#example).
 
 When working with C# Script functions:
 
@@ -305,7 +305,7 @@ The queue message is available via context.bindings.<NAME> where <NAME> matches 
 
 # [Python](#tab/python)
 
-Refer to the Python [#example](example).
+Refer to the Python [example](#example).
 
 # [Java](#tab/java)
 
