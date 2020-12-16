@@ -14,7 +14,7 @@ The Kubernetes resource view from the Azure portal replaces the [AKS dashboard a
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. If needed, you can [use the Azure portal][portal-cluster] to create an AKS cluster.
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][portal-cluster] to create a new AKS cluster.
 
 ## View Kubernetes resources
 
