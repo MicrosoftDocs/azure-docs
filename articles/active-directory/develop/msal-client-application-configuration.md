@@ -147,7 +147,7 @@ This option specifies the client secret for the confidential client app. This se
 
 ## Logging
 
-The other configuration options enable logging and troubleshooting. See the [Logging in MSAL.NET](msal-logging-dotnet.md) article for more details.
+The other configuration options enable logging and troubleshooting. See the [Logging in MSAL for Android](msal-logging-android.md) article for more details.
 
 ## Next steps
 
