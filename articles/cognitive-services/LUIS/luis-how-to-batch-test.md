@@ -21,9 +21,19 @@ Batch testing validates your active trained version to measure its prediction ac
 
 It is important that utterances used for batch testing are new to LUIS. If you have a data set of utterances, divide the utterances into three sets: example utterances added to an intent, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained.
 
-The batch file should include utterances with top-level machine-learning entities labeled including start and end position. The utterances should not be part of the examples already in the app. They should be utterances you want to positively predict for intent and entities.
+The batch JSON file you use should include utterances with top-level machine-learning entities labeled including start and end position. The utterances should not be part of the examples already in the app. They should be utterances you want to positively predict for intent and entities.
 
-You can separate out tests by intent and/or entity or have all the tests (up to 1000 utterances) in the same file.
+You can separate out tests by intent and/or entity or have all the tests (up to 1000 utterances) in the same file. If you run into errors uploading your batch file to LUIS, check for the following common issues:
+
+* More than 1,000 utterances in a batch file
+* An utterance JSON object that doesn't have an entities property. The property can be an empty array.
+* Word(s) labeled in multiple entities
+* Entity labels starting or ending on a space.
+
+## Fixing batch errors
+
+If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster.
+
 
 <a name="batch-testing"></a>
 
@@ -239,24 +249,7 @@ There are several objects returned by the API:
 * Information about the entities models, such as precision, recall and F-score) for each entity 
   * Using the `verbose` flag, you can get more information about the entity, such as `entityTextFScore` and `entityTypeFScore`.
 * Provided utterances with the predicted and labeled intent names
-* A list of false positive entities, and a list of false negative entities..
-
-## Common errors importing a batch
-
-Common errors include:
-
-> * More than 1,000 utterances
-> * An utterance JSON object that doesn't have an entities property. The property can be an empty array.
-> * Word(s) labeled in multiple entities
-> * Entity label starting or ending on a space.
-
-Errors in the batch test indicate intents that are not predicted as noted in the batch file. Errors are indicated in the two red sections of the chart.
-
-The false positive section indicates that an utterance matched an intent or entity when it shouldn't have. The false negative indicates an utterance did not match an intent or entity when it should have.
-
-## Fixing batch errors
-
-If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster.
+* A list of false positive entities, and a list of false negative entities.
 
 ## Next steps
 
