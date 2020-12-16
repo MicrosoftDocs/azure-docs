@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection
@@ -40,7 +40,7 @@ As the data flows through this solution, events are logged and logs are generate
 
 ## Security features
 
-Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them. 
+Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them.
 
 ### Data Box device protection
 
@@ -50,14 +50,15 @@ The Data Box device is protected by the following features:
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
-- Controls device access via device unlock password.
-- Access credentials to copy data in and out of the device. All access to the **Device credentials** page in Azure portal are logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
+- Controls device access via device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+- Access credentials to copy data in and out of the device. Each access to the **Device credentials** page in the Azure portal is logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
+- You can use your own passwords for device and share access. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
 ### Data Box data protection
 
 The data that flows in and out of Data Box is protected by the following features:
 
-- AES 256-bit encryption for Data-at-rest.
+- AES 256-bit encryption for Data-at-rest. In a high-security environment, you can use software-based double encryption. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 - Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
 - Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
@@ -65,10 +66,10 @@ The data that flows in and out of Data Box is protected by the following feature
 
 The Data Box service is protected by the following features.
 
-- Access to the Data Box service requires that your organization has an Azure subscription that includes Data Box. Your subscription governs the features that you can access in the Azure portal.
+- Access to the Data Box service requires that your organization have an Azure subscription that includes Data Box. Your subscription governs the features that you can access in the Azure portal.
 - Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - Access to the Data Box order can be controlled via the use of Azure roles. For more information, see [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order)
-- The Data Box service stores unlock password that is used to unlock the device in the service.
+- The Data Box service stores the unlock password that is used to unlock the device in the service.
 - The Data box service stores order details and status in the service. This information is deleted when the order is deleted.
 
 ## Managing personal data
