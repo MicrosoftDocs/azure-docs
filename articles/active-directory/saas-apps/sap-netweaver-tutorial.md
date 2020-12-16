@@ -257,11 +257,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-1. Give the **user ID Source** value as **Assertion Attribute**, **user ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+1. Give the **User ID Source** value as **Assertion Attribute**, **User ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
 	![Configure Single Sign-On ](./media/sapnetweaver-tutorial/nameid-format.png)
 
-14. Note that **user ID Source** and **user ID mapping mode** values determine the link between SAP user and Azure AD claim.
+14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Azure AD claim.
 
 	#### Scenario: SAP User to Azure AD user mapping.
 
