@@ -32,9 +32,6 @@ Open-source deep learning frameworks and how-to guides include:
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-- [Train a deep learning image classification model using transfer learning in PyTorch](how-to-train-pytorch.md)
-- [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
-- [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 ### Reinforcement learning: Ray RLLib
 Reinforcement learning is a technique of artificial intelligence that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
