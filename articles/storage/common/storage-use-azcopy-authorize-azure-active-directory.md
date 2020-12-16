@@ -180,7 +180,7 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 
 ## Authorize without a secret store
 
-If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work. Instead, you can set in-memory environment variables prior to running each operation. 
+If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work. That's because there's no location for AzCopy to store the OAuth access token that it retrieves from the Microsoft identity platform. Instead, you can set in-memory environment variables prior to running each operation. 
 
 ### Authorize a user identity
 
