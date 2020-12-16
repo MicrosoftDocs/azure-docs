@@ -1,14 +1,13 @@
 ---
-title: 'Discover, connect and explore data in Synapse using Azure Purview'  
-description: Guide on how to discover data, connect them and explore them in Synapse 
-services: synapse-analytics 
-author: acomet 
-ms.author: acomet 
-manager: julieMSFT 
-ms.reviewer: jrasnick 
-ms.service: synapse-analytics 
-ms.topic: how-to 
-ms.date: 11/16/2020  
+title: Ingest into Azure Data Lake Storage Gen2
+description: Guide on how to discover data, connect them and explore them in Synapse
+services: synapse-analytics 
+author:  acomet
+ms.service: synapse-analytics 
+ms.topic: how-to
+ms.date: 12/16/2020
+ms.author: acomet
+ms.reviewer: jrasnick
 ---
 
 # Discover, connect and explore data in Synapse using Azure Purview 
@@ -16,7 +15,7 @@ ms.date: 11/16/2020 
 > [!IMPORTANT] 
 > The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
 
-In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
+In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
 
 ## Prerequisites 
 

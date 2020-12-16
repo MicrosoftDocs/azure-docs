@@ -1,14 +1,13 @@
 ---
-title: 'Connect an Azure Purview Account'  
-description: Connect an Azure Purview Account to a Synapse workspace. 
-services: synapse-analytics 
-author: acomet 
-ms.author: acomet 
-manager: julieMSFT 
-ms.reviewer: jrasnick 
-ms.service: synapse-analytics 
-ms.topic: quickstart 
-ms.date: 11/16/2020  
+title: Connect an Azure Purview Account  
+description: Connect an Azure Purview Account to a Synapse workspace.
+services: synapse-analytics 
+author:  acomet
+ms.service: synapse-analytics 
+ms.topic:  quickstart
+ms.date: 12/16/2020
+ms.author: acomet
+ms.reviewer: jrasnick
 ---
 
 # QuickStart: Connect an Azure Purview Account to a Synapse workspace 
