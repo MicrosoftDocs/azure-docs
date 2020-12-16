@@ -18,7 +18,7 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitor overview
 
-The **Overview** page in the Azure portal for Time Series Insights includes charts that provide some usage metrics, such as the number of messages used and the number of devices connected to Time Series Insights.
+The **Overview** page in the Azure portal for each Time Series Insights environment includes a brief view of the resource usage, such as the number of messages received and the number of bytes stored. This information is helpful, however only a small amount of the monitoring data is available from this pane. Some of this data is collected automatically and is available for analysis as soon as you create the resource. You can enable additional types of data collection with some configuration.
 
 ## What is Azure Monitor
 
@@ -32,83 +32,89 @@ Start with the article [Monitoring Azure resources with Azure Monitor](https://d
 - Configuring data collection
 - Standard tools in Azure for analyzing and alerting on monitoring data
 
-The following sections build on this article by describing the specific data gathered for Time Series Insights and providing examples for configuring data collection and analyzing this data with Azure tools.
+The following sections build on this article by describing the specific data gathered for Azure Time Series Insights. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
+
+> [!TIP]
+> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/platform/usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/platform/data-ingestion-time.md).
+
+## Monitoring data from Azure Time Series Insights
+
+Azure Time Series Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+
+See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md) for a detailed reference of the logs and metrics that you can collect.
 
 ## Collection and routing
 
 Platform metrics are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Time Series Insights are listed in link goes here...
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
 
-> [!IMPORTANT]
-> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
-You can configure the following logs for Azure Time Series Insights:
+You can collect logs from the following categories for Azure Time Series Insights:
 
    | Category | Description |
    |---|---|
    | Ingress  | The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload). |
 
-The metrics and logs you can collect are discussed in the following sections.
-
 ## Analyzing metrics
 
-You can analyze metrics for Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-For a list of the metrics collected, see Monitoring Azure Time Series Insights data reference metrics.
+For a list of the platform metrics collected, see [Monitoring Azure Time Series Insights data reference](how-to-monitor-tsi-reference.md#metrics)
 
-This example shows the count of bytes received from all event sources in your Time Series Insights environment.
+This example shows the count of bytes received from all event sources into your Azure Time Series Insights environment.
 
 **Ingress received bytes** [![Azure Time Series ingress received bytes](media/how-to-monitor-tsi/ingress-received-bytes.png)](media/how-to-monitor-tsi/ingress-received-bytes.png#lightbox)
 
-The example shows the count of bytes stored for the total size of events successfully processed and available for query in your Time Series Insights environment.
+The example shows the count of bytes successfully processed and available for query in your Azure Time Series Insights environment.
 
 **Ingress stored bytes** [![Azure Time Series ingress stored bytes](media/how-to-monitor-tsi/ingress-stored-bytes.png)](media/how-to-monitor-tsi/ingress-stored-bytes.png#lightbox)
 
-PLACEHOLDER FOR NAMESPACE
-
-### Ingress
-
-   |Metric  |Unit |Aggregation Type |Description |
-   |---------|---------|---------|---------|
-   |**Ingress Received Bytes** |  |  |Count of raw bytes read from event sources. Raw count usually includes the property name and value.|
-   |**Ingress Received Invalid Messages** |  |  |Count of messages read from all Event Hubs or IoT Hubs event sources. |
-   |**Ingress Received Messages** |  |  |Count of invalid messages read from all Azure Event Hubs or Azure IoT Hub event sources. |
-   |**Ingress Stored Bytes** |  |  |Total size of events stored and available for query. Size is computed only on the property value. |
-   |**Ingress Stored Events** |  |  |Count of flattened events stored and available for query. |
-   |**Ingress Received Message Time Lag** |  |  |Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress. |
-   |**Ingress Received Message Count Lag** |  |  |Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress. |
-
-### Storage
-
-   |Metric Display Name |Unit |Aggregation Type |Description |
-   |---------|---------|---------|---------|
-   |**Failed twin reads from back end** |Count |Total |The count of all failed back-end-initiated twin reads. |
-   |**Failed twin updates from back end** |Count |Total |The count of all failed back-end-initiated twin updates. |
-   |**Response size of twin reads from back end** |Bytes |Average |The count of all successful back-end-initiated twin reads. |
-   |**Size of twin updates from back end** |Bytes |Average |The total size of all successful back-end-initiated twin updates. |
-   |**Successful twin reads from back end** |Count |Total| The count of all successful back-end-initiated twin reads. |
-   |**Successful twin updates from back end** |Count |Total |The count of all successful back-end-initiated twin updates. |
-
 ## Analyzing logs
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The data in these tables are associated with a Log Analytics workspace and can be queried in Log Analytics. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) in the Azure Monitor documentation.
+Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
+
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Time Series Insights, see [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md#resource-logs).
+
+Azure Time Series Insights stores data in the following tables.
+
+| Table | Description |
+|:---|:---|
+| TSIIngress | The table that stores data from the Ingress category. The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload).
 
 To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing).
 
 ## Sample Queries
 
-TBD
+Following are queries that you can use to help you monitor your Azure Time Series Insights environment:
+
++ Get event source connection failures from the last five days:
+
+    ```Kusto
+   TSIIngress
+   | where OperationName == "Microsoft.TimeSeriesInsights/environments/eventsources/ingress/connect"
+   | where _ResourceId contains "<your environment name, event source name, or the full event source resource URL>"
+   | where TimeGenerated > ago(5d)
+
+    ```
++ Get invalid message logs from the last five days:
+
+    ```Kusto
+   TSIIngress
+   | where OperationName == "Microsoft.TimeSeriesInsights/environments/eventsources/ingress/deserialize"
+   | where _ResourceId contains "<your environment name, event source name, or the full event source resource URL>"
+   | where TimeGenerated > ago(5d)
+
+    ```
 
 ## Alerts
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-When creating an alert rule based on platform metrics, be aware that for Time Series Insights platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see Supported aggregations in the Monitoring Azure IoT Hub data reference.
+When creating an alert rule based on platform metrics, be aware that for Time Series Insights platform metrics that are collected in units of count, some aggregations may not be available or usable.
 
 ## Next Steps
 
-- TBD
-- TBD
-- TBD
+* See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md) for a reference of the logs and metrics created by Azure Time Series Insights.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
