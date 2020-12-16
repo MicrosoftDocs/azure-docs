@@ -27,7 +27,7 @@ For a detailed overview, see this [Overview](customize-brands-model-overview.md)
 You can use the Video Indexer website to create, use, and edit custom Brands models detected in a video, as described in this topic. You can also use the API, as described in [Customize Brands model using APIs](customize-brands-model-with-api.md).
 
 > [!NOTE]
-> If your video was indexed prior to adding a brand, you need to reindex it. You will find **Re-index** item in the drop-down menu located to the right of the video.
+> If your video was indexed prior to adding a brand, you need to reindex it. You will find **Re-index** item in the drop-down menu associated with the video. Select **Advanced options** -> **Brand categories** and check **All brands**.
 
 ## Edit Brands model settings
 
