@@ -18,7 +18,7 @@ ms.author: nicholak
 ms.reviewer: nicholak
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-#Katherine Kern is minding this reference until it can be automated
+#Nick Kramer is minding this reference until it can be automated
 ---
 
 # Product names and service plan identifiers for licensing
