@@ -50,9 +50,13 @@ The Data Box device is protected by the following features:
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
-- Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+- Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 - Access credentials to copy data in and out of the device. Each access to the **Device credentials** page in the Azure portal is logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
 - You can use your own passwords for device and share access. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+
+### Establish trust with the device via certificates
+
+A Data Box device lets you bring your own certificates and install those to be used for connecting to the local web UI and blob storage. For more information, see [Use your own certificates with Data Box and Data Box Heavy devices](data-box-bring-your-own-certificates.md).
 
 ### Data Box data protection
 
