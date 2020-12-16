@@ -81,7 +81,7 @@ To verify the connection, run one of the following commands from an elevated com
 
 Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)
 
-### On a Windows VM
+#### On a Windows VM
 
 **Storage pool on VM gets attached in read-only mode**:  On Windows 2012 R2 and Windows 2016 (with storage pools), when running the script for the first time, the storage pool attached to the VM may go into a read-only state.
 
@@ -103,15 +103,15 @@ To resolve this issue, we need to manually set the Read-Write Access to the stor
 
    ![Server manager Virtual Disk](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
-### On a Linux VM
+#### On a Linux VM
 
-#### File recovery fails to auto mount because disk doesn't contain volumes
+##### File recovery fails to auto mount because disk doesn't contain volumes
 
 While performing file recovery, the backup service detects volumes and automounts. However, if the backed-up disks have raw partitions, then those disks aren't automounted and you can't see the data disk for recovery.
 
 To solve this issue, follow the steps documented in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-### The OS couldn't identify the filesystem causing Linux File recovery to fail while mountings disks
+##### The OS couldn't identify the filesystem causing Linux File recovery to fail while mountings disks
 
 While running the File recovery script, the data disk failed to attach with the following error:
 
@@ -141,41 +141,29 @@ While running the file recovery script for Windows, there's a message that ***0 
 To identify and resolve this issue, perform the following steps:
 
 1. Go to **Disk Management** by running **diskmgmt** command in the cmd window.
-2. Check whether any additional disks are displayed. In the following example, Disk 2 is an additional disk.
+1. Check whether any additional disks are displayed. In the following example, Disk 2 is an additional disk.
 
    ![Disk management0](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
 
-3. Right-click on the **Volume** and select **Change Drive Letter and Paths**.
+1. Right-click on the **New Volume** and select **Change Drive Letter and Paths**.
 
    ![Disk management1](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
 
-4. In the **Add Drive Letter or Path** window, select **Assign the following drive letter** and assign an available drive and select **OK**.
+1. In the **Add Drive Letter or Path** window, select **Assign the following drive letter** and assign an available drive and select **OK**.
 
    ![Disk management2](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
 
-5. From the file explorer, view the drive.
-
-   ![Disk management3](./media/backup-azure-restore-files-from-vm/disk-management-10.png)
-
-6. The new volumes should be attached.
-
-   ![Disk not mounting](./media/backup-azure-restore-files-from-vm/disk-not-mounting-11.png)
-
-7. In the file explorer, the new volumes will be visible after rerunning the script.
-
-   ![Disk not mounting1](./media/backup-azure-restore-files-from-vm/disk-not-mounting-12.png)
-
-   ![Disk not mounting2](./media/backup-azure-restore-files-from-vm/disk-not-mounting-13.png)
+1. From the file explorer, view the drive letter you chose and explore the files.
 
 #### On Linux VMs
 
 - Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 - If the protected Linux VM uses LVM or RAID Arrays, then follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-### Can't copy the files from mounted Volumes
+### Can't copy the files from mounted volumes
 
 The copy might fail with the error **0x80070780: The file cannot be accessed by the system.** In this case, check if the source server has disk deduplication enabled. Then ensure the restore server also has deduplication enabled on the drives. You can leave the deduplication role unconfigured so you don't deduplicate the drives on the restore server.
 
 ## Next steps
 
-- [Recover files from Azure virtual machine backup](backup-azure-restore-files-from-vm.md)
+- [Recover files and folders from Azure virtual machine backup](backup-azure-restore-files-from-vm.md)
