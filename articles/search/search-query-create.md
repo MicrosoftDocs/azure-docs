@@ -13,17 +13,17 @@ ms.date: 12/14/2020
 
 # Create a query in Azure Cognitive Search
 
-Learn about the tools and APIs for building a query, which methods are used to create a query, and how index structure and content can impact query outcomes. For an introduction to what a query request looks like, start with [Query types and compositions](search-query-overview.md).
+If you are building a query for the first time, this article describes the tools and APIs you'll need, which methods are used to create a query, and how index structure and content can impact query outcomes. For an introduction to what a query request looks like, start with [Query types and compositions](search-query-overview.md).
 
 ## Choose tools and APIs
 
-You can use any of the following tools and APIs to create queries for testing or production workloads.
+You'll need a tool or API to create a query. Any of the following suggestions are useful for testing and production workloads.
 
 | Methodology | Description |
 |-------------|-------------|
-| Portal| [Search explorer (portal)](search-explorer.md) is a query interface in the Azure portal that can be used to run queries against indexes on the underlying search service. The portal makes REST API calls behind the scenes. You can select any index and any supported REST API version, including preview versions. A query string can be in simple and full syntax, and can include filter expressions, facets, select and searchField statements, and searchMode. In the portal, when you open an index, you can work with Search Explorer alongside the index JSON definition in side-by-side tabs for easy access to field attributes. You can check what fields are searchable, sortable, filterable, and facetable while testing queries. Recommended for early investigation, testing, and validation. <br/>[Learn more.](search-explorer.md) |
-| Web testing tools| [Postman or Visual Studio Code](search-get-started-rest.md) are strong choices for formulating a [Search Documents](/rest/api/searchservice/search-documents) request in REST. The REST API supports every programmatic operation in Azure Cognitive Search, and when you use a tool like Postman or Visual Studio Code, you can issue requests interactively to understand how it works before investing in code. A web testing tool is a good choice if you don't have contributor or administrative rights in the Azure portal. As long as you have a search URL and a query API key, you can use the tools to run queries against an existing index. |
-| Azure SDK | When you are ready to write code, you can use the Azure.Search.Document client libraries in the Azure SDKs for .NET, Python, JavaScript, or Java. Each SDK is on its own release schedule, but you can create and query indexes in all of them. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in C#.  [Learn more.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in Python. [Learn more.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in JavaScript. [Learn more.](search-get-started-javascript.md) |
+| Portal| [Search explorer (portal)](search-explorer.md) is a query interface in the Azure portal that runs queries against indexes on the underlying search service. The portal makes REST API calls behind the scenes to the [Search Documents](/rest/api/searchservice/search-documents) operation, but cannot invoke Autocomplete, Suggestions, or Document Lookup.<br/><br/> You can select any index and REST API version, including preview. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). In the portal, when you open an index, you can work with Search Explorer alongside the index JSON definition in side-by-side tabs for easy access to field attributes. Check what fields are searchable, sortable, filterable, and facetable while testing queries. <br/>Recommended for early investigation, testing, and validation. [Learn more.](search-explorer.md) |
+| Web testing tools| [Postman or Visual Studio Code](search-get-started-rest.md) are strong choices for formulating a [Search Documents](/rest/api/searchservice/search-documents) request, and any other request, in REST. The REST APIs support every possible programmatic operation in Azure Cognitive Search, and when you use a tool like Postman or Visual Studio Code, you can issue requests interactively to understand how the feature works before investing in code. A web testing tool is a good choice if you don't have contributor or administrative rights in the Azure portal. As long as you have a search URL and a query API key, you can use the tools to run queries against an existing index. |
+| Azure SDK | When you are ready to write code, you can use the Azure.Search.Document client libraries in the Azure SDKs for .NET, Python, JavaScript, or Java. Each SDK is on its own release schedule, but you can create and query indexes in all of them. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in C#.  [Learn more.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in Python. [Learn more.](search-get-started-python.md)<br/><br/>[SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in JavaScript. [Learn more.](search-get-started-javascript.md) |
 
 ## Set up a search client
 
@@ -72,31 +72,7 @@ If your query is full text search, a parser will be used to process the contents
 
 The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, is based on the [Apache Lucene Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Full syntax is an extension of the simple syntax, with more operators so that you can construct advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions. The following examples illustrate the point: same query, but with different **`queryType`** settings, which yield different results. In the first simple query, the `^3` after `historic` is treated as part of the search term. The top-ranked result for this query is "Marquis Plaza & Suites", which has *ocean* in its description.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-The same query using the full Lucene parser interprets `^3` as an in-field term booster. Switching parsers changes the rank, with results containing the term *historic* moving to the top.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+Full syntax and simple syntax overlap to the extent that both support the same prefix and boolean operations, but the full syntax provides more operators. In full, there are more operators for boolean expressions, and more operators for advanced queries such as fuzzy search, wildcard search, proximity search, and regular expressions.
 
 ## Choose query methods
 

@@ -5,6 +5,8 @@
   items:
   - name: What is the Face service?
     href: Overview.md
+  - name: What's new
+    href: releasenotes.md
 - name: Quickstarts
   items:
   - name: Using the client library or REST API
@@ -97,5 +99,3 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Encryption
     href: face-encryption-of-data-at-rest.md
-  - name: Release notes
-    href: ReleaseNotes.md

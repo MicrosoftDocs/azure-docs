@@ -95,8 +95,6 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
-  - name: SSO sessions
-    href: session-overview.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
 - name: How-to guides
@@ -155,6 +153,8 @@
       href: identity-provider-wechat.md
     - name: Weibo
       href: identity-provider-weibo.md
+    - name: Pass through identity provider token
+      href: idp-pass-through-user-flow.md
   - name: UX customization
     items:
     - name: Configure user input
@@ -174,6 +174,24 @@
     - name: Enable MFA
       href: multi-factor-authentication.md
       displayName: multi-factor auth
+    - name: Set up direct sign-in
+      href: direct-signin.md
+  - name: Tokens and session management
+    items:
+    - name: Configure session behavior
+      href: session-behavior.md
+    - name: Configure tokens
+      href: configure-tokens.md
+  - name: Define custom attributes
+    href: user-flow-custom-attributes.md
+  - name: Identity Protection and Conditional Access
+    items:
+    - name: Set up Identity Protection and Conditional Access
+      href: conditional-access-identity-protection-setup.md
+    - name: Add Conditional Access
+      href: conditional-access-user-flow.md
+  - name: Configure age gating
+    href: basic-age-gating.md
   - name: User flow
     items:
     - name: Create a flow
@@ -184,40 +202,23 @@
         href: configure-ropc.md
       - name: Set up self-serve password reset
         href: user-flow-self-service-password-reset.md
-    - name: Add Conditional Access
-      href: conditional-access-user-flow.md
-    - name: Tokens and session management
-      items:
-      - name: Configure tokens
-        href: configure-tokens.md
-      - name: Configure session behavior
-        href: session-behavior.md
-    - name: Configure age gating
-      href: basic-age-gating.md
-    - name: Define custom attributes
-      href: user-flow-custom-attributes.md
     - name: API connectors (preview)
       items:
       - name: Overview
         href: api-connectors-overview.md
       - name: Add an API connector
         href: add-api-connector.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-user-flow.md
-  - name: Identity Protection and Conditional Access
-    href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
+    - name: Custom policy overview
+      href: custom-policy-trust-frameworks.md
+    - name: Get started with custom policies
+      href: custom-policy-get-started.md
     - name: Create a policy
       items:
-      - name: Get started with custom policies
-        href: custom-policy-get-started.md
       - name: Resource owner password credentials
         href: ropc-custom.md
         displayName: ropc
-      - name: Enable keep me signed in
-        href: custom-policy-keep-me-signed-in.md
-        displayName: kmsi
       - name: Password change
         href: custom-policy-password-change.md
       - name: Phone sign-up & sign-in
@@ -230,18 +231,6 @@
       - name: SendGrid
         href: custom-email-sendgrid.md
       displayName: verification
-    - name: Tokens and session management
-      items:
-      - name: Customize tokens
-        href: configure-tokens-custom-policy.md
-      - name: Configure session behavior
-        href: session-behavior-custom-policy.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-custom.md
-    - name: Adaptive experience
-      items:
-      - name: Set up direct sign-in
-        href: direct-signin.md
     - name: Add your own business logic
       items:
       - name: Integrate REST API
@@ -254,8 +243,6 @@
         displayName: rest claims exchange
       - name: Secure REST API
         href: secure-rest-api.md
-    - name: Define custom attributes
-      href: custom-policy-custom-attributes.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
@@ -268,8 +255,6 @@
       href: analytics-with-application-insights.md
     - name: Reference
       items:
-      - name: Trust Framework definition
-        href: custom-policy-trust-frameworks.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
       - name: BuildingBlocks
@@ -315,11 +300,9 @@
       - name: ClaimsProviders
         href: claimsproviders.md
         items:
-        - name: TechnicalProfiles
+        - name: Technical Profiles
           href: technicalprofiles.md
           items:
-          - name: About technical profiles
-            href: technical-profiles-overview.md
           - name: About validation technical profiles
             href: validation-technical-profile.md
           - name: Application Insights
@@ -370,6 +353,8 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: UserInfo endpoint
+    href: userinfo-endpoint.md
   - name: Partner integration
     items:
     - name: Azure AD B2C partner gallery

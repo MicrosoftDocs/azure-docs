@@ -42,8 +42,6 @@ You can start using ITSMC by completing the following steps:
 3. [Create an ITSM connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
 4. [Use the connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
 
->[!NOTE]
-> You must follow the steps by this order otherwise you will get an error.
 
 ## Next steps
 

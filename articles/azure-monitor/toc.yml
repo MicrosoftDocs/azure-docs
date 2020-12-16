@@ -190,6 +190,8 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
+      - name: Viewing multiple resources in Metric Explorer
+        href: platform/metrics-dynamic-scope.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
@@ -755,6 +757,8 @@
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: platform/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
     - name: Search
       href: app/diagnostic-search.md
     - name: Profiler
