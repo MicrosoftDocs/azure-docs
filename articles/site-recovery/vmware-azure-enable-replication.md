@@ -104,7 +104,7 @@ To track the progress of initial replication, navigate to recovery services vaul
 - Completed percentage - indicates the percentage of initial replication completed for the VM
 - Total data transferred - Amount of data transferred from VM to Azure
 
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="state-of-replication":::
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="state-of-replication" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
 
 - Synchronization progress (to track details at a disk level)
     - State of replication
@@ -113,7 +113,7 @@ To track the progress of initial replication, navigate to recovery services vaul
       - After completion of initial replication, status is marked as "Complete".        
    - Site Recovery reads through the original disk, transfers data to Azure and captures progress at a disk level. Note that, Site Recovery skips replication of the unoccupied size of the disk and adds it to the completed data. So, sum of data transferred across all disks might not add up to the "total data transferred" at the VM level.
    - Upon clicking on the information balloon against a disk you can obtain details on when the replication (synonymous for synchronization) was triggered for the disk, data transferred to Azure in the last 15 min followed by the last refreshed time stamp. This time stamp indicates latest time at which information was received by Azure service from the source machine
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="initial-replication-info-balloon":::
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="initial-replication-info-balloon-details" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
    - Health of each disk is displayed
       - If replication is slower than expected, then the disk status turns into warning
       - If replication is not progressing, then the disk status turns into critical
