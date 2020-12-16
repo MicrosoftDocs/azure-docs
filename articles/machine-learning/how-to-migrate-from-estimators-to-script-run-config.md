@@ -102,7 +102,7 @@ For more information on using data for training, see:
 * [Train with datasets in Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
 
 ## Distributed training
-If you need to configure a distributed job for training, you can do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. You can pass in an [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true), or [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) for distributed jobs of the respective types.
+If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true), or [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) for distributed jobs of the respective types.
 
 The following example configures a PyTorch training job to use distributed training with MPI/Horovod:
 ```python
