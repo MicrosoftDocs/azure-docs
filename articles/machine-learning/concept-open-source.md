@@ -1,5 +1,5 @@
 ---
-title: Open source machine learning libraries
+title: Open-source machine learning integration
 titleSuffix: Azure Machine Learning
 description: Learn how you can use open source Python machine learning  
 services: machine-learning
