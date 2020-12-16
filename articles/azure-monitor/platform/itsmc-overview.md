@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 12/16/20202
+ms.date: 12/16/2020
 ms.custom: references_regions
 
 ---
