@@ -55161,7 +55161,7 @@
     },
     {
       "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
-      "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-mi-powershell-offline.md",
+      "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-mi-powershell-offline",
       "redirect_document_id": true
     },
     {
