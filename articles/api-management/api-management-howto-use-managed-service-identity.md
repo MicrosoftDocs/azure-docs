@@ -35,7 +35,6 @@ To set up a managed identity in the Azure portal, you'll first create an API Man
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Selections for enabling a system-assigned managed identity" border="true":::
 
-
 ### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -114,7 +113,6 @@ When the instance is created, it has the following additional properties:
 ```
 
 The `tenantId` property identifies what Azure AD tenant the identity belongs to. The `principalId` property is a unique identifier for the instance's new identity. Within Azure AD, the service principal has the same name that you gave to your API Management instance.
-
 
 > [!NOTE]
 > An API Management instance can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
@@ -261,7 +259,6 @@ The following example shows an Azure Resource Manager template that contains the
 ### Authenticate to the back end by using an API Management identity
 
 You can use the system-assigned identity to authenticate to the back end through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
-
 
 ## Create a user-assigned managed identity
 
@@ -411,7 +408,6 @@ To run the deployment automatically, click the following button:
 ### Authenticate to the back end by using a user-assigned identity
 
 You can use the user-assigned identity to authenticate to the back end through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
-
 
 ## <a name="remove"></a>Remove an identity
 
