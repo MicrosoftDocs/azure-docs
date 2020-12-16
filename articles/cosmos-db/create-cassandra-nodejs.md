@@ -91,9 +91,9 @@ This step is optional. If you're interested to learn how the code creates the da
 
     ```javascript
     function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
-    	client.execute(query, next);
-    	console.log("created keyspace");    
+        var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
+        client.execute(query, next);
+        console.log("created keyspace");    
   }
     ```
 
@@ -101,9 +101,9 @@ This step is optional. If you're interested to learn how the code creates the da
 
    ```javascript
    function createTable(next) {
-   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
-    	client.execute(query, next);
-    	console.log("created table");
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+        client.execute(query, next);
+        console.log("created table");
    },
    ```
 

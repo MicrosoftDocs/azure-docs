@@ -116,7 +116,7 @@ The internet browser might still be caching the old IP address for your domain.
 
 **Solution for Cause 2**
 
-Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. 
+Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address.
 
 ### You can't add a subdomain 
 
@@ -198,16 +198,16 @@ The App Service certificate requires domain verification before the certificate 
 #### Solution
 Manually verify your domain by adding a TXT record:
  
-1.	Go to the Domain Name Service (DNS) provider that hosts your domain name.
-2.	Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
+1. Go to the Domain Name Service (DNS) provider that hosts your domain name.
+1. Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
 
 Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification. 
 
 As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
 
-1.	Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
-3.	Upload this file at the root of the web server that's hosting your domain.
-4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
+1. Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
+1. Upload this file at the root of the web server that's hosting your domain.
+1. Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
 For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to https://azure.com/1234abcd.html should return 1234abcd. 
 
