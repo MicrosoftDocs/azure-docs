@@ -28,7 +28,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 ## Planned changes
 
 - ["Not applicable" resources to be reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
-- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 ### "Not applicable" resources to be reported as "Compliant" in Azure Policy assessments
 
@@ -36,14 +36,15 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 Currently, resources that are evaluated for a recommendation and found to be **not applicable** appear in Azure Policy as "Non-compliant". No user actions can change their state to "Compliant". From this planned change, they'll be reported as "Compliant" for improved clarity.
 
+The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
-### 35 preview recommendations added to increase coverage of Azure Security Benchmark
+### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
 
 **Estimated date for change:** December 2020
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-The following 35 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
+The following 35 preview recommendations will be added to Security Center to increase the coverage of this benchmark.
 
 Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
