@@ -89,7 +89,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-	  "location": "[parameters('azureResourceLocation')]",
+      "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {

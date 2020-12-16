@@ -162,6 +162,9 @@ spec:
 
 In the same *templates* folder, copy and paste the following helper functions into `helpers.tpl`. `helpers.tpl` defines useful functions to help generate Helm template.
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ```yaml
 {{- define "rabbitmq.hostname" -}}
 {{- printf "%s-rabbitmq" .Release.Name -}}

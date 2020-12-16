@@ -89,8 +89,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 | token_endpoint_auth_method | No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-| token_signing_algorithm | No | The signing algorithm used for client assertions. Possible values: `RS256` (default), `RS384`, `RS512`.
-|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`.|
+| token_signing_algorithm | No | The signing algorithm used for client assertions. Possible values: `RS256` (default), `RS384`, `RS512`. |
+| SingleLogoutEnabled | No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`. |
 
 ```xml
 <Metadata>
@@ -122,7 +122,7 @@ The **CryptographicKeys** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | client_secret | Yes | The client secret of the identity provider application. This cryptographic key is required only if the **response_types** metadata is set to `code` and **token_endpoint_auth_method** is set to `client_secret_post` or `client_secret_basic`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  |
-| assertion_signing_key | Yes | The RSA private key which will be used to sign the client assertion. This cryptographic key is required only if the **token_endpoint_auth_method** metadata is set to `private_key_jwt`. 
+| assertion_signing_key | Yes | The RSA private key which will be used to sign the client assertion. This cryptographic key is required only if the **token_endpoint_auth_method** metadata is set to `private_key_jwt`. |
 
 ## Redirect Uri
 
