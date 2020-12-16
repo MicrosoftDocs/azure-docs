@@ -16,9 +16,9 @@ Get expert help from Microsoft partners who build end-to-end solutions that incl
 
 | Partner | Description | Website/Product link |
 |---------|-------------|----------------------|
-| ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | **OrangeNXT**<br/><br/>OrangeNXT offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>Building on top of Azure Cognitive Search, [**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources.<br/><br/>**digitalNXT Search** includes advanced custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)<br/><br/> [Company web site](https://orangenxt.com/)|
+| ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | **OrangeNXT** offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>[**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources.<br/><br/>**digitalNXT Search** includes advanced custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)<br/><br/> [Company site](https://orangenxt.com/)|
 
-## More stuff
+<!-- ## More stuff
 
  [**OrangeNXT**](https://orangenxt.com/solutions/digitalnxt-search/) digital **NXT Search** provides you with the tools to ingest unstructured data and gain key insights that enable your customer support teams to respond to customer issues.
 
@@ -28,10 +28,8 @@ Customers investing in knowledge mining today are seeing tremendous impact resul
 
 Tender Optimization: Grow business with  accurate cost estimations by enabling quick review of complex documents. Automated discovery/tagging of potential risks. Incorporation of engineering standards by collaborate & add notes to the existing knowledge base.
 
-Service Optimization: Provide better answers faster to foster customer loyalty by enabling employees to focus time/effort on customers. Intuitive, personalized and highly accurate data and ease of access to information from remote locations.
-
-
+Service Optimization: Provide better answers faster to foster customer loyalty by enabling employees to focus time/effort on customers. Intuitive, personalized and highly accurate data and ease of access to information from remote locations. -->
 
 ## Next steps
 
-Review case studies on the Azure web site for an in-depth look at specific solutions.
+Review [**digitalNXT** case studies](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) for a closer look at specific solutions.
