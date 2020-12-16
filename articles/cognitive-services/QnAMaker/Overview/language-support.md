@@ -77,61 +77,61 @@ If you need to support a knowledge base system, which includes several languages
 
 The following list contains the languages supported for a QnA Maker resource. 
 
-|Language|
+| Language |
 |--|
-|Arabic|
-|Armenian|
-|Bangla|
-|Basque|
-|Bulgarian|
-|Catalan|
-|Chinese_Simplified|
-|Chinese_Traditional|
-|Croatian|
-|Czech|
-|Danish|
-|Dutch|
-|English|
-|Estonian|
-|Finnish|
-|French|
-|Galician|
-|German|
-|Greek|
-|Gujarati|
-|Hebrew|
-|Hindi|
-|Hungarian|
-|Icelandic|
-|Indonesian|
-|Irish|
-|Italian|
-|Japanese|
-|Kannada|
-|Korean|
-|Latvian|
-|Lithuanian|
-|Malayalam|
-|Malay|
-|Norwegian|
-|Polish|
-|Portuguese|
-|Punjabi|
-|Romanian|
-|Russian|
-|Serbian_Cyrillic|
-|Serbian_Latin|
-|Slovak|
-|Slovenian|
-|Spanish|
-|Swedish|
-|Tamil|
-|Telugu|
-|Thai|
-|Turkish|
-|Ukrainian|
-|Urdu|
-|Vietnamese|
+| Arabic |
+| Armenian |
+| Bangla |
+| Basque |
+| Bulgarian |
+| Catalan |
+| Chinese_Simplified |
+| Chinese_Traditional |
+| Croatian |
+| Czech |
+| Danish |
+| Dutch |
+| English |
+| Estonian |
+| Finnish |
+| French |
+| Galician |
+| German |
+| Greek |
+| Gujarati |
+| Hebrew |
+| Hindi |
+| Hungarian |
+| Icelandic |
+| Indonesian |
+| Irish |
+| Italian |
+| Japanese |
+| Kannada |
+| Korean |
+| Latvian |
+| Lithuanian |
+| Malayalam |
+| Malay |
+| Norwegian |
+| Polish |
+| Portuguese |
+| Punjabi |
+| Romanian |
+| Russian |
+| Serbian_Cyrillic |
+| Serbian_Latin |
+| Slovak |
+| Slovenian |
+| Spanish |
+| Swedish |
+| Tamil |
+| Telugu |
+| Thai |
+| Turkish |
+| Ukrainian |
+| Urdu |
+| Vietnamese |
 
 ## Query matching and relevance
 QnA Maker depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
