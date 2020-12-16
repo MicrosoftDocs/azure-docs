@@ -96,17 +96,15 @@ Use virtual network peering to connect two or more virtual networks together in 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40797).
 
-**Guidance**: Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. 
+**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
-Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+Note that Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 - [Azure Firewall Documentation](/azure/firewall)
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
 - [Azure Security Center recommendations](../../security-center/recommendations-reference.md#recs-network)
-
-Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -323,9 +321,9 @@ Additionally, granular authentication session management policy can also be used
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Windows Virtual Desktop does not directly allow customers to deploy or run {code, configurations or persisted data} potentially with identities/secretes. 
-However there is a possibility of using passwords in the command line for applications. 
+Customers can include parameters for each app. They can inadvertently include plain text passwords in the parameters, and should be reviewed before publishing the apps. 
 
-It is recommended to never include passwords in the custom command line parameters for applications (while adding them to an application group) when they are published to users.
+It is generally recommended to never include passwords in the custom command line parameters for applications (while adding them to an application group) when they are published to users.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -750,11 +748,9 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40808).
 
-**Guidance**: Windows Virtual Desktop does not produce or process DNS query logs. However resources that are registered to the service can produce flow logs.
+**Guidance**: Windows Virtual Desktop does not produce or process domain name service (DNS) query logs. However resources that are registered to the service can produce flow logs.
 
 Enable and collect network security group resource and flow logs, Azure Firewall logs and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
-
-- [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
 - [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
@@ -1121,11 +1117,11 @@ Use a third-party patch management solution for third-party software or System C
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40819).
 
-**Guidance**: Windows Virtual Desktop does not provide any of it's specific capabilities for Endpoint Detection and Response (EDR) processes. However resources registered to the service can benefit from EDR capabilities.
+**Guidance**: Windows Virtual Desktop does not provide any specific capabilities for endpoint detection and response (EDR) processes. However resources registered to the service can benefit from endpoint detection and response capabilities. 
 
-Enable Endpoint Detection and Response (EDR) capabilities for servers and clients and integrate with security information and event management (SIEM) solutions and Security Operations processes.
+Enable endpoint detection and response capabilities for servers and clients and integrate them with security information and event management (SIEM) solutions and Security Operations processes.
 
-Advanced Threat Protection from Microsoft Defender, provides Endpoint Detection and Response capabilities, as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
+Advanced Threat Protection from Microsoft Defender provides Endpoint Detection and Response capabilities, as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
 
 - [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
@@ -1235,6 +1231,8 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 **Guidance**: Periodically perform data restoration of your backup.
 
 - [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
+
+- [Security implementation](/azure/backup/backup-azure-restore-files-from-vm#security-implementations)
 
 **Azure Security Center monitoring**: Currently not available
 
