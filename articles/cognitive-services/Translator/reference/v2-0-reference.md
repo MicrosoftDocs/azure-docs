@@ -47,9 +47,9 @@ If you want to prevent profanity in the translation even when it's in the source
 
 |ProfanityAction	|Action	|Example source (Japanese)	|Example translation (English)	|
 |:--|:--|:--|:--|
-|NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
-|Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
-|Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
+|NoAction	|Default. Same as not setting the option. Profanity will pass from source to target. |彼はジャッカスです。 |He is a jackass.	|
+|Marked |Profane words will be surrounded by XML tags \<profanity> and \</profanity>. |彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
+|Deleted	|Profane words will be removed from the output without replacement. |彼はジャッカスです。	|He is a.	|
 
 	
 ## Excluding content from translation
