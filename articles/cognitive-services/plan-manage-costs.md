@@ -36,6 +36,10 @@ Cognitive Services runs on Azure infrastructure that [accrues costs](https://azu
 
 ### Costs that typically accrue with Cognitive Services
 
+Typically, after you deploy an Azure resource, costs are determined by your pricing tier and the API calls you make to your endpoint. Going over the allotted calls in your pricing tier will incur an overage charge.
+
+Additional costs may accrue when using these services:
+
 #### QnA Maker
 
 When you create resources for QnA Maker, resources for other Azure services may also be created. They include:
