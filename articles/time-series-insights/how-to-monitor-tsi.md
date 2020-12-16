@@ -89,7 +89,7 @@ To route data to Azure Monitor Logs, you must create a diagnostic setting to sen
 
 Following are queries that you can use to help you monitor your Azure Time Series Insights environment:
 
-+ Get event source connection failures from the last five days:
++ Get details on event source connection failures in the last five days:
 
     ```Kusto
    TSIIngress
@@ -98,7 +98,7 @@ Following are queries that you can use to help you monitor your Azure Time Serie
    | where TimeGenerated > ago(5d)
 
     ```
-+ Get invalid message logs from the last five days:
++ Get details on invalid messages received in the last five days:
 
     ```Kusto
    TSIIngress
