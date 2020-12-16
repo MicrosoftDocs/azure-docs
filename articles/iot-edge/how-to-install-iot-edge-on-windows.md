@@ -15,6 +15,8 @@ ms.author: v-tcassi
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
+Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices through the use of Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the Linux Azure IoT Edge runtime and modules can freely interact with each other.
+
 This article lists the steps to install the Azure IoT Edge for Linux on Windows runtime on Azure IoT Edge devices.
 
 ## Prerequisites
@@ -122,6 +124,10 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
+<!-- Most likely temporary until cmdlet is fully documented -->
+> [!NOTE]
+> You can run this command without parameters or optionally customize deployment with parameters. Inspect the PowerShell module AzureEFLOW.psm1 to see the parameters and their meaning (see under C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW)​.
+
 1. Enter 'Y' to accept the license terms.
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
@@ -140,7 +146,7 @@ To provision your device, you have three options:
 
 ## Provision your device
 
-Choose a method for provisioning your device and follow the instructions in the appropriate section.
+Choose a method for provisioning your device and follow the instructions in the appropriate section. You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
 
 ### Provisioning manually using the connection string
 
@@ -166,7 +172,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. Click on the device ID of your device. Copy the **Primary Connection String** field.
 
-1. Paste over the placeholder text in the following command and run it.
+1. Paste over the placeholder text in the following command and run it in an elevated PowerShell session.
 
    ```azurepowershell-interactive
    Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
@@ -212,7 +218,7 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it over the appropriate placeholder text in the command.
 
-1. Run the command.
+1. Run the command in an elevated PowerShell session.
 
 ---
 
@@ -256,7 +262,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 1. Replace the appropriate placeholder text with the absolute source path to your private key file.
 
-1. Run the command.
+1. Run the command in an elevated PowerShell session.
 
 ## Next steps
 
