@@ -9245,6 +9245,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-password-change.md",
+      "redirect_url": "/azure/active-directory-b2c/add-password-change-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/configure-ropc.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
       "redirect_url": "/azure/active-directory-b2c/faq",
       "redirect_document_id": true

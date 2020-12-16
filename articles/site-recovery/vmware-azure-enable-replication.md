@@ -104,7 +104,7 @@ To track the progress of initial replication, navigate to recovery services vaul
 - Completed percentage - indicates the percentage of initial replication completed for the VM
 - Total data transferred - Amount of data transferred from VM to Azure
 
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="state-of-replication" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="state-of-replication" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
 
 - Synchronization progress (to track details at a disk level)
     - State of replication
