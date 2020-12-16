@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
+ms.date: 12/16/2020
 
 ---
 
@@ -36,12 +36,12 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
-1. Import the JSON into a new app, name the app `Pizza app`.
+1. Select the arrow next to **New app** and click **Import as JSON** to import the JSON into a new app. Name the app `Pizza app`.
 
 
 1. Select **Train** in the top-right corner of the navigation to train the app.
 
-## Batch file
+### Batch test file
 
 The example JSON includes one utterance with a labeled entity to illustrate what a test file looks like. In your own tests, you should have many utterances with correct intent and machine-learning entity labeled.
 
@@ -63,43 +63,21 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
     Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. For more information, see [Common errors](#common-errors-importing-a-batch).
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/import-dataset-button.png)
-
 4. Choose the file location of the `pizza-with-machine-learned-entity-test.json` file.
 
 5. Name the dataset `pizza test` and select **Done**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Select file](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
+6. Select the **Run** button. After the batch test runs, select **See results**. 
 
-6. Select the **Run** button.
-
-7. Select **See results**.
-
-8. Review results in the graph and legend. To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of batch tests list with options](./media/luis-how-to-batch-test/batch-testing-options.png)
-
-    The downloadable dataset is the same file that was uploaded for batch testing.
-    
-    |State|Meaning|
-    |--|--|
-    |![Successful test green circle icon](./media/luis-how-to-batch-test/batch-test-result-green.png)|All utterances are successful.|
-    |![Failing test red x icon](./media/luis-how-to-batch-test/batch-test-result-red.png)|At least one utterance intent did not match the prediction.|
-    |![Ready to test icon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test is ready to run.|
+    > [!TIP]
+    > * Selecting **Download** will download the same file that you uploaded.
+    > * If you see the batch test failed, at least one utterance intent did not match the prediction.
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
-
-### View batch test results
-
-To review the batch test results, select **See results**.
-
 ### Review batch results for intents
 
-The test results show graphically how the test utterances were predicted against the active version.
+To review the batch test results, select **See results**. The test results show graphically how the test utterances were predicted against the active version.
 
 The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart.
 
@@ -107,12 +85,7 @@ While hovering over the chart, a mouse wheel can enlarge or reduce the display i
 
 The chart is in four quadrants, with two of the sections displayed in red.
 
-1. Select the **ModifyOrder** intent in the filter list.
-
-    > [!div class="mx-imgBorder"]
-    > ![Select ModifyOrder intent from filter list](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
-
-    The utterance is predicted as a **True Positive** meaning the utterance successfully matched its positive prediction listed in the batch file.
+1. Select the **ModifyOrder** intent in the filter list. The utterance is predicted as a **True Positive** meaning the utterance successfully matched its positive prediction listed in the batch file.
 
     > [!div class="mx-imgBorder"]
     > ![Utterance successfully matched its positive prediction](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
@@ -128,7 +101,7 @@ The chart is in four quadrants, with two of the sections displayed in red.
 
 ### Review batch test results for entities
 
-The ModifyOrder entity, as a machine entity with subentities, displays if the top-level entity matched and display how the subentities are predicted.
+The ModifyOrder entity, as a machine entity with subentities, displays if the top-level entity matched and how the subentities are predicted.
 
 1. Select the **ModifyOrder** entity in the filter list then select the circle in the grid.
 
@@ -145,7 +118,11 @@ To filter the chart by a specific intent or entity, select the intent or entity 
 
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png)
 
-## View single-point utterance data
+### Chart result examples
+
+The chart in the LUIS portal, you can perform the following actions:
+ 
+#### View single-point utterance data
 
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page.
 
