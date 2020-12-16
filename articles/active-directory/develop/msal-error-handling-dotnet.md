@@ -172,4 +172,4 @@ do
 
 ## Next steps
 
-Consider enabling [logging in MSAL.NET](msal-logging.md?tabs=dotnet) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL.NET](msal-logging-dotnet.md) to help you diagnose and debug issues.

@@ -21,7 +21,7 @@ Now that you know how to acquire a token to call web APIs, learn how to move to 
 
 ## Improve your app
 
-[Enable logging](msal-logging.md) to make your app production ready.
+[Enable logging](msal-logging-dotnet.md) to make your app production ready.
 
 ## Test your integration
 

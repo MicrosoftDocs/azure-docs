@@ -33,7 +33,7 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Mitigate and investigate issues
 
-To better diagnose issues in your app, collect data. For information about the kinds of data that you can collect, see [Logging in MSAL applications](./msal-logging.md).
+To better diagnose issues in your app, collect data. For information about the kinds of data that you can collect, see [Logging in MSAL applications](msal-logging-dotnet.md).
 
 Here are some suggestions for data collection:
 
