@@ -38,7 +38,7 @@ In addition, refer to the following samples & tutorials:
 * [Azure/azureml-examples](https://github.com/Azure/azureml-examples)
 
 ## Defining the training environment
-While the various framework estimators have preconfigured environments that are backed by Docker images, the Dockerfiles for these images are private and therefore users do not have a lot of transparency into what these environments contain. In addition, the estimators also take in environment-related configurations as individual parameters (such as `pip_packages`, `custom_docker_image`) on their respective constructors.
+While the various framework estimators have preconfigured environments that are backed by Docker images, the Dockerfiles for these images are private.  Therefore you do not have a lot of transparency into what these environments contain. In addition, the estimators take in environment-related configurations as individual parameters (such as `pip_packages`, `custom_docker_image`) on their respective constructors.
 
 When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, Azure ML will use one of the Azure ML base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
 
