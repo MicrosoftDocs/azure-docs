@@ -18,6 +18,8 @@ IT Service Management Connector (ITSMC) allows you to connect Azure to a support
 
 Azure services like Azure Log Analytics and Azure Monitor provide tools to detect, analyze, and troubleshoot problems with your Azure and non-Azure resources. But the work items related to an issue typically reside in an ITSM product or service. ITSMC provides a bi-directional connection between Azure and ITSM tools to help you resolve issues faster.
 
+## Configuration steps
+
 ITSMC supports connections with the following ITSM tools:
 
 -	ServiceNow
@@ -42,6 +44,6 @@ You can start using ITSMC by completing the following steps:
 3. [Create an ITSM connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
 4. [Use the connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
 
-# Next steps
+## Next steps
 
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
