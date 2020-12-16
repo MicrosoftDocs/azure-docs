@@ -189,8 +189,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
-
 ```python
 import azure.functions as func
 

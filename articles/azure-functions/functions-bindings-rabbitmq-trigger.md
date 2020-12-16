@@ -148,6 +148,7 @@ def main(myQueueItem) -> None:
 
 The following Java function uses the `@RabbitMQTrigger` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
 
+
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
