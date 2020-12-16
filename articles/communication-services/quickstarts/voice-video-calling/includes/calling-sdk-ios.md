@@ -195,7 +195,7 @@ let localVideoStream = LocalVideoStream(camera: firstCamera)
 let acceptCallOptions = AcceptCallOptions()
 acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
 if let incomingCall = CallHandler().incomingCall {
-   incomingCall!.accept(options: acceptCallOptions,
+   incomingCall.accept(options: acceptCallOptions,
                           completionHandler: { (error) in
                            if error == nil {
                                print("Incoming call accepted")
