@@ -133,6 +133,8 @@
       href: configure-ropc.md
     - name: Set up self-serve password reset policy (Deprecated)
       href: user-flow-self-service-password-reset.md
+    - name: Phone sign-up & sign-in
+      href: phone-authentication-user-flows.md
   - name: Identity providers
     items:
     - name: Add an identity provider
