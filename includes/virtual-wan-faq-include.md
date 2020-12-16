@@ -276,4 +276,4 @@ No. Virtual WAN does not store any customer data.
 
 ### Are there any Managed Service Providers that can manage Virtual WAN for users as a service? 
 
-Yes. For a list of Managed service providers (MSP) solution enabled via Azure Marketplace, see [Virtual WAN MSP Partners](../articles/networking/networking-partners-msp.md#msp).
+Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).
