@@ -50,11 +50,9 @@ You can use troubleshooting tools to see symptomatic behavior:
 
 ### PowerShell Versions
 This product was written and tested using PowerShell v5.1.
-This module is not compatible with PowerShell versions 6 or 7.
-However, it is supported to run PowerShell v5.1 alongside newer versions. 
-See [here](https://docs.microsoft.com/en-us/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51) for more details.
-
-
+This module isn't compatible with PowerShell versions 6 or 7.
+We recommend using PowerShell v5.1 alongside newer versions. 
+For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### Conflict with IIS shared configuration
 
