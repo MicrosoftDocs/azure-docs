@@ -23,7 +23,7 @@ zone_pivot_groups: b2c-policy-type
 
 Profile editing policy lets users manage their profile attributes, like display name, surname, given name, city, and others. The profile editing flow involves following steps: 
 
-1. Sign-up or sign-in, with local or social account. If the user has signed in, Azure AD B2C authorizes the user and move to the next step.
+1. Sign-up or sign-in, with local or social account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
 1. Azure AD B2C reads the user profile from the directory, and let the user edit the attributes.
 
 ![Profile editing flow](./media/add-profile-editing-policy/profile-editing-flow.png)
