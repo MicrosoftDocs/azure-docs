@@ -83,7 +83,7 @@ Your code can also read the function app settings values as environment variable
 
 ## Configure your build output settings
 
-When building an Azure Functions project, the build tools will optimize the output so that only one copy of any assemblies that are shared with the functions runtime will be preserved. The result is an optimized build that saves as much space as possible. However, if you move to a more recent version of any of these assemblies in your project, the build tools might not know that these assemblies need to be preserved. In order to ensure that these assemblies are preserved during the optimization process, you can specify them in your function's .csproj file:
+When building an Azure Functions project, the build tools optimize the output so that only one copy of any assemblies that are shared with the functions runtime are preserved. The result is an optimized build that saves as much space as possible. However, when you move to a more recent version of any of your project assemblies, the build tools might not know that these assemblies must be preserved. To make sure that these assemblies are preserved during the optimization process, you can specify them using `FunctionsPreservedDependencies` elements in the project (.csproj) file:
 
 ```xml
   <ItemGroup>
