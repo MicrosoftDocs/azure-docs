@@ -240,7 +240,7 @@ DETAIL: Distributed relations cannot have UNIQUE, EXCLUDE, or
         (with an equality operator if EXCLUDE).
 ```
 
-In a distributed table the best we can do is make columns unique modolu
+In a distributed table the best we can do is make columns unique modulo
 the distribution column:
 
 ```sql
