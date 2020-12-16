@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 12/16/2020
 ---
 
 # Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service
