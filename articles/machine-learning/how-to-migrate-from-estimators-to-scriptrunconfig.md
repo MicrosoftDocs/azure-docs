@@ -22,7 +22,7 @@ Estimators are deprecated with the 1.19.0 release of the Python SDK. You should 
 This article covers common considerations when migrating from Estimators to ScriptRunConfig.
 
 > [!IMPORTANT]
-> To migrate to ScriptRunConfig from Estimators, make sure you are using >= 1.15.0 of the Python SDK.**
+> To migrate to ScriptRunConfig from Estimators, make sure you are using >= 1.15.0 of the Python SDK.
 
 ## ScriptRunConfig documentation and samples
 Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) for job configuration and submission.
@@ -42,8 +42,8 @@ While the various framework estimators have preconfigured environments that are 
 
 When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, Azure ML will use one of the Azure ML base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
 
-1. [Use a curated environment](how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
-2. [Define your own custom environment](how-to-use-environments.md)
+* [Use a curated environment](how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
+* [Define your own custom environment](how-to-use-environments.md)
 
 Here is an example of using the curated PyTorch 1.6 environment for training:
 
@@ -124,3 +124,7 @@ If you need to access the underlying RunConfiguration object for a ScriptRunConf
 ```
 src.run_config
 ```
+
+## Next steps
+
+* [Configure and submit training runs](how-to-set-up-training-targets.md)
