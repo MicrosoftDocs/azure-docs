@@ -25,7 +25,7 @@ Follow these steps to run the sample code:
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -42,7 +42,7 @@ Follow these steps to run the sample code:
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",
