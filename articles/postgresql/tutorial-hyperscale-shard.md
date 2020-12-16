@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Shard data on worker nodes - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: This tutorial shows how to create distributed tables and visualize how their data is distributed with Azure Database for PostgreSQL Hyperscale (Citus).
+description: This tutorial shows how to create distributed tables and visualize their data distribution with Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 12/15/2020
 ---
 
 # Tutorial: Shard data on worker nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -19,8 +19,8 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 > * Create hash-distributed shards
 > * See where table shards are placed
 > * Identify skewed distribution
-> * Run queries faster using worker nodes
 > * Create constraints on distributed tables
+> * Run queries on distributed data
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
 more data than a traditional database, and in many cases can use worker CPUs in
 parallel to execute queries.
 
-In the prerequisites section we created a Hyperscale (Citus) server group with
+In the prerequisites section, we created a Hyperscale (Citus) server group with
 two worker nodes.
 
 ![coordinator and two workers](tutorial-hyperscale-shard/nodes.png)
 
 The coordinator node's metadata tables track workers and distributed data. We
-can check the active workers in
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
+can check the active workers in the
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table) table.
 
 ```sql
 select nodeid from pg_dist_node where isactive;
@@ -60,7 +60,7 @@ select nodeid from pg_dist_node where isactive;
 
 To use the CPU and storage resources of worker nodes, we have to distribute
 table data throughout the server group.  Distributing a table assigns each row
-to to a logical group called a *shard.* Let's create a table and distribute it:
+to a logical group called a *shard.* Let's create a table and distribute it:
 
 ```sql
 -- create a table on the coordinator
@@ -71,7 +71,7 @@ select create_distributed_table('users', 'email');
 ```
 
 Hyperscale (Citus) assigns each row to a shard based on the value of the
-*distribution column* which, in our case, we specified to be `email`. Every row
+*distribution column, which, in our case, we specified to be `email`. Every row
 will be in exactly one shard, and every shard can contain multiple rows.
 
 ![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
@@ -145,13 +145,123 @@ limit 5;
  users | 102012 | 10.0.0.21
 ```
 
-## Execute distributed queries
+### Data skew
 
-In the previous section we saw how distributed table rows are placed on worker
-nodes. Don't worry, most of the time you don't need to know how or where data
-is stored in a server group. Hyperscale (Citus) has a distributed query
-executor that automatically splits up regular SQL queries and runs them in
-parallel on worker nodes close to the data.
+A server group runs most efficiently when data is placed evenly on worker
+nodes, and when related data is placed together on the same workers. In this
+section we'll focus on the first part, the uniformity of placement.
+
+To demonstrate, let's create sample data for our `users` table:
+
+```sql
+-- load sample data
+insert into users
+select
+	md5(random()::text) || '@test.com',
+	date_trunc('day', now() - random()*'100 years'::interval)
+from generate_series(1, 1000);
+```
+
+To see shard sizes, we can run [table size
+functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBSIZE)
+on the shards.
+
+```sql
+-- sizes of the first five shards
+select *
+from
+	run_command_on_shards('users', $cmd$
+	  select pg_size_pretty(pg_table_size('%1$s'));
+	$cmd$)
+order by shardid
+limit 5;
+```
+```
+ shardid | success | result
+---------+---------+--------
+  102008 | t       | 16 kB
+  102009 | t       | 16 kB
+  102010 | t       | 16 kB
+  102011 | t       | 16 kB
+  102012 | t       | 16 kB
+```
+
+We can see the shards are of equal size. Since we already saw that placements
+are evenly distributed among workers, we can infer that the worker nodes hold
+roughly equal numbers of rows.
+
+The rows in our `users` example distributed evenly because properties of the
+distribution column, `email`.
+
+1. The number of email addresses was greater than or equal to the number of shards
+2. The number of rows per email address was similar (in our case, exactly one
+   row per address because we declared email a key)
+
+Any choice of table and distribution column where either property fails will
+end up with uneven data size on workers, that is, *data skew*.
+
+### Add constraints to distributed data
+
+Using Hyperscale (Citus) allows you to continue to enjoy the safety of a
+relational database, including database constraints (see the PostgreSQL
+[docs](https://www.postgresql.org/docs/current/ddl-constraints.html)). Because of
+the nature of distributed systems, Hyperscale (Citus) will not cross-reference
+uniqueness constraints or referential integrity between worker nodes.
+
+Let's consider our `users` table example with a related table.
+
+```sql
+-- books that users own
+create table books (
+	owner_email text references users (email),
+	isbn text not null,
+	title text not null
+);
+
+-- distribute it
+select create_distributed_table('books', 'owner_email');
+```
+
+For efficiency, we distribute `books` the same way as `users`: by the owner's
+email address. Distributing by similar column values is called
+[colocation](concepts-hyperscale-colocation.md).
+
+We had no problem distributing books with a foreign key to users, because the
+key was on a distribution column. However, we would have trouble making isbn a
+key:
+
+```sql
+-- will not work
+alter table books add constraint books_isbn unique (isbn);
+```
+```
+ERROR:  cannot create constraint on "books"
+DETAIL: Distributed relations cannot have UNIQUE, EXCLUDE, or
+        PRIMARY KEY constraints that do not include the partition column
+        (with an equality operator if EXCLUDE).
+```
+
+In a distributed table the best we can do is make columns unique modolu
+the distribution column:
+
+```sql
+-- a weaker constraint is allowed
+alter table books add constraint books_isbn unique (owner_email, isbn);
+```
+
+The above constraint merely makes isbn unique per user. Another option is to
+make books a [reference
+table](howto-hyperscale-modify-distributed-tables.md#reference-tables) rather
+than a distributed table, and create a separate distributed table associating
+books with users.
+
+## Query distributed tables
+
+In the previous sections, we saw how distributed table rows are placed in shards
+on worker nodes. Most of the time you don't need to know how or where data is
+stored in a server group. Hyperscale (Citus) has a distributed query executor
+that automatically splits up regular SQL queries and runs them in parallel on
+worker nodes close to the data.
 
 For instance, we can run a query to find the average age of users, treating the
 distributed `users` table like it's a normal table on the coordinator.
@@ -165,8 +275,10 @@ select avg(current_date - bday) from users;
  17926.348000000000
 ```
 
+![query going to shards via coordinator](tutorial-hyperscale-shard/query-fragments.png)
+
 Behind the scenes, the Hyperscale (Citus) executor creates a separate query for
-each shard, runs them on the workers, and combines the result. You can see this
+each shard, runs them on the workers, and combines the result. You can see it
 if you use the PostgreSQL EXPLAIN command:
 
 ```sql
@@ -190,66 +302,3 @@ on shard 102040 (the table `users_102040` on worker 10.0.0.21). The other
 fragments are similar and are thus not shown. We can see that the worker node
 scans the shard tables and applies the aggregate. The coordinator node combines
 the aggregates for the final result.
-
-### Run queries faster using worker nodes
-
-The worker nodes can run query fragments in parallel, potentially speeding up
-the entire query. For most toy examples such as the one in the previous
-section, running a distributed query is actually slower than running a normal
-query on the corresponding large local table.  The communication overhead
-between nodes and small extra planning time for distributing the query
-counterbalances the parallelism. The advantage of Hyperscale (Citus) becomes
-apparent only in larger workloads.
-
-However, we can demonstrate a query speedup using our two workers by contriving
-a query that is very CPU-bound, like computing lots of SHA-256 hashes. First
-let's calculate a million of them on the coordinator node alone and see how
-long it takes.
-
-```sql
-create table hashes ( val bytea );
-
-\timing on
-
--- calculate a million cryptographic hashes
-insert into hashes
-select digest(i::text, 'sha256')
-  from generate_series(1,1000000) i;
-```
-```
-INSERT 0 1000000
-Time: 3131.042 ms (00:03.131)
-```
-
-That took about three seconds. Now let's distribute the table and let the
-workers calculate a million more between them.
-
-```sql
-select create_distributed_table('hashes', 'val');
-
-insert into hashes
-select digest(i::text, 'sha256')
-  from generate_series(1000001,2000000) i;
-```
-```
-INSERT 0 1000000
-Time: 1706.436 ms (00:01.706)
-```
-
-The two workers did it in half the time, plus a little extra time for the
-distributed query overhead.
-
-
---------------------------------------------------------
-
-SELECT *
-FROM run_command_on_shards('foo', $cmd$
-  SELECT pg_size_pretty(pg_table_size('%1$s'));
-$cmd$);
-
--- load sample data
-insert into users
-select
-	md5(random()::text) || '@test.com',
-	date_trunc('day', now() - random()*'100 years'::interval)
-from generate_series(1, 1000);
