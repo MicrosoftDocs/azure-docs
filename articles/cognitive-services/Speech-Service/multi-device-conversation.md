@@ -100,7 +100,7 @@ When creating or joining a conversation, each user must choose a **primary langu
 There are two kinds of languages: **speech-to-text** and **text-only**:
 - If the user chooses a **speech-to-text** language as their primary language, then they will be able to use both speech and text input in the conversation.
 
-- If the user chooses a **text-only** language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](supported-languages.md) page.
+- If the user chooses a **text-only** language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](./language-support.md) page.
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
@@ -114,7 +114,7 @@ Below is a summary of what the user will be able to do in a multi-device convers
 | Translate the conversation | ✔️ | ✔️ |
 
 > [!NOTE]
-> For lists of available speech-to-text and text translation languages, see [supported languages](supported-languages.md).
+> For lists of available speech-to-text and text translation languages, see [supported languages](./language-support.md).
 
 
 

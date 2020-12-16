@@ -31,32 +31,32 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
 ```
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `operations/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response
@@ -399,4 +399,4 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 In this quickstart, you used the Form Recognizer REST API with cURL to extract the content of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)
+> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)

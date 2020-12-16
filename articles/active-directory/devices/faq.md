@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -197,7 +197,7 @@ Evaluate the Conditional Access policy rules. Make sure the device meets the cri
 
 ---
 
-### Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?
+### Q: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 

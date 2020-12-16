@@ -56,7 +56,7 @@ Azure Update Management in Azure Automation manages operating system updates for
 
 2. **Log Analytics workspace** enables log collection and performance counter collection using the Log Analytics agent or extensions. To create your Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/update-mgmt-enable-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
+3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
  
 4. Once you've added VMs to Azure Update Management, you can [Deploy updates on VMs and review results](../automation/update-management/deploy-updates.md). 
 

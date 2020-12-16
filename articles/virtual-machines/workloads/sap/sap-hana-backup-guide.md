@@ -7,7 +7,7 @@ author: msjuergent
 manager: juergent
 editor: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

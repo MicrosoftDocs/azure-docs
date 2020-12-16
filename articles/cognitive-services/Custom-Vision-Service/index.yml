@@ -108,19 +108,19 @@ landingContent:
           - text: Prediction API
             url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
           - text: Go SDK (training)
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
           - text: Go SDK (prediction)
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices?view=azure-cli-latest
 
   - title: Help and feedback
     linkLists:

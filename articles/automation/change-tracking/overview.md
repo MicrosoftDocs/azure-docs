@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ---
 
@@ -56,6 +56,16 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
+### Python requirement
+
+Change Tracking and Inventory only supports Python2. If your machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python*.
 
 ## Network requirements
 

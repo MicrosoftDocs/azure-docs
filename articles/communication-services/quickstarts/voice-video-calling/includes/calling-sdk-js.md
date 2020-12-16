@@ -144,7 +144,8 @@ This returns a string representing the current state of a call:
 * 'Connected' - call is connected
 * 'Hold' - call is put on hold, no media is flowing between local endpoint and remote participant(s)
 * 'Disconnecting' - transition state before the call goes to 'Disconnected' state
-* 'Disconnected' - final call state
+* 'Disconnected' - final call state.
+   * If network connection is lost, state goes to 'Disconnected' after about 2 minutes.
 
 
 * To see why a given call ended, inspect the `callEndReason` property.
@@ -230,6 +231,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### FAQ
+ * If network connectivity is lost, does the call state change to 'Disconnected' ?
+    * Yes, if network connection is lost for more than 2 minutes, call will transition to Disconnected state and call will end.
 
 ## Remote participants management
 
@@ -267,7 +271,8 @@ State can be one of
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
 * 'EarlyMedia' - announcement is played before participant is connected to the call
-* 'Disconnected' - final state - participant is disconnected from the call
+* 'Disconnected' - final state - participant is disconnected from the call.
+   * If remote participant loses their network connectivity, then remote participant state goes to 'Disconnected' after about 2 minutes.
 
 To learn why participant left the call, inspect `callEndReason` property:
 ```js
@@ -411,7 +416,9 @@ You can later update the scaling mode by invoking the `updateScalingMode` method
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### FAQ
+* If a remote participant loses their network connection, does their state change to 'Disconnected' ?
+    * Yes, if a remote participant loses their network connection for more than 2 minutes, their state will transition to Disconnected and they will be removed from the call.
 ## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.

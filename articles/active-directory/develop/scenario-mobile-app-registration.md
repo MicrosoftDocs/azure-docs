@@ -88,5 +88,5 @@ By statically registering permissions, you allow administrators to easily approv
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Code configuration](scenario-mobile-app-configuration.md)
+Move on to the next article in this scenario,
+[App code configuration](scenario-mobile-app-configuration.md).

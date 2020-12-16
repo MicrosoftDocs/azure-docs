@@ -94,7 +94,7 @@ Run the application. A successful response is returned in JSON format. You can a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API reference](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:

@@ -84,6 +84,18 @@
           href: tutorial-setup-vscode-extension.md
         - name: Train and deploy a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: "Microsoft Power BI integration"
+      items:
+        - name: "Part 1: Train and deploy models"
+          items:
+            - name: "Use Notebooks (code)"
+              href: tutorial-power-bi-custom-model.md
+            - name: "Use designer"
+              href: tutorial-power-bi-designer-model.md
+            - name: "Use automated ML"
+              href: tutorial-power-bi-automated-model.md
+        - name: "Part 2: Consume in Power BI"
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context        
 - name: Samples
   items: 
     - name: Jupyter Notebooks
@@ -491,7 +503,7 @@
       displayName: pipelines
       items: 
         - name: Create ML pipelines (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Moving data into and between ML pipeline steps (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)

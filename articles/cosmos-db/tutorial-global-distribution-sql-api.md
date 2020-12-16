@@ -4,6 +4,7 @@ description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun

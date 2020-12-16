@@ -1,9 +1,9 @@
 ---
-author: kaysabelle
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 8/13/2020
-ms.author: kacruz
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 ```gradle
 dependencies {

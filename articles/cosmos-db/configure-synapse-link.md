@@ -1,21 +1,18 @@
 ---
-title: Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
-description: Learn how to enable synapse link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos database to synapse workspace, and run queries. 
+title: Configure and use Azure Synapse Link for Azure Cosmos DB
+description: Learn how to enable Synapse link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos database to Synapse workspace, and run queries. 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
 ---
 
-# Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+# Configure and use Azure Synapse Link for Azure Cosmos DB
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
-
-> [!IMPORTANT]
-> To use Azure Synapse Link, ensure you provision your Azure Cosmos DB account & Azure Synapse Analytics workspace in one of the supported regions. Azure Synapse Link is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
 Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Azure Cosmos DB API for Mongo DB collections. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
@@ -23,8 +20,8 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 * [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
 * [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
-* [Query the analytical store using Synapse SQL serverless](#query-analytical-store-sql-on-demand)
-* [Use Synapse SQL serverless to analyze and visualize data in Power BI](#analyze-with-powerbi)
+* [Query the analytical store using serverless SQL pool](#query-analytical-store-sql-on-demand)
+* [Use serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
@@ -38,7 +35,7 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 
 1. Select **Synapse Link** from the features list.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link preview feature":::
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link feature":::
 
 1. Next it prompts you to enable synapse link on your account. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
@@ -58,7 +55,7 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
@@ -166,7 +163,7 @@ After the analytical store is enabled with a particular TTL value, you can updat
 
 If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
@@ -211,13 +208,13 @@ Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/syn
 
 Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
-## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using Synapse SQL serverless
+## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using serverless SQL pool in Azure Synapse Analytics
 
-Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
+Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using serverless SQL pool](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
-## <a id="analyze-with-powerbi"></a>Use Synapse SQL serverless to analyze and visualize data in Power BI
+## <a id="analyze-with-powerbi"></a>Use serverless SQL pool to analyze and visualize data in Power BI
 
-You can build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+You can build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
 ## Azure Resource Manager template
 
@@ -225,7 +222,7 @@ The [Azure Resource Manager template](./manage-with-templates.md#azure-cosmos-ac
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 
-You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and retail scenarios. You can also find the samples corresponding to Azure Cosmos DB API for MongoDB in the same repo under the [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) folder. 
+You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and retail scenarios. You can also find the samples corresponding to Azure Cosmos DB API for MongoDB in the same repo under the [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) folder. 
 
 ## Next steps
 
@@ -239,4 +236,4 @@ To learn more, see the following docs:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL serverless runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Serverless SQL pool runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

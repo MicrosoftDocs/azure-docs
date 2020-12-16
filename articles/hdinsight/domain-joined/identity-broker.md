@@ -1,15 +1,15 @@
 ---
-title: Use ID Broker (preview) for credential management - Azure HDInsight
+title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ---
 
-# Azure HDInsight ID Broker (preview)
+# Azure HDInsight ID Broker (HIB)
 
 This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
@@ -132,6 +132,26 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 For using Beeline and Livy, you can also follow the samples codes provided [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) to setup your client to use OAuth and connect to the cluster.
+
+## FAQ
+### What app is created by HDInsight in AAD?
+For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
+
+### Why are users prompted for consent before using HIB enabled clusters?
+In AAD, consent is required for all third party applications before it can authenticate users or access data.
+
+### Can the consent be approved programatically?
+Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+The sequence to automate the consent is:
+
+* Register an app and grant Application.ReadWrite.All permissions to the app, to access Microsoft Graph
+* After a cluster is created, query for the cluster app based on the identifier uri
+* Register consent for the app
+
+When the cluster is deleted, HDInsight delete the app and there is no need to cleanup any consent.
+
+ 
+
 
 ## Next steps
 

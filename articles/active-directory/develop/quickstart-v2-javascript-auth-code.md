@@ -18,7 +18,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow
 
-In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
 
@@ -47,10 +49,10 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > #### Step 1: Register your application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. In the left pane of the registered application, select **Authentication**.
@@ -197,4 +199,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph >](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)

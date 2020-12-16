@@ -1,6 +1,6 @@
 ---
-title: Create Azure data factory using .NET SDK
-description: Create an Azure data factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
+title: Create Azure Data Factory using .NET SDK
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -23,7 +23,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
+This quickstart describes how to use .NET SDK to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).

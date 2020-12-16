@@ -1,7 +1,7 @@
 ---
 title: Parity between public and sovereign regions
 titleSuffix: Azure Machine Learning
-description: Some features of Azure Machine Learning, such as public preview features, may only be available in public cloud regions. This article lists what features are also available in the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: This article lists feature parity between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

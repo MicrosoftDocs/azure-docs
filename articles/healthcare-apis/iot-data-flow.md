@@ -6,13 +6,13 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
 ---
 
 # Azure IoT Connector for FHIR (preview) data flow
 
-This article provides an overview of data flow in Azure IoT Connector for FHIR*. You'll learn about different data processing stages within Azure IoT Connector for FHIR that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+This article provides an overview of data flow in Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*. You'll learn about different data processing stages within Azure IoT Connector for FHIR that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
 ![Azure IoT Connector for FHIR data flow](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -21,7 +21,7 @@ Diagram above shows common data flows using Azure IoT Connector for FHIR.
 Below are different stages that data goes through once received by Azure IoT Connector for FHIR.
 
 ## Ingest
-Ingest is the first stage where device data is received into Azure IoT Connector for FHIR. The ingestion endpoint for device data is hosted on an [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables Azure IoT Connector for FHIR to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
+Ingest is the first stage where device data is received into Azure IoT Connector for FHIR. The ingestion endpoint for device data is hosted on an [Azure Event Hub](../event-hubs/index.yml). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables Azure IoT Connector for FHIR to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device data.
@@ -59,6 +59,4 @@ Click below next step to learn how to create device and FHIR mapping templates.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)
 
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7. 

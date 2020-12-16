@@ -33,7 +33,7 @@ With Azure portal, you follow four steps to provision and configure the setup. I
 1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.Net Core Quickstart](../quickstart-dotnetcore.md)
 2. Create an Application Gateway using the [portal Quickstart](../../application-gateway/quick-create-portal.md), but skip the Add backend targets section.
 3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app-portal.md), but skip the Restrict access section.
-4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
 

@@ -3,10 +3,16 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Troubleshooting and Q and A for Application Insights for Java
+# Troubleshooting and Q and A for Application Insights for Java SDK
+
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
 ## Build errors

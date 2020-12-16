@@ -12,7 +12,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link (preview)
+# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 
 In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -205,7 +205,7 @@ In this example, you'll learn how to reference external libraries from JAR files
     ]
 }
 ```
-If you are looking to submit remote Spark job definitions to a Synapse Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
+If you are looking to submit remote Spark job definitions to a serverless Apache Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## Next steps
 

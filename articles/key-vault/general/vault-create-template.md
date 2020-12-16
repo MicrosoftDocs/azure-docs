@@ -82,7 +82,7 @@ The following template shows a basic way to create a key vault. Some values are 
 
 ```
 
-For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+For more about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > If a template is redeployed, any existing access policies in the key vault will be overridden. We recommend that you populate the `accessPolicies` property with existing access policies to avoid losing access to the key vault. 
@@ -158,7 +158,7 @@ You can deploy access policies to an existing key vault without redeploying the 
 }
 
 ```
-For more information about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+For more information about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## More Key Vault Resource Manager templates
 
@@ -166,14 +166,14 @@ There are other Resource Manager templates available for Key Vault objects:
 
 | Secrets | Keys | Certificates |
 |--|--|--|
-|<ul><li>[Quickstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[Quickstart](../secrets/quick-create-template.md)<li>[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
-You can find more Key Vault templates here: [Key Vault Resource Manager reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+You can find more Key Vault templates here: [Key Vault Resource Manager reference](/azure/templates/microsoft.keyvault/allversions).
 
 ## Deploy the templates
 
 You can use the Azure portal to deploy the preceding templates by using the **Build your own template in editor** option as described here:
-[Deploy resources from a custom template](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+[Deploy resources from a custom template](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 You can also save the preceding templates to files and use these commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 

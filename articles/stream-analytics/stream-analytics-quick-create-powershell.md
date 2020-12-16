@@ -24,7 +24,7 @@ The example job reads streaming data from an IoT Hub device. The input data is g
 
 * This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and use `az extension add --name azure-iot` to install the IoT extension.
+* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli) and use `az extension add --name azure-iot` to install the IoT extension.
 
 
 ## Sign in to Azure
@@ -64,9 +64,9 @@ Before defining the Stream Analytics job, prepare the data that is configured as
 
 The following Azure CLI code block does many commands to prepare the input data required by the job. Review the sections to understand the code.
 
-1. In your PowerShell window, run the [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command to sign in to your Azure account.
+1. In your PowerShell window, run the [az login](/cli/azure/authenticate-azure-cli) command to sign in to your Azure account.
 
-    When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
+    When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
 
     ```azurecli
     az login
@@ -80,7 +80,7 @@ The following Azure CLI code block does many commands to prepare the input data 
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"

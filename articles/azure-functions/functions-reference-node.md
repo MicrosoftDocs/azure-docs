@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -15,7 +15,7 @@ As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Func
 
 | Getting started | Concepts| Guided learning |
 | -- | -- | -- | 
-| <ul><li>[Node.js function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## JavaScript function basics
 
@@ -503,12 +503,20 @@ The following table shows current supported Node.js versions for each major vers
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |
-| 2.x  | ~8<br/>~10 (recommended)<br/>~12<sup>*</sup> | ~8 (recommended)<br/>~10  |
-| 3.x | ~10<br/>~12 (recommended)  | ~10<br/>~12 (recommended) |
+| 2.x  | `~8`<br/>`~10` (recommended)<br/>`~12` | `node|8`<br/>`node|10` (recommended)  |
+| 3.x | `~10`<br/>`~12` (recommended)<br/>`~14` (preview)  | `node|10`<br/>`node|12` (recommended)<br/>`node|14` (preview) |
 
-<sup>*</sup>Node ~12 is currently allowed on version 2.x of the Functions runtime. However, for best performance, we recommend using Functions runtime version 3.x with Node ~12. 
+You can see the current version that the runtime is using by logging `process.version` from any function.
 
-You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function. Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~10`.
+### Setting the Node version
+
+For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~12`.
+
+For Linux function apps, run the following Azure CLI command to update the Node version.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## Dependency management
 In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.
@@ -550,21 +558,42 @@ There are two ways to install packages on your Function App:
 
 ## Environment variables
 
-In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
+Add your own environment variables to a function app, in both your local and cloud environments, such as operational secrets (connection strings, keys, and endpoints) or environmental settings (such as profiling variables). Access these settings using `process.env` in your function code.
+
+### In local development environment
+
+When running locally, your functions project includes a [`local.settings.json` file](/azure/azure-functions/functions-run-local), where you store your environment variables in the `Values` object. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### In Azure cloud environment
+
+When running in Azure, the function app lets you set uses [Application settings](functions-app-settings.md), such as service connection strings, and exposes these settings as environment variables during execution. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### Access environment variables in code
+
+Access application settings as environment variables  using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
 
 ## Configure function entry point
 
@@ -646,7 +675,7 @@ In version 1.x, setting `languageWorkers:node:arguments` will not work. The debu
 
 ## TypeScript
 
-When you target version 2.x of the Functions runtime, both [Azure Functions for Visual Studio Code](functions-create-first-function-vs-code.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that support TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
+When you target version 2.x of the Functions runtime, both [Azure Functions for Visual Studio Code](./create-first-function-cli-typescript.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that support TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
 
 A generated `.funcignore` file is used to indicate which files are excluded when a project is published to Azure.  
 

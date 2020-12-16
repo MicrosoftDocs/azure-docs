@@ -57,42 +57,42 @@ Status code 200 is returned when the list of metric values is returned successfu
 
 ```json
 {
-	"cost": 0,
-	"timespan": "2018-06-08T23:48:10Z/2018-06-09T00:48:10Z",
-	"interval": "PT1M",
-	"value": [
-		{
-			"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU",
-			"type": "Microsoft.Insights/metrics",
-			"name": {
-				"value": "Percentage CPU",
-				"localizedValue": "Percentage CPU"
-			},
-			"unit": "Percent",
-			"timeseries": [
-				{
-					"metadatavalues": [],
-					"data": [
-						{
-							"timeStamp": "2018-06-08T23:48:00Z",
-							"average": 0.44
-						},
-						{
-							"timeStamp": "2018-06-08T23:49:00Z",
-							"average": 0.31
-						},
-						{
-							"timeStamp": "2018-06-08T23:50:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:51:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:52:00Z",
-							"average": 0.285
-						} ]
+    "cost": 0,
+    "timespan": "2018-06-08T23:48:10Z/2018-06-09T00:48:10Z",
+    "interval": "PT1M",
+    "value": [
+        {
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU",
+            "type": "Microsoft.Insights/metrics",
+            "name": {
+                "value": "Percentage CPU",
+                "localizedValue": "Percentage CPU"
+            },
+            "unit": "Percent",
+            "timeseries": [
+                {
+                    "metadatavalues": [],
+                    "data": [
+                        {
+                            "timeStamp": "2018-06-08T23:48:00Z",
+                            "average": 0.44
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:49:00Z",
+                            "average": 0.31
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:50:00Z",
+                            "average": 0.29
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:51:00Z",
+                            "average": 0.29
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:52:00Z",
+                            "average": 0.285
+                        } ]
                 } ]
         } ]
 }

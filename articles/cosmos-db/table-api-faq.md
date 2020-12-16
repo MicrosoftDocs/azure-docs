@@ -3,6 +3,7 @@ title: Frequently asked questions about the Table API in Azure Cosmos DB
 description: Get answers to frequently asked questions about the Table API in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun

@@ -29,7 +29,7 @@ For an Azure Functions workflow, the file has three sections:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working function app hosted on Azure with a GitHub repository.   
-    - [Quickstart: Create a function in Azure using Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Quickstart: Create a function in Azure using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## Generate deployment credentials
 
@@ -212,7 +212,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -251,7 +251,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -294,7 +294,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -336,7 +336,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -379,7 +379,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -421,7 +421,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -465,7 +465,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1

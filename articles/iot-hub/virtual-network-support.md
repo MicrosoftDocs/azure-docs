@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 09/24/2020
+ ms.date: 12/02/2020
  ms.author: jlian
 ---
 
@@ -32,7 +32,7 @@ This article describes how to achieve these goals using [Azure Private Link](../
 
 ## Ingress connectivity to IoT Hub using Azure Private Link
 
-A private endpoint is a private IP address allocated inside a customer-owned VNet via which an Azure resource is reachable. Through Azure Private Link, you can set up a private endpoint for your IoT hub to allow services inside your VNet to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, your on-premises devices can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) peering to gain connectivity to your VNet and your IoT Hub (via its private endpoint). As a result, you can restrict or completely block off connectivity to your IoT hub's public endpoints by using [IoT Hub IP filter](./iot-hub-ip-filtering.md) and [configuring routing not to send any data to the built-in endpoint](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). This approach keeps connectivity to your Hub using the private endpoint for devices. The main focus of this setup is for devices inside an on-premises network. This setup isn't advised for devices deployed in a wide-area network.
+A private endpoint is a private IP address allocated inside a customer-owned VNet via which an Azure resource is reachable. Through Azure Private Link, you can set up a private endpoint for your IoT hub to allow services inside your VNet to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, your on-premises devices can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) peering to gain connectivity to your VNet and your IoT Hub (via its private endpoint). As a result, you can restrict or completely block off connectivity to your IoT hub's public endpoints by using [IoT Hub IP filter](./iot-hub-ip-filtering.md) or [the public network access toggle](iot-hub-public-network-access.md). This approach keeps connectivity to your Hub using the private endpoint for devices. The main focus of this setup is for devices inside an on-premises network. This setup isn't advised for devices deployed in a wide-area network.
 
 ![IoT Hub virtual network engress](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -60,17 +60,12 @@ Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) a
 
 1. Click **Review + create** to create your private link resource.
 
-### Built-in Event Hub compatible endpoint doesn't support access over private endpoint
+### Built-in Event Hub compatible endpoint 
 
-The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support access over private endpoint. When configured, an IoT hub's private endpoint is for ingress connectivity only. Consuming data from built-in Event Hub compatible endpoint can only be done over the public internet. 
+The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) can also be accessed over private endpoint. When private link is configured, you should see an additional private endpoint connection for the built-in endpoint. It's the one with `servicebus.windows.net` in the FQDN.
 
-IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image showing two private endpoints given each IoT Hub private link":::
 
-1. Configure private endpoint access for IoT Hub
-1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
-1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
-1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
-1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### Pricing for Private Link
 
@@ -196,7 +191,7 @@ IoT Hub can be configured to route messages to a customer-owned event hubs names
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Event hubs** as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance and click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance. Select **Identity-based** as the **Authentication type**, and click the **Create** button.
 
 Now your custom event hubs endpoint is set up to use your hub's system assigned identity, and it has permission to access your event hubs resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -214,7 +209,7 @@ IoT Hub can be configured to route messages to a customer-owned service bus name
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Service bus queue** or **Service Bus topic** (as applicable) as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Select **Identity-based** as the **Authentication type**, and click the **Create** button.
 
 Now your custom service bus endpoint is set up to use your hub's system assigned identity, and it has permission to access your service bus resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 

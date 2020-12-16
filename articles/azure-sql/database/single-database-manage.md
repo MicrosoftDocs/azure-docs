@@ -117,10 +117,10 @@ To create and manage the servers, databases, and firewalls with Transact-SQL, us
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Creates a new single database. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies a database or elastic pool. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Creates a new single database. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifies a database or elastic pool. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for Azure SQL Database or an Azure Synapse Analytics SQL pool. If logged on to the master database in a server in SQL Database, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for Azure SQL Database or a dedicated SQL pool in Azure Synapse Analytics. If logged on to the master database in a server in SQL Database, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there's no activity in the database.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returns CPU usage and storage data for a database in Azure SQL Database. The data is collected and aggregated within five-minute intervals.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contains statistics for SQL Database connectivity events, providing an overview of database connection successes and failures. |

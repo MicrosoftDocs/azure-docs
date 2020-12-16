@@ -42,7 +42,7 @@ Create an [Azure subscription](https://azure.microsoft.com/free/cognitive-servic
 
 ## Prerequisites
 
-- An [Azure Event Hubs namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) and event hub.
+- An [Azure Event Hubs namespace](../../../event-hubs/event-hubs-create.md) and event hub.
 
 - The [connection string](../../../event-hubs/event-hubs-get-connection-string.md) to access the Event Hubs namespace. The connection string should have a similar format to:
 

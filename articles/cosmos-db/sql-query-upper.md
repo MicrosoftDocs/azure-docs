@@ -3,6 +3,7 @@ title: UPPER in Azure Cosmos DB query language
 description: Learn about SQL system function UPPER in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins

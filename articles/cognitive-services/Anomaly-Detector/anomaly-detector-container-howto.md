@@ -48,7 +48,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### Container requirements and recommendations
 

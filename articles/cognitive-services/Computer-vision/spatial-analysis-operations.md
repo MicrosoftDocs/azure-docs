@@ -34,7 +34,7 @@ All above the operations are also available in the `.debug` version, which have 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-Spatial analysis can also be run with [Live Video Analytics](https://aka.ms/lva-spatial-analysis) as their Video AI module. 
+Spatial analysis can also be run with [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) as their Video AI module. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -633,8 +633,8 @@ Sample JSON for detections output by this operation.
 
 You may want to integrate spatial analysis detection or events into your application. Here are a few approaches to consider: 
 
-* Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for more information. 
-* Set up **Message Routing** on your Azure IoT Hub to send the events to other endpoints or save the events to your data storage. See [IoT Hub Message Routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) for more information. 
+* Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) for more information. 
+* Set up **Message Routing** on your Azure IoT Hub to send the events to other endpoints or save the events to your data storage. See [IoT Hub Message Routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) for more information. 
 * Setup an Azure Stream Analytics job to process the events in real-time as they arrive and create visualizations. 
 
 ## Deploying spatial analysis operations at scale (multiple cameras)

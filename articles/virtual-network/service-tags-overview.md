@@ -7,10 +7,10 @@ documentationcenter: na
 author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2020
+ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -24,6 +24,8 @@ You can use service tags to define network access controls on [network security
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
+![Network isolation of Azure services using service tags](./media/service-tags-overview/service_tags.png)
+
 ## Available service tags
 The following table includes all the service tags available for use in [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) rules.
 
@@ -36,7 +38,7 @@ The columns indicate whether the tag:
 By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope.  
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | Action Group. | Inbound | No | No |
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>*Note:* This tag represents the Azure API Management service endpoint for control plane per region. This enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service.  | Inbound | Yes | Yes |
 | **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
@@ -57,6 +59,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
+| **AzureDevOps** | Azure Dev Ops.<br/><br/>*Note: This tag is not currently configurable via Azure Portal*| Inbound | No | Yes |
+| **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Note:* This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. *This tag is not currently configurable via Azure Portal* | Inbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. | Both | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | No |
@@ -78,7 +82,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
-| **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |

@@ -63,19 +63,19 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true):
+There are a few ways that you can initialize a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest):
 
 * With a subscription: pass in a key and the associated region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```javascript
 function synthesizeSpeech() {
@@ -87,7 +87,7 @@ synthesizeSpeech();
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest&preserve-view=true) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest&preserve-view=true) accepts as params the [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) object created in the previous step, and an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) object that specifies how output results should be handled.
+Next, you create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?preserve-view=true&view=azure-node-latest) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?preserve-view=true&view=azure-node-latest) accepts as params the [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest) object created in the previous step, and an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest) object that specifies how output results should be handled.
 
 To start, create an `AudioConfig` to automatically write the output to a `.wav` file using the `fromAudioFileOutput()` static function.
 
@@ -161,7 +161,7 @@ It's simple to make this change from the previous example. First, remove the `Au
 > [!NOTE]
 > Passing `undefined` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest&preserve-view=true) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data. You can work with this `ArrayBuffer` manually.
+This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?preserve-view=true&view=azure-node-latest) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data. You can work with this `ArrayBuffer` manually.
 
 ```javascript
 function synthesizeSpeech() {
@@ -194,7 +194,7 @@ The following section shows how to customize audio output attributes including:
 * Sample-rate
 * Bit-depth
 
-To change the audio format, you use the `speechSynthesisOutputFormat` property on the `SpeechConfig` object. This property expects an `enum` of type [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest&preserve-view=true), which you use to select the output format. See the reference docs for a [list of audio formats](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest&preserve-view=true) that are available.
+To change the audio format, you use the `speechSynthesisOutputFormat` property on the `SpeechConfig` object. This property expects an `enum` of type [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest), which you use to select the output format. See the reference docs for a [list of audio formats](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) that are available.
 
 There are various options for different file types depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
 
@@ -231,7 +231,7 @@ Running your program again will write a `.wav` file to the specified path.
 Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows a few practical usage examples, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. This example changes the voice to a male English (UK) voice. Note that this voice is a **standard** voice, which has different pricing and availability than **neural** voices. See the [full list](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) of supported **standard** voices.
+First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. This example changes the voice to a male English (UK) voice. Note that this voice is a **standard** voice, which has different pricing and availability than **neural** voices. See the [full list](../../../language-support.md#standard-voices) of supported **standard** voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -292,7 +292,7 @@ The output works, but there a few simple additional changes you can make to help
 
 Neural voices are speech synthesis algorithms powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
-To switch to a neural voice, change the `name` to one of the [neural voice options](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Then, add an XML namespace for `mstts`, and wrap your text in the `<mstts:express-as>` tag. Use the `style` param to customize the speaking style. This example uses `cheerful`, but try setting it to `customerservice` or `chat` to see the difference in speaking style.
+To switch to a neural voice, change the `name` to one of the [neural voice options](../../../language-support.md#neural-voices). Then, add an XML namespace for `mstts`, and wrap your text in the `<mstts:express-as>` tag. Use the `style` param to customize the speaking style. This example uses `cheerful`, but try setting it to `customerservice` or `chat` to see the difference in speaking style.
 
 > [!IMPORTANT]
 > Neural voices are **only** supported for Speech resources created in *East US*, *South East Asia*, and *West Europe* regions.

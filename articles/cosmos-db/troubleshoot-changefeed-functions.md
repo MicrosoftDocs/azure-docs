@@ -3,6 +3,7 @@ title: Troubleshoot issues when using Azure Functions trigger for Cosmos DB
 description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting

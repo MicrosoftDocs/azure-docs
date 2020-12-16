@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/04/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -96,9 +96,7 @@ With Availability Zone support, Azure Cosmos DB will ensure replicas are placed 
 
 Zone redundancy is a *supplemental capability* to the [replication in multi-region writes](how-to-multi-master.md) feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it's advised to have multiple write regions in addition to zone redundancy.
 
-When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
-
-This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central, Australia East, East US 2 EUAP* regions.
+When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled. For a list of regions where availability zones are supported, see the [Availability zones](../availability-zones/az-region.md) documentation.
 
 The following table summarizes the high availability capability of various account configurations:
 

@@ -76,14 +76,24 @@ $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 
 Then, type the PowerShell commands below to create a secret in Key Vault called **ExamplePassword** with the value **hVFkk965BuUv** :
 
+
 ```azurepowershell-interactive
 $secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
+## Retrieve a secret from Key Vault
+
 To view the value contained in the secret as plain text:
 
 ```azurepowershell-interactive
-(Get-AzKeyVaultSecret -VaultName "Contoso-Vault2" -Name "ExamplePassword").SecretValue | ConvertFrom-SecureString -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword'
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.

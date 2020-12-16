@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
+ms.date: 12/03/2020
 ---
 
 # Data flow script (DFS)
@@ -213,6 +213,33 @@ This is a snippet that you can paste into your data flow to generically check al
 ```
 split(contains(array(columns()),isNull(#item)),
 	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### AutoMap schema drift with a select
+When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you are loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
+
+```
+select(mapColumn(
+		each(match(true()))
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> automap
+```
+
+### Persist column data types
+Add this script inside a Derived Column definition to store the column names and data types from your data flow to a persistent store using a sink.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+	each(match(type=='integer'), $$ = 'integer'),
+	each(match(type=='short'), $$ = 'short'),
+	each(match(type=='complex'), $$ = 'complex'),
+	each(match(type=='array'), $$ = 'array'),
+	each(match(type=='float'), $$ = 'float'),
+	each(match(type=='date'), $$ = 'date'),
+	each(match(type=='timestamp'), $$ = 'timestamp'),
+	each(match(type=='boolean'), $$ = 'boolean'),
+	each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## Next steps

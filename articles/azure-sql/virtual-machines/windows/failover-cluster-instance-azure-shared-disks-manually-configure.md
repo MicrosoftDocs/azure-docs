@@ -30,7 +30,7 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) are both supported. If you use a PPG, all nodes must exist in the same group.
+- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. If you use a PPG, all nodes must exist in the same group.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
@@ -94,20 +94,19 @@ Add an Azure shared disk by doing the following:
 
 3. For each VM, initialize the attached shared disks as GUID partition table (GPT) and format them as New Technology File System (NTFS) by running this command: 
 
-   ```powershell
-   $resourceGroup = "<your resource group name>"
-       $location = "<region of your shared disk>"
-       $ppgName = "<your proximity placement groups name>"
-       $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-           -Name "<your VM node name>"
-       $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-           -DiskName "<your shared disk name>"
-       $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-           -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-           -Lun <available LUN  check disk setting of the VM>
-    update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-   ```
-
+    ```powershell
+    $resourceGroup = "<your resource group name>"
+    $location = "<region of your shared disk>"
+    $ppgName = "<your proximity placement groups name>"
+    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+        -Name "<your VM node name>"
+    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+        -DiskName "<your shared disk name>"
+    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+        -Lun <available LUN - check disk setting of the VM>
+    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+    ```
 
 ## Create failover cluster
 
@@ -194,7 +193,7 @@ The FCI data directories need to be on the Azure Shared Disks.
 
 ## Register with the SQL VM RP
 
-To manage your SQL Server VM from the portal, register it with the SQL VM resource provider (RP) in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode), currently the only mode supported with FCI and SQL Server on Azure VMs. 
+To manage your SQL Server VM from the portal, register it with the SQL IaaS Agent extension (RP) in [lightweight management mode](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), currently the only mode supported with FCI and SQL Server on Azure VMs. 
 
 
 Register a SQL Server VM in lightweight mode with PowerShell:  
@@ -202,7 +201,7 @@ Register a SQL Server VM in lightweight mode with PowerShell:
 ```powershell-interactive
 # Get the existing compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-         
+
 # Register SQL VM with 'Lightweight' SQL IaaS agent
 New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
    -LicenseType PAYG -SqlManagementType LightWeight  
@@ -214,7 +213,7 @@ To route traffic appropriately to the current primary node, configure the connec
 
 ## Limitations
 
-- Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported.
+- Only registering with the SQL IaaS Agent extension in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) is supported.
 
 ## Next steps
 

@@ -82,7 +82,7 @@ To enable remote build on Linux, the following [application settings](functions-
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
@@ -181,7 +181,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (command line)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos Emulator download and release notes
-description: Get the Azure Cosmos emulator release notes for different versions and download information. 
+title: Azure Cosmos DB Emulator download and release notes
+description: Get the Azure Cosmos DB Emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
@@ -8,19 +8,29 @@ ms.author: adrianmi
 ms.date: 09/21/2020
 ---
 
-# Azure Cosmos Emulator - Release notes and download information
+# Azure Cosmos DB Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
+This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
 ## Download
 
 | | |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
+|**Get started**|[Develop locally with Azure Cosmos Emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.11.9 (3 December 2020)
+
+ - This release addresses couple issues with the Azure Cosmos DB Emulator functionality in addition to the general content update reflecting the latest features and improvements in Azure Cosmos DB:
+ * Fix for an issue where large document payload requests fail when using Direct mode and Java client applications.
+ * Fix for a connectivity issue with MongoDB endpoint version 3.6 when targeted by .NET based applications.
+
+### 2.11.8 (6 November 2020)
+
+ - This release includes an update for the Cosmos emulator Data Explorer and fixes an issue where TLS 1.3 clients try to open the Data Explorer.
 
 ### 2.11.6 (6 October 2020)
 
@@ -68,7 +78,7 @@ This release adds two new Cosmos emulator startup options:
 
 ### 2.4.6
 
-- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
+- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### 2.4.3
 

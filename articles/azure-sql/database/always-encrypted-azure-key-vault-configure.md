@@ -5,13 +5,13 @@ keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer:
-ms.date: 04/23/2020
+ms.date: 11/02/2020
 ---
 # Configure Always Encrypted by using Azure Key Vault 
 
@@ -94,8 +94,8 @@ az group create --location $location --name $resourceGroupName
 
 az keyvault create --name $vaultName --resource-group $resourceGroupName --location $location
 
-az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
-az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
+az keyvault set-policy --name $vaultName --key-permissions create get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
+az keyvault set-policy --name $vaultName --key-permissions get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
 ---

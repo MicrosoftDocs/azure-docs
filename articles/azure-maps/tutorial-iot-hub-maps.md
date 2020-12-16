@@ -21,7 +21,7 @@ In this tutorial you will:
 
 > [!div class="checklist"]
 > * Create an Azure storage account to log car tracking data.
-> * Upload a geofence to the Azure Maps Data service by using the Data Upload API.
+> * Upload a geofence to the Azure Maps Data service (Preview) by using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Azure Event Grid.
@@ -140,7 +140,8 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
    ```HTTP
    https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={subscription-key}
-
+   ```
+   
 7. When the **GET** HTTP request completes successfully, it returns a `resourceLocation`. The `resourceLocation` contains the unique `udid` for the uploaded content. Copy this `udid` for later use in this tutorial.
 
       ```json

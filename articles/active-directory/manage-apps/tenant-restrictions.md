@@ -28,7 +28,7 @@ This article focuses on tenant restrictions for Microsoft 365, but the feature s
 
 The overall solution comprises the following components:
 
-1. **Azure AD**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants.
+1. **Azure AD**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` header is present, Azure AD only issues security tokens for the permitted tenants.
 
 2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Transport Layer Security (TLS) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
 
@@ -58,7 +58,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
-- This feature is included in Microsoft 365 subscriptions, but if you want to use tenant restrictions to control access to other SaaS apps, then Azure AD Premium 1 licenses are required.
+- Azure AD Premium 1 licenses are required for use of Tenant Restrictions. 
 
 #### Configuration
 

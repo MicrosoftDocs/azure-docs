@@ -94,8 +94,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -115,8 +115,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 

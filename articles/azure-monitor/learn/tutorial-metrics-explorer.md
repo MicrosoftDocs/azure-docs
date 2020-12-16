@@ -80,5 +80,5 @@ You can customize chart style, title, and modify advanced chart settings. When d
 Now that you've learned how to work with metrics in Azure Monitor, learn how to use metrics to send proactive alerts.
 
 > [!div class="nextstepaction"]
-> [Create, view, and manage metric alerts using Azure Monitor](../platform/alerts-metric.md)
+> [Create, view, and manage metric alerts using Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

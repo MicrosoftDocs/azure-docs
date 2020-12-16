@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure PowerShell - Azure Database for MariaDB
 description: Learn how to set up and manage read replicas in Azure Database for MariaDB using PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020 

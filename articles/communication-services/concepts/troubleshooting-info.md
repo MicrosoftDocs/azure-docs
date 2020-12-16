@@ -14,13 +14,13 @@ ms.service: azure-communication-services
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you gather the information you need to troubleshoot your Communication Services solution.
+This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
 We encourage developers to submit questions, suggest features, and report problems as issues in the Communication Services [GitHub repository](https://github.com/Azure/communication). Other forums include:
 
-* [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
+* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 Depending on your Azure subscription [support plan](https://azure.microsoft.com/support/plans/) you may submit a support ticket directly through the [Azure portal](https://azure.microsoft.com/support/create-ticket/).
@@ -30,6 +30,8 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages. 
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
+
 
 ## Access your MS-CV ID
 
@@ -123,6 +125,63 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## Enable and access call logs
+
+
+
+
+# [JavaScript](#tab/javascript)
+
+The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# [iOS](#tab/ios)
+
+When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container". 
+
+This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
+
+# [Android](#tab/android)
+
+When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request. 
+   
+
+---
+
+
+## Calling client library error codes
+
+The Azure Communication Services calling client library uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
+| 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
+| 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
+| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest client library in a supported environment. |
+| 430 | Unable to deliver message to client application. | Ensure that the client application is running and available. |
+| 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
+| 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
+| 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | Expected behavior. |
+| 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
+| 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
+| 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
+
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)

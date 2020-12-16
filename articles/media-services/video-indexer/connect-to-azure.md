@@ -14,7 +14,7 @@ ms.author: juliako
  
 # Create a Video Indexer account connected to Azure
 
-When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the media account related charges.
+When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that's connected to your Azure subscription. You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
@@ -40,7 +40,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../../role-based-access-control/check-access.md).
 
     ![access control](./media/create-account/access-control-iam.png)
 
@@ -179,6 +179,19 @@ The following Azure Media Services related considerations apply:
 * If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
+    
+## Automate creation of the Video Indexer account
+
+To automate the creation of the account is a two steps process:
+ 
+1. Use Azure Resource Manager to create an Azure Media Services account + Azure AD application.
+
+    See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+
+## Clean up resources
+
+After you are done with this tutorial, delete resources that you are not planning to use.
 
 ## Next steps
 

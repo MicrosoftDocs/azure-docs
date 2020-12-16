@@ -4,6 +4,7 @@ description: Mapping consistency levels for Azure Cosmos DB API for MongoDB.
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun

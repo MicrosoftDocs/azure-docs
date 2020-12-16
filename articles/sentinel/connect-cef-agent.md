@@ -34,7 +34,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 - You must have elevated permissions (sudo) on your designated Linux machine.
 
-- You must have **python 2.7** installed on the Linux machine.<br>Use the `python -version` command to check.
+- You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python -version` command to check.
 
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
 
@@ -47,11 +47,14 @@ In this step, you will designate and configure the Linux machine that will forwa
 1. Under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**, or from the text below (applying the Workspace ID and Primary Key in place of the placeholders):
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
     ```
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
     - You may get a message directing you to run a command to correct an issue with the mapping of the *Computer* field. See the [explanation in the deployment script](#mapping-command) for details.
+
+1. Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
+
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -63,7 +66,16 @@ In this step, you will designate and configure the Linux machine that will forwa
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
+> [!NOTE]
+> **Changing the source of the TimeGenerated field**
+>
+> - By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Azure Sentinel.
+>
+> - You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## Deployment script explained
 
@@ -78,7 +90,7 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
             onboard_agent.sh
         ```
 
@@ -93,7 +105,7 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the configuration from the Log Analytics agent GitHub repository.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -144,7 +156,7 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
 
         ```bash
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
             onboard_agent.sh
         ```
 
@@ -159,7 +171,7 @@ Choose a syslog daemon to see the appropriate description.
     - Downloads the configuration from the Log Analytics agent GitHub repository.
 
         ```bash
-        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+        wget -O /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
             https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
             omsagent.d/security_events.conf
         ```
@@ -204,9 +216,10 @@ Choose a syslog daemon to see the appropriate description.
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
+---
 
 ## Next steps
+
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
-
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

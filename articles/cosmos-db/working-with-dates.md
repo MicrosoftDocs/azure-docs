@@ -2,6 +2,7 @@
 title: Working with dates in Azure Cosmos DB
 description: Learn how to store, index, and query DataTime objects in Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
@@ -87,6 +88,6 @@ You can learn more about how to configure indexing policies at [Azure Cosmos DB 
 
 ## Next Steps
 
-* Download and run the [Code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Download and run the [Code samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples)
 * Learn more about [SQL queries](sql-query-getting-started.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)

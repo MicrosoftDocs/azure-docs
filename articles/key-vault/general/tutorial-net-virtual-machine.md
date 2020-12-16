@@ -201,4 +201,4 @@ When they are no longer needed, delete the virtual machine and your key vault.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault REST API](/rest/api/keyvault/)

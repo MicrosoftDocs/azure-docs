@@ -35,11 +35,11 @@ There are two non-interactive authentication models as well, which can be used i
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-The interactive method is that also supports Azure multi-factor authentication (MFA) is:
+The interactive method is that also supports Azure AD Multi-Factor Authentication (MFA) is:
 
 - `Active Directory - Universal with MFA`
 
-Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
+Azure AD MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

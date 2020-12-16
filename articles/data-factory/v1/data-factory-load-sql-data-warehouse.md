@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Load 1 TB into Azure Synapse Analytics under 15 minutes with Data Factory
 > [!NOTE]
-> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure Synapse Analytics (formerly SQL Data Warehouse) by using Data Factory](../connector-azure-sql-data-warehouse.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure Synapse Analytics by using Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, Azure Synapse Analytics is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
@@ -66,7 +66,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
   >
   >
 
-    To create a Synapse SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
+    To create a dedicated SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
 
     ![Performance slider](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
