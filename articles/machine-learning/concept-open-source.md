@@ -38,7 +38,7 @@ Open-source deep learning frameworks and how-to guides include:
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing repurpose it to. See the deep learning vs. machine learning article to learn more about transfer learning.
+Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing repurpose it to. See the [deep learning article](concept-deep-learning-vs-machine-learning.md#transfer-learning) to learn more about transfer learning.
 
 ### Reinforcement learning: Ray RLLib
 
