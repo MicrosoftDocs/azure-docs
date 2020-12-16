@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
-
+18
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 80 TB (usable capacity) storage device, and then ship the device back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
@@ -418,7 +418,7 @@ Do the following steps using Azure CLI to order a device:
    |sku| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
    |email-list| The email addresses associated with the order.| "gusp@contoso.com" |
    |street-address1| The street address to where the order will be shipped. | "15700 NE 39th St" |
-   |street-address2| The secondary address information, such as apartment number or building number. | "Bld 123" |
+   |street-address2| The secondary address information, such as apartment number or building number. | "Building 123" |
    |city| The city that the device will be shipped to. | "Redmond" |
    |state-or-province| The state where the device will be shipped.| "WA" |
    |country| The country that the device will be shipped. | "United States" |
@@ -537,7 +537,7 @@ Do the following steps using Azure PowerShell to order a device:
     |DataBoxType [Required]| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
     |EmailId [Required]| The email addresses associated with the order.| "gusp@contoso.com" |
     |StreetAddress1 [Required]| The street address to where the order will be shipped. | "15700 NE 39th St" |
-    |StreetAddress2| The secondary address information, such as apartment number or building number. | "Bld 123" |
+    |StreetAddress2| The secondary address information, such as apartment number or building number. | "Building 123" |
     |StreetAddress3| The tertiary address information. | |
     |City [Required]| The city that the device will be shipped to. | "Redmond" |
     |StateOrProvinceCode [Required]| The state where the device will be shipped.| "WA" |
@@ -600,7 +600,7 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 
 ### Track a single order
 
-To get tracking information about a single, existing Azure Data Box order, run [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
+To get tracking information about a single, existing Azure Data Box order, run [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -641,7 +641,7 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
 ### List all orders
 
-If you have ordered multiple devices, you can run [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
+If you have ordered multiple devices, you can run [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
 
 ```azurecli
@@ -717,7 +717,7 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
 ### List all orders
 
-If you have ordered multiple devices, you can run [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
+If you have ordered multiple devices, you can run [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
 
 ```azurepowershell
@@ -760,7 +760,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ### Cancel an order
 
-To cancel an Azure Data Box order, run [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). You are required to specify your reason for canceling the order.
+To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). You are required to specify your reason for canceling the order.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -797,7 +797,7 @@ To cancel an Azure Data Box order, run [az databox job cancel](/cli/azure/ext/da
 
 ### Delete an order
 
-If you have canceled an Azure Data Box order, you can run [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) to delete the order.
+If you have canceled an Azure Data Box order, you can run [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) to delete the order.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -870,7 +870,7 @@ PS C:\WINDOWS\system32>
 
 ### Delete an order
 
-If you have canceled an Azure Data Box order, you can run [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) to delete the order.
+If you have canceled an Azure Data Box order, you can run [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) to delete the order.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
