@@ -212,6 +212,14 @@ The output of this query will be the input datetime in **de-DE** with the option
 Samstag, 28. Dezember 2019
 ```
 
+### User Logging
+The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time. This mechanism is available through the Console.Log() method.
+
+```javascript
+console.log('my error message');
+```
+
+You can access log messages through the [diagnostic logs](data-errors.md).
 ## Next steps
 
 * [Machine Learning UDF](./machine-learning-udf.md)

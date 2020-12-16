@@ -188,7 +188,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -301,7 +301,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -345,7 +345,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -431,7 +431,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -512,7 +512,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -563,7 +563,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -653,7 +653,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:

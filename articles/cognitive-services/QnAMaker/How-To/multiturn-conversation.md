@@ -222,7 +222,7 @@ The preceding section requested an answer and any follow-up prompts to **Account
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n  Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
