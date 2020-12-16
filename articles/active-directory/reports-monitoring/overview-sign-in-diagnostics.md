@@ -127,22 +127,22 @@ This scenario is typically a result of a sign-in that failed because the require
 - Require app protection policy   
 
 
-The diagnostic section for this scenario shows details about the user sign-in and the policy or policies that were applied.
+The diagnostic section for this scenario shows details about the user sign-in and the applied policies.
 
 
 ### MFA from conditional access
 
-This scenario is caused by a conditional access policy that has the requirement to sign-in using multi-factor authentication set.
+This scenario is based on a conditional access policy that has the requirement to sign-in using multi-factor authentication set.
 
 ![Require multi-factor authentication](./media/overview-sign-in-diagnostics/require-mfa.png)
 
-The diagnostic section shows details about the user sign-in and the applied policies.
+The diagnostic section for this scenario shows details about the user sign-in and the applied policies.
 
 
 
 ### MFA from other requirements
 
-This scenario occurs when multi-factor authentication was not enforced by a conditional access policy. For example, you have configured multi-factor authentication on a per user basis in your tenant.
+This scenario is based on a multi-factor authentication requirement that was not enforced by a conditional access policy. For example, if you have configured multi-factor authentication on a per user basis in your tenant.
 
 
 ![Require multi-factor authentication per user](./media/overview-sign-in-diagnostics/mfa-per-user.png)
@@ -158,24 +158,22 @@ Additionally, this section also provides you with all details about the user sig
 
 ### MFA proof up required
 
-This scenario results from sign-ins that were interrupted by requests to set up multi-factor authentication. This setup process is also known as “proof up”.
+This scenario is based on sign-ins that were interrupted by requests to set up multi-factor authentication. This setup is also known as “proof up”.
 
-Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
+Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but has not configured it yet, or an administrator has configured the user to configure it.
 
 The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up and to provide the recommendation to have the user complete the proof up.
 
-### MFA Proof up required but user sign-in attempt is not from secure location
+### MFA proof up required from a risky sign-in
 
-This scenario results from sign-ins that were interrupted by a request to set up multi-factor authentication but the sign-in was seen to be risky. 
-
-Multi-factor authentication Proof up occurs when a user is required to use multi-factor authentication but has never set it up before, or an administrator has configured the user to require setting it up.
+This scenario results from sign-ins that were interrupted by a request to set up multi-factor authentication from a risky sign-on. 
 
 The intent of this diagnostic scenario is to provide insight that the multi-factor authentication interruption was to set it up, to provide the recommendation to have the user complete the proof up but to do so from a network location which does not appear risky. For example, if a corporate network is defined as a named location attempt to do the Proof up from the corporate network instead.
 
 
 ### Successful sign-in
 
-This scenario covers the Azure AD sign-in without interruption from conditional access or multi-factor authentication.
+This scenario is based on sign-ins that were not interrupted by conditional access or multi-factor authentication.
 
 The intent of this diagnostic scenario is to provide insight into what the user supplied during the sign-in in case there was a Conditional Access policy or policies which were expected to apply, or a configured multi-factor authentication which was expected to interrupt the user sign-in.
 
