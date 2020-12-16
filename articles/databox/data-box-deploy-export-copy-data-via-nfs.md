@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
@@ -22,8 +22,6 @@ In this tutorial, you learn how to:
 > * Prerequisites
 > * Connect to Data Box
 > * Copy data from Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 
