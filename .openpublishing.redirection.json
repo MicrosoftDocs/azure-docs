@@ -55160,6 +55160,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+      "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-mi-powershell-offline.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api",
       "redirect_document_id": true
