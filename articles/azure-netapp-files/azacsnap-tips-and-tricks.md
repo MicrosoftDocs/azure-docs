@@ -21,6 +21,29 @@ ms.author: phjensen
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
+## Limit service principal permissions
+
+It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/) for more details on fine-grained access management of Azure resources.  
+
+The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
+
+```bash
+az role definition create --role-definition '{ \
+  "Name": "Azure Application Consistent Snapshot Tool", \
+  "IsCustom": "true", \
+  "Description": "Perform snapshots on ANF volumes.", \
+  "Actions": [ \
+    "Microsoft.NetApp/*/read", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete" \
+  ], \
+  "NotActions": [], \
+  "DataActions": [], \
+  "NotDataActions": [], \
+  "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
+}'
+```
+
 ## Take snapshots manually
 
 Before executing any backup commands (`azacsnap -c backup`), check the configuration by running the test commands and verify they get executed successfully.  Correct execution of these tests proved `azacsnap` can communicate with the installed SAP HANA database and the underlying storage system of the SAP HANA on **Azure Large Instance** or **Azure NetApp Files** system.
@@ -89,7 +112,7 @@ The following conditions should be monitored to ensure a healthy system:
 1. Successful execution of the snapshot tools
     1. Check the `*.result` file for the success or failure of the latest running of `azacsnap`.
     1. Check `/var/log/messages` for output from the `azacsnap` command.
-1. Consistency of the snapshots by restoring then to another system periodically.
+1. Consistency of the snapshots by restoring them to another system periodically.
 
 > [!NOTE]
 > To list  snapshot details, execute the command `azacsnap -c details`.
