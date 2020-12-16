@@ -42,7 +42,7 @@ Once the YAML file is added, the resource viewer shows both Kubernetes services 
 
 ### Monitor deployment insights
 
-AKS clusters with [Azure Monitor for containers][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information about specific nodes and more. Here's an example of deployment insights from a sample AKS cluster:
+AKS clusters with [Azure Monitor for containers][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information about specific nodes and containers. Here's an example of deployment insights from a sample AKS cluster:
 
 :::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Deployment insights displayed in the Azure portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
