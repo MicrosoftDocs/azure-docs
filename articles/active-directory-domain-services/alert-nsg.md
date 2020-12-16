@@ -44,7 +44,7 @@ The following default inbound and outbound security rules are applied to the net
 <sup>1</sup>Optional for debugging. Allow when required for advanced troubleshooting.
 
 > [!NOTE]
-> - You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.
+> You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.
 
 ### Outbound security rules
 
