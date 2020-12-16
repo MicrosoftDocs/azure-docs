@@ -6,8 +6,9 @@
     href: overview-reports.md
   - name: What is Azure AD monitoring?
     href: overview-monitoring.md
-
-    
+  - name: What is Sign-in Diagnostic?
+    href: overview-sign-in-diagnostics.md
+   
 - name: Quickstarts
   expanded: true
   items:
