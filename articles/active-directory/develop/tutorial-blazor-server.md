@@ -14,11 +14,11 @@ ms.date: 09/15/2020
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
 
-Blazor Server provides support for hosting Razor components on the server in an ASP.NET Core app. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor Server app by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+In this tutorial, you build a Blazor Server app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
 
 We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create a new Blazor Server app configured to use Azure Active Directory (Azure AD) for authentication

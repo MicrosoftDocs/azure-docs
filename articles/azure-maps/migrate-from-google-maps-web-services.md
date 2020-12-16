@@ -35,19 +35,19 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 
 | Google Maps service API | Azure Maps service API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Route](/rest/api/maps/route)                                     |
-| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |
-| Geocoding               | [Search](/rest/api/maps/search)                                   |
-| Places Search           | [Search](/rest/api/maps/search)                                   |
-| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |
-| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            |
-| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  |
-| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |
-| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |
+| Directions              | [Route](/rest/api/maps/route)                                     |                         
+| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocoding               | [Search](/rest/api/maps/search)                                   |                         
+| Places Search           | [Search](/rest/api/maps/search)                                   |                         
+| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |                         
+| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            
+| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  
+| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
+| Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   |                         |
 
 The following service APIs aren't currently available in Azure Maps:
 
-- Elevation
 - Geolocation
 - Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
@@ -198,7 +198,7 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 - [**Calculate route**](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
 - [**Batch route**](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
-- [**Mobility services**](/rest/api/maps/mobility): Calculate routes and directions using public transit.
+- [**Mobility services (Preview) **](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -216,8 +216,8 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* – This feature is geocoding related. Use the *countrySet* parameter when using the Azure Maps geocoding API.  |
 | `traffic_model`               | *N/A* – Can only specify if traffic data should be used with the *traffic* parameter. |
-| `transit_mode`                | See [mobility services documentation](/rest/api/maps/mobility) |
-| `transit_routing_preference` | See [mobility services documentation](/rest/api/maps/mobility) |
+| `transit_mode`                | See [Mobility services (Preview) documentation](/rest/api/maps/mobility) |
+| `transit_routing_preference` | See [Mobility services (Preview) documentation](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – Azure Maps only uses the metric system.  |
 | `waypoints`                    | `query`                            |
 
@@ -498,10 +498,10 @@ Learn more about Azure Maps REST services:
 > [Best practices for routing](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
+> [Azure Maps REST Service API reference documentation](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

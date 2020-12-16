@@ -45,21 +45,21 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest
+    href: /cli/azure/network/ddos-protection?view=azure-cli-latest
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
   - name: .NET
-    href: https://docs.microsoft.com/dotnet/api/
+    href: /dotnet/api/
   - name: Java
-    href: https://docs.microsoft.com/java/api/
+    href: /java/api/
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans
+    href: /rest/api/virtualnetwork/ddosprotectionplans
   - name: Azure Resource Manager
-    href: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
+    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: FAQ
@@ -68,4 +68,3 @@
     href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
   - name: Regional availability
     href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection
-  

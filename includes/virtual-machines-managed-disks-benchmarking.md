@@ -118,17 +118,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 ```
@@ -159,17 +151,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 ```
@@ -200,33 +184,13 @@ direct=1
 iodepth=128
 ioengine=libaio
 bs=4k
+numjobs=4
 
 [reader1]
 rw=randread
 directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 rate_iops=12500

@@ -18,7 +18,7 @@ ms.date: 08/17/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
+This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
 
 ## Azure AD authentication methods
 
@@ -100,7 +100,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 7. On the Azure AD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](authentication-aad-overview.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Database, SQL Managed Instance, or Azure Synapse.
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the Azure portal and isn't propagated to SQL Database, SQL Managed Instance, or Azure Synapse.
 
     ![Add Azure Active Directory admin](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
@@ -248,7 +248,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
     ![SQL servers set Active Directory admin](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
 
-5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](authentication-aad-overview.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](authentication-aad-overview.md).) Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server.
 
     ![Select Azure Active Directory admin](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 

@@ -1,6 +1,9 @@
 ---
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
 ---

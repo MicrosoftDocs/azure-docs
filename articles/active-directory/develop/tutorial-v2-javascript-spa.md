@@ -17,8 +17,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)
 
-In this tutorial, you build a single-page application (SPA) in JavaScript that can sign in users with personal Microsoft accounts or work and school accounts, and then acquire an access token
-for calling the Microsoft Graph API.
+In this tutorial, you build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the implicit flow. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v1.0.
 
 In this tutorial:
 
@@ -262,16 +261,17 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If your account gives you access to more than one tenant, select the account at the upper right, and then set your portal session to the Azure AD tenant that you want to use.
-1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. When the **Register an application** page appears, enter a name for your application.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. In the **Redirect URI** section, select the **Web** platform from the drop-down list, and then set the value to the application URL that's based on your web server.
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
-1. In **Advanced settings**, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required because this app must sign in users and call an API.
+1. Under **Manage**, select **Authentication**.
+1. In the **Implicit grant** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**.
 
 > ### Set a redirect URL for Node.js
@@ -511,4 +511,3 @@ Delve deeper into single-page application (SPA) development on the Microsoft ide
 
 > [!div class="nextstepaction"]
 > [Scenario: Single-page application](scenario-spa-overview.md)
-

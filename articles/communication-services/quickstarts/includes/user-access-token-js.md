@@ -100,7 +100,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Use the `issueToken` method to issue an access token for an already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
@@ -115,12 +115,11 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to reissue:
+Refreshing access tokens is as easy as calling `issueToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens. 
 
-```javascript  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identityResponse = new CommunicationUser(existingIdentity);
-tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```javascript
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
 
@@ -130,7 +129,7 @@ In some cases, you may explicitly revoke access tokens. For example, when an app
 
 ```javascript  
 await identityClient.revokeTokens(identityResponse);
-console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${identityResponse.communicationUserId}`);
+console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Delete an identity
@@ -139,7 +138,7 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```javascript
 await identityClient.deleteUser(identityResponse);
-console.log(`\nDeleted the identity with Id: ${identityResponse.communicationUserId}`);
+console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Run the code

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -73,7 +73,13 @@ The following flowchart explains the different combinations for these parameters
 
 ![flowchart of self-service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+The details of this setting can be retrieved by the following powershell cmdlet Get-MsolCompanyInformation. For more infromation on this, see [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
+
+For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 ## Next steps
 
@@ -81,5 +87,5 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 * [How to install and configure Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)
 * [Close your work or school account in an unmanaged directory](users-close-account.md)

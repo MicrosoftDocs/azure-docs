@@ -14,16 +14,16 @@ ms.date: 10/16/2020
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-Blazor WebAssembly (WASM) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor WASM app by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
 
 We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
 
-In this tutorial, you will:
+In this tutorial:
 
 > [!div class="checklist"]
 >
 > * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
-> * Retrieve data from a protected web API, in this case [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
 ## Prerequisites
 

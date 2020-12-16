@@ -53,7 +53,7 @@ To transfer any other subscriptions from a CSP Partner to any other Azure offer,
 
 1. Create target Azure subscriptions.
 1. Ensure that the source and target subscriptions are in the same Azure Active Directory (Azure AD) tenant. For more information about changing an Azure AD tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    Note that the change directory isn't the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need change the directory of the pay-as-you-go subscription to match the directory.
+    Note that the change directory option isn't supported for the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need change the directory of the pay-as-you-go subscription to match the directory.
 
     > [!IMPORTANT]
     >  - When you associate a subscription to a different directory, users that have roles assigned using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.

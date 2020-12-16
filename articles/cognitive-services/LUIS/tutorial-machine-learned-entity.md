@@ -293,7 +293,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 ## Related information
 
-* [Tutorial - intents](luis-quickstart-intents-only.md)
+* [Tutorial - intents](./tutorial-intents-only.md)
 * [Concept - entities](luis-concept-entity-types.md) conceptual information
 * [Concept - features](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
@@ -305,4 +305,4 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 In this tutorial, the app uses a machine-learning entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learning entity allows you to decompose the details of the entity.
 
 > [!div class="nextstepaction"]
-> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](./luis-reference-prebuilt-keyphrase.md)

@@ -1,7 +1,7 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 10/19/2020
+ms.date: 12/10/2020
 ms.topic: overview
 ---
 
@@ -32,8 +32,12 @@ Azure Lighthouse includes multiple ways to help streamline engagement and manage
 - **Azure Resource Manager templates**: Use ARM templates to [onboard delegated customer resources](how-to/onboard-customer.md) and [perform cross-tenant management tasks](samples/index.md).
 - **Managed Service offers in Azure Marketplace**: [Offer your services to customers](concepts/managed-services-offers.md) through private or public offers, and automatically onboard them to Azure Lighthouse.
 
+> [!TIP]
+> A similar offering, [Microsoft 365 Lighthouse](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181), will help IT Partners onboard, monitor and manage their Microsoft 365 customers at scale. Microsoft 365 Lighthouse is currently in private preview.
+
 ## Next steps
 
 - Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
 - Explore [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
 - See how to [use Azure Lighthouse within an enterprise](concepts/enterprise.md).
+- View [availability](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) and [FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) details for Azure Lighthouse.

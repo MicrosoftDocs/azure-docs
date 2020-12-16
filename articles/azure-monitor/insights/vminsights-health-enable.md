@@ -20,12 +20,18 @@ Azure Monitor for VMs guest health has the following limitations in public previ
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
 - Virtual machine must be located in one of the following regions:
+  - Australia East
   - Australia Southeast
+  - Central India
   - Central US
   - East US
   - East US 2
   - East US 2 EUAP
+  - Germany West Central
+  - Japan East
+  - North Central US
   - North Europe
+  - South Central US
   - Southeast Asia
   - UK South
   - West Europe
@@ -77,7 +83,7 @@ There are three steps required to enable virtual machines using Azure Resource M
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Install the data collection rule defined in the Resource Manager template below to enable all monitors for the virtual machines with the guest health extension. Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
 > You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md).
@@ -105,7 +111,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+The data collection rule defined in the Resource Manager template below enables all monitors for the virtual machines with the guest health extension. It must include data sources for each of the performance counters used by the monitors.
 
 ```json
 {
@@ -128,7 +134,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -141,6 +147,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -160,7 +179,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -171,7 +194,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },					
         "dataFlows": [
           {
             "streams": [
@@ -195,7 +218,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -207,7 +230,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## Install guest health extension and associate with data collection rule
+### Install guest health extension and associate with data collection rule
 Use the following Resource Manager template to enable a virtual machine for guest health. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
@@ -360,9 +383,6 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }

@@ -150,5 +150,5 @@ For example, follow the steps below to authenticate using a Windows VM,
 
 ## Next steps
 
-* [Create an Azure application offer](./create-new-azure-apps-offer.md)
+* [Create an Azure application offer](../create-new-azure-apps-offer.md)
 * [Plan a SaaS offer](../plan-saas-offer.md)

@@ -4,13 +4,13 @@ description: Learn how to change performance tiers for existing managed disks us
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 11/19/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Change your performance tier using the Azure PowerShell module or the Azure CLI (preview)
+# Change your performance tier using the Azure PowerShell module or the Azure CLI
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 

@@ -121,7 +121,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

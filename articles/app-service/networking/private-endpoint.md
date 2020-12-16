@@ -143,7 +143,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md

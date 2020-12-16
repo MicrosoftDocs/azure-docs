@@ -141,10 +141,10 @@ conceptualContent:
         - url: ../iot-pnp/overview-iot-plug-and-play.md
           itemType: overview
           text: What is IoT Plug and Play?
-        - url: ../iot-pnp/quickstart-connect-device-node.md
+        - url: ../iot-pnp/quickstart-connect-device.md
           itemType: quickstart
           text: Connect a sample device to IoT Hub
-        - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+        - url: ../iot-pnp/concepts-developer-guide-device.md
           itemType: concept
           text: Developer guide
       # footerLink
@@ -189,9 +189,6 @@ conceptualContent:
         - url: ../iot-accelerators/about-iot-accelerators.md
           itemType: overview
           text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-          itemType: quickstart
-          text: Try a remote monitoring solution
         - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
           itemType: quickstart
           text: Try a connected factory solution

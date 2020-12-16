@@ -33,6 +33,8 @@
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Create cross-region load balancer - Portal
+    href: tutorial-cross-region-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -59,7 +61,7 @@
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
-    - name: Azure Monitor logs for Basic Load Balancer
+    - name: Azure Monitor logs for Load Balancer
       href: load-balancer-monitor-log.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md

@@ -25,6 +25,10 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
 ## Connect the CLI to your Azure subscription
 
 > [!IMPORTANT]

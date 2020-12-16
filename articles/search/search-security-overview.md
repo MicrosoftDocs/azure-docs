@@ -1,14 +1,14 @@
 ---
 title: Security overview
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in filter expressions.
+description: Learn about the security features in Azure Cognitive Search to protect endpoints, content, and operations.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 This article describes the key security features in Azure Cognitive Search that can protect content and operations.
 
-+ At the storage layer, encryption-at-rest is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Azure Cognitive Search also supports the addition of customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.
++ At the storage layer, encryption-at-rest is built-in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Azure Cognitive Search also supports the addition of customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
@@ -72,7 +72,7 @@ Inbound security features protect the search service endpoint through increasing
 
 ### Public access using API keys
 
-By default, a search service is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. An api-key is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity.
+By default, a search service is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. An [API key](search-security-rbac.md) is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity.
 
 There are two levels of access to your search service, enabled by the following API keys:
 
@@ -110,15 +110,15 @@ While this solution is the most secure, using additional services is an added co
 
 In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access to the service), along with the context of an operation.
 
-For end-user access, you can structure query requests to connect using a query key, which makes any request read-only, and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+For end-user access, you can structure query requests to connect using a [query key](search-security-rbac.md), which makes any request read-only, and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an admin key to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
+Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an [admin key](search-security-rbac.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
 ## User access
 
-How a user accesses an index and other objects is determined by the type of API key on the request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read-only access to searchable content within the index.
+How a user accesses an index and other objects is determined by the type of API key on the request. Most developers create and assign [query keys](search-security-api-keys.md) for client-side search requests. A query key grants read-only access to searchable content within the index.
 
 If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a *filter* that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 

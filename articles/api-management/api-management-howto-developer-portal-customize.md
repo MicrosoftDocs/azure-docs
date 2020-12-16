@@ -105,7 +105,7 @@ In the following video, we demonstrate how to edit the content of the portal, cu
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish"> Publish the portal
+## <a name="publish"></a> Publish the portal
 
 To make your portal and its latest changes available to visitors, you need to *publish* it. You can publish the portal within the portal's administrative interface or from the Azure portal.
 

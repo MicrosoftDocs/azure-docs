@@ -44,7 +44,7 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [task general transform creation](./includes/task-create-transform-rest.md)]
+[!INCLUDE [task general transform creation](./includes/task-create-basic-audio-rest.md)]
 
 ---
 

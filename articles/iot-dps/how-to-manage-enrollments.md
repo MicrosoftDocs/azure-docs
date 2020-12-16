@@ -86,5 +86,3 @@ In cases where your device(s) do not need to be provisioned to any IoT hub, you 
 1. Once the action is completed, you'll see your entry removed from the list of device enrollments. 
  
     ![Remove enrollment in the portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
-

@@ -10,10 +10,10 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.subservice: enterprise-users
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: "it-pro;seo-update-azuread-jan"

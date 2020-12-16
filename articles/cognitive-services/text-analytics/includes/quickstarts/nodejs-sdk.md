@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
@@ -37,6 +37,7 @@ ms.custom: devx-track-js
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -62,7 +63,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.1
+npm install --save @azure/ai-text-analytics@5.1.0-beta.3
 ```
 
 > [!TIP]
@@ -251,15 +252,16 @@ async function sentimentAnalysisWithOpinionMining(client){
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
             console.log(`\t\tSentences Scores:`);
             console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-            console.log("    Mined opinions");
+            console.log("\tMined opinions");
             for (const { aspect, opinions } of sentence.minedOpinions) {
-                console.log(`      - Aspect text: ${aspect.text}`);
-                console.log(`        Aspect sentiment: ${aspect.sentiment}`);
-                console.log("        Aspect confidence scores:", aspect.confidenceScores);
-                console.log("        Aspect opinions");
-                for (const { text, sentiment } of opinions) {
-                console.log(`        - Text: ${text}`);
-                console.log(`          Sentiment: ${sentiment}`);
+                console.log(`\t\tAspect text: ${aspect.text}`);
+                console.log(`\t\tAspect sentiment: ${aspect.sentiment}`);
+                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)}`);
+                console.log("\t\tAspect opinions:");
+                for (const { text, sentiment, confidenceScores } of opinions) {
+                    console.log(`\t\tOpinion text: ${text}`);
+                    console.log(`\t\tOpinion sentiment: ${sentiment}`);
+                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)}`);
                 }
             }
         });
@@ -274,32 +276,35 @@ Run your code with `node index.js` in your console window.
 
 ```console
 ID: 0
-        // Document Sentiment: positive
-        // Document Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        // Sentences Sentiment(1):
-                // Sentence sentiment: positive
-                // Sentences Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-    // Mined opinions
-      // - Aspect text: food
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: service
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: concierge
-        // Aspect sentiment: positive
-        // Aspect confidence scores: { positive: 1, negative: 0 }
-        // Aspect opinions
-        // - Text: nice
-          // Sentiment: positive
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Sentences Sentiment(1):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Mined opinions
+                Aspect text: food
+                Aspect sentiment: negative
+                Aspect Positive: 0.01   Negative: 0.99
+                Aspect opinions:
+                Opinion text: unacceptable
+                Opinion sentiment: negative
+                Opinion Positive: 0.01  Negative: 0.99
+                Aspect text: service
+                Aspect sentiment: negative
+                Aspect Positive: 0.01   Negative: 0.99
+                Aspect opinions:
+                Opinion text: unacceptable
+                Opinion sentiment: negative
+                Opinion Positive: 0.01  Negative: 0.99
+                Aspect text: concierge
+                Aspect sentiment: positive
+                Aspect Positive: 1.00   Negative: 0.00
+                Aspect opinions:
+                Opinion text: nice
+                Opinion sentiment: positive
+                Opinion Positive: 1.00  Negative: 0.00
 ```
 
 # [Version 3.0](#tab/version-3)
@@ -815,6 +820,71 @@ Run your code with `node index.js` in your console window.
     { id: '3', keyPhrases: [ 'fútbol' ] }
 ]
 ```
+
+---
+
+## Use the API asynchronously with the Analyze operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+> [!CAUTION]
+> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+
+Create a new function called `analyze_example()`, which calls the `beginAnalyze()` function. The result will be a long running operation which will be polled for results.
+
+```javascript
+const documents = [
+  "Microsoft was founded by Bill Gates and Paul Allen.",
+];
+
+async function analyze_example(client) {
+  console.log("== Analyze Sample ==");
+
+  const tasks = {
+    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  };
+  const poller = await client.beginAnalyze(documents, tasks);
+  const resultPages = await poller.pollUntilDone();
+
+  for await (const page of resultPages) {
+    const entitiesResults = page.entitiesRecognitionResults![0];
+    for (const doc of entitiesResults) {
+      console.log(`- Document ${doc.id}`);
+      if (!doc.error) {
+        console.log("\tEntities:");
+        for (const entity of doc.entities) {
+          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+        }
+      } else {
+        console.error("  Error:", doc.error);
+      }
+    }
+  }
+}
+
+analyze_example(textAnalyticsClient);
+```
+
+### Output
+
+```console
+== Analyze Sample ==
+- Document 0
+        Entities:
+        - Entity Microsoft of type Organization
+        - Entity Bill Gates of type Person
+        - Entity Paul Allen of type Person
+```
+
+You can also use the Analyze operation to detect PII and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) on GitHub.
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+# [Version 2.1](#tab/version-2)
+
+This feature is not available in version 2.1.
 
 ---
 

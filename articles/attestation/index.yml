@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: PowerShell quickstart
             url: quickstart-powershell.md
+          - text: CLI quickstart
+            url: quickstart-azure-cli.md
           - text: ARM template quickstart
             url: quickstart-template.md
 

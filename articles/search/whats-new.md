@@ -18,7 +18,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |------------------------------|----------|-------------|---------------|
-|[customer-managed key encryption over indexers, data sources, and skillsets](search-security-manage-encryption-keys.md) | Security | This addition extends customer-managed encryption over the full range of assets created and managed by a search service. Recall that CMK support adds an additional encryption layer on top of base encryption performed and managed by Microsoft. | Generally available using REST api-version=2020-06-30 |  
+|[Customer-managed key encryption over indexers, data sources, and skillsets](search-security-manage-encryption-keys.md) | Security | This addition extends customer-managed encryption over the full range of assets created and managed by a search service. Recall that customer-managed key support adds an additional encryption layer on top of base encryption performed and managed by Microsoft. | Generally available using REST api-version=2020-06-30 |  
 
 ## September 2020
 
@@ -36,7 +36,7 @@ Create an identity for a search service in Azure Active Directory, then use Azur
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [double encryption](search-security-overview.md#encryption) | Security | Enable double encryption at the storage layer by configuring customer-managed key (CMK) encryption on new search services. Create a new service, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) to indexes or synonym maps, and benefit from double encryption over that content. | Generally available on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal, management REST APIs, or SDKs to create the service. |
+| [double encryption](search-security-overview.md#encryption) | Security | Enable double encryption at the storage layer by configuring customer-managed key encryption on new search services. Create a new service, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) to indexes or synonym maps, and benefit from double encryption over that content. | Generally available on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal, management REST APIs, or SDKs to create the service. |
 
 ## July 2020
 

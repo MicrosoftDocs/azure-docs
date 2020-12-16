@@ -20,7 +20,7 @@ The processes of this quick start result in a production-ready environment for c
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement.
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 ## Resource group
 
@@ -43,7 +43,7 @@ Identify the size hosts that you want to use when deploying Azure VMware Solutio
 
 ## Number of hosts
 
-Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum node count is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
+Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum number of hosts is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
 
 You can always extend the cluster later if you need to go beyond the initial deployment number.
 

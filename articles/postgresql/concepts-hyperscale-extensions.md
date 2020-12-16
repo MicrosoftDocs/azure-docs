@@ -29,8 +29,8 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Provides a case-insensitive character string type. |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Provides a data type for multidimensional cubes. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Provides a data type for storing sets of key-value pairs. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Provides a data type for storing sets of key-value pairs. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Provides data types for international product numbering standards. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
@@ -59,9 +59,9 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Functions for implementing referential integrity (obsolete). |
 > | session\_analytics | Functions for querying hstore arrays. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Provides functions that manipulate whole tables, including crosstab. |
@@ -75,7 +75,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | **Extension** | **Description** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus distributed database. |
-> | shard\_rebalancer | Safely rebalance data in a server group in case of node addition or removal. |
 
 ### Index types extensions
 
@@ -100,6 +99,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Administrative functions for PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. |
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Foreign-data wrapper for flat file access. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. |
@@ -114,8 +114,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about TLS/SSL certificates. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | TABLESAMPLE method, which accepts number of rows as a limit. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath querying and XSLT. |
 
 

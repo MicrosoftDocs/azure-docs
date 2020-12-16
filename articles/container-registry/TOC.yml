@@ -126,7 +126,7 @@
       - name: Content trust
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
-        href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
+        href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:

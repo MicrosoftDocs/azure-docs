@@ -185,7 +185,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to Citrix ShareFile Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Citrix ShareFile tile in the Access Panel, this will redirect to Citrix ShareFile Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the Citrix ShareFile tile in the Access Panel, this will redirect to Citrix ShareFile Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

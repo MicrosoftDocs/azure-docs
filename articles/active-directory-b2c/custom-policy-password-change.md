@@ -179,4 +179,4 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](custom-policy-password-complexity.md).
+- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](password-complexity.md).

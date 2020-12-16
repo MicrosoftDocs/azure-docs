@@ -51,7 +51,7 @@ In the GitHub workflow, you need to supply Azure credentials to authenticate to 
 First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-group-show] command:
 
 ```azurecli
-groupId=$(az group show \
+$groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```
@@ -136,7 +136,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1

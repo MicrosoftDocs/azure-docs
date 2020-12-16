@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: philmea
 ms.author: philmea
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ---
 

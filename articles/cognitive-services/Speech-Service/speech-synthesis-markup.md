@@ -125,7 +125,7 @@ speechConfig->SetProperty(
 
 # [Java](#tab/java)
 
-For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -195,6 +195,7 @@ Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` (Preview)
 * `zh-CN-XiaohanNeural` (Preview)
 * `zh-CN-XiaomoNeural` (Preview)
@@ -266,7 +267,14 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
 |                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.    | 
+|                         | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
 |                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
@@ -583,7 +591,7 @@ You could also directly provide your expected `alias` for the acronym or abbrevi
 
 For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 After you've published your custom lexicon, you can reference it from your SSML.
 

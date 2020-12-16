@@ -8,13 +8,13 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
 
 ---
@@ -23,8 +23,7 @@ ms.author: radeltch
 
 The scope of this article is to describe configurations, that will enable outbound connectivity to public end point(s). The configurations are mainly in the context of High Availability with Pacemaker for SUSE / RHEL.  
 
-If you are using Pacemaker with Azure fence agent in your high availability solution, then the VMs must have outbound connectivity to the Azure management API.  
-The article presents several options to enable you to select the option that is best suited for your scenario.  
+If you are using Pacemaker with Azure fence agent in your high availability solution, then the VMs must have outbound connectivity to the Azure management API. The article presents several options to enable you to select the option that is best suited for your scenario.  
 
 ## Overview
 
@@ -38,12 +37,12 @@ When VMs without public IP addresses are placed in the backend pool of internal 
 
 If a VM is assigned a public IP address, or the VM is in the backend pool of a load balancer with public IP address, it will have outbound connectivity to public end points.  
 
-SAP systems often contain sensitive business data. It is rarely acceptable for VMs hosting SAP systems to have public IP addresses. At the same time, there are scenarios, which would require outbound connectivity from the VM to public end points.  
+SAP systems often contain sensitive business data. It is rarely acceptable for VMs hosting SAP systems to be accessible via public IP addresses. At the same time, there are scenarios, which would require outbound connectivity from the VM to public end points.  
 
 Examples of scenarios, requiring access to Azure public end point are:  
-- Using Azure Fence Agent as a fencing mechanism in Pacemaker clusters
-- Azure Backup
-- Azure Site Recovery  
+- Azure Fence Agent requires access to **management.azure.com** and **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Using public repository for patching the Operating system
 - The SAP application data flow may require outbound connectivity to public end point
 
@@ -66,7 +65,7 @@ Read the following papers first:
 * [Virtual Networks -User defined rules](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure routing concepts and rules  
 * [Security Groups Service Tags](../../../virtual-network/network-security-groups-overview.md#service-tags) - how to simplify your Network Security Groups and Firewall configuration with service tags
 
-## Additional external Azure Standard Load Balancer for outbound connections to internet
+## Option 1: Additional external Azure Standard Load Balancer for outbound connections to internet
 
 One option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end point, is to create a second load balancer with public IP address, add the VMs to the backend pool of the second load balancer and define only [outbound rules](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
 Use [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) to control the public end points, that are accessible for outbound calls from the VM.  
@@ -116,7 +115,7 @@ The configuration would look like:
 
    For more information on Azure Network security groups, see [Security Groups ](../../../virtual-network/network-security-groups-overview.md). 
 
-## Azure Firewall for outbound connections to internet
+## Option 2: Azure Firewall for outbound connections to internet
 
 Another option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end points, is with Azure Firewall. Azure Firewall is a managed service, with built-in High Availability and it can span multiple Availability Zones.  
 You will also need to deploy [User Defined Route](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes), associated with subnet where VMs and the Azure load balancer are deployed, pointing to the Azure firewall, to route traffic through the Azure Firewall.  
@@ -167,7 +166,7 @@ The architecture would look like:
    1. Route name: ToMyAzureFirewall, Address prefix: **0.0.0.0/0**. Next hop type: Select Virtual Appliance. Next hop address: enter the private IP address of the firewall you configured: **11.97.1.4**.  
    1. Save
 
-## Using Proxy for Pacemaker calls to Azure Management API
+## Option 3: Using Proxy for Pacemaker calls to Azure Management API
 
 You could use proxy to allow Pacemaker calls to the Azure management API public end point.  
 
@@ -218,9 +217,9 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
      sudo pcs property set maintenance-mode=false
      ```
 
-## Other solutions
+## Other options
 
-If outbound traffic is routed via third party firewall:
+If outbound traffic is routed via third party, URL-based firewall proxy:
 
 - if using Azure fence agent make sure the firewall configuration allows outbound connectivity to the Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`   
 - if using SUSE's Azure public cloud update infrastructure for applying updates and patches, see [Azure Public Cloud Update Infrastructure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
