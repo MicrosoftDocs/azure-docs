@@ -78,7 +78,10 @@ If you prefer to manually configure the redirect URI, you can do so through the 
 
 If your app uses only username-password authentication, you don't need to register a redirect URI for your application. This flow does a round trip to the Microsoft identity platform version 2.0 endpoint. Your application won't be called back on any specific URI.
 
-However, you need to identify your application as a public client application. To do so, start in the **Authentication** section of your application. In the **Advanced settings** subsection, in the **Default client type** paragraph, for the question **Treat application as a public client**, select **Yes**.
+However, you need to identify your application as a public client application. To do so:
+
+1. Still in the [Azure portal](https://portal.azure.com), select your app in **App registrations**, and then select **Authentication**.
+2. In **Advanced settings** > **Alow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
 
 ## API permissions
 
