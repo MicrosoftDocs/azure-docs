@@ -80,7 +80,7 @@ There are two foundational patterns to address such scenarios:
   originally produced into one of the Event Hubs included in the scheme is
   replicated to the other Event Hubs. As events are replicated, they are
   annotated such that they are subsequently ignored by the replication process
-  of the replication target. The result of using the merge pattern are two or
+  of the replication target. The results of using the merge pattern are two or
   more Event Hubs that will contain the same set of events in an eventually
   consistent fashion. 
   
@@ -99,7 +99,7 @@ data from several smaller Event Hubs into a single, larger Event Hub with more
 partitions to cope with the consolidated throughput and processing needs.
 
 The criterion for keeping events together is the partition key and not the
-original partition id. Further considerations about relative order and how to
+original partition ID. Further considerations about relative order and how to
 perform a failover from one Event Hub to the next without relying on the same
 scope of stream offsets is discussed in [replication][4] pattern description.
 
@@ -230,7 +230,7 @@ Guidance:
 
 ### Log projections 
 
-![Log projection](media/event-hubs-federation-overview/logprojection.jpg)
+![Log projection](media/event-hubs-federation-overview/log-projection.jpg)
 
 In some scenarios, you will want to have access to the latest value sent for any
 substream of an event, and commonly distinguished by the partition key. In
@@ -374,7 +374,7 @@ data](../stream-analytics/stream-analytics-use-reference-data.md) held in Azure
 Blob Storage or Azure SQL Database without having to import such data into a stream.
 
 With ASA, you can easily create persistent, materialized views of streams in hyper-scale
-databases, which is a far superior approach to the clunky "log compaction" model of
+databases. It's a far superior approach to the clunky "log compaction" model of
 Apache Kafka and the volatile, client-side table projections of Kafka Streams. 
 
 ASA can readily process events having payloads encoded in the [CSV, JSON, and

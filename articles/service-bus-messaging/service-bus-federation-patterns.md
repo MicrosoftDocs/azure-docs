@@ -15,14 +15,6 @@ that you familiarize yourself with them before continuing with this article.
 In this article, we detail implementation guidance for several of the patterns
 highlighted in the overview section. 
 
-- [Replication](#replication)
-  - [Sequences and order preservation](#sequences-and-order-preservation)
-  - [Service-assigned metadata](#service-assigned-metadata)
-  - [Failover](#failover)
-- [Merge](#merge)
-- [Editor](#editor)
-- [Routing](#routing)
-
 ## Replication 
 
 The Replication pattern copies messages from one queue or topic to the next, or

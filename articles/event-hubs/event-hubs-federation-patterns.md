@@ -18,15 +18,6 @@ article.
 In this article, we detail implementation guidance for several of the patterns
 highlighted in the overview section.
 
-- [Replication](#replication)
-  - [Streams and order preservation](#streams-and-order-preservation)
-  - [Service-assigned metadata](#service-assigned-metadata)
-  - [Failover](#failover)
-- [Merge](#merge)
-- [Editor](#editor)
-- [Routing](#routing)
-- [Log projection](#log-projection)
-
 ## Replication
 
 The Replication pattern copies events from one Event Hub to the next, or from an

@@ -12,6 +12,7 @@
 
 Azure Functions allows for creating configuration-only replication tasks that lean on a pre-built entry point. The [configuration-based replication samples for Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrate how to leverage [pre-built helpers](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) in your own code or avoid handling code altogether and just use configuration.
 
+## Create a replication task
 To create such a replication task, first create a new folder underneath the project folder. The name of the new folder is the name of the function, for instance `europeToAsia` or `telemetry`. The name has no direct correlation with the messaging entities being used and serves only for you to identify them. You can create dozens of functions in the same project.
 
 Next, create a `function.json` file in the folder. The file configures the function. Start with the following content:
@@ -47,9 +48,9 @@ In that file, you need to complete three configuration steps that depend on whic
 2. [Configure the output direction](#configure-the-output-direction)
 3. [Configure the entry point](#configure-the-entry-point)
 
-#### Configure the input direction
+### Configure the input direction
 
-##### Event Hub input
+#### Event Hub input
 
 If you want to receive events from an Event Hub, add configuration information to the top section within "bindings" that sets
 
@@ -72,7 +73,7 @@ If you want to receive events from an Event Hub, add configuration information t
     ...
 ```
 
-##### Service Bus Queue input
+#### Service Bus Queue input
 
 If you want to receive events from a Service Bus queue, add configuration information to the top section within "bindings" that sets
 
@@ -93,7 +94,7 @@ If you want to receive events from a Service Bus queue, add configuration inform
     ...
 ```
 
-##### Service Bus Topic input
+#### Service Bus Topic input
 
 If you want to receive events from a Service Bus topic, add configuration information to the top section within "bindings" that sets
 
@@ -116,9 +117,9 @@ If you want to receive events from a Service Bus topic, add configuration inform
     ...
 ```
 
-#### Configure the output direction
+### Configure the output direction
 
-##### Event Hub output
+#### Event Hub output
 
 If you want to forward events to an Event Hub, add configuration information to the bottom section within "bindings" that sets
 
@@ -142,7 +143,7 @@ If you want to forward events to an Event Hub, add configuration information to 
     ...
 ```
 
-##### Service Bus Queue output
+#### Service Bus Queue output
 
 If you want to forward events to a Service Bus Queue, add configuration information to the bottom section within "bindings" that sets
 
@@ -166,7 +167,7 @@ If you want to forward events to a Service Bus Queue, add configuration informat
     ...
 ```
 
-##### Service Bus Topic output
+#### Service Bus Topic output
 
 If you want to forward events to a Service Bus Topic, add configuration information to the bottom section within "bindings" that sets
 
@@ -190,7 +191,7 @@ If you want to forward events to a Service Bus Topic, add configuration informat
     ...
 ```
 
-#### Configure the entry point
+### Configure the entry point
 
 The entry point configuration picks one of the standard replication tasks. If you are modifying the `Azure.Messaging.Replication` project, you can also add tasks and refer to them here. For instance:
 
@@ -210,7 +211,7 @@ The following table gives you the correct values for combinations of sources and
 | Service Bus | Event Hub   | `Azure.Messaging.Replication.ServiceBusReplicationTasks.ForwardToEventHub`
 | Service Bus | Service Bus | `Azure.Messaging.Replication.ServiceBusReplicationTasks.ForwardToServiceBus`
 
-#### Retry policy
+### Retry policy
 
 Refer to the [Azure Functions documentation on
 retries](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) to
