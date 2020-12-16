@@ -20,7 +20,7 @@ Custom field or input attributes improve downstream data-processing and reportin
 
 ### Partition key options
 
-The partition key, or column name, used to partition input data may contain any character that is accepted for blob names. It is not possible to use nested fields as a partition key unless used in conjunction with aliases, but you can use certain characters to create a hierarchy of files. For example, you can use the following query to create a column that combines data from two other columns to make a unique partition key.
+The partition key, or column name, used to partition input data may contain any character that is accepted for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). It is not possible to use nested fields as a partition key unless used in conjunction with aliases, but you can use certain characters to create a hierarchy of files. For example, you can use the following query to create a column that combines data from two other columns to make a unique partition key.
 
 ```sql
 SELECT name, id, CONCAT(name, "/", id) AS nameid
