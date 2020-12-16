@@ -280,7 +280,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInContoso*.
 1. Save your changes and upload the file.
 1. From the uploaded **Custom policies**, select the newly created policy from the list.
-1. In the **Select application** drop-down, select the Azure AD B2C application that you created earlier. For example, *testapp1*.
+1. In the **Select application** drop-down, select an Azure AD B2C application that you created earlier. For example, [you could create a test app](troubleshoot-custom-policies.md#troubleshoot-the-runtime) called *testapp1* that will redirect your browser to `https://jwt.ms` so that you can display the contents of the token returned by Azure AD B2C.
 1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
 1. Select the Azure AD sign in button, for example, *Contoso Employee*, and then enter the credentials for a user in one of your Azure AD organizational tenants. You're asked to authorize the application, and then enter information for your profile.
 
