@@ -21,7 +21,7 @@ To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any c
 To see the Kubernetes resources, navigate to your AKS cluster in the Azure portal. The navigation pane on the left is used to access your resources. The resources include:
 
 - **Namespaces** displays the namespaces of your cluster. The filter at the top of the namespace list provides a quick way to filter and display your namespace resources.
-- **Workloads** shows information about deployments, pods, replica sets, and daemon sets deployed to your cluster. The screenshot below shows the default system pods in an example AKS cluster.
+- **Workloads** shows information about deployments, pods, replica sets, stateful sets, daemon sets, jobs, and cron jobs deployed to your cluster. The screenshot below shows the default system pods in an example AKS cluster.
 - **Services and ingresses** shows all of your cluster's service and ingress resources.
 - **Storage** shows your Azure storage classes and persistent volume information.
 - **Configuration** shows your cluster's config maps and secrets.
