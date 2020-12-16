@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 12/17/200
 ms.author: alkohli
 ---
 
@@ -70,10 +70,10 @@ This information only applies to Azure Stack device. The process to report hardw
 
 2. If Microsoft Support determines that this is a hardware issue, then one of the following action occurs:
 
-    * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and hard drives are the only supported FRUs.
+    * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and solid state drives are the only supported FRUs.
     * Only FRUs are replaced within the next business day, everything else requires a full system replacement (FSR) to be shipped.
 
-3. If a Support ticket is raised before 4:30 pm local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform  a FRU or a full device replacement.
+3. If a Support ticket is raised before 4:30 pm local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform a FRU replacement. A full system replacement typically will take much longer because the parts are shipped from our factory and could be subject to transportation and customs delays.
 
 ## Manage a support request
 
