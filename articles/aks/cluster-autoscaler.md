@@ -149,7 +149,7 @@ Use the [az aks update][az-aks-update-preview] command with the *cluster-autosca
 az aks update \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --cluster-autoscaler-profile scan-interval=30s
+  --cluster-autoscaler-profile scan-interval=30s ***Check format of "scan-interval", scan is black, -interval is green as it should be being an option of the command
 ```
 
 When you enable the cluster autoscaler on node pools in the cluster, those clusters will also use the cluster autoscaler profile. For example:
