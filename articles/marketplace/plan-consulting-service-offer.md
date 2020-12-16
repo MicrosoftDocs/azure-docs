@@ -24,17 +24,42 @@ Consulting service offers are published as **Contact me** listings. This means t
 
 Each consulting service must focus on one of these Microsoft products, called the **primary product** of the offer:
 
-|Primary Product                               |                   |
-|-------------------------------|-------------------|
-|Azure                          |Dynamics 365 Project Service Automation |
-|Dynamics 365 Business Central  |Dynamics 365 Sales |
-|Dynamics 365 Commerce          |Dynamics 365 Supply Chain Management |
-|Dynamics 365 Customer Insights |Microsoft 365 |
-|Dynamics 365 Customer Service  |Power Apps |
-|Dynamics 365 Field Service     |Power Automate |
-|Dynamics 365 Finance           |Power BI |
-|Dynamics 365 Marketing         |Power Virtual Agents |
-|    |    |
+:::row:::
+    :::column:::
+        Azure
+
+        Dynamics 365 Business Central
+
+        Dynamics 365 Commerce
+
+        Dynamics 365 Customer Insights
+
+        Dynamics 365 Customer Service
+
+        Dynamics 365 Field Service
+
+        Dynamics 365 Finance
+
+        Dynamics 365 Marketing
+    :::column-end:::
+    :::column:::
+        Dynamics 365 Project Service Automation
+
+        Dynamics 365 Sales
+
+        Dynamics 365 Supply Chain Management
+
+        Microsoft 365
+
+        Power Apps
+
+        Power Automate
+
+        Power BI
+
+        Power Virtual Agents
+    :::column-end:::
+:::row-end:::
 
 The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
 

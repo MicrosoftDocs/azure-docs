@@ -90,8 +90,8 @@
         - name: SQL script
           href: ./sql/author-sql-script.md
           displayname: author
-        - name: Mapping Data Flow
-          href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Data Flow
+          href: concepts-data-flow-overview.md
     - name: Maintenance schedule
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Source control
@@ -584,7 +584,7 @@
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage libraries
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Use notebooks
+    - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
@@ -688,8 +688,8 @@
       href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Data flows
       items:
-      - name: Mapping data flow overview
-        href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Data flow overview
+        href: concepts-data-flow-overview.md
       - name: Debug mode
         href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Schema drift
