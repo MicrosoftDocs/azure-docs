@@ -217,8 +217,8 @@ To configure an email action in the Rule's actions list:
 
 You should receive email when the configured **condition** is met.
 
-[!NOTE]
-The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
+>[!NOTE]
+>The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
   
 To create a new rule: 
 1. Select **+New** on the **Rules** from the left pane.
