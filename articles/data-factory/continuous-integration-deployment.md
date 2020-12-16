@@ -207,6 +207,14 @@ If your development factory has an associated git repository, you can override t
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
+### How to handle custom parameter256 limit 
+
+There are 3 options to overcome 256 parameter limit.
+
+* Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
+* Refactor logic in the dataflow to reduce parameters, e.g., parameterize pipeline parameters and all have the same value, just use global parameters instead.
+* Split one datafactory  into multiple dataflows.
+
 To override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
 
    ![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
@@ -235,13 +243,6 @@ The following are some guidelines to follow when you create the custom parameter
 * A definition can't be specific to a resource instance. Any definition applies to all resources of that type.
 * By default, all secure strings, like Key Vault secrets, and secure strings, like connection strings, keys, and tokens, are parameterized.
 
-### Custom parameter limit
-
-Number of parameters can not exceed 256. There are 3 options to overcome 256 parameter limit.
-
-* Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
-* Refactor logic in the dataflow to reduce parameters, e.g., parameterize pipeline parameters and all have the same value, just use global parameters instead.
-* Split one dataflow  into multiple dataflows.
 
  
 ### Sample parameterization template
