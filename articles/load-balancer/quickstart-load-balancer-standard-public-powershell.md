@@ -46,6 +46,8 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 ## Create a public IP address - Standard
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address.
@@ -234,7 +236,7 @@ In this section, you'll create the three virtual machines for the backend pool o
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Set an administrator username and password for the VMs with [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential).
+* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Create the virtual machines with:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -441,6 +443,8 @@ $nicvm | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
+
 ## Create a public IP address - Basic
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address.
@@ -613,7 +617,7 @@ In this section, you'll create the virtual machines for the backend pool of the 
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Set an administrator username and password for the VMs with [Get-Credential](/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create an availability set for the virtual machines.
 

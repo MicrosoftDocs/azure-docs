@@ -261,7 +261,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -748,7 +748,7 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

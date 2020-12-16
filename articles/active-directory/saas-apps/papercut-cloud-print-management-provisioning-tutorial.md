@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure PaperCut Cloud Print Management (Pocket/Hive) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to PaperCut Cloud Print Management (Pocket/Hive).
+title: 'Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to PaperCut Cloud Print Management.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -18,16 +18,16 @@ ms.date: 11/18/2020
 ms.author: Zhchia
 ---
 
-# Tutorial: Configure PaperCut Cloud Print Management (Pocket/Hive) for automatic user provisioning
+# Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both PaperCut Cloud Print Management (Pocket/Hive) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+This tutorial describes the steps you need to perform in both PaperCut Cloud Print Management and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## Capabilities Supported
 
 > [!div class="checklist"]
-> * Create users in PaperCut Cloud Print Management (Pocket/Hive)
-> * Remove users in PaperCut Cloud Print Management (Pocket/Hive) when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and PaperCut Cloud Print Management (Pocket/Hive)
+> * Create users in PaperCut Cloud Print Management
+> * Remove users in PaperCut Cloud Print Management when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and PaperCut Cloud Print Management
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A user account in PaperCut Cloud Print Management (Pocket/Hive) with Admin permissions
+* A user account in PaperCut Cloud Print Management with Admin permissions
 
 
 ## Step 1. Plan your provisioning deployment
@@ -54,23 +54,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 
 
-4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management (Pocket/Hive) application in the Azure portal.
+4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management application in the Azure portal.
 
 
 
-## Step 3. Add PaperCut Cloud Print Management (Pocket/Hive) from the Azure AD application gallery
+## Step 3. Add PaperCut Cloud Print Management from the Azure AD application gallery
 
-Add PaperCut Cloud Print Management (Pocket/Hive) from the Azure AD application gallery to start managing provisioning to PaperCut Cloud Print Management (Pocket/Hive). If you have previously setup PaperCut Cloud Print Management (Pocket/Hive) for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Add PaperCut Cloud Print Management from the Azure AD application gallery to start managing provisioning to PaperCut Cloud Print Management. If you have previously setup PaperCut Cloud Print Management for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
 ## Step 4. Define who will be in scope for provisioning
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* When assigning users and groups to PaperCut Cloud Print Management (Pocket/Hive), you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles.
+* When assigning users and groups to PaperCut Cloud Print Management, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles.
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-## Step 5. Configure automatic user provisioning to PaperCut Cloud Print Management (Pocket/Hive)
+## Step 5. Configure automatic user provisioning to PaperCut Cloud Print Management
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
@@ -80,7 +80,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **PaperCut Cloud Print Management (Pocket/Hive)**.
+2. In the applications list, select **PaperCut Cloud Print Management**.
 
    ![The PaperCut Cloud Print Management link in the Applications list](common/all-applications.png)
 
@@ -92,7 +92,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    ![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your PaperCut Cloud Print Management (Pocket/Hive) Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to PaperCut Cloud Print Management. If the connection fails, ensure your PaperCut Cloud Print Management account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input your PaperCut Cloud Print Management Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to PaperCut Cloud Print Management. If the connection fails, ensure your PaperCut Cloud Print Management account has Admin permissions and try again.
 
    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -114,11 +114,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for PaperCut Cloud Print Management (Pocket/Hive), change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Azure AD provisioning service for PaperCut Cloud Print Management, change the **Provisioning Status** to **On** in the **Settings** section.
 
     ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to PaperCut Cloud Print Management (Pocket/Hive) by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users and/or groups that you would like to provision to PaperCut Cloud Print Management by choosing the desired values in **Scope** in the **Settings** section.
 
     ![Provisioning Scope](common/provisioning-scope.png)
 

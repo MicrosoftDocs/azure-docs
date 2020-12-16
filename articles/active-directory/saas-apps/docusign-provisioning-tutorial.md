@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable user provisioning of A
     b. In the **Admin Password** textbox, type the password for this account.
 
 > [!NOTE]
-> If both SSO and user provisioning is setup , the authorization credentials used for provisioning needs to be configured to work with both SSO and Username/Password.
+> If both SSO and user provisioning is setup, the authorization credentials used for provisioning needs to be configured to work with both SSO and Username/Password.
 
 1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your DocuSign app.
 

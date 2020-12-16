@@ -1299,7 +1299,7 @@ The following cell shows an example with HTML. The highlighted section represent
 
 ```scala
 spark.conf.set("spark.hyperspace.explain.displayMode", "html")
-hyperspace.explain(eqJoin) { displayHTML }
+hyperspace.explain(eqJoin)(displayHTML(_))
 ```
 
 ::: zone-end

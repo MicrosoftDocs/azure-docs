@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy

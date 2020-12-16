@@ -80,7 +80,7 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Integration Runtime deployment for protection from distributed denial-of-service attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -576,7 +576,7 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 **Guidance**: If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS. TLS version used is 1.2.
 
-All connections to Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) require encryption (SSL/TLS) while data is in transit to and from the database. When you're authoring a pipeline by using JSON, add the encryption property and set it to true in the connection string. For Azure Storage, you can use HTTPS in the connection string.
+All connections to Azure SQL Database and Azure Synapse Analytics require encryption (SSL/TLS) while data is in transit to and from the database. When you're authoring a pipeline by using JSON, add the encryption property and set it to true in the connection string. For Azure Storage, you can use HTTPS in the connection string.
 
 * [Understanding encryption in transit in Azure Data Factory](./data-movement-security-considerations.md)
 
@@ -634,7 +634,7 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 * [Understanding encryption at rest in Azure Data Factory](./data-movement-security-considerations.md)
 
-* [Server side encryption of Azure managed disks](../virtual-machines/windows/disk-encryption.md)
+* [Server side encryption of Azure managed disks](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -686,9 +686,9 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), fo
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
+* [Update Management solution in Azure](../automation/update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
+* [Manage updates and patches for your Azure VMs](../automation/update-management/manage-updates-for-vm.md)
 
 * [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -700,9 +700,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
+* [Update Management solution in Azure](../automation/update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
+* [Manage updates and patches for your Azure VMs](../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Currently not available
 

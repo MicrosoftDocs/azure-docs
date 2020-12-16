@@ -30,7 +30,7 @@ Here are the retry policy types:
 | **None**  | Don't resend the request. |
 |||
 
-For information about retry policy limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+For information about retry policy limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
 ### Change retry policy
 

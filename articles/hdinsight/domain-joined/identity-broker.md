@@ -135,13 +135,13 @@ For using Beeline and Livy, you can also follow the samples codes provided [here
 
 ## FAQ
 ### What app is created by HDInsight in AAD?
-For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like https://clustername.azurehdinsight.net ).
+For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
 
 ### Why are users prompted for consent before using HIB enabled clusters?
 In AAD, consent is required for all third party applications before it can authenticate users or access data.
 
 ### Can the consent be approved programatically?
-Microsoft Graph api allows you to automate the consent, see the [API documentation](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
 The sequence to automate the consent is:
 
 * Register an app and grant Application.ReadWrite.All permissions to the app, to access Microsoft Graph

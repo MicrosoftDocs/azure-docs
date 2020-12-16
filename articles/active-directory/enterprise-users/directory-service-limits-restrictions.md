@@ -8,9 +8,10 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/15/2019
+ms.date: 12/02/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta

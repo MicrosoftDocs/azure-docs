@@ -59,7 +59,7 @@ To configure baseline custom checks:
 ## Baseline custom check properties
 
 | Name| Status | Valid values| Default values| Description |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|Required: true |Valid values: **Boolean** |Default value: **false** |Max time interval before high priority messages is sent.|
 |baselineCustomChecksFilePath |Required: true|Valid values: **String**, **null** |Default value: **null** |Full path of the baseline xml configuration|
 |baselineCustomChecksFileHash |Required: true|Valid values: **String**, **null** |Default value: **null** |`sha256sum` of the xml configuration file. Use the [sha256sum reference](https://linux.die.net/man/1/sha256sum) for additional information. |

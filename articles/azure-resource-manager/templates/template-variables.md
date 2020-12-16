@@ -1,12 +1,13 @@
 ---
 title: Variables in templates
-description: Describes how to define variables in an Azure Resource Manager template. 
+description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---
-# Variables in Azure Resource Manager template
 
-This article describes how to define and use variables in your Azure Resource Manager template. You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you reference that variable as needed throughout your template.
+# Variables in ARM template
+
+This article describes how to define and use variables in your Azure Resource Manager template (ARM template). You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you reference that variable as needed throughout your template.
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the template, Resource Manager replaces it with the resolved value.
 
@@ -89,5 +90,5 @@ The following examples demonstrate scenarios for using variables.
 
 ## Next steps
 
-* To learn about the available properties for variables, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about the available properties for variables, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * For recommendations about creating variables, see [Best practices - variables](template-best-practices.md#variables).

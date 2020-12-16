@@ -104,19 +104,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Amazon Business application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+	1. Click the **pen** next to **Groups returned in claim**.
 
-	![Screenshot shows User Attributes & Claims with the icon for Groups returned in claim selected.](./media/amazon-business-tutorial/config04.png)
+	    ![Screenshot shows User Attributes & Claims with the icon for Groups returned in claim selected.](./media/amazon-business-tutorial/config04.png)
 
-	![Screenshot shows Group Claims with values as described in this procedure.](./media/amazon-business-tutorial/config05.png)
+	    ![Screenshot shows Group Claims with values as described in this procedure.](./media/amazon-business-tutorial/config05.png)
 
-	b. Select **All Groups** from the radio list.
+	1. Select **All Groups** from the radio list.
 
-	c. Select **Group ID** as **Source attribute**.
+	1. Select **Group ID** as **Source attribute**.
 
-	d. Check **Customize the name of the group claim** checkbox and enter the group name according to your Organization requirement.
+	1. Check **Customize the name of the group claim** checkbox and enter the group name according to your Organization requirement.
 
-	e. Click **Save**.
+	1. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with deploying the Azure Migrate appliance and discovering machines.
-author: musa-57
+description: Get help with appliance deployment and machine discovery.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
@@ -37,6 +37,13 @@ This can happen if the appliance machine is behind a proxy.
 - Make sure you provide the authorization credentials if the proxy needs them.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
+
+
+## Clicking on 'Login' button opens a new tab with no device code
+
+If after clicking on 'Login' on the appliance configuration manager, a new tab opens with no code, go back to the appliance configuration manager tab and you can find the device code in bold font under the 'Login' button as shown in the screenshot below. Copy the code and paste it on the login tab to authenticate with Azure.
+
+![Device code](./media/troubleshoot-appliance-discovery/code.png)
 
 ## Can't sign into Azure from the appliance web app
 
@@ -76,7 +83,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     - [Learn more](./migrate-appliance.md#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
-    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) create a new project.
+    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](./create-manage-projects.md#create-a-project-for-the-first-time) create a new project.
 
 ## Error 60030/60031: Key Vault management operation failed
 
