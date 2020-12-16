@@ -377,7 +377,9 @@ You define a data factory in the Resource Manager template as shown in the follo
 The dataFactoryName is defined as: 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
 It is a unique string based on the resource group ID.
