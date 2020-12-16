@@ -1,14 +1,14 @@
 ---
 title: Open source machine learning libraries
 titleSuffix: Azure Machine Learning
-description: Learn how you can use open source Python machine learning  
+description: Learn how to use open-source Python machine learning frameworks to train, deploy and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/10/2020
+ms.date: 12/16/2020
 ---
 
 # Open Source
@@ -19,9 +19,15 @@ Many open-source Python machine learning libraries and platforms work with Azure
 
 The machine learning training process involves the application of algorithms to your data in order to achieve a task or solve a problem. Depending on the problem, you may choose different algorithms that best fit the task and your data. For more information on the different branches of machine learning, see the [deep learning vs machine learning article](./concept-deep-learning-vs-machine-learning.md) and the [machine learning algorithm cheat sheet](algorithm-cheat-sheet.md).
 
-### Classical machine learning: scikit-learn
-For training tasks involving classical machine learning algorithms tasks such classification, clustering, and regression you might use something like Scikit-learn. To learn how to train a flower classification model, see the [how to train with Scikit-learn article](how-to-train-scikit-learn.md).
+### Preserve data privacy using differential privacy
 
+To train a machine learning model, you need data. Sometimes that data is sensitive, and it's important to make sure that the data is secure and private. Differential privacy is a technique of preserving the confidentiality of information in a dataset. To learn more, see the article on [preserving data privacy](concept-differential-privacy.md). 
+
+Open-source differential privacy toolkits like [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python) help you [preserve the privacy of data](how-to-differential-privacy.md) in Azure Machine Learning solutions.
+
+### Classical machine learning: scikit-learn
+
+For training tasks involving classical machine learning algorithms tasks such classification, clustering, and regression you might use something like Scikit-learn. To learn how to train a flower classification model, see the [how to train with Scikit-learn article](how-to-train-scikit-learn.md).
 
 ### Neural networks: PyTorch, TensorFlow, Keras
 
@@ -32,10 +38,10 @@ Open-source deep learning frameworks and how-to guides include:
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-- [Train a deep learning image classification model using transfer learning in PyTorch](how-to-train-pytorch.md)
-- [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
-- [Build a neural network to analyze images using Keras](how-to-train-keras.md)
+Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing repurpose it to. See the deep learning vs. machine learning article to learn more about transfer learning.
+
 ### Reinforcement learning: Ray RLLib
+
 Reinforcement learning is a technique of artificial intelligence that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
 The [Ray RLLib](https://github.com/ray-project/ray) project has a set features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
@@ -43,13 +49,14 @@ The [Ray RLLib](https://github.com/ray-project/ray) project has a set features t
 To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train a reinforcement learning model](how-to-use-reinforcement-learning.md).
 
 ### Monitor model performance: TensorBoard
+
 Training a single or multiple models requires the visualization and inspection of desired metrics to make sure the model performs as expected. You can [use TensorBoard in Azure Machine Learning to track and visualize experiment metrics](./how-to-monitor-tensorboard.md)
-#
-## Frameworks for interpretable and fair models
 
-Machine learning systems are used in different areas of society such as banking, education, and healthcare. As such, it's important for these systems to be accountable for the predictions and recommendations they make to prevent unintended consequences. 
+### Frameworks for interpretable and fair models
 
-Open-source frameworks like [InterpretML](https://github.com/interpretml/interpret/) and Fairlearn (https://github.com/fairlearn/fairlearn) work with Azure Machine Learning to create more transparent and equitable machine learning models. 
+Machine learning systems are used in different areas of society such as banking, education, and healthcare. As such, it's important for these systems to be accountable for the predictions and recommendations they make to prevent unintended consequences.
+
+Open-source frameworks like [InterpretML](https://github.com/interpretml/interpret/) and Fairlearn (https://github.com/fairlearn/fairlearn) work with Azure Machine Learning to create more transparent and equitable machine learning models.
 
 For more information on how to build fair and interpretable models, see the following articles:
 
@@ -59,23 +66,26 @@ For more information on how to build fair and interpretable models, see the foll
 - [Mitigate fairness in machine learning models](concept-fairness-ml.md)
 - [Use Azure Machine Learning to assets model fairness](how-to-machine-learning-fairness-aml.md)
 
-## Differential privacy 
-
-Sometimes sensitive data is used in machine learning models, and it's important to make sure that the data is secure and private. Differential privacy is a technique of preserving the confidentiality of information in a dataset. To learn more, see the article on [preserving data privacy](concept-differential-privacy.md). 
-
-Open-source differential privacy toolkits like [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python) help you [preserve the privacy of data](how-to-differential-privacy.md) in Azure Machine Learning solutions.
-
 ## Model deployment
 
 Once models are trained and ready for production, you have to choose how to deploy it. Azure Machine Learning provides various deployment targets. For more information, see the [where and how to deploy article](./how-to-deploy-and-where.md).
 
-### Container deployment
+### Standardize model formats with ONNX
+
+Once you've trained your model, its contents are serialized and saved to a file. Each framework has its own format. When working with different frameworks and tools, it means you have to deploy models according to the framework's requirements. To standardize this process, you can use the Open Neural Network Exchange (ONNX) format. ONNX is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. 
+
+For more information on ONNX and how to consume ONNX models, see the following articles:
+
+- [Create and accelerate ML models with ONNX](concept-onnx.md)
+- [Use ONNX models in .NET applications](how-to-use-automl-onnx-model-dotnet.md)
+
+### Package and deploy models as containers
 
 Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-docker-image.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
-### Homomorphic encryption
+### Secure deployments with homomorphic encryption
 
-Securing deployments is an important part of the process. To [deploy encrypted inferencing services](how-to-homomorphic-encryption-seal.md), use the `encrypted-inference` open-source Python library. The `encrypted inferencing` package provides bindings based on [Microsoft SEAL](https://github.com/Microsoft/SEAL), a homomorphic encryption library.
+Securing deployments is an important part of the deployment process. To [deploy encrypted inferencing services](how-to-homomorphic-encryption-seal.md), use the `encrypted-inference` open-source Python library. The `encrypted inferencing` package provides bindings based on [Microsoft SEAL](https://github.com/Microsoft/SEAL), a homomorphic encryption library.
 
 ## Machine Learning Operations (MLOps)
 
