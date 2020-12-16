@@ -12,8 +12,8 @@ ms.reviewer: jrasnick
 
 # Discover, connect and explore data in Synapse using Azure Purview 
 
-> [!IMPORTANT] 
-> The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
+> [!IMPORTANT]
+> The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
 
 In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
 
