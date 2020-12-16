@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     ![Select Guest + host updates from left-hand pane](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Permissions needed to enable machines](../automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Update Management from an Automation account](update-mgmt-enable-automation-account.md).
+4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Permissions needed to enable machines](../automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Update Management from an Automation account](./enable-from-automation-account.md).
 
 5. On the enable Update Management page, choose the Log Analytics workspace and Automation account and click **Enable** to enable Update Management. After you've enabled Update Management, it might take about 15 minutes before you can view the update assessment from the VM.
 

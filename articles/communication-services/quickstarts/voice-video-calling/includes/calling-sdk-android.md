@@ -150,7 +150,7 @@ Mobile push notifications are the pop-up notifications you see on mobile devices
 
 ### Prerequisites
 
-A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](https://docs.microsoft.com/azure/communication-services/concepts/notifications) for more information.
+A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](../../../concepts/notifications.md) for more information.
 Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
 
 A set of permissions is required for the Android application in order to be able to receive notifications messages from Firebase Cloud Messaging. In your `AndroidManifest.xml` file, add the following set of permissions right after the *<manifest ...>* or below the *</application>* tag

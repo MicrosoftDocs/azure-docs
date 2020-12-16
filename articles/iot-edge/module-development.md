@@ -4,7 +4,7 @@ description: Develop custom modules for Azure IoT Edge that can communicate with
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/08/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

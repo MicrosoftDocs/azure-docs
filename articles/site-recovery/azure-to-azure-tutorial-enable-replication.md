@@ -51,7 +51,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 ### Verify target settings
 
-During discovery recovery, when you fail over from the source region, VMs are created in the target region. 
+During disaster recovery, when you fail over from the source region, VMs are created in the target region. 
 
 Check that your subscription has enough resources in the target region. You need to be able to create VMs with sizes that match VMs in the source region. When you set up disaster recovery, Site Recovery picks the same size (or the closest possible size) for the target VM.
 

@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ---
 
@@ -76,6 +76,8 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
+- Deploy and manage clusters in customer tenants
+-	Use Azure Monitor for containers to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -83,7 +85,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
-- View alerts for delegated subscriptions, with the ability to view alerts across all subscriptions
+- View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks

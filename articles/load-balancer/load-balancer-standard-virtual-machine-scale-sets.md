@@ -48,6 +48,6 @@ When working with virtual machine scale sets and load balancer, the following gu
 
 The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
 
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](./configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](./configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](./configure-vm-scale-set-cli.md).

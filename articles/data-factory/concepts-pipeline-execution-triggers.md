@@ -3,8 +3,8 @@ title: Pipeline execution and triggers in Azure Data Factory
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -174,7 +174,7 @@ Pipelines and triggers have a many-to-many relationship (except for the tumbling
 ## Schedule trigger
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
-For more information about schedule triggers and, for examples, see [Create a schedule trigger](how-to-create-schedule-trigger.md).
+For more information about schedule triggers and, for examples, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md).
 
 ## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition.
@@ -234,7 +234,7 @@ The following table provides a high-level overview of the major schema elements 
 | --- | --- |
 | **startTime** | A date-time value. For basic schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. |
 | **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. <!-- This property is optional. --> |
-| **timeZone** | The time zone. Currently, only the UTC time zone is supported. |
+| **timeZone** | The time zone. For a list of supported time zones, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md#time-zone-option). |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute", "hour", "day", "week", and "month". |
 | **interval** | A positive integer that denotes the interval for the **frequency** value. The **frequency** value determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week", the trigger recurs every three weeks. |

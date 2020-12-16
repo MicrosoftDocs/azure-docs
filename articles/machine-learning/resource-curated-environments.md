@@ -1,7 +1,7 @@
 ---
 title: Curated environments
 titleSuffix: Azure Machine Learning
-description: Collection of curated environments available in Azure Machine Learning
+description: Learn about Azure Machine Learning curated environments, a set of pre-configured environments that help reduce experiment and deployment preparation times.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 11/16/2020
 ---
 
 # Azure Machine Learning Curated Environments

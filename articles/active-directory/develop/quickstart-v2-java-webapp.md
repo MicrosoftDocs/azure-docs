@@ -17,9 +17,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-In this quickstart, you'll learn how to integrate a Java web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
-When you've completed this quickstart, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
+ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -43,25 +43,22 @@ To run this sample you will need:
 >
 > To register your application and manually add the app's registration information to your application, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
->
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`.
->    - Select **Register**.
-> 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
-> 1. Select the **Authentication** from the menu, and then add the following information:
->    - Add the **Web** platform configuration.  Add these `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me` as **Redirect URIs**..
->    - Select **Save**.
-> 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
->
->    - Type a key description (for instance app secret).
->    - Select a key duration **In 1 year**.
->    - The key value will display when you select **Add**.
->    - Copy the value of the key for later. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
->
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `java-webapp`. Users of your app might see this name, and you can change it later.
+> 1. Select **Register**.
+> 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID** for later use.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Web**.
+> 1. From the **Redirect URIs** section, add `https://localhost:8443/msal4jsample/secure/aad`.
+> 1. Select **Configure**.
+> 1. From the **Web** section, add `https://localhost:8443/msal4jsample/graph/me` as a second **Redirect URIs**.
+> 1. Under **Manage**, select the **Certificates & secrets**. From the **Client secrets** section, select **New client secret**.
+> 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
+> 1. Note the **Value** of the **Client Secret** for later use.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 >
@@ -95,7 +92,7 @@ To run this sample you will need:
 >   ```
 >   Put the generated keystore file in the "resources" folder.
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -146,7 +143,7 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443
+If you are running the web application from an IDE, select run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
@@ -249,7 +246,7 @@ import com.microsoft.aad.msal4j.*;
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## Next Steps
+## Next steps
 
 For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 

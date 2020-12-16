@@ -19,9 +19,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:i
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 
-This quickstart contains a code sample that demonstrates how a native iOS or macOS application can use the Microsoft identity platform to sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and get an access token to call the Microsoft Graph API.
 
-This quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps. Those steps call out that they are only for iOS.
+The quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.
 
 ## Prerequisites
 
@@ -52,16 +52,17 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app.
->      - Skip other configurations on this page.
->      - Select `Register`.
-> 1. In the **Manage** section, select `Authentication` > `Add Platform` > `iOS`.
->      - Enter the ***Bundle Identifier*** for your application. The bundle identifier is just a unique string that uniquely identifies your application, for example `com.<yourname>.identitysample.MSALMacOS`. Make a note of the value you use.
->      - Note that the iOS configuration is also applicable to macOS applications.
-> 1. Select `Configure` and save the ***MSAL Configuration*** details for later in this quickstart.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.    
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
+> 1. Select **Register**.
+> 1. Under **Manage**, select **Authentication** > **Add Platform** > **iOS**.
+> 1. Enter the **Bundle Identifier** for your application. The bundle identifier is a unique string that uniquely identifies your application, for example `com.<yourname>.identitysample.MSALMacOS`. Make a note of the value you use. Note that the iOS configuration is also applicable to macOS applications.
+> 1. Select **Configure** and save the **MSAL Configuration** details for later in this quickstart.
+> 1. Select **Done**.
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application
@@ -271,4 +272,3 @@ Move on to the step-by-step tutorial in which you build an iOS or macOS app that
 
 > [!div class="nextstepaction"]
 > [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md)
-

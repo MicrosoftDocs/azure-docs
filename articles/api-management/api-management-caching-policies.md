@@ -12,11 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
 ---
 # API Management caching policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+> [!IMPORTANT]
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
 
 ## <a name="CachingPolicies"></a> Caching policies
 

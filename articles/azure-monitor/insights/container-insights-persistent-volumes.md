@@ -25,4 +25,4 @@ Azure Monitor for containers includes pre-configured charts for this metric in a
 
 ## Next steps
 
-- Learn more about collected PV metrics [here](https://aka.ms/ci/pvconfig).
+- Learn more about collected PV metrics [here](./container-insights-agent-config.md).

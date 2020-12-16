@@ -3,7 +3,7 @@ title: Render custom data on a raster map | Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -218,4 +218,4 @@ Similarly, you can change, add, and remove other style modifiers.
 
 
 * Explore the [Azure Maps Get Map Image API](/rest/api/maps/render/getmapimage) documentation.
-* To learn more about Azure Maps Data Service, see the [service documentation](/rest/api/maps/data).
+* To learn more about Azure Maps Data service (Preview), see the [service documentation](/rest/api/maps/data).

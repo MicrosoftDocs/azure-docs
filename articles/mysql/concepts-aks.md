@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure Kubernetes Service - Azure Database for MySQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020

@@ -50,7 +50,7 @@ Azure Key Vault diagnostic logs that contain personal data can be retrieved by m
 
 - [Azure Key Vault Logging](logging.md)
 
-- [Azure Key Vault soft-delete overview](soft-delete-cli.md)
+- [Azure Key Vault soft-delete overview](./key-vault-recovery.md)
 
 - [Azure Key Vault key operations](/rest/api/keyvault/key-operations)
 

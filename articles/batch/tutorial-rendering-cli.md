@@ -1,5 +1,5 @@
 ---
-title: Render a scene in the cloud
+title: Tutorial - Render a scene in the cloud
 description: Tutorial - How to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
 ms.topic: tutorial
 ms.date: 03/05/2020
@@ -29,6 +29,8 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 - This tutorial requires version 2.0.20 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
+> [!TIP]
+> You can view [Arnold job templates](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) in the Azure Batch Extension Templates GitHub repository.
 ## Create a Batch account
 
 If you haven't already, create a resource group, a Batch account, and a linked storage account in your subscription. 
@@ -339,7 +341,7 @@ In this tutorial, you learned about how to:
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
 
-To learn more about cloud-scale rendering, see the options for the Batch Rendering service. 
+To learn more about cloud-scale rendering, see the Batch rendering documentation.
 
 > [!div class="nextstepaction"]
 > [Batch Rendering service](batch-rendering-service.md)

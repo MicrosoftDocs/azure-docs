@@ -68,6 +68,6 @@ After connecting an IoT Hub, the hub data is available in Azure Sentinel approxi
 
 In this document, you learned how to connect Defender for IoT to Azure Sentinel. To learn more about threat detection and security data access, see the following articles:
 
-- Learn how to use Azure Sentinel to [get visibility into your data, and potential threats](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
+- Learn how to use Azure Sentinel to [get visibility into your data, and potential threats](../sentinel/quickstart-get-visibility.md).
 
 - Learn how to [Access your IoT security data](how-to-security-data-access.md)

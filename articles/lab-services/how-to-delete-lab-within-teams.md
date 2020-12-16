@@ -16,7 +16,7 @@ This article shows how to delete a lab from the **Azure Lab Services** app.
 
 ## Delete labs
 
-A lab created within Teams can be deleted in the [Lab Services website](https://labs.azure.com) by deleting the lab directly, as described in [Manage classroom labs in Azure Lab Services](how-to-manage-classroom-labs.md). 
+A lab created within Teams can be deleted in the [Lab Services website](https://labs.azure.com) by deleting the lab directly, as described in [Manage labs in Azure Lab Services](how-to-manage-classroom-labs.md). 
 
 Lab deletion is also triggered when the team is deleted. If the team in which the lab is created gets deleted, lab would be automatically deleted 24 hours after the automatic user list sync is triggered. 
 

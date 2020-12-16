@@ -23,7 +23,7 @@ This article covers information about Azure Automanage for virtual machines, whi
 
 ## Overview
 
-Azure Automanage for virtual machines is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services help enhance reliability, security, and management for virtual machines and are considered to be Azure best practices services, such as [Azure Update Management](../automation/update-management/update-mgmt-overview.md) and [Azure Backup](../backup/backup-overview.md) - just to name a few.
+Azure Automanage for virtual machines is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services help enhance reliability, security, and management for virtual machines and are considered to be Azure best practices services, such as [Azure Update Management](../automation/update-management/overview.md) and [Azure Backup](../backup/backup-overview.md) - just to name a few.
 
 After onboarding your virtual machines to Azure Automanage, it automatically configures each best practice service to its recommended settings. Best practices are different for each of the services. An example might be Azure Backup, where the best practice might be to back up the virtual machine once a day and have a retention period of six months.
 
