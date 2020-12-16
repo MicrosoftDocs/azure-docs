@@ -290,7 +290,7 @@
       href: /rest/api/maps/data
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility service
+    - name: Mobility services
       href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
@@ -306,7 +306,7 @@
       href: /rest/api/maps/timezone
     - name: Traffic service
       href: /rest/api/maps/traffic
-    - name: Weather service
+    - name: Weather services
       href: /rest/api/maps/weather
     - name: Maps Creator service
       items:

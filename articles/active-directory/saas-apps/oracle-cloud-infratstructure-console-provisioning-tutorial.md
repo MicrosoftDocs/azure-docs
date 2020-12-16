@@ -32,8 +32,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* An Oracle Cloud Infrastructure Control [tenant](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
-* A user account in Oracle Cloud Infrastructure Control with Admin permissions.
+* An Oracle Cloud Infrastructure Console [tenant](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
+* A user account in Oracle Cloud Infrastructure Console with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -115,40 +115,40 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Oracle Cloud Infrastructure Console in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Oracle Cloud Infrastructure Console for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Oracle Cloud Infrastructure Console API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
-      |userName|String|
-	  |active|Boolean|
-	  |title|String|
-	  |emails[type eq "work"].value|String|
-	  |preferredLanguage|String|
-	  |name.givenName|String|
-	  |name.familyName|String|
-	  |addresses[type eq "work"].formatted|String|
-	  |addresses[type eq "work"].locality|String|
-	  |addresses[type eq "work"].region|String|
-	  |addresses[type eq "work"].postalCode|String|
-	  |addresses[type eq "work"].country|String|
-	  |addresses[type eq "work"].streetAddress|String|
-	  |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-	  |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-	  |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-	  |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
-	  |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-	  |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
-	  |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
+    |Attribute|Type|
+    |---|---|
+    |displayName|String|
+    |userName|String|
+    |active|Boolean|
+    |title|String|
+    |emails[type eq "work"].value|String|
+    |preferredLanguage|String|
+    |name.givenName|String|
+    |name.familyName|String|
+    |addresses[type eq "work"].formatted|String|
+    |addresses[type eq "work"].locality|String|
+    |addresses[type eq "work"].region|String|
+    |addresses[type eq "work"].postalCode|String|
+    |addresses[type eq "work"].country|String|
+    |addresses[type eq "work"].streetAddress|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Oracle Cloud Infrastructure Console**.
 
 11. Review the group attributes that are synchronized from Azure AD to Oracle Cloud Infrastructure Console in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Oracle Cloud Infrastructure Console for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
-      |externalId|String|
-	  |members|Reference|
+    | Attribute | Type |
+    |--|--|
+    | displayName | String |
+    | externalId | String |
+    | members | Reference |
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

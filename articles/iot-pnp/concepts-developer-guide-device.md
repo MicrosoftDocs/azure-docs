@@ -45,7 +45,7 @@ Once your device or module implementation is ready, use the [Azure IoT explorer]
 
 :::zone pivot="programming-language-ansi-c"
 
-[!INCLUDE [iot-pnp-device-devguide-csharp](../../includes/iot-pnp-device-devguide-c.md)]
+[!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
 
 :::zone-end
 

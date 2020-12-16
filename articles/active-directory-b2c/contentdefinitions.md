@@ -86,7 +86,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 
 ### Select a page layout
 
-You can enable [JavaScript client-side code](javascript-samples.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+You can enable [JavaScript client-side code](javascript-and-page-layout.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -234,4 +234,4 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 
 For an example of customizing the user interface by using content definitions, see:
 
-[Customize the user interface of your application using a custom policy](custom-policy-ui-customization.md)
+[Customize the user interface of your application using a custom policy](customize-ui-with-html.md)

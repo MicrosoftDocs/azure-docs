@@ -54,7 +54,7 @@
 - name: Concepts
   items:
   - name: Images
-    href: shared-image-galleries.md
+    href: ../shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     items:
@@ -74,7 +74,7 @@
     - name: Availability
       href: ../availability.md
     - name: Co-location
-      href: co-location.md
+      href: ../co-location.md
     - name: Network performance
       href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
@@ -419,7 +419,7 @@
     - name: Image builder (preview)
       items:
       - name: Overview
-        href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        href: ../image-builder-overview.md
       - name: Use Image Builder
         items:
         - name: CLI
