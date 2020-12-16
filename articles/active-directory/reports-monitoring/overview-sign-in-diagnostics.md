@@ -1,6 +1,6 @@
 ---
 
-title: What are sign-in diagnostics in Azure AD? | Microsoft Docs
+title: What is sign-in diagnostic in Azure AD? | Microsoft Docs
 description: Provides a general overview of the sign-in diagnostics in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.reviewer: tspring
 ms.collection: M365-identity-device-management
 ---
 
-# What are sign-in diagnostics in Azure AD?
+# What is sign-in diagnostic in Azure AD?
 
 Azure AD provides you with a flexible security model to control what users can do with the managed resources. Access to these resources is not only controlled by who you are but also by how you access them. Typically, flexibility comes along with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
 
