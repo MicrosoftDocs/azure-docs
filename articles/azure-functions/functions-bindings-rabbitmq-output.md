@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid: 
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: 
 ---
@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ output binding for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on Windows Premium plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 
@@ -268,10 +268,12 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the queue in function code. |
 |**queueName**|**QueueName**| Name of the queue to send messages to. |
 |**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
-|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|**userName**|**UserName**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue.|
+|**password**|**Password**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue.|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Usage
 
@@ -301,11 +303,11 @@ When working with C# Script functions:
 
 # [JavaScript](#tab/javascript)
 
-The RabbitMQ message is sent through a string.
+The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 
-The RabbitMQ message is sent through a string.
+Refer to the Python [#example](example).
 
 # [Java](#tab/java)
 

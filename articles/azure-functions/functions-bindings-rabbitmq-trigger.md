@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on Windows Premium plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
@@ -129,14 +129,12 @@ A RabbitMQ binding is defined in *function.json* where *type* is set to `RabbitM
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }​​
     ]
 }​​
 ```
-
-The code in *_\_init_\_.py* declares a parameter as `func.RabbitMQMessage`, which allows you to read the message in your function.
 
 ```python
 import logging
@@ -211,8 +209,8 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the queue in function code. |
 |**queueName**|**QueueName**| Name of the queue to receive messages from. |
 |**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
-|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue.|
+|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue.|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
 
@@ -225,28 +223,28 @@ The following table explains the binding configuration properties that you set i
 The following parameter types are available for the message:
 
 * [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
+  * `byte[]`- Through the 'Body' property of the RabbitMQ Event. The byte[] that comes in the Body property of the RabbitMQ Event is converted to the requested type.
 * `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
+* `POCO` - The message is formatted as a C# object.
 
 # [C# Script](#tab/csharp-script)
 
 The following parameter types are available for the message:
 
 * [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
+  * `byte[]`- Through the 'Body' property of the RabbitMQ Event. The byte[] that comes in the Body property of the RabbitMQ Event is converted to the requested type.
 * `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `POCO` - The message is formatted as a C# object.
 
 # [JavaScript](#tab/javascript)
 
-The RabbitMQ message is passed into the function as either a string or JSON object.
+The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 
-The RabbitMQ message is passed into the function as either a string or JSON object.
+Refer to the Python [#example](example).
 
 # [Java](#tab/java)
 
@@ -287,7 +285,7 @@ This section describes the global configuration settings available for this bind
 > [!NOTE]
 > The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
 
-If you are testing locally without a connection string, you should set the "hostName" setting and "username" and "password" if applicable in the "rabbitMQ" section of *host.json*:
+If you are testing locally without a connection string, you should set the "hostName" setting and "userName" and "password" if applicable in the "rabbitMQ" section of *host.json*:
 
 ```json
 {
@@ -296,8 +294,8 @@ If you are testing locally without a connection string, you should set the "host
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
