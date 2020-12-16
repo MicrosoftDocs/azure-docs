@@ -34,7 +34,7 @@ In this article, you learn how to assign a managed identity to an application ro
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
     - Run scripts locally by installing the latest version of [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-## Use Azure AD to assign a managed identity access to another application's app role
+## Assign a managed identity access to another application's app role
 
 1. Enable managed identity on an Azure resource, [such as an Azure VM](qs-configure-powershell-windows-vm.md).
 
