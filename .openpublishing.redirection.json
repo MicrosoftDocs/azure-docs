@@ -9245,6 +9245,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-password-change.md",
+      "redirect_url": "/azure/active-directory-b2c/add-password-change-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/configure-ropc.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
       "redirect_url": "/azure/active-directory-b2c/faq",
       "redirect_document_id": true
@@ -40329,6 +40339,36 @@
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-create-kws.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-basics",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-create-application-with-simple-commands.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-parameters-to-commands.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-parameter-configuration.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-interaction-rules.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-language-generation-templates.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-use-custom-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
