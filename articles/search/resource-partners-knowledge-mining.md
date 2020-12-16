@@ -12,11 +12,11 @@ ms.date: 12/18/2020
 
 # Partner solutions
 
-Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search, as well as AI enrichment, across a range of business and technical scenarios.
+Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search and AI enrichment across a range of business and technical scenarios.
 
 | Partner | Description | Website/Product link |
 |---------|-------------|----------------------|
-| ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | **OrangeNXT** offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>[**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) creates an execution pipeline that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search to help people quickly and easily extract search results from multiple structured and unstructured data sources.<br/><br/>**digitalNXT Search** includes advanced custom cognitive skills help interpret and interrelate the selected data. The result is that businesses across industries can quickly find collected data and then interpret and correlate it in insightful ways.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)<br/><br/> [Company site](https://orangenxt.com/)|
+| ![OrangeNXT](media/resource-partners/orange-nxt.png "Company logo") | [**OrangeNXT**](https://orangenxt.com/) offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.<br/><br/>[**digitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) is an OrangeNXT solution that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search pipeline to help you extract search results from multiple structured and unstructured data sources. Integral to **digitalNXT Search** is advanced custom cognitive skills for interpreting and correlating selected data.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 
 <!-- ## More stuff
 
