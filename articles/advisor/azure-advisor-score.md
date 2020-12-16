@@ -1,12 +1,12 @@
 ---
-title: Optimize Azure workloads using Advisor Score
+title: Optimize Azure workloads by using Advisor Score
 description: Use Azure Advisor Score to get the most out of Azure.
 ms.topic: article
 ms.date: 09/09/2020
 
 ---
 
-# Optimize Azure workloads using Advisor Score
+# Optimize Azure workloads by using Advisor Score
 
 ## Introduction to Advisor Score
 
