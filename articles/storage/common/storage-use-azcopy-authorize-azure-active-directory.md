@@ -178,9 +178,9 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
-## Authorize without a keyring (Linux)
+## Authorize without a secret store
 
-If your operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command won't work. Instead, You can set in-memory environment variables prior to running each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
+If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work. Instead, you can set in-memory environment variables prior to running each operation. 
 
 ### Authorize a user identity
 
