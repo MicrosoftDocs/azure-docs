@@ -36,8 +36,8 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Azure portal
 
 > [!NOTE]
-> For billing or subscription issues, you must use the [Microsoft 365 admin center](https://admin.microsoft.com).
-> 
+> * For billing or subscription issues, you must use the [Microsoft 365 admin center](https://admin.microsoft.com).  
+> * Switch from your B2C tenant to another tenant that has an Azure subscription associated with it. Typically, the latter is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)  
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
    
@@ -69,7 +69,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Microsoft 365 admin center
 
 > [!NOTE]
-> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only. 
+> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that has an Enterprise Mobility + Security (EMS) license.
 
