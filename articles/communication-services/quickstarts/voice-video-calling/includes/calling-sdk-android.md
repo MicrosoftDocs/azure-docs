@@ -176,7 +176,7 @@ acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredC
 incomingCall.accept(context, acceptCallOptions).get();
 ```
 
-The incoming call can be obtained by subscribing to the CallsUpdated event on the callAgent object and looping through the added calls to find the incoming call when there is one using the snippet below.
+The incoming call can be obtained by subscribing to the `CallsUpdated` event on the `callAgent` object and looping through the added calls:
 
 ```java
 // Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
