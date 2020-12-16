@@ -302,3 +302,13 @@ on shard 102040 (the table `users_102040` on worker 10.0.0.21). The other
 fragments are similar and are thus not shown. We can see that the worker node
 scans the shard tables and applies the aggregate. The coordinator node combines
 the aggregates for the final result.
+
+## Next steps
+
+In this tutorial we created a distributed table, and learned about its shards
+and placements. We saw a challenge of using uniqueness and foreign key
+constraints, and finally saw how distributed queries work at a high level.
+
+* Read more about Hyperscale (Citus) [table types](concepts-hyperscale-nodes.md)
+* Get more tips on [choosing a distribution column](concepts-hyperscale-choose-distribution-column.md)
+* Learn the benefits of [table colocation](concepts-hyperscale-colocation.md)
