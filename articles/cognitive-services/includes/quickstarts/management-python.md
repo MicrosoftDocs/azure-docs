@@ -12,7 +12,7 @@ ms.author: pafarley
 
 [Reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Package (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
-## Prerequisites
+## Python prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)

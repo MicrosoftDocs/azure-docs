@@ -12,7 +12,7 @@ ms.author: pafarley
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
-## Prerequisites
+## C# prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

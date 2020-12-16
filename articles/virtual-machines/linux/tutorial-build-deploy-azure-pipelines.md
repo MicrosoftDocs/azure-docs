@@ -205,7 +205,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 - Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
 
-- Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
+- Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 
 - A new run is started. Wait for the run to finish.
 

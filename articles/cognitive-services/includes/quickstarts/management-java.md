@@ -12,7 +12,7 @@ ms.author: pafarley
 
 [Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
-## Prerequisites
+## Java prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)

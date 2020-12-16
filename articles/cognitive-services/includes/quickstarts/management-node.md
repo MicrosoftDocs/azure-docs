@@ -12,7 +12,7 @@ ms.author: pafarley
 
 [Reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
-## Prerequisites
+## JavaScript prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
