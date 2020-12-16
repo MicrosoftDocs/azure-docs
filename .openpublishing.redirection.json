@@ -60813,6 +60813,11 @@
       "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
       "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
       "redirect_document_id": false
-    }       
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+      "redirect_document_id": false
+    } 
   ]
 }
