@@ -45,20 +45,16 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and monday.com](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## Step 2. Configure monday.com to support provisioning with Azure AD
-
-
-1. Sign in to the monday.com account, and follow these steps:
-      * On the left navigation pane , click on your profile picture.
-      * Select **Admin**
-      * Then select **Security** on the left side of Admin Page.
-      * Click on **Open** in the **SCIM** section under the **Login** tab
+1. Login to [monday.com](https://www.monday.com/). Click on your profile picture , on the left navigation pane.
+2. Navigate to **Admin > Security** .
+3. Click on **Open** in the **SCIM** section under the **Login** tab
 
 ![Scim Provisioning Tab](media/mondaycom-provisioning-tutorial/provisioning-tab-monday.png)
 
-2. Click on **Generate** . These are the **Tenant URL** and **Secret Token** you will need for step 5.
+4. Click on **Generate** . These are the **Tenant URL** and **Secret Token** you will need for step 5.
 
-[!NOTE]
-Do not share or save this secret token. You can always generate a new token whenever and wherever it is required.
+>[!NOTE]
+>Do not share or save this secret token. You can always generate a new token whenever and wherever it is required.
 
 ## Step 3. Add monday.com from the Azure AD application gallery
 
@@ -146,9 +142,9 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+* Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Additional resources
 
