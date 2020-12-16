@@ -1662,7 +1662,7 @@
     },
     {
       "source_path": "articles/machine-learning/how-to-schedule-pipelines.md",
-      "redirect_url": "/azure/machine-learning/how-to-trigger-pipeline",
+      "redirect_url": "/azure/machine-learning/how-to-trigger-published-pipeline",
       "redirect_document_id": false
 	},
 	{
