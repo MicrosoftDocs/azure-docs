@@ -265,11 +265,11 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "out". |
 |**name** | n/a | The name of the variable that represents the queue in function code. |
 |**queueName**|**QueueName**| Name of the queue to send messages to. |
-|**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|**userName**|**UserName**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue.|
-|**password**|**Password**|(optional if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue.|
+|**hostName**|**HostName**|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|**userName**|**UserName**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**Password**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
