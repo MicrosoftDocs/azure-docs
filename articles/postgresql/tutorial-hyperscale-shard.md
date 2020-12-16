@@ -22,11 +22,9 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 > * Create constraints on distributed tables
 > * Run queries on distributed data
 
-## Prerequisites
-
 [!INCLUDE [create server group](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-## Get started with distributed data
+## Hash-distributed data
 
 Distributing table rows across multiple PostgreSQL servers is a key technique
 for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
@@ -268,10 +266,10 @@ For instance, we can run a query to find the average age of users, treating the
 distributed `users` table like it's a normal table on the coordinator.
 
 ```sql
-select avg(current_date - bday) from users;
+select avg(current_date - bday) as avg_days_old from users;
 ```
 ```
-        avg
+    avg_days_old
 --------------------
  17926.348000000000
 ```
