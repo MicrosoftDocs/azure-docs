@@ -168,19 +168,19 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
     ![Single sign-on prop](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
     a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
-                                                             
+
     b. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
-    
+
     * **ADP Workforce Now**
-        
+
          `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
     * **ADP Workforce Now Enhanced Time**
-        
+
          `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-    
+
     * **ADP Vantage HCM**
-        
+
          `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
     * **ADP Enterprise HR**
@@ -198,7 +198,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
     a. Assign few users to the ADP service App to test federated access.
 
     b. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
- 
+
 11. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
 
 ### Create ADP test user
@@ -213,7 +213,7 @@ When you click the ADP tile in the Access Panel, you should be automatically sig
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 

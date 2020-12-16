@@ -143,7 +143,7 @@ This step is optional. If you're interested to learn how the code creates the da
             });
         },
     ```  
-    
+
 * Query to get a key-value.
 
     ```javascript
@@ -183,7 +183,7 @@ Now go back to the Azure portal to get your connection string information and co
     Line 2 should now look similar to 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copy the PASSWORD value from the portal and paste it over `<FillMEIN>` on line 3.
 
     Line 3 should now look similar to
@@ -191,7 +191,7 @@ Now go back to the Azure portal to get your connection string information and co
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Save the `config.js` file.
-    
+
 ## Use the X509 certificate
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.

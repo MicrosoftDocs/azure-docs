@@ -120,19 +120,19 @@ To configure Azure AD single sign-on with SpringCM, perform the following steps:
 1. In a different web browser window, sign on to your **SpringCM** company site as administrator.
 
 1. In the menu on the top, click **GO TO**, click **Preferences**, and then, in the **Account Preferences** section, click **SAML SSO**.
-   
+
     ![SAML SSO](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
 
 1. In the Identity Provider Configuration section, perform the following steps:
-   
+
     ![Identity Provider Configuration](./media/spring-cm-tutorial/ic797052.png "Identity Provider Configuration")
-    
+
     a. To upload your downloaded Azure Active Directory certificate, click **Select Issuer Certificate** or **Change Issuer Certificate**.
-      
+
     b. In the **Issuer** textbox, paste **Azure AD Identifier** value, which you have copied from Azure portal.
-      
+
     c. In the **Service Provider (SP) Initiated Endpoint** textbox, paste **Login URL** value, which you have copied from the Azure portal.
-            
+
     d. Select **SAML Enabled** as **Enable**.
 
     e. Click **Save**.
@@ -154,7 +154,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -199,7 +199,7 @@ To enable Azure Active Directory users to sign in to SpringCM, they must be prov
 1. Sign in to your **SpringCM** company site as administrator.
 
 1. Click **GOTO**, and then click **ADDRESS BOOK**.
-   
+
     ![Create User](./media/spring-cm-tutorial/ic797054.png "Create User")
 
 1. Click **Create User**.

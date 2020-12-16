@@ -52,17 +52,17 @@ Here are the steps you perform as part of this tutorial:
 
 1. Create an Azure **data factory**. In this step, you create a data factory named ADFTutorialDataFactoryPSH. 
 1. Create **linked services** in the data factory. In this step, you create two linked services of types: Azure Storage and Azure SQL Database. 
-    
+
     The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     AzureSqlLinkedService links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created a SQL table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 1. Create input and output **datasets** in the data factory.  
-    
+
     The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset specifies the container and the folder that contains the input data.  
 
     Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your database. And, the output SQL table dataset specifies the table in the database to which the data from the blob storage is copied.
 1. Create a **pipeline** in the data factory. In this step, you create a pipeline with a copy activity.   
-    
+
     The copy activity copies data from a blob in the Azure blob storage to a table in Azure SQL Database. You can use a copy activity in a pipeline to copy data from any supported source to any supported destination. For a list of supported data stores, see [data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
 1. Monitor the pipeline. In this step, you **monitor** the slices of input and output datasets by using PowerShell.
 
@@ -79,7 +79,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
     ```powershell
     Connect-AzAccount
     ```   
-   
+
     Run the following command to view all the subscriptions for this account:
 
     ```powershell
@@ -96,7 +96,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
     ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
-    
+
     Some of the steps in this tutorial assume that you use the resource group named **ADFTutorialResourceGroup**. If you use a different resource group, you need to use it in place of ADFTutorialResourceGroup in this tutorial.
 1. Run the **New-AzDataFactory** cmdlet to create a data factory named **ADFTutorialDataFactoryPSH**:  
 
@@ -186,7 +186,7 @@ In this step, you link Azure SQL Database to your data factory.
 
     > [!IMPORTANT]
     > Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, and &lt;password&gt; with names of your server, database, user account, and password.
-    
+
     ```json
     {
         "name": "AzureSqlLinkedService",
@@ -203,7 +203,7 @@ In this step, you link Azure SQL Database to your data factory.
     ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
-    
+
     Here is the sample output:
 
     ```
@@ -416,17 +416,17 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
     } 
     ```
     Note the following points:
-   
+
    - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
    - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
    - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
-     
+
      Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
-     
+
      Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
-     
+
      If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
-     
+
      In the preceding example, there are 24 data slices as each data slice is produced hourly.
 
      For descriptions of JSON properties in a pipeline definition, see [create pipelines](data-factory-create-pipelines.md) article. For descriptions of JSON properties in a copy activity definition, see [data movement activities](data-factory-data-movement-activities.md). For descriptions of JSON properties supported by BlobSource, see [Azure Blob connector article](data-factory-azure-blob-connector.md). For descriptions of JSON properties supported by SqlSink, see [Azure SQL Database connector article](data-factory-azure-sql-connector.md).
@@ -461,12 +461,12 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
     ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
-    
+
     Then, run print the contents of $df to see the following output: 
-    
+
     ```
     PS C:\ADFGetStartedPSH> $df
-    
+
     DataFactoryName   : ADFTutorialDataFactoryPSH0516
     DataFactoryId     : 6f194b34-03b3-49ab-8f03-9f8a7b9d3e30
     ResourceGroupName : ADFTutorialResourceGroup

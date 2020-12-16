@@ -181,7 +181,7 @@ The App Service certificate was renewed, but the app that uses the App Service c
 
 #### Cause 
 App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. Click Sync. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
- 
+
 #### Solution
 
 You can force a sync of the certificate:
@@ -197,7 +197,7 @@ The App Service certificate requires domain verification before the certificate 
 
 #### Solution
 Manually verify your domain by adding a TXT record:
- 
+
 1. Go to the Domain Name Service (DNS) provider that hosts your domain name.
 1. Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
 

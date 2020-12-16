@@ -156,7 +156,7 @@ Cloud tiering health
   - Event ID 9003 provides error distribution for a server endpoint. For example: Total Error Count and  ErrorCode. One event is logged per error code.
   - Event ID 9016 provides ghosting results for a volume. For example: Free space percent is, Number of files ghosted in session, and Number of files failed to ghost.
   - Event ID 9029 provides ghosting session information for a server endpoint. For example: Number of files attempted in the session, Number of files tiered in the session, and Number of files already tiered.
-  
+
 - To monitor recall activity on a server, use Event ID 9005, 9006, 9009, 9059 and 9071 in the Telemetry event log, which is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
 
   - Event ID 9005 provides recall reliability for a server endpoint. For example: Total unique files accessed, and Total unique files with failed access.
@@ -187,7 +187,7 @@ This section provides some example alerts for Azure File Sync.
 
   > [!Note]  
   > If you create an alert and it's too noisy, adjust the threshold value and alert logic.
-  
+
 ### How to create an alert if the server endpoint health shows an error in the portal
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 

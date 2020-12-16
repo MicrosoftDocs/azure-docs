@@ -38,7 +38,7 @@ Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New S
    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
 3. Select the Service Fabric plug-in, and then click **Next**.
 4. Complete the installation steps, and then accept the Microsoft Software License Terms.
-  
+
 If you already have the Service Fabric plug-in installed, install the latest version. 
 1. To check for available updates, go to **Help** > **About Eclipse** > **Installation Details**. 
 2. In the list of installed plug-ins, select Service Fabric, and then click **Update**. Available updates will be installed.
@@ -87,7 +87,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
     -   To build the application without cleaning, click **Build Application**.
     -   To do a clean build of the application, click **Rebuild Application**.
     -   To clean the application of built artifacts, click **Clean Application**.
-     
+
 ## Deploy a Service Fabric application to the local cluster with Eclipse
 
 After you have built your Service Fabric application, follow these steps to deploy it to the local cluster.
