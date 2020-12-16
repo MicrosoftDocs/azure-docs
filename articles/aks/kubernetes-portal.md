@@ -23,8 +23,8 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 - **Namespaces** displays the namespaces of your cluster. The filter at the top of the namespace list provides a quick way to filter and display your namespace resources.
 - **Workloads** shows information about deployments, pods, replica sets, and daemon sets deployed to your cluster. The screenshot below shows the default system pods in an example AKS cluster.
 - **Services and ingresses** shows all of your cluster's service and ingress resources.
-- **Storage** shows your Azure storage classes and peristent volume information.
-- **Configuration** shows your config maps and secrets.
+- **Storage** shows your Azure storage classes and persistent volume information.
+- **Configuration** shows your cluster's config maps and secrets.
 
 :::image type="content" source="media/kubernetes-portal/workloads.png" alt-text="Kubernetes pod information displayed in the Azure portal." lightbox="media/kubernetes-portal/workloads.png":::
 
