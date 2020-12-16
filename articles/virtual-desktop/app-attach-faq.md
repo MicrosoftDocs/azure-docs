@@ -23,7 +23,7 @@ MSIX is a packaging format for apps, while MSIX app attach is the feature that d
 
 MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
 
-## Can I use MSIX app attach outside of Windows Virtual Desktop?
+## Can I use the MSIX app attach outside of Windows Virtual Desktop?
 
 The APIs that power MSIX app attach are available for Windows 10 Enterprise. These APIs can be used outside of Windows Virtual Desktop. However, there's no management plane for MSIX app attach outside of Windows Virtual Desktop.
 
