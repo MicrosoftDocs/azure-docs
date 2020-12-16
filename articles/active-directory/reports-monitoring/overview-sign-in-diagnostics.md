@@ -35,13 +35,18 @@ This article gives you an overview of what the solution does and how you can use
 ## Requirements
 
 The sign-in diagnostic is available in all editions of Azure AD.<br> 
-You must be a global administrator member in Azure AD to use it.
+You must be a global administrator in Azure AD to use it.
 
 ## How it works
 
-In Azure AD, the response to a sign-in attempt is not just tied to who you are but also how you access your tenant. For example, as an administrator, you might be able to configure all aspects of your tenant while you are signed-in from your corporate network. However, you might be even blocked when you sign in using the same account from an untrusted network. 
-Due to the greater flexibility the system has to response to a sign-in attempt, you might end-up in scenarios where you need troubleshoot sign-in attempts. The sign-in diagnostics is a feature that analyzes data from the sign-in and presents specific messages about what happened, and recommendations on what to do to resolve problems. 
-The sign-in diagnostics for Azure AD is designed to enable self-diagnosis of sign-in errors. The diagnostics process consists of four main building blocks:
+In Azure AD, the response to a sign-in attempt is not just tied to who you are but also how you access your tenant. For example, as an administrator, you can typically configure all aspects of your tenant when you sign in from your corporate network. However, you might be even blocked when you sign in using the same account from an untrusted network. 
+Due to the greater flexibility the system has to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that:
+
+- Analyzes data from sign-ins. 
+
+- Displays details on what happened, and recommendations on what to do to resolve problems. 
+
+The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign-in errors. The diagnostic process consists of four main building blocks:
 
 ![Sign-in diagnostics process](./media/overview-sign-in-diagnostics/process.png)
  
@@ -49,7 +54,7 @@ The sign-in diagnostics for Azure AD is designed to enable self-diagnosis of sig
 
 2. **Select** the event you want to review
 
-3. **Review** diagnosis
+3. **Review** diagnostic
 
 4. **Take** actions
 
