@@ -48,6 +48,14 @@ You can use troubleshooting tools to see symptomatic behavior:
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
 
+### PowerShell Versions
+This product was written and tested using PowerShell v5.1.
+This module is not compatible with PowerShell versions 6 or 7.
+However, it is supported to run PowerShell v5.1 alongside newer versions. 
+See [here](https://docs.microsoft.com/en-us/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51) for more details.
+
+
+
 ### Conflict with IIS shared configuration
 
 If you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
