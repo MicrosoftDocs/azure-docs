@@ -36,8 +36,6 @@
     items:
     - name: Fix unsure predictions
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: Batch test datasets
-      href: luis-tutorial-batch-testing.md
     - name: Add patterns to improve predictions
       href: luis-tutorial-pattern.md
   - name: Use with bot
@@ -93,8 +91,6 @@
     items:
     - name: Interactive testing
       href: luis-concept-test.md
-    - name: Batch testing
-      href: luis-concept-batch-test.md
   - name: Data management
     items:
     - name: Altering data
