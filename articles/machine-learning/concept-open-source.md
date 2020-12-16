@@ -1,5 +1,5 @@
 ---
-title: Open source machine learning libraries
+title: Open-source machine learning integration
 titleSuffix: Azure Machine Learning
 description: Learn how to use open-source Python machine learning frameworks to train, deploy and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
@@ -11,7 +11,7 @@ ms.author: luquinta
 ms.date: 12/16/2020
 ---
 
-# Open Source
+# Open-source intergration with Azure Machine Learning projects
 
 Many open-source Python machine learning libraries and platforms work with Azure Machine Learning in various stages of the project lifecycle. With development tools like Jupyter notebooks and Visual Studio Code, you can leverage existing models and scripts in Azure Machine Learning to train, deploy, and manage the end-to-end machine learning solution.
 
