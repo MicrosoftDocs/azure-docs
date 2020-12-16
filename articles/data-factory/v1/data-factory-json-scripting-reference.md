@@ -5313,7 +5313,7 @@ You can specify the following properties in a Spark Activity JSON definition. Th
                 "typeProperties": {
                     "rootPath": "adfspark\\pyFiles",
                     "entryFilePath": "test.py",
-                	"getDebugInfo": "Always"
+                    "getDebugInfo": "Always"
                 },
                 "outputs": [
                     {

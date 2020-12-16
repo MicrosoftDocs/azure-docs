@@ -177,6 +177,8 @@ The following example `host.json` file adds the log filter.
 }
 ```
 
+For more information about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
+
 ## Function app provided services
 
 The function host registers many services. The following services are safe to take as a dependency in your application:
