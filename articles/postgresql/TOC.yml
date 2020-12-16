@@ -539,6 +539,8 @@
         displayName: portal, create hyperscale
   - name: Tutorials
     items:
+      - name: Create a server group
+        href: tutorial-hyperscale-server-group.md
       - name: Model and load data
         items:
         - name: Shard data on worker nodes

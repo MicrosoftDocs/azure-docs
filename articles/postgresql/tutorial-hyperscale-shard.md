@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 12/16/2020
 ---
 
 # Tutorial: Shard data on worker nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -22,7 +22,12 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 > * Create constraints on distributed tables
 > * Run queries on distributed data
 
-[!INCLUDE [create server group](../../includes/azure-postgresql-hyperscale-create-db.md)]
+## Prerequisites
+
+This tutorial requires a running Hyperscale (Citus) server group with two
+worker nodes. If you don't have a running server group, follow the [create
+server group](tutorial-hyperscale-server-group.md) tutorial and then come back
+to this one.
 
 ## Hash-distributed data
 
