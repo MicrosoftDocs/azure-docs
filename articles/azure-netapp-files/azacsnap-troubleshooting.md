@@ -23,6 +23,34 @@ This article provides troubleshooting content for using the Azure Application Co
 
 The following are common issues that you may encounter while running the commands. Follow the resolution instructions mentioned to fix the issue. If you still encounter an issue, open a Service Request from Azure portal and assign the request into the SAP HANA Large Instance queue for Microsoft Support to respond.
 
+## Log files
+
+One of the best sources of information for debugging any errors with AzAcSnap are the log files.  
+
+### Log file location
+
+The log files are stored in the directory configured per the `logPath` parameter in the AzAcSnap configuration file.  The default configuration filename is `azacsnap.json` and the default value for `logPath` is `"./logs"` which means the log files are written into the `./logs` directory relative to where the `azacsnap` command is run.  Making the `logPath` an absolute location (e.g. `/home/azacsnap/logs`) will ensure `azacsnap` outputs the logs into `/home/azacsnap/logs` irrespective of where the `azacsnap` command was run.
+
+### Log file naming
+
+The log filename is based on the application name (e.g. `azacsnap`), the  command option (`-c`) used (e.g. `backup`, `test`, `details`, etc.) and the configuration filename (e.g. default = `azacsnap.json`).  So if using the `-c backup` command, the log  filename by default would be `azacsnap-backup-azacsnap.log` and is written into the  directory configured by `logPath`.  
+
+This naming convention was established to allow for multiple configuration files, one per database, and ensure ease of locating the associated logfiles.  Therefore, if the configuration filename is `SID.json`, then the result filename when using the `azacsnap -c backup --configfile SID.json` options will be `azacsnap-backup-SID.log`.
+
+### Result file and syslog
+
+For the `-c backup` command option AzAcSnap writes out to a `*.result` file and the system log (`/var/log/messages`) using the `logger` command.  The `*.result` filename has the same base name as the [log file](#log-file-naming) and goes into the same [location as the log file](#log-file-location).  It is a simple one line output file per the following examples.
+
+Example output from `*.result` file.
+<pre>
+Database # 1 (PR1) : completed ok
+</pre>
+
+Example output from `/var/log/messages` file.
+<pre>
+Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
+</pre>
+
 ## Failed communication with SAP HANA
 
 When validating communication with SAP HANA by running a test with `azacsnap -c test --test hana` and it provides the following error:
