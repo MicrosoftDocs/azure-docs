@@ -42,8 +42,6 @@ To determine whether your role assignment was successfully set up after running 
 
 When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method.
 
-This is not the latest version of the library. The latest version is **1.2.2**.
-
 The affected method is used in the following articles: 
 * [*Tutorial: Code a client app*](tutorial-code.md)
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
@@ -53,7 +51,7 @@ The issue includes an error response of "Azure.Identity.AuthenticationFailedExce
 
 | Cause | Resolution |
 | --- | --- |
-| This is related to an open issue with the latest version of the `Azure.Identity` library (version **1.2.0**): [*Fail to authenticate when using InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).<br><br>You will see this issue if you use version **1.2.0** in your Azure Digital Twins application, or if you add the library to your project without specifying a version (as that also defaults to this latest version). | To resolve, update your applications to use `Azure.Identity` version **1.2.2**. With this version of the library, the browser should load and authenticate as expected. |
+| This is related to an open issue with version **1.2.0** of the `Azure.Identity` library: [*Fail to authenticate when using InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).<br><br>You will see this issue if you use version **1.2.0** in your Azure Digital Twins application, or if you add the library to your project without specifying a version (as that also defaults to this latest version). | To resolve, update your applications to use the [latest version](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
 
 ## Next steps
 
