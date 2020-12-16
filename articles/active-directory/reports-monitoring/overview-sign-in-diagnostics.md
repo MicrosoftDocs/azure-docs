@@ -59,19 +59,19 @@ The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign
 4. **Take** actions
 
  
-### Define sign-ins
+### Define scope
 
-The goal of this step is to define the scope for sign-in events you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. Additionally, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
+The goal of this step is to define the scope for sign-ins you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. Additionally, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
 
-### Select sign-in event 
+### Select sign-in  
 
-Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view. 
+Based on your search criteria, Azure AD retrieves all matching sign-ins and presents them in an authentication summary list view. 
 
 ![Authentication summary](./media/overview-sign-in-diagnostics/authentication-summary.png)
  
 You can customize the columns displayed in this view.
 
-### Review diagnosis
+### Review diagnostic results
 
 For the selected sign-in event, Azure AD provides you with a diagnostics result. 
 
@@ -88,7 +88,7 @@ At this point, you should have the information you need to fix your issue.
 
 ## Scenarios
 
-This section provides you with an overview of the covered diagnostics scenarios. The following scenarios are implemented: 
+This section provides you with an overview of the covered diagnostic scenarios. The following scenarios are implemented: 
  
 - Blocked by conditional access
 
@@ -107,11 +107,11 @@ This section provides you with an overview of the covered diagnostics scenarios.
 
 ###	Blocked by conditional access
 
-This scenario is caused by a sign-in that was blocked by a conditional access policy.
+This scenario is based on a sign-in that was blocked by a conditional access policy.
 
 ![Block access](./media/overview-sign-in-diagnostics/block-access.png)
 
-The diagnostic section shows details about the user sign-in and the applied policies.
+The diagnostic section for this scenario shows details about the user sign-in and the applied policies.
 
 
 ### Failed conditional access
@@ -127,7 +127,7 @@ This scenario is typically a result of a sign-in that failed because the require
 - Require app protection policy   
 
 
-The diagnostic presents details about the user sign-in and the policy or policies that were applied.
+The diagnostic section for this scenario shows details about the user sign-in and the policy or policies that were applied.
 
 
 ### MFA from conditional access
