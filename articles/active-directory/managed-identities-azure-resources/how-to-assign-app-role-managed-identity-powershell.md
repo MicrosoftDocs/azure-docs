@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a managed identity access to an application role using PowerShell
 
-Managed identities for Azure resources provide Azure services with a identity in Azure Active Directory. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Azure AD authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
+Managed identities for Azure resources provide Azure services with an identity in Azure Active Directory. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Azure AD authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
 
 In this article, you learn how to assign a managed identity to an application role exposed by another application using Azure AD PowerShell.
 
@@ -31,7 +31,7 @@ In this article, you learn how to assign a managed identity to an application ro
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
     - Run scripts locally by installing the latest version of [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
 ## Assign a managed identity access to another application's app role
