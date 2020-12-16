@@ -3,5 +3,5 @@
   topicHref: /azure/index
   items:
   - name: Industrial IoT
-    tocHref: /azure/iot-edge/
+    tocHref: /azure/sql-database/
     topicHref: /azure/industrial-iot/index
