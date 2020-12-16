@@ -320,8 +320,8 @@ Additionally, granular authentication session management policy can also be used
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Windows Virtual Desktop does not directly allow customers to deploy or run {code, configurations or persisted data} potentially with identities/secretes. 
-Customers can include parameters for each app. They can inadvertently include plain text passwords in the parameters, and should be reviewed before publishing the apps. 
+**Guidance**: Windows Virtual Desktop does not directly allow customers to deploy or run {code, configurations or persisted data} potentially with identities/secrets. 
+Customers can include parameters while adding apps to an appgroup. They can inadvertently include plain text passwords in the parameters, and should be reviewed before publishing the apps. 
 
 It is generally recommended to never include passwords in the custom command line parameters for applications (while adding them to an application group) when they are published to users.
 
@@ -370,13 +370,13 @@ It is generally recommended to never include passwords in the custom command lin
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151 
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-Management Group Access ../../governance/management-groups/overview.md#management-group-access 
+- [Management Group Access](../../governance/management-groups/overview.md#management-group-access) 
 
-Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Minimum admin permissions needed to manage Windows Virtual Desktop ](../../virtual-desktop/faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Minimum admin permissions needed to manage Windows Virtual Desktop](../../virtual-desktop/faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -394,6 +394,8 @@ Use Azure AD access reviews to review group memberships, access to enterprise ap
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
 Note that some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
+
+- [Built-in roles for Windows Virtual Desktop](../../virtual-desktop/rbac.md)
 
 - [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
@@ -466,6 +468,8 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+
+- [Built-in roles for Windows Virtual Desktop](../../virtual-desktop/rbac.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -627,7 +631,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 - [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
 
@@ -1065,7 +1069,7 @@ As require, export scan results at consistent intervals and compare the results 
 
 Follow recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines (and SQL servers). Azure Security Center has a built-in vulnerability scanner for virtual machine, container images, and SQL database.
 
-As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you can pivot into the selected solution's portal to view historical scan data.
+As required, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you can pivot into the selected solution's portal to view historical scan data.
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
 
@@ -1228,7 +1232,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40831).
 
-**Guidance**: Periodically perform data restoration of your backup.
+**Guidance**: It is recommended to validate data integrity on backup media on a regular basis by performing a data restoration process to ensure that the backup is properly working.
 
 - [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
 
