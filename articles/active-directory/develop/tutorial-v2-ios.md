@@ -67,16 +67,17 @@ If you'd like to download a completed version of the app you build in this tutor
 
 ## Register your application
 
-1. Go to the [Azure portal](https://aka.ms/MobileAppReg)
-2. Open the App registrations blade and select **+New registration**.
-3. Enter a **Name** for your app and then, without setting a Redirect URI.
-4. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**
-5. Select **Register**
-6. In the **Manage** section of the pane that appears, select **Authentication**.
-
-7. Select **Try out the new experience** near the top of the screen to open the new app registration experience, and then select **+New registration** > **+ Add a platform** > **iOS/macOS**.
-    - Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
-8. Select `Configure` and save the **MSAL Configuration** that appears in the **MSAL configuration** page so you can enter it when you configure your app later. Select **Done**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
+1. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**.
+1. Select **Register**.
+1. Under **Manage**, select **Authentication** > **Add a platform** > **iOS/macOS**.
+1. Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+1. Select **Configure** and save the **MSAL Configuration** that appears in the **MSAL configuration** page so you can enter it when you configure your app later. 
+1. Select **Done**.
 
 ## Add MSAL
 

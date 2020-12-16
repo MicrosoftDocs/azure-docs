@@ -112,7 +112,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Query string parameter `login_hint` |  |  | X | Available as claim, can be passed to IDP. |
 | Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
 | Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
-| [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
+| [Pass identity provider token to the application](idp-pass-through-user-flow.md) |  | X |  | For example, from Facebook to app. |
 
 
 ### Session Management
@@ -123,7 +123,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Single sign-out](session-overview.md#sign-out)  |  | X |  |  |
+| [Single sign-out](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### Security
 

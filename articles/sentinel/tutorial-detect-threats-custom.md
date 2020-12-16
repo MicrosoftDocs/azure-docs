@@ -141,7 +141,13 @@ You can create custom analytics rules to help you search for the types of threat
 
 ## Troubleshooting
 
-### A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
+### Issue: No events appear in query results
+
+If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed. 
+
+To see the events, manually remove the line with the hash from the rule's query, and run the query.
+
+### Issue: A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
 
 It's a rare occurrence that a scheduled query rule fails to run, but it can happen. Azure Sentinel classifies failures up front as either transient or permanent, based on the specific type of the failure and the circumstances that led to it.
 

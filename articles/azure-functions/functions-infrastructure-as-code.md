@@ -131,7 +131,7 @@ The function app resource is defined by using a resource of type **Microsoft.Web
 > [!IMPORTANT]
 > If you are explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
-A function app must include these application settings：
+A function app must include these application settings:
 
 | Setting name                 | Description                                                                               | Example values                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
@@ -295,8 +295,6 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## Deploy on Premium plan
@@ -376,7 +374,6 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 

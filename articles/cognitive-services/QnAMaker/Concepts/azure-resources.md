@@ -99,11 +99,11 @@ The following table gives you some high-level guidelines.
 
 |Target QPS | App Service | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 Instance   | S1, 1 Instance    |
-| 50         | S3, 10 Instances       | S1, 12 Instances         |
-| 80         | S3, 10 Instances      |  S3, 12 Instances  |
-| 100         | P3V2, 10 Instances  | S3, 12 Instances, 3 Partitions   |
-| 200 to 250         | P3V2, 20 Instances | S3, 12 Instances, 3 Partitions    |
+| 3             | S1, 1 Replica   | S1, 1 Replica    |
+| 50         | S3, 10 Replicas       | S1, 12 Replicas         |
+| 80         | S3, 10 Replicas      |  S3, 12 Replicas  |
+| 100         | P3V2, 10 Replicas  | S3, 12 Replicas, 3 Partitions   |
+| 200 to 250         | P3V2, 20 Replicas | S3, 12 Replicas, 3 Partitions    |
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
