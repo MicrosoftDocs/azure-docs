@@ -104,6 +104,7 @@ $tenantID = '<tenant-id>'
 
 # The name of your web app, which has a managed identity that should be assigned to the server app's app role.
 $webAppName = '<web-app-name>'
+$resourceGroupName = '<resource-group-name-containing-web-app>'
 
 # The name of the server app that exposes the app role.
 $serverApplicationName = '<server-application-name>' # For example, MyApi
@@ -112,13 +113,13 @@ $serverApplicationName = '<server-application-name>' # For example, MyApi
 $appRoleName = '<app-role-name>' # For example, MyApi.Read.All
 
 # Look up the web app's managed identity's object ID.
-$managedIdentityObjectId = (Get-AzWebApp -ResourceGroupName $resourceGroup -Name $webAppName).identity.principalid
+$managedIdentityObjectId = (Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $webAppName).identity.principalid
 
 Connect-AzureAD -TenantId $tenantID
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipalObjectId.ObjectId
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.
