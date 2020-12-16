@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box security overview | Microsoft Docs in data 
-description: Describes Azure Data Box security features in the device, service, and data that resides on Data Box
+description: Describes Azure Data Box security features in the device, service, and data that resides on Data Box.
 services: databox
 author: alkohli
 
@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Azure Data Box security and data protection
 
-Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them. 
+Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -21,9 +21,9 @@ Data Box provides a secure solution for data protection by ensuring that only au
 The Microsoft Azure Data Box solution consists of four main components that interact with each other:
 
 - **Azure Data Box service hosted in Azure** – The management service that you use to create the device order, configure the device, and then track the order to completion.
-- **Data Box device** – The transfer device that is shipped to you to import your on-premises data into Azure. 
+- **Data Box device** – The transfer device that is shipped to you to import your on-premises data into Azure.
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box device and contain data that needs to be protected.
-- **Cloud storage** – The location in the Azure cloud where data is stored. This is typically the storage account linked to the Azure Data Box resource that you created.
+- **Cloud storage** – The location in the Azure cloud where data is stored. That location is typically the storage account linked to the Azure Data Box resource that you created.
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
@@ -50,7 +50,7 @@ The Data Box device is protected by the following features:
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
-- Controls device access via device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+- Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 - Access credentials to copy data in and out of the device. Each access to the **Device credentials** page in the Azure portal is logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
 - You can use your own passwords for device and share access. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
@@ -60,7 +60,7 @@ The data that flows in and out of Data Box is protected by the following feature
 
 - AES 256-bit encryption for Data-at-rest. In a high-security environment, you can use software-based double encryption. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 - Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
-- Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
+- Secure erasure of data from the device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
 ### Data Box service protection
 
@@ -78,7 +78,7 @@ Azure Data Box collects and displays personal information in the following key i
 
 - **Notification settings** - When you create an order, you configure the email address of users under notification settings. This information can be viewed by the administrator. This information is deleted by the service when the job reaches the terminal state or when you delete the order.
 
-- **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
+- **Order details** – Once the order is created, the shipping address, email, and contact information of users is stored in the Azure portal. The information saved includes:
 
   - Contact name
   - Phone number
@@ -100,7 +100,7 @@ For more information, review the Microsoft Privacy policy at [Trust Center](http
 
 ## Security guidelines reference
 
-The following security guidelines are implemented in Data Box: 
+The following security guidelines are implemented in Data Box:
 
 |Guideline   |Description   |
 |---------|---------|
