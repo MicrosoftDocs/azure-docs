@@ -32,7 +32,7 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 ## Understand the full billing model for Cognitive Services
 
-Cognitive Services runs on Azure infrastructure that accrues costs along with [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
+Cognitive Services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 ### Costs that typically accrue with Cognitive Services
 
