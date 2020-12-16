@@ -17,7 +17,9 @@ ms.custom: how-to
 
 Learn how to monitor Azure Machine Learning runs and view their logs. 
 
-Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model accuracy. To learn how to add more metrics you wish to track, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+When you run an experiment, logs and metrics are streamed for you.  In addition, you can add your own.  To learn how, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+
+The logs can help you diagnose errors and warnings for your run. Performance metrics like parameters and model accuracy help you track and monitor your runs.
 
 In this article, you learn how to view logs using the following methods:
 
