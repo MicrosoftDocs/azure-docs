@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 # QuickStart: Connect an Azure Purview Account to a Synapse workspace 
 
 > [!IMPORTANT]
-> The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
+> The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative.
 
 In this quickstart, you will register an Azure Purview Account to a Synapse workspace. That connection allows you to discover Azure Purview assets and interact with them through Synapse capabilities. 
 
@@ -29,7 +29,7 @@ You can perform the following tasks in Synapse:
 
 ## Sign in to a Synapse workspace 
 
-Go to `https://web.azuresynapse.net` and sign in to your workspace. 
+Go to https://web.azuresynapse.net and sign in to your workspace. 
 
 ## Permissions for connecting an Azure Purview Account 
 
