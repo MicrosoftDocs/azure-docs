@@ -252,9 +252,9 @@
             - name: Migrate from azure-eventhubs to azure-messaging-eventhubs
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
             - name: azure-messaging-eventhubs (latest)
-              href: /java/api/overview/azure/eventhub?view=azure-java-stable
+              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
             - name: azure-eventhubs (legacy)
-              href: /java/api/overview/azure/eventhubs?view=azure-java-legacy
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python
