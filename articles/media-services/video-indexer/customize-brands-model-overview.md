@@ -25,7 +25,7 @@ In the "Microsoft Build 2017 Day 2" presentation, the brand "Microsoft Windows" 
 
 ![Brands overview](./media/content-model-customization/brands-overview.png)
 
-Talking about windows in the context of construction will not detect the word "Windows" as a brand, and same for Box, Apple, Fox, etc., based on advanced Machine Learning algorithms that know how to disambiguate from context. Brand Detection works for all our supported languages. 
+Talking about windows in the context of construction will not detect the word "Windows" as a brand, and same for Box, Apple, Fox, etc., based on advanced Machine Learning algorithms that know how to disambiguate from context. Brand Detection works for all our supported languages.  
 
 ## Next steps
 
