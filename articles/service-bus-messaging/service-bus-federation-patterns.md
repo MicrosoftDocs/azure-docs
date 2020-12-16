@@ -255,7 +255,7 @@ payload and then pick one of the available destinations to send to.
 
 - [message replicator applications in Azure Functions][1]
 - [Replicating messages between Service Bus][2]
-- [Replicating messages to Azure Service Bus][3]
+- [Replicating messages to Azure Event Hubs][3]
 
 [1]: service-bus-federation-replicator-functions.md
 [2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy
