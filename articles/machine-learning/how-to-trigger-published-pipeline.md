@@ -135,7 +135,7 @@ stop_by_schedule_id(ws, schedule_id)
 
 If you then run `Schedule.list(ws)` again, you should get an empty list.
 
-## Use Azure Logic Apps for more complex triggering needs 
+## Use Azure Logic Apps for complex triggers 
 
 More complex trigger rules or behavior can be created using an [Azure Logic App](../logic-apps/logic-apps-overview.md).
 
