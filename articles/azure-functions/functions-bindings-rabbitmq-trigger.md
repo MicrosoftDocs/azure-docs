@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on Windows Premium plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
@@ -220,23 +220,21 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-The following parameter types are available for the message:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the 'Body' property of the RabbitMQ Event can be read as the types listed below:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event. The byte[] that comes in the Body property of the RabbitMQ Event is converted to the requested type.
-* `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `POCO` - The message is formatted as a C# object.
+* `string`
+* `byte[]`
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# [#example](example).
 
 # [C# Script](#tab/csharp-script)
 
-The following parameter types are available for the message:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the 'Body' property of the RabbitMQ Event can be read as the types listed below:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through the 'Body' property of the RabbitMQ Event. The byte[] that comes in the Body property of the RabbitMQ Event is converted to the requested type.
-* `string` - The message is text.
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `POCO` - The message is formatted as a C# object.
+* `string`
+* `byte[]`
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# [#example](example).
 
 # [JavaScript](#tab/javascript)
 
