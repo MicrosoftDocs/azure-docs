@@ -1,6 +1,6 @@
 ---
-title: Obtain details using Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Obtain details using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the details command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Obtain details using Azure Application Consistent Snapshot Tool (preview)
+# Obtain details using Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for running the details command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -53,7 +53,7 @@ brevity.  Also be aware some of the lines may have been wrapped to fit the outpu
 azacsnap -c details --details snapshots
 ```
 
-<pre>
+```output
 List snapshot details called with snapshotFilter ''
 #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
 #1, hana_data_h31_azsollabbl20a31_mnt00001_t210_vol, hana_hourly.2020-06-17T113043.1586971Z, "Wed Jun 17 11:31:14 2020", "HANA Backup ID: 1592393444174, 702.6MB
@@ -87,7 +87,7 @@ List snapshot details called with snapshotFilter ''
 #1, hana_log_backups_h31_azsollabbl20a31_t210_vol, azacsnap_vesangam_other_test.2020-06-17T113215.4462696Z, "Wed Jun 17 11:32:43 2020", "HANA Log-Backups, 156KB
 #2, hana_log_backups_h31_azsollabbl20a31_t210_vol, azacsnap_vesangam_other_test2.2020-06-17T114205.1041364Z, "Wed Jun 17 11:42:35 2020", "HANA Log-Backups, 1.34MB
 , hana_log_backups_h31_azsollabbl20a31_t210_vol, , , Size used by Snapshots, 1.49MB
-</pre>
+```
 
 > [!NOTE]
 > This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
@@ -145,3 +145,8 @@ hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="green">Active</font>, 
 hana_log_backups_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.21215d07-2653-11e8-8e4c-00a098af659c_2157387278.2019-04-09_055700, 75.57MB, 00h 02m 45s
 hana_shared_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036524.2020-04-02_020000, 2.94MB, 00h 04m 55s
 </pre>
+
+## Next steps
+
+- [Take a backup](azacsnap-cmd-ref-backup.md)
+- [Delete snapshots](azacsnap-cmd-ref-delete.md)

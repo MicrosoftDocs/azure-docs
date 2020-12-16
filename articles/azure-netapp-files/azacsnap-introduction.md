@@ -1,6 +1,6 @@
 ---
-title: What is Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides an introduction for the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: What is Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides an introduction for the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# What is Azure Application Consistent Snapshot Tool (preview)
+# What is Azure Application Consistent Snapshot tool (preview)
 
-Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
+Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
 
 ## Benefits of using AzAcSnap
 
@@ -81,4 +81,4 @@ The command options are as follows with the commands as the main bullets and the
 
 ## Next steps
 
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
+- [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)

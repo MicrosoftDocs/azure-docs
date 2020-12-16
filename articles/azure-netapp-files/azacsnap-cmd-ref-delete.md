@@ -1,6 +1,6 @@
 ---
-title: Delete using Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Delete using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the delete command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,17 +17,16 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Delete using Azure Application Consistent Snapshot Tool (preview)
+# Delete using Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for running the delete command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
 It is possible to delete volume snapshots and database catalog entries with the `azacsnap -c delete` command.
 
 > [!IMPORTANT]
-Snapshots created less than 10 minutes before running this command should not be deleted due to the
-potential for interference with snapshot replication.
+> Snapshots created less than 10 minutes before running this command should not be deleted due to the potential for interference with snapshot replication.
 
 ## Command options
 
@@ -91,11 +90,11 @@ The user is asked to confirm the deletion.
 azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T221702.2535255Z
 ```
 
-<pre>
+```output
 Processing delete request for snapshot 'azacsnap-hsr-ha.2020-07-02T221702.2535255Z'.
 Are you sure you want to permanently delete the snapshot 'azacsnap-hsr-ha.2020-07-02T221702.2535255Z' from all storage volumes.? (y/n) [n]: y
 Snapshot deletion completed
-</pre>
+```
 
 It is possible to avoid user confirmation, by using the optional `--force` parameter as follows:
 
@@ -103,7 +102,12 @@ It is possible to avoid user confirmation, by using the optional `--force` param
 azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T222201.4988618Z --force
 ```
 
-<pre>
+```output
 Processing delete request for snapshot 'azacsnap-hsr-ha.2020-07-02T222201.4988618Z'.
 Snapshot deletion completed
-</pre>
+```
+
+## Next steps
+
+- [Get snapshot details](azacsnap-cmd-ref-details.md)
+- [Take a backup](azacsnap-cmd-ref-backup.md)

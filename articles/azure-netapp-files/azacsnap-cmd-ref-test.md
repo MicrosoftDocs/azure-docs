@@ -1,6 +1,6 @@
 ---
-title: Test Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Explains how to run the test command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Test Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Test Azure Application Consistent Snapshot Tool (preview)
+# Test Azure Application Consistent Snapshot tool (preview)
 
-This article explains how to run the test command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -55,12 +55,12 @@ For SSL, this command can take the following optional argument:
 azacsnap -c test --test hana
 ```
 
-<pre>
+```output
 BEGIN : Test process started for 'hana'
 BEGIN : SAP HANA tests
 PASSED: Successful connectivity to HANA version 2.00.032.00.1533114046
 END   : Test process complete for 'hana'
-</pre>
+```
 
 ## Check connectivity with storage `azacsnap -c test --test storage`
 
@@ -74,7 +74,7 @@ for each data volume to verify snapshot access for each file system.
 azacsnap -c test --test storage
 ```
 
-<pre>
+```output
 BEGIN : Test process started for 'storage'
 BEGIN : Storage test snapshots on 'data' volumes
 BEGIN : 2 task(s) to Test Snapshots for Storage Volume Type 'data'
@@ -82,20 +82,20 @@ PASSED: Task#2/2 Storage test successful for Volume
 PASSED: Task#1/2 Storage test successful for Volume
 END   : Storage tests complete
 END   : Test process complete for 'storage'
-</pre>
+```
 
 > [!NOTE]
 > For Azure Large Instance, `azacsnap -c test --test storage` command extrapolates the storage
 generation and HLI SKU.  Based on this information it then provides guidance on configuring 'boot'
 snapshots (see the line starting with `Action:` output).
 
-<pre>
+```output
 SID1   : Generation 4
 Storage: ams07-a700s-saphan-1-01v250-client25-nprod
 HLI SKU: S96
 Action : Configure the 'boot' snapshots on ALL the servers.
-</pre>
+```
 
 ## Next steps
 
-- [Snapshot backup with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)
+- [Snapshot backup with Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-backup.md)

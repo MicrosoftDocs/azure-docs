@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Configure Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the configure command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Configure Azure Application Consistent Snapshot Tool (preview)
+# Configure Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for running the configure command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -44,7 +44,7 @@ The following example is for Azure Large Instance configuration:
 azacsnap -c configure --configuration new
 ```
 
-<pre>
+```output
 Building new config file
 Add comment to config file (blank entry to exit adding comments):This is a new config file for `azacsnap`
 Add comment to config file (blank entry to exit adding comments):
@@ -64,7 +64,7 @@ Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
 Add HLI Storage to database section? (y/n) [n]:
 Add database to config? (y/n) [n]:
 Editing configuration complete, writing output to 'azacsnap.json'
-</pre>
+```
 
 ## Details of required values
 
@@ -98,12 +98,12 @@ When adding *HLI Storage* to a database section, the following values are requir
     grep nfs /etc/fstab | cut -f2 -d"/" | sort | uniq
     ```
 
-    <pre>
+    ```output
     hana_data_p40_soldub41_mnt00001_t020_vol
     hana_log_backups_p40_soldub41_t020_vol
     hana_log_p40_soldub41_mnt00001_t020_vol
     hana_shared_p40_soldub41_t020_vol
-    </pre>
+    ```
 
 ### Azure NetApp Files (ANF) storage values
 
@@ -112,7 +112,7 @@ When adding *ANF Storage* to a database section, the following values are requir
 - **Service Principal Authentication filename** = this is the `authfile.json` file generated in the Cloud Shell when configuring
     communication with Azure NetApp Files storage.
 - **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from:
-    Azure Portal –> ANF –> Volume –> Settings/Properties –> Resource ID
+    Azure portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
 ## Configuration file overview (`azacsnap.json`)
 
@@ -123,13 +123,13 @@ For **Azure Large Instance** system, this information is provided by Microsoft S
 is made available in an Excel file that is provided during handover. Open a service request if you
 need to be provided this information again.
 
-** The following is an example only, update all the values accordingly.
+The following is an example only, update all the values accordingly.
 
 ```bash
 cat azacsnap.json
 ```
 
-<pre>
+```output
 {
   "version": "5.0 Preview",
   "logPath": "./logs",
@@ -171,7 +171,7 @@ cat azacsnap.json
     }
   ]
 }
-</pre>
+```
 
 > [!NOTE]
 > For a DR scenario where backups are to be run at the DR site, then the HANA Server Name
@@ -184,4 +184,4 @@ this case, our server pool subnet is 172. 18. 18 .0/24 and our assigned storage 
 
 ## Next steps
 
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Test Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-test.md)

@@ -1,6 +1,6 @@
 ---
-title: Install the Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Install the Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Install Azure Application Consistent Snapshot Tool (preview)
+# Install Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -75,9 +75,9 @@ Create RBAC Service Principal
 1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want
   to be associated with the service principal by default:
 
-  ```azurecli-interactive
-  az account show
-  ```
+    ```azurecli-interactive
+    az account show
+    ```
 
 1. If the subscription is not correct, use
 
@@ -93,7 +93,7 @@ Create RBAC Service Principal
 
     1. This should generate an output like the following example:
 
-        <pre>
+        ```output
         {
           "clientId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
           "clientSecret": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
@@ -106,7 +106,7 @@ Create RBAC Service Principal
           "galleryEndpointUrl": "https://gallery.azure.com/",
           "managementEndpointUrl": "https://management.core.windows.net/"
         }
-        </pre>
+        ```
 
     > This command will automatically assign RBAC contributor role to the service principal at
     subscription level, you can narrow down the scope to the specific resource group where your
@@ -124,7 +124,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
     Refer to the following output where the `MACs hmac-sha1` line has been added:
 
-    <pre>
+    ```output
     # RhostsRSAAuthentication no
     # RSAAuthentication yes
     # PasswordAuthentication yes
@@ -154,7 +154,7 @@ example steps are to provide guidance on setup of SSH for this communication.
     # PermitLocalCommand no
     # VisualHostKey no
     # ProxyCommand ssh -q -W %h:%p gateway.example.com
-    </pre>
+    ```
 
 1. Create a private/public key pair
 
@@ -173,14 +173,14 @@ example steps are to provide guidance on setup of SSH for this communication.
     cat /root/.ssh/id_rsa.pub
     ```
 
-    <pre>
+    ```output
     ssh-rsa
     AAAAB3NzaC1yc2EAAAADAQABAAABAQDoaRCgwn1Ll31NyDZy0UsOCKcc9nu2qdAPHdCzleiTWISvPW
     FzIFxz8iOaxpeTshH7GRonGs9HNtRkkz6mpK7pCGNJdxS4wJC9MZdXNt+JhuT23NajrTEnt1jXiVFH
     bh3jD7LjJGMb4GNvqeiBExyBDA2pXdlednOaE4dtiZ1N03Bc/J4TNuNhhQbdsIWZsqKt9OPUuTfD
     j0XvwUTLQbR4peGNfN1/cefcLxDlAgI+TmKdfgnLXIsSfbacXoTbqyBRwCi7p+bJnJD07zSc9YCZJa
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
-    </pre>
+    ```
 
 ## Enable communication with SAP HANA
 
@@ -197,14 +197,14 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbsql -n <IP_address_of_host>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
     ```
 
-    <pre>
+    ```output
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
     \q to quit
 
     hdbsql SYSTEMDB=>
-    </pre>
+    ```
 
 1. Create the user
 
@@ -250,14 +250,14 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbuserstore List
     ```
 
-    <pre>
+    ```output
     DATA FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.DAT
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
 
     KEY AZACSNAP
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
-    </pre>
+    ```
 
 ### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
 
@@ -271,14 +271,14 @@ usernames, and passwords as appropriate:
     hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
     ```
 
-    <pre>  
+    ```output  
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
     \q to quit
 
     hdbsql TENANTDB=>
-    </pre>
+    ```
 
 1. Create the user
 
@@ -308,8 +308,8 @@ usernames, and passwords as appropriate:
    hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
    ```
 
-> **Note**  repeat these steps for all the tenant databases. It's possible to get the connection details for all the
-tenants using the following SQL query against the SYSTEMDB.
+> [!NOTE]  
+> Repeat these steps for all the tenant databases. It's possible to get the connection details for all the tenants using the following SQL query against the SYSTEMDB.
 
 ```sql
 SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
@@ -321,11 +321,11 @@ See the following example query and output.
 hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
 ```
 
-<pre>
+```output
 sapprdhdb80,30013,SYSTEMDB
 sapprdhdb80,30015,H81
 sapprdhdb80,30041,H82
-</pre>
+```
 
 ### Using SSL for communication with SAP HANA
 
@@ -384,8 +384,7 @@ to the command line.
     - `mv sapcli.pse <securityPath>/<SID>_truststore`
 
 > [!NOTE]
-> The `<SID>` component of the file names must be the SAP HANA System Identifier
-all in upper case (for example, `H80`, `PR1`, etc.)
+> The `<SID>` component of the file names must be the SAP HANA System Identifier all in upper case (for example, `H80`, `PR1`, etc.)
 
 When `azacsnap` calls `hdbsql`, it will add `-ssltruststore=<securityPath>/<SID>_truststore`
 to the command line.
@@ -439,7 +438,7 @@ chmod +x azacsnap_installer_v5.0.run
 ./azacsnap_installer_v5.0.run
 ```
 
-<pre>
+```output
 Usage: ./azacsnap_installer_v5.0.run [-v] -I [-u <HLI Snapshot Command user>]
 ./azacsnap_installer_v5.0.run [-v] -X [-d <directory>]
 ./azacsnap_installer_v5.0.run [-h]
@@ -454,7 +453,7 @@ Switches enclosed in [] are optional for each command line.
 - d is the target directory to extract into, by default this is
 './snapshot_cmds'.
 Examples of a target directory are ./tmp or /usr/local/bin
-</pre>
+```
 
 > [!NOTE]
 > The self-installer has an option to extract (-X) the snapshot tools from the bundle without
@@ -490,9 +489,9 @@ installation option.
 ./azacsnap_installer_v5.0.run -I
 ```
 
-<pre>
+```output
 +-----------------------------------------------------------+
-| Azure Application Consistent Snapshot Tool Installer      |
+| Azure Application Consistent Snapshot tool Installer      |
 +-----------------------------------------------------------+
 |-> Installer version '5.0'
 |-> Create Snapshot user 'azacsnap', home directory, and set group membership.
@@ -528,7 +527,7 @@ installation option.
      azacsnap -c test --test hana --ssl=<commoncrypto|openssl>
 7. Run your first snapshot backup..... (example below)
      azacsnap -c backup --volume=data --prefix=hana_test --frequency=15min --retention=1
-</pre>
+```
 
 ### Uninstall the snapshot tools
 
@@ -550,18 +549,17 @@ shell command.
 
 As the root superuser, a manual installation can be achieved as follows:
 
-1. Get the "sapsys" group id, in this case the group id = 1010
+1. Get the "sapsys" group ID, in this case the group ID = 1010
 
     ```bash
     grep sapsys /etc/group
     ```
 
-    <pre>
+    ```output
     sapsys:x:1010:
-    </pre>
+    ```
 
-1. Create Snapshot user 'azacsnap', home directory, and set group membership using
-    the group id from step 1.
+1. Create Snapshot user 'azacsnap', home directory, and set group membership using the group ID from step 1.
 
     ```bash
     useradd -m -g 1010 -c "Azure SAP HANA Snapshots User" azacsnap
@@ -720,9 +718,9 @@ In this example, the change is being made to the `basepath_catalogbackup` parame
 ls -ld /hana/logbackups/H80/catalog
 ```
 
-<pre>
+```output
 drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
-</pre>
+```
 
 If the path needs to be created, the following example creates the path and sets the correct
 ownership and permissions. These commands will need to be run as root.
@@ -734,9 +732,9 @@ chmod --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
 ls -ld /hana/logbackups/H80/catalog
 ```
 
-<pre>
+```output
 drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
-</pre>
+```
 
 The following example will change the SAP HANA setting.
 
@@ -756,7 +754,7 @@ SYSTEM settings.
 hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where (key = 'basepath_databackup' or key ='basepath_datavolumes' or key = 'basepath_logbackup' or key = 'basepath_logvolumes' or key = 'basepath_catalogbackup')"
 ```
 
-<pre>
+```output
 global.ini,DEFAULT,,,persistence,basepath_catalogbackup,$(DIR_INSTANCE)/backup/log
 global.ini,DEFAULT,,,persistence,basepath_databackup,$(DIR_INSTANCE)/backup/data
 global.ini,DEFAULT,,,persistence,basepath_datavolumes,$(DIR_GLOBAL)/hdb/data
@@ -766,7 +764,7 @@ global.ini,SYSTEM,,,persistence,basepath_catalogbackup,/hana/logbackups/H80/cata
 global.ini,SYSTEM,,,persistence,basepath_datavolumes,/hana/data/H80
 global.ini,SYSTEM,,,persistence,basepath_logbackup,/hana/logbackups/H80
 global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
-</pre>
+```
 
 ### Configure log backup timeout
 
@@ -789,11 +787,11 @@ query also returns the DEFAULT settings for comparison.
 hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where key like '%log_backup_timeout%' "
 ```
 
-<pre>
+```output
 global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
-</pre>
+```
 
 ## Next steps
 
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md)

@@ -1,6 +1,6 @@
 ---
-title: Restore using Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for running the restore command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Restore using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the restore command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Restore using Azure Application Consistent Snapshot Tool (preview)
+# Restore using Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for running the restore command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for running the restore command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -63,7 +63,7 @@ volumes, otherwise the Production volumes could have clones created.
 
 ### Output of the `azacsnap -c restore --restore snaptovol` command (for Single-Node scenario)
 
-<pre>
+```output
 > azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
@@ -105,7 +105,7 @@ Displaying Mount Points by Volume as follows:
 *  being automatically removed.                                                *
 *  Please contact Microsoft Operations to delete them earlier.                 *
 ********************************************************************************
-</pre>
+```
 
 > [!IMPORTANT]
 > The "Displaying Mount Points by Volume" output is different for the various scenarios.
@@ -135,3 +135,8 @@ At the high level, here are the steps for executing a DR failover:
 - Recover the tenant database.
 - Start the HANA instance on the DR site for the Production SID (Example: H80 in this case).
 - Perform any database testing.
+
+## Next steps
+
+- [Take a backup](azacsnap-cmd-ref-backup.md)
+- [Get snapshot details](azacsnap-cmd-ref-details.md)

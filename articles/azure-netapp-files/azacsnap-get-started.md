@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for installing the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Get started with Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for installing the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Get started with Azure Application Consistent Snapshot Tool (preview)
+# Get started with Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for installing the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for installing the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Getting the snapshot tools
 
@@ -55,19 +55,19 @@ gpg --list-keys
 ```
 
 Listed keys:
-<pre>
+```output
 ----<snip>----
 pub rsa2048 2015- 10 - 28 [SC]
 BC528686B50D79E339D3721CEB3E94ADBE1229CF
 uid [ unknown] Microsoft (Release signing) gpgsecurity@microsoft.com
-</pre>
+```
 
 ```bash
 gpg --edit-key gpgsecurity@microsoft.com
 ```
 
 Output from interactive `gpg` session signing Microsoft public key:
-<pre>
+```output
 gpg (GnuPG) 2.1.18; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -93,7 +93,7 @@ Really sign? (y/N) y
 
 gpg> quit
 Save changes? (y/N) y
-</pre>
+```
 
 The PGP signature file for the installer can be checked as follows:
 
@@ -101,12 +101,12 @@ The PGP signature file for the installer can be checked as follows:
 gpg --verify azacsnap_installer_v5.0.run.asc azazsnap_installer_v5.0.run
 ```
 
-<pre>
+```output
 gpg: Signature made Sat 13 Apr 2019 07:51:46 AM STD
 gpg: using RSA key EB3E94ADBE1229CF
 gpg: Good signature from "Microsoft (Release signing)
 <gpgsecurity@microsoft.com>" [full]
-</pre>
+```
 
 For more details about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
 
@@ -189,13 +189,13 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
   - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
   - [Enable communication with SAP HANA](azacsnap-installation.md#enable-communication-with-sap-hana)
-- [How to take snapshots manually](azacsnap-tips-and-tricks.md#take-snapshots-manually)
-- [How to set up automatic snapshot backup](azacsnap-tips-and-tricks.md#setup-automatic-snapshot-backup)
-- [How to monitor the snapshots](azacsnap-tips-and-tricks.md#monitor-the-snapshots)
-- [How to delete a snapshot?](azacsnap-tips-and-tricks.md#delete-a-snapshot)
-- [How to restore a snapshot](azacsnap-tips-and-tricks.md#restore-a-snapshot)
-- [How to restore a `boot` snapshot](azacsnap-tips-and-tricks.md#restore-a-boot-snapshot)
-- [What are key facts to know about the snapshots](azacsnap-tips-and-tricks.md#key-facts-to-know-about-snapshots)
+- [How to take snapshots manually](azacsnap-tips.md#take-snapshots-manually)
+- [How to set up automatic snapshot backup](azacsnap-tips.md#setup-automatic-snapshot-backup)
+- [How to monitor the snapshots](azacsnap-tips.md#monitor-the-snapshots)
+- [How to delete a snapshot?](azacsnap-tips.md#delete-a-snapshot)
+- [How to restore a snapshot](azacsnap-tips.md#restore-a-snapshot)
+- [How to restore a `boot` snapshot](azacsnap-tips.md#restore-a-boot-snapshot)
+- [What are key facts to know about the snapshots](azacsnap-tips.md#key-facts-to-know-about-snapshots)
 
 > Snapshots are tested for both single SID and multi SID.
 
@@ -208,4 +208,4 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 ## Next steps
 
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
+- [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md)

@@ -1,6 +1,6 @@
 ---
-title: Back up using Azure Application Consistent Snapshot Tool | Microsoft Docs
-description: Provides a guide for running the backup command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Back up using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the backup command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Back up using Azure Application Consistent Snapshot Tool (preview)
+# Back up using Azure Application Consistent Snapshot tool (preview)
 
-This article provides a guide for running the backup command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
+This article provides a guide for running the backup command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -102,9 +102,9 @@ example `azacsnap-backup-azacsnap.result` that contains the following output:
 cat logs/azacsnap-backup-azacsnap.result
 ```
 
-<pre>
+```output
 Database # 1 (H80) : completed ok
-</pre>
+```
 
 The `/var/log/messages` file contains the same output as the `.result` file. See the following
 example (run as root):
@@ -113,7 +113,7 @@ example (run as root):
 grep "azacsnap.*Database" /var/log/messages | tail -n10
 ```
 
-<pre>
+```output
 Jul  2 05:22:07 server01 azacsnap[183868]: Database # 1 (H80) : completed ok
 Jul  2 05:27:06 server01 azacsnap[4069]: Database # 1 (H80) : completed ok
 Jul  2 05:32:07 server01 azacsnap[19769]: Database # 1 (H80) : completed ok
@@ -124,7 +124,7 @@ Jul  2 05:52:06 server01 azacsnap[82964]: Database # 1 (H80) : completed ok
 Jul  2 05:57:06 server01 azacsnap[98522]: Database # 1 (H80) : completed ok
 Jul  2 05:59:13 server01 azacsnap[105519]: Database # 1 (H80) : completed ok
 Jul  2 06:02:06 server01 azacsnap[114280]: Database # 1 (H80) : completed ok
-</pre>
+```
 
 ## Example with `other` parameter
 
@@ -159,3 +159,8 @@ The *log file* name in this example is `azacsnap-backup-bootVol.log`.
 - HANA Large Instance Type: There are two valid values with `TYPEI` or `TYPEII` dependent on
     the HANA Large Instance Unit.
 - See [Available SKUs for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-available-skus) to confirm the available SKUs.
+
+## Next steps
+
+- [Get snapshot details](azacsnap-cmd-ref-details.md)
+- [Delete snapshots](azacsnap-cmd-ref-delete.md)
