@@ -19,6 +19,7 @@ Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows 
 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
+<!-- Revisit once released -->
 ## Prerequisites
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
