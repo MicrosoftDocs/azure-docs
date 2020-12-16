@@ -167,39 +167,39 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     ![Single sign-on prop](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-    a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
+    1. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
 
-    b. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
+    1. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
 
-    * **ADP Workforce Now**
+        * **ADP Workforce Now**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **ADP Workforce Now Enhanced Time**
+        * **ADP Workforce Now Enhanced Time**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
-    * **ADP Vantage HCM**
+        * **ADP Vantage HCM**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    * **ADP Enterprise HR**
+        * **ADP Enterprise HR**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
-    * **MyADP**
+        * **MyADP**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
-9. **Save** your changes.
+1. **Save** your changes.
 
-10. Upon receipt of confirmation from your ADP representative, begin test with one or two users.
+1. Upon receipt of confirmation from your ADP representative, begin test with one or two users.
 
-    a. Assign few users to the ADP service App to test federated access.
+    1. Assign few users to the ADP service App to test federated access.
 
-    b. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
+    1. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
 
-11. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
+1. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
 
 ### Create ADP test user
 
@@ -218,5 +218,3 @@ When you click the ADP tile in the Access Panel, you should be automatically sig
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try ADP with Azure AD](https://aad.portal.azure.com)
