@@ -177,7 +177,7 @@ The following example `host.json` file adds the log filter.
 }
 ```
 
-Log filter rules in Azure Functions work the same way as in ASP.NET Core. For more information, refer to the [How filtering rules are applied](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#how-filtering-rules-are-applied) document.
+For more information about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
 ## Function app provided services
 
