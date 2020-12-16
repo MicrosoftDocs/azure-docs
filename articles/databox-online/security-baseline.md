@@ -75,8 +75,6 @@ Customers can configure a virtual private network on their Azure Stack Edge devi
 
 **Guidance**: Customers can choose a point-to-site virtual private network (VPN) to connect an Azure Stack Edge device from their on-premise private network to the Azure network. VPN provides a second layer of encryption for the data-in-motion over transport layer security from the customer's device to Azure. 
 
-Customers can configure a virtual private network on their Azure Stack Edge device via the Azure portal or via the Azure PowerShell.
-
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
 - [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
@@ -107,7 +105,7 @@ Customers can choose to secure their private network connected with Azure Stack 
 
 **Guidance**: The endpoints used by Azure Stack Edge device are all managed by Microsoft. Customers are responsible for any additional controls they wish to deploy to their on-premise systems.
 
-The Stack Edge appliance uses its own intrusion detect features to protect the service. 
+The Azure Stack Edge device uses its own intrusion detection features to protect the service. 
 
 - [Understand Azure Stack Edge security](azure-stack-edge-security.md)
 
@@ -124,17 +122,17 @@ The Stack Edge appliance uses its own intrusion detect features to protect the s
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40449).
 
-**Guidance**: Customers can simplify network security rules with the usage of parameters, which can be declared in a JavaScript object notation (JSON) file. 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-As an example, a customer can provide address spaces for a parameter called VnetIPv4AddressSpace which can be used instead of IP address ranges. 
-
-VnetIPv4AddressSpace	This is the address space associated with your virtual network. Provide virtual network IP ranges as private IP range 
-
-- [Configure VPN on your Azure Stack Edge Mini R device using Azure PowerShell | Microsoft Docs](azure-stack-edge-mini-r-configure-vpn-powershell.md)
+**Guidance**: Not applicable; this
+recommendation is intended for offerings that have the capability to define
+groupings of allowed IP ranges for efficient management in Network Access
+Control Lists. Azure Stack Edge does not currently support service tags.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### NS-7: Secure Domain Name Service (DNS)
 
