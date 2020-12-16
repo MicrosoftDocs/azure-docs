@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities on VMSS - Azure AD
+title: Configure managed identities on Virtual Machine Scale Set - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
-# Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal
+# Configure managed identities for Azure resources on a virtual machine scale set (VMSS) using the Azure portal
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
