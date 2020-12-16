@@ -67,6 +67,8 @@ In addition, some containers are supported in Cognitive Services [**All-In-One o
 * LUIS
 * Text Analytics
 
+[!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
+
 ## Developer samples
 
 Developer samples are available at our [GitHub repository](https://github.com/Azure-Samples/cognitive-services-containers-samples).
