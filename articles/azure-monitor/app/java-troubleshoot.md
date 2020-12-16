@@ -59,7 +59,6 @@ Alternatively, if your client is an app in a [phone or other device][platforms],
 
 Use the same instrumentation key to set up both your client and server telemetry. The data will appear in the same Application Insights resource, and you'll be able to correlate events from client and server.
 
-
 ## Disabling telemetry
 **How can I disable telemetry collection?**
 
@@ -178,7 +177,6 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 >[!NOTE]
 >If you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including `org.apache.http` renamed as `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights will not be able to apply filtering for these calls because the log call is being made by the Apache library. DEBUG level logging produce a considerable amount of log data and is not recommended for live production instances.
-
 
 ## Next steps
 **I set up Application Insights for my Java server app. What else can I do?**
