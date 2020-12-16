@@ -57,7 +57,7 @@ To configure the integration of direct into Azure AD, you need to add direct fro
 
 4. In the search box, type **direct**, select **direct** from result panel then click **Add** button to add the application.
 
-     ![direct in the results list](common/search-new-app.png)
+    ![direct in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 

@@ -173,23 +173,23 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     * **ADP Workforce Now**
 
-         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
     * **ADP Workforce Now Enhanced Time**
 
-         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
     * **ADP Vantage HCM**
 
-         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
     * **ADP Enterprise HR**
 
-         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
     * **MyADP**
 
-         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 9. **Save** your changes.
 
@@ -213,9 +213,9 @@ When you click the ADP tile in the Access Panel, you should be automatically sig
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 

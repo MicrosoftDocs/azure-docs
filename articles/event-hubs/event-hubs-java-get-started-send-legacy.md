@@ -237,7 +237,7 @@ For different types of build environments, you can explicitly obtain the latest 
    {
        public static void main(String args[]) throws InterruptedException, ExecutionException
        {
-              String consumerGroupName = "$Default";
+           String consumerGroupName = "$Default";
            String namespaceName = "----NamespaceName----";
            String eventHubName = "----EventHubName----";
            String sasKeyName = "----SharedAccessSignatureKeyName----";
@@ -421,4 +421,3 @@ Read the following articles:
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
-
