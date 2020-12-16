@@ -320,27 +320,27 @@
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
     },
-	  {
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
       "redirect_document_id": false
     },
-	  {
+    {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
       "redirect_document_id": false
     },
-	  {
+    {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
       "redirect_document_id": false
     },
-	  {
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
     },
-  	{
+    {
       "source_path": "articles/digital-twins/how-to-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -16807,7 +16807,7 @@
       "source_path": "articles/guidance/guidance-hybrid-network-expressroute-vpn-failover.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
       "redirect_document_id": false
-	 },
+    },
     {
       "source_path": "articles/guidance/guidance-hybrid-network-expressroute.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
@@ -21937,13 +21937,13 @@
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
       "redirect_document_id": false
-	 },
-	 {
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
       "redirect_document_id": false
-	 },
-	 {
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
       "redirect_url": "/azure/vpn-gateway/reset-gateway",
       "redirect_document_id": false
@@ -21967,8 +21967,8 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
-	 },
-	 {
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
       "redirect_document_id": false
@@ -28130,12 +28130,12 @@
       "source_path": "articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false
-	 },
-	 {
+    },
+    {
       "source_path": "articles/bastion/bastion-create-host-portal.md",
       "redirect_url": "/azure/bastion/tutorial-create-host-portal",
       "redirect_document_id": false
-	 },
+    },
     {
       "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
@@ -34330,8 +34330,8 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-security-attributes.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-security-controls",
       "redirect_document_id": false
-	 },
-	 {
+    },
+    {
       "source_path": "articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
       "redirect_document_id": false
@@ -34385,8 +34385,8 @@
       "source_path": "articles/security/security-channel-nine.md",
       "redirect_url": "/azure/security/fundamentals/channel-nine",
       "redirect_document_id": true
-	 },
-	 {
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
       "redirect_document_id": false
@@ -60813,6 +60813,11 @@
       "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
       "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
       "redirect_document_id": false
-    }       
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+      "redirect_document_id": false
+    } 
   ]
 }
