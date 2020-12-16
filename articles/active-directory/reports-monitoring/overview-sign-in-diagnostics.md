@@ -19,7 +19,7 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring  
 
-# Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the activities in my system so that I can easily diagnose and solve problems when they occur.
+# Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
 ms.collection: M365-identity-device-management
 ---
 
@@ -39,29 +39,30 @@ You must be a global administrator in Azure AD to use it.
 
 ## How it works
 
-In Azure AD, the response to a sign-in attempt is not just tied to who you are but also how you access your tenant. For example, as an administrator, you can typically configure all aspects of your tenant when you sign in from your corporate network. However, you might be even blocked when you sign in using the same account from an untrusted network. 
-Due to the greater flexibility the system has to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that:
+In Azure AD, the response to a sign-in attempt is tied to **who** you are and **how** you access your tenant. For example, as an administrator, you can typically configure all aspects of your tenant when you sign in from your corporate network. However, you might be even blocked when you sign in with the same account from an untrusted network.
+ 
+Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that:
 
 - Analyzes data from sign-ins. 
 
-- Displays details on what happened, and recommendations on what to do to resolve problems. 
+- Displays what happened, and recommendations on how to resolve problems. 
 
-The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign-in errors. The diagnostic process consists of four main building blocks:
+The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign-in errors. To complete the diagnostic process, you need to:
 
 ![Sign-in diagnostics process](./media/overview-sign-in-diagnostics/process.png)
  
-1. **Define** the scope for the sign-in events you care about
+1. **Define** the scope of the sign-in events you care about
 
-2. **Select** the event you want to review
+2. **Select** the sign-in you want to review
 
-3. **Review** diagnostic
+3. **Review** the diagnostic result
 
 4. **Take** actions
 
  
 ### Define scope
 
-The goal of this step is to define the scope for sign-ins you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. Additionally, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
+The goal of this step is to define the scope for the sign-ins you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. To narrow down the scope further, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
 
 ### Select sign-in  
 
@@ -71,7 +72,7 @@ Based on your search criteria, Azure AD retrieves all matching sign-ins and pres
  
 You can customize the columns displayed in this view.
 
-### Review diagnostic results
+### Review diagnostic 
 
 For the selected sign-in event, Azure AD provides you with a diagnostics result. 
 
@@ -142,7 +143,7 @@ The diagnostic section for this scenario shows details about the user sign-in an
 
 ### MFA from other requirements
 
-This scenario is based on a multi-factor authentication requirement that was not enforced by a conditional access policy. For example, if you have configured multi-factor authentication on a per user basis in your tenant.
+This scenario is based on a multi-factor authentication requirement that was not enforced by a conditional access policy. For example, multi-factor authentication on a per user basis.
 
 
 ![Require multi-factor authentication per user](./media/overview-sign-in-diagnostics/mfa-per-user.png)
