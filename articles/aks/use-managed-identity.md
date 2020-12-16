@@ -3,7 +3,7 @@ title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/16/2020
 ---
 
 # Use managed identities in Azure Kubernetes Service
