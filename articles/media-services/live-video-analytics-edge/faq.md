@@ -36,7 +36,7 @@ No, Live Video Analytics on IoT Edge supports capturing media by using RTSP (Rea
 
 No, Live Video Analytics supports only RTSP for capturing video from IP cameras. Any camera that supports RTSP streaming over TCP/HTTP should work. 
 
-**Can I reset or update the RTSP source URL on a graph instance?**
+**Can I reset or update the RTSP source URL in a graph instance?**
 
 Yes, when the graph instance is in *inactive* state.  
 
@@ -86,7 +86,7 @@ You can deliver content by using either Apple HLS or MPEG-DASH.
 
 Solutions vary depending on the communication protocol that's used by the inferencing server to communicate with Live Video Analytics. The following sections describe how each protocol works.
 
-Use the HTTP protocol:
+*Use the HTTP protocol*:
 
 * Single container (single lvaExtension):  
 
@@ -122,13 +122,13 @@ Use the HTTP protocol:
    First instance:  inference server URL = `http://lvaExtension1:44001/score`    
    Second instance: inference server URL = `http://lvaExtension2:44001/score`
    
-Use the gRPC protocol: 
+*Use the gRPC protocol*: 
 
 * With Live Video Analytics module 1.0, when you use a general-purpose remote procedure call (gRPC) protocol, the only way to do so is if the gRPC server exposes different AI models via different ports. In [this code example](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), a single port, 44000, exposes all the yolo models. In theory, the yolo gRPC server could be rewritten to expose some models at port 44000 and others at port 45000. 
 
 * With Live Video Analytics module 2.0, a new property is added to the gRPC extension node. This property, **extensionConfiguration**, is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you don't need to expose a node for every AI model. Instead, for a graph instance, you, as the extension provider, can define how to select the different AI models by using the **extensionConfiguration** property. During execution, Live Video Analytics passes this string to the inferencing server, which can use it to invoke the desired AI model. 
 
-**I am building a gRPC server around an AI model, and want to be able to support its use by multiple cameras/graph instances. How should I build my server?** 
+**I'm building a gRPC server around an AI model, and I want to be able to support its use by multiple cameras or graph instances. How should I build my server?** 
 
  First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
 
@@ -148,7 +148,7 @@ To set up and use multiple cameras, you can instantiate multiple graph topology 
 
 Our current [default samples](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) work in a *stateless* mode. They don't keep the state of the previous calls or even who called. This means that multiple topology instances might call the same inference server, but the server can't distinguish who is calling or the state per caller. 
 
-Use the HTTP protocol:
+*Use the HTTP protocol*:
 
 To keep the state, each caller, or graph topology instance, calls the inferencing server by using the HTTP query parameter that's unique to caller. For example, the inference server URL addresses for each instance are shown here:  
 
@@ -159,23 +159,21 @@ To keep the state, each caller, or graph topology instance, calls the inferencin
 
 On the server side, the score route knows who is calling. If ID=1, then it can keep the state separately for that caller or graph topology instance. You can then keep the received video frames in a buffer. For example, use an array, or a dictionary with a DateTime key, and the value is the frame. You can then define the server to process (infer) after *x* number of frames are received. 
 
-Use the gRPC protocol: 
+*Use the gRPC protocol*: 
 
-With a gRPC extension, each session is for a single camera feed, so there's no need to provide an ID. So now, with the extensionConfiguration property, you can store the video frames in a buffer and define the server to process (infer) after *x* number of frames are received. 
+With a gRPC extension, each session is for a single camera feed, so there's no need to provide an ID. Now, with the extensionConfiguration property, you can store the video frames in a buffer and define the server to process (infer) after *x* number of frames are received. 
 
 **Do all ProcessMediaStreams on a particular container run the same AI model? 
 
-No.  
-
-Start/stop calls from the end user on a graph instance constitute a session, or perhaps there's a camera disconnect/reconnect. The goal is to persist one session if the camera is streaming video. 
+No. Start or stop calls from the end user in a graph instance constitute a session, or perhaps there's a camera disconnect or reconnect. The goal is to persist one session if the camera is streaming video. 
 
 * Two cameras sending video for processing creates two sessions. 
 * One camera going to a graph that has two gRPC extension nodes creates two sessions. 
 
-Each session is a full duplex connection between Live Video Analytics and the gRPC server and each session can have a different model/pipeline. 
+Each session is a full duplex connection between Live Video Analytics and the gRPC server, and each session can have a different model or pipeline. 
 
 > [!NOTE]
-> In case of a camera disconnect/reconnect, with the camera going offline for a period beyond tolerance limits, Live Video Analytics will open a new session with the gRPC server. There's no requirement for the server to track the state across these sessions. 
+> In case of a camera disconnect or reconnect, with the camera going offline for a period beyond tolerance limits, Live Video Analytics will open a new session with the gRPC server. There's no requirement for the server to track the state across these sessions. 
 
 Live Video Analytics also adds support for multiple gRPC extensions for a single camera in a graph instance. You can use these gRPC extensions to carry out AI processing sequentially, in parallel, or as a combination of both. 
 
@@ -198,7 +196,7 @@ Today, we are providing bounding box coordinates as inference messages only. You
 
 **How will I know what the mandatory fields for the media stream descriptor are?** 
 
-Any field that's not supplied a value will be given a [default value, as specified by gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
+Any field that you don't supply a value to is given a [default value, as specified by gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
 
 Live Video Analytics uses the *proto3* version of the protocol buffer language. All the protocol buffer data that's used by Live Video Analytics contracts is available in the [protocol buffer files defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
 
