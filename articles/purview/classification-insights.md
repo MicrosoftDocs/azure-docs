@@ -1,6 +1,6 @@
 ---
-title: Classification reporting on your data using Purview Insights (preview)
-description: This how-to guide describes how to view and use Purview Insights classification reporting on your data. 
+title: Classification reporting on your data in Azure Purview using Purview Insights
+description: This how-to guide describes how to view and use Purview classification reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview

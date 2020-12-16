@@ -1,6 +1,6 @@
 ---
-title: File extension reporting on your data using Purview Insights 
-description: This how-to guide describes how to view and use the Purview Insights file extension reporting on your data.
+title: File extension reporting on your data in Azure Purview using Purview Insights
+description: This how-to guide describes how to view and use the Purview file extension reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
