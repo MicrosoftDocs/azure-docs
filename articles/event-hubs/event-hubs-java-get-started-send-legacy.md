@@ -13,7 +13,6 @@ This quickstart shows how to send events to and receive events from an event hub
 > [!WARNING]
 > This quickstart uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages. For a quickstart that uses the latest  **azure-messaging-eventhubs** package, see [Send and receive events using azure-messaging-eventhubs](event-hubs-java-get-started-send.md). To move your application from using the old package to new one, see the [Guide to migrate from azure-eventhubs to azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
 
-
 ## Prerequisites
 
 If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
@@ -70,7 +69,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -104,7 +102,6 @@ Create a singular event by transforming a string into its UTF-8 byte encoding. T
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -413,7 +410,6 @@ Within your implementation, you can override the default checkpointing mechanism
 You can use any datastore that is available in your environment.
 
 The com.microsoft.azure.eventprocessorhost.EventProcessorHost class provides you with two constructors that allow you to override the checkpoint manager for your EventProcessorHost.
-
 
 ## Next steps
 Read the following articles: 
