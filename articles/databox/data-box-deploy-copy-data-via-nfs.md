@@ -106,7 +106,7 @@ If using `rsync` option for a multi-threaded copy, follow these guidelines:
 
     `sudo apt-get install nfs-utils`
 
-* Install **Rsync** and **Parallel** (varies depending on the Linux distributed version).
+* Install `rsync` and **Parallel** (varies depending on the Linux distributed version).
 
     `sudo apt-get install rsync`
    

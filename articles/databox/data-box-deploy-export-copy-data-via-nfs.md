@@ -73,11 +73,11 @@ Once you're connected to the Data Box shares, the next step is to copy data.
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- You can now begin data copy. If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
+ You can now begin data copy. If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
 The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-If using rsync option for a multi-threaded copy, follow these guidelines:
+If using the `rsync` option for a multi-threaded copy, follow these guidelines:
 
 * Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
 
@@ -85,7 +85,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
     `sudo apt-get install nfs-utils`
 
-* Install **Rsync** and **Parallel** (varies depending on the Linux distributed version).
+* Install `rsync` and **Parallel** (varies depending on the Linux distributed version).
 
     `sudo apt-get install rsync`
    
