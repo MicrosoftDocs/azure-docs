@@ -365,13 +365,15 @@ For more information on how to use the Monitor & Manage application to monitor y
 You define a data factory in the Resource Manager template as shown in the following sample:
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
-}
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 ```
 
 The dataFactoryName is defined as: 
