@@ -256,7 +256,7 @@
     - name: Get resource events
       href: get-resource-events.md
     - name: Route traffic
-      href: monitor-route-traffic.md      
+      href: monitor-instances-health-check.md      
     - name: Open SSH session to Linux container
       href: configure-linux-open-ssh-session.md
   - name: Manage app
