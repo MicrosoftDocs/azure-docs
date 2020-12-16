@@ -31,7 +31,7 @@ The following sections provide details about how to connect your System Center S
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
@@ -41,7 +41,7 @@ Ensure the following prerequisites are met:
 > [!NOTE]
 > 
 > - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
-> - In order to use custom [templates](./itsmc-overview.md#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
+> - In order to use custom [templates](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 
@@ -81,7 +81,7 @@ Use the following procedure to connect your System Center Service Manager instan
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Service Manager instance.
 
 
-Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
 
 ### Create and deploy Service Manager web app service
 
@@ -180,7 +180,7 @@ The following sections provide details about how to connect your ServiceNow prod
 
 ### Prerequisites
 Ensure the following prerequisites are met:
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - ServiceNow supported versions: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 - Today the alerts that are sent from Azure Monitor can create in ServiceNow one of the following elements: Events, Incidents or Alerts.
 > [!NOTE]
@@ -256,7 +256,7 @@ Use the following procedure to create a ServiceNow connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this ServiceNow instance.
 
-Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
 
 
 > [!NOTE]
@@ -316,7 +316,7 @@ The following sections provide details about how to connect your Provance produc
 Ensure the following prerequisites are met:
 
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - User role:  Administrator.
@@ -358,7 +358,7 @@ Use the following procedure to create a Provance connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Provance instance.
 
-Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
 
 ## Connect Cherwell to IT Service Management Connector in Azure
 
@@ -372,7 +372,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
@@ -414,7 +414,7 @@ Use the following procedure to create a Cherwell connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Cherwell instance.
 
-Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
 
 ### Generate client ID for Cherwell
 
@@ -428,4 +428,4 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 
 ## Next steps
- - [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
