@@ -374,6 +374,7 @@ You define a data factory in the Resource Manager template as shown in the follo
       "location": "West US"
     }
   ]
+}
 ```
 
 The dataFactoryName is defined as: 
