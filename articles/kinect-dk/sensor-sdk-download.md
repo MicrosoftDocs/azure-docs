@@ -21,14 +21,14 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 - The [Azure Kinect Recorder](azure-kinect-recorder.md).
 - The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
 
-## Windows download link
+## Windows installation instructions
 
-[Microsoft installer](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe) | [GitHub source code](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+You can find installation details for the latest and previous versions of Azure Kinect Sensor SDK and Firmware [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
+
+You can find the source code [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
 
 > [!NOTE]
 > When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.2". You will find the tools referenced in articles in this path.
-
-You can find previous versions of Azure Kinect Sensor SDK and Firmware on [GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
 
 ## Linux installation instructions
 

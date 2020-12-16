@@ -112,7 +112,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 1. Deploy the OPC Twin [dependencies](howto-opc-twin-deploy-dependencies.md) and obtained the resulting `.env` file. Note the deployed `hub name` of the `PCS_IOTHUBREACT_HUB_NAME` variable in the resulting `.env` file.
 
-2. Register and start a [Linux](../iot-edge/how-to-install-iot-edge-linux.md) or [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge gateway and note its `device id`.
+2. Register and start a [Linux](../iot-edge/how-to-install-iot-edge.md) or [Windows](../iot-edge/how-to-install-iot-edge.md) IoT Edge gateway and note its `device id`.
 
 ### Deploy to an edge device
 

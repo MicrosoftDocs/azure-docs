@@ -108,7 +108,7 @@ deviceTRUST is a Windows Virtual Desktop value-added services provider that cont
 
 deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements.
 
-- [Go to the partner website](https://devicetrust.com/wvd).
+- [Go to the partner website](https://devicetrust.com/).
 
 ## Ekran System
 
@@ -344,7 +344,7 @@ SSH2 is a Windows Virtual Desktop value-added services provider that equips your
 appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organizations to get to production faster.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
-- [Go to the partner page](https://www.ssh2.xyz/windows-virtual-desktop/).
+- [Go to the partner page](#ssh2).
 
 ## ThinPrint
 

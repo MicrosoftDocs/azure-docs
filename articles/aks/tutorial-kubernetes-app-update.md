@@ -5,7 +5,7 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
 ---

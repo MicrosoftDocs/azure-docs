@@ -14,7 +14,7 @@ This quickstart is intended for developers or cluster operators who want to quic
 
 ## Overview
 
-In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run an hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. Read more about AKS [here](https://docs.microsoft.com/azure/aks/intro-kubernetes).
+In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run an hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. Read more about AKS [here](../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
@@ -22,17 +22,17 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 ### Deployment pre-requisites
 
 1. Have an active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
-1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
 1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.4.62 
-1. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instructions to raise a quota increase ticket
+1. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
 
 ### Confidential computing node features (DC<x>s-v2)
 
 1. Linux Worker Nodes supporting Linux Containers Only
 1. Ubuntu Generation 2 18.04 Virtual Machines
-1. Intel SGX-based CPU with Encrypted Page Cache Memory (EPC). Read more [here](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Intel SGX-based CPU with Encrypted Page Cache Memory (EPC). Read more [here](./faq.md)
 1. Kubernetes version 1.16+
-1. Pre-installed Intel SGX DCAP Driver. Read more [here](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Pre-installed Intel SGX DCAP Driver. Read more [here](./faq.md)
 1. CLI based deployed during preview
 
 
@@ -76,7 +76,7 @@ First, create a resource group for the cluster using the az group create command
 az group create --name myResourceGroup --location westus2
 ```
 
-Now create an AKS cluster using the az aks create command. The following example creates a cluster with a single node of size `Standard_DC2s_v2`. You can choose other supported list of DCsv2 SKUs from [here](https://docs.microsoft.com/azure/virtual-machines/dcv2-series):
+Now create an AKS cluster using the az aks create command. The following example creates a cluster with a single node of size `Standard_DC2s_v2`. You can choose other supported list of DCsv2 SKUs from [here](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
 az aks create \
@@ -239,6 +239,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 Run Python, Node etc. Applications confidentially through confidential containers by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
 
 Run Enclave aware applications by visiting [Enclave Aware Azure Container Samples](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
-
-
-

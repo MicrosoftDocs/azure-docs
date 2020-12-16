@@ -79,7 +79,7 @@ Managed images can be used for development and test environments, where you need
 - Global replication of images.
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS), in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
-- Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
+- Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
 At a high level, you create a SIG, and it is made up of:

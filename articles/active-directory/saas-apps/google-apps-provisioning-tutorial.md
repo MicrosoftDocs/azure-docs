@@ -27,6 +27,9 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 > * Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 > * Updated default attribute mappings.
 
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
@@ -40,7 +43,7 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * [A G Suite tenant](https://gsuite.google.com/pricing.html)
 * A user account on a G Suite with Admin permissions.
 

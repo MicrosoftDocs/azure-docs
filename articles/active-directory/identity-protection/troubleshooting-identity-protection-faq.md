@@ -35,7 +35,7 @@ If you are an Azure AD Identity Protection customer, go to the [risky users](how
 ## Why was my sign-in blocked but Identity Protection didn't generate a risk detection?
 Sign-ins can be blocked for several reasons. It is important to note that Identity Protection only generates risk detections when correct credentials are used in the authentication request. If a user uses incorrect credentials, it will not be flagged by Identity Protection since there is not of risk of credential compromise unless a bad actor uses the correct credentials. Some reasons a user can be blocked from signing that will not generate an Identity Protection detection include:
 * The **IP can been blocked** due to malicious activity from the IP address. The IP blocked message does not differentiate whether the credentials were correct or not. If the IP is blocked and correct credentials are not used, it will not generate an Identity Protection detection
-* **[Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** can block the account from signing-in after multiple failed attempts
+* **[Smart Lockout](../authentication/howto-password-smart-lockout.md)** can block the account from signing-in after multiple failed attempts
 * A **Conditional Access policy** can be enforced that uses conditions other than risk level to block an authentication request
 
 ### How can I get a report of detections of a specific type?
@@ -79,9 +79,11 @@ All risk detections are documented in the article [What is risk](concept-identit
 
 - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
 
-- In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
+- In addition, we provide the information to our machine learning systems for future improvements in risk assessment. 
 
     > [!NOTE]
+    >Today, selecting confirm safe on a sign-in does not by itself prevent future sign-ins with the same properties from being flagged as risky. The best way to train the system to learn a user's properties is to use the risky sign-in policy with MFA. When a risky sign-ins is prompted for MFA and the user successfully responds to the request, the sign-in can succeed and help to train the system on the legitimate user's behavior.
+    >
     > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk detections.
 
 ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?
@@ -90,8 +92,4 @@ Given the user risk is cumulative in nature and does not expire, a user may have
 
 ### Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
 
-The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk. 
-
-### Why is the detection which is linked to a risky sign-in have a different risk level than the sign-in risk level (real-time)? 
-
-We've recently made improvements to how real-time sign-in risk is calculated. The discrepancy observed between the risk detection level and the sign-in risk level is a result of those changes. Note that the real-time sign-in risk is the value that is used during policy enforcement. 
+The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk.

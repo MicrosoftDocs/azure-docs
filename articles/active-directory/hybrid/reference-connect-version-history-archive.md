@@ -1018,7 +1018,7 @@ Released: February 2016
 **New features:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature for Express settings customers.
-* Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
+* Support for the global admin by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
   * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
   * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.

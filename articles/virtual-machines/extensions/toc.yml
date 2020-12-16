@@ -79,7 +79,7 @@
   - name: Azure Monitor
     items:
     - name: Azure Monitor agent
-      href: ../../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
+      href: ../../azure-monitor/platform/azure-monitor-agent-install.md
     - name: Diagnostics extension
       items:
       - name: Linux

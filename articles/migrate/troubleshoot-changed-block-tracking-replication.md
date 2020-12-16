@@ -2,8 +2,8 @@
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ---
@@ -237,7 +237,7 @@ This error can be resolved in the following two ways:
 
 One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 2048201: Changed Block Tracking](https://go.microsoft.com/fwlink/?linkid=2138888) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
 
-Alternatively, you can [reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
+Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
 ## An internal error occurred
 

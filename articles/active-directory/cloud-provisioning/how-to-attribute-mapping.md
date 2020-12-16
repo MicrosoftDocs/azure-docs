@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect cloud provisioning attibute mapping
+# Azure AD Connect cloud provisioning attribute mapping
 
 Azure AD Connect cloud provisioning has introduced a new feature, that will allow you easily map attributes between your on-premises user/group objects and the objects in Azure AD.  This feature has been added to the cloud provisioning configuration.
 

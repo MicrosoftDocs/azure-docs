@@ -45,7 +45,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
-    - *RBAC enabled* AKS cluster
+    - *Kubernetes RBAC enabled* AKS cluster
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -53,7 +53,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *RBAC disabled* AKS cluster
+    - *Kubernetes RBAC disabled* AKS cluster
 
     ```bash
     helm init
@@ -197,7 +197,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

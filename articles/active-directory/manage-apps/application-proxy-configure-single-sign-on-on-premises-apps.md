@@ -93,5 +93,5 @@ When you've completed all these steps, your app should be up and running. To tes
 
 ## Next steps
 
-- [How does Azure AD Application Proxy provide single sign-on?](application-proxy-single-sign-on.md)
+- [How does Azure AD Application Proxy provide single sign-on?](./what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)

@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: 
 ms.date: 04/15/2020 
-ms.author: v-stazar 
+ms.author: stefanazaric 
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 # Connect to Synapse SQL
 Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
-## Supported tools for serverless SQL pool (preview)
+## Supported tools for serverless SQL pool
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 

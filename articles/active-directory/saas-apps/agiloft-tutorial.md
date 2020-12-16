@@ -99,14 +99,12 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
     a. In the **Identifier** text box, type a URL using the following pattern:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
-    https://<subdomain>.agiloft.com/project/<KB_NAME>
+    https://<subdomain>.agiloft.com/<KB_NAME>
     ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
     https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
     ```
 
@@ -117,7 +115,6 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
     https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
     ```
 

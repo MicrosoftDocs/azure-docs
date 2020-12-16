@@ -38,14 +38,16 @@ The workspace delete operation removes the workspace Resource Manager resource, 
 > [!NOTE] 
 > Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can't be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
 
-You can delete a workspace using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+You can delete a workspace using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [REST API](/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
 
 ### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
-4. A confirmation page appears that shows the data ingestion to the workspace over the past week. Type in the name of the workspace to confirm and then click **Delete**.
+4. A confirmation page appears that shows the data ingestion to the workspace over the past week. 
+5. If you want to permanently delete the workspace removing the option to later recover it, select the **Delete the workspace permanently** checkbox.
+6. Type in the name of the workspace to confirm and then click **Delete**.
 
    ![Confirm deletion of workspace](media/delete-workspace/workspace-delete.png)
 
@@ -57,11 +59,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## Permanent workspace delete
 The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name and you can create a new workspace using the same name.
 
-
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Add '-ForceDelete' tag to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
+To permanently delete a workspace using the Azure portal, select the **Delete the workspace permanently** checkbox before clicking the **Delete** button.
+
+To permanently delete a workspace using PowerShell, add '-ForceDelete' tag to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete

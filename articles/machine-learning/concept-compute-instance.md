@@ -107,7 +107,7 @@ You can perform the following actions:
 
 * [Create a compute instance](#create). 
 * Refresh the compute instances tab.
-* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it.
+* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it. Please note stopping the compute instance stops the billing for compute hours but you will still be billed for disk, public IP, and standard load balancer.
 * Delete a compute instance.
 * Filter the list of compute instanced to show only those you have created.
 
