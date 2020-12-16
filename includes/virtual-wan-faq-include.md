@@ -273,3 +273,7 @@ See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.
 ### Does Virtual WAN store customer data? 
 
 No. Virtual WAN does not store any customer data.
+
+### Are there any Managed Service Providers that can manage Virtual WAN for users as a service? 
+
+Yes. For a list of Managed service providers (MSP) solution enabled via Azure Marketplace, see [Virtual WAN MSP Partners](../articles/networking/networking-partners-msp.md#msp)
