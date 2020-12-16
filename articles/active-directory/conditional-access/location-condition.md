@@ -195,7 +195,7 @@ When a cloud proxy is in place, a policy that is used to require a hybrid Azure 
 A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 > [!NOTE]
-> Named Locations created by PowerShell will only display in Named locations (preview), you can't see them in them in the old view.  
+> Named locations that you create by using PowerShell display only in Named locations (preview). You can't see named locations in the old view.  
 
 ## Next steps
 
