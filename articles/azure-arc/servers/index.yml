@@ -21,6 +21,8 @@ landingContent:
             url: overview.md
       - linkListType: get-started
         links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
           - text: Connect machines to Azure Arc from the Azure portal
             url: onboard-portal.md
           - text: Connect machines at scale using a service principal

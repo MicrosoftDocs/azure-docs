@@ -20,6 +20,8 @@ landingContent:
             url: overview.md 
       - linkListType: quickstart
         links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
           - text: Connect cluster
             url: connect-cluster.md
       - linkListType: how-to-guide

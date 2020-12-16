@@ -463,6 +463,8 @@
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
+      - name: Troubleshoot & debug (local)
+        href: how-to-troubleshoot-deployment-local.md
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
@@ -503,7 +505,7 @@
       displayName: pipelines
       items: 
         - name: Create ML pipelines (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Moving data into and between ML pipeline steps (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)

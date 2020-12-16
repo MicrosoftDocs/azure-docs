@@ -416,7 +416,7 @@ The console prints the progress of creating data factory, linked service, datase
 
 Here is the sample output:
 
-```json
+```console
 Name: <data factory name>
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>
 Location: eastus
