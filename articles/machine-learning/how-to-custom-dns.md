@@ -32,8 +32,8 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## URLs in use
-### These URLs are in use in the following regions: eastus, southcentralus and westus2.
+## FQDNs in use
+### These FQDNs are in use in the following regions: eastus, southcentralus and westus2.
 The following list contains the fully qualified domain names (FQDN) used by your workspace:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -47,7 +47,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
     > [!NOTE]
     > Compute instances can be accessed only from within the virtual network.
     
-### These URLs are in use in all other regions
+### These FQDNs are in use in all other regions
 The following list contains the fully qualified domain names (FQDN) used by your workspace:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
