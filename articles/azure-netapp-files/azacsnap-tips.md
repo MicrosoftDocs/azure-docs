@@ -285,4 +285,4 @@ Key attributes of storage volume snapshots:
 
 ## Next steps
 
-- [Troubleshoot](azacsnap-cmd-ref-troubleshoot.md)
+- [Troubleshoot](azacsnap-troubleshoot.md)

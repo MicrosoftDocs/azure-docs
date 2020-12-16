@@ -205,4 +205,4 @@ ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
 
 ## Next steps
 
-- [Tips](azacsnap-cmd-ref-tips.md)
+- [Tips](azacsnap-tips.md)
