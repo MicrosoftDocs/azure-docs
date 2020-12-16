@@ -22,8 +22,9 @@ zone_pivot_groups: b2c-policy-type
 ## Profile editing flow
 
 Profile editing policy lets users manage their profile attributes, like display name, surname, given name, city, and others. The profile editing flow involves following steps: 
-1. Sign-up or sign-in, with local or social account. If user already signed-in, this step may be skipped.
-1. Azure AD B2C reads the user profile from the directory. Then present the values and let the user change them.
+
+1. Sign-up or sign-in, with local or social account. If the user has signed in, Azure AD B2C authorizes the user and move to the next step.
+1. Azure AD B2C reads the user profile from the directory, and let the user edit the attributes.
 
 ![Profile editing flow](./media/add-profile-editing-policy/profile-editing-flow.png)
 
@@ -42,9 +43,9 @@ If you want to enable users to edit their profile in your application, you use a
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
-1. For **Identity providers**, select **Local Account SignIn**.
-2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
-3. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. For **Identity providers**, select **Email sign-in**.
+1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
+1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
 
@@ -59,7 +60,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 ## Create a profile editing policy
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
 

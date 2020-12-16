@@ -22,9 +22,10 @@ zone_pivot_groups: b2c-policy-type
 ## Sign-up and sign-in flow
 
 Sign-up and sign-in policy lets users: 
-* Sign-up
+
+* Sign-up with local account
 * Sign-in with local account
-* Sign-up or sign-in with social account
+* Sign-up or sign-in with a social account
 * Password reset
 
 ![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
@@ -55,7 +56,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
     ![Create user flow page in Azure portal with properties highlighted](./media/add-sign-up-and-sign-in-policy/select-version.png)
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
-1. For **Identity providers**, select **Email signup**.
+1. For **Identity providers**, select **Email sign-up**.
 1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
@@ -84,7 +85,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 ## Create a sign-up and sign-in policy
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
 
