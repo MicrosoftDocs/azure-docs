@@ -49,12 +49,12 @@ This section lists the types of resource logs you can collect for your Azure Tim
 
 | Category | Display Name | Description |
 |----- |----- |----- |
-| Ingress | Ingress | The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload). |
+| Ingress | TSIIngress | The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload). |
 
 ## Schemas
 The following schemas are in use by Azure Time Series Insights
 
-### Ingress table
+### TSIIngress table
 
 | Property | Description |
 |----- |----- |
