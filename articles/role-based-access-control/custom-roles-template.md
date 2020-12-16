@@ -17,7 +17,7 @@ ms.author: rolyon
 
 # Create or update Azure custom roles using an ARM template
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create a custom role using an Azure Resource Manager template (ARM template).
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create or update a custom role using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -64,9 +64,7 @@ Follow these steps to deploy the previous template.
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
@@ -189,7 +187,6 @@ $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 $actions = $actions.Split(',')
 $roleDefName = Read-Host -Prompt "Enter the role ID to update"
 $templateFile = "rg-reader-update.json"
-
 New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
 ```
 
