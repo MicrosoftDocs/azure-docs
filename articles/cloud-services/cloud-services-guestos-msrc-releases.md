@@ -1166,8 +1166,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-12 | [4470199] | Internet Explorer	 | 2.81, 3.68, 4.61 | December 11, 2018 |
 | N/A | [4468323] | Timezone update	   | 2.81, 3.68, 4.61 | December 13, 2018 |
 | N/A | [4467107] | November Non-Security rollup   | 2.81 | November 13, 2018 |
-| N/A | [4467701] | November Non-Security rollup 	 | 3.68 | November 13, 2018 |
-| N/A | [4467697] | November Non-Security rollup 	 | 4.61 | November 13, 2018 |
+| N/A | [4467701] | November Non-Security rollup | 3.68 | November 13, 2018 |
+| N/A | [4467697] | November Non-Security rollup | 4.61 | November 13, 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
