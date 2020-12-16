@@ -27,20 +27,23 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 1. Search for *API Management*, or select **Integration** > **API Management**.
 1. Select **View** to add a default cost estimate for an API Management service instance.
 
+> [!NOTE]
+> The costs shown in this example are for demonstration purposes only. See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/) for the latest pricing information.
+
 :::image type="content" source="media/plan-manage-costs/pricing-calculator-developer-tier.png" alt-text="Estimate costs for Developer tier":::
 
 * The default cost estimate is based on an API Management service instance in the **Developer** [service tier](api-management-features.md) with 1 [capacity unit](api-management-capacity.md). The Developer tier is for non-production use cases and evaluations. It isn't backed by a service-level agreement.
 
 * To estimate costs for additional capacity units or a different service tier, select other options from the **Units** and **Tier** dropdowns.
 
-* Depending on the feature availability and service tier, additional charges may apply for use of [self-hosted gateways]().
+* Depending on the feature availability and service tier, additional charges may apply for use of [self-hosted gateways](self-hosted-gateway-overview.md).
 
 For additional pricing and feature details, see:
 
 * [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
 * [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
 
-### Using Monetary Credit with API Management
+### Using monetary credit with API Management
 
 You can pay for API Management charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
@@ -50,23 +53,21 @@ As you use Azure resources with API Management, you incur costs. Azure resource 
 
 When you use cost analysis, you view API Management costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
+> [!NOTE]
+> The costs shown in this example are for demonstration purposes only. Your costs will vary depending on resource usage and current pricing.
+
 To view API Management costs in cost analysis:
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com).
 1. Open the **Cost Management + Billing** window, select **Cost management** from the menu, and then select a **Billing scope**. For example, select a subscription from the list.
 1. Select **Cost Management** from the menu, and then select **Cost analysis**.
+1. By default, monthly costs for all services are shown in the first donut chart. 
 
-1. By default, costs for services are shown in the first donut chart. Select the area in the chart labeled *API Management*.
+    :::image type="content" source="media/plan-manage-costs/api-management-cost-analysis.png" alt-text="Monthly costs for subscription":::
 
-Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
+1. To narrow costs for a single service, such as API Management, select **Add filter** and then select **Service name**. Then, select **API Management**.
 
-:::image type="content" source="media/plan-manage-costs/api-management-cost-analysis.png" alt-text="Monthly costs for subscription":::
-
-- To narrow costs for a single service, like API Management, select **Add filter** and then select **Service name**. Then, select **API Management**.
-
-Here's an example showing costs for just API Management.
-
-:::image type="content" source="media/plan-manage-costs/api-management-apim-cost-analysis.png" alt-text="Example showing accumulated costs for API Management":::
+    :::image type="content" source="media/plan-manage-costs/api-management-apim-cost-analysis.png" alt-text="Example showing accumulated costs for API Management":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and API Management costs by resource group are also shown. From here, you can explore costs on your own.
 
