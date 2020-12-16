@@ -71,8 +71,8 @@ select create_distributed_table('users', 'email');
 ```
 
 Hyperscale (Citus) assigns each row to a shard based on the value of the
-*distribution column, which, in our case, we specified to be `email`. Every row
-will be in exactly one shard, and every shard can contain multiple rows.
+*distribution column*, which, in our case, we specified to be `email`. Every
+row will be in exactly one shard, and every shard can contain multiple rows.
 
 ![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
 
@@ -147,8 +147,8 @@ limit 5;
 
 ### Data skew
 
-A server group runs most efficiently when data is placed evenly on worker
-nodes, and when related data is placed together on the same workers. In this
+A server group runs most efficiently when you place data evenly on worker
+nodes, and when you place related data together on the same workers. In this
 section we'll focus on the first part, the uniformity of placement.
 
 To demonstrate, let's create sample data for our `users` table:
@@ -186,8 +186,8 @@ limit 5;
   102012 | t       | 16 kB
 ```
 
-We can see the shards are of equal size. Since we already saw that placements
-are evenly distributed among workers, we can infer that the worker nodes hold
+We can see the shards are of equal size. We already saw that placements are
+evenly distributed among workers, so we can infer that the worker nodes hold
 roughly equal numbers of rows.
 
 The rows in our `users` example distributed evenly because properties of the
@@ -203,10 +203,11 @@ end up with uneven data size on workers, that is, *data skew*.
 ### Add constraints to distributed data
 
 Using Hyperscale (Citus) allows you to continue to enjoy the safety of a
-relational database, including database constraints (see the PostgreSQL
-[docs](https://www.postgresql.org/docs/current/ddl-constraints.html)). Because of
-the nature of distributed systems, Hyperscale (Citus) will not cross-reference
-uniqueness constraints or referential integrity between worker nodes.
+relational database, including [database
+constraints](https://www.postgresql.org/docs/current/ddl-constraints.html).
+However, there's a limitation. Because of the nature of distributed systems,
+Hyperscale (Citus) won't cross-reference uniqueness constraints or referential
+integrity between worker nodes.
 
 Let's consider our `users` table example with a related table.
 
@@ -227,8 +228,8 @@ email address. Distributing by similar column values is called
 [colocation](concepts-hyperscale-colocation.md).
 
 We had no problem distributing books with a foreign key to users, because the
-key was on a distribution column. However, we would have trouble making isbn a
-key:
+key was on a distribution column. However, we would have trouble making `isbn`
+a key:
 
 ```sql
 -- will not work
@@ -260,7 +261,7 @@ books with users.
 In the previous sections, we saw how distributed table rows are placed in shards
 on worker nodes. Most of the time you don't need to know how or where data is
 stored in a server group. Hyperscale (Citus) has a distributed query executor
-that automatically splits up regular SQL queries and runs them in parallel on
+that automatically splits up regular SQL queries. It runs them in parallel on
 worker nodes close to the data.
 
 For instance, we can run a query to find the average age of users, treating the
@@ -299,13 +300,13 @@ explain select avg(current_date - bday) from users;
 
 The output shows an example of an execution plan for a *query fragment* running
 on shard 102040 (the table `users_102040` on worker 10.0.0.21). The other
-fragments are similar and are thus not shown. We can see that the worker node
+fragments aren't shown because they're similar. We can see that the worker node
 scans the shard tables and applies the aggregate. The coordinator node combines
-the aggregates for the final result.
+aggregates for the final result.
 
 ## Next steps
 
-In this tutorial we created a distributed table, and learned about its shards
+In this tutorial, we created a distributed table, and learned about its shards
 and placements. We saw a challenge of using uniqueness and foreign key
 constraints, and finally saw how distributed queries work at a high level.
 
