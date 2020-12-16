@@ -61,9 +61,11 @@ Azure services actually require Azure Monitor to collect telemetry, and it's ena
 
 Similar to reports in Operations Manager, [workbooks](platform/workbooks-overview.md) in Azure Monitor provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. They allow you to combine metrics and log queries into interactive reports. You can take advantage of existing workbooks that are included in [Insights](monitor-reference.md), which provide similar functionality as a management pack in Operations Manager for particular Azure services. Create your own workbooks to combine data from multiple services.
 
-[![Insight](media/azure-monitor-scom/insight.png)](media/azure-monitor-scom/insight.png#lightbox)
+[![Insight example](media/azure-monitor-scom/insight.png)](media/azure-monitor-scom/insight.png#lightbox)
 ### Azure management pack
-The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health. You can set a threshold for each resource to determine a health state and create alerts. This is a limited view though based on platform metric values that are sent to Azure Storage and collected through the Azure API from the management pack. It doesn't include other telemetry such as resource logs, and it doesn't provide the additional analysis of insights and other tools in Azure Monitor.
+The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health based on a particular set of monitoring scenarios. This management pack does require you to perform additional configuration for each resource in Azure, and it doesn't provide the full monitoring experience of Azure Monitor for these resources, but it may be helpful to provide some visibility of your Azure resources in the Operations Console until you evolve your business processes around Azure Monitor.
+
+[![Azure management pack](media/azure-monitor-scom/operations-console.png)](media/azure-monitor-scom/operations-console.png#lightbox)
 
  You may choose to use the Azure Management pack if you want visibility for certain Azure resources in the Operations console and to integrate some basic alerting with your existing processes. You should look to Azure Monitor though for complete monitoring of your Azure resources. 
 
