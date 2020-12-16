@@ -44,8 +44,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
     
     | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
     |-	|-	|-	|-	|-	|
-    | Unix 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
-    | Ntfs 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
+    | `Unix` 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+    | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
 * UNIX users mounting the NTFS security style volume using NFS will be authenticated as Windows user `root` for UNIX `root` and `pcuser` for all other users. Make sure that these user accounts exist in your Active Directory prior to mounting the volume when using NFS. 
 
 
