@@ -151,6 +151,5 @@ To change the name:
 
 You may also want to carry out the following on the management console:
 
-- [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
-
-- [About high availability](how-to-set-up-high-availability.md)
+[Troubleshoot the sensor and on-premises management console]
+(how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
