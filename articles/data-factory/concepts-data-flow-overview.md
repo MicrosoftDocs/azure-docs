@@ -97,60 +97,60 @@ The Azure Data Factory team has created a [performance tuning guide](concepts-da
 Mapping data flows are available in the following regions:
 
 | Azure region | Data flows in ADF | Data flows in Synapse Studio |
-| ------------ | ----------------- | ---------------------------- |
-|  Australia Central | | |	
-| Australia Central 2 | | |
-| Australia East | ✓ |	✓ |
-| Australia Southeast	| ✓ | ✓ |
-| Brazil South	| ✓ |  |
+|--|--|--|
+| Australia Central |  |  |
+| Australia Central 2 |  |  |
+| Australia East | ✓ | ✓ |
+| Australia Southeast | ✓ | ✓ |
+| Brazil South | ✓ |  |
 | Canada Central | ✓ |  |
-| Central India	| ✓ |	✓ |
-| Central US	| ✓ |	✓ |
-| China East |		| ✓ |
-| China East 2	|	|	 |
-| China Non-Regional | | |
-| China North |		| |
-| China North 2	| |  |
-| East Asia	| ✓ | |
-| East US	| ✓ | ✓ |
-| East US 2	| ✓ | ✓ |
+| Central India | ✓ | ✓ |
+| Central US | ✓ | ✓ |
+| China East |  | ✓ |
+| China East 2 |  |  |
+| China Non-Regional |  |  |
+| China North |  |  |
+| China North 2 |  |  |
+| East Asia | ✓ |  |
+| East US | ✓ | ✓ |
+| East US 2 | ✓ | ✓ |
 | France Central | ✓ | ✓ |
-| France South	| | |
-| Germany Central (Sovereign) | | |
-| Germany Non-Regional (Sovereign) | | |
-| Germany North (Public) | | |
-| Germany Northeast (Sovereign) | | |
+| France South |  |  |
+| Germany Central (Sovereign) |  |  |
+| Germany Non-Regional (Sovereign) |  |  |
+| Germany North (Public) |  |  |
+| Germany Northeast (Sovereign) |  |  |
 | Germany West Central (Public) |  | ✓ |
-| Japan East | ✓ |	|
-| Japan West |	| |
-| Korea Central	| ✓ |  |
-| Korea South | | |
-| North Central US	| ✓ | ✓ |
-| North Europe	| ✓ |	 |
-| Norway East | | |
-| Norway West | | |
-| South Africa North	| ✓ | |
-| South Africa West	|  |	|
-| South Central US	| |	✓ |
-| South India | | |
-| Southeast Asia	| ✓ | ✓ |
-| Switzerland North	| 	|  |
-| Switzerland West | | |
-| UAE Central | | |
-| UAE North	|  |	|
-| UK South	| ✓ |	| ✓ |
-| UK West |		| ✓ |
-| US DoD Central | |  |
-| US DoD East | |  |
-| US Gov Arizona |		|  |
-| US Gov Non-Regional | |  |
-| US Gov Texas | |  |
-| US Gov Virginia |		|  |
-| West Central US |		| ✓ |
-| West Europe	| ✓ |	✓ |
-| West India | | |
-| West US	| ✓ |   |
-| West US 2	| ✓ |	✓ | 
+| Japan East | ✓ |  |
+| Japan West |  |  |
+| Korea Central | ✓ |  |
+| Korea South |  |  |
+| North Central US | ✓ | ✓ |
+| North Europe | ✓ |  |
+| Norway East |  |  |
+| Norway West |  |  |
+| South Africa North | ✓ |  |
+| South Africa West |  |  |
+| South Central US |  | ✓ |
+| South India |  |  |
+| Southeast Asia | ✓ | ✓ |
+| Switzerland North |  |  |
+| Switzerland West |  |  |
+| UAE Central |  |  |
+| UAE North |  |  |
+| UK South | ✓ |  | ✓ |
+| UK West |  | ✓ |
+| US DoD Central |  |  |
+| US DoD East |  |  |
+| US Gov Arizona |  |  |
+| US Gov Non-Regional |  |  |
+| US Gov Texas |  |  |
+| US Gov Virginia |  |  |
+| West Central US |  | ✓ |
+| West Europe | ✓ | ✓ |
+| West India |  |  |
+| West US | ✓ |  |
+| West US 2 | ✓ | ✓ |  |
 
 ## Next steps
 

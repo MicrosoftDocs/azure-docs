@@ -386,6 +386,7 @@ The following Data Factory entities are defined in the JSON template:
 5. [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
+
 The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
 
 ```json
