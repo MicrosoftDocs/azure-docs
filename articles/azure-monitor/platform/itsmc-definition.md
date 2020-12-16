@@ -254,10 +254,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Description_s | Description |
 | Computer  | Configuration Item |
 
-## Contact us
-
-If you have queries or feedback about the IT Service Management Connector, contact us at [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
-
 ## Next steps
 
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)

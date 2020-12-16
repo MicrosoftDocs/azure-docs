@@ -1,5 +1,5 @@
 ---
-title: IT Service Management Connector Overview
+title: IT Service Management Connector overview
 description: This article provides an overview of IT Service Management Connector (ITSMC).
 ms.subservice: logs
 ms.topic: conceptual
@@ -42,7 +42,6 @@ You can start using ITSMC by completing the following steps:
 3. [Create an ITSM connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
 4. [Use the connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
 
-
-## Next steps
+# Next steps
 
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
