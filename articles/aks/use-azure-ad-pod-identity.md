@@ -74,6 +74,16 @@ export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n $
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
 ```
 
+## Assign permissions for the managed identity
+
+The managed identity *IDENTITY_CLIENT_ID* needs *Reader* permissions on the resource group that contains the Virtual Machine Scaleset of your AKS Cluster.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
+```
+
 ## Create a pod identity
 
 Create a pod identity for the cluster using `az aks pod-identity add`.
