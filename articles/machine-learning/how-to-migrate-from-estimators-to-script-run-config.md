@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, contperf-fy21q1
 
 # Migrating from Estimators to ScriptRunConfig
 
-Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration, which have generated ambiguity and inconsistency for users. To address this, we are simplifying the job configuration process in Azure ML to converge on using ScriptRunConfig as the recommended option for configuring training jobs. 
+Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure ML.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 
 Estimators are deprecated with the 1.19.0 release of the Python SDK. You should also generally avoid explicitly instantiating a RunConfiguration object yourself, and instead configure your job using the ScriptRunConfig class.
 
