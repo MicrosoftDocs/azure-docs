@@ -87,10 +87,12 @@
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility Service data structure
+  - name: Mobility services
     href: mobility-service-data-structure.md
-  - name: Weather Service concepts
+  - name: Weather services concepts
     href: weather-services-concepts.md
+  - name: Weather services FAQ
+    href: weather-services-faq.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -288,7 +290,7 @@
       href: /rest/api/maps/data
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility service
+    - name: Mobility services
       href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
@@ -304,7 +306,7 @@
       href: /rest/api/maps/timezone
     - name: Traffic service
       href: /rest/api/maps/traffic
-    - name: Weather service
+    - name: Weather services
       href: /rest/api/maps/weather
     - name: Maps Creator service
       items:

@@ -27,7 +27,7 @@ Some common messaging scenarios are:
     2. Post results of processing to one or more different queues.
     3. Move the input message from the original queue. 
     
-    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) pattern in the greater solution context. 
+    The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
 
 If you're familiar with other message brokers like Apache ActiveMQ, Service Bus concepts are similar to what you know. As Service Bus is a platform-as-a-service (PaaS) offering, a key difference is that you don't need to worry about the following actions. Azure takes care of those chores for you. 

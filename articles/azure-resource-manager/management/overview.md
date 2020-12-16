@@ -3,13 +3,13 @@ title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # What is Azure Resource Manager?
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](../templates/overview.md).
+To learn about Azure Resource Manager templates (ARM templates), see the [template deployment overview](../templates/overview.md).
 
 ## Consistent management layer
 
@@ -89,7 +89,7 @@ There are some important factors to consider when defining your resource group:
 
 * Some resources can exist outside of a resource group. These resources are deployed to the [subscription](../templates/deploy-to-subscription.md), [management group](../templates/deploy-to-management-group.md), or [tenant](../templates/deploy-to-tenant.md). Only specific resource types are supported at these scopes.
 
-* To create a resource group, you can use the [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups), or an [Azure Resource Manager (ARM) template](../templates/deploy-to-subscription.md#resource-groups).
+* To create a resource group, you can use the [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups), or an [ARM template](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Resiliency of Azure Resource Manager
 

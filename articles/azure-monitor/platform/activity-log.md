@@ -52,7 +52,8 @@ You can also access Activity log events using the following methods.
 - Use log queries to perform complex analysis and gain deep insights on Activity Log entries.
 - Use log alerts with Activity entries allowing for more complex alerting logic.
 - Store Activity log entries for longer than 90 days.
-- No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
+- No data ingestion charges for Activity log data stored in a Log Analytics workspace.
+- No data retention charges till 90 days for Activity log data stored in a Log Analytics workspace.
 
 [Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
 

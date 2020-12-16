@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -54,6 +54,8 @@ Affected environments are:
 
 Related announcement 
 All client-server and browser-server combinations should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. This is change is related to [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
+
+---
 
 ### New Federated Apps available in Azure AD Application gallery - November 2020
 
@@ -154,6 +156,8 @@ Tenant administrators can now use Staged Rollout to deploy Email Sign-In with Pr
 **Product capability:** Monitoring & Reporting
  
 With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Multi-Factor Authentication, and successful sign-in.
+
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md).
  
 ---
 
@@ -276,7 +280,7 @@ All client-server and browser-server combinations should use TLS 1.2 and modern 
 
 Affected environments are:
 - Azure US Gov
-- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
+- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
  
 ---
 
@@ -308,7 +312,7 @@ For more information about this feature, see [Disable and delete external identi
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-In Azure AD access reviews, administrators creating reviews can now write a custom message to the reviewers. Reviewers will see the message in the email they receive that prompts them to complete the review. To learn more about using this feature, see step 6 of the [Advanced Settings](../governance/create-access-review.md#advanced-settings) section.
+In Azure AD access reviews, administrators creating reviews can now write a custom message to the reviewers. Reviewers will see the message in the email they receive that prompts them to complete the review. To learn more about using this feature, see step 14 of the [Create one or more access reviews](../governance/create-access-review.md#create-one-or-more-access-reviews) section.
 
 ---
 
@@ -351,7 +355,7 @@ The Integration Assistant (preview) experience is now available for Azure AD B2C
 
 You can now view the template ID of each Azure AD role in the Azure portal. In Azure AD, select  **description** of the selected role. 
 
-It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole?view=graph-rest-1.0) and [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. For more information on role template IDs, see [Role template IDs](../roles/permissions-reference.md#role-template-ids).
+It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole) and [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. For more information on role template IDs, see [Role template IDs](../roles/permissions-reference.md#role-template-ids).
 
 ---
 
@@ -679,7 +683,7 @@ If you have outbound firewall rules in your organization, update the rules so th
 **Service category:** Identity Protection 
 **Product capability:** Identity Security & Protection
 
-We're updating the Identity Secure Score portal to align with the changes introduced in Microsoft Secure Score’s [new release](/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide). 
+We're updating the Identity Secure Score portal to align with the changes introduced in Microsoft Secure Score’s [new release](/microsoft-365/security/mtp/microsoft-secure-score-whats-new). 
 
 The preview version with the changes will be available at the beginning of September. The changes in the preview version include:
 - “Identity Secure Score” renamed to “Secure Score for Identity” for brand alignment with Microsoft Secure Score
@@ -1059,7 +1063,7 @@ Azure Government tenants using the B2B collaboration features can now invite use
 **Product capability:** B2B/B2C
  
 
-The externalUserState and externalUserStateChangedDateTime properties can be used to find invited B2B guests who have not accepted their invitations yet as well as build automation such as deleting users who haven't accepted their invitations after some number of days. These properties are now available in MS Graph v1. For guidance on using these properties, refer to [User resource type](/graph/api/resources/user?view=graph-rest-1.0).
+The externalUserState and externalUserStateChangedDateTime properties can be used to find invited B2B guests who have not accepted their invitations yet as well as build automation such as deleting users who haven't accepted their invitations after some number of days. These properties are now available in MS Graph v1. For guidance on using these properties, refer to [User resource type](/graph/api/resources/user).
  
 ---
 
@@ -1134,7 +1138,7 @@ A new delegated permission EntitlementManagement.Read.All is now available for u
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
  
-The riskyUsers and riskDetections Microsoft Graph APIs are now generally available. Now that they are available at the v1.0 endpoint, we invite you to use them in production. For more information, please check out the [Microsoft Graph docs](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0).
+The riskyUsers and riskDetections Microsoft Graph APIs are now generally available. Now that they are available at the v1.0 endpoint, we invite you to use them in production. For more information, please check out the [Microsoft Graph docs](/graph/api/resources/identityprotectionroot).
  
 ---
 
