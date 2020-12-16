@@ -575,6 +575,25 @@ Follow these steps to verify the driver installation:
 
 For more information, see [Nvidia GPU driver extension for Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
 
+## Remove GPU extension
+
+To remove the GPU extension, use the following command:
+
+`Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
+
+Here is a sample output:
+
+```powershell
+PS C:\azure-stack-edge-deploy-vms> Remove-AzureRmVMExtension -ResourceGroupName rgl -VMName WindowsVM -Name windowsgpuext
+Virtual machine extension removal operation
+This cmdlet will remove the specified virtual machine extension. Do you want to continue? [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
+Requestld IsSuccessStatusCode StatusCode ReasonPhrase
+--------- ------------------- ---------- ------------    
+          True                OK         OK
+```
+
+
+
 
 ## Next steps
 
