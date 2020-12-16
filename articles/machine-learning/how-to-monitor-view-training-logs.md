@@ -145,6 +145,9 @@ When sidecar is enabled, job prep and job release scripts will be run within sid
 |prep_cmd.txt      |   Log for ContextManagers entered when `job_prep.py` is run (some of this will be streamed to `azureml-logs/65-job_prep`)       |
 |release_cmd.txt     |  Log for ComtextManagers exited when `job_release.py` is run        |
 
+#### Other folders
+
+For jobs training on multi-compute clusters, logs are present for each node IP. The structure for each node is the same as single node jobs. There is one additional logs folder for overall execution, stderr, and stdout logs.
 
 ## Monitor a compute cluster
 
