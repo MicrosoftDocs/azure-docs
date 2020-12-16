@@ -1,6 +1,6 @@
 ---
 
-title: What is sign-in diagnostic in Azure AD? | Microsoft Docs
+title: What are sign-in diagnostics in Azure AD? | Microsoft Docs
 description: Provides a general overview of the sign-in diagnostics in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -23,18 +23,18 @@ ms.reviewer: tspring
 ms.collection: M365-identity-device-management
 ---
 
-# What is sign-in diagnostic in Azure AD?
+# What are sign-in diagnostics in Azure AD?
 
 Azure AD provides you with a flexible security model to control what users can do with the managed resources. Access to these resources is not only controlled by **who** you are but also by **how** you access them. Typically, flexibility comes along with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
 
-As an IT admin, you need a solution that gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostic for Azure AD is an example for such a solution. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
+As an IT admin, you need a solution that gives you the right level of insights into the activities in your system so that you can easily diagnose and solve problems when they occur. The sign-in diagnostics for Azure AD are an example for such a solution. Use the diagnostic to analyze what happened during a sign-in and what actions you can take to resolve problems without being required to involve Microsoft support.
 
 This article gives you an overview of what the solution does and how you can use it.
 
 
 ## Requirements
 
-The sign-in diagnostic is available in all editions of Azure AD.<br> 
+The sign-in diagnostics is available in all editions of Azure AD.<br> 
 You must be a global administrator in Azure AD to use it.
 
 ## How it works
