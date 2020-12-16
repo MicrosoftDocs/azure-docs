@@ -60,7 +60,7 @@ src = ScriptRunConfig(source_directory='.',
                       environment=pytorch_env)
 ```
 
-If you want to specify **environment variables** that will get set on the process where the training script is executed, you should also do that using the Environment object:
+If you want to specify **environment variables** that will get set on the process where the training script is executed, use the Environment object:
 ```
 myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
