@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 12/15/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # GPU VMs for your Azure Stack Edge Pro device
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro device. The article describes how to create a GPU VM and then install GPU driver extension to install appropriate Nvidia drivers. Both the GPU VM creation and GPU driver extension installation are done using Azure Resource Manager templates. 
+This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro device. The article describes how to create a GPU VM and then install GPU driver extension to install appropriate Nvidia drivers. Use the Azure Resource Manager templates to create the GPU VM and install the GPU driver extension. 
 
 This article applies to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R devices.
 
@@ -22,7 +22,9 @@ This article applies to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R devi
 
 Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
 
-## Supported operating systems and drivers 
+For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
+
+## Supported OS and GPU drivers 
 
 To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU drivers must be installed. 
 
@@ -48,9 +50,9 @@ This extension supports the following OS distros, depending on the driver suppor
 | Linux: Red Hat Enterprise Linux | 7.4 |
 
 
-## GPU VMs and Kubernetes on your device
+## GPU VMs and Kubernetes
 
-Consider the following scenarios while deploying GPU VMs on a device that has Kubernetes configured.
+Before you deploy GPU VMs on your device, review the following considerations if  Kubernetes is configured on the device.
 
 #### For 1 GPU device: 
 
@@ -74,6 +76,8 @@ If you have GPU VMs running on your device and Kubernetes is also configured, th
 Follow these steps when deploying GPU VMs on your device:
 
 1. Identify if your device will also be running Kubernetes. If the device will run Kubernetes, then you'll need to create the GPU VM first and then configure Kubernetes. If Kubernetes is configured first, then it will claim all the available GPU resources and the GPU VM creation will fail.
+
+1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
 
 1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) except for the following differences: 
 
@@ -102,16 +106,15 @@ Follow these steps when deploying GPU VMs on your device:
 
 1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#gpu-extension-for-windows).
 
-1. Connect to the GPU VM:
+1. To verify GPU extension install, connect to the GPU VM:
     1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Verify the installation](#verify-windows-driver-installation).
     1. If using a Linux VM, follow the steps in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Verify the installation](#verify-linux-driver-installation).
 
-1. If needed, could switch the compute network back to whatever customer needs. 
+1. If needed, you could switch the compute network back to whatever you need. 
 
 
 > [!NOTE]
 > When updating your device software version from 2012 to later, you will need to manually stop the GPU VMs.
-
 
 
 ## Install GPU extension
@@ -272,8 +275,8 @@ ForceUpdateTag          :
 PS C:\WINDOWS\system32>
 ```
 
-Extension execution output is logged to the following file. Refer to this file to track the status of installation. 
-`C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`
+Extension execution output is logged to the following file. Refer to this file `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status` to track the status of installation. 
+
 
 A successful install is indicated by a `message` as `Enable Extension` and `status` as `success`.
 
@@ -328,7 +331,7 @@ Wed Dec 16 00:35:51 2020
 PS C:\Program Files\NVIDIA Corporation\NVSMI>
 ```
 
-For more information, see [Nvidia GPU driver extension for Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md)
+For more information, see [Nvidia GPU driver extension for Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md).
 
 ### GPU extension for Linux
 
@@ -401,7 +404,6 @@ Here is a sample parameter file that was used in this article:
 #### Deploy template
 
 Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
-
 
 ```powershell
 $templateFile = "Path to addGPUextensiontoVM.json" 
