@@ -31,18 +31,19 @@ For training tasks involving classical machine learning algorithms tasks such cl
 
 ### Neural networks: PyTorch, TensorFlow, Keras
 
-Open-source machine learning algorithms known as neural networks, a kind of deep learning, are useful for computer vision models in Azure Machine Learning. 
+Open-source machine learning algorithms known as neural networks, a subset of machine learning, are useful for training deep learning models in Azure Machine Learning.
 
 Open-source deep learning frameworks and how-to guides include:
+
  *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning in PyTorch](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing repurpose it to. See the [deep learning article](concept-deep-learning-vs-machine-learning.md#transfer-learning) to learn more about transfer learning.
+Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning article](concept-deep-learning-vs-machine-learning.md#transfer-learning) to learn more about transfer learning.
 
 ### Reinforcement learning: Ray RLLib
 
-Reinforcement learning is a technique of artificial intelligence that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
+Reinforcement learning is an artificial intelligence technique that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
 The [Ray RLLib](https://github.com/ray-project/ray) project has a set features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
 
@@ -72,7 +73,7 @@ Once models are trained and ready for production, you have to choose how to depl
 
 ### Standardize model formats with ONNX
 
-Once you've trained your model, its contents are serialized and saved to a file. Each framework has its own format. When working with different frameworks and tools, it means you have to deploy models according to the framework's requirements. To standardize this process, you can use the Open Neural Network Exchange (ONNX) format. ONNX is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. 
+After training, the contents of the model such as learned parameters are serialized and saved to a file. Each framework has its own serialization format. When working with different frameworks and tools, it means you have to deploy models according to the framework's requirements. To standardize this process, you can use the Open Neural Network Exchange (ONNX) format. ONNX is an open-source format for artificial intelligence models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET.
 
 For more information on ONNX and how to consume ONNX models, see the following articles:
 
