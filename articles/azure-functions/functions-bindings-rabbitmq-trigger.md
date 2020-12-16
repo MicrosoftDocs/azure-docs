@@ -148,7 +148,6 @@ def main(myQueueItem) -> None:
 
 The following Java function uses the `@RabbitMQTrigger` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
 
-
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
@@ -221,7 +220,7 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the 'Body' property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
@@ -230,12 +229,12 @@ The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/r
 
 # [C# Script](#tab/csharp-script)
 
-The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the 'Body' property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
 * `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# [#example](example).
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [#example](example).
 
 # [JavaScript](#tab/javascript)
 
