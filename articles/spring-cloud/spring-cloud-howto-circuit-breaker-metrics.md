@@ -15,22 +15,23 @@ This document explains how to collect Spring Cloud Resilience4j Circuit Breaker 
 
 We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) to show how it works.
 
-## Enable Java in process agent
+## Prerequisites
 
-Enable Java In-Process agent from this [guide](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights?branch=pr-en-us-139984#enable-java-in-process-agent-for-application-insights).
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights?branch=pr-en-us-139984#enable-java-in-process-agent-for-application-insights).
 
-## Enable dimension collection from Application Insights
+* Enable dimension collection for resilience4j metrics from the [Application Insights guide](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
 
-Enable dimension collection for resilience4j metrics from this [guide](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
+* Install git, Maven, and Java, if not already in use by the development computer.
 
 ## Build and deploy apps
 
 The following procedure builds and deploys apps.
 
-1. Clone demo repository
+1. Clone and build the demo repository.
 
 ```bash
 git clone https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo.git
+cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 ```
 
 2. Create applications with endpoints
@@ -67,8 +68,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
->   
-> * The customer application must support application code with a reference to the CircuitBreakerFactory, [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker0#overview).
+> * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker0#overview).
 >
 > * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.
 >
@@ -84,7 +84,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >   ```
 >
 
-Navigate to the URL provided by gateway application, and access the endpoint from [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) as follows:
+Navigate to the URL provided by gateway applications, and access the endpoint from [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) as follows:
 
 ```
 /get
@@ -96,27 +96,27 @@ Navigate to the URL provided by gateway application, and access the endpoint fro
 
 1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and click **Application Insights**.
 
-   [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.PNG)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
+   [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
 2. Select **Metics** from the **Application Insights** page.  Select **azure.applicationinsights** from **Metrics Namespace**.  Also select **resilience4j_circuitbreaker_buffered_calls** metrics with **Average**.
 
-   [ ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.PNG)](media/spring-cloud-resilience4j/resilience4J-1.PNG)
+   [ ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.png)](media/spring-cloud-resilience4j/resilience4J-1.PNG)
 
 3. Select **resilience4j_circuitbreaker_calls** metrics and **Average**.
 
-   [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.PNG)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
+   [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
 4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Click **Add filter**, and then select name as **createNewAccount**.
 
-   [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.PNG)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
+   [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
 5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then click **Apply splitting**, and select **kind**.
 
-   [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.PNG)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
+   [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
 6. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
 
-   [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.PNG)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
+   [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
 ## See also
 
