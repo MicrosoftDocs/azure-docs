@@ -29,13 +29,13 @@ The following procedure builds and deploys apps.
 
 1. Clone demo repository
 
-```
+```bash
 git clone https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo.git
 ```
 
 2. Create applications with endpoints
 
-```
+```azcli
 az spring-cloud app create --name resilience4j --is-public \
     -s ${asc-service-name} -g ${asc-resource-group}
 az spring-cloud app create --name reactive-resilience4j --is-public \
@@ -44,7 +44,7 @@ az spring-cloud app create --name reactive-resilience4j --is-public \
 
 3. Deploy applications.
 
-```
+```azcli
 az spring-cloud app deploy -n resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
@@ -57,7 +57,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >
 > * Include the required dependency for Resilience4j:
 >
->   ```
+>   ```xml
 >   <dependency>
 >       <groupId>io.github.resilience4j</groupId>
 >       <artifactId>resilience4j-micrometer</artifactId>
@@ -72,7 +72,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >
 > * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.
 >
->   ```
+>   ```xml
 >   <dependency>
 >       <groupId>org.springframework.cloud</groupId>
 >       <artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -114,7 +114,7 @@ Navigate to the URL provided by gateway application, and access the endpoint fro
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.PNG)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
-6.. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
+6. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
 
    [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.PNG)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
