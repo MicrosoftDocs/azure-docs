@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,9 +19,19 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+## Sign-up and sign-in flow
+
+Sign-up and sign-in policy lets users: 
+* Sign-up
+* Sign-in with local account
+* Sign-up or sign-in with social account
+* Password reset
+
+![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-register-applications.md).
+If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -72,7 +82,9 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started).
+## Create a sign-up and sign-in policy
+
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
 

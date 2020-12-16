@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,9 +19,18 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+## Password rest flow
+
+Password reset policy allows users to reset their own forgotten password. The password reset flow involves following steps: 
+1. From the sign-up and sign-in page, user clicks on the "Forgot your password?" link. Azure AD B2C returns the AADB2C90118 error code to your app. The app handles this error code by invoking the password reset policy. 
+1. Users provide and verify their email with a Timed One Time Passcode.
+1. Enter a new password.
+
+![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
+
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-register-applications.md).
+If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -49,7 +58,9 @@ To enable users of your application to reset their password, you use a password 
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started).
+## Create a password reset policy
+
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
 

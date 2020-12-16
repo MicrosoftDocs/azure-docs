@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,9 +19,18 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+## Profile editing flow
+
+Profile editing policy lets users manage their profile attributes, like display name, surname, given name, city, and others. The profile editing flow involves following steps: 
+1. Sign-up or sign-in, with local or social account. If user already signed-in, this step may be skipped.
+1. Azure AD B2C reads the user profile from the directory. Then present the values and let the user change them.
+
+![Profile editing flow](./media/add-profile-editing-policy/profile-editing-flow.png)
+
+
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-register-applications.md).
+If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -48,7 +57,9 @@ If you want to enable users to edit their profile in your application, you use a
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started).
+## Create a profile editing policy
+
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
 
