@@ -213,7 +213,7 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
 ## Create image for your VM
 
-To create image for your VM, edit the `CreateImage.parameters.json` parameters file and then deploy the template `CreateImageAndVnet.json` that uses this parameter file.
+To create image for your VM, edit the `CreateImage.parameters.json` parameters file and then deploy the template `CreateImage.json` that uses this parameter file.
 
 
 ### Edit parameters file

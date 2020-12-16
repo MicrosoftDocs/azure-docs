@@ -20,7 +20,7 @@ This article applies to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R devi
 
 ## About GPU VMs
 
-Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes that are available with single or multiple GPUs. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
+Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
 
 ## Supported operating systems and drivers 
 
@@ -54,7 +54,7 @@ Consider the following scenarios while deploying GPU VMs on a device that has Ku
 
 #### For 1 GPU device: 
 
-- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful.
+- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes will not have access to the GPU in this case.
 
 - **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim the GPU on your device and the VM creation will fail as there are no GPU resources available.
 
@@ -67,7 +67,6 @@ Consider the following scenarios while deploying GPU VMs on a device that has Ku
 - **Configure Kubernetes on your device followed by creation of a GPU VMs**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
 
 If you have GPU VMs running on your device and Kubernetes is also configured, then any time the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device.
-
 
 
 ## Create GPU VMs
@@ -156,6 +155,40 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 	}
 	}
 ```
+
+Here is a sample parameter file that was used in this article:
+
+```powershell
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateVM\CreateVM.json"
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateVM\CreateVM.parameters.json"
+PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
+PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment2"
+
+DeploymentName          : deployment2
+ResourceGroupName       : myasegpuvm1
+ProvisioningState       : Succeeded
+Timestamp               : 12/16/2020 12:02:56 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          vmName           String                     VM2
+                          adminUsername    String                     Administrator
+                          password         String                     Password1
+                          imageName        String                     myasewindowsimg
+                          vmSize           String                     Standard_NC4as_T4_v3
+                          vnetName         String                     ASEVNET
+                          vnetRG           String                     aserg
+                          subnetName       String                     ASEVNETsubNet
+                          nicName          String                     nic6
+                          ipConfigName     String                     ipconfig6
+                          privateIPAddress  String
+
+Outputs                 :
+DeploymentDebugLogLevel :
+PS C:\WINDOWS\system32>
+```
 #### Deploy template
 
 Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
@@ -166,19 +199,83 @@ $templateParameterFile = "Path to addGPUExtWindowsVM.parameters.json"
 $RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
+> [!NOTE]
+> The extension deployment is a long running job and takes about 10 minutes to complete.
 
+Here is a sample output:
+
+```powershell
+PS C:\WINDOWS\system32> "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
+C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addGPUExtWindowsVM.parameters.json"
+PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
+PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment3"
+
+DeploymentName          : deployment3
+ResourceGroupName       : myasegpuvm1
+ProvisioningState       : Succeeded
+Timestamp               : 12/16/2020 12:18:50 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          vmName           String                     VM2
+                          extensionName    String                     windowsgpuext
+                          publisher        String                     Microsoft.HpcCompute
+                          type             String                     NvidiaGpuDriverWindows
+                          typeHandlerVersion  String                     1.3
+                          settings         Object                     {
+                            "DriverURL": "http://us.download.nvidia.com/tesla/442.50/442.50-tesla-desktop-winserver-2019-2016-international.exe",
+                            "DriverCertificateUrl": "https://go.microsoft.com/fwlink/?linkid=871664",
+                            "DriverType": "CUDA"
+                          }
+
+Outputs                 :
+DeploymentDebugLogLevel :
+PS C:\WINDOWS\system32>
+```
 #### Track deployment
 
 To check the deployment state of extensions for a given VM, run the following command: 
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
+```
+Here is a sample output:
+
+```powershell
+PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM2 -Name windowsgpuext
+
+ResourceGroupName       : myasegpuvm1
+VMName                  : VM2
+Name                    : windowsgpuext
+Location                : dbelocal
+Etag                    : null
+Publisher               : Microsoft.HpcCompute
+ExtensionType           : NvidiaGpuDriverWindows
+TypeHandlerVersion      : 1.3
+Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM2/extensions/windowsgpuext
+PublicSettings          : {
+                            "DriverURL": "http://us.download.nvidia.com/tesla/442.50/442.50-tesla-desktop-winserver-2019-2016-international.exe",
+                            "DriverCertificateUrl": "https://go.microsoft.com/fwlink/?linkid=871664",
+                            "DriverType": "CUDA"
+                          }
+ProtectedSettings       :
+ProvisioningState       : Creating
+Statuses                :
+SubStatuses             :
+AutoUpgradeMinorVersion : True
+ForceUpdateTag          :
+
+PS C:\WINDOWS\system32>
 ```
 
 Extension execution output is logged to the following file. Refer to this file to track the status of installation. 
 `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`
 
-A successful install is indicated by a status `Enable Extension`.
+A successful install is indicated by a `message` as `Enable Extension` and `status` as `success`.
 
 ```powershell
 "status":  {
@@ -192,9 +289,44 @@ A successful install is indicated by a status `Enable Extension`.
 
 #### Verify Windows driver installation
 
-Log in the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` should be located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
 If the driver is installed, you see an output similar to the following sample: 
+
+```powershell
+PS C:\Users\Administrator> cd "C:\Program Files\NVIDIA Corporation\NVSMI"
+PS C:\Program Files\NVIDIA Corporation\NVSMI> ls
+
+    Directory: C:\Program Files\NVIDIA Corporation\NVSMI
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        2/26/2020  12:00 PM         849640 MCU.exe
+-a----        2/26/2020  12:00 PM         443104 nvdebugdump.exe
+-a----        2/25/2020   2:06 AM          81823 nvidia-smi.1.pdf
+-a----        2/26/2020  12:01 PM         566880 nvidia-smi.exe
+-a----        2/26/2020  12:01 PM         991344 nvml.dll
+
+PS C:\Program Files\NVIDIA Corporation\NVSMI> .\nvidia-smi.exe
+Wed Dec 16 00:35:51 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 442.50       Driver Version: 442.50       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla T4            TCC  | 0000503C:00:00.0 Off |                    0 |
+| N/A   35C    P8    11W /  70W |      8MiB / 15205MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+PS C:\Program Files\NVIDIA Corporation\NVSMI>
+```
 
 For more information, see [Nvidia GPU driver extension for Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md)
 
@@ -284,6 +416,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 Here is a sample output:
 
 ```powershell
+Copyright (C) Microsoft Corporation. All rights reserved.
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
 PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addGPUExtLinuxVM.parameters.json"
 PS C:\WINDOWS\system32> $RGName = "rg2"
@@ -359,8 +494,7 @@ PS C:\WINDOWS\system32>
 > [!NOTE]
 > When the deployment is complete, the `ProvisioningState` changes to `Succeeded`.
 
-The extension execution output is logged to the following file:
-`/var/log/azure/nvidia-vmext-status`.
+The extension execution output is logged to the following file: `/var/log/azure/nvidia-vmext-status`.
 
 #### Verify Linux driver installation
 
