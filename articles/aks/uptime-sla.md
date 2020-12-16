@@ -21,7 +21,7 @@ Customers can still create unlimited free clusters with a service level objectiv
 ## Region availability
 
 * Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Uptime SLA is available for [private AKS clusters][private-clusters] in all regions supported by AKS.
+* Uptime SLA is available for [private AKS clusters][private-clusters] in all regions where AKS is supported.
 
 ## SLA terms and conditions
 
