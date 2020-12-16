@@ -25,7 +25,7 @@ This article covers common considerations when migrating from Estimators to Scri
 > To migrate to ScriptRunConfig from Estimators, make sure you are using >= 1.15.0 of the Python SDK.**
 
 ## ScriptRunConfig documentation and samples
-Azure ML documentation and samples have been updated to use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) for job configuration and submission.
+Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) for job configuration and submission.
 
 For information on using ScriptRunConfig, refer to the following documentation:
 * [Configure and submit training runs](how-to-set-up-training-targets.md)
