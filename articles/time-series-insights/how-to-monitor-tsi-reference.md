@@ -14,17 +14,15 @@ ms.custom: lyrana
 
 # Monitoring Azure Time Series Insights data reference
 
-Reference documentation for monitoring Azure Time Series Insights. Learn about the data and resources collected and available in Azure Monitor.
-
-See [Monitoring Time Series Insights]( ./how-to-monitor-tsi.md) for details on collecting and analyzing monitoring data for Azure Time Series Insights.
+Learn about the data and resources collected by Azure Monitor from your Azure Time Series Insights environment. See [Monitoring Time Series Insights]( ./how-to-monitor-tsi.md) for details on collecting and analyzing monitoring data.
 
 ## Metrics
 
-**Metrics intro paragraph.**
+This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
+
 
 ### Ingress
-
-   |Metric  |Unit |Aggregation Type |Description |
+ 
    |---------|---------|---------|---------|
    |**Ingress Received Bytes** |  |  |Count of raw bytes read from event sources. Raw count usually includes the property name and value.|
    |**Ingress Received Invalid Messages** |  |  |Count of messages read from all Event Hubs or IoT Hubs event sources. |
