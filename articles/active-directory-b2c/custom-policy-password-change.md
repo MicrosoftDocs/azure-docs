@@ -9,12 +9,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Configure password change using custom policies in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -179,4 +190,6 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](password-complexity.md).
+- Learn about how you can [Configure password complexity in Azure AD B2C](password-complexity.md).
+
+::: zone-end
