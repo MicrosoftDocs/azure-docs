@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics 
 ms.topic: quickstart 
 ms.date: 11/16/2020  
---- 
+---
 
 # QuickStart: Connect an Azure Purview Account to a Synapse workspace 
 
