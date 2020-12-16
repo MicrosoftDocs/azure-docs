@@ -263,7 +263,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Under the **Social identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
-1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select [the web application named *testapp1* that you previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
 1. Click **Run user flow**
 
 ::: zone-end
