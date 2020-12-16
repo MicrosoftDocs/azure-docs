@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/10/2020
+ms.date: 12/16/2020
 ---
 
 # Data flows in Azure Synapse Analytics
@@ -89,66 +89,6 @@ Debug mode allows you to interactively see the results of each transformation st
 Data flow integrates with existing Azure Synapse Analytics monitoring capabilities. To learn how to understand data flow monitoring output, see [monitoring mapping data flows](../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 The Azure Synapse Analytics team has created a [performance tuning guide](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to help you optimize the execution time of your data flows after building your business logic.
-
-## Available regions
-
-Data flows are available in the following regions in Azure Synapse Analytics:
-
-| Azure region | Data flows in Azure Synapse Analytics|
-| ------------ | ---------------------------- |
-|  Australia Central | |
-| Australia Central 2 | |
-| Australia East |	✓ |
-| Australia Southeast	| ✓ |
-| Brazil South	|  |
-| Canada Central |  |
-| Central India	|	✓ |
-| Central US	|	✓ |
-| China East | ✓ |
-| China East 2	|	 |
-| China Non-Regional | |
-| China North | |
-| China North 2	|  |
-| East Asia	| |
-| East US	| ✓ |
-| East US 2	| ✓ |
-| France Central | ✓ |
-| France South	| |
-| Germany Central (Sovereign) | |
-| Germany Non-Regional (Sovereign) | |
-| Germany North (Public) | |
-| Germany Northeast (Sovereign) | |
-| Germany West Central (Public) | ✓ |
-| Japan East |	|
-| Japan West | |
-| Korea Central	|  |
-| Korea South | |
-| North Central US	| ✓ |
-| North Europe	|	 |
-| Norway East | |
-| Norway West | |
-| South Africa North	| |
-| South Africa West	|	|
-| South Central US	|	✓ |
-| South India | |
-| Southeast Asia	| ✓ |
-| Switzerland North	|  |
-| Switzerland West | |
-| UAE Central | |
-| UAE North	|	|
-| UK South	|	|
-| UK West | ✓ |
-| US DoD Central |  |
-| US DoD East |  |
-| US Gov Arizona |  |
-| US Gov Non-Regional |  |
-| US Gov Texas |  |
-| US Gov Virginia |  |
-| West Central US | ✓ |
-| West Europe	|	✓ |
-| West India | |
-| West US	|   |
-| West US 2	|	✓ |
 
 ## Next steps
 
