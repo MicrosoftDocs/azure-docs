@@ -28,7 +28,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -46,7 +46,7 @@ public class TestClass
 
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
     ILogger logger
     )
 {
@@ -70,7 +70,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
@@ -101,7 +101,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
@@ -130,7 +130,7 @@ A RabbitMQ binding is defined in *function.json* where *type* is set to `RabbitM
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }​​
     ]
 }​​
@@ -151,7 +151,7 @@ The following Java function uses the `@RabbitMQTrigger` annotation from the [Jav
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -176,7 +176,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-For a complete example, see C# example.
+For a complete example, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -274,9 +274,9 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|queueName|n/a| Name of the queue to receive messages from. |
-|connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
-|port|0|(ignored if using connectionString) The maximum number of sessions that can be handled concurrently per scaled instance.|
+|queueName|n/a| Name of the queue to receive messages from.|
+|connectionString|n/a|The RabbitMQ message queue connection string. Please note that the connection string is directly specified here and not through an app setting.|
+|port|0|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0.|
 
 ## Local testing
 
