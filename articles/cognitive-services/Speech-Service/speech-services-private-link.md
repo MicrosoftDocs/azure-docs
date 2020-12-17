@@ -51,8 +51,8 @@ To create a custom domain name using Azure portal, follow these steps:
 1. Select the required Speech Resource.
 1. In the **Resource Management** group in the left navigation pane, click **Networking**.
 1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
-1. In the Generate Custom Domain Name panel, enter a custom domain name you have provisioned. **After you create a custom domain name, it _cannot_ be changed.**
-1. After the operation completes, click **Keys and Endpoint** (in the **Resource management** group) and confirm the new endpoint name of your resource in this format:
+1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will start `{your custom name}.cognitiveservices.azure.com`. **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
+1. After the operation completes, in the **Resource management** group, click **Keys and Endpoint**. Confirm the new endpoint name of your resource starts this way:
     `{your custom name}.cognitiveservices.azure.com`
 
 # [PowerShell](#tab/powershell)
