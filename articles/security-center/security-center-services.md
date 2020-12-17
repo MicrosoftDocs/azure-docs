@@ -111,7 +111,7 @@ For information about when recommendations are generated for each of these prote
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md) (1)|-|-|
 |[Docker host hardening](harden-docker-hosts.md) (1)|✔|✔|
 |[Integrated vulnerability assessment for machines](deploy-vulnerability-assessment-vm.md) (1)|-|-|
-|[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|-|-|
+|[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Connect AWS account](quickstart-onboard-aws.md) (1)|-|-|
 |[Connect GCP account](quickstart-onboard-gcp.md) (1)|-|-|
 |[Continuous export](continuous-export.md)|✔|✔|
@@ -126,7 +126,7 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|-|✔|
+|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|-|
 |||
 
