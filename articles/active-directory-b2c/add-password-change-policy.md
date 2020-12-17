@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. The password change flow involves following steps:
 
 1. Sign-in with a local account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
-1. Users must verify the **old password**, create and confirm the **new password**.
+1. Users must verify the **old password**, create, and confirm the **new password**.
 
 ![Password change flow](./media/add-password-change-policy/password-change-flow.png)
 
@@ -140,13 +140,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 7. Modify the **ReferenceId** attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created. For example, *PasswordChange*.
 8. Save your changes.
 
-You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
-
-## Test your policy
-
-When testing your applications in Azure AD B2C, it can be useful to have the Azure AD B2C token returned to `https://jwt.ms` to be able to review the claims in it.
-
-### Upload the files
+## Upload and test the policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -165,6 +159,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
+- Find the sample policy on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 - Learn about how you can [configure password complexity in Azure AD B2C](password-complexity.md).
 - Set up a [password reset flow](add-password-reset-policy.md).
 
