@@ -35,8 +35,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ---
 ## December 2020
- 
-[980212](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=980212&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
 
@@ -44,12 +42,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-
-B2C Phone Sign-up and Sign-in using Built-in Policy enables IT administrators and developers of organizations to allow their end-users to sign-in and sign-up using phone number in user flows.
+B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and developers of organizations to allow their end-users to sign-in and sign-up using a phone number in user flows. Read [Set up phone sign-up and sign-in for user flows (preview)](../../active-directory-b2c/phone-authentication-user-flows.md) to learn more.
 
 ---
-
-[977038](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=977038&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - Security Defaults now enabled for all new tenants by default
 
@@ -57,18 +52,14 @@ B2C Phone Sign-up and Sign-in using Built-in Policy enables IT administrators an
 **Service category:** Other  
 **Product capability:** Identity Security & Protection
  
+To protect user accounts, all new tenants created on or after November 12, 2020, will come with Security Defaults enabled. Security Defaults enforces multiple policies including:
+- Requires all users and admins to register for MFA using the Microsoft Authenticator App
+- Requires critical admin roles to use MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
+- Legacy authentication will be blocked tenant wide. 
 
-In an effort to protect user accounts, all new tenants created on or after November 12th, 2020 will come with Security Defaults enabled. Security Defaults enforces multiple policies under the hood:
-Requires all users and admins to register for MFA using the Microsoft Authenticator App
-Requires critical admins roles to perform MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
-Legacy authentication will be blocked tenant wide. 
-For more information, see What are security defaults?
+For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults)
 
- 
 ---
-
-
-[1031525](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1031525&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Support for groups with up to 250K members in AADConnect
 
@@ -76,15 +67,12 @@ For more information, see What are security defaults?
 **Service category:** AD Connect  
 **Product capability:** Identity Lifecycle Management
  
-Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following:
+Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. When you use the new [V2 endpoint](../hybrid/how-to-connect-sync-endpoint-api-v2.md), you'll experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following scenarios:
 
-syncing groups with up to 250k members
-performance gains on export and import to Azure AD
+- Syncing groups with up to 250k members
+- Performance gains on export and import to Azure AD
 
 ---
- 
-
-[865968](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=865968&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Entitlement Management available for tenants in Azure China cloud
 
@@ -93,32 +81,27 @@ performance gains on export and import to Azure AD
 **Product capability:** Entitlement Management
  
 
-The capabilities of Entitlement Management are now available for all tenants in the Azure China cloud.
- 
+The capabilities of Entitlement Management are now available for all tenants in the Azure China cloud. For information, visit our [Identity governance documentation](https://docs.azure.cn/zh-cn/active-directory/governance/) site.
 
 ---
- 
-
-[1235471](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1235471&triage=true&fullScreen=false&_a=edit)
 
 ### New provisioning connectors in the Azure AD Application Gallery - December 2020
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
- 
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-Bizagi Studio for Digital Process Automation
-CybSafe
-GroupTalk
-PaperCut Cloud Print Management
-Parsable
-Shopify Plus
-For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
- 
+- [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
+- [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
+- [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
+- [PaperCut Cloud Print Management](/saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
+- [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
+- [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
 ---
  
 [1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
@@ -129,10 +112,9 @@ For more information about how to better secure your organization by using autom
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
  
-
 In December 2020 we have added following 18 new applications in our App gallery with Federation support:
 
-AwareGo, HowNow SSO, ZyLAB ONE Legal Hold, Guider, Softcrisis, Pims 365, InformaCast, RetrieverMediaDatabase, vonage, Count Me In - Operations Dashboard, ProProfs Knowledge Base, RightCrowd Workforce Management, JLL TRIRIGA, Shutterstock, FortiWeb Web Application Firewall, LinkedIn Talent Solutions, Equinix Federation App, KFAdvance
+[AwareGo](../saas-apps/awarego-tutorial.md), [HowNow SSO](https://gethownow.com/), [ZyLAB ONE Legal Hold](https://www.zylab.com/en/product/legal-hold), [Guider](http://www.guider-ai.com/), [Softcrisis](https://www.softcrisis.se/sv/), [Pims 365](http://www.omega365.com/pims), [InformaCast](../saas-apps/informacast-tutorial.md), [RetrieverMediaDatabase](../saas-apps/retrievermediadatabase-tutorial.md), [vonage](../saas-apps/vonage-tutorial.md), [Count Me In - Operations Dashboard](../saas-apps/count-me-in-operations-dashboard-tutorial.md), [ProProfs Knowledge Base](../saas-apps/proprofs-knowledge-base-tutorial.md), [RightCrowd Workforce Management](../saas-apps/rightcrowd-workforce-management-tutorial.md), [JLL TRIRIGA](../saas-apps/jll-tririga-tutorial.md), [Shutterstock](../saas-apps/shutterstock-tutorial.md), [FortiWeb Web Application Firewall](../saas-apps/linkedin-talent-solutions-tutorial.md), [LinkedIn Talent Solutions](../saas-apps/linkedin-talent-solutions-tutorial.md), [Equinix Federation App](../saas-apps/equinix-federation-app-tutorial.md), [KFAdvance](../saas-apps/kfadvance-tutorial.md)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
 
