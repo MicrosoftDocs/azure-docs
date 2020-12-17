@@ -196,6 +196,7 @@
     items:
     - name: Configure session behavior
       href: session-behavior.md
+      displayName: SSO, KMSI, Keep me signed in
     - name: Configure tokens
       href: configure-tokens.md
   - name: Define custom attributes
