@@ -82,9 +82,9 @@ To create filters:
 
 2. In the **Filter** dialog box, select the filter type:
 
-   - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to `equals` and `value=ICMP`, the column will present devices that use the ICMP protocol only.
+   - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
 
-   - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to `contains` and the `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
+   - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
 
 3. To organize the column information in alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: and arrange the order in alphabetical order by clicking the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false":::. Order by alphabetical reverse order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: icon.
 
