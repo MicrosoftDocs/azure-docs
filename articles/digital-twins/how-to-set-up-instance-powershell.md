@@ -36,6 +36,8 @@ This version of this article goes through these steps manually, one by one, usin
 
 ## Prepare your environment
 
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the
   resources should be billed. Select a specific subscription using the
   [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
@@ -50,8 +52,6 @@ This version of this article goes through these steps manually, one by one, usin
   ```azurepowershell-interactive
   Register-AzResourceProvider -ProviderNamespace Microsoft.DigitalTwins
   ```
-
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
 > While the **Az.DigitalTwins** PowerShell module is in preview, you must install it separately
@@ -100,7 +100,7 @@ Location   Name                                         Type
 ```
 
 > [!TIP]
-> You can see these properties, along with all the properties of your instance at any time by
+> You can see these properties, along with all the properties of your instance, at any time by
 > running `Get-AzDigitalTwinsInstance` and piping to `Select-Object -Property *`.
 
 ```azurepowershell-interactive
