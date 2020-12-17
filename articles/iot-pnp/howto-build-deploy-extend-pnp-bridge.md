@@ -25,7 +25,7 @@ For a simple example that shows how to use the bridge, see [How to connect the I
 
 The guidance and samples in this article assume basic familiarity with [Azure Digital Twins](../digital-twins/overview.md) and [IoT Plug and Play](overview-iot-plug-and-play.md).
 
-## Prerequisites
+## General prerequisites
 
 ### Supported OS platforms
 
@@ -40,28 +40,7 @@ The following OS platforms and versions are supported:
 ### Hardware
 
 - Any hardware platform that supports the above OS SKUs and versions.
-- Serial, USB, Bluetooth, and Camera peripherals and sensors are supported natively. The IoT Plug and Play Bridge can be extended to support any custom peripheral or sensor ([see peripherals section above](#iot-plug-and-play-bridge)).
-
-### Source code
-
-Clone the [IoT Plug and Play bridge](https://github.com/Azure/iot-plug-and-play-bridge) repository to your local machine:
-
-```cmd/sh
-git clone https://github.com/Azure/iot-plug-and-play-bridge.git
-
-cd iot-plug-and-play-bridge
-
-git submodule update --init --recursive
-```
-
-Expect the previous command to take several minutes to run.
-
-> [!NOTE]
-> If you run into issues with the `git submodule update` failing on Windows, try the following command to resolve the issue: `git config --system core.longpaths true`.
-
-### Development environment
-
-As well as the source code, you need the appropriate tools to build, deploy, and run the bridge. The development environment prerequisites for the different operating systems and deployment models are described in the appropriate sections later in this article.
+- Serial, USB, Bluetooth, and Camera peripherals and sensors are supported natively. The IoT Plug and Play Bridge can be extended to support any custom peripheral or sensor.
 
 ### Azure IoT Products and Tools
 
@@ -72,8 +51,8 @@ As well as the source code, you need the appropriate tools to build, deploy, and
 
 There are two ways to configure the bridge:
 
-- If the bridge is running natively on an IoT device or gateway, use the [configuration file](#configuration-file). This scenario can use a Linux or Windows machine.
-- If the bridge is running as an IoT Edge module in the IoT Edge runtime, use the module twin [desired property](#edge-module-configuration-using-desired-property). This scenario assumes the IoT Edge runtime is hosted in a Linux environment.
+- If the bridge is running natively on an IoT device or gateway, use the configuration file. This scenario can use a Linux or Windows machine.
+- If the bridge is running as an IoT Edge module in the IoT Edge runtime, use the module twin desired property. This scenario assumes the IoT Edge runtime is hosted in a Linux environment.
 
 ### Configuration file
 
@@ -202,7 +181,24 @@ To complete this section, you need to install the following software on your loc
 - [CMake](https://cmake.org/download/) - when you install CMake, select the option **Add CMake to the system PATH**.
 - If you're building on Windows, you also need to download the [Windows 17763 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 
-### Step 1: Build the bridge on Windows
+### Source code
+
+Clone the [IoT Plug and Play bridge](https://github.com/Azure/iot-plug-and-play-bridge) repository to your local machine:
+
+```cmd/sh
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
+
+cd iot-plug-and-play-bridge
+
+git submodule update --init --recursive
+```
+
+Expect the previous command to take several minutes to run.
+
+> [!NOTE]
+> If you run into issues with the `git submodule update` failing on Windows, try the following command to resolve the issue: `git config --system core.longpaths true`.
+
+### Build the bridge on Windows
 
 Open the **Developer Command Prompt for VS 2019** and navigate to the folder that contains the repository you cloned and run the following commands:
 
@@ -219,7 +215,7 @@ Optionally, you can open the generated *pnpbridge\cmake\pnpbridge_x86\azure_iot_
 > [!TIP]
 > This project uses CMAKE to generate the project files. Any modifications you make to the project in Visual Studio might be lost if the appropriate CMAKE files aren't updated.
 
-### Step 1: Build the bridge on Linux
+### Build the bridge on Linux
 
 Using the bash shell, navigate to the folder that contains the repository you cloned and run the following commands:
 
@@ -231,7 +227,7 @@ cd scripts/linux
 ./build.sh
 ```
 
-### Step 2: Configure the generic sensors
+### Configure the generic sensors
 
 Modify the following parameters under the `pnp_bridge_connection_parameters` node in the *config.json* file in the *iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console* folder in Windows or the *iot-plug-and-play-bridge/pnpbridge/cmake/pnpbridge_linux\src/pnpbridge/samples/console* folder in Windows:
 
@@ -276,7 +272,7 @@ If you're using DPS to connect to your IoT hub or IoT Central application:
 
 Review the rest of the configuration file to see which interface components and global parameters are configured in this sample.
 
-### Step 3: Start the bridge in Windows
+### Start the bridge in Windows
 
 Start the bridge by running it at the command prompt:
 
@@ -301,50 +297,52 @@ Debug\pnpbridge_bin.exe
 
 ### Prerequisites
 
-To complete this section, you need the following prerequisites:
+To complete this section, you need a free or standard-tier Azure IoT hub. To lean how to create an IoT hub, see [Create an IoT hub](../iot-hub/iot-hub-create-through-portal.md).
 
-- A free or standard-tier Azure IoT hub. To lean how to create an IoT hub, see [Create an IoT hub](../iot-hub/iot-hub-create-through-portal.md). You need your *IoT Hub connection string* to complete the steps in this section.
-- An Azure IoT Edge device running Linux and connected to your IoT hub. To learn more, see [Install the IoT Edge runtime](../iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&tabs=linux) and [Register and authenticate and IoT Edge device](../iot-edge/how-to-manual-provision-symmetric-key?view=iotedge-2018-06&tabs=azure-portal%2Clinux). To quickly deploy the IoT Edge runtime to a virtual machine in Azure, see [Deploy using Deploy to Azure Button](../iot-edge/how-to-install-iot-edge-ubuntuvm?view=iotedge-2018-06#deploy-using-deploy-to-azure-button) - during testing, it's easier to work with password authentication rather than using SSH.
+The steps in this section assume you have the following development environment on a Windows 10 machine. These tools let you build and deploy an IoT Edge module to your IoT Edge device:
 
-    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+- Windows Subsystem for Linux (WSL) 2 running Ubuntu 18.04 LTS. To learn more, see the [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Docker Desktop for Windows configured to use WSL 2. To learn more, see [Docker Desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl/).
+- [Visual Studio Code installed in your Windows environment](https://code.visualstudio.com/docs/setup/windows) with the following three extensions installed:
 
-    You need the *device connection string* to complete the steps later in this section.
+  - [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) - this extension lets you build and run code in WSL 2.
+  - [Docker for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - this extension must be enabled in VS Code's **WSL: Ubuntu-18.04** environment.
+  - [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) - this extension must be enabled in VS Code's **WSL: Ubuntu-18.04** environment.
 
-- A container registry to host the IoT Edge modules.
+- Run the following commands in your WSL 2 environment to install the required build tools:
 
-    The steps in this article assume you're using Azure Container Registry. To learn more, see [Create a container registry](../iot-edge/tutorial-develop-for-linux.md#create-a-container-registry).
+  ```bash
+  sudo apt-get update
+  sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+  ```
 
-Your development environment needs a C++ compiler and the CMake utility. The steps in this how-to guide use Ubuntu Linux to build and deploy the IoT Edge module to your IoT Edge device, you can also build and deploy the module using Windows. To install the build utilities in Ubuntu, run the following commands:
+- The [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) installed in your WSL 2 environment to manage your Azure resources.
 
-```bash
-sudo apt-get update
-sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
-```
-
-Your development environment also needs the [Azure CLI](../cli/azure/install-azure-cli-apt.md?view=azure-cli-latest), and a container engine, such as [Docker](https://docs.docker.com/engine/install/ubuntu/), to build the module image and upload it to your container registry.
+  > [!TIP]
+  > If you prefer, you can run the `az` commands in the [Azure Cloud Shell](https://shell.azure.com/) where the CLI is pre-installed.
 
 ### Create an IoT Edge device
 
 The commands here create an IoT Edge device running in an Azure virtual machine. Running an IoT Edge device in a virtual machine is useful for testing your deployment if you don't have access to a real device.
 
-To add an IoT Edge device to your IoT hub, run the following commands. Use the `az login` command to sign in to your Azure subscription:
+To create an IoT Edge device registration in your IoT hub, run the following commands in your WSL 2 environment. Use the `az login` command to sign in to your Azure subscription:
 
 ```bash
 az iot hub device-identity create --device-id bridge-edge-device --edge-enabled true --hub-name {your IoT hub name}
 ```
 
-To create an Azure virtual machine with the IoT Edge runtime installed: run the following commands:
+To create an Azure virtual machine with the IoT Edge runtime installed, run the following commands. Update the placeholders with suitable values:
 
 ```bash
 az group create --name bridge-edge-resources --location eastus
 az deployment group create \
 --resource-group bridge-edge-resources \
 --template-uri "https://aka.ms/iotedge-vm-deploy" \
---parameters dnsLabelPrefix='{a unique name for your vm}' \
---parameters adminUsername='{a user name for your vm}' \
+--parameters dnsLabelPrefix='{unique DNS name for virtual machine}' \
+--parameters adminUsername='{admin user name}' \
 --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id bridge-edge-device --hub-name {your IoT hub name} -o tsv) \
 --parameters authenticationType='password' \
---parameters adminPasswordOrKey="{a password for your vm}"
+--parameters adminPasswordOrKey="{admin password for virtual machine}"
 ```
 
 You now have the IoT Edge runtime running in a virtual machine. You can use the following command to verify that the **$edgeAgent** and **$edgeHub** are running on the device:
@@ -353,12 +351,31 @@ You now have the IoT Edge runtime running in a virtual machine. You can use the 
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
+> [!CAUTION]
+> You are billed while this virtual machine is running. Be sure to shut it down when you're not using it and remove it when you've finished with it.
+
+### Download the source code
+
+In the following steps, you build the Docker image in your WSL 2 environment. To clone the **iot-plug-and-play-bridge** repository, run the following commands in a WSL 2 bash shell in a suitable folder:
+
+```bash
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
+
+cd iot-plug-and-play-bridge
+
+git submodule update --init --recursive
+```
+
+Expect the previous command to take several minutes to run.
+
 ### Update the *Dockerfile*
 
-In the cloned **iot-plug-and-play-bridge** repository, open *pnpbridge\Dockerfile.amd64*. Add the following environment variable definitions:
+Launch VS Code, open the command palette, enter *Remote WSL: Open folder in WSL*, and then open the *iot-plug-and-play-bridge* folder that contains the cloned repository.
+
+Open the *pnpbridge\Dockerfile.amd64* file. Edit the environment variable definitions as follows:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="<Add your device connection string here>"
+ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"
@@ -366,205 +383,135 @@ ENV IOTEDGE_WORKLOADURI="something"
 
 > [!TIP]
 > You can use the following command to retrieve the device connection string:
-> `az iot hub device-identity connection-string show --device-id bridge-edge-device--hub-name {your IoT hub name}`
+> `az iot hub device-identity connection-string show --device-id bridge-edge-device --hub-name {your IoT hub name}`
 
 There are sample *Dockerfiles* for other architectures.
 
 ### Build the IoT Plug and Play bridge module image
 
-In a bash shell, navigate to *pnpbridge* folder in the **iot-plug-and-play-bridge** repository you cloned. Then run the following command to build the IoT Plug and Play bridge module:
+In VS Code, open the command palette, enter *Docker Registries: Log In to Docker CLI*, then select your Azure subscription and container registry. This command enables Docker to connect to your container registry and upload the module image.
+
+Open the *pnpbridge/module.json* file. Add `{your container registry name}.azurecr.io/iotpnpbridge` as the container image repository, and `v1` as the version.
+
+In VS Code, right-click the *pnpbridge/module.json* file in the **Explorer** view, select **Build and Push IoT Edge Module Image**, and select **amd64** as the platform.
+
+In VS Code, in the **Docker** view, you can browse the contents of your container registry that now includes the **iotpnpbridge:V1-amd64** module image.
+
+### Create a container registry
+
+An IoT Edge device downloads its module images from a container registry. This example uses an Azure container registry.
+
+Create an Azure container registry in the **bridge-edge-resources** resource group. Then enable admin access to your container registry and get the credentials that your IoT Edge device needs to download the module images:
 
 ```bash
-docker build --tag {your container registry name}.azurecr.io/iotpnpbridge:v1-amd64 -f Dockerfile.amd64 .
-```
-
-### Push the module image to your container registry
-
-Push the module image to your container registry. The IoT Edge device will download the module from the container registry:
-
-```bash
-az acr login -n {your container registry name}
-docker push {your container registry name}.azurecr.io/iotpnpbridge:v1-amd64
-```
-
-> [!TIP]
-> Use the following command to list the images in your container repository: `az acr repository show-tags --repository iotpnpbridge -n {your container registry}`.
-
-### Create the deployment manifest
-
-Enable admin access to the container registry and get the credentials:
-
-```bash
+az acr create -g bridge-edge-resources --sku Basic -n {your container registry name}
 az acr update --admin-enabled true -n {your container registry name}
 az acr credential show -n {your container registry name}
 ```
 
-In the *pnpbridge* folder in the **iot-plug-and-play-bridge** repository you cloned, create a file called *deployment.json*.
+### Create the deployment manifest
 
-Add the following content to the file. Be sure to update both the `registryCredentials` section and the `ModulePnpBridge` module settings with your container registry details:
+An IoT Edge deployment manifest specifies the modules and configuration values to deploy to an IoT Edge device.
 
-> [!TIP]
-> To see how to configure the IoT Plug and Play bridge, review the desired property settings for the `ModulePnpBridge` module.
+In VS Code, open the *pnpbridge/deployment.template.json* file:
 
-```json
-{
-  "modulesContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {
-              "pnpbridge": {
-                "username": "{your container registry username}",
-                "password": "{your container registry password}",
-                "address": "{your container registry}.azurecr.io"
-              }
-            }
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
-            "type": "docker",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-              "createOptions": "{}"
+- Update the `registryCredentials` with the values from the previous command. The `address` value looks like `{your container registry name}.azurecr.io`.
+- Update the `image` value for the `ModulePnpBridge`. The module image looks like: `{your container registry}.azurecr.io/iotpnpbridge:v1-amd64`.
+- Replace the `PnPBridgeConfig` with the following JSON to configure the CO2 detection adapter:
+
+  ```json
+  "PnpBridgeConfig": {
+    "pnp_bridge_interface_components": [
+      {
+        "_comment": "Component 1 - Modbus Device",
+        "pnp_bridge_component_name": "Co2Detector1",
+        "pnp_bridge_adapter_id": "modbus-pnp-interface",
+        "pnp_bridge_adapter_config": {
+          "unit_id": 1,
+          "tcp": {
+            "host": "10.159.29.2",
+            "port": 502
+          },
+          "modbus_identity": "DL679"
+        }
+      }
+    ],
+    "pnp_bridge_adapter_global_configs": {
+      "modbus-pnp-interface": {
+        "DL679": {
+          "telemetry": {
+            "co2": {
+              "startAddress": "40001",
+              "length": 1,
+              "dataType": "integer",
+              "defaultFrequency": 5000,
+              "conversionCoefficient": 1
+            },
+            "temperature": {
+              "startAddress": "40003",
+              "length": 1,
+              "dataType": "decimal",
+              "defaultFrequency": 5000,
+              "conversionCoefficient": 0.01
             }
           },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+          "properties": {
+            "firmwareVersion": {
+              "startAddress": "40482",
+              "length": 1,
+              "dataType": "hexstring",
+              "defaultFrequency": 60000,
+              "conversionCoefficient": 1,
+              "access": 1
+            },
+            "modelName": {
+              "startAddress": "40483",
+              "length": 2,
+              "dataType": "string",
+              "defaultFrequency": 60000,
+              "conversionCoefficient": 1,
+              "access": 1
+            },
+            "alarmStatus_co2": {
+              "startAddress": "00305",
+              "length": 1,
+              "dataType": "boolean",
+              "defaultFrequency": 1000,
+              "conversionCoefficient": 1,
+              "access": 1
+            },
+            "alarmThreshold_co2": {
+              "startAddress": "40225",
+              "length": 1,
+              "dataType": "integer",
+              "defaultFrequency": 30000,
+              "conversionCoefficient": 1,
+              "access": 2
             }
-          }
-        },
-        "modules": {
-          "ModulePnpBridge": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "{your container registry}.azurecr.io/iotpnpbridge:v2-amd64",
-              "createOptions": "{}"
-            }
-          }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {
-          "ModulePnpBridgeToIoTHub": "FROM /messages/modules/ModulePnpBridge/outputs/* INTO $upstream"
-        },
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
-        }
-      }
-    },
-    "ModulePnpBridge": {
-      "properties.desired": {
-        "PnpBridgeConfig": {
-          "pnp_bridge_interface_components": [
-            {
-              "_comment": "Component 1 - Modbus Device",
-              "pnp_bridge_component_name": "Co2Detector1",
-              "pnp_bridge_adapter_id": "modbus-pnp-interface",
-              "pnp_bridge_adapter_config": {
-                "unit_id": 1,
-                "tcp": {
-                  "host": "10.159.29.2",
-                  "port": 502
-                },
-                "modbus_identity": "DL679"
-              }
-            }
-          ],
-          "pnp_bridge_adapter_global_configs": {
-            "modbus-pnp-interface": {
-              "DL679": {
-                "telemetry": {
-                  "co2": {
-                    "startAddress": "40001",
-                    "length": 1,
-                    "dataType": "integer",
-                    "defaultFrequency": 5000,
-                    "conversionCoefficient": 1
-                  },
-                  "temperature": {
-                    "startAddress": "40003",
-                    "length": 1,
-                    "dataType": "decimal",
-                    "defaultFrequency": 5000,
-                    "conversionCoefficient": 0.01
-                  }
-                },
-                "properties": {
-                  "firmwareVersion": {
-                    "startAddress": "40482",
-                    "length": 1,
-                    "dataType": "hexstring",
-                    "defaultFrequency": 60000,
-                    "conversionCoefficient": 1,
-                    "access": 1
-                  },
-                  "modelName": {
-                    "startAddress": "40483",
-                    "length": 2,
-                    "dataType": "string",
-                    "defaultFrequency": 60000,
-                    "conversionCoefficient": 1,
-                    "access": 1
-                  },
-                  "alarmStatus_co2": {
-                    "startAddress": "00305",
-                    "length": 1,
-                    "dataType": "boolean",
-                    "defaultFrequency": 1000,
-                    "conversionCoefficient": 1,
-                    "access": 1
-                  },
-                  "alarmThreshold_co2": {
-                    "startAddress": "40225",
-                    "length": 1,
-                    "dataType": "integer",
-                    "defaultFrequency": 30000,
-                    "conversionCoefficient": 1,
-                    "access": 2
-                  }
-                },
-                "commands": {
-                  "clearAlarm_co2": {
-                    "startAddress": "00305",
-                    "length": 1,
-                    "dataType": "flag",
-                    "conversionCoefficient": 1
-                  }
-                }
-              }
+          },
+          "commands": {
+            "clearAlarm_co2": {
+              "startAddress": "00305",
+              "length": 1,
+              "dataType": "flag",
+              "conversionCoefficient": 1
             }
           }
         }
       }
     }
   }
-}
-```
+  ```
+
+  Save the changes.
+
+In VS Code, right-click the *pnpbridge/deployment.template.json* file in the **Explorer** view, select **Generate IoT Edge Deployment Manifest**. This command generates the *pnpbridge/config/deployment.amd64.json* deployment manifest.
 
 ### Deploy the bridge to your IoT Edge device
 
-To deploy the IoT Plug and Play bridge to your IoT Edge device, run the following command:
+In VS Code, open the command palette, enter *Azure IoT Hub: Select IoT Hub*, then select your subscription and IoT hub.
 
-```bash
-az iot edge set-modules --device-id bridge-edge-device --content ./deployment.json --hub-name {your IoT hub name} 
-```
+In VS Code, right-click the *pnpbridge/config/deployment.amd64.json* file in the **Explorer** view, select **Create Deployment for Single Device**, and select the **bridge-edge-device**.
 
 To view the status of the modules on your device, run the following command:
 
@@ -573,6 +520,14 @@ az iot hub module-identity list --device-id bridge-edge-device -o table --hub-na
 ```
 
 The list of running modules now includes the **ModulePnpBridge** module that's configured to use the CO2 detection adapter.
+
+### Tidy up
+
+To remove the virtual machine and container registry from your Azure subscription, run the following command:
+
+```bash
+az group delete -n bridge-edge-resources
+```
 
 ## Folder structure
 
