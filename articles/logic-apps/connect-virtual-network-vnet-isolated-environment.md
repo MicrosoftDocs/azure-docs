@@ -180,7 +180,9 @@ You must define a route for each and every IP address listed below with Internet
 
 * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
-##### 2. Service Endpoints
+* Service endpoints
+
+  You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hubs because you can't send traffic through a firewall to these services.
 You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
 ##### 3. Other inbound and outbound dependencies
