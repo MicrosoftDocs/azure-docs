@@ -6,7 +6,7 @@ ms.suite: integration
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 12/18/2019
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
@@ -60,13 +60,60 @@ For connectors that support chunking, the underlying chunking protocol is invisi
 However, not all connectors support chunking, so these connectors generate runtime 
 errors when incoming messages exceed the connectors' size limits.
 
-> [!NOTE]
-> For actions that use chunking, you can't pass the trigger body or use expressions such as 
-> `@triggerBody()?['Content']` in those actions. Instead, for text or JSON file content, 
-> you can try using the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action) 
-> or [create a variable](../logic-apps/logic-apps-create-variables-store-values.md) to handle that content. 
-> If the trigger body contains other content types, such as media files, you need to perform 
-> other steps to handle that content.
+
+For actions that use chunking, you can't pass the trigger body, a variable, or use expressions such as 
+`@triggerBody()?['Content']` as input to those actions. If you do pass one of these, the chunking operation will 
+not happen even though you have set the chunking option on the action.
+However there is a workaround by using the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically you must create a 'body' field with the Compse action to hold the data from the trigger body or a varaible etc.
+
+```json
+            "Compose": {
+                "inputs": {
+                    "body": "@variables('myVar1')"
+                },
+                "runAfter": {
+                    "Until": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },
+```
+Then in the chunking action use '@body('Compose')' to reference the data.
+
+```json
+            "Create_file": {
+                "inputs": {
+                    "body": "@body('Compose')",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/datasets/default/files",
+                    "queries": {
+                        "folderPath": "/c:/test1/test1sub",
+                        "name": "tt.txt",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {
+                    "Compose": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            },
+```
 
 <a name="set-up-chunking"></a>
 
