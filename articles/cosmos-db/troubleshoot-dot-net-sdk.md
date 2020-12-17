@@ -48,6 +48,12 @@ Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v
 ### Check the portal metrics
 Checking the [portal metrics](./monitor-cosmos-db.md) will help determine if it's a client-side issue or if there is an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
 
+## Retry Logic <a id="retry-logics"></a>
+Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
+
+1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
+2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is a must that user's application logic to handle the failure and retry.
+
 ## Common error status codes <a id="error-codes"></a>
 
 | Status Code | Description | 
