@@ -227,8 +227,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Other Office 365 Online services** | 12076:5100 |
 
 \* Azure Global Services includes only Azure DevOps at this time.
+
 \*\* Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)
+
 \*\*\* This community also publishes the needed routes for Microsoft Teams services.
+
 \*\*\*\* CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
 
 > [!NOTE]
