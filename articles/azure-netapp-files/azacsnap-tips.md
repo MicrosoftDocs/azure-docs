@@ -253,7 +253,7 @@ A 'boot' snapshot can be recovered as follows:
 
 1. The customer will need to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
-    > Customers can open a service request from the Azure Portal: <https://portal.azure.com.>
+    > Customers can open a service request from the Azure portal: <https://portal.azure.com.>
 1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
 
