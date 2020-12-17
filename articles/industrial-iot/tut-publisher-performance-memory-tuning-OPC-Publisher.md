@@ -1,6 +1,6 @@
 ---
 title: OPC Publisher Performance and Memory Tuning
-description: In this tutorial you learn how to tune the performance and memory of the OPC Publisher.
+description: In this tutorial, you learn how to tune the performance and memory of the OPC Publisher.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
@@ -16,19 +16,19 @@ In this tutorial, you learn how to:
 > * Adjust the performance
 > * Adjust the message flow to the memory resources
 
-When running OPC Publisher in production setups, network performance requirements (throughput and latency) and memory resources must be considered. OPC Publisher exposes the following command line parameters to help meet these requirements:
+When running OPC Publisher in production setups, network performance requirements (throughput and latency) and memory resources must be considered. OPC Publisher exposes the following command-line parameters to help meet these requirements:
 
 * Message queue capacity (`mq` for version 2.5 and below, not available in version 2.6, `om` for version 2.7)
 * IoT Hub send interval (`si`)
 * IoT Hub message size (`ms`)
 
-The `mq/om` parameter controls the upper limit of the capacity of the internal message queue. This queue buffers all messages before they are sent to IoT Hub. The default size of the queue is up to 2 MB for OPC Publisher version 2.5 and below and 4000 IoT Hub messages for version 2.7 (i.e., if the setting for the IoT Hub message size is 256 KB, the size of the queue will be up to 1 GB). If OPC Publisher is not able to send messages to IoT Hub fast enough, the number of items in this queue increases. If this happens during test runs, one or both of the following can be done to mitigate:
+The `mq/om` parameter controls the upper limit of the capacity of the internal message queue. This queue buffers all messages before they are sent to IoT Hub. The default size of the queue is up to 2 MB for OPC Publisher version 2.5 and below and 4000 IoT Hub messages for version 2.7 (that is, if the setting for the IoT Hub message size is 256 KB, the size of the queue will be up to 1 GB). If OPC Publisher is not able to send messages to IoT Hub fast enough, the number of items in this queue increases. If this happens during test runs, one or both of the following can be done to mitigate:
 
 * decrease the IoT Hub send interval (`si`)
 
 * increase the IoT Hub message size (`ms`, the maximum this can be set to is 256 KB)
 
-If the queue keeps growing even though the `si` and `ms` parameters have been adjusted, eventually the maximum queue capacity will be reached and messages will be lost. This is due to the fact that both the `si` and `ms` parameter have physical limits and the Internet connection between OPC Publisher and IoT Hub is simply not fast enough for the amount of messages that must be sent in a given scenario. In that case, only setting up several, parallel OPC Publishers will help. The `mq/om` parameter also has the biggest impact on the memory consumption by OPC Publisher. 
+If the queue keeps growing even though the `si` and `ms` parameters have been adjusted, eventually the maximum queue capacity will be reached and messages will be lost. This is due to the fact that both the `si` and `ms` parameter have physical limits and the Internet connection between OPC Publisher and IoT Hub is not fast enough for the number of messages that must be sent in a given scenario. In that case, only setting up several, parallel OPC Publishers will help. The `mq/om` parameter also has the biggest impact on the memory consumption by OPC Publisher. 
 
 The `si` parameter forces OPC Publisher to send messages to IoT Hub at the specified interval. A message is sent either when the maximum IoT Hub message size of 256 KB of data is available (triggering the send interval to reset) or when the specified interval time has passed.
 

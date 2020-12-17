@@ -1,11 +1,11 @@
 ---
 title: Configure the IIoT components
-description: In this tutorial you learn how to change the default values of the configuration.
+description: In this tutorial, you learn how to change the default values of the configuration.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 16/11/2020
+ms.date: 11/16/2020
 ---
 
 # Tutorial: Configure the Industrial IoT components
@@ -20,10 +20,9 @@ In this tutorial, you learn how to:
 
 Here are some of the more relevant customization settings for the components:
 * IoT Hub
-    * Networking→Public access: Configure Internet access, e.g. IP filters
-    * Networking → Private endpoint connections: Create an endpoint that is not accessible
-    through the Internet and can be consumed internally by other Azure services or on-
-    premises devices (e.g. through a VPN connection)
+    * Networking→Public access: Configure Internet access, for example, IP filters
+    * Networking → Private endpoint connections: Create an endpoint that's not accessible
+    through the Internet and can be consumed internally by other Azure services or on-premises devices (for example, through a VPN connection)
     * IoT Edge: Manage the configuration of the edge devices that are connected to the OPC
 UA servers 
 * Cosmos DB
@@ -34,10 +33,10 @@ Internet
 * Key Vault
     * Secrets: Manage platform settings
     * Access policies: Manage which applications and users may access the data in the Key
-Vault and which operations (e.g. read, write, list, delete) are they allowed to perform o Networking: Firewall, VNET and private endpoints
+Vault and which operations (for example, read, write, list, delete) they are allowed to perform on the network, firewall, VNET, and private endpoints
 * Azure Active Directory (AAD)→App registrations
     * <APP_NAME>-web → Authentication: Manage reply URIs, which is the list of URIs that
-can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of AAD admin rights; one may want to add or modify URIs when changing the hostname of the Web app, e.g. the port number used by the localhost for debugging
+can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of AAD admin rights. You may want to add or modify URIs when changing the hostname of the Web app, for example, the port number used by the localhost for debugging
 * App Service
     * Configuration: Manage the environment variables that control the services or UI
 * Virtual machine
@@ -45,20 +44,20 @@ can be used as landing pages after authentication succeeds. The deployment scrip
     * Serial console: SSH access to get insights or for debugging, get the credentials from the
 output of deployment script or reset the password
 * IoT Hub → IoT Edge
-    * Manage the identities of the IoT Edge devices that may access the hub, configure which modules are installed and which configuration they use, e.g. encoding parameters for the OPC Publisher
+    * Manage the identities of the IoT Edge devices that may access the hub, configure which modules are installed and which configuration they use, for example, encoding parameters for the OPC Publisher
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
 
 
 |Configuration Option (shorthand/full name)    |    Description   |
 |----------------------------------------------|------------------|
-pf/publishfile |The filename to configure the nodes to publish. If this Option is specified it puts OPC Publisher into stadalone mode.
+pf/publishfile |The filename to configure the nodes to publish. If this option is specified, it puts OPC Publisher into standalone mode.
 lf/logfile |The filename of the logfile to use.
 ll/loglevel |The log level to use (allowed: fatal, error, warn, info, debug, verbose).
 me/messageencoding |The messaging encoding for outgoing messages allowed values: Json, Uadp
 mm/messagingmode |The messaging mode for outgoing messages allowed values: PubSub, Samples
 fm/fullfeaturedmessage |The full featured mode for messages (all fields filled in). Default is 'true', for legacy compatibility use 'false'
-aa/autoaccept |The publisher trusted all servers it is establishing a connection to
+aa/autoaccept |The publisher trusted all servers it's a connection to
 bs/batchsize |The number of OPC UA data-change messages to be cached for batching.
 si/iothubsendinterval |The trigger batching interval in seconds.
 ms/iothubmessagesize |The maximum size of the (IoT D2C) message.
@@ -71,7 +70,7 @@ ot/operationtimeout |The operation timeout of the publisher OPC UA client in ms.
 ol/opcmaxstringlen |The max length of a string opc can transmit/receive.
 oi/opcsamplinginterval |Default value in milliseconds to request the servers to sample values
 op/opcpublishinginterval |Default value in milliseconds for the publishing interval setting of the subscriptions against the OPC UA server.
-ct/createsessiontimeout |The interval in seconds the publisher is sending keep alive messages to the OPC servers on the endpoints it is connected to.
+ct/createsessiontimeout |The interval the publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to.
 kt/keepalivethresholt |Specify the number of keep alive packets a server can miss, before the session is disconnected.
 tm/trustmyself |The publisher certificate is put into the trusted store automatically.
 at/appcertstoretype |The own application cert store type (allowed: Directory, X509Store).

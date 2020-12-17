@@ -1,16 +1,16 @@
 ---
 title: Pull IIoT data into ADX
-description: In this tutorial you learn how to pull IIoT data into ADX.
+description: In this tutorial, you learn how to pull IIoT data into ADX.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 16/11/2020
+ms.date: 11/16/2020
 ---
 
 # Tutorial: Pull IIoT data into ADX
 
-The Azure Industrial IoT (IIoT) Platform combines a number of Edge and Cloud microservices with a number of Azure PaaS services to provide capabilities for industrial asset discovery and to collect data from these assets using OPC UA. [Azure Data Explorer (ADX)](https://docs.microsoft.com/en-us/azure/data-explorer) is a natural destination for IIoT data with data analytics features that facilitates running flexible queries on the ingested data from the OPC UA servers connected to the IoT Hub through the OPC Publisher. Although an ADX cluster is capable of ingesting data directly from the IoT Hub, the IIoT platform does further processing of the data to make it more useful before putting it on the Event Hub provided when a full deployment of the microservices is used (refer to the IIoT platform architecture).
+The Azure Industrial IoT (IIoT) Platform combines a number of Edge and Cloud microservices with a number of Azure PaaS services to provide capabilities for industrial asset discovery and to collect data from these assets using OPC UA. [Azure Data Explorer (ADX)](https://docs.microsoft.com/azure/data-explorer) is a natural destination for IIoT data with data analytics features that facilitates running flexible queries on the ingested data from the OPC UA servers connected to the IoT Hub through the OPC Publisher. Although an ADX cluster is capable of ingesting data directly from the IoT Hub, the IIoT platform does further processing of the data to make it more useful before putting it on the Event Hub provided when a full deployment of the microservices is used (refer to the IIoT platform architecture).
 
 In this tutorial, you learn how to:
 
@@ -24,13 +24,13 @@ If we look at the message format from the Event Hub (as defined by the class Mic
 ![Structure](media/tut-IIoT-data-ADX/IIoTinADXpic1.png)
 
 Below are the steps that we will need in order to make the data available in the ADX cluster and to query the data effectively.  
-1. Create an ADX cluster. If you do not have an ADX cluster provisioned with the IIoT platform already, or if you would like to use a different cluster then follow the steps [here](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal#create-a-cluster). 
-2. Enable streaming ingestion on the ADX cluster as explained [here](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-your-cluster). 
-3. Create an ADX database by following the steps [here](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal#create-a-database).
+1. Create an ADX cluster. If you do not have an ADX cluster provisioned with the IIoT platform already, or if you would like to use a different cluster then follow the steps [here](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal#create-a-cluster). 
+2. Enable streaming ingestion on the ADX cluster as explained [here](https://docs.microsoft.com/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-your-cluster). 
+3. Create an ADX database by following the steps [here](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal#create-a-database).
 
-For the following step we will use the [ADX web interface](https://docs.microsoft.com/en-us/azure/data-explorer/web-query-data) to run the necessary queries. Make sure to add your cluster to the web interface as explained in the link.  
+For the following step, we will use the [ADX web interface](https://docs.microsoft.com/azure/data-explorer/web-query-data) to run the necessary queries. Make sure to add your cluster to the web interface as explained in the link.  
  
-4. Create a table in ADX to put the ingested data in.  Although the MonitoredItemMessageModel class can be used to define the schema of the ADX table, it is recommended to ingest the data first into a staging table with one column of type [Dynamic](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/scalar-data-types/dynamic). This gives us more flexibility in handling the data and processing into other tables (potentially combining it with other data sources) that serve the needs for multiple use cases. The following ADX query creates the staging table ‘iiot_stage’ with one column ‘payload’,
+4. Create a table in ADX to put the ingested data in.  Although the MonitoredItemMessageModel class can be used to define the schema of the ADX table, it is recommended to ingest the data first into a staging table with one column of type [Dynamic](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic). This gives us more flexibility in handling the data and processing into other tables (potentially combining it with other data sources) that serve the needs for multiple use cases. The following ADX query creates the staging table ‘iiot_stage’ with one column ‘payload’,
 
 ```
 .create table ['iiot_stage']  (['payload']:dynamic)
@@ -43,23 +43,23 @@ We also need to add a json ingestion mapping to instruct the cluster to put the 
 ```
 
 5. Our table is now ready to receive data from the Event Hub. 
-6. Use the instructions [here](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub) to connect the Event Hub to the ADX cluster and start ingesting the data into our staging table. We only need to create the connection as we already have an Event Hub provisioned by the IIoT platform.  
+6. Use the instructions [here](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub) to connect the Event Hub to the ADX cluster and start ingesting the data into our staging table. We only need to create the connection as we already have an Event Hub provisioned by the IIoT platform.  
 7. Once the connection is verified, data will start flowing to our table and after a short delay we can start examining the data in our table. Use the following query in the ADX web interface to look at a data sample of 10 rows. We can see here how the data in the payload resembles the MonitoredItemMessageModel class mentioned earlier.
 
 ![Query](media/tut-IIoT-data-ADX/IIoTinADXpic2.png)
 
-8. Let us now run some analytics on this data by parsing the Dynamic data in the ‘payload’ column directly. In this example we will compute the average of the telemetry identified by the “DisplayName” : “PositiveTrendData”, over time windows of 10 minutes, on all the records ingested since a specific time point (defined by  the variable min_t)
+8. Let us now run some analytics on this data by parsing the Dynamic data in the ‘payload’ column directly. In this example, we will compute the average of the telemetry identified by the “DisplayName”: “PositiveTrendData”, over time windows of 10 minutes, on all the records ingested since a specific time point (defined by  the variable min_t)
 let min_t = datetime(2020-10-23);
 iiot_stage 
 | where todatetime(payload.Timestamp) > min_t
 | where tostring(payload.DisplayName)== 'PositiveTrendData'
-| summarize event_avg = avg(todouble(payload.Value)) by bin(todatetime(payload.Timestamp), 10m)
+| summarize event_avg = avg(todouble(payload.Value)) by bin(todatetime(payload.Timestamp), 10 m)
  
 Note that since our ‘payload’ column contains a dynamic data type, we need to carry out data conversion at query time so that our calculations are carried out on the correct data types.
 
 ![Payload Timestamp](media/tut-IIoT-data-ADX/IIoTinADXpic3.png)
 
-As we mentioned earlier, ingesting the OPC UA data into a staging table with one ‘Dynamic’ column gives us flexibility. However, having to run data type conversions at query time can result in delays in executing the queries particularly if the data volume is quite large and if there are many concurrent queries. At this stage we can create another table with the data types already determined so that we avoid the query-time data type conversions.
+As we mentioned earlier, ingesting the OPC UA data into a staging table with one ‘Dynamic’ column gives us flexibility. However, having to run data type conversions at query time can result in delays in executing the queries particularly if the data volume is quite large and if there are many concurrent queries. At this stage, we can create another table with the data types already determined so that we avoid the query-time data type conversions.
  
 9. Create a new table for the parsed data that consists of a limited selection from the content of the dynamic ‘payload’ in the staging table. Note also that we have created a value column for each of the expected data types expected in our telemetry.
 
@@ -93,9 +93,9 @@ iiot_stage
 }
 ```
 
-For further information on mapping data types in ADX see [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/scalar-data-types/dynamic), and for functions in ADX you can start [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/schema-entities/stored-functions).
+For further information on mapping data types in ADX, see [here](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic), and for functions in ADX you can start [here](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/stored-functions).
  
-11. Apply the function from the previous step to the parsed table using an update policy. Update [policy](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/updatepolicy) instructs ADX to automatically append data to a target table whenever new data is inserted into the source table, based on a transformation query that runs on the data inserted into the source table. We can use the following query to assign the parsed table as the destination and the stage table as the source for the update policy defined by the function we created in the previous step.
+11. Apply the function from the previous step to the parsed table using an update policy. Update [policy](https://docs.microsoft.com/azure/data-explorer/kusto/management/updatepolicy) instructs ADX to automatically append data to a target table whenever new data is inserted into the source table, based on a transformation query that runs on the data inserted into the source table. We can use the following query to assign the parsed table as the destination and the stage table as the source for the update policy defined by the function we created in the previous step.
 
 ```
 .alter table iiot_parsed policy update
@@ -116,6 +116,6 @@ As soon as the above query is executed, data will start flowing and populating t
 
 ![Query performance 2](media/tut-IIoT-data-ADX/IIoTinADXpic7.png)
 
-We can see that the query that uses the parsed table is roughly twice as fast as that for the staging table. In this example we have a small dataset and there are no concurrent queries running so the effect on the query execution time is not great, however for a realistic workload there would be a big impact on the performance. This is why it is important to consider separating the different data types into different columns.
+We can see that the query that uses the parsed table is roughly twice as fast as that for the staging table. In this example, we have a small dataset and there are no concurrent queries running so the effect on the query execution time is not great, however for a realistic workload there would be a large impact on the performance. This is why it is important to consider separating the different data types into different columns.
 
 Final Note: The Update Policy only works on the data that is ingested into the staging table after the policy was set up and does not apply to any pre-existing data. This needs to be taken into consideration when, for example, we need to change the update policy. Full details can be found in the ADX documentation.

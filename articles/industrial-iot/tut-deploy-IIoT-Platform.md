@@ -1,11 +1,11 @@
 ---
 title: Deploy the IIoT Platform
-description: In this tutorial you learn how to deploy the IIoT Platform.
+description: In this tutorial, you learn how to deploy the IIoT Platform.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 16/11/2020
+ms.date: 11/16/2020
 ---
 
 # Tutorial: Deploy the IIoT Platform
@@ -21,15 +21,15 @@ In this tutorial, you learn:
 
 - An Azure subscription must be created
 - Download [Git](https://git-scm.com/downloads)
-- The AAD app registrations used for authentication require Global Administrator, Application
-Administrator or Cloud Application Administrator rights to provide tenant-wide admin consent (see below for further options)
+- The Azure Active Directory (AAD) app registrations used for authentication require Global Administrator, Application
+Administrator, or Cloud Application Administrator rights to provide tenant-wide admin consent (see below for further options)
 - The supported operating systems for deployment are Windows, Linux and Mac
-- IoT edge supports Windows 10 IoT Enterprise LTSC and Ubuntu Linux 16.08/18.04 LTS Linux
+- IoT Edge supports Windows 10 IoT Enterprise LTSC and Ubuntu Linux 16.08/18.04 LTS Linux
 
 ## Main Components
 
 - Minimum dependencies: IoT Hub, Cosmos DB, Service Bus, Event Hub, Key Vault, Storage
-- Standard dependencies: Minimum + SignalR Service, Azure Active Directory (AAD) app
+- Standard dependencies: Minimum + SignalR Service, AAD app
 registrations, Device Provisioning Service, Time Series Insights, Workbook, Log Analytics,
 Application Insights
 - Microservices: App Service Plan, App Service
@@ -76,7 +76,7 @@ aadConfig argument.
     ./deploy.ps1 -aadConfig aad.json
     ```
 
-For production deployments that require staging, rollback, scaling and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
+For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 
 References:
 - [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/tree/master/docs/deploy)
@@ -84,8 +84,8 @@ References:
 - [How to deploy platform into AKS](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 
 
-# Next steps
+## Next steps
 Now that you have deployed the IIoT Platform, you can learn how to customize configuration of the components:
 
 > [!div class="nextstepaction"]
-> [Customize the configuration of the components](tut-IIoT-configure-IIoT-components)
+> [Customize the configuration of the components](tut-IIoT-configure-IIoT-components.md)

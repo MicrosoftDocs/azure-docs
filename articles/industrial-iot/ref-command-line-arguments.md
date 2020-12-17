@@ -1,6 +1,6 @@
 ---
-title: OPC Publisher Command Line Arguments
-description: This article provides an overview of the OPC Publisher Command Line Arguments
+title: OPC Publisher Command-line Arguments
+description: This article provides an overview of the OPC Publisher Command-line Arguments
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
@@ -10,7 +10,7 @@ ms.date: 12/08/2020
 
 # Command Line Arguments
 
-## OPC Publisher Command Line Arguments for Version 2.5 and below
+## OPC Publisher Command-line Arguments for Version 2.5 and below
 
 * Usage: opcpublisher.exe <applicationname> [<iothubconnectionstring>] [<options>]
     
@@ -18,10 +18,10 @@ ms.date: 12/08/2020
                          The application name is also used to register the publisher under this name in the
                          IoT Hub device registry.
     
-* iothubconnectionstring: the IoT Hub owner connectionstring, optional. Typically you specify the IoTHub owner connectionstring only on the first start of the application. The connection string is encrypted and stored in the platforms certificiate store.
-On subsequent calls it is read from there and reused. If you specify the connectionstring on each start, the device which is created for the application in the IoT Hub device registry is removed and recreated each time.
+* iothubconnectionstring: the IoT Hub owner connectionstring, optional. Typically you specify the IoTHub owner connectionstring only on the first start of the application. The connection string is encrypted and stored in the platforms certificate store.
+On subsequent calls, it's read from there and reused. If you specify the connectionstring on each start, the device, which is created for the application in the IoT Hub device registry is removed and recreated each time.
     
-There are a couple of environment variables which can be used to control the application:
+There are a couple of environment variables, which can be used to control the application:
 ```
         _HUB_CS: sets the IoTHub owner connectionstring
         _GW_LOGP: sets the filename of the log file to use
@@ -30,7 +30,7 @@ There are a couple of environment variables which can be used to control the app
 ```
 
 > [!NOTE] 
-> Command line arguments overrule environment variable settings.
+> Command-line arguments overrule environment variable settings.
     
 ```
               --pf, --publishfile=VALUE
@@ -327,7 +327,7 @@ There are a couple of environment variables which can be used to control the app
 ```
 
 
-## OPC Publisher Command Line Arguments for Version 2.6 and above
+## OPC Publisher Command-line Arguments for Version 2.6 and above
 ```
              --pf, --publishfile=VALUE
                                        the filename to configure the nodes  to publish.
