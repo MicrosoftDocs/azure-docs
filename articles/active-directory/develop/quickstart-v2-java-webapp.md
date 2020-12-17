@@ -108,18 +108,18 @@ To run this sample, you need:
 > 1. Open the *application.properties* file. You can find it in the *src/main/resources/* folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it should look like:
 >
 >    ```file
->    aad.clientId=Enter_the_application_ID_here
->    aad.authority=https://login.microsoftonline.com/Enter_the_tenant_info_here/
->    aad.secretKey=Enter_the_client_secret_here
+>    aad.clientId=Enter_the_Application_Id_here
+>    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+>    aad.secretKey=Enter_the_Client_Secret_Here
 >    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
 >    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
 >    In the previous code:
 >
->    - `Enter_the_application_ID_here` is the application ID for the application you registered.
->    - `Enter_the_client_secret_here` is the **Client Secret** you created in **Certificates & secrets** for the application you registered.
->    - `Enter_the_tenant_info_here` is the **Directory (tenant) ID** value of the application you registered.
+>    - `Enter_the_Application_Id_here` is the application ID for the application you registered.
+>    - `Enter_the_Client_Secret_Here` is the **Client Secret** you created in **Certificates & secrets** for the application you registered.
+>    - `Enter_the_Tenant_Info_Here` is the **Directory (tenant) ID** value of the application you registered.
 > 1. To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
 >    Here's an example:
