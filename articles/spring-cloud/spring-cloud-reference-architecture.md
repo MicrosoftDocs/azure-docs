@@ -1,10 +1,18 @@
 # Azure Spring Cloud Reference Architecture
 
-## Cost Optimization
-## Operational Excellence
-## Performance Efficiency
-## Reliability
-## Security
+## Overview
+This architecture reference is a foundation leveraging a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework.
+
+### Shared Services Hub
+
+### Spring Cloud Spoke
+
+## Well-Architected Framework Considerations
+### Cost Optimization
+### Operational Excellence
+### Performance Efficiency
+### Reliability
+### Security
 As one of the guiding tenants of the Azure Well-Architected Framework, security of this architecture was addressed by adhering to industry defined controls and benchmarks. The controls used in this architecture are from the Cloud Control Matrix (CCM) by the Cloud Security Alliance and the Microsoft Azure Foundations Benchmark (MAFB) by the Center for Internet Security. The primary security design principles of governance, networking, and application security were the focus of the applied controls. The design principles of Identity and Access Management and Storage are the responsibility of the reader as it relates to their target infrastructure.
 
 ### Governance
