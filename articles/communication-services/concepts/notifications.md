@@ -78,13 +78,13 @@ Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getti
 
 ### Troubleshooting guide for push notifications
 
-When push notifications are not being received on the device there are 3 places where the notifications could have been dropped: 
+When push notifications are not being received on the device, there are three places where the notifications could have been dropped: 
 
 1. Azure Notifications Hubs did not accept the notification from Azure Communication Services
-1. Pns (e.g., Apns, Fcm) did not accept the notification from Azure Notifications Hubs
+1. Pns (for example Apns and Fcm) did not accept the notification from Azure Notifications Hubs
 1. Pns did not deliver the notification to the device.  
 
-The first place where a notification can be dropped (Azure Notification Hubs did not accept the notifications from Azure Communication Services) is covered below. For the other 2 places please see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
+The first place where a notification can be dropped (Azure Notification Hubs did not accept the notifications from Azure Communication Services) is covered below. For the other 2 places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
 One way to see if your Communication Services resource sends notifications to Azure Notifications Hubs is by looking at the `incoming messages` metric from the linked [Azure Notifications Hub metrics](../../azure-monitor/platform/metrics-supported.md#Microsoft.NotificationHubs/Namespaces/NotificationHubs).
 
