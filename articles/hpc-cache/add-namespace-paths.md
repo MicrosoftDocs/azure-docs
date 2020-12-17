@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: v-erkel
 ---
 

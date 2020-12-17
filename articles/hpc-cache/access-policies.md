@@ -4,7 +4,7 @@ description: How to create and apply custom access policies to limit client acce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 12/17/2020
 ms.author: v-erkel
 ---
 
@@ -24,7 +24,7 @@ If you don't need fine-grained control over storage target access, you can use t
 
 Use the **Client access policies** page in the Azure portal to create and manage policies. <!-- is there AZ CLI for this? -->
 
-![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview.png)
+![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)
 
 Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default).
 
@@ -84,6 +84,8 @@ If you turn on root squash, you must also set the anonymous ID user value to one
 * **65535** (no access)
 * **0** (unprivileged root)
 
-![screenshot of access policies edit blade with multiple rules filled in. Click ok to save the rule.](media/edit-policy-draft.png)
+![screenshot of access policies edit blade with multiple rules filled in. Click ok to save the rule.](media/add-policy-draft.png)
 
+## Next steps
 
+* Apply access policies in the namespace paths for your storage targets. Read [Set up the aggregated namespace](add-namespace-paths.md) to learn how.

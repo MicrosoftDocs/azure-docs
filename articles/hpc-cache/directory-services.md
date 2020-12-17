@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: v-erkel
 ---
 
@@ -54,7 +54,7 @@ These values are required if you want to download files with your user and group
 
 Fill in these values if you want to use a non-AD LDAP source to get user and group credentials. Check with your LDAP administrator if you need help with these values.
 
-* **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use.<!-- You can enter up to three LDAP servers, separated by spaces. -- xxx check on this - NO -- -->
+* **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use. <!-- only one, not up to 3 -->
 
 * **LDAP base DN** - Specify the base distinguished name for the LDAP domain. <!-- xxx we specify base DN here but bind DN only if there's encryption?  xxx LDAP queries are performed on the base DN, the DN of the entry, and all entries below it in the directory tree. -->Ask your LDAP administrator if you don’t know your base DN.
 
@@ -77,14 +77,7 @@ Fill in the **Credentials** section if you want to use static credentials for LD
 * **Bind DN** - Enter the bind distinguished name to use to authenticate to the LDAP server.
 * **Bind password** - Provide the password for the bind DN.
 
+## Next steps
 
-
-
-----
-
-
-<!-- does this mean anything? 
-Base and bind DN entries use a similar format. So, for example, if the domain name is “ourdomain.server.company.com”, the DN entry is in the form ou=ourdomain,dc=server,dc=company,dc=com
--->
-
-
+* Learn more about client access in [Mount the Azure HPC Cache](hpc-cache-mount.md)
+* If your credentials don't download correctly, consult the administrator for your source of credentials. Open a [support ticket](hpc-cache-support-ticket.md) if needed.
