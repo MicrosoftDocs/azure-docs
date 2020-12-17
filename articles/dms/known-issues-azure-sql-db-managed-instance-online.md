@@ -61,6 +61,28 @@ Known issues and limitations that are associated with online migrations from SQL
 
     Migration cutover can only be called after the full backup is restored and catches up with all log backups. If your production migration cutovers are affected, contact the [Azure DMS Feedback alias](mailto:dmsfeedback@microsoft.com).
 
-## SMB File share 
+## SMB file share connectivity
 
+Issues connecting to the SMB file share are likely caused by a permissions issue. 
+
+To test SMB file share connectivity, follow these steps: 
+
+1. Save a backup to the SMB file share. 
+1. Verify network connectivity between the subnet of Azure Database Migration Service and the source SQL Server. The easiest way to do this is to deploy a SQL Server virtual machine to the DMS subnet and connect to the source SQL Server using SQL Server Management Studio. 
+1. Restore the header on the source SQL Server from the backup on the fileshare: 
+
+   ```sql
+   RESTORE HEADERONLY   
+   FROM DISK = N'\\<SMB file share path>\full.bak'
+   ```
+
+If you are unable to connect to the file share, configure permissions with these steps: 
+
+1. Navigate to your file share using File Explorer. 
+1. Right-click the file share and select properties. 
+1. Choose the **Sharing** tab and select **Advanced Sharing**. 
+1. Add the Windows account used for migration, and assign it full control access. 
+1. Add the SQL Server service account, and assign it full control access. Check the **SQL Server Configuration Manager** for the SQL Server service account if you're not sure which account is being used. 
+
+   :::image type="content" source="media/known-issues-azure-sql-db-managed-instance-online/assign-fileshare-permissions.png" alt-text="Give full control access to the Windows accounts used for migration and for the SQL Server service account. ":::
 
