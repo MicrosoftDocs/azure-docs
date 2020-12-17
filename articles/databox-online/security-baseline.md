@@ -40,6 +40,8 @@ Internal traffic is further secured by:
 - Any client access to the device is through the local web UI using standard TLS 1.2 as the default secure protocol.
 
 - Only an authorized Azure Stack Edge Pro device is allowed to join the Azure Stack Edge service that the customer's create in their Azure subscription.
+
+Additional information is available at the referenced links.
  
 - [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
 
@@ -164,6 +166,7 @@ applicable; Azure Stack Edge does not offer domain name service capabilities. Th
 **Guidance**: Azure Active Directory (Azure AD) authentication is required for all management operations performed on Azure Stack Edge devices via the Azure portal. Azure Stack Hub requires Azure AD or Active Directory Federation Services (ADFS), backed by Azure AD, as an identity provider.
 
 Standardize on Azure AD to govern your organization’s identity and access management in:
+
 - Microsoft cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, platform as a service (PaaS), and software as a service (SaaS) applications
 
 - Your organization's resources, such as applications on Azure or your corporate network resources
