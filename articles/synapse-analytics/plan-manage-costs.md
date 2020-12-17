@@ -53,7 +53,7 @@ You can pay for Azure Synapse charges with your EA monetary commitment credit. H
 
 ## Review estimated costs in the Azure portal
 
-As you create resources for Azure Synapse Analytics, you see estimated costs. A workspace has a serverless SQL pool created with the workspace. Other resources, such as dedicated SQL pools and serverless Apache Spark pools, will need to be created within the workspace.
+As you create resources for Azure Synapse Analytics, you see estimated costs. A workspace has a serverless SQL pool created with the workspace. Serverless SQL pool will not incur charges until you run queries. Other resources, such as dedicated SQL pools and serverless Apache Spark pools, will need to be created within the workspace.
 
 To create a <ResourceName> and view the estimated price:
 
@@ -62,18 +62,12 @@ To create a <ResourceName> and view the estimated price:
 3. Review the estimated price shown in the summary.
 4. Finish creating the resource.
 
-<!-- Note to Azure service writer: Replace the following example image with one specific to your service. Ensure that you do not show UNIT pricing. Total pricing is okay to show. If you show total pricing, don't show the number of units. -->
-
 ![Example showing estimated costs while creating a resource](./media/plan-manage-costs/create-workspace-cost.png)
 
-
-<!--Note to Azure service writer: Add a paragraph like: -->
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit).
 
 ## Monitor costs
-
-<!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
 As you use Azure Synapse resources, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as you start using resources in Azure Synapse, costs are incurred and you can see the costs in [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -89,21 +83,15 @@ Actual monthly costs are shown when you initially open cost analysis. Here's an 
 
 ![Example showing accumulated costs for a resource group](./media/plan-manage-costs/actual-monthly-costs.png)
 
-<!-- Note to Azure service writer: This example shows costs for an example Azure subscription. You can see service costs for App Service, Storage, Backup, Virtual Networks, and Advanced Threat Protection. Replace this example image with one that shows costs for your service. Your screenshot should look like the one above. -->
-
 - To narrow costs for a single service, like Azure Synapse, select **Add filter** and then select **Service name**. Then, select **Azure Synapse Analytics**.
 
 Here's an example showing costs for just Azure Synapse.
 
 ![Example showing accumulated costs for ServiceName](./media/plan-manage-costs/filtered-monthly-costs.png)
 
-<!-- Note to Azure service writer: The image shows an example for Azure Storage. Replace the example image with one that shows costs for your service. -->
-
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure Synapse costs by resource group are also shown. From here, you can explore costs on your own.
 
 ## Create budgets
-
-<!-- Note to Azure service writer: Modify the following as needed for your service. -->
 
 You can create [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
 
@@ -116,13 +104,6 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 ## Other ways to manage and reduce costs for Azure Synapse 
 
-<!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here. 
-
-Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
-
-If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
--->
-
 ### Serverless SQL pool
 
 To learn more about costs for serverless SQL pool see [Cost management for serverless SQL pool in Azure Synapse Analytics](./sql/data-processed.md)
@@ -131,7 +112,7 @@ To learn more about costs for serverless SQL pool see [Cost management for serve
 
 You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-### Serverless Apache Spark pool
+<!-- ### Serverless Apache Spark pool -->
 
 ### Data integration - pipelines and data flows 
 
@@ -144,7 +125,3 @@ To learn more about data integration cost see [Plan and manage costs for Azure D
 - Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - Learn about planning and managing costs for [Azure Machine Learning](../machine-learning/concept-plan-manage-cost.md)
-
-<!-- Insert links to other articles that might help users save and manage costs for you service here.
-
-Create a table of contents entry for the article in the How-to guides section where appropriate. -->
