@@ -125,7 +125,7 @@ The following JSON Patch sample shows how to add, replace, or remove a component
 
 An add or replace operation sets the desired value of a property. The device can synchronize state and report an update of the value along with an `ack` code, version, and description.
 
-Removing a property clears the desired value of property if it's set. The device can then stop reporting this property and it's removed from the the component. If this property is the last one in the component, then the component is removed as well.
+Removing a property clears the desired value of property if it's set. The device can then stop reporting this property and it's removed from the component. If this property is the last one in the component, then the component is removed as well.
 
 The following JSON Patch sample shows how to add, replace, or remove a property within a component:
 
