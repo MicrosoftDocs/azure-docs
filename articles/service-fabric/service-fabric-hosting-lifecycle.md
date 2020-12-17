@@ -11,7 +11,7 @@ ms.author: tugup
 
 This article provides an overview of events that happen in Azure Service Fabric when an application is activated on a node. It explains various cluster configurations that control the behavior.
 
-Before you proceed, be sure that you understand the concepts and relationships explained in [Model an application in Service Fabric][a1]. 
+Before you continue, be sure that you understand the concepts and relationships explained in [Model an application in Service Fabric][a1]. 
 
 > [!NOTE]
 > This article uses some terminology in specialized ways. Unless otherwise noted:
@@ -60,8 +60,8 @@ When a CodePackage crashes, Service Fabric uses a backoff to start it again. The
 
 The backoff value is `Min(RetryTime, ActivationMaxRetryInterval)`. The value is incremented in constant, linear, or exponential amounts based on the `ActivationRetryBackoffExponentiationBase` configuration setting:
 
-- **Constant**: If `ActivationRetryBackoffExponentiationBase == 0` then `RetryTime = ActivationRetryBackoffInterval`.
-- **Linear**:  If  `ActivationRetryBackoffExponentiationBase == 0` then `RetryTime = ContinuousFailureCount ActivationRetryBackoffInterval`, where `ContinuousFailureCount` is the number of times a CodePackage crashes or fails to activate.
+- **Constant**: If `ActivationRetryBackoffExponentiationBase == 0`, then `RetryTime = ActivationRetryBackoffInterval`.
+- **Linear**:  If  `ActivationRetryBackoffExponentiationBase == 0`, then `RetryTime = ContinuousFailureCount ActivationRetryBackoffInterval`, where `ContinuousFailureCount` is the number of times a CodePackage crashes or fails to activate.
 - **Exponential**: `RetryTime = (ActivationRetryBackoffInterval in seconds) * (ActivationRetryBackoffExponentiationBase ^ ContinuousFailureCount)`.
 	
 You can control the behavior by changing the values. For example, if you want several quick restart attempts, you can use linear amounts by setting `ActivationRetryBackoffExponentiationBase` to `0` and setting `ActivationRetryBackoffInterval` to `10`. So if a CodePackage crashes, the start interval will be after 10 seconds. If the package continues to crash, the backoff changes to 20 seconds, 30 seconds, 40 seconds, and so on, until the CodePackage activation succeeds or the CodePackage is deactivated. 
@@ -71,15 +71,15 @@ The maximum amount of time that Service Fabric backs off (that is, waits) after 
 If your CodePackage crashes and comes back up, it needs to stay up for time period specified by `CodePackageContinuousExitFailureResetInterval`. After this interval, Service Fabric considers the CodePackage healthy. Service Fabric then overwrites the prior error health report as OK and resets the `ContinuousFailureCount`.
 
 ### CodePackage not registering ServiceType
-If a CodePackage stays up and is expected to register a ServiceType but doesn't, Service Fabric generates a warning health report after the `ServiceTypeRegistrationTimeout`. The report indicates that ServiceType has not been registered within the expected amount of time.
+If a CodePackage stays up and is expected to register a ServiceType but doesn't, Service Fabric generates a warning health report after the `ServiceTypeRegistrationTimeout`. The report indicates that ServiceType hasn't been registered within the expected amount of time.
 
 ### Activation failure
-When Service Fabric finds an error during activation, it always uses a linear backoff, as it does with a CodePackage crash. The activation operation gives up after retries at these intervals: (0 + 10 + 20 + 30 + 40) = 100 seconds. (The first retry is immediate.) After this sequence, activation is not retried.
+When Service Fabric finds an error during activation, it always uses a linear backoff, as it does with a CodePackage crash. The activation operation gives up after retries at these intervals: (0 + 10 + 20 + 30 + 40) = 100 seconds. (The first retry is immediate.) After this sequence, activation isn't retried.
 	
 The maximum activation backoff can be `ActivationMaxRetryInterval`. The retry can be `ActivationMaxFailureCount`.
 
 ### Download failure
-Service Fabric always uses a linear backoff when it encounters an error during a download. The activation operation gives up after retries at these intervals: (0 + 10 + 20 + 30 + 40) = 100 seconds. (The first retry is immediate.) After this sequence, the download is not retried. 
+Service Fabric always uses a linear backoff when it finds an error during a download. The activation operation gives up after retries at these intervals: (0 + 10 + 20 + 30 + 40) = 100 seconds. (The first retry is immediate.) After this sequence, the download isn't retried. 
 
 The linear backoff for a download is equal to `ContinuousFailureCount` * `DeploymentRetryBackoffInterval`. The maximum backoff can be `DeploymentMaxRetryInterval`. Like activations, download operations can retry for the `ActivationMaxFailureCount` limit.
 
@@ -92,7 +92,9 @@ The linear backoff for a download is equal to `ContinuousFailureCount` * `Deploy
 >
 >* In case of activations, when a Service Fabric system needs to place a Replica on a node, the reconfiguration agent asks the hosting subsystem to activate the application. It retries the activation request every 15 seconds. (The duration is governed by the `RAPMessageRetryInterval` configuration setting.) Service Fabric can't know that the ServiceType has been blocklisted unless the activation operation in hosting is up for a longer period than the retry interval and the `ServiceTypeDisableGraceInterval`. 
 >
->    For example, assume the cluster has `ActivationMaxFailureCount` set to 5 and `ActivationRetryBackoffInterval` set to 1 second. In this case, the activation operation gives up after intervals of (0 + 1 + 2 + 3 + 4) = 10 seconds. (The first retry is immediate.) After this sequence, hosting gives up retrying. The activation operation finishes and won't retry after 15 seconds. Service Fabric has exhausted all of the allowed retries within 15 seconds. So every retry from the reconfiguration agent creates a new activation operation in the hosting subsystem, and the pattern keeps repeating. As a result, the ServiceType is never blocklisted on the node. Because the ServiceType won't be blocklisted on the node, the Replica won't be moved and tried on a different node.
+>    For example, assume the cluster's `ActivationMaxFailureCount` is set to 5, and `ActivationRetryBackoffInterval` is set to 1 second. In this case, the activation operation gives up after intervals of (0 + 1 + 2 + 3 + 4) = 10 seconds. (The first retry is immediate.) After this sequence, hosting gives up retrying. The activation operation finishes and won't retry after 15 seconds. 
+>
+>    Service Fabric has exhausted all of the allowed retries within 15 seconds. So every retry from the reconfiguration agent creates a new activation operation in the hosting subsystem, and the pattern keeps repeating. As a result, the ServiceType is never blocklisted on the node. Because the ServiceType won't be blocklisted on the node, the Replica won't be moved and tried on a different node.
 > 
 
 ## Deactivation
@@ -100,20 +102,28 @@ The linear backoff for a download is equal to `ContinuousFailureCount` * `Deploy
 When a ServicePackage is activated on a node, it's tracked for deactivation. Deactivation works in two ways:
 
 - **Periodic deactivation**:  At every `DeactivationScanInterval`, the system checks for service packages that have *never* hosted a Replica and marks them as candidates for deactivation.
-- **ReplicaClose deactivation**: If a Replica is closed, the deactivator gets a `DecrementUsageCount`. A count is at 0 when the ServicePackage doesn't hosting any Replica, so the ServicePackage is a candidate for deactivation.
+- **ReplicaClose deactivation**: If a Replica is closed, the deactivator gets a `DecrementUsageCount`. A count is at 0 when the ServicePackage doesn't host any Replica, so the ServicePackage is a candidate for deactivation.
 
- The activation mode determines when candidates are scheduled for deactivation. In shared mode, candidates for deactivation are scheduled after the `DeactivationGraceInterval`. In exclusive mode, they're scheduled after the `ExclusiveModeDeactivationGraceInterval`. If a new Replica placement arrives between these times, the deactivation is canceled. For more information, see [Exclusive mode and shared mode][a2].
+The activation mode determines when candidates are scheduled for deactivation. In shared mode, candidates for deactivation are scheduled after the `DeactivationGraceInterval`. In exclusive mode, they're scheduled after the `ExclusiveModeDeactivationGraceInterval`. If a new Replica placement arrives between these times, the deactivation is canceled. 
+
+For more information, see [Exclusive mode and shared mode][a2].
 
 ### Periodic deactivation
 Here are some examples of periodic deactivation:
 
-**Example 1**: Let's say the deactivator starts a scan at time T (the `DeactivationScanInterval`). Its next scan will be at 2T. Assume a ServicePackage activation happened at T + 1. This ServicePackage doesn't host a Replica, so it needs to be deactivated. To be a candidate for deactivation, the ServicePackage needs to host no Replica for at least T time. It will be eligible for deactivation at 2T + 1. So the scan at 2T won't identify this ServicePackage as a candidate for deactivation. The next deactivation cycle, 3T, will schedule this ServicePackage for deactivation because now the package has been in a no-Replica state for time T.  
+* **Example 1**: Let's say the deactivator starts a scan at time T (the `DeactivationScanInterval`). Its next scan will be at 2T. Assume a ServicePackage activation happened at T + 1. This ServicePackage doesn't host a Replica, so it needs to be deactivated. 
 
-**Example 2**: Let's say a ServicePackage gets activated at time T - 1, and the deactivator starts a scan at T. The ServicePackage doesn't host a Replica. At the next scan, 2T, the ServicePackage will be identified as a candidate for deactivation, so it will be scheduled for deactivation.  
+    To be a candidate for deactivation, the ServicePackage needs to host no Replica for at least T time. It will be eligible for deactivation at 2T + 1. So the scan at 2T won't identify this ServicePackage as a candidate for deactivation. 
 
-**Example 3**: Let's say a ServicePackage gets activated at T – 1, and the deactivator starts a scan at T. The ServicePackage doesn't host a Replica yet. Now at T + 1, a Replica gets placed. That is, hosting gets an `IncrementUsageCount`, which means a Replica is created. Now at 2T, this ServicePackage won't be scheduled for deactivation. Because the package contains a Replica, deactivation will follow the ReplicaClose logic, as the next section explains.
+    The next deactivation cycle, 3T, will schedule this ServicePackage for deactivation because now the package has been in a no-Replica state for time T.  
 
-**Example 4**: Let's say your ServicePackage is large, say 10 GB. The package takes some time to download on the node. When an application is activated, the deactivator tracks its life cycle. If you have the `DeactivationScanInterval` is set to a small value, your ServicePackage might not have time to activate on the node because of the time it took to download. To overcome this problem, you can [download the ServicePackage in advance on the node][p1] or increase the `DeactivationScanInterval`. 
+* **Example 2**: Let's say a ServicePackage gets activated at time T - 1, and the deactivator starts a scan at T. The ServicePackage doesn't host a Replica. At the next scan, 2T, the ServicePackage will be identified as a candidate for deactivation, so it will be scheduled for deactivation.  
+
+* **Example 3**: Let's say a ServicePackage gets activated at T – 1, and the deactivator starts a scan at T. The ServicePackage doesn't host a Replica yet. Now at T + 1, a Replica gets placed. That is, hosting gets an `IncrementUsageCount`, which means a Replica is created. 
+
+    At 2T, this ServicePackage won't be scheduled for deactivation. Because the package contains a Replica, deactivation will follow the ReplicaClose logic, as the next section in this article explains.
+
+* **Example 4**: Let's say your ServicePackage is 10 GB. Because the package is large, it takes time to download on the node. When an application is activated, the deactivator tracks its life cycle. If the `DeactivationScanInterval` is set to a small value, your ServicePackage might not have time to activate on the node because of the time it took to download. To overcome this problem, you can [download the ServicePackage in advance on the node][p1] or increase the `DeactivationScanInterval`. 
 
 > [!NOTE]
 > A ServicePackage can get deactivated anywhere between (`DeactivationScanInterval` to 2 * `DeactivationScanInterval`) + `DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval`. 
@@ -123,18 +133,18 @@ Here are some examples of periodic deactivation:
 
 > [!NOTE]
 > This section refers to the following configuration settings:
-> - `DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval`: The time given to a ServicePackage to host another Replica if it has already hosted any Replica. 
-> - `DeactivationScanInterval`: The minimum time given to a ServicePackage to host a Replica if it has *never* hosted any Replica, that is, if it has not been used.
+> - **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**: The time given to a ServicePackage to host another Replica if it has already hosted any Replica. 
+> - **DeactivationScanInterval**: The minimum time given to a ServicePackage to host a Replica if it has *never* hosted any Replica, that is, if it has not been used.
 >
 
 The system keeps count of the Replicas that a ServicePackage holds. If a ServicePackage is holding a Replica and the Replica is closed or down, hosting gets a `DecrementUsageCount`. When a Replica is opened, hosting gets an `IncrementUsageCount`. 
 
 The decrement indicates that the number of Replicas that the ServicePackage is hosting has been reduced by one Replica. When the count drops to 0, the ServicePackage is scheduled for deactivation. The time after which it will be deactivated is `DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval`. 
 
-For example, let's say that a decrement happens at T, and the ServicePackage is scheduled to deactivate at 2T + X (`DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval`). If during this time hosting gets an `IncrementUsage` because a Replica is created, the deactivation is canceled.
+For example, let's say that a decrement happens at T, and the ServicePackage is scheduled to deactivate at 2T + X (`DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval`). During this time, if hosting gets an `IncrementUsage` because a Replica is created, the deactivation is canceled.
 
-### Ctrl+C
-If a ServicePackage passes the `DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval` and is still not hosting a Replica, the deactivation can't be canceled. Code packages receive a Ctrl+C handler. So now the deactivation pipeline has to finish to bring the process down. 
+### Ctrl + C
+If a ServicePackage passes the `DeactivationGraceInterval`/`ExclusiveModeDeactivationGraceInterval` and is still not hosting a Replica, the deactivation can't be canceled. CodePackages receive a Ctrl + C handler. So now the deactivation pipeline has to finish to bring the process down. 
 
 During this time, if a new Replica for the same ServicePackage is trying to get placed, it will fail because the process can't transition from deactivation to activation.
 
@@ -143,20 +153,20 @@ During this time, if a new Replica for the same ServicePackage is trying to get 
 This section lists configurations that have defaults that affect activation and deactivation.
 
 ### ServiceType
-- **ServiceTypeDisableFailureThreshold**: Default: 1. Threshold for the failure count. After this threshold is reached, FailoverManager is notified to disable the service type on the node and try a different node for placement.
+- **ServiceTypeDisableFailureThreshold**: Default: 1. Threshold for the failure count; after this threshold is reached, FailoverManager is notified to disable the service type on the node and try a different node for placement.
 - **ServiceTypeDisableGraceInterval**: Default: 30 seconds. Time interval after which the service type can be disabled.
 - **ServiceTypeRegistrationTimeout**: Default: 300 seconds. Timeout for the ServiceType to register with Service Fabric.
 
 ### Activation
 - **ActivationRetryBackoffInterval**: Default: 10 seconds. Backoff interval for every activation failure.
-- **ActivationMaxFailureCount**: Default: 20. Maximum count for which the system will retry failed activation before giving up. 
+- **ActivationMaxFailureCount**: Default: 20. Maximum count for which the system will retry a failed activation before giving up. 
 - **ActivationRetryBackoffExponentiationBase**: Default: 1.5.
-- **ActivationMaxRetryInterval**: Default: 3600 seconds. Maximum backoff retry interval for activation after failures.
+- **ActivationMaxRetryInterval**: Default: 3,600 seconds. Maximum backoff retry interval for activation after failures.
 - **CodePackageContinuousExitFailureResetInterval**: Default: 300 seconds. Timeout interval to reset the continuous exit failure count for the CodePackage.
 
 ### Download
 - **DeploymentRetryBackoffInterval**: Default: 10. Backoff interval for the deployment failure.
-- **DeploymentMaxRetryInterval**: Default: 3600 seconds. Maximum backoff interval for the deployment after failures.
+- **DeploymentMaxRetryInterval**: Default: 3,600 seconds. Maximum backoff interval for the deployment after failures.
 - **DeploymentMaxFailureCount**: Default: 20. Application deployment will be retried for `DeploymentMaxFailureCount` times before failing the deployment of that application on the node.
 
 ### Deactivation
