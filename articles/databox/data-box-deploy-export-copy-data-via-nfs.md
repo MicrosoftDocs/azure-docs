@@ -11,7 +11,7 @@ ms.date: 12/18/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
-# Tutorial: Copy data from Azure Data Box via NFS (Preview)
+# Tutorial: Copy data from Azure Data Box via NFS
 
 This tutorial describes how to connect to and copy data from the local web UI of your Data Box to an on-premises data server via NFS. The data on your Data Box is exported from your Azure Storage account.
 

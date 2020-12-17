@@ -14,7 +14,7 @@ ms.localizationpriority: high
 # Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
 ---
 
-# Tutorial: Copy data from Azure Data Box via SMB (Preview)
+# Tutorial: Copy data from Azure Data Box via SMB
 
 This tutorial describes how to connect to and copy data from your Data Box to an on-premises server using the local web UI. The Data Box device contains the data exported from your Azure Storage account.
 

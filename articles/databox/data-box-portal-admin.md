@@ -39,9 +39,6 @@ Perform the following steps to cancel an order.
 
 Cloning is useful in certain situations. For example, you've used Data Box to transfer some data. As more data is generated, you need to use another Data Box device to transfer that data into Azure. In this case, you can just clone the same order.
 
-> [!IMPORTANT]
-> Cloning is not available for export orders. You can only clone import orders.
-
 Perform the following steps to clone an import order.
 
 1.	Go to **Overview > Clone**. 
