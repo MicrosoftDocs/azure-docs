@@ -665,7 +665,7 @@ $vm = @{
     Location = 'eastus'
     VM = $vmConfig
 }
-New-AzVM @vm -AsJob
+New-AzVM @vm
 
 ```
 
