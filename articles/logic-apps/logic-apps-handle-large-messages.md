@@ -63,52 +63,52 @@ For actions that use chunking, inputs of trigger bodies, variables and expressio
 `@triggerBody()?['Content']` cannot be used. Use of one of these inputs will prevent the chunking operation from happening even when the chunking option is set on the action. Instead, you need to use a  [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically you must create a 'body' field with the Compose action to hold the data from the trigger body or a variable etc.
 
 ```json
-            "Compose": {
-                "inputs": {
-                    "body": "@variables('myVar1')"
-                },
-                "runAfter": {
-                    "Until": [
-                        "Succeeded"
-                    ]
-                },
-                "type": "Compose"
-            },
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
 ```
 Then in the chunking action use '@body('Compose')' to reference the data.
 
 ```json
-            "Create_file": {
-                "inputs": {
-                    "body": "@body('Compose')",
-                    "headers": {
-                        "ReadFileMetadataFromServer": true
-                    },
-                    "host": {
-                        "connection": {
-                            "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/datasets/default/files",
-                    "queries": {
-                        "folderPath": "/c:/test1/test1sub",
-                        "name": "tt.txt",
-                        "queryParametersSingleEncoded": true
-                    }
-                },
-                "runAfter": {
-                    "Compose": [
-                        "Succeeded"
-                    ]
-                },
-                "runtimeConfiguration": {
-                    "contentTransfer": {
-                        "transferMode": "Chunked"
-                    }
-                },
-                "type": "ApiConnection"
-            },
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
 ```
 
 <a name="set-up-chunking"></a>
