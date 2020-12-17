@@ -78,7 +78,7 @@ Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getti
 
 ### Troubleshooting guide for push notifications
 
-When push notifications are not being received on the device, there are three places where the notifications could have been dropped: 
+When push notifications aren't being received on the device, there are three places where the notifications could have been dropped: 
 
 1. Azure Notifications Hubs didn't accept the notification from Azure Communication Services
 1. Pns (for example Apns and Fcm) didn't accept the notification from Azure Notifications Hubs
@@ -86,13 +86,13 @@ When push notifications are not being received on the device, there are three pl
 
 The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other 2 places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-One way to see if your Communication Services resource sends notifications to Azure Notifications Hubs is by looking at the `incoming messages` metric from the linked [Azure Notifications Hub metrics](../../azure-monitor/platform/metrics-supported.md#Microsoft.NotificationHubs/Namespaces/NotificationHubs).
+One way to see if your Communication Services resource sends notifications to Azure Notifications Hubs is by looking at the `incoming messages` metric from the linked [Azure Notifications Hub metrics](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
 
 The following are some misconfiguration that might be the cause why Azure Notifications Hub doesn't accept the notifications from your Communication Services resource. 
 
 #### Azure Notifications Hub not linked to the Communication Services resource
 
-There might be the case that the Azure Notifications Hub was not linked to the Communication Services resource. For that the [Notification Hub provisioning section](./notification-hub-provisioning) should be used.
+There might be the case that the Azure Notifications Hub was not linked to the Communication Services resource. For that the [Notification Hub provisioning section](#notification-hub-provisioning) should be used.
 
 #### The linked Azure Notifications Hub isn't configured
 
@@ -111,7 +111,7 @@ The Apns platform should be configured with token authentication mode as specifi
 
 The connection string that the Azure Notifications Hub was linked with to your Communication Services resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Azure Notifications Hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### The linked connection string or Azure Notifications Hub  resourceId are not valid
+#### The linked connection string or Azure Notifications Hub  resourceId aren't valid
 
 Make sure the Communication Services resource is configured with the correct connection string and Azure Notifications Hub resourceId
 
