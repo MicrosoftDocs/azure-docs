@@ -153,6 +153,8 @@ When sidecar is enabled, job prep and job release scripts will be run within sid
 
 For jobs training on multi-compute clusters, logs are present for each node IP. The structure for each node is the same as single node jobs. There is one additional logs folder for overall execution, stderr, and stdout logs.
 
+Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
 ## Monitor a compute cluster
 
 To monitor runs for a specific compute target from your browser, use the following steps:
