@@ -23,7 +23,11 @@ ms.author: yelevin
 
 ### The concept
 
-Entities are ...
+Entities are specific types of data elements that Azure Sentinel recognizes and classifies, in order to normalize ingested data from a range of different types of sources, and to easily refer to them across the range of possible activities throughout Sentinel - analytics, investigation, hunting, remediation, and so on.
+
+### Technical overview
+
+
 
 ### Entity identifiers
 
