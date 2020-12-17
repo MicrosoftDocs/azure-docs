@@ -204,16 +204,15 @@ The container you create will be used to store assets related to your Stream Ana
 
 1. Open **ProtobufCloudDeserializer.asaql** and select **Run Locally** from CodeLens then choose **Use Local Input** from the dropdown list.
 
-2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code).   
+2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code.md).
 
    ![Check local run result](./media/custom-deserializer/check-local-run-result-vscode.png)
-
 
 You have successfully implemented a custom deserializer for your Stream Analytics job! In this tutorial, you tested the custom deserializer locally with local input data. You can also test it [using live data input in the cloud](visual-studio-code-local-run-live-input.md). For running the job in the cloud, you would properly configure the input and output. Then submit the job to Azure from Visual Studio Code to run your job in the cloud using the custom deserializer you just implemented.
 
 ### Debug your deserializer
 
-You can debug your .NET deserializer locally the same way you debug standard .NET code. 
+You can debug your .NET deserializer locally the same way you debug standard .NET code.
 
 1. Add breakpoints in your .NET function.
 
