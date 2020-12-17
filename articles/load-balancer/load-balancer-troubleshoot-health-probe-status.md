@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Load Balancer health probe status
-description: Learn how to troubleshoot known issues with Azure Load Balancer.
+description: Learn how to troubleshoot known issues with Azure Load Balancer health probe status.
 services: load-balancer
 documentationcenter: na
 author: asudbring
