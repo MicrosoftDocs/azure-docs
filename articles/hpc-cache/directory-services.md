@@ -1,5 +1,5 @@
 ---
-title: Use directory groups in Azure HPC Cache
+title: Use extended groups in Azure HPC Cache
 description: How to configure directory services for client access to storage targets in Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
