@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 12/16/2020
 ms.author: v-erkel
 ---
 
@@ -52,9 +52,9 @@ These values are required if you want to download files with your user and group
 
 ## Configure LDAP
 
-Fill in these values if you want to use a non-AD LDAP source to get user and group credentials.
+Fill in these values if you want to use a non-AD LDAP source to get user and group credentials. Check with your LDAP administrator if you need help with these values.
 
-* **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use. You can enter up to three LDAP servers, separated by spaces. <!-- xxx check on this -->
+* **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use.<!-- You can enter up to three LDAP servers, separated by spaces. -- xxx check on this - NO -- -->
 
 * **LDAP base DN** - Specify the base distinguished name for the LDAP domain. <!-- xxx we specify base DN here but bind DN only if there's encryption?  xxx LDAP queries are performed on the base DN, the DN of the entry, and all entries below it in the directory tree. -->Ask your LDAP administrator if you don’t know your base DN.
 
@@ -68,7 +68,7 @@ In the **Secure access** section, you can enable encryption for the LDAP connect
 
   If you use a self-signed certificate, leave this set to **No** and leave the URI field empty.
 
-*  **CA certificate URI** - Specify the path to the certificate provider. This field is required to use the externally validated certificates setting.
+* **CA certificate URI** - Specify the path to the certificate provider. This field is required to use the externally validated certificates setting.
 
 * **Auto-download certificate** - Choose **Yes** if you want to try to download a certificate as soon as you submit these settings.
 

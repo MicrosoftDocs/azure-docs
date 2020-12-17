@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.author: v-erkel
 ---
 
@@ -22,7 +22,7 @@ You can sort the table columns by clicking the arrows and better understand your
 
 <!-- xxx new screenshot with access policy xxx -->
 
-![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png)
+![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page-draft.png)
 
 ## Add or edit client-facing namespace paths
 
@@ -43,6 +43,8 @@ From the Azure portal, load the **Namespace** settings page. You can add, change
   * Select the storage target from the drop-down list. (In this screenshot, the blob storage target can't be selected because it already has a namespace path.)
 
     ![Screenshot of the new namespace edit fields with the storage target selector exposed](media/namespace-select-storage-target.png)
+
+  * Select which access policy to use for this path. Learn more about customizing client access in [Use client access policies](access-policies.md).
 
   * For an Azure Blob storage target, the export and subdirectory paths are automatically set to ``/``.
 
@@ -105,6 +107,10 @@ From the Azure portal, load the **Namespace** settings page. You can add, edit, 
 Fill in these values for each namespace path:
 
 * **Namespace path** - The client-facing file path.
+
+* **Client access policy** - Select which access policy to use for this path. Learn more about customizing client access in [Use client access policies](access-policies.md).
+
+  ![screenshot of the portal namespace page with the add page page open at the right and the drop-down list of client access policies showing](media/nfs-select-policy-draft.png)
 
 * **Storage target** - If creating a new namespace path, select a storage target from the drop-down menu.
 
