@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -287,7 +289,7 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
-      - name: Cequence Application Security
+      - name: Cequence Application Security Platform
         href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
@@ -327,7 +329,7 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
-      - name: Citrix Netscaler
+      - name: Citrix ADC
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -2097,6 +2099,8 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
+      - name: monday.com
+        href: mondaycom-provisioning-tutorial.md        
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
