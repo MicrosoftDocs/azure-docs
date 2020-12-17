@@ -21,11 +21,6 @@ ms.author: shhazam
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 
-> [!div class="checklist"]
-> * Prerequisites
-> * Connection settings
-> * Log Analytics alert view
-
 This integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enables automated response and prevention using built-in OT-optimized playbooks. 
 
 ## Prerequisites
@@ -53,6 +48,7 @@ This integration enables organizations to quickly detect multistage attacks that
 To use the relevant schema in Log Analytics to display the Defender for IoT alerts:
 
 1. Open **Logs** > **SecurityInsights** > **SecurityAlert**, or search for **SecurityAlert**.
+
 1. Filter to see only Defender for IoT generated alerts using the following kql filter:
 
 ```kusto
