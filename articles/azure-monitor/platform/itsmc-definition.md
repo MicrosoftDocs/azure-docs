@@ -256,4 +256,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Next steps
 
+[ITSM Connector Overview](./itsmc-overview.md)
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
+[Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
