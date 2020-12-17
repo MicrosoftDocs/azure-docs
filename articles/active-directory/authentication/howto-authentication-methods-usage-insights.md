@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 1217/2020
+ms.date: 12/17/2020
 
 ms.author: justinha
 author: justinha
