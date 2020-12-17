@@ -119,21 +119,32 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 3. Select **Add**.
 
+      :::image type="content" source="media/quickstart/EFLOW/WACStartPageAdd.png" alt-text="Screenshot - Windows Admin Start Page Add Button":::
+
    ![Screenshot - Windows Admin Start Page Add Button](./media/quickstart/EFLOW/WACStartPageAdd.png)
 
 4. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
 
+      :::image type="content" source="media/quickstart/EFLOW/AzureEFLOWTile.png" alt-text="Screenshot - Azure IoT Edge For Linux on Windows Tile":::
+
 ![Screenshot - Azure IoT Edge For Linux on Windows Tile](./media/quickstart/EFLOW/AzureEFLOWTile.png)
 
+
 5. Proceed through the installation wizard to accept the EULA and choose **Next**
+
+      :::image type="content" source="media/quickstart/EFLOW/Wizard-Welcome.png" alt-text="Screenshot - Wizard Welcome":::
 
 ![Screenshot - Wizard Welcome](./media/quickstart/EFLOW/Wizard-Welcome.png)
 
 6. Choose the **Optional diagnostic data** if you would like to help us, and click **Next: Deploy**
 
+      :::image type="content" source="media/quickstart/EFLOW/Diagnostic-Data.png" alt-text="Screenshot - Diagnostic Data":::
+
 ![Screenshot - Diagnostic Data](./media/quickstart/EFLOW/Diagnostic-Data.png)
 
 7. On **Select target device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
+
+      :::image type="content" source="media/quickstart/EFLOW/Wizard-SelectTargetDevice.png" alt-text="Screenshot - Select Target Device":::
 
 ![Screenshot - Select Target Device](./media/quickstart/EFLOW/Wizard-SelectTargetDevice.png)
 
@@ -141,15 +152,22 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 9. This will present the deployment screen and proceed through the process of downloading the package, installing the package, configuring the host and final setting up the Linux VM​.  A successful deployment will look as follows:
 
+      :::image type="content" source="media/quickstart/EFLOW/Wizard-DeploySuccess.png" alt-text="Screenshot - Wizard Deploy Success":::
+
 ![Screenshot - Wizard Deploy Success](./media/quickstart/EFLOW/Wizard-DeploySuccess.png)
 
 10. Click **Next: Connect** to continue to the final step to connect your Azure IoT Edge device for deployment to your Azure IoT Hub device instance.
 
 11. Copy the connection string from your device in Azure IoT Hub and paste it into the device connection string field. Then choose **Provisioning with the selected method**​.
 
+      :::image type="content" source="media/quickstart/EFLOW/Wizard-Provision.png" alt-text="Screenshot - Wizard Provisioning":::
+
 ![Screenshot - Wizard Provisioning](./media/quickstart/EFLOW/Wizard-Provision.png)
 
 12. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure IoT Edge for Linux on Windows Device.
+
+      :::image type="content" source="media/quickstart/EFLOW/WACEFLOWDevice.png" alt-text="Screenshot - Windows Admin Center Azure IoT Edge Device":::
+
 ![Screenshot - Windows Admin Center Azure IoT Edge Device](./media/quickstart/EFLOW/WACEFLOWDevice.png)
 
 
@@ -172,7 +190,22 @@ In this quickstart, you created a new IoT Edge device and installed the IoT Edge
 
 In this case, the module that you pushed generates sample environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The message includes ambient temperature and humidity, machine temperature and pressure, and a timestamp. The IoT Edge tutorials use the data created by this module as test data for analytics.
 
-Confirm that the module deployed from the cloud is running on your IoT Edge device.
+Confirm that the module deployed from the cloud is running on your IoT Edge device by navigating to the Command Shell in Windows Admin Center.
+
+1. Connect to your newly created IoT Edge Device
+
+      :::image type="content" source="media/quickstart/EFLOW/ConnectEdge.png" alt-text="Screenshot - Connect Device":::
+
+![Screenshot - Connect Device](./media/quickstart/EFLOW/ConnectEdge.png)
+
+2. Under **Tools** select **Command Shell** to open a Windows PowerShell Window where you can run commands to verify your deployed module.
+
+      :::image type="content" source="media/quickstart/EFLOW/CommandShell.png" alt-text="Screenshot - Command Shell":::
+
+![Screenshot - Command Shell](./media/quickstart/EFLOW/CommandShell.png)
+
+
+To verify the three modules on your device, run the following command:
 
 ```powershell
 iotedge list
