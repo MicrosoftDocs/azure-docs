@@ -47,19 +47,21 @@ az account set --subscription $subscriptionId
 
 ## Create a new cluster using a system generated self-signed certificate
 
-Use the following commands to create a cluster secured with a system generated self-signed certificate. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.  Self-signed certificates are useful for securing test clusters.  Production clusters should be secured with a certificate from a certificate authority (CA).
+ You may run the command either on  PowerShell or on CLI commands. The command will create a cluster, secured by a system that generates self-signed certificates.
+ This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.  Self-signed certificates are useful for securing test clusters.  Production clusters should be secured with a certificate from a certificate authority (CA).
 
 ### Use the default cluster template that ships in the module
 
-Use the following command to create a cluster quickly, by specifying minimal parameters, using the default template.
+Use a default template and the command below, to crteate a cluster in a fast way, by specifying minimal parameters.
 
-The template that is used is available on the [Azure Service Fabric template samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Template samples for [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
+ and [Linux](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-The following command can create either Windows or Linux clusters, you need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified *CertificateOutputFolder*; however, make sure certificate folder already created. The command takes in other parameters such as VM SKU as well.
+
+This command can create either Windows or Linux clusters by accordingly specifying the *OS*; parameter. It can also export the certificate by specifying the *CertificateOutputFolder* parameter; however, be sure that the specified folder exists. The command takes in other parameters such as VM SKU as well.
 
 > [!NOTE]
-> The following PowerShell command only works with the Azure PowerShell `Az` module. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module Az". Follow [this link](/powershell/azure/install-Az-ps) to upgrade your Azure Resource Manager PowerShell version. 
+> The following PowerShell  only works with the Azure PowerShell `Az` module. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module Az". Follow [this link](/powershell/azure/install-Az-ps) to upgrade your Azure Resource Manager PowerShell version. 
 >
 >
 
@@ -153,13 +155,16 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## Create a new cluster using your own X.509 certificate
 
-Use the following command to create cluster, if you have a certificate that you want to use to secure your cluster with.
+Use the following command to create a cluster, if you have a certificate that you want to use to secure your cluster with.
 
 If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. **The resource group that contains your key vault *must be in the same region* as the cluster that is using it.**
 
 ### Use the default five node, one node type template that ships in the module
-The template that is used is available on the [Azure samples : Windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Use a default template and the command below, to create a cluster in a fast way, by specifying minimal parameters.
+
+Template samples for [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
+ and [Linux](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
+
 
 Deploy the cluster using PowerShell:
 
