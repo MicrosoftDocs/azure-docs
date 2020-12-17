@@ -11,7 +11,7 @@ ms.date: 12/08/2020
 
 # Configure D365 for Operations offer listing details
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.</strike>This page lets you define the offer details such as offer name, description, links, and contacts.
+<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.</strike>This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
 > [!NOTE]
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
@@ -28,7 +28,7 @@ Continue reading below for how to enter these marketplace details.
 
 ## Marketplace details
 
-The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change this value. The name:
+The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change it. The name:
 
 - Can include trademark and copyright symbols.
 - Must be 50 characters or less.

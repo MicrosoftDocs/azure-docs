@@ -8049,7 +8049,7 @@
       "redirect_document_id": false
     },
     {
-       "source_path": "azure/marketplace/appsource-offer-publishing-guide.md",
+      "source_path": "azure/marketplace/appsource-offer-publishing-guide.md",
       "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
       "redirect_document_id": false
     },
@@ -58546,12 +58546,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -58561,32 +58561,32 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/data-entities.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/create-new-operations-offer.md",
-      "redirect_url": "/azure/marketplace/d365-operations-create",
+      "redirect_url": "/azure/marketplace/d365-operations-offer-setup",
       "redirect_document_id": false
     },
     {

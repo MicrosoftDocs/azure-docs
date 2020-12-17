@@ -183,10 +183,10 @@
     items: 
     - name: Plan a Dynamics 365 offer
       href: marketplace-dynamics-365.md
-    - name: Create and publish a Dynamics 365 offer
+    - name: Create a Dynamics 365 offer
       items:
-      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
-        href: partner-center-portal/create-new-customer-engagement-offer.md
+      - name: Create a Dynamics 365 for Operations offer
+        href: partner-center-portal/create-new-operations-offer.md
       - name: Create a Dynamics 365 for Operations offer
         items: 
         - name: Create the offer
