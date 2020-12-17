@@ -83,7 +83,7 @@ These logos are used in different places in the listing:
 
 ### Screenshots
 
-Add at least one (and up to five) screenshots that show how your offer works. All screenshots must be 1280 x 720 pixels and in PNG format. Each screenshot must include a caption.
+Add at least one (and up to five) screenshots that show how your offer works. All screenshots must be 1280 x 720 pixels and in PNG format. Add a caption for each screenshot.
 
 ### Videos
 

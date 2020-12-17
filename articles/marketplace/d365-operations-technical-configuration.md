@@ -11,7 +11,7 @@ ms.date: 12/08/2020
 
 # Set up Dynamics 365 for Operations offer technical configuration
 
-This page defines the technical details used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it.
+This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the end customer if they choose to acquire it.
 
 ## Solution identifier
 

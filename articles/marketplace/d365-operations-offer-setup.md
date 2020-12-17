@@ -48,7 +48,7 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 ## Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](d365-operations-offer-listing.md) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](d365-operations-offer-listing.md) page.
 
 ## Setup details
 

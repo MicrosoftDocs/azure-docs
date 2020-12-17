@@ -46,7 +46,7 @@ These are the available licensing options for Dynamics 365 offers:
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and do not reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 ###### Call-out descriptions
 
