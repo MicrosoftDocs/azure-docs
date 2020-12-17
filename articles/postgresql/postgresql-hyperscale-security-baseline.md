@@ -582,7 +582,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 **Guidance**: Azure Database for PostgreSQL - Hyperscale (Citus) currently does not directly support managed identities. While creating the Azure Database for PostgreSQL server, you must provide credentials for an administrator user. You can create additional user roles in the Azure portal interface.
 
-- [Create an Azure Database for PostgreSQL - Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Create an Azure Database for PostgreSQL - Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md#create-a-hyperscale-citus-server-group)
 
 - [Create additional user roles](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 

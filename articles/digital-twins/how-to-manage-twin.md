@@ -272,12 +272,12 @@ The patch for this situation needs to update both the model and the twin's tempe
 [
   {
     "op": "replace",
-    "path": "$metadata.$model",
-    "value": "dtmi:example:foo_new"
+    "path": "/$metadata/$model",
+    "value": "dtmi:example:foo_new;1"
   },
   {
     "op": "add",
-    "path": "temperature",
+    "path": "/temperature",
     "value": 60
   }
 ]
