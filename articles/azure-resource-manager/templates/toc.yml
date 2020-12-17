@@ -290,7 +290,7 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
-  - name: Microsoft Learn Path about templates
+  - name: Microsoft Learn path about templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concepts
   items:
