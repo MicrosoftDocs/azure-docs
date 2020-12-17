@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 12/16/2020
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
@@ -15,7 +15,7 @@ Azure Data Share supports snapshot-based sharing from storage account. This arti
 
 Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. Data shared from these sources can be received into Azure Data Lake Gen2 or Azure Blob Storage.
 
-When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten.
+When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten during snapshot. File deleted from the source is not deleted on the target. Empty sub-folders at the source are not copied over to the target. 
 
 ## Share data
 

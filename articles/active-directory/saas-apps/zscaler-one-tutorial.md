@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 	
 	| Name | Source Attribute |
 	| ---------| ------------ |
-	| memberOf 	   | user.assignedroles |
+	| memberOf | user.assignedroles |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -199,18 +199,18 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 1. Start **Internet Explorer**.
 
 2. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
-  	
-	 ![Internet Options](./media/zscaler-one-tutorial/ic769492.png "Internet Options")
+
+    ![Internet Options](./media/zscaler-one-tutorial/ic769492.png "Internet Options")
 
 3. Click the **Connections** tab.   
-  
-	 ![Connections](./media/zscaler-one-tutorial/ic769493.png "Connections")
+
+    ![Connections](./media/zscaler-one-tutorial/ic769493.png "Connections")
 
 4. Click **LAN settings** to open the **LAN Settings** dialog.
 
 5. In the Proxy server section, perform the following steps:   
    
-	![Proxy server](./media/zscaler-one-tutorial/ic769494.png "Proxy server")
+    ![Proxy server](./media/zscaler-one-tutorial/ic769494.png "Proxy server")
 
     a. Select **Use a proxy server for your LAN**.
 

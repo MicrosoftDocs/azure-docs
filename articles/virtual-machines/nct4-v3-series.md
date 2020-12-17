@@ -25,6 +25,8 @@ The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://w
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
+Accelerated Networking: Supported<br>
+Nvidia NVLink Interconnect: Not Supported<br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (Mbps) |
