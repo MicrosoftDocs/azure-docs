@@ -25,7 +25,7 @@ highlightedContent:
       url:  overview.md
     # Card
     - title: Jumpstart
-      itemType: quickstart
+      itemType: sample
       url: https://azurearcjumpstart.io/overview/
       # Card
     - title: Azure Arc enabled servers
