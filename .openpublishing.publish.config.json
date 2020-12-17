@@ -152,7 +152,7 @@
     {
       "path_to_root": "samples-durable-functions-python",
       "url": "https://github.com/Azure/azure-functions-durable-python",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "functions-python-tensorflow-tutorial",
