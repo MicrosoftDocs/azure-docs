@@ -126,7 +126,7 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|-|✔|
+|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|-|
 |||
 
