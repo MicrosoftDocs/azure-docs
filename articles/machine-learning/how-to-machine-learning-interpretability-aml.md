@@ -291,39 +291,35 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 ## Visualizations
 
-After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model.
+After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model. The top ribbon shows the overall statistics on your model and data. You can also slice and dice your data into cohorts, or subgroups, to investigate or compare your model’s performance and explanations across these defined subgroups. You can further investigate and compare your dataset statistics across those subgroups and get a sense of why possible errors are happening in one group versus another.
+
+[![Creating, editing, and viewing dataset cohorts](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif#lightbox)
 
 ### Understand entire model behavior (global explanation) 
 
-The following plots provide an overall view of the trained model along with its predictions and explanations.
+The first three tabs of the explanation dashboard provide an overall analysis of the trained model along with its predictions and explanations.
 
 |Plot|Description|
 |----|-----------|
-|Data Exploration| Displays an overview of the dataset along with prediction values.|
-|Global Importance|Aggregates feature importance values of individual datapoints to show the model's overall top K (configurable K) important features. Helps understanding of underlying model's overall behavior.|
-|Explanation Exploration|Demonstrates how a feature affects a change in model's prediction values, or the probability of prediction values. Shows impact of feature interaction.|
-|Summary Importance|Uses individual feature importance values across all data points to show the distribution of each feature's impact on the prediction value. Using this diagram, you investigate in what direction the feature values affects the prediction values.
-|
+|Model performance|Evaluate the performance of your model by exploring the distribution of your prediction values and the values of your model performance metrics. You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset. Select filters along y-value and x-value to cut across different dimensions.|
+|Dataset explorer|Explore your dataset statistics by selecting different filters along the X, Y, and color axes to slice your data along different dimensions. Create dataset cohorts above to analyze dataset statistics with filters such as predicted outcome, dataset features and error groups. Use the gear icon in the upper right-hand corner of the graph to change graph types.|
+|Aggregate feature importance| Explore the top-k important features that impact your overall model predictions (a.k.a. global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Click on any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.|
 
-[![Visualization Dashboard Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
+[![Model performance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/model_performance.gif)](./media/how-to-machine-learning-interpretability-aml/model_performance.gif#lightbox)
+[![Dataset explorer tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif#lightbox)
+[![Aggregate feature importance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif#lightbox)
 
 ### Understand individual predictions (local explanation) 
 
-You can load the individual feature importance plot for any data point by clicking on any of the individual data points in any of the overall plots.
+The fourth tab of the explanation tab lets you drill into an individual datapoint and their individual feature importances. You can load the individual feature importance plot for any data point by clicking on any of the individual data points in the main scatter plot or selecting a specific datapoint in the panel wizard on the right.
 
 |Plot|Description|
 |----|-----------|
-|Local Importance|Shows the top K (configurable K) important features for an individual prediction. Helps illustrate the local behavior of the underlying model on a specific data point.|
-|Perturbation Exploration (what if analysis)|Allows changes to feature values of the selected data point and observe resulting changes to prediction value.|
-|Individual Conditional Expectation (ICE)| Allows feature value changes from a minimum value to a maximum value. Helps illustrate how the data point's prediction changes when a feature changes.|
+|Individual feature importance|Shows the top-k important features for an individual prediction. Helps illustrate the local behavior of the underlying model on a specific data point.|
+|What-If analysis|Allows changes to feature values of the selected real data point and observe resulting changes to prediction value by generating a hypothetical datapoint with the new feature values.|
+|Individual Conditional Expectation (ICE)|Allows feature value changes from a minimum value to a maximum value. Helps illustrate how the data point's prediction changes when a feature changes.|
 
-[![Visualization Dashboard Local Feature Importance](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![Visualization Dashboard Feature Perturbation](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
-
-
-[![Visualization Dashboard ICE Plots](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
+[![Individual feature importance and What-if tab in explanation dashboard](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/individual_tab.gif#lightbox)
 
 To load the visualization dashboard, use the following code.
 
@@ -332,12 +328,14 @@ from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
+> [!NOTE]
+> These are explanations based on many approximations and are not the "cause" of predictions. Without strict mathematical robustness of causal inference, we do not advise users to make real-life decisions based on the feature perturbations of the What-If tool. This tool is primarily for understanding your model and debugging.
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above (explanation exploration and ICE plots are disabled as there is no active compute in studio that can perform their real time computations).
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
 
-If the dataset, global, and local explanations are available, data populates all of the tabs (except Perturbation Exploration and ICE). If only a global explanation is available, the Summary Importance tab and all local explanation tabs are disabled.
+If the dataset, global, and local explanations are available, data populates all of the tabs. If only a global explanation is available, the Individual feature importance tab will be disabled.
 
 Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
@@ -346,7 +344,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 
-   [![Visualization Dashboard Local Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model_explanation_dashboard_aml_studio.jpg)](./media/how-to-machine-learning-interpretability-aml/model_explanation_dashboard_aml_studio.jpg#lightbox)
 
 * **Models** pane
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
