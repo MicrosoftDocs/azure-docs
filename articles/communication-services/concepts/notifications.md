@@ -76,44 +76,44 @@ Any change on how the hub is linked will be reflected in data plane (i.e., when 
 
 Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
 
-### Troubleshoot Acs - Anh interaction
+### Troubleshooting guide for push notifications
 
 When push notifications are not being received on the device there are 3 places where the notifications could have been dropped: 
 
-1. Anh did not accept the notification from Acs
-1. Pns (e.g., Apns, Fcm) did not accept the notification from Anh
+1. Azure Notifications Hubs did not accept the notification from Azure Communication Services
+1. Pns (e.g., Apns, Fcm) did not accept the notification from Azure Notifications Hubs
 1. Pns did not deliver the notification to the device.  
 
-The first place where a notification can be dropped (Anh did not accept the notification from Acs) is covered below. For the other 2 places please see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
+The first place where a notification can be dropped (Azure Notification Hubs did not accept the notifications from Azure Communication Services) is covered below. For the other 2 places please see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-One way to see if Acs sends notifications to Anh is by looking at the `incoming messages` metric from the linked [Anh hub metrics](../../azure-monitor/platform/metrics-supported.md#Microsoft.NotificationHubs/Namespaces/NotificationHubs).
+One way to see if your Communication Services resource sends notifications to Azure Notifications Hubs is by looking at the `incoming messages` metric from the linked [Azure Notifications Hub metrics](../../azure-monitor/platform/metrics-supported.md#Microsoft.NotificationHubs/Namespaces/NotificationHubs).
 
-The following are some misconfiguration that might be the cause why Anh hub does not accept the notifications from your Acs resource. 
+The following are some misconfiguration that might be the cause why Azure Notifications Hub does not accept the notifications from your Communication Services resource. 
 
-#### Anh hub not linked to the Acs resource
+#### Azure Notifications Hub not linked to the Communication Services resource
 
-There might the case that the Anh hub was not linked to the Acs resource. For that the [Notification Hub provisioning section](./notification-hub-provisioning) should be used.
+There might the case that the Azure Notifications Hub was not linked to the Communication Services resource. For that the [Notification Hub provisioning section](./notification-hub-provisioning) should be used.
 
-#### The linked Anh hub is not configured
+#### The linked Azure Notifications Hub is not configured
 
-The Anh hub has to be configured with Pns credentials for the platform that is needed. More details could be found in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+The Azure Notifications Hub has to be configured with Pns credentials for the platform that is needed. More details could be found in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
-#### The linked Anh hub does not exist
+#### The linked Azure Notifications Hub does not exist
 
-The Anh hub linked to the Acs resource does not exist anymore.
+The Azure Notifications Hub linked to your Communication Services resource does not exist anymore.
 
-#### The Anh hub Apns platform is configured with certificate authentication mode
+#### The Azure Notifications Hub Apns platform is configured with certificate authentication mode
 
-As mentioned above the Apns platform is not supported when is being configured with certificate based mode.
+As mentioned above the Apns platform is not supported when is being configured with certificate authentication mode.
 The Apns platform should be configured with token authentication mode as specified in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
 #### The linked connection string does not have `Send` permission
 
-The connection string that the Anh hub was linked with to the Acs resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Anh hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
+The connection string that the Azure Notifications Hub was linked with to your Communication Services resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Azure Notifications Hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### The linked connection string or Anh hub resource id are not valid
+#### The linked connection string or Azure Notifications Hub  resource id are not valid
 
-Make sure the Acs resource is configured with the correct connection string and Anh hub resource id
+Make sure the Communication Services resource is configured with the correct connection string and Azure Notifications Hub resource id
 
 ## Next steps
 
