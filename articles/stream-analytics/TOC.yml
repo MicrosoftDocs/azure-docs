@@ -30,12 +30,8 @@
       href: create-cluster.md
 - name: Tutorials
   items:
-  - name: Fraud detection
-    items:
-    - name: Visualize call data in Power BI
-      href: stream-analytics-manage-job.md
-    - name: Practice fraud detection queries
-      href: stream-analytics-real-time-fraud-detection.md
+  - name: Visualize fraudulent calls in Power BI
+    href: stream-analytics-real-time-fraud-detection.md
   - name: Run Azure Functions
     href: stream-analytics-with-azure-functions.md
   - name: Run a C# UDF

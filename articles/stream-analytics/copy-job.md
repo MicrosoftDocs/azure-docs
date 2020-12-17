@@ -48,4 +48,3 @@ You can copy or back up your deployed Azure Stream Analytics jobs using Visual S
 
 * [Quickstart: Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md)
 * [Quickstart: Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
