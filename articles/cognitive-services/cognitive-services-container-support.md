@@ -18,7 +18,7 @@ keywords: on-premises, Docker, container, Kubernetes
 
 Azure Cognitive Services provides several [Docker containers](https://www.docker.com/what-container) that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. Container support is currently available for a subset of Azure Cognitive Services.
 
-[!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
+> [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
