@@ -12,18 +12,6 @@ ms.date: 12/09/2020
 
 # Plan and manage costs for Azure Synapse Analytics
 
-<!-- Check out the following published examples:
-- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs)
-- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs)
-- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)
--->
-
-<!-- Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact.
- They're used to measure traffic to Cost Management articles.
--->
-
-<!-- Note for Azure service writer: Modify the following for your service. -->
-
 This article describes how to plan for and manage costs for Azure Synapse Analytics. First, you use the Azure pricing calculator to help plan for Azure Synapse costs 
 before you add any resources for the service to estimate costs. Next, as you add Azure Synapse resources, review the estimated costs.
 
@@ -31,13 +19,7 @@ After you've started using Azure Synapse resources, use Cost Management features
 
 ## Prerequisites
 
-<!--Note for Azure service writer: The section covers prereqs for the cost analysis feature. Add other prereqs needed for your service.  -->
-
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-<!--Note for Azure service writer: If you have other prerequisites for your service, insert them here -->
-
-<!--Note for Azure service writer: Modify the following H2 sections for your service. -->
 
 ## Estimate costs before using Azure Synapse Analytics
 
@@ -45,13 +27,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Azure Synapse has various resources that have different charges as seen in the cost estimate below. 
 
-<!-- Note for Azure service writer: At a minimum, insert a brief walkthrough of using the calculator for your service. You don't need more than a couple of paragraphs. Add screenshots where useful. Add a screenshot where the estimated cost is shown. -->
-
-<!--Note to Azure service writer: Replace the following example image with one specific to your service. -->
-
 ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs/cost-estimate.png)
-
-
 
 ## Understand the full billing model for Azure Synapse Analytics
 
@@ -61,15 +37,11 @@ Azure Synapse runs on Azure infrastructure that accrues costs along with Azure S
 
 ### Costs that typically accrue with Azure Synapse Analytics
 
-<!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
-
 When you create resources for Azure Synapse, resources for other Azure services are also created. They include:
 
 - Data Lake Storage Gen2
 
  ### Costs might accrue after resource deletion
-
-<!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
 After you delete Azure Synapse resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
 
@@ -77,18 +49,9 @@ After you delete Azure Synapse resources, the following resources might continue
 
 ### Using Monetary Credit with Azure Synapse 
 
-<!--Note to Azure service writer: Let the user know that most 1st party Azure service charges can be fulfilled by EA monetary commitment credit. However, charges from third party products and services including those from the Azure Marketplace cannot be paid for by EA monetary commitment credit. -->
-
 You can pay for Azure Synapse charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Review estimated costs in the Azure portal
-
-<!-- Note for Azure service writer: If your service shows estimated costs when a user is creating resources in the Azure portal, at a minimum, insert this section as a brief walkthrough that steps through creating a Azure Synapse Analytics resource where the estimated cost is shown to the user, updated for your service. Add a screenshot where the estimated costs or subscription credits are shown.
-
-If your service doesn't show costs as they create a resource or if estimated costs aren't shown to users before they use your service, then omit this section.
-
-For example, you might start with the following (modify for your service):
--->
 
 As you create resources for Azure Synapse Analytics, you see estimated costs. A workspace has a serverless SQL pool created with the workspace. Other resources, such as dedicated SQL pools and serverless Apache Spark pools, will need to be created within the workspace.
 
@@ -124,7 +87,7 @@ To view Azure Synapse costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-![Example showing accumulated costs for a subscription](../../media/contribute-how-to-write-cost-management-conceptual-article/all-costs.png)
+![Example showing accumulated costs for a resource group](./media/plan-manage-costs/actual-monthly-costs.png)
 
 <!-- Note to Azure service writer: This example shows costs for an example Azure subscription. You can see service costs for App Service, Storage, Backup, Virtual Networks, and Advanced Threat Protection. Replace this example image with one that shows costs for your service. Your screenshot should look like the one above. -->
 
@@ -132,7 +95,7 @@ Actual monthly costs are shown when you initially open cost analysis. Here's an 
 
 Here's an example showing costs for just Azure Synapse.
 
-![Example showing accumulated costs for ServiceName](../../media/contribute-how-to-write-cost-management-conceptual-article/service-specific-cost.png)
+![Example showing accumulated costs for ServiceName](./media/plan-manage-costs/filtered-monthly-costs.png)
 
 <!-- Note to Azure service writer: The image shows an example for Azure Storage. Replace the example image with one that shows costs for your service. -->
 
@@ -162,15 +125,17 @@ If your team has no cost-saving recommendations or best practice advice to reduc
 
 ### Serverless SQL pool
 
-To learn more about costs for serverless SQL pool see [Cost management for serverless SQL pool in Azure Synapse Analytics](./sql/data-processed)
+To learn more about costs for serverless SQL pool see [Cost management for serverless SQL pool in Azure Synapse Analytics](./sql/data-processed.md)
 
 ### Dedicated SQL pool
 
-You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### Serverless Apache Spark pool
 
 ### Data integration - pipelines and data flows 
+
+To learn more about data integration cost see [Plan and manage costs for Azure Data Factory](../data-factory/plan-manage-costs.md)
 
 ## Next steps
 
@@ -178,6 +143,7 @@ You can control costs for a dedicated SQL pool by pausing the resource when it i
 - Learn more about managing costs with [cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Learn about planning and managing costs for [Azure Machine Learning](../machine-learning/concept-plan-manage-cost.md)
 
 <!-- Insert links to other articles that might help users save and manage costs for you service here.
 
