@@ -33,10 +33,10 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
     - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
 
 - Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
-- Can be persisted or *ad-hoc*.
+- Can be persisted or *ad hoc*.
 
     - Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
-    - *Ad-hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad-hoc* script to a persisted script or demote a persisted script to an *ad-hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
+    - *Ad hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad hoc* script to a persisted script or demote a persisted script to an *ad hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
 
 - Can accept parameters that are used by the script during execution.
 - Run with root-level privileges on the cluster nodes.
@@ -316,7 +316,7 @@ The following example script demonstrates using the cmdlets to promote and then 
 |[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Execute script actions on the specified HDInsight cluster.|
 | [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Lists all the persisted script actions for the specified cluster. |
 |[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Lists all scripts' execution history for the specified cluster.|
-|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promotes the specified ad-hoc script execution to a persisted script.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promotes the specified ad hoc script execution to a persisted script.|
 |[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Gets the script execution detail for the given script execution ID.|
 
 ### HDInsight .NET SDK
