@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
 ---
 
@@ -96,13 +96,11 @@ These lead times are *estimates*. The time for each stage of order processing is
 **Estimated lead times for a Data Box Disk order:**
 
 1. Order Data Box Disk: A few minutes, from the portal
-2. Disk allocation and preparation: 1-2 business days
+2. Disk allocation and preparation: Up to 7 business days, depending on inventory availability and number of pending orders to be processed
 3. Shipping: 2-3 business days
 4. Data copy at customer site: Depends on nature of data, size, and number of files
 5. Return shipping: 2-3 business days
-6. Processing disk at datacenter: 1-2 business days
-7. Upload data to Azure: Begins as soon as processing is complete and the disk is connected. Upload time depends on nature of data, size, and number of files.
-
+6. Processing disk at datacenter and upload data to Azure: Up to 7 business days, depending on number of pending orders to be processed. Data upload begins as soon as processing is complete and the disk is connected. Upload time depends on nature of data, size, and number of files.
 
 ## Configure and connect
  
