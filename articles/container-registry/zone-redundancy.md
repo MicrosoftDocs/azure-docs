@@ -20,6 +20,7 @@ Zone redundancy is a **preview** feature of the Premium container registry servi
 * Zone redundancy can't be disabled in a region.
 * [ACR Tasks](container-registry-tasks-overview.md) doesn't yet support availability zones.
 * Currently supported through Azure Resource Manager templates or the Azure portal. Azure CLI support will be enabled in a future release.
+* Currently, when you move a zone-redundant container registry to another resource group, the zone redundancy setting shows as `Disabled`.
 
 ## About zone redundancy
 
