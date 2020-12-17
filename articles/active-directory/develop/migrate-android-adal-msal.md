@@ -86,7 +86,7 @@ If you're currently using ADAL and don't need to use incremental consent, the si
 > [!CAUTION]
 > It's not possible to set both scopes and a resource id. Attempting to set both will result in an `IllegalArgumentException`.
 
- This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
+This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
 
 ### Authenticate and request permissions only as needed
 
@@ -128,13 +128,13 @@ If you attempt to use an authority that isn't known to Microsoft, and isn't incl
 ### Logging
 You can now declaratively configure logging as part of your configuration, like this:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## Migrate from UserInfo to Account
 
