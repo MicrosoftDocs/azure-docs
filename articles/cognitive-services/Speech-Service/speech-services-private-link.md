@@ -51,9 +51,10 @@ To create a custom domain name using Azure portal, follow these steps:
 1. Select the required Speech Resource.
 1. In the **Resource Management** group in the left navigation pane, click **Networking**.
 1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
-1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will start `{your custom name}.cognitiveservices.azure.com`. **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
+1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will start `https://{your custom name}.cognitiveservices.azure.com`. **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
 1. After the operation completes, in the **Resource management** group, click **Keys and Endpoint**. Confirm the new endpoint name of your resource starts this way:
-    `{your custom name}.cognitiveservices.azure.com`
+
+    `https://{your custom name}.cognitiveservices.azure.com`
 
 # [PowerShell](#tab/powershell)
 
@@ -77,8 +78,7 @@ Before proceeding, run `Connect-AzAccount` to create a connection with Azure.
 ## Verify custom domain name is available
 
 You need to check whether the custom domain you would like to use is available. 
-We check for domain availability using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Cognitive Services REST API.
-See comments in the code block below explaining the steps.
+Follow these steps to confirm the domain is available using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Cognitive Services REST API.
 
 > [!TIP]
 > The code below will **NOT** work in Azure Cloud Shell.
@@ -87,18 +87,16 @@ See comments in the code block below explaining the steps.
 $subId = "Your Azure subscription Id"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subId
 
-# Preparing OAuth token which is used in request
-# to Cognitive Services REST API
+# Prepare OAuth token to use in request to Cognitive Services REST API.
 $Context = Get-AzContext
 $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
-# Preparing and executing the request to Cognitive Services REST API
+# Prepare and send the request to Cognitive Services REST API.
 $uri = "https://management.azure.com/subscriptions/" + $subId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
@@ -109,40 +107,40 @@ $jsonBody = $body | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/json" -Authentication Bearer `
     -Token $token -Body $jsonBody | Format-List
 ```
-If the desired name is available, you will get a response like this:
+If the desired name is available, you will see a response like this:
 ```azurepowershell
 isSubdomainAvailable : True
 reason               :
 type                 :
 subdomainName        : my-custom-name
 ```
-If the name is already taken, then you will get the following response:
+If the name is already taken, then you will see the following response:
 ```azurepowershell
 isSubdomainAvailable : False
 reason               : Sub domain name 'my-custom-name' is already used. Please pick a different name.
 type                 :
 subdomainName        : my-custom-name
 ```
-## Enabling custom domain name
+## Create a custom domain name
 
-To enable custom domain name for the selected Speech Resource, we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet. See comments in the code block below explaining the steps.
+To enable custom domain name for the selected Speech Resource, we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet.
 
 > [!IMPORTANT]
-> After successful execution of the code below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Important alert above.
+> After the code below runs successfully, you will create a custom domain name for your Speech resource.
+> This name **cannot** be changed. See more information in the **Important** alert above.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
-# Set the custom domain name to the selected resource
-# WARNING! THIS IS NOT REVERSIBLE!
+# Set the custom domain name to the selected resource.
+# IMPORTANT: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -153,11 +151,11 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 - This section requires the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Verify custom domain name availability
+## Verify the custom domain name is available
 
-You need to check whether the custom domain you would like to use is free. We will use [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from Cognitive Services REST API. 
+You need to check whether the custom domain you would like to use is free. We will use [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from Cognitive Services REST API.
 
-Copy the code block below, insert the custom domain name and save to the file `subdomain.json`.
+Copy the code block below, insert your preferred custom domain name, and save to the file `subdomain.json`.
 
 ```json
 {
@@ -166,12 +164,12 @@ Copy the code block below, insert the custom domain name and save to the file `s
 }
 ```
 
-Copy the file to your current folder or upload it to Azure Cloud Shell and execute the following command. (Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID).
+Copy the file to your current folder or upload it to Azure Cloud Shell and run the following command. (Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID).
 
 ```azurecli-interactive
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
 ```
-If the desired name is available, you will get a response like this:
+If the desired name is available, you will see a response like this:
 ```azurecli
 {
   "isSubdomainAvailable": true,
@@ -181,7 +179,7 @@ If the desired name is available, you will get a response like this:
 }
 ```
 
-If the name is already taken, then you will get the following response:
+If the name is already taken, then you will see the following response:
 ```azurecli
 {
   "isSubdomainAvailable": false,
@@ -190,7 +188,7 @@ If the name is already taken, then you will get the following response:
   "type": null
 }
 ```
-## Enabling custom domain name
+## Enable custom domain name
 
 To enable custom domain name for the selected Speech Resource, we use [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
 
@@ -198,16 +196,18 @@ Select the Azure subscription containing Speech resource. If your Azure account 
 ```azurecli-interactive
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
-Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and execute the command below.
+Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and run the command below.
+
 > [!IMPORTANT]
 > After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Important alert above.
+
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 
 ***
 
-## Enabling private endpoints
+## Enable private endpoints
 
 Enable private endpoint using Azure portal, Azure PowerShell, or Azure CLI.
 
@@ -268,11 +268,11 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 
 Note that the resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
 
-## Adjusting existing applications and solutions 
+## Adjust existing applications and solutions
 
 A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom domain enabled Speech resource both [with](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [without](#using-speech-resource-with-custom-domain-name-without-private-endpoints) private endpoints. The current section provides the necessary information for both cases.
 
-### Using Speech resource with custom domain name and private endpoint enabled
+### Use Speech resource with custom domain name and private endpoint enabled
 
 A Speech resource with custom domain name and private endpoint enabled uses a different way to interact with Speech Services. This section explains how to use such resource with Speech Services REST API and [Speech SDK](speech-sdk.md).
 
@@ -428,7 +428,7 @@ To apply the principle described in the previous section to your application cod
 - Determine endpoint URL your application is using
 - Modify your endpoint URL as described in the previous section and create your `SpeechConfig` class instance using this modified URL explicitly
 
-###### Determining application endpoint URL
+###### Determine application endpoint URL
 
 - [Enable logging for your application](how-to-use-logging.md) and run it to generate the log
 - In the log file search for `SPEECH-ConnectionUrl`. The string will contain `value` parameter, which in turn will contain the full URL your application was using
@@ -441,7 +441,7 @@ Thus the URL used by the application in this example is:
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### Creating `SpeechConfig` instance using full endpoint URL
+###### Create `SpeechConfig` instance using full endpoint URL
 
 Modify the endpoint you determined in the previous section as described in [General principle](#general-principle) above.
 
@@ -479,7 +479,7 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithE
 
 After this modification your application should work with the private enabled Speech resources. We are working on more seamless support of private endpoint scenario.
 
-### Using Speech resource with custom domain name without private endpoints
+### Use Speech resource with custom domain name without private endpoints
 
 In this article we have pointed out several times, that enabling custom domain for a Speech resource is **irreversible** and such resource will use a different way of communicating with Speech services comparing to the "usual" ones (that is the ones, that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)).
 
@@ -544,7 +544,7 @@ To enable your application for the scenario of Speech resource with custom domai
 - Request Authorization Token via Cognitive Services REST API
 - Instantiate `SpeechConfig` class using "from authorization token" / "with authorization token" method 
 
-###### Requesting Authorization Token
+###### Request Authorization Token
 
 See [this article](../authentication.md#authenticate-with-an-authentication-token) on how to get the token via the Cognitive Services REST API. 
 
@@ -555,7 +555,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 > [!TIP]
 > You may find this URL in *Keys and Endpoint* (*Resource management* group) section of your Speech resource in Azure portal.
 
-###### Creating `SpeechConfig` instance using authorization token
+###### Create `SpeechConfig` instance using authorization token
 
 You need to instantiate `SpeechConfig` class using the authorization token you obtained in the previous section. Suppose we have the following variables defined:
 
