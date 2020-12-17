@@ -94,10 +94,10 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 
 >[!IMPORTANT]
 > All Azure SDKs support the Azure.Identity library that makes it easy to acquire Azure AD tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
-> - [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
+> - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
 > - [JAVA](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
-> - [Javascript](https://docs.microsoft.com/en-us/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-> - [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python)
+> - [Javascript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
+> - [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)
 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
