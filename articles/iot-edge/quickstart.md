@@ -115,38 +115,25 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
       :::image type="content" source="media/quickstart/EFLOW/WACStartPage.png" alt-text="Screenshot - Windows Admin Start Page":::
 
-   ![Screenshot - Windows Admin Start Page](./media/quickstart/EFLOW/WACStartPage.png)
-
 3. Select **Add**.
 
       :::image type="content" source="media/quickstart/EFLOW/WACStartPageAdd.png" alt-text="Screenshot - Windows Admin Start Page Add Button":::
-
-   ![Screenshot - Windows Admin Start Page Add Button](./media/quickstart/EFLOW/WACStartPageAdd.png)
 
 4. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
 
       :::image type="content" source="media/quickstart/EFLOW/AzureEFLOWTile.png" alt-text="Screenshot - Azure IoT Edge For Linux on Windows Tile":::
 
-![Screenshot - Azure IoT Edge For Linux on Windows Tile](./media/quickstart/EFLOW/AzureEFLOWTile.png)
-
-
 5. Proceed through the installation wizard to accept the EULA and choose **Next**
 
       :::image type="content" source="media/quickstart/EFLOW/Wizard-Welcome.png" alt-text="Screenshot - Wizard Welcome":::
-
-![Screenshot - Wizard Welcome](./media/quickstart/EFLOW/Wizard-Welcome.png)
 
 6. Choose the **Optional diagnostic data** if you would like to help us, and click **Next: Deploy**
 
       :::image type="content" source="media/quickstart/EFLOW/Diagnostic-Data.png" alt-text="Screenshot - Diagnostic Data":::
 
-![Screenshot - Diagnostic Data](./media/quickstart/EFLOW/Diagnostic-Data.png)
-
 7. On **Select target device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
 
       :::image type="content" source="media/quickstart/EFLOW/Wizard-SelectTargetDevice.png" alt-text="Screenshot - Select Target Device":::
-
-![Screenshot - Select Target Device](./media/quickstart/EFLOW/Wizard-SelectTargetDevice.png)
 
 8. ​Accept the default settings by choosing **Next**
 
@@ -154,22 +141,15 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
       :::image type="content" source="media/quickstart/EFLOW/Wizard-DeploySuccess.png" alt-text="Screenshot - Wizard Deploy Success":::
 
-![Screenshot - Wizard Deploy Success](./media/quickstart/EFLOW/Wizard-DeploySuccess.png)
-
 10. Click **Next: Connect** to continue to the final step to connect your Azure IoT Edge device for deployment to your Azure IoT Hub device instance.
 
 11. Copy the connection string from your device in Azure IoT Hub and paste it into the device connection string field. Then choose **Provisioning with the selected method**​.
 
       :::image type="content" source="media/quickstart/EFLOW/Wizard-Provision.png" alt-text="Screenshot - Wizard Provisioning":::
 
-![Screenshot - Wizard Provisioning](./media/quickstart/EFLOW/Wizard-Provision.png)
-
 12. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure IoT Edge for Linux on Windows Device.
 
       :::image type="content" source="media/quickstart/EFLOW/WACEFLOWDevice.png" alt-text="Screenshot - Windows Admin Center Azure IoT Edge Device":::
-
-![Screenshot - Windows Admin Center Azure IoT Edge Device](./media/quickstart/EFLOW/WACEFLOWDevice.png)
-
 
 Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed.
 ​
@@ -196,14 +176,9 @@ Confirm that the module deployed from the cloud is running on your IoT Edge devi
 
       :::image type="content" source="media/quickstart/EFLOW/ConnectEdge.png" alt-text="Screenshot - Connect Device":::
 
-![Screenshot - Connect Device](./media/quickstart/EFLOW/ConnectEdge.png)
-
 2. Under **Tools** select **Command Shell** to open a Windows PowerShell Window where you can run commands to verify your deployed module.
 
       :::image type="content" source="media/quickstart/EFLOW/CommandShell.png" alt-text="Screenshot - Command Shell":::
-
-![Screenshot - Command Shell](./media/quickstart/EFLOW/CommandShell.png)
-
 
 To verify the three modules on your device, run the following command:
 
