@@ -214,7 +214,7 @@ Save the policy file.
 
 ## Next steps
 
-- Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
+- Learn how to [Configure password change in Azure Active Directory B2C](add-password-change-policy.md).
 - Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.
 
 
