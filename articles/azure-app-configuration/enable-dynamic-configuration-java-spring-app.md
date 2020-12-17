@@ -16,9 +16,9 @@ ms.author: mametcal
 
 App Configuration has two libraries for Spring. `spring-cloud-azure-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requires Spring Web along with Spring Boot. `spring-cloud-azure-appconfiguration-config` requires manual triggering of refresh, while `spring-cloud-azure-appconfiguration-config-web` adds automatically checking for refresh, along with the ability to manually check for refresh. Automated refresh is the only difference between the two packages.
 
-Refresh enables refreshing configurations without causing an application to restart, though it will cause all bean in the `@RefreshScope` to be recreated. The client library caches a hash id of the currently loaded configurations to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
+Refresh allows you to refresh your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. The client library caches a hash id of the currently loaded configurations to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
 
-`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based off activity. Specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered `spring-cloud-azure-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time is expired.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based off activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time has expired.
 
 ## Use manual refresh
 
@@ -39,7 +39,7 @@ public void myConfigurationRefreshCheck() {
 }
 ```
 
-`AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, their was no change, or another thread is currently checking for a refresh.
+`AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
 
 ## Use automated refresh
 
