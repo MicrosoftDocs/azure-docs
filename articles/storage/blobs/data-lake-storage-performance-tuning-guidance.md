@@ -38,11 +38,11 @@ The network connectivity between your source data and Data Lake Storage Gen2 can
 
 Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-lake-storage-data-scenarios.md).
 
-| Tool               | Settings		| More Details                                                                 |
+| Tool               | Settings | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)	| [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies	| [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -52,7 +52,7 @@ When data is stored in Data Lake Storage Gen2, the file size, number of files, a
 
 Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
 
-Sometimes, data pipelines have limited control over the raw data which has lots of small files. It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications.
 
 ### Organizing time series data in folders
 

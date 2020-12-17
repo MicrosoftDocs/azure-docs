@@ -18,7 +18,7 @@ ms.date: 07/20/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
-1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. 
+1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse gallery**. 
 1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
 1. On the bottom of the page press **Continue** and after that **Add dataset**. 
 1. Now in **Data** hub under **Linked** right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**
@@ -55,8 +55,8 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 
 1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLPOOL1** (dedicated SQL pool)
-    - **nyctaxi** (serverless Apache Spark pool)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## Analyze the NYC Taxi data using Spark and notebooks
 
@@ -88,22 +88,7 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 
 1. In the cell results, select **Chart** to see the data visualized.
 
-## Customize data visualization with Spark and notebooks
 
-You can control how charts render by using notebooks. The following code shows a simple example. It uses the popular libraries **matplotlib** and **seaborn**. The code renders the same kind of line chart as the SQL queries we ran earlier.
-
-```py
-%%pyspark
-import matplotlib.pyplot
-import seaborn
-
-seaborn.set(style = "whitegrid")
-df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.toPandas()
-seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
-seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
-matplotlib.pyplot.show()
-```
 
 
 

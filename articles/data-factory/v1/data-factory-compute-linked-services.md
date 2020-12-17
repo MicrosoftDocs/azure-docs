@@ -3,8 +3,8 @@ title: Compute environments supported by Azure Data Factory version 1
 description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -227,7 +227,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning Studio (classic)
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server
+* Azure SQL Database, Azure Synapse Analytics, SQL Server
 
 ## Azure HDInsight linked service
 You can create an HDInsight linked service to register your own HDInsight cluster with Data Factory.

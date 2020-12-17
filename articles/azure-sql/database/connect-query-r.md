@@ -79,4 +79,4 @@ Get the connection information you need to connect to the database in Azure SQL 
 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (with R)](../managed-instance/machine-learning-services-overview.md)
-- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context)

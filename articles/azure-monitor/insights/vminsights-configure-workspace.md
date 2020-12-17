@@ -64,7 +64,7 @@ Azure Monitor for VMs supports Log Analytics workspaces in the following regions
 - Australia East
 - Australia Southeast
 
-## Role-based access control
+## Azure role-based access control
 To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
 ## Add VMInsights solution to workspace
@@ -74,9 +74,9 @@ Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must
 > When you add the *VMInsights* solution to the workspace, all existing virtual machines connected to the workspace will start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency Agent to those existing virtual machines connected to the workspace.
 
 ### Azure portal
-There are three options for configuring an existing workspace from the Azure portal.
+There are three options for configuring an existing workspace using the Azure portal. Each are described below.
 
-To configure a single workspace, select the **Other onboarding options** and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
+To configure a single workspace, go the the **Virtual Machines** option in the **Azure Monitor** menu, select the **Other onboarding options**, and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
 
 [![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

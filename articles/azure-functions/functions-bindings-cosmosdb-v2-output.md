@@ -298,6 +298,29 @@ Here's the JavaScript code:
     };
 ```
 
+For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
+      context.done();
+    };
+```
+
 # [Python](#tab/python)
 
 The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.

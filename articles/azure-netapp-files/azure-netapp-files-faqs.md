@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -55,7 +55,7 @@ No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNe
 
 Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
 
-Data traffic between NFSv3 or SMBv3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -162,6 +162,10 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 ### Why does the available space on my SMB client not show the provisioned size?
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
+
+### I’m having issues connecting to my SMB share. What should I do?
+
+As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

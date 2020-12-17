@@ -1,12 +1,15 @@
 ---
 title: Outputs in templates
-description: Describes how to define output values in an Azure Resource Manager template.
+description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 11/24/2020
 ---
-# Outputs in Azure Resource Manager template
 
-This article describes how to define output values in your Azure Resource Manager template. You use outputs when you need to return values from the deployed resources.
+# Outputs in ARM templates
+
+This article describes how to define output values in your Azure Resource Manager template (ARM template). You use outputs when you need to return values from the deployed resources.
+
+The format of each output value must match one of the [data types](template-syntax.md#data-types).
 
 ## Define output values
 
@@ -112,4 +115,4 @@ The following examples demonstrate scenarios for using outputs.
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](template-syntax.md).

@@ -28,7 +28,7 @@ Azure Time Series Insights has four key jobs:
 - Azure Time Series Insights provides out-of-the-box visualization through the Azure Time Series Insights Explorer.
 - Azure Time Series Insights provides a query service, both in the Azure Time Series Insights Explorer and by using APIs that are easy to integrate to embed your time series data into custom applications.
 
-If you build an application for internal consumption or for external customers to use, you can use Azure Time Series Insights as a back end. You can use it to index, store, and aggregate time series data. To build a custom visualization and user experience on top, use the [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights is also equipped with several [Query APIs](how-to-shape-query-json.md) to enable these customized scenarios.
+If you build an application for internal consumption or for external customers to use, you can use Azure Time Series Insights as a back end. You can use it to index, store, and aggregate time series data. To build a custom visualization and user experience on top, use the [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights is also equipped with several [Query APIs](./concepts-json-flattening-escaping-rules.md) to enable these customized scenarios.
 
 Time series data represents how an asset or process changes over time. Time series data is indexed by timestamps, and time is the most meaningful axis along which such data is organized. Time series data typically arrives in sequential order, so it's treated as an insert rather than an update to your database.
 

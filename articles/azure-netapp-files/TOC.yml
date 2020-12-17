@@ -61,6 +61,8 @@
         href: solutions-windows-virtual-desktop.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
+  - name: What is Azure Application Consistent Snapshot Tool
+    href: azacsnap-introduction.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files
@@ -99,13 +101,13 @@
     href: dynamic-change-volume-service-level.md
   - name: Manage cross-region replication
     items:
-    - name: Create replication peering
+    - name: Create volume replication
       href: cross-region-replication-create-peering.md
     - name: Display health status of replication relationship
       href: cross-region-replication-display-health-status.md
     - name: Manage disaster recovery
       href: cross-region-replication-manage-disaster-recovery.md
-    - name: Delete replications 
+    - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
   - name: Develop
     items:
@@ -133,6 +135,32 @@
     href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+  - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
+    items:
+    - name: Get started with AzAcSnap
+      href: azacsnap-get-started.md
+    - name: Install AzAcSnap
+      href: azacsnap-installation.md
+    - name: Disaster recovery using AzAcSnap
+      href: azacsnap-disaster-recovery.md
+    - name: Tips and tricks for using AzAcSnap
+      href: azacsnap-tips.md
+    - name: Troubleshoot AzAcSnap
+      href: azacsnap-troubleshoot.md
+    - name: AzAcSnap command reference 
+      items: 
+      - name: Configure AzAcSnap
+        href: azacsnap-cmd-ref-configure.md
+      - name: Test AzAcSnap
+        href: azacsnap-cmd-ref-test.md
+      - name: Back up using AzAcSnap
+        href: azacsnap-cmd-ref-backup.md
+      - name: Obtain details using AzAcSnap
+        href: azacsnap-cmd-ref-details.md
+      - name: Delete using AzAcSnap
+        href: azacsnap-cmd-ref-delete.md
+      - name: Restore using AzAcSnap
+        href: azacsnap-cmd-ref-restore.md
 - name: Resources
   items:
   - name: Pricing

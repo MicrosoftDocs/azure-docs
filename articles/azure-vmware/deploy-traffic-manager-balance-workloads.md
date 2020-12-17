@@ -25,7 +25,7 @@ As shown in the following figure, Azure Traffic Manager provides load balancing 
 
 Connection over the virtual network between the two AVS private cloud regions, West US and West Europe, and an on-premises server in East US, uses an ExpressRoute gateway.   
 
-![Diagram of the architecture of Traffic Manager integration with Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the architecture of Traffic Manager integration with Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
  
 ## Prerequisites
 
@@ -70,7 +70,7 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 
 1. Select **Segments** to view your configured segments. In this case, we see that Contoso-segment1 is connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot showing segment profiles in NSX-T Manager.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
 2. Select **Tier-1 Gateways** to see a list of your Tier-1 gateways with the number of linked segments. Select the segment linked to Contoso-T01. A window opens showing the logical interface configured on the Tier-01 router. This serves as gateway to the backend pool member virtual machine connected to the segment.
 
@@ -78,7 +78,7 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 
 3. In the VM vSphere client, select the virtual machine to view its details. Note its IP address matches what we saw in step 3 of the preceding section: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot showing VM details in VSphere Client.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot showing VM details in VSphere Client." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
 4. Select the virtual machine, then click **ACTIONS > Edit Settings** to verify connection to the NSX-T segment.
 
@@ -99,7 +99,7 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 
 3. Select **Overview**. Copy the URL under **DNS Name**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot showing a Traffic Manager endpoint overview with DNS name highlighted."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot showing a Traffic Manager endpoint overview with DNS name highlighted." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
 4. Paste the DNS name URL in a  browser. The following screenshot shows traffic directing to the West Europe region.
 

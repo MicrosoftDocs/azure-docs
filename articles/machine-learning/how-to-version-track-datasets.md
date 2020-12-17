@@ -150,7 +150,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## Track datas in your experiments
+## Track data in your experiments
 
 Azure Machine Learning tracks your data throughout your experiment as input and output datasets.  
 

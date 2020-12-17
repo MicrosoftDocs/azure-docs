@@ -43,7 +43,7 @@ To enable Azure Defender on a subscription, you must be assigned the role of Sub
 
 You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. 
 
-Within minutes of launching Security Center the first time, you may see:
+Within minutes of launching Security Center the first time, you might see:
 
 - **Recommendations** for ways to improve the security of your connected resources.
 - An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.

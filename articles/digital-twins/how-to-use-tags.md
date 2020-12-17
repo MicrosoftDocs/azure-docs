@@ -70,13 +70,13 @@ Once tags have been added to digital twins, the tags can be used to filter the t
 Here is a query to get all twins that have been tagged as "red": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 You can also combine tags for more complex queries. Here is a query to get all twins that are round, and not red: 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
 ```
 
 ## Value tags 
@@ -128,13 +128,13 @@ As with marker tags, you can use value tags to filter the twins in queries. You 
 From the example above, `red` is being used as a marker tag. Here is a query to get all twins that have been tagged as "red": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 Here is a query to get all entities that are small (value tag), and not red: 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
 ```
 
 ## Next steps

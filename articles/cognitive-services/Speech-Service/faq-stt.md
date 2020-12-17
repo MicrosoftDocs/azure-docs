@@ -14,7 +14,7 @@ ms.author: panosper
 
 # Speech to Text frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](support.md).
+If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## General
 
@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a baseline model?**
 
-**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
+**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](./overview.md#reference-docs). If you want to use WebSockets, [download the SDK](speech-sdk.md).
 
 **Q: Do I always need to build a custom speech model?**
 
@@ -66,7 +66,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **Q: Are my requests logged?**
 
-**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](how-to-custom-speech-deploy-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
+**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](./how-to-custom-speech-train-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
 
 **Q: Are my requests throttled?**
 

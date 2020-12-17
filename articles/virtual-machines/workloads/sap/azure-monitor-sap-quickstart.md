@@ -5,6 +5,7 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
 

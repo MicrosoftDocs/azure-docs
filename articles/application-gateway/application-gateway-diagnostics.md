@@ -203,7 +203,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |---------|---------|
 |instanceId     | Application Gateway instance that served the request.        |
 |clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
 |UserAgent     | User agent from the HTTP request header.        |
@@ -231,7 +230,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "properties": {
         "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
-        "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
         "userAgent": "-",

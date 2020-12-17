@@ -75,4 +75,4 @@ This test could be expanded to incorporate other data points to narrow the scope
 * [What is Conditional Access?](overview.md)
 * [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
-* [How it works: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

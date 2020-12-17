@@ -1,8 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server assessment.
-ms.service: azure-migrate
-ms.topic: article
+author: vikram1988 
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/15/2020
 ---
 

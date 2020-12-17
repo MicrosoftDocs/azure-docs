@@ -1,11 +1,12 @@
 ---
 title: Assessment best practices in Azure Migrate Server Assessment
 description: Tips for creating assessments with Azure Migrate Server Assessment.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
+
 ---
 
 # Best practices for creating assessments

@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # Update a deployed web service

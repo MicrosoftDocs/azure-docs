@@ -1,5 +1,5 @@
 ---
-title: "Migration guide: DB2 to SQL Managed Instance"
+title: "DB2 to SQL Managed Instance: Migration guide"
 description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -143,7 +143,7 @@ The test approach for database migration consists of the following activities:
 
 ## Leverage advanced features 
 
-Be sure to take advantage of the advanced cloud-based features offered by Azure SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/advanced-data-security.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
+Be sure to take advantage of the advanced cloud-based features offered by Azure SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/azure-defender-for-sql.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
 
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 

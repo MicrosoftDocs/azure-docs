@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
@@ -19,7 +19,7 @@ ms.reviewer: hirsin, jlu, annaba
 Many scenarios are possible in Azure AD when you can create and manage token lifetimes for apps, service principals, and your overall organization.  
 
 > [!IMPORTANT]
-> After January 30, 2021, tenants will no longer be able to configure refresh and session token lifetimes and Azure AD will stop honoring existing refresh and session token configuration in policies after that date. You can still configure access token lifetimes after the deprecation.  To learn more, read [Configurable token lifetimes in Microsoft identity platform](active-directory-configurable-token-lifetimes.md).
+> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation.  To learn more, read [Configurable token lifetimes in Microsoft identity platform](active-directory-configurable-token-lifetimes.md).
 > We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency.
 
 

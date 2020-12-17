@@ -206,7 +206,7 @@ Listen to each file carefully. At this stage, you can edit out small unwanted so
 
 Convert each file to 16 bits and a sample rate of 16 kHz before saving and, if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
 
-Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Creating custom voice fonts](how-to-customize-voice-font.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
+Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Creating custom voice fonts](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
 
 Archive the original recordings in a safe place in case you need them later. Preserve your script and notes, too.
 
@@ -215,4 +215,4 @@ Archive the original recordings in a safe place in case you need them later. Pre
 You're ready to upload your recordings and create your custom voice.
 
 > [!div class="nextstepaction"]
-> [Create custom voice fonts](how-to-customize-voice-font.md)
+> [Create custom voice fonts](./how-to-custom-voice-create-voice.md)

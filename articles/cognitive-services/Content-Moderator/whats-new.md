@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ---
 
