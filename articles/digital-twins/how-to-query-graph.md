@@ -6,7 +6,7 @@ description: See how to query the Azure Digital Twins twin graph for information
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
 
