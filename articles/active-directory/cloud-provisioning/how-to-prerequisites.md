@@ -57,14 +57,11 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
     > | 12 | 4 GB |
     > | 18 | 5.5 GB|
     > | 28 | 10+ GB|
-    >
-    > 
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
 3. If there's a firewall between your servers and Azure AD, configure the following items:
-
-   - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 
       | Port number | How it's used |
       | --- | --- |
@@ -73,13 +70,13 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
       |**8082**|Required for installation and if you want to configure HIS administration API.  This port can be removed once the agent is installed and if you are not planning on using the API.   |
       | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
 
-   - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
-   - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
-   - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
-   - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
+    - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
+    - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+    - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
+    - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
 
->[!NOTE]
-> Installing the cloud provisioning agent on Windows Server Core is not supported.
+    >[!NOTE]
+    > Installing the cloud provisioning agent on Windows Server Core is not supported.
 
 ### Additional requirements
 
@@ -87,8 +84,8 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 #### TLS requirements
 
->[!NOTE]
->Transport Layer Security (TLS) is a protocol that provides for secure communications. Changing the TLS settings affects the entire forest. For more information, see [Update to enable TLS 1.1 and TLS 1.2 as default secure protocols in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
+> [!NOTE]
+> Transport Layer Security (TLS) is a protocol that provides for secure communications. Changing the TLS settings affects the entire forest. For more information, see [Update to enable TLS 1.1 and TLS 1.2 as default secure protocols in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
 
 The Windows server that hosts the Azure AD Connect cloud provisioning agent must have TLS 1.2 enabled before you install it.
 
@@ -106,6 +103,7 @@ To enable TLS 1.2, follow these steps.
 1. Restart the server.
 
 ## Known limitations
+
 The following are known limitations:
 
 ### Delta Synchronization
