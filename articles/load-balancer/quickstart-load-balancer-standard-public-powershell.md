@@ -787,7 +787,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ## Next steps
 
-In this quickstart
+In this quickstart:
 
 * You created a standard or basic public load balancer
 * Attached virtual machines. 
