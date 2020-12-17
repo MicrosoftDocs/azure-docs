@@ -42,7 +42,7 @@ The following OS platforms and versions are supported:
 - Any hardware platform that supports the above OS SKUs and versions.
 - Serial, USB, Bluetooth, and Camera peripherals and sensors are supported natively. The IoT Plug and Play Bridge can be extended to support any custom peripheral or sensor.
 
-### Azure IoT Products and Tools
+### Azure IoT products and tools
 
 - **Azure IoT Hub** - You need an [Azure IoT hub](../iot-hub/index.yml) in your Azure subscription to connect your device to. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. If you don't have an IoT hub, [follow these instructions to create one](../iot-hub/iot-hub-create-using-cli.md). IoT Plug and Play support isn't included in basic-tier IoT hubs.
 - **Azure IoT explorer** - To interact with your IoT Plug and Play device, you can use the Azure IoT explorer tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system. Configure the Azure IoT explorer tool to connect to your IoT hub, and to look for model definitions in the *pnpbridge\docs\schemas* folder in the **iot-plug-and-play-bridge** you cloned.
@@ -538,10 +538,6 @@ az group delete -n bridge-edge-resources
 *pnpbridge\src*: Source code for IoT Plug and Play bridge core.
 
 *pnpbridge\src\adapters*: Source code for various IoT Plug and Play bridge adapters.
-
-## Support
-
-For any questions or to raise an issue, contact [pnpbridge@microsoft.com](mailto:pnpbridge@microsoft.com).
 
 ## Next steps
 

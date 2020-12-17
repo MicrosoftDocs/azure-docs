@@ -15,7 +15,7 @@ services: iot-pnp
 
 This article shows you how to build the IoT Plug and Play bridge's sample environmental adapter, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The IoT Plug and Play bridge is written in C and includes the Azure IoT device SDK for C. By the end of this tutorial you should be able to run the IoT Plug and Play bridge and see it report telemetry in Azure IoT explorer:
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="A screen shot showing Azure IoT explorer with a table of reported telemetry (humidity, temperature) from Iot Plug and Play bridge.":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="A screenshot showing Azure IoT explorer with a table of reported telemetry (humidity, temperature) from Iot Plug and Play bridge.":::
 
 ## Prerequisites
 
