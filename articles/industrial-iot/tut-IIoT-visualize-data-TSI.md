@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 16/11/2020
+ms.date: 11/16/2020
 ---
 
 # Tutorial: Visualize data with Time Series Insights (TSI)
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisite
 
 * Deploy the IIoT Platform to get a Time Series Insights Environment automatically created
-* Follow the instructions to [publish data to IoT Hub using the engineering tool](tut-IIoT-subscribe-data-eng-tool.md).
+* Data is being published to IoT Hub
 
 ## Time Series Insights explorer
 
@@ -83,4 +83,4 @@ For detailed information on TSI models see [Time Series Model in Azure Time Seri
 
 ## Connect Time Series Insights to Power BI
 
-You can also connect the Time Series Insights environment to Power BI.  For more information, see [How to connect TSI to Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) and [Visualize data from TSI in Power BI](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-power-bi).
+You can also connect the Time Series Insights environment to Power BI.  For more information, see [How to connect TSI to Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) and [Visualize data from TSI in Power BI](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi).
