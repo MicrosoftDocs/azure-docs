@@ -132,7 +132,7 @@ To run this sample, you need:
 >      server.ssl.key-store-password=password
 >      server.ssl.key-alias=testCert
 >      ```
->   1. Put the generated keystore file in the `resources` folder.
+>   1. Put the generated keystore file in the *resources* folder.
 
 
 > [!div class="sxs-lookup" renderon="portal"]
