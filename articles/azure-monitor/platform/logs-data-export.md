@@ -169,7 +169,7 @@ The body of the request specifies the tables destination. Following is a sample 
         },
         "tablenames": [
             "table1",
-	        "table2" 
+            "table2" 
         ],
         "enable": true
     }
@@ -275,7 +275,7 @@ Content-type: application/json
         },
         "tablenames": [
 "table1",
-	"table2" 
+    "table2" 
         ],
         "enable": false
     }
