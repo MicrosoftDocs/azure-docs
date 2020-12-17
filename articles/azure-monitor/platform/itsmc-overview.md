@@ -39,11 +39,13 @@ For information about legal terms and the privacy policy, see [Microsoft Privacy
 
 You can start using ITSMC by completing the following steps:
 
-1. [Connect ITSM products/services with IT Service Management Connector.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
-2. [Add ITSMC.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector)
-3. [Create an ITSM connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
-4. [Use the connection.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
+1. [Connect ITSM products/services with IT Service Management Connector.](./itsmc-connections)
+1. [Add ITSMC.](./itsmc-definition#add-it-service-management-connector)
+1. [Create an ITSM connection.](./itsmc-definition#create-an-itsm-connection)
+1. [Use the connection.](./itsmc-definition#use-itsmc)
 
 ## Next steps
 
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
+[Add ITSM Connector](./itsmc-definition.md)
+[Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
