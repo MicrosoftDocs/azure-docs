@@ -185,7 +185,13 @@ You must define a route for each and every IP address listed below with Internet
   You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hubs because you can't send traffic through a firewall to these services.
 You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
-##### 3. Other inbound and outbound dependencies
+*  Other inbound and outbound dependencies
+
+   Your firewall *must* allow the following inbound and outbound dependencies:
+   
+   * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 Your firewall MUST allow the following inbound and outbound dependencies.
 * [Azure App Service Dependencies](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#deploying-your-ase-behind-a-firewall)
 * [Azure Cache Service Dependencies](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
