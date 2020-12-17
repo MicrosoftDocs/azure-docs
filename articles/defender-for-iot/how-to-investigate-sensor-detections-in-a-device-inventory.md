@@ -204,7 +204,7 @@ To import:
 
 1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
 
- :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration.png" alt-text="Import your Windows configurations.":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration-v2.png" alt-text="Import your Windows configurations.":::
 
 2. Select **Add**, and then select all the files (Ctrl=A).
 

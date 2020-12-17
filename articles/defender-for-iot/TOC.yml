@@ -146,9 +146,7 @@
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information
-        href: how-to-forward-alert-information-to-partners.md
-    - name: Learn about threats across your enterprise
-      items:
+        href: how-to-forward-alert-information-to-partners.md=
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Work with alerts on the on-premises management console
