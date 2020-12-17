@@ -115,7 +115,7 @@ DataSource source = new DataSource();
 map.sources.add(source);
 
 //Load a image of an arrow into the map image sprite and call it "arrow-icon".
-map.images.add("arrow-icon", R.drawable.purple_arrow_right);
+map.images.add("arrow-icon", R.drawable.purple-arrow-right);
 
 //Create and add a line to the data source.
 source.add(LineString.fromLngLats(Arrays.asList(
@@ -166,11 +166,11 @@ map.layers.add(new SymbolLayer(source,
 
 For this sample, the following image was loaded into the drawable folder of the app.
 
-| ![Purple arrow icon image](media/android-map-add-line-layer/purple_arrow_right.png)|
+| ![Purple arrow icon image](media/android-map-add-line-layer/purple-arrow-right.png)|
 |:-----------------------------------------------------------------------:|
-| purple_arrow_right.png                                                  |
+|                                                  |
 
-The following screenshot shows the above code rendering a line with arrow icons displayed along it.
+The screenshot below shows the above code rendering a line with arrow icons displayed along it.
 
 ![Map with data-drive styled lines with arrows rendered in a line layer](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 

@@ -10,7 +10,7 @@ services: azure-maps
 manager: cpendle
 ---
 
-# Data-driven Style Expressions (Android SDK)
+# Data-driven style expressions (Android SDK)
 
 Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can filter data in a data source or a layer. Expressions may consist of conditional logic, like if-statements. And, they can be used to manipulate data using: string operators, logical operators, and mathematical operators.
 
@@ -130,7 +130,7 @@ This video provides an overview of data-driven styling in Azure Maps.
 
 <br/>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps Data Driven styling overview video"></iframe>
 
 ## Data expressions
 
@@ -522,7 +522,7 @@ The above expression renders a pin on the map with the text "64°F" overlaid on 
 
 ![String operator expression example](media/how-to-expressions/string-operator-expression.png)
 
-## Interpolate and Step expressions
+## Interpolate and step expressions
 
 Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. These expressions take in an expression that returns a numeric value as their input, for example `get("temperature")`. The input value is evaluated against pairs of input and output values, to determine the value that best fits the interpolated curve or step function. The output values are called "stops". The input values for each stop must be a number and be in ascending order. The output values must be a number, and array of numbers, or a color.
 
