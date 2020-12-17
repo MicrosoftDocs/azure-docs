@@ -345,7 +345,7 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-utterances.md) utterances in the LUIS portal.
 
 <!--  ## Validate container is running -->
 

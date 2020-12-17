@@ -117,11 +117,11 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/managed-disks-overview.md) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from the prepare process.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/managed-disks-overview.md) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from the prepare process.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/managed-disks-overview.md#temporary-disk).
 Data disk maximum size | 8192 GB for managed disks
 Data disk minimum size |  2 GB for managed disks |
-Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/windows/sizes.md) about VM sizes.
+Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/sizes.md) about VM sizes.
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, the preparation won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, preparation can catch up, but you might see slightly delayed recovery points.
 Data disk (Standard storage account) | Not supported. | Change the storage type to managed disk, and then try moving the VM.
 Data disk (Premium storage account) | Not supported | Change the storage type to managed disk, and then try moving the VM.

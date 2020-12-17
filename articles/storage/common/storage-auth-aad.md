@@ -75,11 +75,11 @@ When you attempt to access blob or queue data, the Azure portal first checks whe
 
 To access blob or queue data from the Azure portal using your Azure AD account, you need permissions to access blob and queue data, and you also need permissions to navigate through the storage account resources in the Azure portal. The built-in roles provided by Azure Storage grant access to blob and queue resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires the assignment of an Azure Resource Manager role such as the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable. To learn more about how to assign permissions to users for data access in the Azure portal with an Azure AD account, see [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md).
 
-The Azure portal indicates which authorization scheme is in use when you navigate to a container or queue. For more information about data access in the portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-blob-access-portal.md) and [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-queue-access-portal.md).
+The Azure portal indicates which authorization scheme is in use when you navigate to a container or queue. For more information about data access in the portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md) and [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](../blobs/authorize-active-directory-powershell.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-powershell.md).
 
 ## Next steps
 

@@ -9,17 +9,17 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 11/17/2020 
 ---
 
 # Analyze data with dedicated SQL pools
 
-Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicted SQL pool's capabilities.
+Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicated SQL pool's capabilities.
 
-## Load the NYC Taxi Data into SQLDB1
+## Load the NYC Taxi Data into SQLPOOL1
 
 1. In Synapse Studio, navigate to the **Develop** hub and then create new SQL script
-1. Select the pool 'SQLDB1'(pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' section of the script.
+1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' section of the script.
 1. Enter the following code:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -66,15 +66,15 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. This script will take about 1 minute to run. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**
+1. This script will finish in around 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**
 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 
 1. In Synapse Studio, go to the **Data** hub.
-1. Go to **SQLDB1** > **Tables**. You'll see several tables loaded.
+1. Go to **SQLPOOL1** > **Tables**. You'll see several tables loaded.
 1. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
 1. Wait while a new SQL script is created and runs.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLDB1**.
+1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
 1. Replace the text of the SQL script with this code and run it.
 
     ```sql
@@ -89,8 +89,9 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
-
-
+    
+    > [!NOTE]
+    > A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub.
 
 ## Next steps
 

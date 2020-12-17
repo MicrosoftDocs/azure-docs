@@ -62,7 +62,7 @@ If you would like to configure or change the storage account or Blob container t
 
 ## Troubleshooting
 
-### Required role-based access control (RBAC) settings on your Blob container
+### Required Azure role-based access control (Azure RBAC) settings on your Blob container
 
 Any user on the Portal using this feature must be at least assigned as a [Storage Blob Data Reader][storage blob data reader] to your Blob container. You must assign this role to anyone else that will be using the source maps through this feature.
 

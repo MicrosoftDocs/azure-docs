@@ -3,13 +3,13 @@ title: Manually initiate a failover on SQL Managed Instance
 description: Learn how to manually failover primary and secondary replicas on Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
+ms.date: 12/16/2020
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -32,9 +32,9 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-### RBAC permissions required
+### Azure RBAC permissions required
 
-User initiating a failover will need to have one of the following RBAC roles:
+User initiating a failover will need to have one of the following Azure roles:
 
 - Subscription Owner role, or
 - Managed Instance Contributor role, or
@@ -135,7 +135,7 @@ You will not be able to see the same output with GP service tier as the one abov
 
 > [!IMPORTANT]
 > Functional limitations of user-initiated manual failover are:
-> - There could be one (1) failover initiated on the same Managed Instance every **30 minutes**.
+> - There could be one (1) failover initiated on the same Managed Instance every **15 minutes**.
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
 

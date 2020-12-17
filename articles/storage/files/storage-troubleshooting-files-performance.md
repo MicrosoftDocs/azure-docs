@@ -4,7 +4,7 @@ description: Troubleshoot known performance issues with Azure file shares. Disco
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -17,7 +17,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share was throttled
 
-Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
+Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
 
 To confirm whether your share is being throttled, you can access and use Azure metrics in the portal.
 
@@ -40,8 +40,8 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 ### Solution
 
-- If you're using a standard file share, enable [large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
-- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the "Understanding provisioning for premium file shares" section in the [Azure Files planning guide](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares).
+- If you're using a standard file share, enable [large file shares](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
+- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the "Understanding provisioning for premium file shares" section in the [Azure Files planning guide](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 ### Cause 2: Metadata or namespace heavy workload
 
@@ -69,19 +69,21 @@ If the application that you're using is single-threaded, this setup can result i
 
 ### Cause
 
-The client virtual machine (VM) could be located in a different region than the file share.
+The client virtual machine (VM) could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
 
 ### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
+- For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
 ## Client unable to achieve maximum throughput supported by the network
 
 ### Cause
-One potential cause is a lack of SMB multi-channel support. Currently, Azure Files supports only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause is a lack of SMB multi-channel support for standard file shares. Currently, Azure Files supports only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
 ### Workaround
 
+- For premium file shares, [Enable SMB Multichannel on a FileStorage account](storage-files-enable-smb-multichannel.md).
 - Obtaining a VM with a bigger core might help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
@@ -164,6 +166,52 @@ Higher than expected latency accessing Azure file shares for I/O-intensive workl
 ### Workaround
 
 - Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+
+## SMB Multichannel option not visible under File share settings. 
+
+### Cause
+
+Either the subscription is not registered for the feature, or the region and account type is not supported.
+
+### Solution
+
+Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
+Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
+
+## SMB Multichannel is not being triggered.
+
+### Cause
+
+Recent changes to SMB Multichannel config settings without a remount.
+
+### Solution
+ 
+-	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
+-	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
+
+## High latency on web sites hosted on file shares 
+
+### Cause  
+
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+
+To confirm, you can use Azure Metrics in the portal - 
+
+1. In the Azure portal, go to your storage account. 
+1. In the left menu, under Monitoring, select Metrics. 
+1. Select File as the metric namespace for your storage account scope. 
+1. Select Transactions as the metric. 
+1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB) or ClientThrottlingError (for REST).
+
+### Solution 
+
+- If file change notification is not used,  disable file change notification (preferred).
+    - [Disable file change notification](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) by updating FCNMode. 
+    - Update the IIS Worker Process (W3WP) polling interval to 0 by setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` in your registry and restart the W3WP process. To learn about this setting, see [Common registry keys that are used by many parts of IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Increase frequency of the file change notification polling interval to reduce volume.
+    - Update the W3WP worker process polling interval to a higher value (e.g. 10mins or 30mins) based on your requirement. Set `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [in your registry](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) and restart the W3WP process.
+- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume. By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you do not want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Set IIS  virtual directory "allowSubDirConfig" setting in Web.Config to *false* to exclude mapped physical child directories from the scope.  
 
 ## How to create an alert if a file share is throttled
 

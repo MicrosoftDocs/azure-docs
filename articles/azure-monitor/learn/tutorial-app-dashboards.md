@@ -7,7 +7,7 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 
-ms.custom: mvc, contperfq1
+ms.custom: mvc, contperf-fy21q1
 ---
 
 # Create custom KPI dashboards using Azure Application Insights
@@ -128,7 +128,7 @@ Azure Application Insights Logs provides a rich query language that allows you t
 ## Share dashboard
 
 1. At the top of the dashboard, select **Share** to publish your changes.
-2. You can optionally define specific users who should have access to the dashboard. For more information, see [Share Azure dashboards by using Role-Based Access Control](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. You can optionally define specific users who should have access to the dashboard. For more information, see [Share Azure dashboards by using Azure role-based access control](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Select **Publish**.
 
 ## Next steps

@@ -46,7 +46,7 @@ Inputs:
 Outputs:
 1. Azure Monitor
 
-The supplied spatial analysis telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure Monitor to your subscription.
+The supplied spatial analysis telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](../../azure-monitor/overview.md) for information on adding Azure Monitor to your subscription.
 
 After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
@@ -321,7 +321,7 @@ Remotely, connect from a Windows client. After the Kubernetes cluster is created
 
 > [!TIP]
 > * Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later.
-> * PowerShell is also [available on Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * PowerShell is also [available on Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Run a Windows PowerShell session as an Administrator. 
     1. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type `winrm quickconfig`.

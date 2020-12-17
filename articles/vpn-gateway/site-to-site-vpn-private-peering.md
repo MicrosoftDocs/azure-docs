@@ -6,11 +6,11 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
 
 ---
-# Configure a Site-to-Site VPN connection over ExpressRoute private peering (Preview)
+# Configure a Site-to-Site VPN connection over ExpressRoute private peering
 
 You can configure a Site-to-Site VPN to a virtual network gateway over an ExpressRoute private peering using an RFC 1918 IP address. This configuration provides the following benefits:
 

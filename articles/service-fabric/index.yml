@@ -143,7 +143,7 @@ landingContent:
           - text: Cluster security
             url: service-fabric-cluster-security.md
           - text: Security controls for Service Fabric
-            url: service-fabric-security-controls.md
+            url: ./security-baseline.md
           - text: Service Fabric Secrets Store
             url: service-fabric-application-secret-store.md
       - linkListType: how-to-guide
@@ -202,4 +202,3 @@ landingContent:
             url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
           - text: Upgrade the Service Fabric runtime
             url: service-fabric-cluster-upgrade-windows-server.md
-

@@ -2,7 +2,7 @@
 title: Receive events from Azure Event Grid to an HTTP endpoint
 description: Describes how to validate an HTTP endpoint, then receive and deserialize Events from Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
 ---
 
@@ -135,9 +135,11 @@ Test the validation response function by pasting the sample event into the test 
 }]
 ```
 
-When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
+When you click Run, the Output should be 200 OK and `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
 
-![validation response](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Validation request":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Validation output":::
 
 ## Handle Blob storage events
 
@@ -389,6 +391,8 @@ Finally, test that your function can now handle your custom event type:
 ```
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## Next steps
 

@@ -112,6 +112,14 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Causes**: Join condition did not match any rows or resulted in high number of NULLs during data preview.
 - **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select an Azure IR with a large enough data flow cluster to handle more data.
 
+### Error code: Validation Error at Source with multiline CSV files 
+
+- **Message**: You might see one of the following error messages:
+   - The last column is null or missing.
+   - Schema validation at source fails.
+   - Schema import fails to show correctly in the UX and the last column has a new line character in the name.
+- **Causes**: In the Mapping data flow, currently, the multiline CSV source does not work with the \r\n as row delimiter. Sometimes extra lines at carriage returns break source values. 
+- **Recommendation**: Either generate the file at the source with \n as row delimiter rather than \r\n. Or, use Copy Activity to convert CSV file with \r\n to \n as a row delimiter.
 
 ## General troubleshooting guidance
 

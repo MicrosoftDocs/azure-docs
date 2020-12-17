@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
 ---
 
@@ -135,6 +135,8 @@ Get the Amortized costs data and filter the data for a reserved instance. Then:
 2. Get the reservation costs. Sum the _Cost_ values to get the monetary value of what you paid for the reserved instance. It includes the used and unused costs of the reservation.
 3. Subtract reservation costs from estimated pay-as-you-go costs to get the estimated savings.
 
+Keep in mind that if you have an underutilized reservation, the _UnusedReservation_ entry for _ChargeType_ becomes a factor to consider. When you have a fully utilized reservation, you receive the maximum savings possible. Any _UnusedReservation_ quantity reduces savings.
+
 ## Reservation purchases and amortization in cost analysis
 
 Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs will be shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
@@ -152,7 +154,7 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)

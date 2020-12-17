@@ -21,7 +21,15 @@ For more general information about Certificates, see [Azure Key Vault Certificat
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Adding Certificate in Key Vault issued by a non-trusted CA
+## Adding Certificate in Key Vault issued by partnered CA
+Key Vault partners with following two Certificate Authorities to simplify the creation of certificates. 
+
+|Provider|Certificate type|Configuration setup  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## Adding Certificate in Key Vault issued by non-partnered CA
 
 The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is not a trusted key vault CA) 
 
@@ -30,12 +38,14 @@ The following steps will help you create a certificate from certificate authorit
 
 
 
-1.  First, **create the certificate policy**. Key Vault will not enroll or renew the certificate from the Issuer on behalf of the user as CA chosen in this scenario is not a supported one and hence the IssuerName is set to Unknown.
+1. First, **create the certificate policy**. Key Vault will not enroll or renew the certificate from the Issuer on behalf of the user as CA chosen in this scenario is not a supported one and hence the IssuerName is set to Unknown.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
-
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > If you're using a Relative Distinguished Name (RDN) that has a comma (,) in the value, use single quotes and wrap the value that contains the special character in double quotes. Example: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. In this example, the `OU` value reads as **Docs, Contoso**. This format works for all values that contain a comma.
 
 2. Create a **certificate signing request**
 
@@ -45,7 +55,7 @@ The following steps will help you create a certificate from certificate authorit
    ```
 
 3. Getting the CSR **request signed by the CA**
-The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
+The `$csr.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
 
 
 4. **Merging the signed request** in Key Vault
@@ -69,15 +79,24 @@ After the certificate request has been signed by the Issuer, you can bring back 
     - **Subject:** `"CN=www.contosoHRApp.com"`
     - Select the other values as desired. Click **Create**.
 
-    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)
+    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
 6.	You will see that certificate has now been added in Certificates list. Select this new certificate you had just created. The current state of the certificate would be ‘disabled’ as it hasn’t been issued by the CA yet.
 7. Click on **Certificate Operation** tab and select **Download CSR**.
- ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
+   ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
 8.	Take .csr file to the CA for the request to get signed.
 9.	Once the request is signed by the CA, bring back the certificate file to **merge the Signed request** in the same Certificate Operation screen.
 
-Certificate request has now been successfully merged.
+The certificate request has now been successfully merged.
+
+> [!NOTE]
+> If your RDN values have commas, you also can add them in the **Subject** field by surrounding the value in double quotes as shown in step 4.
+> Example entry to "Subject": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
+> In this example, the RDN `OU` contains a value with a comma in the name. The resulting output for `OU` is **Docs, Contoso**.
+
 
 ## Adding more information to CSR
 
@@ -93,8 +112,8 @@ Example
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->If you are requesting a DV cert with all those details in the CSR, the CA might reject the request as CA might not be able to validate all that information in the request. If you are requesting an OV cert then it would be more appropriate to add all that information in the CSR.
+> [!NOTE]
+> If you're requesting a DV cert with all those details in the CSR, the CA might reject the request because it might not be able to validate all the information in the request. If you're requesting an OV cert, it would be more appropriate to add all that information in the CSR.
 
 
 ## Troubleshoot
@@ -108,6 +127,9 @@ Example
 - If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the error message for that certificate.
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+- **Error type 'The subject name provided is not a valid X500 name'**
+    This error can occur if you have included any "special characters" in the values of SubjectName. See Notes in Azure portal and PowerShell instructions respectively. 
 
 ## Next steps
 

@@ -19,7 +19,7 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
 ## Get started
-1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) if it doesn't exist on your machine. 
+1. Install [Azure PowerShell](/powershell/azure/) if it doesn't exist on your machine. 
 2. Download [Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) to your machine.
 3. Import the module:
 

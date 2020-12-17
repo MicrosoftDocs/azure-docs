@@ -65,4 +65,4 @@ landingContent:
           - text: Azure Machine Learning compute instance
             url: ../concept-compute-instance.md
           - text: Compare our ML products
-            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

@@ -23,7 +23,7 @@ Identity Protection provides ongoing risk detection for your Azure AD B2C tenant
 ## Prerequisites
 
 - Your Azure AD B2C tenant must be [linked to an Azure AD subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD B2C Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD B2C pricing tier to Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD B2C pricing tier to Premium P2](./billing.md). 
 - To manage Identity Protection and Conditional Access in your B2C tenant, you'll need an account that is assigned the Global Administrator role or the Security administrator role.
 - To use these features in your tenant, you first need to switch to the Azure AD B2C Premium P2 pricing tier.
 

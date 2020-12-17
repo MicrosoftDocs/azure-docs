@@ -1,13 +1,13 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 09/24/2020
+ms.date: 12/15/2020
 ms.topic: how-to
 ---
 
 # Onboard a customer to Azure Lighthouse
 
-This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, the customer's delegated resources (subscriptions and/or resource groups) can be accessed and managed through your own Azure Active Directory (Azure AD) tenant by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, delegated resources (subscriptions and/or resource groups) in the customer's Azure Active Directory (Azure AD) tenant can be managed through your own tenant by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
@@ -17,7 +17,7 @@ You can repeat the onboarding process for multiple customers. When a user with t
 To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!NOTE]
-> Customers can also be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here alongside offers published to Azure Marketplace.
+> Customers can alternately be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here along with offers published to Azure Marketplace.
 
 The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
 
@@ -281,6 +281,11 @@ In the customer's tenant:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### Azure CLI
@@ -291,8 +296,21 @@ Get-AzContext
 az account list
 ```
 
+If you need to make changes after the customer has been onboarded, you can [update the delegation](update-delegation.md). You can also [remove access to the delegation](remove-delegation.md) completely.
+
+## Troubleshooting
+
+If you are unable to successfully onboard your customer, or if your users have trouble accessing the delegated resources, check the following tips and requirements and try again.
+
+- The `managedbyTenantId` value must not be the same as the tenant ID for the subscription being onboarded.
+- You can't have multiple assignments at the same scope with the same `mspOfferName`. 
+- The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
+- Users who need to view resources in the Azure portal must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access).
+
 ## Next steps
 
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
-- Learn how to [remove access to a delegation](remove-delegation.md) that was previously onboarded.
+- Learn how to [update](update-delegation.md) or [remove](remove-delegation.md) a delegation.

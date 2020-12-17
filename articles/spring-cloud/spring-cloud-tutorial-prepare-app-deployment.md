@@ -145,6 +145,9 @@ Spring Boot version | Spring Cloud version
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
 
+> [!NOTE]
+> We've identified an issue with Spring Boot 2.4 on TLS authentication between your apps and Eureka and are currently working with the Spring community to resolve it. Please refer to our [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) for the workaround.
+
 ### Dependencies for Spring Boot version 2.1
 
 For Spring Boot version 2.1 add the following dependencies to the application POM file.

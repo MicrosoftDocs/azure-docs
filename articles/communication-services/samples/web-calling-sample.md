@@ -91,7 +91,7 @@ For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
-- Review the [API Reference docs](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## Additional reading
 
@@ -99,4 +99,4 @@ For more information, see the following articles:
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications

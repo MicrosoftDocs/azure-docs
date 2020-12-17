@@ -72,7 +72,7 @@ Use Azure Security Center Just In Time Network access to configure NSGs to limit
 
 Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-- [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -144,7 +144,7 @@ You may also use Application Security Groups to help simplify complex security c
 
 Define and implement standard security configurations for network resources with Azure Policy.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 

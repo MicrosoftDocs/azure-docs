@@ -7,7 +7,7 @@ ms.date: 09/git14/2020
 ms.author: alkohli
 ---
 
-Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 For import orders, following table shows the supported storage accounts.
 
@@ -42,5 +42,3 @@ For export orders, following table shows the supported storage accounts.
 > - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 > - A maximum of 80 TB can be exported.
 > - File history and blob snapshots are not exported.
-
-

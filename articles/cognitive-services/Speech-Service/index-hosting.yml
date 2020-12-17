@@ -29,7 +29,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create an Azure Speech resource
-          url: get-started.md#new-resource
+          url: ./overview.md#try-the-speech-service-for-free
         - text: Configure speech containers
           url: speech-container-configuration.md
 - title: Reference

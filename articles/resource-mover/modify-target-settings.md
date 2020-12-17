@@ -37,8 +37,8 @@ Configuration settings you can modify are summarized in the table.
 **VM SKU** | The [VM type](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (available in the target region) that will be used for the target VM.<br/><br/> The selected target VM shouldn't be smaller than the source VM.
 **Networking resources** | Options for virtual networks (VNets)/network security groups/network interfaces:<br/><br/> - Create a new resource with the same name in the target region.<br/><br/> - Create a new resource with a different name in the target region.<br/><br/> - Use an existing networking resource in the target region.<br/><br/> If you create a new target resource, with the exception of the settings you modify, it's assigned the same settings as the source resource.
 **Public IP address name** | Specify the name.
-**Public IP address SKU** | Specify the [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Public IP address zone** | Specify the [zone](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
+**Public IP address SKU** | Specify the [SKU](../virtual-network/public-ip-addresses.md#sku).
+**Public IP address zone** | Specify the [zone](../virtual-network/public-ip-addresses.md#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
 **Load balancer name** | Specify the name.
 **Load balancer SKU** | Basic or Standard. We recommend using Standard.
 **Load balancer zone** | Specify a zone for the load balancer. <br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.

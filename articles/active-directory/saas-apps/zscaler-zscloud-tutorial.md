@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with Zscaler ZSCloud, perform the following
 	
 	| Name | Source Attribute |
 	| ---------| ------------ |
-	| memberOf 	   | user.assignedroles |
+	| memberOf | user.assignedroles |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 

@@ -57,6 +57,6 @@ It is also possible to perform export operations for enrollments and registratio
 
 ## Links to additional documentation
 
-Full documentation for Device Provisioning Service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
+Full documentation for Device Provisioning Service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](/rest/api/iot-dps).
 
 Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-data-requests.md).

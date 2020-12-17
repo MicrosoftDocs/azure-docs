@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 
 ## List role assignments for a user
 

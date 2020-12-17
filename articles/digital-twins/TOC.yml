@@ -83,6 +83,8 @@
     items:
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
+    - name: Make requests with Postman
+      href: how-to-use-postman.md
     - name: Create custom SDKs with AutoRest
       href: how-to-create-custom-sdks.md
     - name: Integrate with Azure SignalR Service
@@ -146,7 +148,7 @@
         - name: Java SDK - Maven
           href: https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar
         - name: Java SDK - reference
-          href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
+          href: /azure/developer/java/sdk/
         - name: Java SDK - source
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31
         - name: JavaScript SDK
@@ -249,5 +251,7 @@
     items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: SLA
+      href: https://azure.microsoft.com/support/legal/sla/digital-twins
     - name: Regions and availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins

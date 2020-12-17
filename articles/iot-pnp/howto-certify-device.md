@@ -37,8 +37,12 @@ To meet the certification requirements, your device must:
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
 - Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
-- Send the model ID during [DPS registration](concepts-developer-guide-device-csharp.md#dps-payload) in the DPS provisioning payload.
-- Announce the model ID during the [MQTT connection](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Send the model ID during [DPS registration](./concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
+- Announce the model ID during the [MQTT connection](./concepts-developer-guide-device.md#model-id-announcement).
+- All device models must be compatible with [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md).
+
+> [!NOTE]
+> Currently, Azure IoT Central doesn't fully support the **Array** and **Geospatial** DTDL data types.
 
 ## Test with the Azure IoT Extension CLI
 

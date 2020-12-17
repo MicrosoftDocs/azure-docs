@@ -26,9 +26,9 @@ Sometimes, due to transient issues, networking problems, or a bug, adding an app
 If you encounter an error when clicking the **Add** button, you’ll see a **Notification** in an **Error** state. If you want more details about the error to learn more to or share with a support engineer, you can see more information about the error by following the steps in the [How to see the details of a portal notification](#how-to-see-the-details-of-a-portal-notification) section.
 
 ## I don’t know how to set up my application once I’ve added it
-If you need help with learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article is a good place to start.
+If you need help with learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md) article is a good place to start.
 
-In addition to this, the [Azure AD Applications Document Library](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) helps you to learn more about single sign-on with Azure AD and how it works.
+In addition to this, the [Azure AD Applications Document Library](./what-is-application-management.md) helps you to learn more about single sign-on with Azure AD and how it works.
 
 ## I want to delete an application but the delete button is disabled
 
@@ -38,7 +38,7 @@ The delete button will be disabled in the following scenarios:
 
 - For Microsoft application, you won't be able to delete them from the UI regardless of your role.
 
-- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Lear more about [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Lear more about [Managed Identity](../managed-identities-azure-resources/overview.md)
 
 ## How to see the details of a portal notification
 You can see the details of any portal notification by following the steps below:

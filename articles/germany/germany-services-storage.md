@@ -67,4 +67,4 @@ The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

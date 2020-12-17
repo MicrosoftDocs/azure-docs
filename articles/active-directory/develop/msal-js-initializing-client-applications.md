@@ -106,7 +106,7 @@ Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when your applicat
 There are three possible outcomes from the promise:
 
 - `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
-- `.then` is invoked and `tokenResponse` is falsey (`null`): The application is not returning from a redirect operation.
+- `.then` is invoked and `tokenResponse` is falsy (`null`): The application is not returning from a redirect operation.
 - `.catch` is invoked: The application is returning from a redirect operation and there was an error.
 
 ## Initialize MSAL.js 1.x apps
