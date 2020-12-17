@@ -159,7 +159,15 @@ If you set up or use [forced tunneling](../firewall/forced-tunneling.md) through
 
 If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working.
 
-##### 1. User Defined Routes
+* User defined routes
+
+  To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
+  
+  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+  * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 You must define a route for each and every IP address listed below with Internet as the nexthop, to prevent asymmetric routing.
 
 * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
