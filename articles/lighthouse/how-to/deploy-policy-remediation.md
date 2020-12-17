@@ -1,7 +1,7 @@
 ---
 title: Deploy a policy that can be remediated
 description: To deploy policies that use a remediation task via Azure Lighthouse, you'll need to create a managed identity in the customer tenant.
-ms.date: 08/12/2020
+ms.date: 12/17/2020
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 ## Create a user who can assign roles to a managed identity in the customer tenant
 
-When you onboard a customer to Azure Lighthouse, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the customer tenant. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) that defines the level of access.
+When you onboard a customer to Azure Lighthouse, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the delegated customer subscriptions. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) that defines the level of access.
 
 To allow a **principalId** to create a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported, it can be used in this specific scenario, allowing the users with this permission to assign one or more specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property. You can include any built-in role here except for User Access Administrator or Owner.
 
@@ -36,7 +36,7 @@ The example below shows a **principalId** who will have the User Access Administ
 
 ## Deploy policies that can be remediated
 
-Once you have created the user with the necessary permissions as described above, the user can deploy policies that use remediation tasks within the customer tenant.
+Once you have created the user with the necessary permissions as described above, that user can deploy policies that use remediation tasks within delegated customer subscriptions.
 
 For example, let's say you wanted to enable diagnostics on Azure Key Vault resources in the customer tenant, as illustrated in this [sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). A user in the managing tenant with the appropriate permissions (as described above) would deploy an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) to enable this scenario.
 
