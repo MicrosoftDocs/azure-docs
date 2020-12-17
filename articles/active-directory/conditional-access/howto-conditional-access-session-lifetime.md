@@ -58,7 +58,7 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
+If you have Azure AD joined, hybrid Azure AD joined, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
 
 Example 1:
 
@@ -72,6 +72,8 @@ Example 2:
 - At 00:30, the user gets up and takes a break locking their device.
 - At 00:45, the user returns from their break and unlocks the device.
 - At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
+
+For Azure AD registered devices, you don't sign-in interactively. Hence when you will see prompt (both primary and MFA auth), when you access the resource which has sign-in frequency kicks in aganist the resource you tragetted in CA policy. 
 
 ## Persistence of browsing sessions
 
