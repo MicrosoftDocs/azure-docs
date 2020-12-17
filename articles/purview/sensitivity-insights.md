@@ -23,6 +23,11 @@ In this how-to guide, you'll learn how to:
 > - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
+> [!NOTE]
+> Sensitivity labels found on [Power BI assets](register-scan-power-bi-tenant.md) that are scanned by Purview are not currently shown in the Sensitivity labeling Insights report. 
+>
+> To view sensitivity labels on Power BI assets, view the asset in the [Purview Data Catalog](how-to-search-catalog.md).
+> 
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
