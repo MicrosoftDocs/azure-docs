@@ -118,7 +118,7 @@ You can define a ID.me account as a claims provider by adding it to the **Claims
 
 ### Add the claims transformations
 
-Next, you need a claims transformation to creates the displayName claim. Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. 
+Next, you need a claims transformation to create the displayName claim. Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. 
 
 ```xml
  <ClaimsTransformations>

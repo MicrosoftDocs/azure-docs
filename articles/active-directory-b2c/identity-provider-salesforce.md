@@ -37,11 +37,11 @@ To use a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you ne
 
 1. From **Setup**, enter **Apps** in the **Quick Find** box, and select **App Manager**.
 1. Select **New Connected App**.
-1. Under the **Basic Information** enter:
+1. Under the **Basic Information**, enter:
     1. **Connected App Name** - The connected app name is displayed in the App Manager and on its App Launcher tile. The name must be unique within your org. 
     1. **API Name** 
     1. **Contact Email** - The contact email for Salesforce
-1. Under **API (Enable OAuth Settings)** select **Enable OAuth Settings**
+1. Under **API (Enable OAuth Settings)**, select **Enable OAuth Settings**
 1. In **Callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 1. In the **Selected OAuth Scopes**, select **Access your basic information (id, profile, email, address, phone)**, and **Allow access to your unique identifier (openid)**.
 1. Select **Require Secret for Web Server Flow**.
@@ -115,7 +115,8 @@ You can define a Salesforce account as a claims provider by adding it to the **C
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <Item Key="METADATA">https://graphdir1-dev-ed.my.salesforce.com/.well-known/openid-configuration</Item>
+            <!-- Update the {org} below to your Salesforce organization -->
+            <Item Key="METADATA">https://{org}.my.salesforce.com/.well-known/openid-configuration</Item>
             <Item Key="response_types">code</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid id profile email</Item>
@@ -147,8 +148,9 @@ You can define a Salesforce account as a claims provider by adding it to the **C
     </ClaimsProvider>
     ```
 
-4. Set **client_id** to the application ID from the application registration.
-5. Save the file.
+4. Set **METADATA** URI `{org}` with your Salesforce organization.
+5. Set **client_id** to the application ID from the application registration.
+6. Save the file.
 
 ### Upload the extension file for verification
 
