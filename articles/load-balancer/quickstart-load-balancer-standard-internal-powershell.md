@@ -45,6 +45,8 @@ New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 ## Configure virtual network - Standard
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -297,6 +299,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 ## Configure virtual network - Basic
 
