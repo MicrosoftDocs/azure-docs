@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
 
 #Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
