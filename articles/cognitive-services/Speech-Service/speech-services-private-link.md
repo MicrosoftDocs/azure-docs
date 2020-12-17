@@ -45,6 +45,8 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 
 # [Azure portal](#tab/portal)
 
+To create a custom domain name using Azure portal, follow these steps:
+
 1. Go to [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the required Speech Resource.
 1. In the **Resource Management** group in the left navigation pane, click **Networking**.
@@ -55,7 +57,20 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 
 # [PowerShell](#tab/powershell)
 
-This section requires locally running PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+To create a custom domain name using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. to see the versions of these tools, follow these steps:
+
+1. In a PowerShell window, type:
+
+    `$PSVersionTable`
+
+    Confirm the PSVersion value is greater than 7.x. To upgrade PowerShell, follow instructions at [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell) to upgrade.
+
+1. In a PowerShell window, type:
+
+    `Get-Module -ListAvailable Az`
+
+    If nothing appears, or if Azure PowerShell module version is lower than 5.1.0,
+    follow instructions at [Install Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
 
 Before proceeding, run `Connect-AzAccount` to create a connection with Azure.
 
