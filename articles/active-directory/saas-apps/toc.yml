@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -133,6 +135,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Aruba User Experience Insight
+        href: aruba-user-experience-insight-tutorial.md
       - name: Asana
         href: asana-tutorial.md
       - name: ASC Contracts
@@ -257,6 +261,8 @@
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-tutorial.md
+      - name: Burp Suite Enterprise Edition
+        href: burp-suite-enterprise-edition-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -283,7 +289,7 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
-      - name: Cequence Application Security
+      - name: Cequence Application Security Platform
         href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
@@ -323,7 +329,7 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
-      - name: Citrix Netscaler
+      - name: Citrix ADC
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -401,6 +407,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: Contentsquare SSO
+        href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
         href: contractsafe-saml2-sso-tutorial.md
       - name: ContractWorks
@@ -563,6 +571,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equinix Federation App
+        href: equinix-federation-app-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -948,6 +958,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: KFAdvance
+        href: kfadvance-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1010,6 +1022,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: LinkedIn Talent Solutions
+        href: linkedin-talent-solutions-tutorial.md
       - name: Litmus
         href: litmus-tutorial.md
       - name: Learnster
@@ -1282,6 +1296,8 @@
         href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Perimeter 81
+        href: perimeter-81-tutorial.md
       - name: PerimeterX
         href: perimeterx-tutorial.md
       - name: Periscope Data
@@ -2083,6 +2099,8 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
+      - name: monday.com
+        href: mondaycom-provisioning-tutorial.md        
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle

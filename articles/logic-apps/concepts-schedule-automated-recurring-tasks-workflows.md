@@ -114,7 +114,7 @@ Here's how this recurrence looks:
 
 | Start time | First run time | Future run times |
 |------------|----------------|------------------|
-| 2017-09-**07** at 2:00 PM | 2017-09-**07** at 2:00 PM | 2017-09-**09** at 2:00 PM </br>2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on... |
+| 2017-09-**07** at 2:00 PM | 2017-09-**08** at 1:00 PM (Current time) | 2017-09-**09** at 2:00 PM </br>2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on... |
 ||||
 
 So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the specified start time.
