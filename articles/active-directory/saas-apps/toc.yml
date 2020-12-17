@@ -820,6 +820,8 @@
         href: idrive-tutorial.md
       - name: Igloo Software
         href: igloo-software-tutorial.md
+      - name: Illusive Networks
+        href: illusive-networks-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
       - name: Image Relay
@@ -2103,8 +2105,6 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
-      - name: monday.com
-        href: mondaycom-provisioning-tutorial.md        
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
