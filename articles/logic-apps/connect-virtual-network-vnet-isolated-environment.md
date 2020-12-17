@@ -172,7 +172,6 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 * Service endpoints
 
   You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hubs because you can't send traffic through a firewall to these services.
-You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
 *  Other inbound and outbound dependencies
 
