@@ -105,7 +105,7 @@ In this step, you configure the watcher task referencing the watcher and action 
 1. Click **OK**, and then **Select** to return to the Watcher page.
 1. Click **OK** to create the watcher task.
 
-![Configure watcher action from UI](media/automation-watchers-tutorial/watchertaskcreation.png)
+    ![Configure watcher action from UI](media/automation-watchers-tutorial/watchertaskcreation.png)
 
 ## Trigger a watcher
 
