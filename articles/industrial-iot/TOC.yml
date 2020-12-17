@@ -19,6 +19,16 @@
       href: tut-publisher-configure-OPC-Publisher.md
     - name: Performance and Memory Tuning of the OPC Publisher
       href: tut-publisher-performance-memory-tuning-OPC-Publisher.md
+  - name: IIoT Platform tutorials (orchestrated mode)
+    items:
+    - name: Deploy IIoT Platform
+      href: tut-deploy-IIoT-Platform.md
+    - name: Configure IIoT components
+      href: tut-IIoT-configure-IIoT-components.md
+    - name: Pull IIoT data into ADX
+      href: tut-IIoT-data-ADX.md
+    - name: Visualize and analyze the data using Time Series Insights
+      href: tut-IIoT-visualize-data-TSI.md
 - name: Reference
   items:
     - name: Command Line Arguments
