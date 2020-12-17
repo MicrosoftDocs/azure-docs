@@ -41,7 +41,7 @@ This version of this article goes through these steps manually, one by one, usin
    1. Connect to your Azure account using the
      [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 1. If you choose to use Azure Cloud Shell:
-   1. See [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for
+   1. See [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
     more information.
 
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the
