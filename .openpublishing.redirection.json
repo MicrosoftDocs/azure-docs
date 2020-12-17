@@ -21368,6 +21368,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/stream-analytics-manage-job.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
       "redirect_document_id": false
