@@ -198,7 +198,7 @@ The map view displayed varies depending on the map zoom-level. Switching between
 
 - **View device properties**: For example, the sensor monitoring the device and basic device properties. Right-click the device to view the device properties.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties.png" alt-text="Screenshot of asset properties view.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot of asset properties view.":::
 
 - **Alert associated with a device:** Right-click the device to view related alerts.
 
@@ -212,7 +212,7 @@ To view alerts:
 
 1. Select the alerts icon form the Zone window. 
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view.png" alt-text="Screenshot of default business unit view with examples.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="Screenshot of default business unit view with examples.":::
 
 See [Overview - Working with Alerts](how-to-work-with-alerts-on-premises-management-console.md)
 
