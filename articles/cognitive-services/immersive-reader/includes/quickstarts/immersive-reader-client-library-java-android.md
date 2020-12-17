@@ -314,7 +314,6 @@ import java.lang.ref.WeakReference;
  * immersiveReader.read(ReadableTextChunk);
  */
 
-
 @Keep
 public class ImmersiveReader {
 
@@ -397,7 +396,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -765,7 +763,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             urlStringBuilder.append("/oauth2/token");
             URL tokenUrl = new URL(urlStringBuilder.toString());
 
-
             StringBuilder formStringBuilder = new StringBuilder();
             formStringBuilder.append("grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=");
             formStringBuilder.append(clientId);
@@ -788,7 +785,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             if (responseCode == HTTP_OK) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuffer response = new StringBuffer();
-
 
                 String line = bufferedReader.readLine();
                 while (!TextUtils.isEmpty(line)) {
