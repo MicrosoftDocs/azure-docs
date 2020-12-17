@@ -462,7 +462,7 @@ Local web service deployments require a working Docker installation on your loca
     package.pull()
     ```
 
-    Once the image has been created and downloaded (this process may take more than 10 minutes, so please wait patientlly), the image path (includes repository, name, and tag, which in this case is also its digest) is finally displayed in a message similar to the following:
+    Once the image has been created and downloaded (this process may take more than 10 minutes, so please wait patiently), the image path (includes repository, name, and tag, which in this case is also its digest) is finally displayed in a message similar to the following:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
