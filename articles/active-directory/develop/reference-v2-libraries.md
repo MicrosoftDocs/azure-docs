@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/25/2019
+ms.date: 12/17/2020
 ms.author: negoe
-ms.reviewer: jmprieur, saeeda
+# ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
+# Customer intent: As a developer, I want to know whether there's a Microsoft identity platform-compatible authentication library available for
+# for the language/framework I'm using to build my application, and whether the library is supported by Microsoft.
 ---
 
 # Microsoft identity platform authentication libraries
 
-The [Microsoft identity platform endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform endpoint. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
+The [Microsoft identity platform](../azuread-dev/azure-ad-endpoint-comparison.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform endpoint. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
 
 We recommend that you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology. Such methodologies include [the one that Microsoft follows][Microsoft-SDL]. If you hand code for the protocols, you should follow a methodology such as Microsoft SDL. Pay close attention to the security considerations in the standards specifications for each protocol.
-
-> [!NOTE]
-> Are you looking for the Azure Active Directory Authentication Library (ADAL)? Check out the [ADAL library guide](../azuread-dev/active-directory-authentication-libraries.md).
 
 ## Types of libraries
 
@@ -39,6 +38,20 @@ Libraries come in two support categories:
 * **Compatible**: Microsoft has tested these libraries in basic scenarios and has confirmed that they work with the Microsoft identity platform endpoint. Microsoft doesn't provide fixes for these libraries and hasn't done a review of these libraries. Issues and feature requests should be directed to the library's open-source project.
 
 For a list of libraries that work with the Microsoft identity platform endpoint, see the following sections.
+
+## App type 1
+
+Description of app type here - make it as short as possible but as long as required. Practice **ruthless concision**. Less words good.
+
+| Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|:-:|:-:|:-:|:-:|
+| Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
+| [MSAL Node.js](./msal-js-initializing-client-applications.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+<br/><sup>1</sup> :warning: TODO: Explanation of what it means to be "Supported by Microsoft" :warning:
+
+## :warning: CURRENT DOC CONTENT BELOW THIS HEADING :warning:
+
+:information_source: Everything below this sentence is what's *currently* published. As appropriate, use it for reference as you build out your tables.
 
 ## Microsoft-supported client libraries
 
@@ -106,6 +119,8 @@ For any standards-compliant library, you can use the Microsoft identity platform
 For more information about the Microsoft identity platform endpoint, see the [Microsoft identity platform overview][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
+[y]: ./media/common/yes.png
+[n]: ./media/common/no.png
 
 <!--Reference style links -->
 [AAD-App-Model-V2-Overview]: v2-overview.md
