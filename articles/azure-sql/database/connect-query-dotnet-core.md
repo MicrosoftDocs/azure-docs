@@ -14,7 +14,7 @@ ms.reviewer:
 ms.date: 05/29/2020
 ---
 # Quickstart: Use .NET Core (C#) to query a database in Azure SQL Database or Azure SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
 
