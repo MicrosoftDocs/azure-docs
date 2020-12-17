@@ -1,6 +1,6 @@
 ---
 title: Scale and performance in python apps
-description: Understand how to develop highly performant python function app
+description: Learn how to develop Azure Functions apps using Python that are highly performant and scale well under load. 
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
