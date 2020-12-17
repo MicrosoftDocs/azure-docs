@@ -21,7 +21,7 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 ## Central management of Person models in your account
 
 1. To view, edit, and delete the Person models in your account, browse to the Video Indexer website and sign in.
-1. Select the content model customization button on the top-right corner of the page.
+1. Select the content model customization button on the left of the page.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model":::
@@ -41,9 +41,7 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 1. Select the list menu button and choose **+ Add person**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-face-model/content-model-customization-people-tab.png" alt-text="Customize people":::
-
-    ![Screenshot shows the Content model customization dialog box with a contextual menu for your new model with the option to Add person.](./media/customize-face-model/add-new-person.png)
+    > :::image type="content" source="./media/customize-face-model/add-new-person.png" alt-text="Add a peron":::
 
 ## Add a new person to a Person model
 
@@ -123,8 +121,8 @@ You can use a Person model to index your new video by assigning the Person model
 
 To use your Person model on a new video, do the following steps:
 
-1. Select the **Upload** button on the top-right of the page.
-1. Drop your video file in the circle or browse for your file.
+1. Select the **Upload** button on the right of the page.
+1. Drop your video file or browse for your file.
 1. Select the **Advanced options** arrow.
 1. Select the drop-down and select the Person model that you created.
 1. Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Person model.
