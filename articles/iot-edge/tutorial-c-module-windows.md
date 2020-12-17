@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Tutorial - Develop C modules for Windows by using Azure IoT Edge 
 description: This tutorial shows you how to create IoT Edge modules with C code and deploy them to Windows devices that are running IoT Edge.
 services: iot-edge
@@ -42,11 +41,10 @@ To understand your options for developing and deploying C modules to Windows dev
 | C | Visual&nbsp;Studio&nbsp;Code | Visual Studio 2017&nbsp;and&nbsp;2019 |
 | -- | ------------------ | :------------------: |
 | Windows AMD64 |  | ![Develop C modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-<br>
 
 Before you begin this tutorial, set up your development environment by following the instructions in the [Develop IoT Edge modules for Windows devices](tutorial-develop-for-windows.md) tutorial. After you complete it, your environment will contain the following prerequisites:
 
-* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Windows device that's running Azure IoT Edge](quickstart.md).
 * A container registry, such as [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio 2019](/visualstudio/install/install-visual-studio), configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
@@ -85,7 +83,7 @@ Create a C solution template that you can customize with your own code.
 
    ![Screenshot of the "Configure your new project" pane.](./media/tutorial-c-module-windows/configure-project.png)
 
-1. On the **Configure your new project** pane, rename the project and solution to something more descriptive, such as **CSharpTutorialApp**. 
+1. On the **Configure your new project** pane, rename the project and solution to something more descriptive, such as **CTutorialApp**. 
 
 1. Select **Create** to create the project.
 
@@ -97,7 +95,7 @@ Create a C solution template that you can customize with your own code.
 
    a. On the left pane, select the **C Module** template.  
    b. In the **Module Name** box, enter **CModule**.  
-   c. In the **Repository Url** box, replace **localhost:5000** with the **Login server** value from your Azure container registry, in the following format: `<registry name>.azurecr.io/csharpmodule`
+   c. In the **Repository Url** box, replace **localhost:5000** with the **Login server** value from your Azure container registry, in the following format: `<registry name>.azurecr.io/cmodule`
 
     > [!NOTE]
     > An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project-name value.  You can retrieve the login server from the overview page of your container registry in the Azure portal.
