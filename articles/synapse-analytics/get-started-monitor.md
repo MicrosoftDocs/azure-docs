@@ -43,6 +43,9 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 1. Find a specific SQL request and hover the mouse on that item. Once you hover, you will see a SQL script icon appear.
 1. Click on the SQL script icon to see the full text of the SQL request.
 
+    > [!NOTE] 
+    > SQL requests submitted via the Synapse Studio in a workspace enabled dedicated SQL pool (formerly SQL DW) can be viewed in the Monitor hub. For all other monitoring activities, you can go to Azure portal dedicated SQL pool (formerly SQL DW) monitoring.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

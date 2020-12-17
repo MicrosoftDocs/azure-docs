@@ -94,7 +94,7 @@ In addition to the built-in Notebook charting options, you can also use popular 
 
 > [!Note]
 > 
-> By default, every Azure Synapse Analytics Apache Spark pool contains a set of commonly used and default libraries. You can view the full list of libraries in  the [Azure Synapse Runtime](../spark/apache-spark-version-support.md). documentation. In addition, to make third party or locally-built code available to your applications, you can [install a library](../spark/apache-spark-azure-portal-add-libraries.md) onto one of your Spark Pools (preview).
+> By default, every Azure Synapse Analytics Apache Spark pool contains a set of commonly used and default libraries. You can view the full list of libraries in  the [Azure Synapse Runtime](../spark/apache-spark-version-support.md). documentation. In addition, to make third party or locally-built code available to your applications, you can [install a library](../spark/apache-spark-azure-portal-add-libraries.md) onto one of your Spark Pools.
 >
 
 1. To make development easier and less expensive, we will down sample the dataset. We will use the built-in Apache Spark sampling capability. In addition, both Seaborn and Matplotlib require a Pandas dataframe or Numpy array. To get a Pandas dataframe, we will use the ```toPandas()``` command to convert our dataframe.

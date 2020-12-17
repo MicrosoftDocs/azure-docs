@@ -3,7 +3,9 @@ title: Filter Azure Application Insights telemetry in your Java web app
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 ms.topic: conceptual
 ms.date: 3/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Filter telemetry in your Java web app

@@ -8,7 +8,7 @@ ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
 ---
-# Azure Policy built-in definitions for Azure Synapse Analytics (workspace preview)
+# Azure Policy built-in definitions for Azure Synapse Analytics 
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Synapse. For additional Azure Policy built-ins for other services, see

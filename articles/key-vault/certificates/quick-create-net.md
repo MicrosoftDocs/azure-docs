@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Quickstart: Azure Key Vault certificate client library for .NET (SDK v4)
 
-Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other certificates. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
+Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
 
 Key Vault client library resources:
 
@@ -50,6 +50,13 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 2. Sign in with your account credentials in the browser.
 
+#### Grant access to your key vault
+
+Create an access policy for your key vault that grants certificate permissions to your user account
+
+```console
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+```
 
 ### Create new .NET console app
 
@@ -85,14 +92,6 @@ For this quickstart, you'll also need to install the Azure SDK client library fo
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-#### Grant access to your key vault
-
-Create an access policy for your key vault that grants certificate permission to your user account
-
-```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 #### Set environment variables
@@ -133,7 +132,7 @@ using Azure.Security.KeyVault.Certificates;
 
 In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -144,10 +143,10 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 ### Save a certificate
 
-In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's first parameter accepts a certificate name and the certificate policy[certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
 
 ```csharp
-CertificateOperation operation = await client.StartCreateCertificateAsync("MyCertificate", CertificatePolicy.Default);
+var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
 var certificate = await operation.WaitForCompletionAsync();
 ```
 
@@ -167,20 +166,20 @@ var certificate = await client.GetCertificateAsync("myCertificate");
 Finally, let's delete and purge the certificate from your key vault with the [StartDeleteCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startdeletecertificateasync) and [PurgeDeletedCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.purgedeletedcertificateasync)  methods.
 
 ```csharp
-var operation = await client.StartDeleteCertificateAsync("MyCertificate");
+var operation = await client.StartDeleteCertificateAsync("myCertificate");
 
 // You only need to wait for completion if you want to purge or recover the certificate.
 await operation.WaitForCompletionAsync();
 
 var certificate = operation.Value;
-await client.PurgeDeletedCertificateAsync(certificate.Name);
+await client.PurgeDeletedCertificateAsync("myCertificate");
 ```
 
 ## Sample code
 
 Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
 
-1. Replace the code in *Program.cs* with the following code:
+- Replace the code in *Program.cs* with the following code:
 
     ```csharp
     using System;
@@ -207,7 +206,7 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     
                 Console.WriteLine($"Retrieving your certificate from {keyVaultName}.");
                 var certificate = await client.GetCertificateAsync(certificateName);
-                Console.WriteLine($"Your certificate value is '{certificate.Value.Properties.Version}'.");
+                Console.WriteLine($"Your certificate version is '{certificate.Value.Properties.Version}'.");
     
                 Console.Write($"Deleting your certificate from {keyVaultName} ...");
                 DeleteCertificateOperation deleteOperation = await client.StartDeleteCertificateAsync(certificateName);
@@ -224,61 +223,20 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     ```
 ### Test and verify
 
-1.  Execute the following command to build the project
+Execute the following command to build the project
 
-    ```dotnetcli
-    dotnet build
-    ```
-
-1. Execute the following command to run the app.
-
-    ```dotnetcli
-    dotnet run
-    ```
-
-1. When prompted, enter a secret value. For example, mySecretPassword.
-
-    A variation of the following output appears:
-
-    ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from jl-kv ... done
-    ```
-
-## Clean up resources
-
-When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
-
-### Delete a Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
+```dotnetcli
+dotnet build
 ```
 
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
+A variation of the following output appears:
 
-### Purge a Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### Delete a resource group
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+```console
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done
 ```
 
 ## Next steps

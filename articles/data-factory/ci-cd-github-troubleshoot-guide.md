@@ -7,7 +7,7 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
+ms.date: 12/03/2020
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -53,7 +53,7 @@ CI/CD Pipeline fails with the following error:
 
 #### Recommendation
 
-The error occurs because we often delete a trigger which is parameterized, therefore, the parameters will not be available in the ARM template (because the trigger does not exist anymore). Since the parameter is not in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
+The error occurs because we often delete a trigger, which is parameterized, therefore, the parameters will not be available in the ARM template (because the trigger does not exist anymore). Since the parameter is not in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
 
 ### Updating property type is not supported
 
@@ -102,7 +102,7 @@ When trying to publish changes to a Data Factory,you get following error message
 
 You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the Data Factory as "in sync". This means no changes to publish.
 
-**Resolution**
+#### Resolution
 
 Detach Git configuration and set it up again, and make sure NOT to check the "import existing resources" checkbox.
 

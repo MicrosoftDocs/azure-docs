@@ -1,6 +1,9 @@
 ---
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ---
@@ -51,8 +54,7 @@ In the portal, you can select the geography in which you want to create the proj
 
 ```rest
 PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
-``````
-
+```
 
 ## Create additional projects
 

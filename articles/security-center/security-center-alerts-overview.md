@@ -87,7 +87,7 @@ You have a range of options for viewing your alerts outside of Security Center, 
 
 - **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
 - **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md)
-- **Azure Sentinel connector** streams Azure Defender alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Sentinel](../sentinel/connect-azure-security-center.md)
+- **Azure Sentinel connector** streams security alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## Next steps

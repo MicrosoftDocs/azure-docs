@@ -153,7 +153,7 @@ Once you're done using this report, delete the resources with the following step
 1. Delete the credential for the storage account
 
    ```sql
-   DROP EXTENAL DATA SOURCE AzureOpenData
+   DROP EXTERNAL DATA SOURCE AzureOpenData
    ```
 
 2. Delete the view

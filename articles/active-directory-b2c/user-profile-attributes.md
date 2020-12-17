@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -48,8 +48,8 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |facsimileTelephoneNumber<sup>1</sup>|String|The telephone number of the user's business fax machine.|Yes|No|Persisted, Output|
 |givenName       |String|The given name (first name) of the user. Max length 64.|Yes|Yes|Persisted, Output|
 |jobTitle        |String|The user's job title. Max length 128.|Yes|Yes|Persisted, Output|
-|immutableId     |String|An identifier which is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
-|legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult.|Yes|No|Persisted, Output|
+|immutableId     |String|An identifier that is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
+|legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, and adult.|Yes|No|Persisted, Output|
 |legalCountry<sup>1</sup>  |String|Country/Region for legal purposes.|No|No|Persisted, Output|
 |mail            |String|The SMTP address for the user, for example, "bob@contoso.com". Read-only.|No|No|Persisted, Output|
 |mailNickName    |String|The mail alias for the user. Max length 64.|No|No|Persisted, Output|
@@ -58,29 +58,35 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |objectId        |String|A globally unique identifier (GUID) that is the unique identifier for the user. Example: 12345678-9abc-def0-1234-56789abcde. Read only, Immutable.|Read only|Yes|Input, Persisted, Output|
 |otherMails      |String collection|A list of additional email addresses for the user. Example: ["bob@contoso.com", "Robert@fabrikam.com"].|Yes (Alternate email)|No|Persisted, Output|
 |password        |String|The password for the local account during user creation.|No|No|Persisted|
-|passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. i.e. "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
+|passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. For example, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
 |preferredLanguage    |String|The preferred language for the user. Should follow ISO 639-1 Code. Example: "en-US".|No|No|Persisted, Output|
 |refreshTokensValidFromDateTime|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
-|signInNames ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique sign-in name of the local account user of any type in the directory. Use this to get a user with sign-in value without specifying the local account type.|No|No|Input|
-|signInNames.userName ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique username of the local account user in the directory. Use this to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.phoneNumber ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique phone number of the local account user in the directory. Use this to create or get a user with a specific sign-in phone number. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.emailAddress ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
+|signInNames.userName ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.phoneNumber ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.emailAddress ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
+|strongAuthenticationPhoneNumber<sup>2</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
 |usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). Examples: "US", "JP", and "GB".|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
-|userState (externalUserState)<sup>2</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
+|userState (externalUserState)<sup>3</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
-|<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>Should not be used with Azure AD B2C||||||
 
+<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
+
+## MFA phone number attribute
+
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get), or [delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
+
+In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 
 ## Extension attributes
 
@@ -110,5 +116,4 @@ The following data types are supported when defining a property in a schema exte
 ## Next steps
 Learn more about extension attributes:
 - [Schema extensions](/graph/extensibility-overview#schema-extensions)
-- [Define custom attributes with user flow](user-flow-custom-attributes.md)
-- [Define custom attributes with custom policy](custom-policy-custom-attributes.md)
+- [Define custom attributes](user-flow-custom-attributes.md)

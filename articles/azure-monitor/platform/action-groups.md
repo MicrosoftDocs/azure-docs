@@ -8,7 +8,7 @@ ms.author: dukek
 ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
-An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. You may configure up to 2,000 action groups in a subscription.
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
 
 This article shows you how to create and manage action groups in the Azure portal.
 
@@ -244,7 +244,47 @@ You may have a limited number of SMS actions in an Action Group.
 > If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**List of Countries where SMS Notification is supported**
+
+| Country Code | Country Name |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1	|Canada |
+| 56 | Chile |
+| 86 | China |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 372 | Estonia |
+| 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong |
+| 91 | India |
+| 353 | Ireland |
+| 972 | Israel |
+| 39 | Italy |
+| 81 | Japan |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 1 | Puerto Rico |
+| 40 | Romania |
+| 65 | Singapore |
+| 27 | South Africa |
+| 82 | South Korea |
+| 34 | Spain |
+| 41 | Switzerland |
+| 886 | Taiwan |
+| 44 | United Kingdom |
+| 1 | United States |
 
 ### Voice
 See the [rate limiting information](./alerts-rate-limiting.md) article for additional important behavior.
@@ -253,6 +293,7 @@ You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
 > If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+> Only Country code supported today in Azure portal action group for Voice Notification is +1(United States). 
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
