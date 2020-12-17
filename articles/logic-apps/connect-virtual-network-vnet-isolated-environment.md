@@ -168,17 +168,6 @@ If you don't permit access for these dependencies, your ISE deployment fails and
   * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
   * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
   * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
-You must define a route for each and every IP address listed below with Internet as the nexthop, to prevent asymmetric routing.
-
-* [App Service Environment management addresses](../app-service/environment/management-addresses.md)
-
-* [Azure API Management addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
-
-* [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-
-* [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
-
-* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
 * Service endpoints
 
@@ -192,11 +181,6 @@ You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Ev
    * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
    * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
    * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
-Your firewall MUST allow the following inbound and outbound dependencies.
-* [Azure App Service Dependencies](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#deploying-your-ase-behind-a-firewall)
-* [Azure Cache Service Dependencies](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
-* [Azure API Management Dependencies](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
-
 
 <a name="create-environment"></a>
 
