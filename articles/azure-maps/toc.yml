@@ -244,6 +244,8 @@
       href: how-to-add-shapes-to-android-map.md
     - name: Display feature information
       href: display-feature-information-android.md
+    - name: Add a line layer
+      href: android-map-add-line-layer.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
