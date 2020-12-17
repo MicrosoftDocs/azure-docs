@@ -57,7 +57,7 @@ To protect user accounts, all new tenants created on or after November 12, 2020,
 - Requires critical admin roles to use MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
 - Legacy authentication will be blocked tenant wide. 
 
-For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults)
+For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ---
 
