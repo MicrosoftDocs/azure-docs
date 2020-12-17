@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create Azure Dedicated HSM with the Azure CLI'
-description: Create, show, list, update, and delete Azure Dedicated HSM by using the Azure CLI.
+description: Create, show, list, update, and delete Azure Dedicated HSMs by using the Azure CLI.
 services: dedicated-hsm
 author: msmbaldwin
 ms.author: mbaldwin
