@@ -146,8 +146,20 @@ For daemon apps, you don't need to specify a redirect URI.
 This option specifies the client secret for the confidential client app. This secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
 ## Logging
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
 
-The other configuration options enable logging and troubleshooting. See the [Logging in MSAL for Android](msal-logging-android.md) article for more details.
+:::row:::
+    :::column:::
+        - [Logging in MSAL.NET](msal-logging-dotnet.md)
+        - [Logging in MSAL for Android](msal-logging-android.md)
+        - [Logging in MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+        - [Logging in MSAL for Java](msal-logging-java.md)
+        - [Logging in MSAL for Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## Next steps
 

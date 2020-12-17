@@ -33,7 +33,20 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Mitigate and investigate issues
 
-To better diagnose issues in your app, collect data. For information about the kinds of data that you can collect, see [Logging in MSAL applications](msal-logging-android.md).
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
+
+:::row:::
+    :::column:::
+        - [Logging in MSAL.NET](msal-logging-dotnet.md)
+        - [Logging in MSAL for Android](msal-logging-android.md)
+        - [Logging in MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+        - [Logging in MSAL for Java](msal-logging-java.md)
+        - [Logging in MSAL for Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 Here are some suggestions for data collection:
 
