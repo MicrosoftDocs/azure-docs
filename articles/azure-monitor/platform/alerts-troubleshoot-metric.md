@@ -18,11 +18,11 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you believe a metric alert should have fired but it didn’t fire and isn't found in the Azure portal, try the following steps:
 
 1. **Configuration** - Review the metric alert rule configuration to make sure it’s properly configured:
-	- Check that the **Aggregation type**, **Aggregation granularity (period)**, and **Threshold value** or **Sensitivity** are configured as expected
-	- For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated
+    - Check that the **Aggregation type**, **Aggregation granularity (period)**, and **Threshold value** or **Sensitivity** are configured as expected
+    - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated
 
-	   > [!NOTE] 
-	   > Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.
+       > [!NOTE] 
+       > Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.
 
 2. **Fired but no notification** - Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list, but have an issue with some of its actions or notifications, see more information [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
@@ -41,7 +41,7 @@ If you believe your metric alert shouldn't have fired but it did, the following 
 1. Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to locate the fired alert, and click to view its details. Review the information provided under **Why did this alert fire?** to see the metric chart, **Metric Value**, and **Threshold value** at the time when the alert was triggered.
 
     > [!NOTE] 
-	> If you're using a Dynamic Thresholds condition type and think that the thresholds used were not correct, please provide feedback using the frown icon. This feedback will impact the machine learning algorithmic research and help improve future detections.
+    > If you're using a Dynamic Thresholds condition type and think that the thresholds used were not correct, please provide feedback using the frown icon. This feedback will impact the machine learning algorithmic research and help improve future detections.
 
 2. If you've selected multiple dimension values for a metric, the alert will be triggered when **any** of the metric time series (as defined by the combination of dimension values) breaches the threshold. For more information about using dimensions in metric alerts, see [here](./alerts-metric-overview.md#using-dimensions).
 
@@ -66,7 +66,7 @@ To alert on guest operating system metrics of virtual machines (for example: mem
 - [For Linux VMs](./collect-custom-metrics-linux-telegraf.md)
 
 For more information about collecting data from the guest operating system of a virtual machine, see [here](../insights/monitor-vm-azure.md#guest-operating-system).
-	
+
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
@@ -247,11 +247,11 @@ Consider the following constraints when using dimensions in an alert rule that c
 - You can't use the option to "Select all current and future values" (Select \*).
 - When metrics that are configured in different conditions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant conditions).
 For example:
-	- Consider a metric alert rule that is defined on a storage account and monitors two conditions:
-		* Total **Transactions** > 5
-		* Average **SuccessE2ELatency** > 250 ms
-	- I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
-	- Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
+    - Consider a metric alert rule that is defined on a storage account and monitors two conditions:
+        * Total **Transactions** > 5
+        * Average **SuccessE2ELatency** > 250 ms
+    - I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
+    - Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
 
 ## Setting the alert rule's Period and Frequency
 
