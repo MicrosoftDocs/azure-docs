@@ -64,9 +64,9 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### Using the Azure portal to configure the Notification Hub
 
-In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resource ID here:
+In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resourceId here:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
 
 > [!NOTE]
 > If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.  
@@ -111,9 +111,9 @@ The Apns platform should be configured with token authentication mode as specifi
 
 The connection string that the Azure Notifications Hub was linked with to your Communication Services resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Azure Notifications Hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### The linked connection string or Azure Notifications Hub  resource id are not valid
+#### The linked connection string or Azure Notifications Hub  resourceId are not valid
 
-Make sure the Communication Services resource is configured with the correct connection string and Azure Notifications Hub resource id
+Make sure the Communication Services resource is configured with the correct connection string and Azure Notifications Hub resourceId
 
 ## Next steps
 
