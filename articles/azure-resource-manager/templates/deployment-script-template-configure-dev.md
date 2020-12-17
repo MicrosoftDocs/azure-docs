@@ -205,6 +205,14 @@ You can also upload the file by using the Azure portal and Azure CLI.
 
     ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
 
+1. If using AZ CLI container image:
+
+```
+cd /mnt/azscripts/azscriptinput
+ls
+./userscript.sh
+```
+
 ## Use Docker
 
 You can use a pre-configured docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
