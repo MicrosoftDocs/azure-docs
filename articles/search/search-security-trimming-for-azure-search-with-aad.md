@@ -191,5 +191,5 @@ The response includes a filtered list of documents, consisting of those that the
 
 In this walkthrough, you learned a pattern for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that do not match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
 
-- [Security filters for trimming results ](search-security-trimming-for-azure-search.md)
+- [Security filters for trimming results](search-security-trimming-for-azure-search.md)
 - [Security in Azure Cognitive Search](search-security-overview.md)
