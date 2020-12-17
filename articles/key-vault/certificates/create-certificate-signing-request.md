@@ -106,8 +106,8 @@ If you want to add more information when creating CSR, for instance -
     - Country:
     - City / Locality:
     - State / Province:
-    - Organisation:
-    - Organisational Unit:
+    - Organization:
+    - Organizational Unit:
 You can add all that information when creating a CSR by defining that in subjectName.
 
 Example
