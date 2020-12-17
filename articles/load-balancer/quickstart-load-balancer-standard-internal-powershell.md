@@ -43,11 +43,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 * In the **eastus** location.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'CreateIntLBQS-rg'
-$loc = 'eastus'
-
-New-AzResourceGroup -Name $rg -Location $loc
+New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 ```
 ---
 
@@ -56,142 +52,92 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network
+## Configure virtual network - Standard
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
-### Create a virtual network and Azure Bastion host
+Create a virtual network for the backend virtual machines.
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+Create a network security group to define inbound connections to your virtual network.
 
-* Named **myVNet**.
-* In resource group **CreateIntLBQS-rg**.
-* Subnet named **myBackendSubnet**.
-* Virtual network **10.0.0.0/16**.
-* Subnet **10.0.0.0/24**.
-* Subnet named **AzureBastionSubnet**.
-* Subnet **10.0.1.0/24**.
+### Create virtual network, network security group, and bastion host
+
+* Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
+
+* Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+
+* Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion).
+
+* Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'CreateIntLBQS-rg'
-$loc = 'eastus'
-$sub = 'myBackendSubnet'
-$spfx = '10.0.0.0/24'
-$vnm = 'myVNet'
-$vpfx = '10.0.0.0/16'
-$bsub = 'AzureBastionSubnet'
-$bpfx = '10.0.1.0/24'
-
-
 ## Create backend subnet config ##
-$subnetConfig = 
-New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
+$subnet = @{
+    Name = 'myBackendSubnet'
+    AddressPrefix = '10.0.0.0/24'
+}
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
-## Create Azure Bastion subnet 
-$bassubConfig =
-New-AzVirtualNetworkSubnetConfig -Name $bsub -AddressPrefix $bpfx
+## Create Azure Bastion subnet. ##
+$bastsubnet = @{
+    Name = 'AzureBastionSubnet' 
+    AddressPrefix = '10.0.1.0/24'
+}
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
 ## Create the virtual network ##
-$vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubConfig
-```
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Location = 'eastus'
+    AddressPrefix = '10.0.0.0/16'
+    Subnet = $subnetConfig,$bastsubnetConfig
+}
+$vnet = New-AzVirtualNetwork @net
 
-### Create public IP address for Azure Bastion host
+## Create public IP address for bastion host. ##
+$ip = @{
+    Name = 'myBastionIP'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+}
+$publicip = New-AzPublicIpAddress @ip
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public ip address for the bastion host:
+## Create bastion host ##
+$bastion = @{
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Name = 'myBastion'
+    PublicIpAddress = $publicip
+    VirtualNetwork = $vnet
+}
+New-AzBastion @bastion -AsJob
 
-* Named **myPublicIPBastion**
-* In resource group **CreateIntLBQS-rg**.
-* In the **eastus** location.
-* Allocation method **static**.
-* **Standard** sku.
+## Create rule for network security group and place in variable. ##
+$nsgrule = @{
+    Name = 'myNSGRuleHTTP'
+    Description = 'Allow HTTP'
+    Protocol = '*'
+    SourcePortRange = '*'
+    DestinationPortRange = '80'
+    SourceAddressPrefix = 'Internet'
+    DestinationAddressPrefix = '*'
+    Access = 'Allow'
+    Priority = '2000'
+    Direction = 'Inbound'
+}
+$rule1 = New-AzNetworkSecurityRuleConfig @nsgrule
 
-```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'CreateIntLBQS-rg'
-$loc = 'eastus'
-$ipn = 'myPublicIPBastion'
-$all = 'static'
-$sku = 'standard'
+## Create network security group ##
+$nsg = @{
+    Name = 'myNSG'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Location = 'eastus'
+    SecurityRules = $rule1
+}
+New-AzNetworkSecurityGroup @nsg
 
-$publicip = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -AllocationMethod $all -Sku $sku
-```
-
-### Create Azure Bastion host
-
-Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create a bastion host:
-
-* Named **myBastion**.
-* In resource group **CreateIntLBQS-rg**.
-* In virtual network **myVNet**.
-* Associated with public ip address **myPublicIPBastion**.
-
-```azurepowershell-interactive
-## Variables for the commands ##
-$rg = 'CreateIntLBQS-rg'
-$nmn = 'myBastion'
-
-## Command to create bastion host. $vnet and $publicip are from the previous steps ##
-New-AzBastion -ResourceGroupName $rg -Name $nmn -PublicIpAddress $publicip -VirtualNetwork $vnet
-
-```
-
-It can take a few minutes for the Azure Bastion host to deploy.
-
-### Create network security group
-Create network security group to define inbound connections to your virtual network.
-
-#### Create a network security group rule for port 80
-Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
-
-* Named **myNSGRuleHTTP**.
-* Description of **Allow HTTP**.
-* Access of **Allow**.
-* Protocol **(*)**.
-* Direction **Inbound**.
-* Priority **2000**.
-* Source of the **Internet**.
-* Source port range of **(*)**.
-* Destination address prefix of **(*)**.
-* Destination **Port 80**.
-
-```azurepowershell-interactive
-## Variables for command ##
-$rnm = 'myNSGRuleHTTP'
-$des = 'Allow HTTP'
-$acc = 'Allow'
-$pro = '*'
-$dir = 'Inbound'
-$pri = '2000'
-$spfx = 'Internet'
-$spr = '*'
-$dpfx = '*'
-$dpr = '80'
-
-$rule1 = 
-New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix $spfx -SourcePortRange $spr -DestinationAddressPrefix $dpfx -DestinationPortRange $dpr
-```
-
-#### Create a network security group
-
-Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
-
-* Named **myNSG**.
-* In resource group **CreateIntLBQS-rg**.
-* In location **eastus**.
-* With security rules created in previous steps stored in a variable.
-
-```azurepowershell
-## Variables for command ##
-$rg = 'CreateIntLBQS-rg'
-$loc = 'eastus'
-$nmn = 'myNSG'
-
-## $rule1 contains configuration information from the previous steps. ##
-$nsg = 
-New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -SecurityRules $rule1
 ```
 
 ## Create standard load balancer
