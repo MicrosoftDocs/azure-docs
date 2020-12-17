@@ -45,19 +45,19 @@ To configure the integration of Cisco Cloud into Azure AD, you need to add Cisco
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Cisco Cloud**, select **Cisco Cloud** from result panel then click **Add** button to add the application.
 
-	 ![Cisco Cloud in the results list](common/search-new-app.png)
+    ![Cisco Cloud in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,7 +89,7 @@ To configure Azure AD single sign-on with Cisco Cloud, perform the following ste
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -108,42 +108,42 @@ To configure Azure AD single sign-on with Cisco Cloud, perform the following ste
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.cloudapps.cisco.com`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Cisco Cloud Client support team](mailto:cpr-ops@cisco.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Cisco Cloud Client support team](mailto:cpr-ops@cisco.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Your Cisco Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
+    ![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 7. In addition to above, Cisco Cloud application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name | Source Attribute|
+    | Name | Source Attribute|
     | -----------| ------------|
-	| country    | user.country |
-	| company    | user.companyname |
-	| | |
+    | country    | user.country |
+    | company    | user.companyname |
+    | | |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+    a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Screenshot shows User claims with the option to Add new claim.](common/new-save-attribute.png)
+    ![Screenshot shows User claims with the option to Add new claim.](common/new-save-attribute.png)
 
-	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](common/new-attribute-details.png)
+    ![Screenshot shows the Manage user claims dialog box where you can enter the values described.](common/new-attribute-details.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+    c. Leave the **Namespace** blank.
 
-	d. Select Source as **Attribute**.
+    d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+    e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Ok**
+    f. Click **Ok**
 
-	g. Click **Save**.
+    g. Click **Save**.
 
 8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure Cisco Cloud Single Sign-On
 
@@ -166,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -180,11 +180,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Cisco Cloud**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Cisco Cloud**.
 
-	![The Cisco Cloud link in the Applications list](common/all-applications.png)
+    ![The Cisco Cloud link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

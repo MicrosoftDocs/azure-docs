@@ -29,9 +29,9 @@ If your Windows VM supports [Accelerated Networking](create-vm-accelerated-netwo
 1. See if RSS is enabled for a network adapter with the `Get-NetAdapterRss` PowerShell command. In the following example output returned from the `Get-NetAdapterRss`, RSS is not enabled.
 
 	```powershell
-	Name					: Ethernet
-	InterfaceDescription	: Microsoft Hyper-V Network Adapter
-	Enabled				 	: False
+	Name                    : Ethernet
+	InterfaceDescription    : Microsoft Hyper-V Network Adapter
+	Enabled                 : False
 	```
 2. To enable RSS, enter the following command:
 

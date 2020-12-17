@@ -107,7 +107,7 @@ For more information on how to access the metrics data for Azure, see [Overview 
 
 **Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is 0.2 credits per minute I can use or bank.
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours, I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank 0.1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours, I earn 0.2 credits per minute but only consume 0.1 credits per minute, so my VM will bank 0.1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
 
 During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of 0.4 credits a minute or 0.4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
 
