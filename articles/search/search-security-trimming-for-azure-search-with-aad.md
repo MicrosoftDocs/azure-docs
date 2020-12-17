@@ -1,7 +1,7 @@
 ---
 title: Security filters to trim results using Active Directory
 titleSuffix: Azure Cognitive Search
-description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and Azure Active Directory (AAD) identities.
+description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and Azure Active Directory (AD) identities.
 
 manager: nitinme
 author: HeidiSteen
@@ -34,7 +34,7 @@ You must have Azure AD administrator permissions, required in this walkthrough f
 
 Your application must also be registered with Azure AD as a multi-tenant app, as described in the following procedure.
 
-### Register your application with AAD
+### Register your application with Azure Active Directory
 
 This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you are not a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
@@ -72,7 +72,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Cognitive Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](/graph/api/group-post-groups) 
+### Step 1: [Create Group](/graph/api/group-post-groups) 
 
 ```csharp
 private static Dictionary<Group, List<User>> CreateGroupsWithUsers(string tenant)
@@ -86,7 +86,7 @@ private static Dictionary<Group, List<User>> CreateGroupsWithUsers(string tenant
     };
 ```
 
-### Step 2: Create [AAD User](/graph/api/user-post-users)
+### Step 2: [Create User](/graph/api/user-post-users)
 
 ```csharp
 User user1 = new User()
