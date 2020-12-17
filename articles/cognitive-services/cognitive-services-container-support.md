@@ -89,6 +89,20 @@ Additionally, some containers are supported in the Cognitive Services [multi-ser
 * LUIS
 * Text Analytics
 
+## Prerequisites
+
+You must satisfy the following prerequisites before using Azure Cognitive Services containers:
+
+**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../aks/index.yml) or [Azure Container Instances](../container-instances/index.yml).
+
+Docker must be configured to allow the containers to connect with and send billing data to Azure.
+
+**Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.
+
+For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+
+Individual containers can have their own requirements, as well, including server and memory allocation requirements.
+
 [!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
 
 ## Developer samples
