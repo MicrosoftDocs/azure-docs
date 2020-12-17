@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -255,11 +255,11 @@ Dead letter queues and exchanges can't be controlled or configured from the Rabb
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example *host.json* file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
+This section describes the global configuration settings available for this binding in versions 3.x and higher. The example *host.json* file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
 
 ```json
 {
-    "version": "2.0",
+    "version": "3.0",
     "extensions": {
         "rabbitMQ": {
             "prefetchCount": 100,
@@ -287,7 +287,7 @@ If you are testing locally without a connection string, you should set the "host
 
 ```json
 {
-    "version": "2.0",
+    "version": "3.0",
     "extensions": {
         "rabbitMQ": {
             ...
