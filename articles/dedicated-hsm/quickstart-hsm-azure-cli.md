@@ -26,7 +26,7 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
   
 - All requirements met for a dedicated HSM, including registration, approval, and a virtual network and virtual machine to use for provisioning. For more information about dedicated HSM requirements and prerequisites, see [Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI](tutorial-deploy-hsm-cli.md).
   
-- If you have more than one Azure subscription, select the appropriate subscription for billing by using the Azure CLI [az account set](/cli/azure/account#az_account_set) command.
+- If you have more than one Azure subscription, the subscription to use for billing set by using the Azure CLI [az account set](/cli/azure/account#az_account_set) command.
   
   ```azurecli-interactive
   az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -75,7 +75,7 @@ Run the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicat
 az dedicated-hsm list --resource-group myRG
 ```
 
-### Remove a dedicated HSM
+## Remove a dedicated HSM
 
 To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command. The following example deletes the `hsm1` dedicated HSM in the `myRG` resource group:
 
@@ -83,7 +83,7 @@ To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hard
 az dedicated-hsm delete --resource-group myRG –-name hsm1
 ```
 
-### Delete the resource group
+## Delete the resource group
 
 If you no longer need the resource group you created for dedicated HSM, you can delete it by running the [az group delete](/cli/azure/group#az_group_delete) command. This command deletes the group and all resources in it, including any that are unrelated to dedicated HSM. The following example deletes the `myRG` resource group and everything in it:
 
