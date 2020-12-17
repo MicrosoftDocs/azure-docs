@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2020
+ms.date: 12/17/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -160,7 +160,6 @@ The following tables list the operating systems that are supported by the Azure 
 | CentOS Linux 7.6                                         | X | X | X | X |
 | CentOS Linux 6                                           |   | X |   |   |
 | CentOS Linux 6.5+                                        |   | X |   | X |
-| Debian 10                                                | X |   |   |   |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
