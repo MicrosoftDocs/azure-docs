@@ -1661,11 +1661,15 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-schedule-pipelines.md",
+      "redirect_url": "/azure/machine-learning/how-to-trigger-published-pipeline",
+      "redirect_document_id": false
+	},
+	{
       "source_path": "articles/machine-learning/how-to-create-your-first-pipeline.md",
       "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
       "redirect_document_id": true
     },
-    
     {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
@@ -1870,142 +1874,142 @@
     {
       "source_path": "articles/automation/change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/overview",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-enable-changes-from-browse.md",
       "redirect_url": "/azure/automation/change-tracking/enable-from-portal",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-enable-changes-from-vm.md",
       "redirect_url": "/azure/automation/change-tracking/enable-from-vm",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-enable-changes-from-auto-acct.md",
       "redirect_url": "/azure/automation/change-tracking/enable-from-automation-account",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-enable-changes-from-runbook.md",
       "redirect_url": "/azure/automation/change-tracking/enable-from-runbook",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/change-tracking-file-contents.md",
       "redirect_url": "/azure/automation/change-tracking/manage-change-tracking",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-vm-inventory.md",
       "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-scope-configurations-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-unlink-workspace-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/remove-feature.md",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-remove-vms-from-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/remove-vms-from-change-tracking.md",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-overview.md",
       "redirect_url": "/azure/automation/update-management/overview",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-enable-template.md",
       "redirect_url": "/azure/automation/update-management/enable-from-template",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-enable-portal.md",
       "redirect_url": "/azure/automation/update-management/enable-from-portal",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-enable-vm.md",
       "redirect_url": "/azure/automation/update-management/enable-from-vm",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-enable-automation-account.md",
       "redirect_url": "/azure/automation/update-management/enable-from-automation-account",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-enable-runbook.md",
       "redirect_url": "/azure/automation/update-management/enable-from-runbook",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
       "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/manage-update-multi.md",
       "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-view-update-assessments.md",
       "redirect_url": "/azure/automation/update-management/update-mgmt-view-update-assessments",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-pre-post-scripts.md",
       "redirect_url": "/azure/automation/update-management/pre-post-scripts",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-mecmintegration.md",
       "redirect_url": "/azure/automation/update-management/mecmintegration",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-configure-wuagent.md",
       "redirect_url": "/azure/automation/update-management/configure-wuagent",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-groups.md",
       "redirect_url": "/azure/automation/update-management/configure-groups",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-query-logs.md",
       "redirect_url": "/azure/automation/update-management/query-logs",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-scope-configuration.md",
       "redirect_url": "/azure/automation/update-management/scope-configuration",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-remove-feature.md",
       "redirect_url": "/azure/automation/update-management/remove-feature",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
       "redirect_url": "/azure/automation/update-management/remove-vms",
-      "redirect_document": false
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
@@ -40339,6 +40343,36 @@
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-create-kws.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-basics",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-create-application-with-simple-commands.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-parameters-to-commands.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-parameter-configuration.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-interaction-rules.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-add-language-generation-templates.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-commands-use-custom-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-application-access-content-map.md",

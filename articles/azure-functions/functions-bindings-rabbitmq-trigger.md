@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 

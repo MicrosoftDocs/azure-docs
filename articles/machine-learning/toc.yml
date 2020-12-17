@@ -370,6 +370,8 @@
           href: how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: how-to-train-with-custom-image.md
+        - name: Migrate from Estimators to ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
           items: 
             - name: Start, monitor or cancel runs
@@ -513,8 +515,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
-        - name: Schedule a pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
