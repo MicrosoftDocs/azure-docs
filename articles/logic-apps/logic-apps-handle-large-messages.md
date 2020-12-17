@@ -75,7 +75,7 @@ For actions that support and are enabled for chunking, you can't use trigger bod
     "type": "Compose"
 },
 ```
-Then in the chunking action use '@body('Compose')' to reference the data.
+Then, to reference the data, in the chunking action, use `@body('Compose')` .
 
 ```json
 "Create_file": {
