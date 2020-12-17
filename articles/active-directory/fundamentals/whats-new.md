@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 12/18/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -34,6 +34,112 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+## December 2020
+ 
+[980212](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=980212&triage=true&fullScreen=false&_a=edit)
+
+### Public preview - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+
+B2C Phone Sign-up and Sign-in using Built-in Policy enables IT administrators and developers of organizations to allow their end-users to sign-in and sign-up using phone number in user flows.
+
+---
+
+[977038](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=977038&triage=true&fullScreen=false&_a=edit)
+
+### General Availability - Security Defaults now enabled for all new tenants by default
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Identity Security & Protection
+ 
+
+In an effort to protect user accounts, all new tenants created on or after November 12th, 2020 will come with Security Defaults enabled. Security Defaults enforces multiple policies under the hood:
+Requires all users and admins to register for MFA using the Microsoft Authenticator App
+Requires critical admins roles to perform MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
+Legacy authentication will be blocked tenant wide. 
+For more information, see What are security defaults?
+
+ 
+---
+
+
+[1031525](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1031525&triage=true&fullScreen=false&_a=edit)
+
+### General availability - Support for groups with up to 250K members in AADConnect
+
+**Type:** Changed feature  
+**Service category:** AD Connect  
+**Product capability:** Identity Lifecycle Management
+ 
+Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following:
+
+syncing groups with up to 250k members
+performance gains on export and import to Azure AD
+
+---
+ 
+
+[865968](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=865968&triage=true&fullScreen=false&_a=edit)
+
+### General availability - Entitlement Management available for tenants in Azure China cloud
+
+**Type:** New feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+
+The capabilities of Entitlement Management are now available for all tenants in the Azure China cloud.
+ 
+
+---
+ 
+
+[1235471](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1235471&triage=true&fullScreen=false&_a=edit)
+
+### New provisioning connectors in the Azure AD Application Gallery - December 2020
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+Bizagi Studio for Digital Process Automation
+CybSafe
+GroupTalk
+PaperCut Cloud Print Management
+Parsable
+Shopify Plus
+For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
+ 
+
+---
+ 
+[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD Application gallery - December 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+In December 2020 we have added following 18 new applications in our App gallery with Federation support:
+
+AwareGo, HowNow SSO, ZyLAB ONE Legal Hold, Guider, Softcrisis, Pims 365, InformaCast, RetrieverMediaDatabase, vonage, Count Me In - Operations Dashboard, ProProfs Knowledge Base, RightCrowd Workforce Management, JLL TRIRIGA, Shutterstock, FortiWeb Web Application Firewall, LinkedIn Talent Solutions, Equinix Federation App, KFAdvance
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+--- 
+
 ## November 2020
 
 ### Azure Active Directory TLS 1.0, TLS 1.1 and 3DES Deprecation
