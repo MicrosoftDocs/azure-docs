@@ -114,7 +114,7 @@ For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT`
 
 #### Managing Event Loop
 
-We encourage our customers to use asyncio compatible third-party libraries. If none of the third-party libraries meets your need, one alternative is to managing event loops in Azure Functions. This enables more flexibility in compute resource management. Also making it possible to wrap synchronous I/O libraries into coroutines.
+You should use asyncio compatible third-party libraries. If none of the third-party libraries meet your needs, you can also manage the event loops in Azure Functions. Managing event loops give you more flexibility in compute resource management, and it also makes it possible to wrap synchronous I/O libraries into coroutines.
 
 There are many useful Python official documents discussing the [Coroutines and Tasks](https://docs.python.org/3/library/asyncio-task.html) and [Event Loop](https://docs.python.org/3.8/library/asyncio-eventloop.html) by leveraging the built in **asyncio** library.
 
