@@ -227,7 +227,7 @@ the `contentTransfer` property sets `transferMode` to `chunked`:
 "postAction": {
     "runtimeConfiguration": {
         "contentTransfer": {
-    	    "transferMode": "chunked"
+            "transferMode": "chunked"
     	}
     },
     "inputs": {
