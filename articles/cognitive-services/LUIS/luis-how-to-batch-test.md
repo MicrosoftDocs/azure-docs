@@ -23,7 +23,11 @@ It is important that utterances used for batch testing are new to LUIS. If you h
 
 The batch JSON file you use should include utterances with top-level machine-learning entities labeled including start and end position. The utterances should not be part of the examples already in the app. They should be utterances you want to positively predict for intent and entities.
 
-You can separate out tests by intent and/or entity or have all the tests (up to 1000 utterances) in the same file. If you run into errors uploading your batch file to LUIS, check for the following common issues:
+You can separate out tests by intent and/or entity or have all the tests (up to 1000 utterances) in the same file. 
+
+### Common errors importing a batch
+
+If you run into errors uploading your batch file to LUIS, check for the following common issues:
 
 * More than 1,000 utterances in a batch file
 * An utterance JSON object that doesn't have an entities property. The property can be an empty array.
@@ -52,6 +56,8 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 1. Select **Train** in the top-right corner of the navigation to train the app.
 
 ### Batch test file
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 The example JSON includes one utterance with a labeled entity to illustrate what a test file looks like. In your own tests, you should have many utterances with correct intent and machine-learning entity labeled.
 
@@ -153,8 +159,6 @@ In this preceding image, the utterance `switch on` is labeled with the TurnAllOn
 The two sections of the chart in red indicate utterances that did not match the expected prediction. These indicate utterances which LUIS needs more training.
 
 The two sections of the chart in green did match the expected prediction.
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## Batch testing using the REST API 
 
