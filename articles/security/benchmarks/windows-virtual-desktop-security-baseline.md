@@ -96,7 +96,7 @@ Use virtual network peering to connect two or more virtual networks together in 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40797).
 
-**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
 Note that Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
@@ -115,7 +115,7 @@ Note that Windows Virtual Desktop is not intended to run web applications, and d
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40798).
 
-**Guidance**: Use Azure Firewall with threat intelligence based filtering to alert on and optionally block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection or prevention solution from the Azure Marketplace. Alternately you may choose a host-based endpoint detection and response (EDR) solution in conjunction or in-place of a network-based intrusion detection or prevention solution.
+**Guidance**: Use Azure Firewall with threat intelligence based filtering to alert on and optionally block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection or prevention solution from the Azure Marketplace. 
 
 Note that If you have a regulatory or other requirement for intrusion detection or prevention solution usage, ensure that it is always tuned to provide high-quality alerts to your security information and event management (SIEM) solution.
 
@@ -175,11 +175,9 @@ Note that If you have a regulatory or other requirement for intrusion detection 
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note that Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+Note that Azure AD supports external identities which allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
 - [Tenancy in Azure AD](../../active-directory/develop/single-and-multi-tenant-apps.md)
-
-- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
 
@@ -198,9 +196,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 **Guidance**: Windows Virtual Desktop supports Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. 
 
-Windows Virtual Desktop recommends to use Azure AD to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (e.g., an Azure function) can retrieve the credential from the key vault.
-
-- [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) 
+Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (such as, an Azure Function) can retrieve the credential from the key vault.
 
 - [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
@@ -227,28 +223,24 @@ Windows Virtual Desktop recommends to use Azure AD to create a service principal
 
 **Responsibility**: Customer
 
-### IM-4: Use strong authentication controls for all Azure Active Directory based access
+### IM-4: Use strong authentication controls for all Azure Active Directory based access 
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40783).
 
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
 
-Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center Identity and Access Management recommendations for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+- Multifactor authentication - Enable Azure AD multifactor authentication and follow Identity and Access Management recommendations from Azure Security Center for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
-Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
+- Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
-Windows Virtual Desktop supports legacy password-based authentication such as Cloud-only accounts (user accounts created directly in the Azure) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Azure AD that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability the prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, and so on). This password protection can be used for cloud-only and hybrid accounts.
+Windows Virtual Desktop supports legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure) that have a baseline password policy or Hybrid accounts (user accounts from on-premise Azure AD which follow the on-premises password policies). When using password-based authentication, Azure AD provides a password protection capability that prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, and so on). This password protection can be used for cloud-only and hybrid accounts.
 
-Note: Authentication based on password credentials alone are susceptible to popular attack methods. For higher security, use strong authentication such as multifactor authentication and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
+Note: Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as multifactor authentication and a strong password policy. For third-party applications and marketplace services which may have default passwords, you should change them upon the service initial setup.
 
-For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
-
-- [How to enable multifactor authentication in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
+For administrator and privileged users, ensure the highest level of strong authentication methods are used, followed by rolling out the appropriate strong authentication policy to other users.
 
 - [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
-
-- [Learn more on setting multifactor authentication for Windows Virtual Desktop ](../../virtual-desktop/set-up-mfa.md)
 
 - [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts) 
 
@@ -265,11 +257,11 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 **Guidance**: Windows Virtual Desktop is integrated with Azure Active Directory (Azure AD) which provides the following data sources:
 
-- Sign ins - The sign-in report provides information about the usage of managed applications and user sign in activities.
+- Sign in - The sign-in report provides information about the usage of managed applications and user sign in activities.
 
 - Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-- Risky sign ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Risky sign in - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
@@ -278,10 +270,6 @@ These data sources can be integrated with Azure Monitor, Azure Sentinel or a thi
 - [Audit activity reports in the Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
-
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
-
-- [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
 - [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md)
 
@@ -463,7 +451,7 @@ The privileges you assign to resources with Azure RBAC should always be limited 
 
 Additionally, use built-in roles to allocate permissions and only create custom roles when required.
 
-What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
 
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
@@ -661,7 +649,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40826).
 
-**Guidance**: Not applicable. Windows Virtual Desktop can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
+**Guidance**: Not applicable. Windows Virtual Desktop cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
 It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
@@ -727,11 +715,11 @@ Forward any logs from Windows Virtual Desktop to your security information event
 
 **Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other security information and event management (SIEM) or monitoring tools for further sophisticated monitoring and analytics use cases:
 
-- Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign-in – The sign-in report provides information about the usage of managed applications and user sign-in activities.
 
 - Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Risky sign-in - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
@@ -761,8 +749,6 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 - [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics) 
 
 - [How to enable and use Traffic Analytics](../../network-watcher/traffic-analytics.md) 
-
-- [Monitoring with Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) 
 
 - [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md)
 
@@ -925,9 +911,9 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
@@ -998,13 +984,9 @@ You can use custom operating system images or Azure Automation State configurati
 
 - [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
 
-- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
-
 - [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md) 
 
-- [Upload a VHD and use it to create new Windows VMs in Azure](../../virtual-machines/windows/upload-generalized-managed.md) 
-
-- [Windows Virtual Desktop offers resource-specific configuration. Learn more here](../../virtual-desktop/environment-setup.md)
+- [Windows Virtual Desktop environment](../../virtual-desktop/environment-setup.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1015,23 +997,17 @@ You can use custom operating system images or Azure Automation State configurati
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40836).
 
-**Guidance**: Use Azure Security Center and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including VMs, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
+**Guidance**: Use Azure Security Center and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including virtual machines, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
 
 Also, note that Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft.
 
-Azure Security Center can also scan vulnerabilities in container image and performs continuous monitoring of your Docker configuration in containers against CIS Docker Benchmark. You can use the Azure Security Center recommendations page to view recommendations and remediate issues.
+Azure Security Center can also scan vulnerabilities in container image and performs continuous monitoring of your Docker configuration in containers against Center Internet Security's Docker benchmark. You can use the Azure Security Center recommendations page to view recommendations and remediate issues.
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
 
 - [How to create an Azure Virtual Machine from an ARM template](../../virtual-machines/windows/ps-template.md) 
 
 - [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md) 
-
-- [Create a Windows virtual machine in the Azure portal ](../../virtual-machines/windows/quick-create-portal.md) 
-
-- [Information on how to download the VM template](/azure/virtual-machines/windows/download-template) 
-
-- [Sample script to upload a VHD to Azure and create a new VM](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script) 
 
 - [Container security in Security Center](../../security-center/container-security.md)
 
