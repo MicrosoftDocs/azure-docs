@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid: 
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -15,7 +15,7 @@ ms.custom:
 > [!NOTE]
 > The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
 
-Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ Binding extensions allow you to send and receive messages using the RabbitMQ API with Functions.
+Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
 
 | Action | Type |
 |---------|---------|
