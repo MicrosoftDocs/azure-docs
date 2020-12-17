@@ -10,14 +10,14 @@ ms.author: abhishgu
 ms.reviewer: abhishgu
 ---
 
-# Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect
+# Ingest data from Apache Kafka into Azure Cosmos DB Cassandra API using Kafka Connect
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Existing Cassandra applications can easily work with the [Azure Cosmos DB Cassandra API](cassandra-introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). How can you leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) in order to bring data into Azure Cosmos DB?
+Existing Cassandra applications can easily work with the [Azure Cosmos DB Cassandra API](cassandra-introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). You leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) and bring data into Azure Cosmos DB.
 
-Data in Apache Kafka (topics) is only useful when consumed by other applications or ingested into other systems. It's possible to build a solution using the [Kafka Producer/Consumer](https://kafka.apache.org/documentation/#api) APIs [using a language and client SDK of your choice](https://cwiki.apache.org/confluence/display/KAFKA/Clients), but Kafka Connect provides an alternative. It's a platform to stream data between Apache Kafka and other systems in a scalable and reliable manner. Since Kafka Connect supports off the shelf connectors (including Cassandra), it means you don't need to write custom code to integrate Kafka with Azure Cosmos DB Cassandra API. 
+Data in Apache Kafka (topics) is only useful when consumed by other applications or ingested into other systems. It's possible to build a solution using the [Kafka Producer/Consumer](https://kafka.apache.org/documentation/#api) APIs [using a language and client SDK of your choice](https://cwiki.apache.org/confluence/display/KAFKA/Clients). Kafka Connect provides an alternative solution. It's a platform to stream data between Apache Kafka and other systems in a scalable and reliable manner. Since Kafka Connect supports off the shelf connectors which includes Cassandra, you don't need to write custom code to integrate Kafka with Azure Cosmos DB Cassandra API. 
 
-In this article, we will be using the open-source [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html), that works on top of Kafka Connect framework to ingest records from a Kafka topic into rows of one or more Cassandra tables. The example provides a reusable setup using Docker Compose. This is quite convenient since it enables you to bootstrap all the required components locally with a single command. These components include: Kafka, Zookeeper, Kafka Connect worker and the sample data generator application.
+In this article, we will be using the open-source [DataStax Apache Kafka connector](https://docs.datastax.com/kafka/doc/kafka/kafkaIntro.html), that works on top of Kafka Connect framework to ingest records from a Kafka topic into rows of one or more Cassandra tables. The example provides a reusable setup using Docker Compose. This is quite convenient since it enables you to bootstrap all the required components locally with a single command. These components include Kafka, Zookeeper, Kafka Connect worker, and the sample data generator application.
 
 Here is a breakdown of the components and their service definitions - you can refer to the complete `docker-compose` file [in the GitHub repo](https://github.com/Azure-Samples/cosmosdb-cassandra-kafka/blob/main/docker-compose.yaml).
 
@@ -164,7 +164,7 @@ You can now query data in the tables. Head over to the Azure portal, bring up th
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
 
-## Query Azure Cosmos DB
+## Query data from Azure Cosmos DB
 
 Check the `data_by_state` and `data_by_station` tables. Here is some sample queries to get you started:
 
