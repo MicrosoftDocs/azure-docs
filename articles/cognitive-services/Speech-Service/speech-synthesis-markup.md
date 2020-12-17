@@ -28,6 +28,11 @@ Choose from standard and neural voices, or create your own custom voice unique t
 
 To learn more about standard, neural, and custom voices, see [Text-to-speech overview](text-to-speech.md).
 
+
+> [!NOTE]
+> You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
+
 ## Special characters
 
 While using SSML, keep in mind that special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
