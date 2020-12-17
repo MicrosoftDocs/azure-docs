@@ -81,7 +81,7 @@ To view Azure Synapse costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-![Example showing accumulated costs for a resource group](./media/plan-manage-costs/actual-monthly-costs.png)
+![Example showing accumulated costs for a subscription](./media/plan-manage-costs/actual-monthly-costs.png)
 
 - To narrow costs for a single service, like Azure Synapse, select **Add filter** and then select **Service name**. Then, select **Azure Synapse Analytics**.
 
