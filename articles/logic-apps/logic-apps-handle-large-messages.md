@@ -3,8 +3,6 @@ title: Handle large messages by using chunking
 description: Learn how to handle large message sizes by using chunking in automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
 ms.date: 12/18/2020
 ---
