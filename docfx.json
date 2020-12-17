@@ -116,7 +116,7 @@
       "searchScope": [
         "Azure"
       ],
-      "recommendations": true,
+      "recommendations": false,
       "uhfHeaderId": "azure",
       "contributors_to_exclude": [
         "atookey",

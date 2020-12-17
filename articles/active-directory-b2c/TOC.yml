@@ -119,6 +119,22 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+  - name: Create a flow
+    items:
+    - name: Sign-up or sign-in policy
+      href: add-sign-up-and-sign-in-policy.md
+    - name: Password reset policy
+      href: add-password-reset-policy.md
+    - name: Password change policy
+      href: add-password-change-policy.md
+    - name: Profile editing policy
+      href: add-profile-editing-policy.md
+    - name: Resource owner password credentials policy
+      href: add-ropc-policy.md
+    - name: Set up self-serve password reset policy (Deprecated)
+      href: user-flow-self-service-password-reset.md
+    - name: Phone sign-up & sign-in
+      href: phone-authentication-user-flows.md
   - name: Identity providers
     items:
     - name: Add an identity provider
@@ -180,6 +196,7 @@
     items:
     - name: Configure session behavior
       href: session-behavior.md
+      displayName: SSO, KMSI, Keep me signed in
     - name: Configure tokens
       href: configure-tokens.md
   - name: Define custom attributes
@@ -192,38 +209,18 @@
       href: conditional-access-user-flow.md
   - name: Configure age gating
     href: basic-age-gating.md
-  - name: User flow
+  - name: API connectors (preview)
     items:
-    - name: Create a flow
-      items:
-      - name: Sign-up or sign-in
-        href: tutorial-create-user-flows.md
-      - name: Resource owner password credentials
-        href: configure-ropc.md
-      - name: Set up self-serve password reset
-        href: user-flow-self-service-password-reset.md
-    - name: API connectors (preview)
-      items:
-      - name: Overview
-        href: api-connectors-overview.md
-      - name: Add an API connector
-        href: add-api-connector.md
+    - name: Overview
+      href: api-connectors-overview.md
+    - name: Add an API connector
+      href: add-api-connector.md
   - name: Custom policy
     items:
     - name: Custom policy overview
       href: custom-policy-trust-frameworks.md
     - name: Get started with custom policies
       href: custom-policy-get-started.md
-    - name: Create a policy
-      items:
-      - name: Resource owner password credentials
-        href: ropc-custom.md
-        displayName: ropc
-      - name: Password change
-        href: custom-policy-password-change.md
-      - name: Phone sign-up & sign-in
-        href: phone-authentication.md
-        displayName: otp, passwordless, phone number
     - name: Custom email verification
       items:
       - name: Mailjet

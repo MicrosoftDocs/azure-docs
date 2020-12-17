@@ -90,8 +90,8 @@
         - name: SQL script
           href: ./sql/author-sql-script.md
           displayname: author
-        - name: Mapping Data Flow
-          href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Data Flow
+          href: concepts-data-flow-overview.md
     - name: Maintenance schedule
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Source control
@@ -686,10 +686,12 @@
       href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Integration runtime
       href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
     - name: Data flows
       items:
-      - name: Mapping data flow overview
-        href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Data flow overview
+        href: concepts-data-flow-overview.md
       - name: Debug mode
         href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Schema drift
@@ -706,8 +708,6 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Differences from Azure Data Factory
-        href: ./data-integration/concepts-data-factory-differences.md
   - name: How-to guides
     items:
     - name: Author

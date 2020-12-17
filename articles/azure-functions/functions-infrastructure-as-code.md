@@ -295,8 +295,6 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## Deploy on Premium plan
@@ -376,7 +374,6 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 
