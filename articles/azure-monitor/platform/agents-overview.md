@@ -186,17 +186,25 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
-|  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
+|  Red Hat Linux 8   | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+|                    | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
 | CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-|                    | 16.04.3 | 4.15.* |
+| Ubuntu Server      | 20.04   | 5.4\* |
+|                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
+|                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
+| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
+|                                 | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
 |                                 | 12 SP3 | 4.4.* |
 |                                 | 12 SP2 | 4.4.* |
 | Debian                          | 9      | 4.9  | 
