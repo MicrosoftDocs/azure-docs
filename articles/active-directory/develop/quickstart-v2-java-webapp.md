@@ -159,7 +159,7 @@ To run the web application from an IDE, select run, and then go to the home page
 
 If you want to deploy the web sample to Tomcat, you need to make a couple changes to the source code.
 
-1. Open ms-identity-java-webapp/pom.xml.
+1. Open *ms-identity-java-webapp/pom.xml*.
     - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.
 
 2. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
