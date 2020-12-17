@@ -68,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
@@ -106,7 +106,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **AcquireIO**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left side of menu, click on **App Store**.
 
-     ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
+    ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Scroll down up to **Active Directory** and click on **Install**.
 
@@ -158,7 +158,7 @@ To enable Azure AD users to sign in to AcquireIO, they must be provisioned into 
 
 1. From the left side of menu, click **Profiles** and navigate to **Add Profile**.
 
-     ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
+    ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
 
 1. On the **Add customer** pop-up, perform the following steps:
 

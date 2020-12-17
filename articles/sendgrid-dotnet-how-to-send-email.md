@@ -115,7 +115,7 @@ Sending email requires that you supply your SendGrid API Key. If you need detail
 
 You may store these credentials via your Azure portal by clicking Application settings and adding the key/value pairs under App settings.
 
- ![Azure app settings][azure_app_settings]
+![Azure app settings][azure_app_settings]
 
 Then, you may access them as follows:
 
@@ -267,10 +267,10 @@ filters:
 ### Footer settings
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### Click tracking
