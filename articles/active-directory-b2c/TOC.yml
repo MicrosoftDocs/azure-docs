@@ -155,6 +155,8 @@
       href: identity-provider-github.md
     - name: Google
       href: identity-provider-google.md
+    - name: ID.me
+      href: identity-provider-id-me.md
     - name: LinkedIn
       href: identity-provider-linkedin.md
     - name: Microsoft Account
@@ -163,6 +165,8 @@
       href: identity-provider-qq.md
     - name: Salesforce
       href: identity-provider-salesforce.md
+    - name: Salesforce (SAML)
+      href: identity-provider-salesforce-saml.md
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat
@@ -196,6 +200,7 @@
     items:
     - name: Configure session behavior
       href: session-behavior.md
+      displayName: SSO, KMSI, Keep me signed in
     - name: Configure tokens
       href: configure-tokens.md
   - name: Define custom attributes
