@@ -41014,12 +41014,12 @@
     {
       "source_path": "articles/active-directory/devices/concept-azure-managed-workstation.md",
       "redirect_url": "/security/compass/concept-azure-managed-workstation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/devices/howto-azure-managed-workstation.md",
       "redirect_url": "/security/compass/howto-azure-managed-workstation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
