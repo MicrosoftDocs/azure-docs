@@ -51,7 +51,7 @@ Cloud resources:
 
 IoT Edge device:
 
-* In this module, you will be using your own device to set up the IoT Edge device.
+* In this quickstart, you will be using your own device to set up the IoT Edge device.
 
 > [!NOTE]
 > Your device needs to be a Windows PC or server, version 1809 or later.
@@ -83,6 +83,7 @@ The following code creates a free **F1** hub in the resource group `IoTEdgeResou
 ## Register an IoT Edge device
 
 Register an IoT Edge device with your newly created IoT hub.
+
 ![Diagram - Register a device with an IoT Hub identity](./media/quickstart/register-device.png)
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity.
@@ -111,6 +112,8 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 1. Open up Windows Admin Center on your device.
 
 2. You will see the local host connection representing the PC where you are running Windows Admin Center.
+
+      :::image type="content" source="media/quickstart/EFLOW/WACStartPage.png" alt-text="Screenshot - Windows Admin Start Page":::
 
    ![Screenshot - Windows Admin Start Page](./media/quickstart/EFLOW/WACStartPage.png)
 
