@@ -34,8 +34,8 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. This is an arbitrary string defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
 | Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). This is an arbitrary URI defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
-| Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C doesn't validate this claim. |
-| Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C doesn't validate this claim. |
+| Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. |
+| Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. |
 
  The following token is an example of a valid ID token:
 
@@ -268,7 +268,7 @@ For both symmetric and asymmetric approaches, the `id_token_hint` technical prof
     </RelyingParty>
     ```
 
-Depending on your business requirements, you might need to add token validations, for example to check token expiry, the format of the email address, and more. To do so, add orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). Also add a [self-asserted technical profile](self-asserted-technical-profile.md) to present an error message. 
+Depending on your business requirements, you might need to add token validations, for example check the format of the email address. To do so, add orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). Also add a [self-asserted technical profile](self-asserted-technical-profile.md) to present an error message. 
 
 ### Create and sign a token
 
