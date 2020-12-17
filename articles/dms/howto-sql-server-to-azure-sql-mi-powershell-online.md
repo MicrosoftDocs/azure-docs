@@ -36,7 +36,7 @@ This article provides steps for an online migration, but it's also possible to m
 To complete these steps, you need:
 
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
-* A local copy of the **AdventureWorks2016** database, which is available for download [here](/sql/samples/adventureworks-install-configure?view=sql-server-2017).
+* A local copy of the **AdventureWorks2016** database, which is available for download [here](/sql/samples/adventureworks-install-configure).
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
