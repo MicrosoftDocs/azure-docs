@@ -11,7 +11,7 @@ ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Azure Dedicated HSM with Azure CLI
+# Quickstart: Manage Azure Dedicated HSM with the Azure CLI
 
 This article describes how to create and manage an Azure Dedicated HSM by using the [az dedicated-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm) Azure CLI extension.
 
