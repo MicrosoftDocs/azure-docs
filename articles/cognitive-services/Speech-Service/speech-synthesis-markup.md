@@ -24,7 +24,7 @@ The Speech service implementation of SSML is based on World Wide Web Consortium'
 
 ## Test voices
 
-You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/).
+You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 ## Standard, neural, and custom voices
 
