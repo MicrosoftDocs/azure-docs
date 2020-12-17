@@ -60,7 +60,6 @@ errors when incoming messages exceed the connectors' size limits.
 
 
 For actions that support and are enabled for chunking, you can't use trigger bodies, variables, and expressions such as `@triggerBody()?['Content']` because using any of these inputs prevents the chunking operation from happening. Instead, use the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically, you must create a `body` field by using the **Compose** action to store the data output from the trigger body, variable, expression, and so on, for example:
-`@triggerBody()?['Content']` cannot be used. Use of one of these inputs will prevent the chunking operation from happening even when the chunking option is set on the action. Instead, you need to use a  [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically you must create a 'body' field with the Compose action to hold the data from the trigger body or a variable etc.
 
 ```json
 "Compose": {
