@@ -190,6 +190,8 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
+      - name: Viewing multiple resources in Metric Explorer
+        href: platform/metrics-dynamic-scope.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
@@ -546,6 +548,8 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management Connections
         href: platform/itsmc-connections.md
+      - name: IT Service Management Connector Definition
+        href: platform/itsmc-definition.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
       - name: Troubleshooting problems in ITSM Connector

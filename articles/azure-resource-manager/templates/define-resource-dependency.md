@@ -2,7 +2,7 @@
 title: Set deployment order for resources
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/17/2020
 ---
 # Define the order for deploying resources in ARM templates
 
@@ -144,6 +144,7 @@ For information about assessing the deployment order and resolving dependency er
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](template-tutorial-create-templates-with-dependent-resources.md).
+* For a Microsoft Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations when setting dependencies, see [Azure Resource Manager template best practices](template-best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).

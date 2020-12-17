@@ -47,7 +47,7 @@ az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 git remote add azure <url_from_previous_step>
-git push azure master
+git push azure main
 ```
 
 ## Configure Azure Monitor (preview)
@@ -238,7 +238,7 @@ Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "Load images on-demand in process.php"
-git push azure master
+git push azure main
 ```
 
 ### Browse to the Azure app

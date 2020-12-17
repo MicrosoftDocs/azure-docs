@@ -67,7 +67,7 @@ Select **Failures** at the top of the page and the **Failures** portion of the w
 
 ![Screenshot of failures with breakdown by HTTP request type](./media/cosmosdb-insights-overview/failures.png)
 
-| Code 		|  Description       | 
+| Code |  Description       | 
 |-----------|:--------------------|
 | `200 OK`	| One of the following REST operations were successful: </br>- GET on a resource. </br> - PUT on a resource. </br> - POST on a resource. </br> - POST on a stored procedure resource to execute the stored procedure.|
 | `201 Created` | A POST operation to create a resource is successful. |

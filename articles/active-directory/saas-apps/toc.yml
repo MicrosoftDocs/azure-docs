@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -287,7 +289,7 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
-      - name: Cequence Application Security
+      - name: Cequence Application Security Platform
         href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
@@ -327,7 +329,7 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
-      - name: Citrix Netscaler
+      - name: Citrix ADC
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -818,6 +820,8 @@
         href: idrive-tutorial.md
       - name: Igloo Software
         href: igloo-software-tutorial.md
+      - name: Illusive Networks
+        href: illusive-networks-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
       - name: Image Relay
@@ -828,6 +832,8 @@
         href: imagineerwebVision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
+      - name: Imperva Data Security
+        href: imperva-data-security-tutorial.md
       - name: In Case of Crisis - Mobile
         href: in-case-of-crisis-mobile-tutorial.md
       - name: In Case of Crisis - Online Portal
@@ -1364,6 +1370,8 @@
         href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
+      - name: Proware
+        href: proware-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
@@ -1602,6 +1610,8 @@
         href: skyward-qmlativ-tutorial.md
       - name: Slack
         href: slack-tutorial.md
+      - name: Splan Visitor
+        href: splan-visitor-tutorial.md
       - name: Small Improvements
         href: smallimprovements-tutorial.md
       - name: SmartDraw
@@ -1678,6 +1688,8 @@
         href: syncplicity-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
+      - name: Synerise AI Growth Ecosystem
+        href: synerise-ai-growth-ecosystem-tutorial.md
       - name: Syxsense
         href: syxsense-tutorial.md
     - name: T - V

@@ -31,94 +31,94 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                          | Locale (BCP-47) | Customizations                                   |
-|-----------------------------------|--------|--------------------------------------------------|
-|Arabic (Bahrain), modern standard  |`ar-BH` | Language model                                   |
-|Arabic (Egypt)                     |`ar-EG` | Language model                                   |
-|Arabic (Iraq)                      |`ar-IQ` | Language model                                   |
-|Arabic (Israel)					          |`ar-IL` | Language model									                  |
-|Arabic (Jordan)                    |`ar-JO` | Language model                                   |
-|Arabic (Kuwait)                    |`ar-KW` | Language model                                   |
-|Arabic (Lebanon)                   |`ar-LB` | Language model                                   |
-|Arabic (Oman)                      |`ar-OM` | Language model                                   |
-|Arabic (Qatar)                     |`ar-QA` | Language model                                   |
-|Arabic (Saudi Arabia)              |`ar-SA` | Language model                                   |
-|Arabic (State of Palestine)		    |`ar-PS` | Language model                                   |
-|Arabic (Syria)                     |`ar-SY` | Language model                                   |
-|Arabic (United Arab Emirates)      |`ar-AE` | Language model                                   |
-|Bulgarian (Bulgaria)               |`bg-BG` | Language model                                   |
-|Catalan (Spain)                    |`ca-ES` | Language model                                   |
-|Chinese (Cantonese, Traditional)   |`zh-HK` | Language model                                   |
-|Chinese (Mandarin, Simplified)     |`zh-CN` | Acoustic model<br>Language model                 |
-|Chinese (Taiwanese Mandarin)       |`zh-TW` | Language model                                   |
-|Croatian (Croatia)                 |`hr-HR` | Language model                                   |
-|Czech (Czech Republic)             |`cs-CZ` | Language Model                                   |
-|Danish (Denmark)                   |`da-DK` | Language model                                   |
-|Dutch (Netherlands)                |`nl-NL` | Language model                                   |
-|English (Australia)                |`en-AU` | Acoustic model<br>Language model                 |
-|English (Canada)                   |`en-CA` | Acoustic model<br>Language model                 |
-|English (Hong Kong)                |`en-HK` | Language Model                                   |
-|English (India)                    |`en-IN` | Acoustic model<br>Language model                 |
-|English (Ireland)                  |`en-IE` | Language Model                                   |
-|English (New Zealand)              |`en-NZ` | Acoustic model<br>Language model                 |
-|English (Nigeria)					        |`en-NG` | Language Model									                  |
-|English (Philippines)              |`en-PH` | Language Model                                   |
-|English (Singapore)                |`en-SG` | Language Model                                   |
-|English (South Africa)             |`en-ZA` | Language Model                                   |
-|English (United Kingdom)           |`en-GB` | Acoustic model<br>Language model<br>Pronunciation|
-|English (United States)            |`en-US` | Acoustic model<br>Language model<br>Pronunciation|
-|Estonian(Estonia)                  |`et-EE` | Language Model                                   |
-|Finnish (Finland)                  |`fi-FI` | Language model                                   |
-|French (Canada)                    |`fr-CA` | Acoustic model<br>Language model                 |
-|French (France)                    |`fr-FR` | Acoustic model<br>Language model<br>Pronunciation|
-|German (Germany)                   |`de-DE` | Acoustic model<br>Language model<br>Pronunciation|
-|Greek (Greece)                     |`el-GR` | Language model                                   |
-|Gujarati (Indian)                  |`gu-IN` | Language model                                   |
-|Hindi (India)                      |`hi-IN` | Acoustic model<br>Language model                 |
-|Hungarian (Hungary)                |`hu-HU` | Language Model                                   |
-|Irish(Ireland)                     |`ga-IE` | Language model                                   |
-|Italian (Italy)                    |`it-IT` | Acoustic model<br>Language model<br>Pronunciation|
-|Japanese (Japan)                   |`ja-JP` | Language model                                   |
-|Korean (Korea)                     |`ko-KR` | Language model                                   |
-|Latvian (Latvia)                   |`lv-LV` | Language model                                   |
-|Lithuanian (Lithuania)             |`lt-LT` | Language model                                   |
-|Maltese(Malta)                     |`mt-MT` | Language model                                   |
-|Marathi (India)                    |`mr-IN` | Language model                                   |
-|Norwegian (Bokmål, Norway)         |`nb-NO` | Language model                                   |
-|Polish (Poland)                    |`pl-PL` | Language model                                   |
-|Portuguese (Brazil)                |`pt-BR` | Acoustic model<br>Language model<br>Pronunciation|
-|Portuguese (Portugal)              |`pt-PT` | Language model                                   |
-|Romanian (Romania)                 |`ro-RO` | Language model                                   |
-|Russian (Russia)                   |`ru-RU` | Acoustic model<br>Language model                 |
-|Slovak (Slovakia)                  |`sk-SK` | Language model                                   |
-|Slovenian (Slovenia)               |`sl-SI` | Language model                                   |
-|Spanish (Argentina)                |`es-AR` | Language Model                                   |
-|Spanish (Bolivia)                  |`es-BO` | Language Model                                   |
-|Spanish (Chile)                    |`es-CL` | Language Model                                   |
-|Spanish (Colombia)                 |`es-CO` | Language Model                                   |
-|Spanish (Costa Rica)               |`es-CR` | Language Model                                   |
-|Spanish (Cuba)                     |`es-CU` | Language Model                                   |
-|Spanish (Dominican Republic)       |`es-DO` | Language Model                                   |
-|Spanish (Ecuador)                  |`es-EC` | Language Model                                   |
-|Spanish (El Salvador)              |`es-SV` | Language Model                                   |
-|Spanish (Equatorial Guinea)		    |`es-GQ` | Language Model                                   |
-|Spanish (Guatemala)                |`es-GT` | Language Model                                   |
-|Spanish (Honduras)                 |`es-HN` | Language Model                                   |
-|Spanish (Mexico)                   |`es-MX` | Acoustic model<br>Language model                 |
-|Spanish (Nicaragua)                |`es-NI` | Language Model                                   |
-|Spanish (Panama)                   |`es-PA` | Language Model                                   |
-|Spanish (Paraguay)                 |`es-PY` | Language Model                                   |
-|Spanish (Peru)                     |`es-PE` | Language Model                                   |
-|Spanish (Puerto Rico)              |`es-PR` | Language Model                                   |
-|Spanish (Spain)                    |`es-ES` | Acoustic model<br>Language model                 |
-|Spanish (Uruguay)                  |`es-UY` | Language Model                                   |
-|Spanish (USA)                      |`es-US` | Language Model                                   |
-|Spanish (Venezuela)                |`es-VE` | Language Model                                   |
-|Swedish (Sweden)                   |`sv-SE` | Language model                                   |
-|Tamil (India)                      |`ta-IN` | Language model                                   |
-|Telugu (India)                     |`te-IN` | Language model                                   |
-|Thai (Thailand)                    |`th-TH` | Language model                                   |
-|Turkish (Turkey)                   |`tr-TR` | Language model                                   |
+| Language                           | Locale (BCP-47) | Customizations                                   |
+|------------------------------------|--------|--------------------------------------------------|
+| Arabic (Bahrain), modern standard  | `ar-BH` | Language model                                   |
+| Arabic (Egypt)                     | `ar-EG` | Language model                                   |
+| Arabic (Iraq)                      | `ar-IQ` | Language model                                   |
+| Arabic (Israel)                    | `ar-IL` | Language model                                   |
+| Arabic (Jordan)                    | `ar-JO` | Language model                                   |
+| Arabic (Kuwait)                    | `ar-KW` | Language model                                   |
+| Arabic (Lebanon)                   | `ar-LB` | Language model                                   |
+| Arabic (Oman)                      | `ar-OM` | Language model                                   |
+| Arabic (Qatar)                     | `ar-QA` | Language model                                   |
+| Arabic (Saudi Arabia)              | `ar-SA` | Language model                                   |
+| Arabic (State of Palestine)        | `ar-PS` | Language model                                   |
+| Arabic (Syria)                     | `ar-SY` | Language model                                   |
+| Arabic (United Arab Emirates)      | `ar-AE` | Language model                                   |
+| Bulgarian (Bulgaria)               | `bg-BG` | Language model                                   |
+| Catalan (Spain)                    | `ca-ES` | Language model                                   |
+| Chinese (Cantonese, Traditional)   | `zh-HK` | Language model                                   |
+| Chinese (Mandarin, Simplified)     | `zh-CN` | Acoustic model<br>Language model                 |
+| Chinese (Taiwanese Mandarin)       | `zh-TW` | Language model                                   |
+| Croatian (Croatia)                 | `hr-HR` | Language model                                   |
+| Czech (Czech Republic)             | `cs-CZ` | Language Model                                   |
+| Danish (Denmark)                   | `da-DK` | Language model                                   |
+| Dutch (Netherlands)                | `nl-NL` | Language model                                   |
+| English (Australia)                | `en-AU` | Acoustic model<br>Language model                 |
+| English (Canada)                   | `en-CA` | Acoustic model<br>Language model                 |
+| English (Hong Kong)                | `en-HK` | Language Model                                   |
+| English (India)                    | `en-IN` | Acoustic model<br>Language model                 |
+| English (Ireland)                  | `en-IE` | Language Model                                   |
+| English (New Zealand)              | `en-NZ` | Acoustic model<br>Language model                 |
+| English (Nigeria)                  | `en-NG` | Language Model                                   |
+| English (Philippines)              | `en-PH` | Language Model                                   |
+| English (Singapore)                | `en-SG` | Language Model                                   |
+| English (South Africa)             | `en-ZA` | Language Model                                   |
+| English (United Kingdom)           | `en-GB` | Acoustic model<br>Language model<br>Pronunciation|
+| English (United States)            | `en-US` | Acoustic model<br>Language model<br>Pronunciation|
+| Estonian(Estonia)                  | `et-EE` | Language Model                                   |
+| Finnish (Finland)                  | `fi-FI` | Language model                                   |
+| French (Canada)                    | `fr-CA` | Acoustic model<br>Language model                 |
+| French (France)                    | `fr-FR` | Acoustic model<br>Language model<br>Pronunciation|
+| German (Germany)                   | `de-DE` | Acoustic model<br>Language model<br>Pronunciation|
+| Greek (Greece)                     | `el-GR` | Language model                                   |
+| Gujarati (Indian)                  | `gu-IN` | Language model                                   |
+| Hindi (India)                      | `hi-IN` | Acoustic model<br>Language model                 |
+| Hungarian (Hungary)                | `hu-HU` | Language Model                                   |
+| Irish(Ireland)                     | `ga-IE` | Language model                                   |
+| Italian (Italy)                    | `it-IT` | Acoustic model<br>Language model<br>Pronunciation|
+| Japanese (Japan)                   | `ja-JP` | Language model                                   |
+| Korean (Korea)                     | `ko-KR` | Language model                                   |
+| Latvian (Latvia)                   | `lv-LV` | Language model                                   |
+| Lithuanian (Lithuania)             | `lt-LT` | Language model                                   |
+| Maltese(Malta)                     | `mt-MT` | Language model                                   |
+| Marathi (India)                    | `mr-IN` | Language model                                   |
+| Norwegian (Bokmål, Norway)         | `nb-NO` | Language model                                   |
+| Polish (Poland)                    | `pl-PL` | Language model                                   |
+| Portuguese (Brazil)                | `pt-BR` | Acoustic model<br>Language model<br>Pronunciation|
+| Portuguese (Portugal)              | `pt-PT` | Language model                                   |
+| Romanian (Romania)                 | `ro-RO` | Language model                                   |
+| Russian (Russia)                   | `ru-RU` | Acoustic model<br>Language model                 |
+| Slovak (Slovakia)                  | `sk-SK` | Language model                                   |
+| Slovenian (Slovenia)               | `sl-SI` | Language model                                   |
+| Spanish (Argentina)                | `es-AR` | Language Model                                   |
+| Spanish (Bolivia)                  | `es-BO` | Language Model                                   |
+| Spanish (Chile)                    | `es-CL` | Language Model                                   |
+| Spanish (Colombia)                 | `es-CO` | Language Model                                   |
+| Spanish (Costa Rica)               | `es-CR` | Language Model                                   |
+| Spanish (Cuba)                     | `es-CU` | Language Model                                   |
+| Spanish (Dominican Republic)       | `es-DO` | Language Model                                   |
+| Spanish (Ecuador)                  | `es-EC` | Language Model                                   |
+| Spanish (El Salvador)              | `es-SV` | Language Model                                   |
+| Spanish (Equatorial Guinea)        | `es-GQ` | Language Model                                   |
+| Spanish (Guatemala)                | `es-GT` | Language Model                                   |
+| Spanish (Honduras)                 | `es-HN` | Language Model                                   |
+| Spanish (Mexico)                   | `es-MX` | Acoustic model<br>Language model                 |
+| Spanish (Nicaragua)                | `es-NI` | Language Model                                   |
+| Spanish (Panama)                   | `es-PA` | Language Model                                   |
+| Spanish (Paraguay)                 | `es-PY` | Language Model                                   |
+| Spanish (Peru)                     | `es-PE` | Language Model                                   |
+| Spanish (Puerto Rico)              | `es-PR` | Language Model                                   |
+| Spanish (Spain)                    | `es-ES` | Acoustic model<br>Language model                 |
+| Spanish (Uruguay)                  | `es-UY` | Language Model                                   |
+| Spanish (USA)                      | `es-US` | Language Model                                   |
+| Spanish (Venezuela)                | `es-VE` | Language Model                                   |
+| Swedish (Sweden)                   | `sv-SE` | Language model                                   |
+| Tamil (India)                      | `ta-IN` | Language model                                   |
+| Telugu (India)                     | `te-IN` | Language model                                   |
+| Thai (Thailand)                    | `th-TH` | Language model                                   |
+| Turkish (Turkey)                   | `tr-TR` | Language model                                   |
 
 ## Text-to-speech
 
@@ -139,8 +139,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Arabic (Egypt) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>New</sup> | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>New</sup> | General |
-| Bulgarian (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
-| Bulgarian (Bulgary) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>New</sup> | General |
