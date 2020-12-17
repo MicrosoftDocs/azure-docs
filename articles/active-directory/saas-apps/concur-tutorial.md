@@ -56,10 +56,10 @@ Configure and test Azure AD SSO with Concur using a test user called **B.Simon**
 To configure and test Azure AD SSO with Concur, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Concur SSO](#configure-concur-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create Concur test user](#create-concur-test-user)** - to have a counterpart of B.Simon in Concur that is linked to the Azure AD representation of user.
+    1. **[Create Concur test user](#create-concur-test-user)** - to have a counterpart of B.Simon in Concur that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -79,26 +79,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<customer-domain>.concursolutions.com`
-	
-	c. For **Reply URL**, enter one of the following URL pattern:
 
-	| Reply URL|
-	|----------|
-	| `https://www.concursolutions.com/SAMLRedirector/SAMLReceiver.ashx` |
-	| `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
+    c. For **Reply URL**, enter one of the following URL pattern:
+
+    | Reply URL|
+    |----------|
+    | `https://www.concursolutions.com/SAMLRedirector/SAMLReceiver.ashx` |
+    | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
     | `https://<customer-domain>.concur.com` |
-	| `https://<customer-domain>.concursolutions.com` | 
-	
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    | `https://<customer-domain>.concursolutions.com` | 
+
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up Concur** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -107,10 +107,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-	1. In the **Name** field, enter `B.Simon`.  
-	1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-	1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-	1. Click **Create**.
+    1. In the **Name** field, enter `B.Simon`.  
+    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -120,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Concur**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   	![The "Users and groups" link](common/users-groups-blade.png)
+       ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -149,9 +149,9 @@ When you click the Concur tile in the Access Panel, you should be automatically 
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
