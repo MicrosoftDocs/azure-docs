@@ -22,6 +22,10 @@ The Speech service implementation of SSML is based on World Wide Web Consortium'
 > [!IMPORTANT]
 > Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
+## Test voices
+
+You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/).
+
 ## Standard, neural, and custom voices
 
 Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in four languages and locales. For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md).
