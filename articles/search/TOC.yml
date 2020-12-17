@@ -362,7 +362,7 @@
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
-    - name: Identity-based access
+    - name: Document-level security
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
