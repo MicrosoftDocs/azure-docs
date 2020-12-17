@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 12/17/2019
 ms.topic: conceptual
 ---
 
@@ -168,7 +168,7 @@ if (<My custom error logic>)
 
 ## Samples
 
-Samples for pre-scripts and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your Automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
+Samples for pre-scripts and post-scripts can be found in the [Azure Automation GitHub organization](https://github.com/azureautomation) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your Automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
 ![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -241,4 +241,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Next steps
 
-* For details of update management, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
+For details of update management, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
