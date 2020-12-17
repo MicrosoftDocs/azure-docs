@@ -6,7 +6,7 @@ ms.suite: integration
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 12/18/2020
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
@@ -61,10 +61,8 @@ However, not all connectors support chunking, so these connectors generate runti
 errors when incoming messages exceed the connectors' size limits.
 
 
-For actions that use chunking, you can't pass the trigger body, a variable, or use expressions such as 
-`@triggerBody()?['Content']` as input to those actions. If you do pass one of these, the chunking operation will 
-not happen even though you have set the chunking option on the action.
-However there is a workaround by using the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically you must create a 'body' field with the Compse action to hold the data from the trigger body or a varaible etc.
+For actions that use chunking, inputs of trigger bodies, variables and expressions such as 
+`@triggerBody()?['Content']` cannot be used. Use of one of these inputs will prevent the chunking operation from happening even when the chunking option is set on the action. Instead, you need to use a  [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically you must create a 'body' field with the Compse action to hold the data from the trigger body or a varaible etc.
 
 ```json
             "Compose": {
