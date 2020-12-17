@@ -36,22 +36,28 @@ This version of this article goes through these steps manually, one by one, usin
 
 ## Prepare your environment
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+1. If you choose to use Azure PowerShell locally:
+   1. [Install the Az PowerShell module](/powershell/azure/install-az-ps).
+   1. Connect to your Azure account using the
+     [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+1. If you choose to use Azure Cloud Shell:
+   1. See [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for
+    more information.
 
-* If you have multiple Azure subscriptions, choose the appropriate subscription in which the
-  resources should be billed. Select a specific subscription using the
-  [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the
+   resources should be billed. Select a specific subscription using the
+   [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
-  ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   ```
 
-* If this is your first time using Azure Digital Twins with this subscription, you must register
-  the **Microsoft.DigitalTwins** resource provider.
+1. If this is your first time using Azure Digital Twins with this subscription, you must register
+   the **Microsoft.DigitalTwins** resource provider.
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.DigitalTwins
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DigitalTwins
+   ```
 
 > [!IMPORTANT]
 > While the **Az.DigitalTwins** PowerShell module is in preview, you must install it separately
