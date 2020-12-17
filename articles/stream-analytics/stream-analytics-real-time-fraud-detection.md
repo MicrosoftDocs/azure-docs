@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics 
 ms.topic: tutorial 
-ms.date: 11/13/2020
+ms.date: 12/15/2020
 ms.custom: seodec18, contperfq2
 ---
 # Tutorial: Real-time fraud detection with Azure Stream Analytics
 
 This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You'll use a few different queries to analyze phone call data for fraudulent calls. The techniques illustrated in this scenario are also suited for other types of fraud detection, such as credit card fraud or identity theft.
 
-A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so that they can notify customers or shut down service for a specific number. One type of SIM fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for calls made around the same time in different countries or regions. Any phone records that fall into this category are written to storage for subsequent analysis.
+A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so they can notify customers or stop service for a specific number. One type of fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for calls made around the same time in different countries or regions. Any phone records that fall into this category are written to storage for subsequent analysis.
 
 In this tutorial, you learn how to:
 
