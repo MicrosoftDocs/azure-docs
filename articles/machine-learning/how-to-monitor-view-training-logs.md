@@ -123,7 +123,7 @@ The tables below show the contents of the log files in the folders you'll see in
 |20_image_build_log.txt     | Docker image building log for the training environment, optional, one per run. Only applicable when updating your Environment. Otherwise AML will reuse cached image. If successful, contains image registry details for the corresponding image.         |
 |55_azureml-execution-<node_id>.txt     | stdout/stderr log of host tool, one per node. Pulls image to compute target. Note, this log only appears once you have secured compute resources.         |
 |65_job_prep-<node_id>.txt     |   stdout/stderr log of job preparation script, one per node. Download your code to compute target and datastores (if requested).       |
-|70_driver_log(_x).txt      |  stdout/stderr log from AML control script and customer training script, one per process. This is the standard output from your script. This is where your code's logs (e.g. print statements) show up. In the majority of cases you will monitor the logs here.       |
+|70_driver_log(_x).txt      |  stdout/stderr log from AML control script and customer training script, one per process. **This is the standard output from your script. This is where your code's logs (e.g. print statements) show up.** In the majority of cases you will monitor the logs here.       |
 |70_mpi_log.txt     |   MPI framework log, optional, one per run. Only for MPI run.   |
 |75_job_post-<node_id>.txt     |  stdout/stderr log of job release script, one per node. Send logs, release the compute resources back to Azure.        |
 |process_info.json      |   show which process is running on which node.  |
