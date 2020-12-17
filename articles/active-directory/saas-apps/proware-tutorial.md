@@ -129,13 +129,13 @@ In this section, you create a user called Britta Simon in Proware. Work with [P
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP initiated
 
 * Click on **Test this application** in Azure portal. This will redirect to Proware Sign on URL where you can initiate the login flow.  
 
 * Go to Proware Sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+#### IDP initiated
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Proware for which you set up the SSO 
 
