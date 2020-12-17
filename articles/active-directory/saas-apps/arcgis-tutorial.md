@@ -215,7 +215,7 @@ In the case of ArcGIS Online, provisioning is a manual task.
 
 4. On the **Members** dialog page, perform the following steps:
 
-     ![Add and review](./media/arcgis-tutorial/ic784749.png "Add and review")
+    ![Add and review](./media/arcgis-tutorial/ic784749.png "Add and review")
 
      a. Enter the **Email**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision.
 

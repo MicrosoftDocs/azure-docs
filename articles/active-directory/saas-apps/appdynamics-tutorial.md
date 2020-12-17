@@ -134,7 +134,7 @@ To configure Azure AD single sign-on with AppDynamics, perform the following ste
 
 1. In the **Authentication Provider** section, perform the following steps:
 
-   ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
+    ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
 
    a. As **Authentication Provider**, select **SAML**.
 

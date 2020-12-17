@@ -227,7 +227,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 4. In the left pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
-   ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+    ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
 5. In the appropriate boxes, enter the **Email address**, **Username**, and **Password** of a valid Azure AD account that you want to add, and then select **Save**.
 
