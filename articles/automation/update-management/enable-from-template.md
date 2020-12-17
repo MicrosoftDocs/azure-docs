@@ -149,14 +149,14 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                 "type": "String",
                 "defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
-    		"_artifactsLocation": {
+            "_artifactsLocation": {
                 "type": "string",
                 "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
                 "metadata": {
                     "description": "URI to artifacts location"
                 }
             },
-    		"_artifactsLocationSasToken": {
+            "_artifactsLocationSasToken": {
                 "type": "securestring",
                 "defaultValue": "",
                 "metadata": {
@@ -164,7 +164,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                 }
             }
         },
-    	"variables": {
+        "variables": {
         "Updates": {
             "name": "[concat('Updates', '(', parameters('workspaceName'), ')')]",
             "galleryName": "Updates"
@@ -187,25 +187,25 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                     }
                 }
             },
-    		{
-    			"apiVersion": "2015-11-01-preview",
-    			"location": "[parameters('location')]",
-    			"name": "[variables('Updates').name]",
-    			"type": "Microsoft.OperationsManagement/solutions",
-    			"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
-    			"dependsOn": [
-    				"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    			],
-    			"properties": {
-    				"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    			},
-    			"plan": {
-    				"name": "[variables('Updates').name]",
-    				"publisher": "Microsoft",
-    				"promotionCode": "",
-    				"product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
-    			}
-    		},
+            {
+                "apiVersion": "2015-11-01-preview",
+                "location": "[parameters('location')]",
+                "name": "[variables('Updates').name]",
+                "type": "Microsoft.OperationsManagement/solutions",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "properties": {
+                    "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                },
+                "plan": {
+                    "name": "[variables('Updates').name]",
+                    "publisher": "Microsoft",
+                    "promotionCode": "",
+                    "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
+                }
+            },
             {
                 "type": "Microsoft.Automation/automationAccounts",
                 "apiVersion": "2020-01-13-preview",

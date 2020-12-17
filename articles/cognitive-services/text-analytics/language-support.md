@@ -8,13 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
