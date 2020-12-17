@@ -33,8 +33,6 @@ Azure Synapse has various resources that have different charges as seen in the c
 
 Azure Synapse runs on Azure infrastructure that accrues costs along with Azure Synapse when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
-<!--Note to Azure service writer: Include each of the following subsections at a minimum -->
-
 ### Costs that typically accrue with Azure Synapse Analytics
 
 When you create resources for Azure Synapse, resources for other Azure services are also created. They include:

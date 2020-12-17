@@ -1138,7 +1138,7 @@
 - name: How-to
   items:
   - name: Plan and manage costs
-    href: 
+    href: plan-manage-costs.md
 - name: Reference
   items:
   - name: Azure CLI
