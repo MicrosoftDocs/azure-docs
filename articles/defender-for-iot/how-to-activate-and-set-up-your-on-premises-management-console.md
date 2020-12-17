@@ -13,39 +13,59 @@ ms.service: azure
 
 Activation and setup of the on-premises management console ensures that:
 
-- Network devices you're monitoring through connected sensors are registered with an Azure account.
+- Network devices you are monitoring through connected sensors are registered with an Azure account.
 
 - Sensors send information to the on-premises management console.
 
 - The on-premises management console carries out management tasks on connected sensors.
 
-## Activate the on-premises management console
+- You have installed an SSL certificate
 
-Verify that you have the username and password required for the on-premises management console.
+To log in to the management console:
 
-To log in:
-
-1. Open a web browser and enter the IP address for the on-premises management console, which you received during the system installation.
+1. Open a web browser and enter the IP address for the on-premises management console that you received during the system installation.
 
 1. Enter the username and password that your administrator sent to you, and then select **LOGIN**.
 
-After you log in, the on-premises management console opens in the Enterprise view.  
+## Set up a certificate
+
+Verify that you have the username and password required for the on-premises management console. After login you must set up a certificate. The certificate ensure secured communication:  
+- Between your browser and the Defender for IoT Web Console
+- To Rest APIs
+- Between the management console and connected sensors.
+
+After logging in to the management console for the first time, a certificate onboarding screen opens. Import a trusted CA-signed certificate or use a locally generated  self-signed certificate and then enable validation.
+
+**For CA-signed certificates**
+
+1. Define a Certificate name.
+1. Upload the CRT and Key files
+1. Enter a passphrase and upload a PEM file if required.
+
+You may need to refresh your screen after uploading the CA-signed certificate.
+
+**For self-signed certificates**
+
+Select **Use a locally  generated self-signed certificate (insecure, not recommended)**. It is recommended to use a CA-signed certificate.
+
+1. Select **Next**.
+1. Select**Enable system-wide validation...**.  **When enabled  TBD TBD.**
+1. For information about validation failures, uploading a new certificate, supported cerficate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). 
 
 ## Upload the activation file
 
-After you log in, activate the on-premises management console by downloading an activation file from the Azure portal's **Pricing** page. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions. 
+After you first-time log in and certificate definition, activate the on-premises management console by downloading an activation file from the Defender for IoT portal **Pricing** page. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
 
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
 
 To acquire and upload an activation file:
 
-1. Go to the Azure portal's **Pricing** page.
+1. Go to the ADefender for IoT **Pricing** page.
 1. Select the tab for the on-premises management console.
 1. Download the activation file for the management console and save it.
 1. Select **System Settings** from the management console.
 1. Select **Activation**.
 1. Select **Choose a File** and select the file that you saved.
-
 
 ## Connect sensors to the on-premises management console
 
@@ -282,4 +302,5 @@ To unassign and delete a sensor:
 3. To delete the unassigned sensor from the site, select the sensor from the list of unassigned sensors and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
 ### See also
-[About the on-premises management console](concept-air-gapped-networks.md)
+
+[Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
