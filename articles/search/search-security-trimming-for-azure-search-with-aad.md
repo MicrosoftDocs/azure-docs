@@ -36,7 +36,7 @@ Your application must also be registered with Azure AD as a multi-tenant app, as
 
 ### Register your application with AAD
 
-This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you are not an tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
+This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you are not a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
 1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
