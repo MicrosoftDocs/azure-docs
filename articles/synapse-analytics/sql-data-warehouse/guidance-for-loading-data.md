@@ -55,7 +55,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
    
    CREATE WORKLOAD GROUP DataLoads
    WITH ( 
-   	  MIN_PERCENTAGE_RESOURCE = 100
+       MIN_PERCENTAGE_RESOURCE = 100
        ,CAP_PERCENTAGE_RESOURCE = 100
        ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
 	);

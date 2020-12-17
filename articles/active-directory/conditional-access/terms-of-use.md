@@ -235,8 +235,8 @@ You can edit some details of terms of use, but you can't modify an existing docu
 2.	Select the terms of use you want to edit.
 3.	Click **Edit terms**.
 4.	For the language that you would like to update a new version, click **Update** under the action column
- 
-     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
+
+    ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
 
 5.	In the pane on the right, upload the pdf for the new version
 6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
