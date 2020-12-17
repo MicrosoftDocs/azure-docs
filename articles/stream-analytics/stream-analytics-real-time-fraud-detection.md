@@ -297,36 +297,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
     The `WHERE` clause includes the condition that flags the fraudulent call: the originating switches are not the same.
 
-2. Select **Test query** again.
-
-## Define a query to analyze input data
-
-In this example, fraudulent calls are made from the same user within five seconds but in separate locations. For example, the same user can't legitimately make a call from the US and Australia at the same time. To define the transformation query for your Stream Analytics job:
-
-1. Replace the existing query in the editor with the following query, which performs a self-join on a 5-second interval of call data:
-
-   ```sql
-   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-   INTO "MyPBIoutput"
-   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
-   ON CS1.CallingIMSI = CS2.CallingIMSI
-   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
-   WHERE CS1.SwitchNum != CS2.SwitchNum
-   GROUP BY TumblingWindow(Duration(second, 1))
-   ```
-
-   To check for fraudulent calls, you can self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the **ON** clause of the join using the [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics) function.
-
-   This query is just like a normal SQL join except for the **DATEDIFF** function. The **DATEDIFF** function used in this query is specific to Stream Analytics, and it must appear within the `ON...BETWEEN` clause.
-
-2. **Save** the query.
-
-   ![Define Stream Analytics query in portal](media/stream-analytics-real-time-fraud-detection/define-stream-analytics-query.png)
-
-3. Select **Test query** to test the query. You should see the following results:
-
-   ![Output from Stream Analytics query test](media/stream-analytics-real-time-fraud-detection/sample-test-output-restuls.png)
+2. Select **Test query**. Review the output, and then select **Save query**.
 
 ## Start the job and visualize output
 
