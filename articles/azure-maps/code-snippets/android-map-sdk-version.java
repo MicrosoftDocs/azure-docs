@@ -1,0 +1,1 @@
+implementation "com.microsoft.azure.maps:mapcontrol:0.6"
