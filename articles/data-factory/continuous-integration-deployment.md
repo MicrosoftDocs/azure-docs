@@ -10,7 +10,7 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/17/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -202,6 +202,12 @@ If your development factory has an associated git repository, you can override t
 
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
+
+    To handle custom parameter 256 limit, there are 3 options:    
+    
+    * Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
+    * Refactor logic in the dataflow to reduce parameters, for example, pipeline parameters all have the same value, you can just use global parameters instead.
+    * Split one data factory  into multiple data flows.
 
 To override the default parameterization template, go to the management hub and select **Parameterization template** in the source control section. Select **Edit template** to open the parameterization template code editor. 
 
