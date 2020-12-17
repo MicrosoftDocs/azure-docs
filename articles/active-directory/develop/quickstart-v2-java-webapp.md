@@ -56,7 +56,7 @@ To run this sample, you need:
 > 1. Select **Add a platform** > **Web**.
 > 1. In the **Redirect URIs** section, enter `https://localhost:8443/msal4jsample/secure/aad`.
 > 1. Select **Configure**.
-> 1. In the **Web** section, under **Redirect URIs**, enter **https://localhost:8443/msal4jsample/graph/me** as a second redirect URI.
+> 1. In the **Web** section, under **Redirect URIs**, enter `https://localhost:8443/msal4jsample/graph/me` as a second redirect URI.
 > 1. Under **Manage**, select **Certificates & secrets**. In the **Client secrets** section, select **New client secret**.
 > 1. Enter a key description (for example, *app secret*), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the client secret. You'll need it later.
