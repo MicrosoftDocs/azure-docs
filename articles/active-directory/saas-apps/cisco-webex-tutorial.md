@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-    b. In the **Sign on URL** textbox, type the URL using the following pattern: ` https://<customername>.my.webex.com`
+    b. In the **Sign on URL** textbox, type the URL using the following pattern: `https://<customername>.my.webex.com`
 
 5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
@@ -143,7 +143,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Cisco Webex Meetings**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-       ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 

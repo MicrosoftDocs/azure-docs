@@ -71,27 +71,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-      ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **CybSafe**.
 
-      ![The CybSafe link in the Applications list](common/all-applications.png)
+    ![The CybSafe link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-      ![Provisioning tab](common/provisioning.png)
+    ![Provisioning tab](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-      ![Provisioning tab automatic](common/provisioning-automatic.png)
+    ![Provisioning tab automatic](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your CybSafe Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to CybSafe. If the connection fails, ensure your CybSafe account has Admin permissions and try again.
 
-       ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-      ![Notification Email](common/provisioning-notification-email.png)
+    ![Notification Email](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 

@@ -90,11 +90,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Admin Credentials** section, input your Clarizen One **Tenant URL** and **Secret Token**. Select **Test Connection** to ensure Azure AD can connect to Clarizen One. If the connection fails, ensure your Clarizen One account has admin permissions and try again.
 
-       ![Screenshot that shows the Secret Token box.](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot that shows the Secret Token box.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
-      ![Screenshot that shows the Notification Email box.](common/provisioning-notification-email.png)
+    ![Screenshot that shows the Notification Email box.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
