@@ -74,14 +74,14 @@ Here are a few examples of client libraries that has implemented async pattern:
 - [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
 - [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
  
-##### Understanding Async in Python Worker
+##### Understanding async in the Python worker
 
-When you define `async` in front of a function signature, Python will mark the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allow event loop to process next task during the wait time.
+When you define `async` in front of a function signature, Python marks the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allow event loop to process next task during the wait time.
 
-In our Python Worker, the worker shares the event loop with the customer's `async` function and it is capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries (e.g. [aiohttp](https://pypi.org/project/aiohttp/), [pyzmq](https://pypi.org/project/pyzmq/)). This will greatly increase your function's throughput compared to those libraries implemented in synchronous fashion.
+In our Python worker, the worker shares the event loop with your `async` function, which is capable of handling multiple requests concurrently. You should use asyncio-compatible libraries, such as [aiohttp](https://pypi.org/project/aiohttp/) and [pyzmq](https://pypi.org/project/pyzmq/)). Async increases your function's throughput compared to libraries implemented synchronously.
 
-> [!NOTE]
->  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibit the python worker to handle concurrent requests.
+> [!IMPORTANT]
+> Don't declare your function as `async` without a corresponding `await` implementation. If you do this, the performance of your function is severely impacted by a blocked event loop that prohibits the python worker from handling concurrent requests.
 
 #### Use multiple language worker processes
 
