@@ -45,7 +45,7 @@ This integration enables organizations to quickly detect multistage attacks that
 1. From the bottom of the right pane, click **Open connector page**. 
 
 1. Click **Connect**, next to each IoT Hub subscription whose alerts and device alerts you want to stream into Azure Sentinel. 
-    - You will receive an error message if Defender for IoT is not enabled on any IoT Hub within a subscription. Enable Defender for IoT within the IoT Hub to remove the error.
+    - You will receive an error message if Defender for IoT is not enabled on at least one IoT Hub within a subscription. Enable Defender for IoT within the IoT Hub to remove the error.
 
 1. You can decide whether you want the alerts from Defender for IoT to automatically generate incidents in Azure Sentinel. Under **Create incidents**,  select **Enable** to enable the default analytics rule to automatically create incidents from the generated alerts. This rule can be changed or edited under **Analytics** > **Active rules**.
 
