@@ -98,7 +98,7 @@ If using online data transfer, use the table in the following section for high n
     - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
 - [Transfer data with AzCopy](./storage-use-azcopy-v10.md).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Learn how to transfer data with Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Use the REST APIs to transfer data

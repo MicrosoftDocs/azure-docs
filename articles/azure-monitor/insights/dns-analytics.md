@@ -53,13 +53,13 @@ The solution starts collecting data without the need of further configuration. H
 
 On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
 
-- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Azure Monitor. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
+- **Allowlisted Domain Names**. The solution does not process all the lookup queries. It maintains an allowlist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this allowlist are not processed by the solution. Not processing allowlisted domain names helps to optimize the data sent to Azure Monitor. The default allowlist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
   You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
-    ![Whitelisted domain names](./media/dns-analytics/dns-config.png)
+    ![Allowlisted domain names](./media/dns-analytics/dns-config.png)
 
 ## Management packs
 
@@ -106,7 +106,7 @@ The information helps you to identify the:
 - IP addresses that the domain name resolves to.
 - Malicious IP address.
 - Severity of the issue.
-- Reason for blacklisting the malicious IP.
+- Reason for blocklisting the malicious IP.
 - Detection time.
 
 **Domains Queried**. Provides the most frequent domain names being queried by the DNS clients in your environment. You can view the list of all the domain names queried. You can also drill down into the lookup request details of a specific domain name in Log Search.

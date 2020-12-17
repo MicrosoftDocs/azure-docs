@@ -89,7 +89,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## Upgrade an AKS cluster
 
-With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last drained node will be deleted, maintaining the existing agent node count.
+With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -100,8 +100,9 @@ az aks upgrade \
 
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
 
-> [!NOTE]
-> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure, retry the upgrade operation after the timeout has been hit.
+> [!IMPORTANT]
+> Ensure that any `PodDisruptionBudgets` (PDBs) allow for at least 1 pod replica to be moved at a time otherwise the drain/evict operation will fail.
+> If the drain operation fails, the upgrade operation will fail by design to ensure that the applications are not disrupted. Please correct what caused the operation to stop (incorrect PDBs, lack of quota, and so on) and re-try the operation.
 
 To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 

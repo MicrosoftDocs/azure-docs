@@ -1,22 +1,29 @@
 ---
-title: Mobility Service data structures in Azure Maps| Microsoft Azure Maps
-description: Understand how data is organized into metro areas in Azure Maps Mobility services. See which fields store information about public transit stops and lines.
+title: Mobility services (Preview) data structures in Microsoft Azure Maps
+description: Understand how data is organized into metro areas in Azure Maps Mobility services (Preview). See which fields store information about public transit stops and lines.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/05/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Data structures in Azure Maps Mobility Service
+# Data structures in Azure Maps Mobility services (Preview) 
 
-This article introduces the concept of Metro Area in [Azure Maps Mobility Service](/rest/api/maps/mobility). We discuss some of common fields that are returned when this service is queried for public transit stops and lines. We recommend reading this article before developing with the Mobility Service APIs.
+> [!IMPORTANT]
+> Azure Maps Mobility services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+This article introduces the concept of Metro Area in [Azure Maps Mobility services](/rest/api/maps/mobility). We discuss some of common fields that are returned when this service is queried for public transit stops and lines. We recommend reading this article before developing with the Mobility services APIs.
 
 ## Metro area
 
-Mobility Service data is grouped by supported metro areas. Metro areas don't follow city boundaries. A metro area can contain multiple cities, densely populated city, and surrounding cities. In fact, a country/region can be one metro area. 
+Mobility services (Preview) data is grouped by supported metro areas. Metro areas don't follow city boundaries. A metro area can contain multiple cities, densely populated city, and surrounding cities. In fact, a country/region can be one metro area. 
 
 The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info API](/rest/api/maps/mobility/getmetroareainfopreview). Use Azure Maps' "Get Metro" API to request transit types, transit agencies, active alerts, and additional details for the chosen metro. You can also request the supported metro areas and metroIDs. Metro area IDs are subject to change.
 
@@ -32,7 +39,7 @@ To start, you can request nearby transit stops using [Get Nearby Transit API](/r
 
 ## Line Groups and Lines
 
-Mobility Service uses a parallel data model for Lines and Line Groups. This model is used to better deal with changes inherited from [GTFS](http://gtfs.org/) routes and the trips data.
+Mobility services (Preview) use a parallel data model for Lines and Line Groups. This model is used to better deal with changes inherited from [GTFS](http://gtfs.org/) routes and the trips data.
 
 
 ### Line Groups
@@ -49,17 +56,17 @@ To begin, you can request line groups by using the [Get Transit Line API](/rest/
 
 ## Next steps
 
-Learn how to request transit data using Mobility Service:
+Learn how to request transit data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)
 
-Learn how to request real-time data using Mobility Service:
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)
 
-Explore the Azure Maps Mobility Service API documentation
+Explore the Azure Maps Mobility services (Preview) API documentation
 
 > [!div class="nextstepaction"]
-> [Mobility Service API documentation](/rest/api/maps/mobility)
+> [Mobility services API documentation](/rest/api/maps/mobility)

@@ -9,12 +9,6 @@ ms.date: 07/07/2020
 
 If your event data doesn't match the expected [Event Grid schema](event-schema.md), you can still use Event Grid to route event to subscribers. This article describes how to map your schema to the Event Grid schema.
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## Install preview feature
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## Original event schema
 
 Let's suppose you have an application that sends events in the following format:
@@ -35,7 +29,7 @@ Although that format doesn't match the required schema, Event Grid enables you t
 
 When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three values you use to customize the mapping:
 
-* The **input schema** value specifies the type of schema. The available options are CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema. When creating custom mapping between your schema and the event grid schema, use custom event schema. When events are in the CloudEvents schema, use Cloudevents schema.
+* The **input schema** value specifies the type of schema. The available options are CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema. When creating custom mapping between your schema and the event grid schema, use custom event schema. When events are in the CloudEvents format, use CloudEvents schema.
 
 * The **mapping default values** property specifies default values for fields in the Event Grid schema. You can set default values for `subject`, `eventtype`, and `dataversion`. Typically, you use this parameter when your custom schema doesn't include a field that corresponds to one of those three fields. For example, you can specify that data version is always set to **1.0**.
 
@@ -44,10 +38,6 @@ When creating a custom topic, specify how to map fields from your original event
 To create a custom topic with Azure CLI, use:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -60,11 +50,7 @@ az eventgrid topic create \
 For PowerShell, use:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -102,9 +88,9 @@ az eventgrid event-subscription create \
 The following example subscribes to an event grid topic and uses the Event Grid schema. For PowerShell, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -115,7 +101,7 @@ New-AzureRmEventGridSubscription `
 The next example uses the input schema of the event:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -141,8 +127,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 For PowerShell, use:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"
