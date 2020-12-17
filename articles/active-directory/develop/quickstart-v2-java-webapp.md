@@ -23,7 +23,7 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 
 ## Prerequisites
 
-To run this sample, you'll need:
+To run this sample, you need:
 
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or later. 
 - [Maven](https://maven.apache.org/).
@@ -45,7 +45,7 @@ To run this sample, you'll need:
 > To register your application and manually add the app's registration information to it, follow these steps:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If you have access to multiple tenants, use the **Directory + Subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations**.
 > 1. Select **New registration**.
@@ -54,11 +54,11 @@ To run this sample, you'll need:
 > 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Web**.
-> 1. In the **Redirect URIs** section, enter **https://localhost:8443/msal4jsample/secure/aad**.
+> 1. In the **Redirect URIs** section, enter `https://localhost:8443/msal4jsample/secure/aad`.
 > 1. Select **Configure**.
 > 1. In the **Web** section, under **Redirect URIs**, enter **https://localhost:8443/msal4jsample/graph/me** as a second redirect URI.
 > 1. Under **Manage**, select **Certificates & secrets**. In the **Client secrets** section, select **New client secret**.
-> 1. Type a key description (for example, **app secret**), leave the default expiration, and select **Add**.
+> 1. Enter a key description (for example, *app secret*), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the client secret. You'll need it later.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -79,7 +79,7 @@ To run this sample, you'll need:
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Download the project and extract the zip file to a local folder that's closer to the root folder. For example, `C:\Azure-Samples`.
+> Download the project and extract the .zip file into a folder near the root of your drive. For example, *C:\Azure-Samples*.
 >
 > To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
@@ -92,7 +92,7 @@ To run this sample, you'll need:
 >   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
->   Put the generated keystore file in the `resources` folder.
+>   Put the generated keystore file in the *resources* folder.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
@@ -105,7 +105,7 @@ To run this sample, you'll need:
 > #### Step 3: Configure the code sample
 > 1. Extract the zip file to a local folder.
 > 1. *Optional.* If you use an integrated development environment, open the sample in that environment.
-> 1. Open the application.properties file. You can find it in the `src/main/resources/` folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it will look like:
+> 1. Open the *application.properties* file. You can find it in the *src/main/resources/* folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it should look like:
 >
 >    ```file
 >    aad.clientId=Enter_the_application_ID_here
@@ -151,18 +151,18 @@ To run the web application from an IDE, select run, and then go to the home page
 
 1. On the front page, select the **Login** button to redirect users to Azure Active Directory and prompt them for credentials.
 
-1. After users are authenticated, they're redirected to https://localhost:8443/msal4jsample/secure/aad. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
+1. After users are authenticated, they're redirected to `https://localhost:8443/msal4jsample/secure/aad`. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
     - **Sign Out**: Signs the current user out of the application and redirects that user to the home page.
     - **Show User Info**: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request that contains the token, which returns basic information about the signed-in user.
 
 ##### Running the project from Tomcat
 
-If you want to deploy the web sample to Tomcat, you'll need to make a couple changes to the source code.
+If you want to deploy the web sample to Tomcat, you need to make a couple changes to the source code.
 
 1. Open ms-identity-java-webapp/pom.xml.
     - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.
 
-2. Open ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication.
+2. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
 
     - Delete all source code and replace it with this code:
 
@@ -189,7 +189,7 @@ If you want to deploy the web sample to Tomcat, you'll need to make a couple cha
       ```
 
 3.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
-        - Go to tomcat/conf/server.xml.
+        - Go to *tomcat/conf/server.xml*.
         - Search for the `<connector>` tag, and replace the existing connector with this connector:
 
           ```xml
@@ -202,10 +202,10 @@ If you want to deploy the web sample to Tomcat, you'll need to make a couple cha
           ```
 
 4. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
-    - This command will generate a msal-web-sample-0.1.0.war file in your `/targets` directory.
-    - Rename this file to msal4jsample.war.
+    - This command will generate a *msal-web-sample-0.1.0.war* file in your */targets* directory.
+    - Rename this file to *msal4jsample.war*.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
-        - To deploy the msal4jsample.war file, copy it to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
+        - To deploy the msal4jsample.war file, copy it to the */webapps/* directory in your Tomcat installation, and then start the Tomcat server.
 
 5. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
