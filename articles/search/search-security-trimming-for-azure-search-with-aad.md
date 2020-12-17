@@ -72,7 +72,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Cognitive Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](/graph/api/group-post-groups?view=graph-rest-1.0) 
+### Step 1: Create [AAD Group](/graph/api/group-post-groups) 
 
 ```csharp
 private static Dictionary<Group, List<User>> CreateGroupsWithUsers(string tenant)
@@ -86,7 +86,7 @@ private static Dictionary<Group, List<User>> CreateGroupsWithUsers(string tenant
     };
 ```
 
-### Step 2: Create [AAD User](/graph/api/user-post-users?view=graph-rest-1.0)
+### Step 2: Create [AAD User](/graph/api/user-post-users)
 
 ```csharp
 User user1 = new User()
@@ -149,7 +149,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) request.
+If the user's groups were not already cached, or the cache has expired, issue the [groups](/graph/api/directoryobject-getmembergroups) request.
 
 ```csharp
 private static async void RefreshCache(IEnumerable<User> users)
@@ -187,12 +187,9 @@ private static void SearchQueryWithFilter(string user)
 
 The response includes a filtered list of documents, consisting of those that the user has permission to view. Depending on how you construct the search results page, you might want to include visual cues to reflect the filtered result set.
 
-## Conclusion
+## Next steps
 
-In this walkthrough, you learned techniques for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that do not match the filter provided on the request.
+In this walkthrough, you learned a pattern for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that do not match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
 
-## See also
-
-- [Identity-based access control using Azure Cognitive Search filters](search-security-trimming-for-azure-search.md)
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [Data security and access control in Azure Cognitive Search operations](search-security-overview.md)
+- [Security filters for trimming results ](search-security-trimming-for-azure-search.md)
+- [Security in Azure Cognitive Search](search-security-overview.md)
