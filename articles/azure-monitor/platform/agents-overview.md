@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2020
+ms.date: 12/17/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -154,13 +154,10 @@ The following tables list the operating systems that are supported by the Azure 
 | Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X |   |   |
+| CentOS Linux 8                                           |   | X | X |   |
 | CentOS Linux 7                                           | X | X | X | X |
-| CentOS Linux 7.8                                         | X | X | X | X |
-| CentOS Linux 7.6                                         | X | X | X | X |
 | CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5+                                        |   | X |   | X |
-| Debian 10                                                | X |   |   |   |
+| CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
@@ -197,7 +194,13 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| CentOS Linux 8     | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 | Ubuntu Server      | 20.04   | 5.4\* |
 |                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
