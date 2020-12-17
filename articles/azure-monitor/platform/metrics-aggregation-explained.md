@@ -237,8 +237,8 @@ Below is the larger diagram for the above 1-minute aggregation process, with som
 
 Following is a larger example using values for a fictitious metric called HTTP Response time in milliseconds.  Here we introduce additional levels of complexity.
 
-1.	We show aggregation for Sum, Count, Min, and Max and the calculation for Average.
-2.	We show NULL values and how they affect calculations. 
+1. We show aggregation for Sum, Count, Min, and Max and the calculation for Average.
+2. We show NULL values and how they affect calculations. 
 
 Consider the following example. The boxes and arrows show examples of how the values are aggregated and calculated. 
 
@@ -267,5 +267,6 @@ You can also see that the NULLs give a better calculations of average than if ze
 
 
 ## Next steps
+
   - [Getting started with metrics explorer](metrics-getting-started.md)
   - [Advanced Metrics explorer](metrics-charts.md)
