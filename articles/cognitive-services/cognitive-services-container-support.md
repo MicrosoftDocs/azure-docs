@@ -39,7 +39,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Anomaly detector][ad-containers] | **Anomaly-Detector** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. | Generally available |
+| [Anomaly detector][ad-containers] | **Anomaly Detector** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. | Generally available |
 
 ### Language
 
@@ -56,7 +56,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 > [!NOTE]
 > To use Speech containers, you will need to complete an [online request form](https://aka.ms/csgate).
 
-| Service |  Container | Description |
+| Service |  Container | Description | Availability |
 |--|--|--|
 | [Speech Service API][sp-containers-stt] |  **Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text. | Generally available |
 | [Speech Service API][sp-containers-cstt] | **Custom Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. | Generally available |
