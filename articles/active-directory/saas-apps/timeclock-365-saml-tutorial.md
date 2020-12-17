@@ -110,13 +110,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign in to your Timeclock 365 SAML company site as an administrator.
 
-1. Perform the following steps in the following steps.
+1. Perform the following steps in the following page.
 
     ![Timeclock configuration](./media/timeclock-365-saml-tutorial/saml-configuration.png)
 
     a. Go to the **Settings > Company profile > Settings** tab.
 
-    b. In the **IDP metadata path**, paste the **App Federation Metadata Url** which you have copied from the Azure portal.
+    b. In the **IDP metadata path**, paste the **App Federation Metadata Url** that you have copied from the Azure portal.
 
     c. Click on **Update**.
 
