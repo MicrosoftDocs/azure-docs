@@ -193,6 +193,7 @@ Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
@@ -252,6 +253,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
 |                         | `style="newscast"`        | Expresses a versatile and casual tone for general news delivery   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
