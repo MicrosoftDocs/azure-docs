@@ -51,14 +51,12 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
     >[!NOTE]
     > Be aware that defining a scoping filter incurs a memory cost on the host server.  If no scoping filter is used there is no extra memory cost. The 4GB minimum will support synchronization for up to 12 organizational units defined in the scoping filter. If you need to synchronize additional OUs, you will need to increase the minimum amount of memory. Use the following table as a guide:
     >
-    >	
-    >  | Number of OUs in Scoping Filter| minimum required memory|
-    > 	| --- | --- |
-    >	| 12| 4 GB|
-    >	| 18|5.5 GB|
-    >	| 28|10+ GB|
     >
-    > 
+    > | Number of OUs in Scoping Filter| minimum required memory|
+    > | --- | --- |
+    > | 12 | 4 GB |
+    > | 18 | 5.5 GB|
+    > | 28 | 10+ GB|
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
@@ -77,8 +75,8 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
     - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
     - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
 
-    > [!NOTE]
-    Installing the cloud provisioning agent on Windows Server Core is not supported.
+    >[!NOTE]
+    > Installing the cloud provisioning agent on Windows Server Core is not supported.
 
 ### Additional requirements
 

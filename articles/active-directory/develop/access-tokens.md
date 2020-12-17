@@ -136,8 +136,8 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
        }
      }
   ...
- }
- ```
+}
+```
 
 You can use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) folder to help test overage scenarios.
 

@@ -128,13 +128,13 @@ If you attempt to use an authority that isn't known to Microsoft, and isn't incl
 ### Logging
 You can now declaratively configure logging as part of your configuration, like this:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## Migrate from UserInfo to Account
 
