@@ -18,13 +18,13 @@ This article applies to customers with a Microsoft Customer Agreement (MCA).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-There are two ways to pay for your bill for Azure. You can play with the default payment method of your billing profile or you can make a one-time payment called **Pay now**.
+There are two ways to pay for your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment called **Pay now**.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
 
 ## Pay by default payment method
 
-The default payment method of your billing profile can either be a credit or debit card, check, or wire transfer.
+The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.
 
 ### Credit or debit card
 
@@ -48,7 +48,7 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. Search on **Cost Management + Billing**.
 1. In the left menu, select **Invoices** under **Billing**.
 1. If any of your invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
-1. In the **Pay now window**, select **Select a payment method** to choose an existing credit card or add a new one.
+1. In the Pay now window, select **Select a payment method** to choose an existing credit card or add a new one.
 1. After you select a payment method, select **Pay now**.
 
 The invoice status shows *paid* within 24 hours.
