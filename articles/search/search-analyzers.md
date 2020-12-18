@@ -346,7 +346,7 @@ Create a [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.cust
 + [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
 + [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
 
-The following examples creates a custom anlayzer named "url-analyze" that uses the [uax_url_email tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) and the [Lowercase token filter](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
+The following examples creates a custom analyzer named "url-analyze" that uses the [uax_url_email tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) and the [Lowercase token filter](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient adminClient)
