@@ -56,7 +56,7 @@ string[] scopesForVendorApi = new string[]
 var accounts = await app.GetAccountsAsync();
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithAccount(accounts.FirstOrDefault())
-                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .WithExtraScopesToConsent(scopesForVendorApi)
                      .ExecuteAsync();
 ```
 

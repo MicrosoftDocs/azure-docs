@@ -139,8 +139,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Arabic (Egypt) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>New</sup> | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>New</sup> | General |
-| Bulgarian (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
-| Bulgarian (Bulgary) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>New</sup> | General |

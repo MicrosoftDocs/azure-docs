@@ -548,6 +548,8 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management Connections
         href: platform/itsmc-connections.md
+      - name: IT Service Management Connector Definition
+        href: platform/itsmc-definition.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
       - name: Troubleshooting problems in ITSM Connector
