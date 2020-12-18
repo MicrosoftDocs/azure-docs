@@ -396,19 +396,27 @@ Connections can access the target service or system for as long as that service 
 
 The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL Server trigger.
 
+However, for both kinds of triggers, if a recurrence doesn't specify a specific start time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start time for the first time when you want the recurrence to run.
+
 <a name="recurrence-built-in"></a>
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. However, if a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
 
-To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
+
+* Use the Recurrence trigger and provide a start time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+
+* Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+
+If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends. To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 <a name="recurrence-connection-based"></a>
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* these other factors that might cause run times to drift or produce unexpected behavior, for example:
+In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs not only depend on the recurrence schedule, but also the last trigger execution *and* these other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 
@@ -420,7 +428,11 @@ In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the sche
 
 * Other factors that can affect when the next run time happens.
 
-To work around these issues, you can try using the Recurrence trigger that specifies a start time and the specific times when you want the trigger to run, or you can use the Sliding Window trigger, which avoids missed recurrences.
+To work around these problems, try these options:
+
+* Use the Recurrence trigger and provide a start time plus the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+
+* To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger, 
 
 <a name="custom"></a>
 
