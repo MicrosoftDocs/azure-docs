@@ -351,6 +351,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Storage account considerations**: 
 
+- Performance Tier: Currently, only standard tier storage accounts are supported. 
 - Location: The storage account used must be in the same region as the NSG.
 - Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
