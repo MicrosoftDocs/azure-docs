@@ -310,7 +310,7 @@ If the original SAML sign-in token used a different format for NameID (e.g. emai
 **Service category:** Azure AD Cloud Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-IT Admins can start using the new "Hybrid Admin" role as the least privileged role for setting up Azure ADConnect Cloud Provisioning. With this new role, you no longer have to use the Global Admin role to setup and configure Cloud Provisioning. [Learn more](../roles/delegate-by-task.md#connect).
+IT Admins can start using the new "Hybrid Admin" role as the least privileged role for setting up Azure AD Connect Cloud Provisioning. With this new role, you no longer have to use the Global Admin role to setup and configure Cloud Provisioning. [Learn more](../roles/delegate-by-task.md#connect).
  
 ---
 
