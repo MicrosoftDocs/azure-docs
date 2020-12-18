@@ -96,7 +96,7 @@ There might be the case that you didn't link your Azure Notification Hub to your
 
 #### The linked Azure Notification Hub isn't configured
 
-You have to configure the linked Notification Hub with the with the Platform Notification System credentials for the platform (for example iOS or android) that you would like to use. For more details on how that can be done you can take a look in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+You have to configure the linked Notification Hub with the Platform Notification System credentials for the platform (for example iOS or android) that you would like to use. For more details on how that can be done you can take a look in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
 #### The linked Azure Notification Hub doesn't exist
 
@@ -116,7 +116,7 @@ Make sure that you configure Communication Services resource with the correct co
 
 #### The linked connection string is regenerated
 
-In case that you regenerated the connection string used to link your Azure Notification Hub to your Communication Services resource, you have to update the connection string with the new one in your Communication Services resource by [relinking the Notification Hub](#notification-hub-provisioning).
+In case that you regenerated the connection string, you have to update the connection string with the new one in your Communication Services resource by [relinking the Notification Hub](#notification-hub-provisioning).
 
 ## Next steps
 
