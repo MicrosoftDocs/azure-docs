@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ---
 
@@ -82,7 +82,7 @@ The following hazard icons are to be observed when setting up and running your A
   * Isolated from strong electromagnetic fields produced by electrical devices.
   * Provided with properly grounded outlets.
   * Provided with adequate space to access the power supply cord(s), because they serve as the product's main power disconnect.
-* Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended Cat 6 Shielded (STP) cabling be used.
+* Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended that Cat 6 Shielded Twisted-pair (STP) cabling be used.
 * Set up the equipment in a work area allowing for adequate air circulation around the equipment; ensure that the front and back covers are fully removed while the device is running.
 * Install the equipment in temperature-controlled area free of conductive contaminants and allow for adequate air circulation around the equipment.
 * Keep the equipment away from sources of liquid and excessively humid environments.
