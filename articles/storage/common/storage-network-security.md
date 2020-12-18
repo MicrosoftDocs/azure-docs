@@ -362,7 +362,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 In some cases, an application might depend on an Azure resource, such as a logic app, or a function app. These resource *instances* can access data in your account if they are deployed to a virtual network that you've included in your network rules. Otherwise, you can grant access to the resource instance directly by creating a network rule. Then, the application can use the resource instance to interact with your data. 
 
-The types of operations that a resource instance can perform on storage account data is determined by Azure Active Directory (Azure AD) role assignments of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
+The types of operations that a resource instance can perform on storage account data is determined by the [Azure role assignments](storage-auth-aad.md#assign-azure-roles-for-access-rights) of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions. 
@@ -392,7 +392,7 @@ You can use PowerShell commands to add or remove resource network rules.
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
-##### Install the preview module
+#### Install the preview module
 
 Install the latest version of the PowershellGet module. Then, close and reopen the PowerShell console.
 
