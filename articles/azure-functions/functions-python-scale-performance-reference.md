@@ -63,10 +63,10 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 
-A function without the `async` keyword is run automatically in an asyncio thread-pool:
+A function without the `async` keyword is run automatically in an ThreadPoolExecutor threadpool:
 
 ```python
-# Runs in an ThreadPoolExecutor threadpool . Number of threads is defined by PYTHON_THREADPOOL_THREAD_COUNT. 
+# Runs in an ThreadPoolExecutor threadpool. Number of threads is defined by PYTHON_THREADPOOL_THREAD_COUNT. 
 # The example is intended to show how default synchronous function are handled.
 
 def main():
@@ -110,7 +110,7 @@ For CPU-bound apps, you should keep the setting to a low number, starting from 1
 
 For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default - the number of cores + 4 and then tweak based on the throughput values you are seeing.
 
-For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present.Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
+For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 
 > [!NOTE]
 >  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](./functions-best-practice).
