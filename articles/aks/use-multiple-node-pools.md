@@ -681,7 +681,7 @@ Edit these values as need to update, add, or delete node pools as needed:
 }
 ```
 
-Deploy this template using the [az deployment group create](az-deployment-group-create) command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
+Deploy this template using the [az deployment group create][az-deployment-group-create] command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
 
 ```azurecli-interactive
 az deployment group create \
