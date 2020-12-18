@@ -25,7 +25,7 @@ For subscription migrations between different Azure AD tenants please follow thi
 
 ## Subscription migration planning
 
-As you being to plan migration, consider the information needed to answer to the following questions.
+As you begin to plan your subscription migration, consider the information needed to answer to the following questions:
 
 - Why do you or your customer want to migrate subscriptions?
 - What's your timeline to complete the migration?
