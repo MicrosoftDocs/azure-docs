@@ -61,7 +61,7 @@ All your Azure RBAC permissions are preserved. Nothing changes during the migrat
 
 ## After migration
 
-After migration in the CSP perspective, you can't use Delegated Admin Access (DAP) to customer subscriptions. That's even though you can see them from a billing perspective in the CSP portal. It's intended, so you have to manually find the CSP Foreign Principal ID. Then apply it as Owner (Azure role) to each subscription. The action can only be done by a user who is the native Azure AD Tenant with Owner permissions. You also need to do the same action as a CSP to get any Partner Earned Credit (PEC) back for the customer's Azure Consumed Revenue (ACR).
+After migration in the CSP perspective, you can't use Delegated Admin Access (DAP) to customer subscriptions. That's even though you can see the customer from billing perspective in the Partner Center. It's intended, so you have to manually find the CSP Foreign Principal ID. Then apply it as Owner (Azure role) to each customer subscription that has been migrated. The action can only be done by a user who is the native Azure AD Tenant with Owner permissions. You also need to do the same action as a CSP to get any Partner Earned Credit (PEC) back for the customer's Azure Consumed Revenue (ACR) as documented at [How the partner earned credit is calculated and paid](https://docs.microsoft.com/en-us/partner-center/partner-earned-credit-explanation).
 
 ## CSP foreign principal PowerShell script
 
