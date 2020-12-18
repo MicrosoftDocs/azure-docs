@@ -88,4 +88,6 @@ Repeat the preceding steps for each Azure subscription that you've migrated. The
 
 ## Next steps
 
+- [How to request a reseller relationship from a customer in Partner Center](https://docs.microsoft.com/en-us/partner-center/request-a-relationship-with-a-customer).
 - [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md).
+- [How the partner earned credit is calculated and paid](https://docs.microsoft.com/en-us/partner-center/partner-earned-credit-explanation)
