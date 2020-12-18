@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with StatusPage, perform the following steps:
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Configure StatusPage SSO](#configure-statuspage-sso)** - to configure the Single Sign-On settings on application side.
     1. **[Create StatusPage test user](#create-statuspage-test-user)** - to have a counterpart of Britta Simon in StatusPage that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -102,7 +102,37 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure StatusPage SSO
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to StatusPage.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **StatusPage**.
+
+2. In the applications list, select **StatusPage**.
+
+3. In the menu on the left, select **Users and groups**.
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+## Configure StatusPage SSO
 
 1. To automate the configuration within StatusPage, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
@@ -134,41 +164,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     c. Click **SAVE CONFIGURATION**.
 
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to StatusPage.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **StatusPage**.
-
-2. In the applications list, select **StatusPage**.
-
-3. In the menu on the left, select **Users and groups**.
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
 ### Create StatusPage test user
 
 The objective of this section is to create a user called Britta Simon in StatusPage.
 
-StatusPage supports just-in-time provisioning. You have already enabled it in [Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on).
+StatusPage supports just-in-time provisioning. You have already enabled it in [Configure Azure AD Single Sign-On](#configure-azure-ad-sso).
 
 **To create a user called Britta Simon in StatusPage, perform the following steps:**
 
