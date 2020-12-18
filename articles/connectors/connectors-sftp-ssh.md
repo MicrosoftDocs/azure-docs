@@ -126,11 +126,11 @@ SFTP-SSH triggers poll the SFTP file system and look for any file that changed s
 
 When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
 
-<a name="daylight-saving-standard-time"></a>
+<a name="trigger-recurrence-shift-drift"></a>
 
-## Shift between daylight saving time and standard time
+### Trigger recurrence shift and drift
 
-Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurring connection-based triggers use the time zone only to determine the initial start time. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
@@ -253,12 +253,6 @@ This action gets the content from a file on an SFTP server by specifying the fil
 ## Troubleshoot problems
 
 This section describes possible solutions to common errors or problems.
-
-<a name="trigger-start-time-drift"></a>
-
-### Trigger start time drifts from specified start time
-
-In recurring connection-based triggers, such as SFTP-SSH, the schedule isn't the only driver that controls execution. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="connection-attempt-failed"></a>
 

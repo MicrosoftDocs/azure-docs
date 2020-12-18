@@ -394,7 +394,7 @@ Connections can access the target service or system for as long as that service 
 
 ## Recurrence behavior
 
-The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL Server trigger.
+The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL connector trigger.
 
 However, for both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
@@ -416,7 +416,7 @@ If you don't select a time zone, daylight saving time (DST) might affect when tr
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example:
+In recurring connection-based triggers, such as SQL or SFTP-SSH, the schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 
@@ -436,7 +436,7 @@ To resolve or work around these problems, try these solutions:
 
 * Use the Recurrence trigger and provide a start date and time plus the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
-* To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger, 
+* To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
 
 <a name="custom"></a>
 

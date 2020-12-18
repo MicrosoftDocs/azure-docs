@@ -180,11 +180,11 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
 
-<a name="daylight-savings-standard-time"></a>
+<a name="trigger-recurrence-shift-drift"></a>
 
-## Shift between daylight saving time and standard time
+### Trigger recurrence shift and drift
 
-Connection-based triggers where you need to create a connection first, such as the SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurring connection-based triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* other factors that might produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SQL trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="add-sql-action"></a>
 
@@ -279,12 +279,6 @@ Connection problems can commonly happen, so to troubleshoot and resolve these ki
 * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
 * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
-
-<a name="trigger-start-time-drift"></a>
-
-### Trigger start time drifts from specified start time
-
-In recurring connection-based triggers, such as SQL Server, the schedule isn't the only driver that controls execution. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 ## Connector-specific details
 
