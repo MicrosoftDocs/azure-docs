@@ -46,7 +46,7 @@ Be aware that by default, endpoints with public IP addresses are used to communi
 
 ### Batch account API
 
- When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (AAD) authentication.
+ When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (Azure AD) authentication.
 
 ### Azure Resource Manager
 
