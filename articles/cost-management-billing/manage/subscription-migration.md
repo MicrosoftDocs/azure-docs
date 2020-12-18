@@ -29,7 +29,7 @@ As you begin to plan your subscription migration, consider the information neede
 
 - Why is the subscription migration required?
 - What are the desired timelines for the subscription migration?
-- What subscription types are the source and destination subscriptions?
+- What is the subscriptions current offer type and what do you want to migrate it too?
   - Microsoft Online Service Program (MOSP), also called pay-as-you-go.
   - Microsoft Cloud Solution Provider (CSP) v1
   - CSP V2 (Azure plan)
