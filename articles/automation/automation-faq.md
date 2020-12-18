@@ -4,9 +4,7 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 02/25/2020
+ms.date: 12/17/2020
 ---
 
 # Azure Automation frequently asked questions
@@ -44,6 +42,35 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+## Process automation - Python runbooks
+
+### Which Python 3 version is supported in Azure Automation?
+
+For cloud jobs, Python 3.8 is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.
+
+For hybrid jobs on Windows Hybrid Runbook Workers, you can choose to install any 3.x version you want to use. For hybrid jobs on Linux Hybrid Runbook Workers, we depend on Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. We recommend installing version 3.6; however different versions should also work if there are no breaking changes in method signatures or contracts between versions of Python 3.
+
+### Can Python 2 and Python 3 runbooks run in same automation account?
+
+Yes, there are no limitation for using Python 2 and Python 3 runbooks in same automation account.  
+
+### What is the plan for migrating existing Python 2 runbooks and packages to Python 3?
+
+Azure Automation does not plan to migrate Python 2 runbooks and packages to Python 3. You will have to perform this migration yourself. Existing and new Python 2 runbooks and packages will continue to work.
+
+### What are the packages supported by default in Python 3 environment in Azure Automation? How can I update these packages to latest version?
+
+Azure package 4.0.0 is installed by default in Python 3 Automation environment. You can manually import a higher version of Azure package to override the default version.
+
+### What if I run a Python 3 runbook that references a Python 2 package or vice-versa?
+
+Python 2 and Python 3 have different execution environments. While a Python 2 runbook is running, only Python 2 packages can be imported and similar for Python 3.
+
+
+### How do I differentiate between Python 2 and Python 3 runbooks and packages?
+
+Python 3 is a new runbook definition, which distinguishes between Python 2 and Python 3 runbooks. Similarly, another package kind is introduced for Python 3 packages.
 
 ## Next steps
 
