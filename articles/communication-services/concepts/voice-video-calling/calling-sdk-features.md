@@ -53,7 +53,7 @@ The following list presents the set of features which are currently available in
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## Calling client JS library support by OS and browsers
+## Javascript calling client library support by OS and browser
 
 The following table represents the set of supported browsers and versions which are currently available.
 
