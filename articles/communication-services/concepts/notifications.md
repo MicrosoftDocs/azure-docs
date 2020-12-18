@@ -116,7 +116,7 @@ Make sure that you configure Communication Services resource with the correct co
 
 #### The linked connection string is regenerated
 
-In case that you regenerated the connection string, you have to update the connection string with the new one in your Communication Services resource by [relinking the Notification Hub](#notification-hub-provisioning).
+In case that you regenerated the connection string of your linked Azure Notification Hub, you have to update the connection string with the new one in your Communication Services resource by [relinking the Notification Hub](#notification-hub-provisioning).
 
 ## Next steps
 
