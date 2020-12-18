@@ -35,7 +35,7 @@ As you begin to plan your subscription migration, consider the information neede
   - Microsoft Cloud Solution Provider (CSP) v2 (Azure Plan), also known as Microsoft Partner Agreement (MPA).
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA)
-  - Others like MSDN, BizSpark, EOPEN, and Azure Pass.
+  - Others like MSDN, BizSpark, EOPEN, Azure Pass and Free Trial.
 - Do you need to export all resources from every source subscription?
 
 You should have an answer for each question before you start a migration.
