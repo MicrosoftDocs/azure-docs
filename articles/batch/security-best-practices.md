@@ -40,9 +40,19 @@ With user subscription mode, Batch VMs and other resources are created directly 
 
 ## Restrict network endpoint access
 
-By default, endpoints with public IP addresses are used to communicate with Batch accounts, Batch pools, and pool nodes. When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (AAD) authentication. 
+### Batch network endpoints
 
-Depending on your scenario, you may want to further restrict access to these endpoints.
+Be aware that by default, endpoints with public IP addresses are used to communicate with Batch accounts, Batch pools, and pool nodes.
+
+### Batch account API
+
+ When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (AAD) authentication.
+
+### Azure Resource Manager
+
+In addition to operations specific to a Batch account, [management operations](/rest/api/batchmanagement/) apply to single and multiple Batch accounts. These management operations are accessed via Azure Resource Manager (ARM).
+
+Batch management operations via ARM are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
 
 ### Use private endpoints
 
@@ -116,9 +126,7 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 - [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
 - [Encryption at host using a platform-managed key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
-
-It is not currently possible to encrypt [data disks](/rest/api/batchservice/pool/add#datadisk) on compute nodes.
+- [Azure Disk Encryption](disk-encryption.md)
 
 ## Securely access services from compute nodes
 
