@@ -30,7 +30,7 @@ Existing Azure support plans or packages can't be used after subscriptions are m
 
 Azure EA monetary commitment (now known as Azure Prepayment) funds don't transfer to CSP and are lost after migration. To avoid losing funds, plan for your migration to take place after the EA commitment is fully used.
 
-If the customer is a large Azure consumer, their CSP migration may not be automatically permitted. You may need to contact with your Microsoft PDM (Partner Development Manager) and the customer's Microsoft Account Executive. Talking to them can help ensure that the migration to CSP is the best-suited for the customer. The approval can take weeks to complete.
+If the customer is a large Azure consumer, their CSP migration may not be automatically permitted. You may need to contact with your Microsoft PDM (Partner Development Manager) and the customer's Microsoft Account Executive to discuss this migration. Talking to them can help ensure that the migration to CSP is the best-suited for the customer. The approval can take a few weeks to complete.
 
 ## Do the migration
 
