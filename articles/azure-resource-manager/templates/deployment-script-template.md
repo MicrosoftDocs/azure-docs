@@ -40,14 +40,14 @@ The deployment script resource is only available in the regions where Azure Cont
 
 For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
-To configure the least privileged permissions, you need:
+To configure the least-privilege permissions, you need:
 
 - Assign a custom role with the following properties to the deployment principal:
 
   ```json
   {
     "roleName": "deployment-script-min",
-    "Description": "Configure least privilege for deployment script",
+    "Description": "Configure least privilege for the deployment principal in deployment script",
     "type": "customRole",
     "IsCustom": true,
     "permissions": [
@@ -65,14 +65,14 @@ To configure the least privileged permissions, you need:
   }
   ```
 
-  If you need to register ACI, you also need to add **Microsoft.ContainerInstance/register/action**.
+  If Azure Container Instance hasn't been registered, you also need to add **Microsoft.ContainerInstance/register/action**.
 
-- If a managed identity is used, you need to assigned the **Managed Identity Operator** role and a custom role with the following properties to the managed identity:
+- If a managed identity is used, you need to assigned both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
 
   ```json
   {
     "roleName": "deployment-script-min-mi",
-    "Description": "Permissions for the managed identity to execute a deployment script",
+    "Description": "Configure least privilege for the managed identity in deployment script",
     "type": "customRole",
     "IsCustom": true,
     "permissions": [
