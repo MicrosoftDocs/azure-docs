@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 12/18/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -30,9 +30,9 @@ Synonym maps and indexes are maintained independently. Once you define a synonym
 
 Incorporating synonyms into your search application is a two-step process:
 
-1.	Add a synonym map to your search service through the APIs below.  
+1. Add a synonym map to your search service through the APIs below.  
 
-2.	Configure a searchable field to use the synonym map in the index definition.
+1. Configure a searchable field to use the synonym map in the index definition.
 
 You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
 
