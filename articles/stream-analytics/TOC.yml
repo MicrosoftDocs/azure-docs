@@ -40,6 +40,9 @@
     href: stream-analytics-edge-csharp-udf.md
   - name: 5 - Create custom .NET deserializer
     href: custom-deserializer.md
+  - name: Create an IoT Edge job
+    href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+    maintainContext: true
 - name: Samples
   items:
   - name: Code samples
@@ -129,6 +132,8 @@
       href: repartition.md
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
+  - name: IoT Edge
+    href: stream-analytics-edge.md
   - name: States of a job
     href: job-states.md
   - name: Window functions
@@ -208,8 +213,6 @@
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Real-time fraud detection
       href: stream-analytics-real-time-fraud-detection.md
-    - name: Run jobs on IoT Edge
-      href: stream-analytics-edge.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
     - name: Toll booth sensor data analysis
