@@ -132,21 +132,21 @@ conda install <package> -n py35
 
 If you're on a graphical interface or have X11 forwarding set up, you can enter **pycharm** to open the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that's bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. The graphical desktop has a shortcut to Spyder.
 
-## Jupyter notebook
+## Jupyter Notebook
 
-The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
+The Anaconda distribution also comes with a Jupyter Notebook, an environment to share code and analysis. The Jupyter Notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at `https://localhost:8000/`.
+The Jupyter Notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter Notebook server at `https://localhost:8000/`.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
 
-You can access the Jupyter notebook server from any host. Enter **https://\<VM DNS name or IP address\>:8000/**.
+You can access the Jupyter Notebook server from any host. Enter **https://\<VM DNS name or IP address\>:8000/**.
 
 > [!NOTE]
 > Port 8000 is opened in the firewall by default when the VM is provisioned. 
 
-We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux username and password. You can create a new notebook by selecting **New**, and then selecting the appropriate language kernel. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
+We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter Notebook by using your local Linux username and password. You can create a new notebook by selecting **New**, and then selecting the appropriate language kernel. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
 
 ## Apache Spark standalone
 
@@ -240,7 +240,7 @@ You can access the [Azure portal](https://portal.azure.com) from the pre-install
 
 Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio (preview). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
+After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter Notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 
