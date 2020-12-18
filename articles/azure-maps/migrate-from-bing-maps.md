@@ -3,7 +3,7 @@ title: 'Tutorial: Migrate from Bing Maps to Azure Maps | Microsoft Azure Maps'
 description:  A tutorial on how to migrate from Bing Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -15,7 +15,7 @@ ms.custom:
 
 This guide provides insights on how to migrate web, mobile and server-based applications from Bing Maps to the Azure Maps platform. This guide includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps. 
 
-In this tutorial, you will learn:
+In this tutorial, you'll learn:
 
 > [!div class="checklist"]
 > * High-level comparison for equivalent Bing Maps features available in Azure Maps.
@@ -63,17 +63,17 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Traffic Incidents                     | ✓                  |
 | Configuration driven maps             | N/A                |
 
-Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication as well as highly secure, Azure Active Directory authentication.
+Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
 
 ## Licensing considerations
 
-When migrating to Azure Maps from Bing Maps, the following should be considered with regards to licensing.
+When migrating to Azure Maps from Bing Maps, the following information should be considered with regards to licensing.
 
-* Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). On Azure Maps, map tiles are automatically cached to reduce the cost for the developer. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
+* Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). To reduce  costs for developers, Azure Maps automatically caches map tiles. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
 
 * Azure Maps allows data from its platform to be stored in Azure. It can also be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Here is some licensing related resources for Azure Maps:
+Here are some licensing-related resources for Azure Maps:
 
 -   [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
@@ -82,7 +82,7 @@ Here is some licensing related resources for Azure Maps:
 
 ## Suggested migration plan
 
-The following is a high-level migration plan.
+Here's an example of a high-level migration plan.
 
 1.  Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
 2.  Create an Azure subscription (if you don’t already have one) at <https://azure.com>.
@@ -119,7 +119,7 @@ Developers can seek migration support through the [forums](/answers/topics/azure
 
 ## New terminology
 
-The following is a list of common Bing Maps terms and that are known by a different term in Azure Maps.
+The following list contains common Bing Maps terms and their corresponding Azure Maps terms.
 
 | Bing Maps Term                    | Azure Maps Term                                                |
 |-----------------------------------|----------------------------------------------------------------|
@@ -140,7 +140,7 @@ The following is a list of common Bing Maps terms and that are known by a differ
 
 ## Clean up resources
 
-No resources to be cleaned up.
+There are no resources that require cleanup.
 
 ## Next steps
 
