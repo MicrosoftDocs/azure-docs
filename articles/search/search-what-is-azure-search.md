@@ -20,7 +20,7 @@ When you create a Cognitive Search service, you get:
 + A search engine that performs indexing and query execution
 + Persistent storage of search indexes that you create and manage
 + A query language for composing simple to complex queries
-+ AI-centered analysis, creating searchable content out of images, raw text, application files
++ [AI-driven enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
 + Integration with other Azure services for data, machine learning/AI, and security
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
@@ -87,7 +87,7 @@ Key strengths include:
 + Azure Private Link integration to support off-internet security requirements
 + Integration with AI processing to make unsearchable content types text-searchable.
 + Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
-+ Implement [critical features common to search-centric apps](search-features-list.md): scoring, faceting, suggestions, synonyms, geo-search, and more.
++ [Critical features](search-features-list.md): rich query language, relevance tuning, faceting, autocomplete, synonyms, geo-search, and result composition.
 + Azure scale, reliability, and world-class availability
 
 Among our customers, those able to leverage the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
