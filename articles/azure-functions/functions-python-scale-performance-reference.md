@@ -29,11 +29,11 @@ As real world function workloads are usually a mix of I/O and CPU bound, you sho
 
 After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
 
-* [Async](#Async)
-* [Multiple language worker](#Use-multiple-language-worker-processes)
-* [Max workers within a language worker process](#Set-up-max-workers-within-a-language-worker-process)
-* [Event loop](#Managing-event-loop)
-* [Vertical Scaling](#Vertical-scaling)
+* [Async](#async)
+* [Multiple language worker](#use-multiple-language-worker-processes)
+* [Max workers within a language worker process](#set-up-max-workers-within-a-language-worker-process)
+* [Event loop](#managing-event-loop)
+* [Vertical Scaling](#vertical-scaling)
 
 
 
@@ -104,7 +104,7 @@ The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates w
 
 As mentioned in the async [section](#understanding-async-in-python-worker), the Python language worker treats functions and [coroutines](https://docs.python.org/3/library/asyncio-task.html#coroutines) differently. A coroutine is run within the same event loop that the language worker runs on. On the other hand, a function invocation is run within a [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor), that is maintained by the language worker, as a thread.
 
-You can set the value of maximum workers allowed for running sync functions using the [PYTHON_THREADPOOL_THREAD_COUNT](functions-app-settings.md#functions_threadpool_thread_count) application setting. This value sets the `max_worker` argument of the ThreadPoolExecutor object, which lets Python use a pool of at most `max_worker` threads to execute calls asynchronously. The `PYTHON_THREADPOOL_THREAD_COUNT` applies to each worker that Functions host creates, and Python decides when to create a new thread or reuse the existing idle thread. For older Python versions(i.e. `3.8`, `3.7`, and `3.6`), `max_worker` value is set to 1. For Python version `3.9` , `max_worker` is  set to `None`.
+You can set the value of maximum workers allowed for running sync functions using the [PYTHON_THREADPOOL_THREAD_COUNT](functions-app-settings.md#python_threadpool_thread_count) application setting. This value sets the `max_worker` argument of the ThreadPoolExecutor object, which lets Python use a pool of at most `max_worker` threads to execute calls asynchronously. The `PYTHON_THREADPOOL_THREAD_COUNT` applies to each worker that Functions host creates, and Python decides when to create a new thread or reuse the existing idle thread. For older Python versions(i.e. `3.8`, `3.7`, and `3.6`), `max_worker` value is set to 1. For Python version `3.9` , `max_worker` is  set to `None`.
 
 For CPU-bound apps, you should keep the setting to a low number, starting from 1 and increasing as you experiment with your workload. This suggestion is to reduce the time spent on context switches and allowing CPU-bound tasks to finish.
 
@@ -113,7 +113,7 @@ For I/O-bound apps, you should see substantial gains by increasing the number of
 For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 
 > [!NOTE]
->  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](./functions-best-practice).
+>  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practice).
 
 
 #### Managing Event Loop
@@ -169,7 +169,7 @@ For more processing units especially in CPU-bound operation, you might be able t
 
 For more information about Azure Functions Python development, see the following resources:
 
-* [Azure Functions Python developer guide](./functions-reference-python)
-* [Best practices for Azure Functions](./functions-best-practice)
-* [Azure Functions developer reference](./functions-reference)
+* [Azure Functions Python developer guide](functions-reference-python)
+* [Best practices for Azure Functions](functions-best-practices)
+* [Azure Functions developer reference](functions-reference)
 
