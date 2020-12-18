@@ -3516,27 +3516,27 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-dictionary",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-dictionary.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-languages",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-languages.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-sentence",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-sentence.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translate",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translate.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-transliterate",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-transliterate.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
