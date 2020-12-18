@@ -27,14 +27,15 @@ To complete this tutorial, you need the following:
 
 - An Azure virtual machine. During this tutorial, you will start and stop this machine, so it should not be a production VM.
 
-- You can use a Linux or Windows Hybrid Runbook Worker to run Python 3 runbooks. Follow the instructions for installing a [Linux](../automation-linux-hrw-install.md) or [Windows](automation-windows-hrw-install.md) Hybrid Runbook Worker. There is no specific pre-requisite for a Linux Hybrid Worker. However, to use a Windows Hybrid Worker for Python 3 runbooks, configure your the machine hosting the runbook worker based on if you are only supporting Python 3, or if Python 2 and 3 need to coexist.
+- You can use a Linux or Windows Hybrid Runbook Worker to run Python 3 runbooks. Follow the instructions for installing a [Linux](../automation-linux-hrw-install.md) or [Windows](../automation-windows-hrw-install.md) Hybrid Runbook Worker. There is no specific pre-requisite for a Linux Hybrid Worker. However, to use a Windows Hybrid Worker for Python 3 runbooks, configure your the machine hosting the runbook worker based on if you are only supporting Python 3, or if Python 2 and 3 need to coexist.
 
    * If you have Python 2 or Python 3 *only* installed, you need to append the path of the folder where python.exe is located to the **PATH** environmental variable. For example, if python.exe is in the installation path `C:\Python`, then that path needs to be appended to the **PATH** environmental variable.
 
    * If you have both Python 2 and Python 3 installed and you want to run both types of runbooks, then you need to configure the following environmental variables:
 
-        * Python 2 - Create a new environmental variable called `PYTHON_2_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python27`, then this path needs to be added to the variable.
-        * Python 3 - Create a new environmental variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
+     * Python 2 - Create a new environmental variable called `PYTHON_2_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python27`, then this path needs to be added to the variable.
+     
+     * Python 3 - Create a new environmental variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
 
 ## Create a new runbook
 

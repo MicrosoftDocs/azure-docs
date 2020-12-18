@@ -31,7 +31,7 @@ Deploying updates by update classification doesn't work on RTM versions of CentO
 
 ### Can I deploy updates across Azure tenants?
 
-If you have machines that need patching in another Azure tenant reporting to Update Management, you must use a following workaround to get them scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet with the `ForUpdateConfiguration` parameter specified to create a schedule. You can use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this.
+If you have machines that need patching in another Azure tenant reporting to Update Management, you must use a following workaround to get them scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet with the `ForUpdateConfiguration` parameter specified to create a schedule. You can use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -66,7 +66,6 @@ Azure package 4.0.0 is installed by default in Python 3 Automation environment. 
 ### What if I run a Python 3 runbook that references a Python 2 package or vice-versa?
 
 Python 2 and Python 3 have different execution environments. While a Python 2 runbook is running, only Python 2 packages can be imported and similar for Python 3.
-
 
 ### How do I differentiate between Python 2 and Python 3 runbooks and packages?
 
