@@ -291,7 +291,24 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 ## Visualizations
 
-After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model. The top ribbon shows the overall statistics on your model and data. You can also slice and dice your data into cohorts, or subgroups, to investigate or compare your model’s performance and explanations across these defined subgroups. You can further investigate and compare your dataset statistics across those subgroups and get a sense of why possible errors are happening in one group versus another.
+After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model. To load the visualization dashboard widget in your Jupyter Notebook, use the following code:
+
+```python
+from interpret_community.widget import ExplanationDashboard
+
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
+```
+
+The visualization supports explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
+
+When attempting to interpret a model with respect to the original dataset it is recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This can be useful when narrowing down which part of the dataset is most informative to the model.
+
+> [!NOTE]
+> Engineered and raw explanations are computed sequentially. First an engineered explanation is created based on the model and featurization pipeline. Then the raw explanation is created based on that engineered explanation by aggregating the importance of engineered features that came from the same raw feature.
+
+### Create, edit and view dataset cohorts
+
+The top ribbon shows the overall statistics on your model and data. You can slice and dice your data into dataset cohorts, or subgroups, to investigate or compare your model’s performance and explanations across these defined subgroups. By comparing your dataset statistics and explanations across those subgroups, you can get a sense of why possible errors are happening in one group versus another.
 
 [![Creating, editing, and viewing dataset cohorts](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif#lightbox)
 
@@ -329,13 +346,6 @@ The fourth tab of the explanation tab lets you drill into an individual datapoin
 > [!NOTE]
 > These are explanations based on many approximations and are not the "cause" of predictions. Without strict mathematical robustness of causal inference, we do not advise users to make real-life decisions based on the feature perturbations of the What-If tool. This tool is primarily for understanding your model and debugging.
 
-To load the visualization dashboard, use the following code.
-
-```python
-from interpret_community.widget import ExplanationDashboard
-
-ExplanationDashboard(global_explanation, model, datasetX=x_test)
-```
 ### Visualization in Azure Machine Learning studio
 
 If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
@@ -357,7 +367,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
 
 ## Interpretability at inference time
 
-You can deploy the explainer along with the original model and use it at inference time to provide the individual feature importance values (local explanation) for new any new datapoint. We also offer lighter-weight scoring explainers to improve interpretability performance at inference time. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
+You can deploy the explainer along with the original model and use it at inference time to provide the individual feature importance values (local explanation) for any new datapoint. We also offer lighter-weight scoring explainers to improve interpretability performance at inference time, which is currently supported only in Azure Machine Learning SDK. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
 
 1. Create an explanation object. For example, you can use `TabularExplainer`:
 
