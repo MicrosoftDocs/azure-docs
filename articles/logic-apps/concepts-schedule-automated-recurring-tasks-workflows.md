@@ -154,7 +154,7 @@ Here are various example recurrences that you can set up for the triggers that s
 
 ## Recurrence for daylight saving time and standard time
 
-Recurrence-based built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends. When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is set to run.
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends. When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is set to run.
 
 To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change.
 
@@ -191,7 +191,7 @@ If these logic apps are set to use the UTC-6:00 Central Time (US & Canada), this
     | Date | Time (local) | Time (UTC) | Notes |
     |------|--------------|------------|-------|
     | 03/09/2019 | 2:30:00 AM | 8:30:00 AM | UTC before the day that DST takes effect. |
-    | 03/10/2019 | 3:30:00 AM* | 8:30:00 AM | DST is already in effect, so local time has moved one hour forward because the UTC-6:00 time zone changes to UTC-5:00. For more information, see []. |
+    | 03/10/2019 | 3:30:00 AM* | 8:30:00 AM | DST is already in effect, so local time has moved one hour forward because the UTC-6:00 time zone changes to UTC-5:00. For more information, see [Triggers that start between 2:00 AM - 3:00 AM](#dst-window). |
     | 03/11/2019 | 2:30:00 AM | 7:30:00 AM | UTC shifted one hour backward after DST took effect. |
     |||||
 

@@ -394,19 +394,21 @@ Connections can access the target service or system for as long as that service 
 
 ## Recurrence behavior
 
-The behavior for recurrence-based built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurrence-based connection triggers where you need to create a connection first, such as the SQL Server trigger.
+The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL Server trigger.
 
 <a name="recurrence-built-in"></a>
 
 ### Recurrence for built-in triggers
 
-Recurrence-based built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight saving time and one hour backward for standard time. To prevent this shift and always use your specified start time, make sure that you select a time zone. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 <a name="recurrence-connection-based"></a>
 
 ### Recurrence for connection-based triggers
 
-In recurrence-based connection triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors that might produce unexpected behavior, for example, not adjusting for events such as rolling one hour forward for daylight saving time and rolling one hour backward for standard time:
+In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors that might produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends:
 
 * Any failures or retries that a connection-based trigger incurs.
 
