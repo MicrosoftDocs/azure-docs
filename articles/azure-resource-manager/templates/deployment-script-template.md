@@ -588,3 +588,7 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
+
+> [!div class="nextstepaction"]
+> [Learn module: Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/)
+
