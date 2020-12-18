@@ -218,7 +218,7 @@ Azure Stack Edge devices boot up into a locked state for local access. For the l
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40433).
 
-**Guidance**: Strong authentication controls, such as multifactor authentication, is an opt-in feature for the Azure Stack Edge service users. It can be leveraged for supported scenarios such as edge-management of Azure Stack Edge devices at the Azure portal. Note that the local access to the Azure Stack Edge devices does not support multifactor authentication.
+**Guidance**: Multifactor authentication  is a strong authentication control, but an opt-in feature for the Azure Stack Edge service users. It can be leveraged for supported scenarios such as edge-management of Azure Stack Edge devices at the Azure portal. Note that the local access to the Azure Stack Edge devices does not support multifactor authentication.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -408,9 +408,9 @@ role-management automation.
 
 The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](/azure/active-directory/devices/concept-azure-managed-workstation) 
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/azure/active-directory/devices/howto-azure-managed-workstation)
 
 **Azure Security Center monitoring**: Currently not available
 
