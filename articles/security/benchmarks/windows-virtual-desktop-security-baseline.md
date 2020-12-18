@@ -204,7 +204,7 @@ Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to cr
 
 - [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) 
 
-- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#security-principal-registration)
+- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -432,9 +432,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstation can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](/azure/active-directory/devices/concept-azure-managed-workstation) 
 
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/azure/active-directory/devices/howto-azure-managed-workstation)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1195,7 +1195,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 - [Encryption of backup data using customer-managed keys](/azure/backup/encryption-at-rest-with-cmk) 
 
-- [How to backup Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0) 
+- [How to backup Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&amp;preserve-view=true)
 
 - [Security features to help protect hybrid backups from attacks](/azure/backup/backup-azure-security-feature#prevent-attacks)
 
