@@ -20,7 +20,7 @@ Services that are available in each region, along with the upcoming roadmap for 
 All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within a region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
 
 
-![conceptual view of an Azure region with 3 zones](./media/azure-region-availability-zones.png)
+![conceptual view of an Azure region with 3 zones](./media/az-region/azure-region-availability-zones.png)
 
 
 Azure services supporting Availability Zones fall into three categories: **zonal**, **zone-redundant**, and **non-regional** services. Customer workloads can be categorized to utilize any of these architecture scenarios to meet application performance and durability.
