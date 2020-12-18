@@ -340,7 +340,13 @@ If you are using [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.mod
 
 When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
 
-Create a [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Create a [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) object. A custom analyzer is a user-defined combination of known tokenizer, token filter, and character filter names:
+
++ [CustomAnalyzer.Tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
+
+The following examples creates a custom anlayzer named "url-analyze" that uses the [uax_url_email tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) and the [Lowercase token filter](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient adminClient)
@@ -360,6 +366,8 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
    adminClient.CreateOrUpdateIndex(definition);
 }
 ```
+
+For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ## Next steps
 
