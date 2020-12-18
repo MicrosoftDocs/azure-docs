@@ -34,7 +34,7 @@ If the customer is a large Azure consumer, their CSP migration may not be automa
 
 ## Do the migration
 
-The migration process is a _no downtime_ migration, it's just a billing change on the Azure back end.
+The migration process is a _no downtime_ migration, it's just a billing change on the Azure back end. The process is documented at [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md).
 
 You can only migrate subscriptions between the same Azure AD tenant. If the customer has subscriptions linked to different Azure AD tenants on their EA, you must set up a separate CSP partner relationship for each of the Azure AD tenants (\*.onmicrosoft.com domains).
 
