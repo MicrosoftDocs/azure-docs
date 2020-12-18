@@ -42,7 +42,7 @@ You should have an answer for each question before you proceed with any migratio
 
 Answers help you to communicate early with others to set expectations and timelines. Subscription migration effort varies greatly, but a migration is likely to take longer than expected.
 
-Answers for the last two questions help define technical paths that you'll need to follow and identify limitations that a migration combination might have. Limitations are covered more fully in the next section.
+Answers for the source and destination offer type questions help define technical paths that you'll need to follow and identify limitations that a migration combination might have. Limitations are covered in more detail in the next section.
 
 ## Subscription migration support
 
