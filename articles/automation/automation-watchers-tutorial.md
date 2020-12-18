@@ -39,10 +39,11 @@ To complete this article, the following are required:
 
 This article uses a watcher runbook called **Watch-NewFile** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark.
 
-This import process can be done through the [Azure Automation GitHub organization](https://github.com/azureautomation).
+You can download the runbook from the [Azure Automation GitHub organization](https://github.com/azureautomation).
 
 1. Navigate to the Azure Automation GitHub organization page for [Watch-NewFile.ps1](https://github.com/azureautomation/watcher-action-that-processes-events-triggerd-by-a-watcher-runbook).
-2. Under the **Azure Automation** tab, click **Deploy to Azure Automation**.
+2. To download the runbook from Github, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
+3. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
 
 You can also import this runbook into your Automation account from the portal using the following steps.
 
@@ -68,7 +69,8 @@ An action runbook is used in a watcher task to act on the data passed to it from
 To create an action runbook:
 
 1. Navigate to the Azure Automation GitHub organization page for [Process-NewFile.ps1](https://github.com/azureautomation/watcher-action-that-processes-events-triggerd-by-a-watcher-runbook).
-2. Under the **Azure Automation** tab, click **Deploy to Azure Automation**.
+2. To download the runbook from Github, select **Code** from the right-hand side of the page, and then select **Download ZIP** to download the whole code in a zip file.
+3. Extract the contents and [import the runbook](manage-runbooks.md#import-a-runbook-from-the-azure-portal).
 
 You can also import this runbook into your Automation account from the Azure portal:
 
