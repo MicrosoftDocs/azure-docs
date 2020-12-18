@@ -84,7 +84,7 @@ When push notifications aren't being received on the device, there are three pla
 1. The Platform Notification System (for example APNs and FCM) didn't accept the notification from Azure Notification Hubs
 1. The Platform Notification System didn't deliver the notification to the device.  
 
-The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other 2 places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
+The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other two places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
 One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
 
@@ -104,7 +104,7 @@ The Azure Notification Hub linked to your Communication Services resource doesn'
 
 #### The Azure Notification Hub APNs platform is configured with certificate authentication mode
 
-As mentioned above the APNs platform isn't supported when is being configured with certificate authentication mode.
+As mentioned above, certificate authentication mode is not currently supported with the APNs platform.
 The APNs platform should be configured with token authentication mode as specified in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
 #### The linked connection string doesn't have `Send` permission
