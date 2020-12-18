@@ -163,23 +163,23 @@ Property value details:
 - **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
-    >[!IMPORTANT]
-    > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
+  >[!IMPORTANT]
+  > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
 
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
-    Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
-     to Azure Container Instance, and the command property is an array of string.
+  Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
+    to Azure Container Instance, and the command property is an array of string.
 
-    If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is **-name \\"John Dole\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
+  If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is **-name \\"John Dole\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
 
-    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any **\\"** into **\\\\\\"**. For example:
+  To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any **\\"** into **\\\\\\"**. For example:
 
-    ```json
-    replace(string(parameters('tables')), '\"', '\\\"')
-    ```
+  ```json
+  replace(string(parameters('tables')), '\"', '\\\"')
+  ```
 
-    To see a sample template, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+  To see a sample template, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
