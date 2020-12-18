@@ -4,7 +4,7 @@ description: The Azure Stack Edge security baseline provides procedural guidance
 author: msmbaldwin
 ms.service: databox-online
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -18,17 +18,11 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 To see how Azure Stack Edge completely maps to the Azure Security Benchmark, see the [full Azure Stack Edge security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### NS-1: Implement security for internal traffic
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40444).
 
 **Guidance**: Customers deploy a Microsoft-provided, physical, Azure Stack Edge device into their private network for internal access and have options to secure it further. 
 For example, the Azure Stack Edge device is accessible over the customer's internal network and requires a customer-configured IP. Additionally, an access password is chosen by the customer to access the user interface of the device. 
@@ -53,9 +47,6 @@ Additional information is available at the referenced links.
 
 ### NS-2: Connect private networks together
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40445).
-
 **Guidance**: Customers can choose a point-to-site virtual private network (VPN) to connect an Azure Stack Edge device from their on-premise private network to the Azure network. VPN provides a second layer of encryption for the data-in-motion over transport layer security from the customer's device to Azure. 
 
 Customers can configure a virtual private network on their Azure Stack Edge device via the Azure portal or via the Azure PowerShell.
@@ -72,9 +63,6 @@ Customers can configure a virtual private network on their Azure Stack Edge devi
 
 ### NS-3: Establish private network access to Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40446).
-
 **Guidance**: Customers can choose a point-to-site virtual private network (VPN) to connect an Azure Stack Edge device from their on-premise private network to the Azure network. VPN provides a second layer of encryption for the data-in-motion over transport layer security from the customer's device to Azure. 
 
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
@@ -89,9 +77,6 @@ Customers can configure a virtual private network on their Azure Stack Edge devi
 
 ### NS-4: Protect applications and services from external network attacks
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40447).
-
 **Guidance**: The Azure Stack Edge device incorporates standard Windows Server network protection features, which are not configurable by customers.
 
 Customers can choose to secure their private network connected with Azure Stack Edge device from external attacks using a network virtual appliance, such as a firewall with advanced distributed denial of service (DDoS) protections.
@@ -101,9 +86,6 @@ Customers can choose to secure their private network connected with Azure Stack 
 **Responsibility**: Shared
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40448).
 
 **Guidance**: The endpoints used by Azure Stack Edge device are all managed by Microsoft. Customers are responsible for any additional controls they wish to deploy to their on-premise systems.
 
@@ -119,76 +101,11 @@ The Azure Stack Edge device uses its own intrusion detection features to protect
 
 **Responsibility**: Shared
 
-### NS-6: Simplify network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40449).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this
-recommendation is intended for offerings that have the capability to define
-groupings of allowed IP ranges for efficient management in Network Access
-Control Lists. Azure Stack Edge does not currently support service tags.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-7: Secure Domain Name Service (DNS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40450).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Stack Edge does not offer domain name service capabilities. The Azure Stack Edge device uses the existing domain name service environment setup on your on-premises network.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-### IM-1: Standardize Azure Active Directory as the central identity and authentication system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40430).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Active Directory (Azure AD) authentication is required for all management operations performed on Azure Stack Edge devices via the Azure portal. Azure Stack Hub requires Azure AD or Active Directory Federation Services (ADFS), backed by Azure AD, as an identity provider.
-
-Standardize on Azure AD to govern your organization’s identity and access management in:
-
-- Microsoft cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, platform as a service (PaaS), and software as a service (SaaS) applications
-
-- Your organization's resources, such as applications on Azure or your corporate network resources
-
-Note that Azure AD is used only when accessing the device through the Azure portal. Any local management operations to the Azure Stack Edge device will not leverage Azure AD. 
-
-- [Tenancy in Azure AD](../active-directory/develop/single-and-multi-tenant-apps.md)
-
-- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-
-- [Define Azure AD tenants](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory)
-
-- [Use external identity providers for an application](/azure/active-directory/b2b/identity-providers)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### IM-2: Manage application identities securely and automatically
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40431).
 
 **Guidance**: All Azure Stack Edge devices automatically have a system-assigned managed identity in Azure Active Directory (Azure AD). Currently, the managed identity is used for the cloud management of virtual machines hosted on Azure Stack Edge.
 
@@ -202,9 +119,6 @@ Azure Stack Edge devices boot up into a locked state for local access. For the l
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40432).
-
 **Guidance**: Single sign-on is not supported for Azure Stack Edge endpoint devices. However, you can choose to enable standard Azure Active Directory (Azure AD) based single sign-on to secure access to your Azure cloud resources.
 
 - [Understand application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
@@ -215,9 +129,6 @@ Azure Stack Edge devices boot up into a locked state for local access. For the l
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40433).
-
 **Guidance**: Multifactor authentication  is a strong authentication control, but an opt-in feature for the Azure Stack Edge service users. It can be leveraged for supported scenarios such as edge-management of Azure Stack Edge devices at the Azure portal. Note that the local access to the Azure Stack Edge devices does not support multifactor authentication.
 
 **Azure Security Center monitoring**: Not applicable
@@ -225,9 +136,6 @@ Azure Stack Edge devices boot up into a locked state for local access. For the l
 **Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40434).
 
 **Guidance**: Enable Azure Monitor to gather device or container logs for your Azure Stack Edge service. Monitor containers, such as the ones running multiple compute applications at the Kubernetes cluster on your device.
 
@@ -243,9 +151,6 @@ Additionally, a support package, which includes audit logs can be gathered at th
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40435).
-
 **Guidance**: Azure Active Directory (Azure AD) conditional access is an opt-in feature for authentication to Azure Stack Edge service. Azure Stack Edge service is a resource in the Azure portal that lets you manage an Azure Stack Edge Pro device across different geographical locations. 
 
 - [What is conditional access](../active-directory/conditional-access/overview.md)
@@ -255,9 +160,6 @@ Additionally, a support package, which includes audit logs can be gathered at th
 **Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40436).
 
 **Guidance**: Follow the best practices to protect credentials, such as:
 
@@ -276,42 +178,11 @@ Rotate and then sync your storage account keys regularly to help protect your st
 
 **Responsibility**: Customer
 
-### IM-8: Secure user access to legacy applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40472).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Stack Edge service does not have a need to access any legacy applications.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Privileged Access
 
 *For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
-### PA-1: Protect and limit highly privileged users
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40437).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not Applicable; Azure Stack Edge device does not have an administrative account. Additionally, highly privileged users are not required for Azure Stack Edge management operations .
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PA-2: Restrict administrative access to business-critical systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40438).
 
 **Guidance**: Azure Stack Edge solution has several components with strong access-controls to restrict access to business critical devices. Your organization will need an Enterprise Agreement (EA) or Cloud Solution Provider (CSP) or a Microsoft Azure Sponsorship subscription to configure and manage the device: 
 
@@ -335,9 +206,6 @@ Follow the best practices to protect all credentials and secrets used to access 
 **Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40439).
 
 **Guidance**: Azure
 Stack Edge has a user named 'EdgeUser' that can configure the device. It also
@@ -366,41 +234,7 @@ Additional information is available at the referenced link.
 
 **Responsibility**: Customer
 
-### PA-4: Set up emergency access in Azure AD
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40440).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Stack Edge does not require any emergency accounts for its operations.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PA-5: Automate entitlement management 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40441).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Stack Edge does not support any account or
-role-management automation.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PA-6: Use privileged access workstations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40442).
 
 **Guidance**: Secured and isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations with or without Azure Bastion for administrative tasks. Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. 
 
@@ -414,68 +248,11 @@ The secured workstations can be centrally managed to enforce secured configurati
 
 **Responsibility**: Customer
 
-### PA-7: Follow just enough administration (least privilege principle) 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40443).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure
-Stack Edge users possess Just Enough Administration (JEA) access needed to perform their
-tasks. There is no need for full windows administrator access. 
-
-You
-can remotely connect to the PowerShell interface of  the Azure Stack Edge device. Remote management is also configured to use Just Enough Administration to
-limit what the users can do. You can then provide the device password to sign
-in to the device. 
-
-- [Connect remotely to your Azure Stack Edge device](azure-stack-edge-gpu-connect-powershell-interface.md)
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
-### PA-8: Choose approval process for Microsoft support  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40499).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable. Azure Stack Edge is not integrated with Customer Lockbox. You can still gather and download a support package for your Azure Stack Edge device with the local user interface (UI). 
-
-- [Gather a support package for Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md#collect-support-package)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
-### DP-1: Discovery, classify and label sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40451).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not Applicable; Azure
-Stack Edge does not offer capabilities to discover, classify, and label sensitive data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### DP-2: Protect sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40452).
 
 **Guidance**: Azure
 Stack Edge treats all interacted data as sensitive with only authorized users having access to this data. You should follow best practices to protect the credentials used to
@@ -487,27 +264,7 @@ access Azure Stack Edge service.
 
 **Responsibility**: Shared
 
-### DP-3: Monitor for unauthorized transfer of sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40453).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure
-Stack Edge does not monitor for unauthorized transfer of sensitive data. You could choose to set up Azure Storage Advanced Threat Protection (ATP) to alert you on any unauthorized transfers of sensitive information from your Azure Storage account.
-
-- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### DP-4: Encrypt sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40454).
 
 **Guidance**: Azure
 Stack Edge uses secure channels for data in flight. These are:
@@ -524,39 +281,11 @@ The best practice is to configure your browser to use TLS 1.2. Use SMB 3.0 with 
 
 **Responsibility**: Shared
 
-### DP-5: Encrypt sensitive data at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40455).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: All
-the data at rest on the Azure Stack Edge device is encrypted using AES 256-bit encryption. Access to data-at-rest, such as file shares, is restricted to:
-
-- SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.
-
-- The IP addresses of NFS clients that access a share need to be added when the share is created.
-
-- BitLocker XTS-AES 256-bit encryption is used to protect local data.
-
-Review additional information available at the referenced link.
-
-- [Protect data at rest for Azure Stack Edge devices](azure-stack-edge-pro-r-security.md#protect-data-at-rest)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ## Asset Management
 
 *For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40473).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -574,54 +303,7 @@ Note that additional permissions might be required to get visibility into worklo
 
 **Responsibility**: Customer
 
-### AM-2: Ensure security team has access to asset inventory and metadata
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40474).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Stack Edge devices allows you to create local VMs on these devices using your own custom images but there is no corresponding inventory and metadata tracking.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### AM-3: Use only approved Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40475).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Stack Edge does not have a specialized asset management process. Users can follow the standard Azure Security Benchmark practice to manage the approved Azure services.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### AM-4: Ensure security of asset lifecycle management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40476).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: All
-Azure Stack Edge security settings are pre-configured and cannot be modified. These security settings are
-maintained through updates.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40477).
 
 **Guidance**: Only authorized users, for example, the 'EdgeArmUser' can access the Azure Stack Edge device APIs via the local Azure Resource Manager. User account passwords can only be managed at the Azure portal. 
 
@@ -632,9 +314,6 @@ maintained through updates.
 **Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40478).
 
 **Guidance**: You can bring in your own applications to run on any locally created virtual machines. Use PowerShell scripts to create local compute virtual machines on your Stack Edge device. We strongly recommend that you bring in only trusted applications to run on the local virtual machines. 
 
@@ -650,9 +329,6 @@ maintained through updates.
 
 ### LT-1: Enable threat detection for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40456).
-
 **Guidance**: Azure Stack Edge does not offer threat detection capabilities. However, customers can collect audit logs in a support package for offline threat detection and analysis. 
 
 - [Collect support package for Azure Stack Edge device](azure-stack-edge-gpu-troubleshoot.md#collect-support-package)
@@ -661,24 +337,7 @@ maintained through updates.
 
 **Responsibility**: Customer
 
-### LT-2: Enable threat detection for Azure identity and access management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40457).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not Applicable; Azure Stack Edge does not support authentication or authorization via Azure Active Directory (Azure AD) for control or data plane-level actions.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### LT-3: Enable logging for Azure network activities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40458).
 
 **Guidance**: Azure Stack Edge has network audit logs enabled as part of the downloadable support package. These logs can be parsed to implement a semi-real time monitoring for your Azure Stack Edge devices.
 
@@ -690,9 +349,6 @@ maintained through updates.
 
 ### LT-4: Enable logging for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40459).
-
 **Guidance**: Real-time monitoring with logs is currently not supported for Azure Stack Edge. A capability to gather a support package exists that allows you to analyze the various logs included in it, such as firewall, software, hardware intrusion and system event logs for your Azure Stack Edge Pro device. Note that the software intrusion or the default firewall logs are collected for inbound and outbound traffic.
 
 - [Gather a support package for Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md#collect-support-package)
@@ -702,9 +358,6 @@ maintained through updates.
 **Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40460).
 
 **Guidance**: Real-time monitoring with logs is currently not supported for Azure Stack Edge. However, you can gather a support package that allows you to analyze the various logs included in it.  The support package is compressed and is downloaded to the path of your choice. Unzip the package and the view the system log files contained in it. You can also send these logs into a security information event management tool or another central storage location for analysis.
 
@@ -716,9 +369,6 @@ maintained through updates.
 
 ### LT-6: Configure log storage retention
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40461).
-
 **Guidance**: Log storage retention period cannot be changed at the Azure Stack Edge device. Older logs are purged as needed. You can gather support packages from the device at periodic intervals for any requirements to retain the logs for a longer period of time. 
 
 - [Gather a support package for Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md#collect-support-package)
@@ -728,9 +378,6 @@ maintained through updates.
 **Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40462).
 
 **Guidance**: Azure Stack Edge uses time.windows.com, a network time provider server by Microsoft.  Azure Stack Edge also allows customer to configure the network time protocol server of their choosing.
 
@@ -745,9 +392,6 @@ maintained through updates.
 *For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40463).
 
 **Guidance**: Ensure your organizational incident response plan includes processes: 
 
@@ -769,9 +413,6 @@ It is recommended to implement security using standardized incident response pro
 
 ### IR-2: Preparation – setup incident notification
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40464).
-
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
@@ -781,9 +422,6 @@ It is recommended to implement security using standardized incident response pro
 **Responsibility**: Customer
 
 ### IR-3: Detection and analysis – create incidents based on high-quality alerts 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40465).
 
 **Guidance**: Ensure you have a process to create high-quality alerts and to measure their quality. This allows you to learn lessons from past incidents and prioritize alerts for analysts, to prevent wasted time processing false positive alerts. Build high-quality alerts based on your experiences from past incidents, validated community sources and tools designed to generate and clean up alerts with logging and correlation for diverse alert sources. 
 
@@ -800,9 +438,6 @@ Export your Security Center alerts and recommendations into Azure Sentinel with 
 **Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40466).
 
 **Guidance**: Ensure analysts can query and use diverse data sources to build a full view of the activity that occurred while investigating potential incidents. Diverse log types should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  Also ensure insights and learnings are captured for historical reference.  
 
@@ -834,9 +469,6 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40467).
-
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. Use the assigned a severity to each alert from Azure Security Center to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
@@ -850,9 +482,6 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40468).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -871,45 +500,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 *For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
-### PV-1: Establish secure configurations for Azure services 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40483).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft sets secure configuration for the Azure
-Stack Edge device and maintains those settings
-through the lifetime of the device.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### PV-2: Sustain secure configurations for Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40484).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: The user-defined security configurations are limited in the Azure Edge Stack device. Most device security settings are not configurable and stay up-to-date with installation of the latest updates. 
-- [Apply updates on your Azure Stack Edge device](azure-stack-edge-gpu-install-update.md)
-
-- [Protect data in Edge local shares](azure-stack-edge-gpu-prepare-device-failure.md#protect-data-in-edge-local-shares)
-
-- [Protect files and folders in virtual machines](azure-stack-edge-gpu-prepare-device-failure.md#protect-files-and-folders-on-vms)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### PV-3: Establish secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40485).
 
 **Guidance**: Azure Stack Edge does offer support to create secure configurations for the local virtual machines which are created by the customers. It is strongly recommended to use Microsoft provided guidelines to establish security baselines while creating local virtual machines,
 
@@ -920,9 +511,6 @@ through the lifetime of the device.
 **Responsibility**: Customer
 
 ### PV-4: Sustain secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40486).
 
 **Guidance**: Azure Stack Edge does not offer any support to sustain secure configurations for the local virtual machines which have been created by the customers. It is strongly recommended that customers use the Security compliance toolkits (SCT) to help sustain secure configurations for their compute resources.
 
@@ -936,9 +524,6 @@ Host operating system and virtual machines managed by Azure Stack Edge maintain 
 
 ### PV-5: Securely store custom operating system and container images
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40487).
-
 **Guidance**: Host operating systems and virtual machines managed by Azure Stack Edge are stored securely. 
 
 Customers can bring their own virtual machine and containers images and are responsible for their secure management.
@@ -947,24 +532,7 @@ Customers can bring their own virtual machine and containers images and are resp
 
 **Responsibility**: Customer
 
-### PV-6: Perform software vulnerability assessments
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40488).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Software vulnerability assessments are performed against all Azure Stack Edge releases including software development lifecycle reviews conducted for them. Any issues found are remediated based on their severity and priority.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40489).
 
 **Guidance**: Azure Stack Edge provides regular patch updates and alerts customers when such updates are available to remediate vulnerabilities. It is the customer's responsibility to keep their devices and virtual machines (created by them) up-to-date with the latest patches.
 
@@ -973,9 +541,6 @@ Customers can bring their own virtual machine and containers images and are resp
 **Responsibility**: Customer
 
 ### PV-8: Conduct regular attack simulation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40490).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -996,9 +561,6 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40469).
-
 **Guidance**: Azure Stack Edge does not support endpoint detection and response (EDR) directly. However, you can collect a support package and retrieve audit logs. These logs can then be analyzed to check for anomalous activities. 
 
 - [Collect support package for Azure Stack Edge device](azure-stack-edge-gpu-troubleshoot.md#collect-support-package)
@@ -1009,37 +571,17 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-2: Use centrally managed modern anti-malware software
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40470).
-
 **Guidance**: Azure Stack Edge uses Windows Defender Application Control (WDAC) with a strict code integrity (CI) Policy that only allows predetermined applications and scripts to be run. Windows Defender Real Time Protection (RTP) anti-malware is also enabled. Customer may choose to run anti-malware in the compute VMs they create to run locally on Azure Stack Edge device.
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### ES-3: Ensure anti-malware software and signatures are updated
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40471).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Stack Edge keeps the code integrity (CI) Policy updated as well as updates Windows Defender signature files.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
 ## Backup and Recovery
 
 *For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
 
 ### BR-1: Ensure regular automated backups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40479).
 
 **Guidance**: Periodic backups of your Azure Stack Edge device are recommended and can be performed with Azure Backup and other third-party data protection solutions to protect the data contained in the virtual machines deployed on the device. 
 
@@ -1057,9 +599,6 @@ Additional information is available at the referenced links.
 
 ### BR-2: Encrypt backup data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40480).
-
 **Guidance**: Ensure that your backups are protected against
 attacks. This should include encryption of the backups to protect against loss
 of confidentiality.  For more information, refer to your backup solution of choice for
@@ -1075,9 +614,6 @@ details.
 
 ### BR-3: Validate all backups including customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40481).
-
 **Guidance**: Periodically perform data restoration of your
 backups. 
 
@@ -1088,9 +624,6 @@ backups.
 **Responsibility**: Customer
 
 ### BR-4: Mitigate risk of lost keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40482).
 
 **Guidance**: Ensure all Azure Stack Edge backups including any customer-managed keys are protected in accordance with organizational best practices. Your Azure Stack Edge device is associated with an Azure Storage account, used as a destination repository for your data in Azure. 
 
@@ -1107,9 +640,6 @@ Access to the Azure Storage account is controlled by Azure subscriptions and the
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40491).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1148,9 +678,6 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40498).
-
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
@@ -1169,9 +696,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40492).
-
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
@@ -1181,9 +705,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40493).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1198,9 +719,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-5: Define network security strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40494).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1233,9 +751,6 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40495).
-
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
@@ -1265,9 +780,6 @@ For more information, see the following references:
 **Responsibility**: Customer
 
 ### GS-7: Define logging and threat response strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40496).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
