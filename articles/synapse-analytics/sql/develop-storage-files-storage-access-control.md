@@ -93,13 +93,13 @@ When accessing storage that is protected with the firewall, you can use **User I
 
 #### User Identity
 
-To access storage that is protected with the firewall via User Identity you can use PowerShell module Az.Storage.
+To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
 #### Configuration via PowerShell
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
 1. Open PowerShell or [install PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)
-2. Install the updated Az.Storage Module: 
+2. Install the updated Az. Storage Module: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
     ```
@@ -115,10 +115,10 @@ Follow these steps to configure your storage account firewall and add an excepti
     Connect-AzAccount
     ```
 4. Define variables in PowerShell: 
-    - Resource group name - can be found in overview of Synapse workspace
-    - Account Name - name of storage account
-    - Tenant ID - can be found in portal in Azure Active Directory in tenant information.
-    - Resource ID - can be found in overview of Synapse workspace
+    - Resource group name - you can find this in Azure Portal in overview of Synapse workspace.
+    - Account Name - name of storage account which is protected by firewall rules.
+    - Tenant ID - you can find this in Azure Portal in Azure Active Directory in tenant information.
+    - Resource ID - you can find this in Azure Portal in overview of Synapse workspace.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
