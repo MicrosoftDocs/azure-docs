@@ -67,7 +67,7 @@ To configure the least privileged permissions, you need:
 
   If you need to register ACI, you also need to add **Microsoft.ContainerInstance/register/action**.
 
-- If you need to use a managed identity, the managed identity needs the **Managed Identity Operator** role and a custom role with the following properties:
+- If a managed identity is used, you need to assigned the **Managed Identity Operator** role and a custom role with the following properties to the managed identity:
 
   ```json
   {
