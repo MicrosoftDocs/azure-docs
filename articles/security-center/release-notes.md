@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/15/2020
 ms.author: memildin
 
 ---
@@ -33,6 +33,9 @@ Updates in December include:
 
 - [Azure Defender for SQL servers on machines is generally available](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
+- [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
 
 ### Azure Defender for SQL servers on machines is generally available
 
@@ -64,6 +67,49 @@ Azure Defender for SQL protects your dedicated SQL pools with:
 Azure Defender for SQL's support for Azure Synapse Analytics SQL pools is automatically added to Azure SQL databases bundle in Azure Security Center. You'll find a new “Azure Defender for SQL” tab in your Synapse workspace page in the Azure portal.
 
 Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Global Administrators can now grant themselves tenant-level permissions
+
+A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+
+To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions to yourself](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+
+
+### Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)
+
+We've added two new cloud-native breadth threat protection capabilities for your Azure environment.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+
+### New security alerts page in the Azure portal (preview)
+
+Azure Security Center's security alerts page has been redesigned to provide:
+
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other
+- **Better performance** for large alerts lists
+- **Keyboard navigation** through the alert list
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+
+To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
+
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
 
 ## November 2020
 
@@ -120,7 +166,7 @@ For more information about this compliance standard, see [NIST SP 800-171 R2](ht
 
 You can now filter the list of security recommendations according to a range of criteria. In the following example, the recommendations list has been filtered to show recommendations that:
 
-- are **generally available** (i.e. not preview)
+- are **generally available** (that is, not preview)
 - are for **storage accounts**
 - support **quick fix** remediation
 
@@ -144,7 +190,7 @@ Learn more in [Auto provisioning agents and extensions from Azure Security Cente
 
 ### Secure score is now available in continuous export (preview)
 
-With continuous export of secure score, you can stream changes to your score in real-time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
+With continuous export of secure score, you can stream changes to your score in real time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
 
 - track your secure score over time with dynamic reports
 - export secure score data to Azure Sentinel (or any other SIEM)
@@ -222,7 +268,7 @@ Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-fir
 
 The recommendation **Authorized IP ranges should be defined on Kubernetes Services** now has a quick fix option.
 
-For more details of this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
+For more information about this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
 
@@ -483,7 +529,7 @@ Related pages:
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
 
-Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 

@@ -95,3 +95,4 @@ As a device developer, now that you've learned the basics of how to create a dev
 * Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
 * Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
 * Read [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md) to learn more about the data the device exchanges with IoT Central.
+* Read [IoT Plug and Play device developer guide](../../iot-pnp/concepts-developer-guide-device.md).

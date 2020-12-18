@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+        - name: Migrate from v2.0 to v3.0 
+          href: migrate-v2-to-v3.md
         - name: Assess pronunciation
           href: how-to-pronunciation-assessment.md
     - name: Tutorials
@@ -361,25 +363,13 @@
               href: custom-commands.md
             - name: Quickstarts
               items:
-                - name: Build a Custom Commands app
+                - name: Create a Custom Commands app
                   href: quickstart-custom-commands-application.md
             - name: How-to guides
               items:
-                - name: Develop
-                  items:
-                    - name: Create application with simple commands  
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Add parameters to commands
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Add configurations to commands parameters
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Add interaction rules
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Add language generation templates for speech responses
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Use Custom Voice
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integrate
+                - name: Develop and customize Custom Commands apps
+                  href: how-to-develop-custom-commands-application.md
+                - name: Integrate with client applications
                   items:
                     - name: Integrate with a client app using Speech SDK
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -393,26 +383,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Update a command from a web endpoint
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Deploy
-                  items:
-                    - name: Continuous Deployment with Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Test
-                  items:
-                  - name: Test your Custom Commands app
-                    href: how-to-custom-commands-developer-flow-test.md
-                - name: Debug
-                  items:
-                  - name: Debug errors when authoring the app
-                    href: how-to-custom-commands-debug-build-time.md
-                  - name: Debug errors when running the app
-                    href: how-to-custom-commands-debug-runtime.md
-                - name: References
-                  items:
-                    - name: Custom Commands concepts
-                      href: custom-commands-references.md
+                - name: Continuous Deployment with Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Test Custom Commands applications
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Debug errors when authoring the app
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Debug errors when running the app
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Resources
               items:
+                - name: Custom Commands concepts
+                  href: custom-commands-references.md
                 - name: Custom Commands Samples (GitHub)
                   href: https://aka.ms/speech/cc-samples
                 - name: Voice Assistants Samples (GitHub)
@@ -502,6 +484,8 @@
       href: how-to-use-logging.md
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: Enable private endpoint
+      href: speech-services-private-link.md      
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md

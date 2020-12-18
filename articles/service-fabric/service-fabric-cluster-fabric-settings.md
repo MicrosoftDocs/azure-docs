@@ -872,7 +872,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60)|Static|Specify timespan in seconds. Time out for connection setup on both incoming and accepting side (including security negotiation in secure mode) |
 |FrameHeaderErrorCheckingEnabled|bool, default is TRUE|Static|Default setting for error checking on frame header in non-secure mode; component setting overrides this. |
-|MessageErrorCheckingEnabled|bool,default is FALSE|Static|Default setting for error checking on message header and body in non-secure mode; component setting overrides this. |
+|MessageErrorCheckingEnabled|bool,default is TRUE|Static|Default setting for error checking on message header and body in non-secure mode; component setting overrides this. |
 |ResolveOption|string, default is "unspecified"|Static|Determines how FQDN is resolved.  Valid values are "unspecified/ipv4/ipv6". |
 |SendTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(300)|Dynamic|Specify timespan in seconds. Send timeout for detecting stuck connection. TCP failure reports are not reliable in some environment. This may need to be adjusted according to available network bandwidth and size of outbound data (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 

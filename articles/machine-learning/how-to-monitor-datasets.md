@@ -1,7 +1,7 @@
 ---
-title: Analyze and monitor for data drift on datasets (preview)
+title: Detect data drift on datasets (preview)
 titleSuffix: Azure Machine Learning
-description: Create Azure Machine Learning datasets monitors (preview), monitor for data drift in datasets, and set up alerts.
+description: Learn how to set up data drift detection in Azure Learning. Create datasets monitors (preview), monitor for data drift, and set up alerts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -19,7 +19,7 @@ ms.custom: how-to, data4ml
 
 
 > [!IMPORTANT]
-> Detecting data drift on datasets is currently in public preview.
+> Data drift detection for datasets is currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

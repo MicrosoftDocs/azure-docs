@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -132,9 +132,11 @@ The following example **passes** this test.
 
 Test name: **Location Should Not Be Hardcoded**
 
-Users of your template may have limited regions available to them. When you set the resource location to `"[resourceGroup().location]"`, the resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
+Your templates should have a parameter named location. Use this parameter for setting the location of resources in your template. In the main template (named azuredeploy.json or mainTemplate.json), this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
 
-When defining the location for each resource, use a parameter that defaults to the resource group location. By providing this parameter, users can use the default value when convenient but also specify a different location.
+Users of your template may have limited regions available to them. When you hard code the resource location, users may be blocked from creating a resource in that region. Users could be blocked even if you set the resource location to `"[resourceGroup().location]"`. The resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
+
+By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
 
 The following example **fails** this test because location on the resource is set to `resourceGroup().location`.
 
@@ -190,7 +192,7 @@ The next example uses a location parameter but **fails** this test because the l
 }
 ```
 
-Instead, create a parameter that defaults to the resource group location but allows users to provide a different value. The following example **passes** this test.
+Instead, create a parameter that defaults to the resource group location but allows users to provide a different value. The following example **passes** this test when the template is used as the main template.
 
 ```json
 {
@@ -222,6 +224,8 @@ Instead, create a parameter that defaults to the resource group location but all
     "outputs": {}
 }
 ```
+
+However, if the preceding example is used as a linked template, the test **fails**. When used as a linked template, remove the default value.
 
 ## Resources should have location
 
@@ -684,4 +688,5 @@ The following example **fails** because it uses a [list*](template-functions-res
 
 ## Next steps
 
-To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
+- To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
+- For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
