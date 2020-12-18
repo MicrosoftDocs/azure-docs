@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Custom Script Extension for VMs running on your Azure Stack Edge Pro device
+# Deploy Custom Script Extension on VMs running on your Azure Stack Edge Pro device
 
 The Custom Script Extension downloads and runs scripts on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template. 
 
@@ -46,7 +46,7 @@ The Custom Script Extension for Linux will run on the following OSs. Other versi
 
 ### Script location
 
-You can configure the extension to use your Azure Blob storage credentials to access Azure Blob storage. The script location can be anywhere, as long as the VM can route to that end point, such as GitHub or an internal file server. <!-- confirm with Rajesh -->
+You can configure the extension to use your Azure Blob storage credentials to access Azure Blob storage. The script location can be anywhere, as long as the VM can route to that end point, such as GitHub or an internal file server. In this article, we pass a command to execute via the Custom Script Extension. <!-- confirm with Rajesh -->
 
 ### Internet Connectivity
 
@@ -57,79 +57,11 @@ If your script is on a local server, then you may still need additional firewall
 > [!NOTE]
 > Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. 
 
-<!--### Tips and Tricks
-
-* The highest failure rate for this extension is because of syntax errors in the script, test the script runs without error, and also put in additional logging into the script to make it easier to find where it failed.
-* Write scripts that are idempotent. This ensures that if they run again accidentally, it will not cause system changes.
-* Ensure the scripts don't require user input when they run.
-* There's 90 minutes allowed for the script to run, anything longer will result in a failed provision of the extension.
-* Don't put reboots inside the script, this action will cause issues with other extensions that are being installed. Post reboot, the extension won't continue after the restart.
-* If you have a script that will cause a reboot, then install applications and run scripts, you can schedule the reboot using a Windows Scheduled Task, or use tools such as DSC, Chef, or Puppet extensions.
-* It is not recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
-* The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Scheduled Task.
-* If you want to schedule when a script will run, you should use the extension to create a Windows Scheduled Task.
-* When the script is running, you will only see a 'transitioning' extension status from the Azure portal. If you want more frequent status updates of a running script, you'll need to create your own solution.
-* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
-* Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
-* Custom Script Extension will run under the LocalSystem Account
-* If you plan to use the *storageAccountName* and *storageAccountKey* properties, these properties must be collocated in *protectedSettings*.-->
-
-## Extension schema
-
-The Custom Script Extension configuration specifies things like script location and the command to be run. You can store this configuration in configuration files, specify it on the command line, or specify it in an Azure Resource Manager template.
-
-You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
-
-These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
-
-```json
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "virtualMachineName/config-app",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-        "[variables('musicstoresqlName')]"
-    ],
-    "tags": {
-        "displayName": "config-app"
-    },
-    "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.10",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "fileUris": [
-                "script location"
-            ],
-            "timestamp":123456789
-        },
-        "protectedSettings": {
-            "commandToExecute": "myExecutionCommand",
-            "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
-        }
-    }
-}
-```
-
-> [!NOTE]
-> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
-
-> [!NOTE]
-> Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
-
-> [!NOTE]
-> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template.
-
 ## Prerequisites
 
 1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
 
-1. To create VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. You should have a V created and deployed on your device. To create VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
     If you need to download a script externally such as from GitHub or Azure Storage, while configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the script.
 
@@ -508,7 +440,43 @@ Deploy the template `addCSExtLinuxVM.json`. This template deploys extension to a
 Here is a sample output:
 
 ```powershell
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensionToVM.json"
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addCSExtLinuxVM.parameters.json"
+PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
+PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment99"
 
+DeploymentName          : deployment99
+ResourceGroupName       : myasegpuvm1
+ProvisioningState       : Succeeded
+Timestamp               : 12/18/2020 1:55:23 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          vmName           String                     VM6
+                          extensionName    String                     LinuxCustomScriptExtension
+                          publisher        String                     Microsoft.Azure.Extensions
+                          type             String                     CustomScript
+                          typeHandlerVersion  String                     2.0
+                          settings         Object                     {
+                            "commandToExecute": "sudo echo 'some text' >> /home/Administrator/file2.txt"
+                          }
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
+PS C:\WINDOWS\system32>
+```
+
+The `commandToExecute` was set to create a file `file2.txt` in the `/home/Administrator` directory and the contents of the file are `some text`. In this case, you can verify that the file was created in the specified path.
+
+```powershell
+Administrator@VM6:~$ dir
+file2.txt
+Administrator@VM6:~$ cat file2.txt
+some text
+Administrator@VM6:
 ```
 
 #### Track deployment status	
@@ -521,7 +489,28 @@ Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Nam
 Here is a sample output: 
 
 ```powershell
+PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
 
+ResourceGroupName       : myasegpuvm1
+VMName                  : VM5
+Name                    : CustomScriptExtension
+Location                : dbelocal
+Etag                    : null
+Publisher               : Microsoft.Compute
+ExtensionType           : CustomScriptExtension
+TypeHandlerVersion      : 1.10
+Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
+PublicSettings          : {
+                            "commandToExecute": "md C:\\Users\\Public\\Documents\\test"
+                          }
+ProtectedSettings       :
+ProvisioningState       : Creating
+Statuses                :
+SubStatuses             :
+AutoUpgradeMinorVersion : True
+ForceUpdateTag          :
+
+PS C:\WINDOWS\system32>
 ```
 
 > [!NOTE]
@@ -539,12 +528,13 @@ To remove the Custom Script Extension, use the following command:
 Here is a sample output:
 
 ```powershell
-PS C:\azure-stack-edge-deploy-vms> Remove-AzureRmVMExtension -ResourceGroupName rgl -VMName WindowsVM -Name windowsgpuext
+PS C:\WINDOWS\system32> Remove-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM6 -Name LinuxCustomScriptExtension
 Virtual machine extension removal operation
-This cmdlet will remove the specified virtual machine extension. Do you want to continue? [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
-Requestld IsSuccessStatusCode StatusCode ReasonPhrase
---------- ------------------- ---------- ------------    
-          True                OK         OK
+This cmdlet will remove the specified virtual machine extension. Do you want to continue?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Yes
+RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+--------- ------------------- ---------- ------------
+                         True         OK OK
 ```
 
 
