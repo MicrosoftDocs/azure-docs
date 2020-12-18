@@ -27,7 +27,8 @@ For more information about Key Vault, see
 
 ## What are soft-delete and purge protection
 
-Soft delete and purge protection are two different key vault recovery features.
+[Soft delete](soft-delete-overview.md) and purge protection are two different key vault recovery features.
+
 > [!IMPORTANT]
 > Turning on soft delete is critical to ensuring that your key vaults and credentials are protected from accidental deletion. However, turning on soft delete is considered a breaking change because it may require you to change your application logic or provide additional permissions to your service principals. Before turning on soft delete using the instructions below, please make sure that your application is compatible with the change using this document [**here**.](soft-delete-change.md)
 
@@ -39,6 +40,8 @@ It is important to note that **key vault names are globally unique**, so you won
 
 > [!NOTE]
 > Purge Protection is designed so that no administrator role or permission can  override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+
+For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
 # [Azure portal](#tab/azure-portal)
 
@@ -376,3 +379,13 @@ It is important to note that **key vault names are globally unique**, so you won
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+
+## Next steps
+
+- [Key Vault Powershell Cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.keyvault)
+- [Key Vault Azure CLI commands](https://docs.microsoft.com/en-us/cli/azure/keyvault)
+- [Azure Key Vault backup](backup.md)
+- [How to enable Key Vault logging](howto-logging.md)
+- [Secure access to a key vault](secure-your-key-vault.md)
+- [Azure Key Vault Developer's Guide](developers-guide.md)
+- [Best practices to use Key Vault](best-practices.md)
