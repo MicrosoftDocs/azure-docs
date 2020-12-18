@@ -99,7 +99,7 @@ Get the connection information you need to connect to the database in Azure SQL 
    python sqltest.py
    ```
 
-1. Verify that the top 20 Category/Product rows are returned, and then close the command window.
+1. Verify that the databases and their collations are returned, and then close the command window.
 
 ## Next steps
 
