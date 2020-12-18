@@ -51,6 +51,7 @@ Verify you have the following requirements ready:
 ## Supported regions
 
 * East US
+* West Central US
 * West Europe
 
 ## Network requirements
