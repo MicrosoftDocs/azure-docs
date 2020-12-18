@@ -177,8 +177,6 @@ After you load and configure your data, you can set up your experiment. This set
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
 > Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
-> Notifications appear to inform you of the status of your experiment in the top right corner of the studio.
->
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the **Models** tab as they complete while the others are still running. 
 
 ##  Explore models
