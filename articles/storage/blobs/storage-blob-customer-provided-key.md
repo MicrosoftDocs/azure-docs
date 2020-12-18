@@ -33,9 +33,6 @@ async static Task UploadBlobWithClientKey(Uri blobUri,
                                           byte[] key,
                                           string keySha256)
 {
-    const string blobServiceEndpointSuffix = ".blob.core.windows.net";
-    Uri accountUri = new Uri("https://" + accountName + blobServiceEndpointSuffix);
-
     // Create a new customer-provided key.
     // Key must be AES-256.
     var cpk = new CustomerProvidedKey(key);
@@ -61,11 +58,8 @@ async static Task UploadBlobWithClientKey(Uri blobUri,
     // If the container may not exist yet,
     // create a client object for the container.
     // The container client retains the credential and client options.
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient(containerName);
-
-    // Create a new block blob client object.
-    // The blob client retains the credential and client options.
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
+    BlobContainerClient containerClient =
+        blobClient.GetParentBlobContainerClient();
 
     try
     {
