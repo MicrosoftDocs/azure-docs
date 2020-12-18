@@ -15,15 +15,15 @@ Azure Automation allows you to run Python 3 runbooks on Azure and on Linux Hybri
 
 In your Automation account, select **Python packages** under **Shared Resources**. select **+ Add a Python package**.
 
-:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
+:::image type="content" source="media/python3-packages/add-python3-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
 
-On the **Add Python Package** page, select Python3 packages and select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
+On the **Add Python Package** page, select Python 3 for the **Version**, and select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3 Package page with an uploaded tar.gz file selected.":::
+:::image type="content" source="media/python3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3 Package page with an uploaded tar.gz file selected.":::
 
 Once a package has been imported, it's listed on the Python packages page in your Automation account, under the **Python 3 packages (preview)** tab. If you need to remove a package, select the package and click **Delete**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot shows the Python 3 packages page after a package has been imported.":::
+:::image type="content" source="media/python3-packages/python3-packages-list.png" alt-text="Screenshot shows the Python 3 packages page after a package has been imported.":::
 
 ## Import packages with dependencies
 

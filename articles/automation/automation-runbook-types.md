@@ -100,7 +100,7 @@ Python runbooks compile under Python 2 and Python 3. You can directly edit the c
 ### Advantages
 
 * Use the robust Python libraries.
-* Can run in Azure or on Linux Hybrid Runbook Workers.
+* Can run in Azure or on Hybrid Runbook Workers.
 * For Python 2, Windows Hybrid Runbook Workers are supported with [python2.7](https://www.python.org/downloads/release/latest/python2) installed.
 * For Python 3 Cloud Jobs, Python 3.8 version is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.  
 * For Python 3 Hybrid jobs on Windows machines, you can choose to install any 3.x version you may want to use.  
