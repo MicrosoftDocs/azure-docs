@@ -26,7 +26,10 @@ The important fields are:
 
 public class AzureFrontendAccountInfo
 {
-    // Something akin to "<region>.mixedreality.azure.com"
+    // Domain that will be used for account authentication for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
+    // [region] should be set to the location of the Azure Remote Rendering account. 
+    public string AccountAuthenticationDomain;
+    // Domain that will be used to generate sessions for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
     public string AccountDomain;
 
     // Can use one of:
@@ -45,6 +48,7 @@ The C++ counterpart looks like this:
 ```cpp
 struct AzureFrontendAccountInfo
 {
+    std::string AccountAuthenticationDomain{};
     std::string AccountDomain{};
     std::string AccountId{};
     std::string AccountKey{};
@@ -426,9 +430,9 @@ void StopRenderingSession(ApiHandle<AzureSession> session)
 
 ```cs
 private ArrInspectorAsync _pendingAsync = null;
-void ConnectToArrInspector(AzureSession session, string hostname)
+void ConnectToArrInspector(AzureSession session)
 {
-    _pendingAsync = session.ConnectToArrInspectorAsync(hostname);
+    _pendingAsync = session.ConnectToArrInspectorAsync();
     _pendingAsync.Completed +=
         (ArrInspectorAsync res) =>
         {
@@ -458,9 +462,9 @@ void ConnectToArrInspector(AzureSession session, string hostname)
 ```
 
 ```cpp
-void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname)
+void ConnectToArrInspector(ApiHandle<AzureSession> session)
 {
-    ApiHandle<ArrInspectorAsync> pendingAsync = *session->ConnectToArrInspectorAsync(hostname);
+    ApiHandle<ArrInspectorAsync> pendingAsync = *session->ConnectToArrInspectorAsync();
     pendingAsync->Completed([](ApiHandle<ArrInspectorAsync> res)
     {
         if (res->GetIsRanToCompletion())
