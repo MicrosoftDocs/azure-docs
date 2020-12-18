@@ -21,7 +21,7 @@ For more information about Key Vault, see
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
+* [PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
@@ -382,8 +382,8 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
-- [Key Vault Powershell Cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.keyvault)
-- [Key Vault Azure CLI commands](https://docs.microsoft.com/en-us/cli/azure/keyvault)
+- [Key Vault Powershell Cmdlets](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Key Vault Azure CLI commands](https://docs.microsoft.com/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
 - [Secure access to a key vault](secure-your-key-vault.md)
