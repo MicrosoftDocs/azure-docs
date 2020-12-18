@@ -66,6 +66,8 @@ After migration in the CSP perspective, you can't use Delegated Admin Access (DA
 ## CSP foreign principal PowerShell script
 
 After migration, you can use the following PowerShell script to help apply the CSP foreign principal permissions.
+> [!IMPORTANT]
+> The below PowerShell commands must be ran, logging into Azure as a user who is part of that the customer Azure AD tenant. It cannot be a guest user invited. The user must also have the Owner RBAC role on the subscriptions you wish to assign the CSP Foreign Principal to.
 
 ```azurepowershell-interactive
 ## Connect to Customer AAD Tenant - Change 'xxxx' to the Azure AD Tenant ID which the subscriptions are linked to:
