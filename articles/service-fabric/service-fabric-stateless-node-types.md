@@ -66,9 +66,9 @@ To set one or more node types as stateless in a cluster resource, set the **isSt
 ## Configuring virtual machine scale set for stateless node types
 To enable stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
 
-* The value  **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
-* The Scale set's **upgradeMode** which should be set to Rolling.
-* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the nodetype, Health Probe/Health extension ports can be changed to monitor application health.
+* The value  **singlePlacementGroup** property, which should be set to **false** if you require to scale to more than 100 VMs.
+* The Scale set's **upgradePolicy** which **mode** should be set to **Rolling**.
+* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor application health.
 
 ```json
 {
