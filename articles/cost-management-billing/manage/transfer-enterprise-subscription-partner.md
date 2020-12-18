@@ -26,7 +26,7 @@ Classic Azure Resources are supported in this type of migration.
 
 Not all Marketplace products can be transferred. If the same Azure Marketplace product doesn't exist in the CSP marketplace, then the subscription can't be migrated from EA to CSP v2.
 
-Existing Azure support plans or packages can't be used after subscriptions are migrated to CSP. Only the CSP can create support requests for the subscriptions after migration. Ensure that your existing support plans or packages are canceled if no longer needed.
+Existing Azure support plans or packages can't be used after subscriptions are migrated to CSP. Only the CSP can create support requests for the subscriptions after migration. Ensure that your existing support plans or packages are cancelled or amended if no longer needed.
 
 Azure EA monetary commitment funds don't transfer to CSP and are lost after migration. To avoid losing funds, plan for your migration to take place _after_ the EA commitment is fully used.
 
