@@ -34,7 +34,7 @@ If you don't have a Remote Rendering account, [create one](create-an-account.md)
 
 ### Example script: Set accountId, accountKey and account domain
 
-Account domain is the location of remote rendering account. In this example, account's location is *eastus* region.
+Account domain is the location of remote rendering account. In this example, the account's location is region *eastus*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"

@@ -19,7 +19,7 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
 
 * **AuthenticationToken**: is an Azure AD token, which can be obtained by using the [MSAL library](../../active-directory/develop/msal-overview.md). There are multiple different flows available to accept user credentials and use those credentials to obtain an access token.
 
-* **MRAccessToken**: is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). Retrieved from the `https://sts.<accountDomain>` endpoint using a REST call similar to the below call:
+* **MRAccessToken**: is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). Retrieved from the `https://sts.<accountDomain>` endpoint using a REST call similar to the below:
 
     ```rest
     GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
