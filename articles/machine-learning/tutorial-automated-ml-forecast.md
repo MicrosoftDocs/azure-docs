@@ -107,14 +107,22 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
 
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|bike-compute
-        Virtual&nbsp;machine&nbsp;type|Select the virtual machine type for your compute.|CPU (Central Processing Unit)
-        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-        Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-        Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None
+        1. Populate the **Virtual Machine** form to set up your compute.
+
+            Field | Description | Value for tutorial
+            ----|---|---
+            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
+        
+        1. Select **Next** to populate the **Configure settings form**.
+        
+             Field | Description | Value for tutorial
+            ----|---|---
+            Compute name |	A unique name that identifies your compute context. | bike-compute
+            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
   
         1. Select **Create** to get the compute target. 
 
