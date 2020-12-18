@@ -89,7 +89,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >   ```
 >   /get
 >   /get/delay/{seconds}
->   /get/fluxdelay/{senconds}
+>   /get/fluxdelay/{seconds}
 >   ```
 
 ## Locate Resilence4j Metrics from Portal
