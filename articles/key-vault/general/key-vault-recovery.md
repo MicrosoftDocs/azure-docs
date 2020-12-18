@@ -4,15 +4,26 @@ description: Key Vault Recovery features are designed to prevent the accidental 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 ms.date: 09/30/2020
 ---
 
-# How to enable soft delete and purge protection
+# Azure Key Vault recovery with soft-delete and purge protection
 
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
+
+For more information about Key Vault, see
+- [Key Vault overview](overview.md)
+- [Azure Key Vault keys, secrets and certificates overview](about-keys-secrets-certificates.md)
+
+## Prerequisites
+
+* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* [PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
+* [Azure CLI](/cli/azure/install-azure-cli)
+* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
 ## What are soft-delete and purge protection
 
