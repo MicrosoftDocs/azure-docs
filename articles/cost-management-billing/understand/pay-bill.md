@@ -20,7 +20,7 @@ This article applies to customers with a Microsoft Customer Agreement (MCA).
 
 There are two ways to pay for your bill for Azure. You can play with the default payment method of your billing profile or you can make a one-time payment called **Pay now**.
 
-If you have Azure credits, they are automatically applied to your invoice each billing period.
+If you have Azure credits, they automatically apply to your invoice each billing period.
 
 ## Pay by default payment method
 
@@ -28,15 +28,15 @@ The default payment method of your billing profile can either be a credit or deb
 
 ### Credit or debit card
 
-If the default payment method for your billing profile is a credit or debit card, it is automatically charged each billing period.
+If the default payment method for your billing profile is a credit or debit card, it's automatically charged each billing period.
 
-If your automatic credit or debit card charge is declined for any reason, you also have the option to make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
+If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
 
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
 ### Check or wire transfer
 
-If the default payment method of your billing profile is check or wire transfer, you should follow the payment instructions shown on your invoice PDF file.
+If the default payment method of your billing profile is check or wire transfer, follow the payment instructions shown on your invoice PDF file.
 
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
 
@@ -49,9 +49,9 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. In the left menu, select **Invoices** under **Billing**.
 1. If any of your invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
 1. In the **Pay now window**, select **Select a payment method** to choose an existing credit card or add a new one.
-1. Once the payment method is selected, select **Pay now**.
+1. After you select a payment method, select **Pay now**.
 
-The status of the invoice will be updated to paid in the invoices area within 24 hours.
+The invoice status shows *paid* within 24 hours.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
