@@ -217,7 +217,7 @@ if service.state == 'Healthy':
 
 You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your AutoML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
-[![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.jpg)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.jpg#lightbox)
+[![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
 For more information on the explanation dashboard visualizations and specific plots, please refer to the [how-to doc on interpretability](how-to-machine-learning-interpretability-aml.md).
 
