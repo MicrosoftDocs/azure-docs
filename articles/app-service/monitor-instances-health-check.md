@@ -26,8 +26,10 @@ This article uses Health check in the Azure Portal to monitor App Service app in
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
 
 > [!NOTE]
-> - Health check doesn't follow 302 redirects on the Health check path.
+>
+> - Health check doesn't follow 302 redirects.
 > - At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>
 
 ## Health check path best practices
 
