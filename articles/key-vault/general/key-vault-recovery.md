@@ -379,6 +379,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
 
 ## Next steps
 
