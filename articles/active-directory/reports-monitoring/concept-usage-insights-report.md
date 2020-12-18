@@ -50,11 +50,13 @@ The usage and insights report shows the list of applications with one or more si
 
 Clicking load more at the bottom of the list allows you to view additional applications on the page. You can select the date range to view all applications that have been used within the range.
 
+![Screenshot shows Usage & insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+
 You can also set the focus on a specific application. Select **view sign-in activity** to see the sign in activity over time for the application as well as the top errors.  
 
 When you select a day in the application usage graph, you get a detailed list of the sign-in activities for the application.  
 
-![Screenshot shows Usage & insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Screenshot shows Usage & insights for a specific application where you can see a graph for the sign-in activitity.](./media/concept-usage-insights-report/usage-and-insights-application-report.png)
 
 ## Next steps
 
