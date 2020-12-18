@@ -43,7 +43,7 @@ You can use the Video Indexer website to create and edit custom Language models 
 The training process can take a few minutes. Once the training is done, you see **Trained** next to the model. You can preview, download, and delete the file from the model.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-language-model/customize-language-model.png" alt-text=Train the model":::
+> :::image type="content" source="./media/customize-language-model/customize-language-model.png" alt-text="Train the model":::
 
 ### Using a Language model on a new video
 
