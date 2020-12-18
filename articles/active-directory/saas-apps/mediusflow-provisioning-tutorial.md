@@ -167,11 +167,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in MediusFlow for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
-	  |externalID|String|
-      |members|Reference|
+    | Attribute | Type |
+    |--|--|
+    | displayName | String |
+    | externalID | String |
+    | members | Reference |
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
