@@ -40,67 +40,62 @@ The deployment script resource is only available in the regions where Azure Cont
 
 For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
-To limit permissions, you need three role assignments - one for the deployment principal and two for the managed identity:
+To configure the least privileged permissions, you need:
 
-- For the deployment principal:
+- Assign a custom role with the following properties to the deployment principal:
 
-  - A custom role with the following properties assigned on the subscription level or the resource group level where the deployment script is created:
-
-      ```json
+  ```json
+  {
+    "roleName": "deployment-script-min",
+    "Description": "Configure least privilege for deployment script",
+    "type": "customRole",
+    "IsCustom": true,
+    "permissions": [
       {
-        "roleName": "deploymentScriptContributor",
-        "Description": "Can only CRUD deployment scripts",
-        "type": "customRole",
-        "IsCustom": true,
-        "permissions": [
-          {
-            "Actions": [
-              "Microsoft.Resources/deploymentScripts/*",
-              "Microsoft.Resources/*/read",
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Resources/deployments/*",
-              "Microsoft.Support/*"
-            ],
-          }
+        "actions": [
+          "Microsoft.Storage/storageAccounts/*",
+          "Microsoft.ContainerInstance/containerGroups/*",
+          "Microsoft.Resources/deploymentScripts/*"
         ],
-        "AssignableScopes": [
-          "[subscription().id]"
-        ]
       }
-      ```
+    ],
+    "AssignableScopes": [
+      "[subscription().id]"
+    ]
+  }
+  ```
 
-- For the managed identity
+  If you need to register ACI, you also need to add **Microsoft.ContainerInstance/register/action**.
 
-  - A custom role with the following properties assigned on the subscription level or the resource group level where the deployment script is created:
+- If you need to use a managed identity, the managed identity needs the **Managed Identity Operator** role and a custom role with the following properties:
 
-    ```json
-    {
-      "roleName": "deploymentScriptforMI",
-      "Description": "Permissions for the managed identity to execute a deployment script",
-      "type": "customRole",
-      "IsCustom": true,
-      "permissions": [
-        {
-          "actions": [
-            "Microsoft.Storage/storageAccounts/*",
-            "Microsoft.ContainerInstance/containerGroups/*",
-            "Microsoft.Authorization/*/read",
-            "Microsoft.Resources/subscriptions/resourceGroups/read",
-            "Microsoft.Resources/deployments/*",
-            "Microsoft.Support/*"
-          ],
-        }
-      ],
-      "AssignableScopes": [
-        "[subscription().id]"
-      ]
-    }
-    ```
-
-  - Managed Identity Operator (built-in role) on the managed identity used by the deployment script.
-
-If you have registered the Azure Storage and Azure Container Instance resource providers on the subscription level, you only need to add the roleAssignments on the resource group level.
+  ```json
+  {
+    "roleName": "deployment-script-min-mi",
+    "Description": "Permissions for the managed identity to execute a deployment script",
+    "type": "customRole",
+    "IsCustom": true,
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/storageAccounts/*",
+          "Microsoft.Support/*",
+          "Microsoft.ContainerInstance/containerGroups/*",
+          "Microsoft.Resources/deploymentScripts/*"
+        ],
+      }
+    ],
+    "AssignableScopes": [
+      "[subscription().id]"
+    ]
+  }
+  ```
 
 ## Sample templates
 
