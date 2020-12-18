@@ -70,31 +70,30 @@ To configure the least-privilege permissions, you need:
 - If a managed identity is used, you need to assign both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
 
   ```json
-  "properties": {
-      "roleName": "deployment-script-minimum-privilege-for-managed-identity",
-      "description": "Configure least privilege for the managed identity in deployment script",
-      "type": "customRole",
-      "IsCustom": true,
-      "permissions": [
-        {
-          "actions": [
-            "Microsoft.Authorization/*/read",
-            "Microsoft.Insights/alertRules/*",
-            "Microsoft.Insights/diagnosticSettings/*",
-            "Microsoft.ResourceHealth/availabilityStatuses/read",
-            "Microsoft.Resources/deployments/*",
-            "Microsoft.Resources/subscriptions/resourceGroups/read",
-            "Microsoft.Storage/storageAccounts/*",
-            "Microsoft.Support/*",
-            "Microsoft.ContainerInstance/containerGroups/*",
-            "Microsoft.Resources/deploymentScripts/*"
-          ],
-        }
-      ],
-      "assignableScopes": [
-        "[subscription().id]"
-      ]
-    }
+  {
+    "roleName": "deployment-script-minimum-privilege-for-managed-identity",
+    "description": "Configure least privilege for the managed identity in deployment script",
+    "type": "customRole",
+    "IsCustom": true,
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/storageAccounts/*",
+          "Microsoft.Support/*",
+          "Microsoft.ContainerInstance/containerGroups/*",
+          "Microsoft.Resources/deploymentScripts/*"
+        ],
+      }
+    ],
+    "assignableScopes": [
+      "[subscription().id]"
+    ]
   }
   ```
 
