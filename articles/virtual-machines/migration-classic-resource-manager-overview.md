@@ -32,7 +32,7 @@ Almost all the features from the classic deployment model are supported for comp
 * Storage Accounts
 * Virtual Networks
 * VPN Gateways
-* Express Route Gateways _(in the same subscription as Virtual Network only)_
+* [Express Route Gateways](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-move-arm) _(in the same subscription as Virtual Network only)_
 * Network Security Groups
 * Route Tables
 * Reserved IPs
