@@ -28,6 +28,8 @@ As your needs change or requirements for automation increase you can also create
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
 ## Create a workspace
 
 # [Python](#tab/python)
@@ -150,6 +152,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
  1. To view the new workspace, select **Go to resource**.
  
 ---
+
+
 
 ### Networking	
 

@@ -20,6 +20,11 @@ In this article you learn:
 > - How to [manage assets and resources](#manage-assets-and-resources) in the studio.
 > - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
 
 ## Author machine learning projects
 
@@ -89,6 +94,11 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
 | Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
 
+## Troubleshooting
+
+* **Missing user interface items in studio** Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from appearing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio. For more information, see [Manage users and roles](how-to-assign-roles.md).
+
+* **Supported browsers in Azure Machine Learning studio**: 
 
 ## Next steps
 
