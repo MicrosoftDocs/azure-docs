@@ -361,7 +361,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Grant access from Azure resource instances (preview)
 
-Applications might depend on an instance of an Azure resource such as a logic app or a function app. Those instances require access to the storage account data, but they might not be deployed to a virtual network that you've allowed access from. You can grant access to those resource instances so that the application can use them to connect to your data. 
+Applications might depend on an Azure resource such as a logic app or a function app. Each of these resource instances might require direct access to the data in your storage account. Those instances will have access if they are deployed to a virtual network that you've included in your network rules. Otherwise, you can add rules that grant access to those resource instances so that the application can use them to connect to your data. 
 
 The types of operations that a resource instance can perform on storage account data is determined by Azure Active Directory (Azure AD) role assignments of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
