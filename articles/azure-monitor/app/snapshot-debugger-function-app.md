@@ -51,7 +51,7 @@ Just as reference, for a simple Function app (.NET Core), below is how it will l
 
 Project csproj
 
-```c#
+```xml
 <Project Sdk="Microsoft.NET.Sdk">
 <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -121,7 +121,7 @@ Host file
 
 ## Disable Snapshot Debugger
 
-To disable Snapshot Debugger in your Function app, you just need to update your `host.json` file by and set to `false` the property `snapshotConfiguration.isEnabled`.
+To disable Snapshot Debugger in your Function app, you just need to update your `host.json` file by setting to `false` the property `snapshotConfiguration.isEnabled`.
 
 ```json
 {
