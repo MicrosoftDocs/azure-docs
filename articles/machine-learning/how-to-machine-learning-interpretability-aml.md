@@ -327,7 +327,7 @@ Explore your dataset statistics by selecting different filters along the X, Y, a
 [![Dataset explorer tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif#lightbox)
 
 #### Aggregate feature importance
-Explore the top-k important features that impact your overall model predictions (a.k.a. global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Click on any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.
+Explore the top-k important features that impact your overall model predictions (also known as global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Click on any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.
 
 [![Aggregate feature importance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif#lightbox)
 
