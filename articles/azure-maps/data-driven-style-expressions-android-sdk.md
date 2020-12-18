@@ -130,7 +130,7 @@ This video provides an overview of data-driven styling in Azure Maps.
 
 <br/>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps Data Driven styling overview video"></iframe>
+[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 ## Data expressions
 
