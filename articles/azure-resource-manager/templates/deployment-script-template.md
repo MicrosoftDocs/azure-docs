@@ -46,7 +46,7 @@ To configure the least-privilege permissions, you need:
 
   ```json
   {
-    "roleName": "deployment-script-min",
+    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
     "description": "Configure least privilege for the deployment principal in deployment script",
     "type": "customRole",
     "IsCustom": true,
@@ -65,35 +65,36 @@ To configure the least-privilege permissions, you need:
   }
   ```
 
-  If Azure Container Instance hasn't been registered, you also need to add **Microsoft.ContainerInstance/register/action**.
+  If the Azure Storage and the Azure Container Instance resource provider haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
 
-- If a managed identity is used, you need to assigned both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
+- If a managed identity is used, you need to assign both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
 
   ```json
-  {
-    "roleName": "deployment-script-min-mi",
-    "description": "Configure least privilege for the managed identity in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Insights/diagnosticSettings/*",
-          "Microsoft.ResourceHealth/availabilityStatuses/read",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.Support/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
+  "properties": {
+      "roleName": "deployment-script-minimum-privilege-for-managed-identity",
+      "description": "Configure least privilege for the managed identity in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Insights/alertRules/*",
+            "Microsoft.Insights/diagnosticSettings/*",
+            "Microsoft.ResourceHealth/availabilityStatuses/read",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.Support/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
   }
   ```
 
