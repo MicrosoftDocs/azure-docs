@@ -8,7 +8,7 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
-  - name: Operations Manager users
+  - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
 - name: Quickstarts
   items:
