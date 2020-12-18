@@ -111,7 +111,7 @@ The Azure Stack Edge device uses its own intrusion detection features to protect
 
 - [Understand Azure Stack Edge security](azure-stack-edge-security.md)
 
-- [Port information for Azure Stack Edge](azure-stack-edge-gpu-system-requirements.md#port-requirements)
+- [Port information for Azure Stack Edge](azure-stack-edge-gpu-system-requirements.md)
 
 - [Get hardware and software intrusion detection logs](azure-stack-edge-gpu-troubleshoot.md#gather-advanced-security-logs)
 
@@ -260,12 +260,10 @@ Additionally, a support package, which includes audit logs can be gathered at th
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40436).
 
 **Guidance**: Follow the best practices to protect credentials, such as:
+
 - Activation key used to activate the device with the Azure Stack Edge resource in Azure.
-
 - Sign in credentials to access the Azure Stack Edge device.
-
 - Key files that can facilitate a recovery of Azure Stack Edge device.
-
 - Channel encryption key
 
 Rotate and then sync your storage account keys regularly to help protect your storage account from unauthorized users.
@@ -613,7 +611,7 @@ Note that additional permissions might be required to get visibility into worklo
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: All
-Azure Stack Edge security settings are preset and cannot be modified. These security settings are
+Azure Stack Edge security settings are pre-configured and cannot be modified. These security settings are
 maintained through updates.
 
 **Azure Security Center monitoring**: Currently not available
@@ -640,7 +638,7 @@ maintained through updates.
 
 **Guidance**: You can bring in your own applications to run on any locally created virtual machines. Use PowerShell scripts to create local compute virtual machines on your Stack Edge device. We strongly recommend that you bring in only trusted applications to run on the local virtual machines. 
 
-- [How to control PowerShell script execution in Windows environment](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1&amp;viewFallbackFrom=powershell-6)
+- [How to control PowerShell script execution in Windows environment](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1&amp;viewFallbackFrom=powershell-6&amp;preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -915,7 +913,7 @@ through the lifetime of the device.
 
 **Guidance**: Azure Stack Edge does offer support to create secure configurations for the local virtual machines which are created by the customers. It is strongly recommended to use Microsoft provided guidelines to establish security baselines while creating local virtual machines,
 
-- [Download the security baselines included in the Security compliance toolkit](windows/security/threat-protection/windows-security-baselines)
+- [Download the security baselines included in the Security compliance toolkit](/windows/security/threat-protection/windows-security-baselines)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1298,8 +1296,6 @@ For more information, see the following references:
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
-
-- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
 **Azure Security Center monitoring**: Not applicable
 
