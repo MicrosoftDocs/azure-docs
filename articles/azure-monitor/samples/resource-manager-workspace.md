@@ -694,7 +694,6 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {
