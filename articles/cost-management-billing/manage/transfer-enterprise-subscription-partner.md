@@ -28,7 +28,7 @@ Not all Marketplace products can be transferred. If the same Azure Marketplace p
 
 Existing Azure support plans or packages can't be used after subscriptions are migrated to CSP. Only the CSP can create support requests for the subscriptions after migration. Ensure that your existing support plans or packages are cancelled or amended if no longer needed.
 
-Azure EA monetary commitment funds don't transfer to CSP and are lost after migration. To avoid losing funds, plan for your migration to take place _after_ the EA commitment is fully used.
+Azure EA monetary commitment (now known as Azure Prepayment) funds don't transfer to CSP and are lost after migration. To avoid losing funds, plan for your migration to take place after the EA commitment is fully used.
 
 If the customer is a large Azure consumer, their CSP migration may not be automatically permitted. You may need to contact with your Microsoft PDM (Partner Development Manager) and the customer's Microsoft Account Executive. Talking to them can help ensure that the migration to CSP is the best-suited for the customer. The approval can take weeks to complete.
 
