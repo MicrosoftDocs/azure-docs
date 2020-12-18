@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
+ms.custom: seodec18,references_regions
 ---
 
 # Speech service supported regions
