@@ -88,7 +88,7 @@ The first place where a notification can be dropped (Azure Notification Hubs did
 
 One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
 
-The following are some misconfiguration that might be the cause why Azure Notification Hub doesn't accept the notifications from your Communication Services resource. 
+The following are some common misconfigurations that might be the cause why Azure Notification Hub doesn't accept the notifications from your Communication Services resource.
 
 #### Azure Notification Hub not linked to the Communication Services resource
 
