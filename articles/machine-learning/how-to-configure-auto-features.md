@@ -17,7 +17,7 @@ ms.date: 12/18/2020
 
 
 
-Learn the data featurization settings in Azure Machine Learning and how to customize those features for [automated ML experiments](concept-automated-ml.md).
+Learn about the data featurization settings in Azure Machine Learning and how to customize those features for [automated ML experiments](concept-automated-ml.md).
 
 ## Feature engineering and featurization
 
