@@ -41,9 +41,9 @@ The Health check path should check critical components of your application. For 
 
 ![Health check navigation in Azure Portal][3]
 
-- To enable Health check, browse to the Azure Portal and select your App Service app. 
+- To enable Health check, browse to the Azure Portal and select your App Service app.
 - Under **Monitoring**, select **Health check**.
-- Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. 
+- Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
 - Click **Save**.
 
 ### Configuration
@@ -71,7 +71,6 @@ After providing your application's health check path, you can monitor the health
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png
