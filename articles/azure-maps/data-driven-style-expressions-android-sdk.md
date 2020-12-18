@@ -128,7 +128,9 @@ Using this approach can make it easy to reuse style expressions between mobile a
 
 This video provides an overview of data-driven styling in Azure Maps.
 
-[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
+</br>
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 ## Data expressions
 
