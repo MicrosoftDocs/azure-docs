@@ -50,9 +50,9 @@ Be aware that by default, endpoints with public IP addresses are used to communi
 
 ### Azure Resource Manager
 
-In addition to operations specific to a Batch account, [management operations](/rest/api/batchmanagement/) apply to single and multiple Batch accounts. These management operations are accessed via Azure Resource Manager (ARM).
+In addition to operations specific to a Batch account, [management operations](/rest/api/batchmanagement/) apply to single and multiple Batch accounts. These management operations are accessed via Azure Resource Manager.
 
-Batch management operations via ARM are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
+Batch management operations via Azure Resource Manager are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
 
 ### Batch pool nodes
 
