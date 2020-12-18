@@ -20,6 +20,9 @@ This article focuses on subscription migrations. However, resource migration is 
 
 For subscription migrations between different Azure AD tenants please follow this [documentation.](https://docs.microsoft.com/en-us/azure/role-based-access-control/transfer-subscription)
 
+> [!NOTE]
+> The rest of this page refers to subscription migrations within the same Azure AD tenant, unless otherwise specified.
+
 ## Subscription migration planning
 
 As you being to plan migration, consider the information needed to answer to the following questions.
