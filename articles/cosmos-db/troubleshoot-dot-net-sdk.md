@@ -52,7 +52,7 @@ Checking the [portal metrics](./monitor-cosmos-db.md) will help determine if it'
 Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
 
 1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
-2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is a must that user's application logic to handle the failure and retry.
+2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is required that user's application logic to handle the failure and retry.
 3. [Trouble shooting sdk availability](troubleshoot-sdk-availability.md) explains retries for multi-region Cosmos DB accounts.
 
 ## Common error status codes <a id="error-codes"></a>
@@ -65,7 +65,7 @@ Cosmos DB SDK on any IO failure will attempt to retry the failed operation if re
 | 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
 | 410 | Gone exceptions (Transient failure that should not violate SLA) |
-| 412 | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
+| 412 | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
 | 413 | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
 | 429 | [Too many requests](troubleshoot-request-rate-too-large.md) |
 | 449 | Transient error that only occurs on write operations, and is safe to retry |
