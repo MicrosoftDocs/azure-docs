@@ -1,7 +1,7 @@
 ---
-title: Featurization in AutoML experiments
+title: Featurization in autoML experiments
 titleSuffix: Azure Machine Learning
-description: Learn what featurization settings Azure Machine Learning offers and how feature engineering is supported in automated ML experiments.
+description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,20 +9,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
 ---
 
-# Featurization in automated machine learning
+# Data featurization in automated machine learning
 
 
 
-In this guide, you learn:
+Learn the data featurization settings in Azure Machine Learning and how to customize those features for [automated ML experiments](concept-automated-ml.md).
 
-- What featurization settings Azure Machine Learning offers.
-- How to customize those features for your [automated machine learning experiments](concept-automated-ml.md).
+## Feature engineering and featurization
 
-*Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *AutoML*, experiments.
+*Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *autoML*, experiments.
 
 ## Prerequisites
 
@@ -301,16 +300,16 @@ class_prob = fitted_model.predict_proba(X_test)
 
 If the underlying model does not support the `predict_proba()` function or the format is incorrect, a model class-specific exception will be thrown. See the [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) and [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) reference docs for examples of how this function is implemented for different model types.
 
-## BERT integration
+## BERT integration in automated ML
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of AutoML. In this layer, if a column contains free text or other types of data like timestamps or simple numbers, then featurization is applied accordingly.
 
-For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output  as features alongside others, like timestamp-based features, day of week. 
+For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output as features alongside others, like timestamp-based features, day of week. 
 
 
-### BERT steps
+### Steps to invoke BERT
 
-In order to invoke BERT, you have to set  `enable_dnn: True` in your automl_settings and use a GPU compute (e.g. `vm_size = "STANDARD_NC6"`, or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
+In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use a GPU compute (`vm_size = "STANDARD_NC6"` or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
 
 AutoML takes the following steps for BERT. 
 
@@ -325,9 +324,10 @@ AutoML takes the following steps for BERT.
 BERT generally runs longer than other featurizers. For better performance, we recommend using "STANDARD_NC24r" or "STANDARD_NC24rs_V3" for their RDMA capabilities. 
 
 AutoML will distribute BERT training across multiple nodes if they are available (upto a max of eight nodes). This can be done in your `AutoMLConfig` object by setting the `max_concurrent_iterations` parameter to higher than 1. 
-### Supported languages
 
-AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
+## Supported languages for BERT in autoML 
+
+AutoML currently supports around 100 languages and depending on the dataset's language, autoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
 
 In the following code, the German BERT model is triggered, since the dataset language is specified to `deu`, the three letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
 
