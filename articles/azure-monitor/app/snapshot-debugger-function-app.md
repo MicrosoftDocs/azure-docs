@@ -1,15 +1,15 @@
 ---
-title: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Function | Microsoft Docs
-description: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Function
+title: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions | Microsoft Docs
+description: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
 ---
 
-# Enable Snapshot Debugger for .NET and .NET Core apps in Azure Function
+# Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
 
-Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure Function on Windows Service Plans.
+Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure Functions on Windows Service Plans.
 
 We recommend you run your application on the Basic service tier or higher when using Snapshot Debugger.
 
@@ -43,9 +43,9 @@ To enable Snapshot Debugger in your Function app, you have to update your `host.
 }
 ```
 
-Snapshot Debugger is pre-installed as part of the Azure Function runtime, which by default it's disabled.
+Snapshot Debugger is pre-installed as part of the Azure Functions runtime, which by default it's disabled.
 
-Since Snapshot Debugger it's included in the Azure Function runtime, it isn't needed to add extra NuGet packages nor application settings.
+Since Snapshot Debugger it's included in the Azure Functions runtime, it isn't needed to add extra NuGet packages nor application settings.
 
 Just as reference, for a simple Function app (.NET Core), below is how it will look the `.csproj`, `{Your}Function.cs`, and `host.json` after enabled Snapshot Debugger on it.
 
@@ -74,7 +74,7 @@ Project csproj
 
 Function class
 
-```c#
+```csharp
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
