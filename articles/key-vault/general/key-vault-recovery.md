@@ -29,7 +29,7 @@ For more information about Key Vault, see
 
 Soft delete and purge protection are two different key vault recovery features.
 > [!IMPORTANT]
-> Soft delete protection is required to be enabled on all key vaults. The ability to disable soft-delete protection will be deprecated by December 2020. Please see full details [**here**.](soft-delete-change.md)
+> Turning on soft delete is critical to ensuring that your key vaults and credentials are protected from accidental deletion. However, turning on soft delete is considered a breaking change because it may require you to change your application logic or provide additional permissions to your service principals. Before turning on soft delete using the instructions below, please make sure that your application is compatible with the change using this document [**here**.](soft-delete-change.md)
 
 **Soft delete** is designed to prevent accidental deletion of your key vault and keys, secrets, and certificates stored inside key vault. Think of soft-delete like a recycle bin. When you delete a key vault or a key vault object, it will remain recoverable for a user configurable retention period or a default of 90 days. Key vaults in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate key vaults and key vault objects with the same name. Both recovering and deleting key vaults and objects require elevated access policy permissions. **Once soft delete has been enabled, it cannot be disabled.**
 

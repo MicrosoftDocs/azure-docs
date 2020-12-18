@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
 ---
 
@@ -44,7 +44,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2012 R2 and higher (including Windows Server Core)
+- Windows Server 2008 R2, Windows Server 2012 R2 and higher (including Server Core)
 - Ubuntu 16.04 and 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
@@ -75,9 +75,9 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 
 ### Networking configuration
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration requirements.
+The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review the following to understand the network configuration requirements.
 
-If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. If you only allow the IP ranges or domain names required for the agent to communicate with the service, you must also allow access to the following Service Tags and URLs.
+If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
 
 Service Tags:
 
@@ -176,8 +176,9 @@ After installing the Connected Machine agent for Windows, the following addition
 
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |DscService |Guest Configuration Service |dsc_service.exe |The Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
+    |GCArcService |Guest Configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
+    |ExtensionService |Guest Configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
 
 * The following environmental variables are created during agent installation.
 
@@ -227,8 +228,9 @@ After installing the Connected Machine agent for Linux, the following additional
 
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |himdsd.service |Azure Connected Machine Agent Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
+    |gcad.servce |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
+    |extd.service |Extension Service |gc_linux_service | Installs the required extensions targeting the machine.|
 
 * There are several log files available for troubleshooting. They are described in the following table.
 
