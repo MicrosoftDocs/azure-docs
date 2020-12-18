@@ -128,7 +128,7 @@ The deployment manifest shares the credentials for your container registry with 
 
 ### Update the module with custom code
 
-The default module code receives messages in an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to your IoT hub. Update the module so that it analyzes the temperature data in each message and sends the message to the IoT hub only if the temperature exceeds a certain threshold.
+The default module code receives messages in an input queue and passes them along through an output queue. Let's add some more code so that the module processes the messages at the edge before forwarding them to your IoT hub. Update the module so that it analyzes the temperature data in each message and sends the message to the IoT hub only if the temperature exceeds a certain threshold.
 
 1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
