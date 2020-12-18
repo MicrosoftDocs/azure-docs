@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/18/2020
 ms.author: jgao
 
 ---
@@ -36,45 +36,71 @@ The deployment script resource is only available in the regions where Azure Cont
 > The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, which include Azure Container instance,  Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources.
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts.  The deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
-## Prerequisites
+## Configure the minimum permissions
 
-- **(Optional) A user-assigned managed identity with required permissions to perform the operations in the script**. For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. 
+For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
-  To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
+To limit permissions, you need three role assignments - one for the deployment principal and two for the managed identity:
 
-  ```json
-  /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
-  ```
+- For the deployment principal:
 
-  Use the following CLI or PowerShell script to get the ID by providing the resource group name and the identity name.
+  - A custom role with the following properties assigned on the subscription level or the resource group level where the deployment script is created:
 
-  # [CLI](#tab/CLI)
+      ```json
+      {
+        "roleName": "deploymentScriptContributor",
+        "Description": "Can only CRUD deployment scripts",
+        "type": "customRole",
+        "IsCustom": true,
+        "permissions": [
+          {
+            "Actions": [
+              "Microsoft.Resources/deploymentScripts/*",
+              "Microsoft.Resources/*/read",
+              "Microsoft.Authorization/*/read",
+              "Microsoft.Resources/subscriptions/resourceGroups/read",
+              "Microsoft.Resources/deployments/*",
+              "Microsoft.Support/*"
+            ],
+          }
+        ],
+        "AssignableScopes": [
+          "[subscription().id]"
+        ]
+      }
+      ```
 
-  ```azurecli-interactive
-  echo "Enter the Resource Group name:" &&
-  read resourceGroupName &&
-  echo "Enter the managed identity name:" &&
-  read idName &&
-  az identity show -g $resourceGroupName -n $idName --query id
-  ```
+- For the managed identity
 
-  # [PowerShell](#tab/PowerShell)
+  - A custom role with the following properties assigned on the subscription level or the resource group level where the deployment script is created:
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
+    ```json
+    {
+      "roleName": "deploymentScriptforMI",
+      "Description": "Permissions for the managed identity to execute a deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Support/*"
+          ],
+        }
+      ],
+      "AssignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
-  ```
+  - Managed Identity Operator (built-in role) on the managed identity used by the deployment script.
 
-  ---
-
-- **Azure PowerShell** or **Azure CLI**. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
-
-    >[!IMPORTANT]
-    > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
-
-    You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+If you have registered the Azure Storage and Azure Container Instance resource providers on the subscription level, you only need to add the roleAssignments on the resource group level.
 
 ## Sample templates
 
