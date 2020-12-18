@@ -32096,7 +32096,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "azure/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+      "source_path_from_root": "/articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
       "redirect_url": "/azure/security-center/security-center-faq",
       "redirect_document_id": false
     },
@@ -46146,7 +46146,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
+      "source_path_from_root": "/articles/iot-suite/iot-suite-v1-gateway-kit-get-started-sensortag.md",
       "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
       "redirect_document_id": false
     },

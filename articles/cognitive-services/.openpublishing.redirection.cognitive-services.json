@@ -3516,28 +3516,28 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-dictionary",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-languages",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-languages",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-sentence",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-sentence",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-transliterate",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/quickstart-transliterate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
     },
     {
