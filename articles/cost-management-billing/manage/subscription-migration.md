@@ -87,7 +87,7 @@ Microsoft doesn't provide a tool to automatically move resources between subscri
 
 ### Azure Resource Migration Support tool
 
-There's a third-party tool named [Azure Resource Migration Support tool v10](https://jtjsacpublic.blob.core.windows.net/blogsharedfiles/AzureResourceMigrationSupportV10.xlsx) that can help you plan a large resource migration. It's an Excel workbook that helps you track and compare resource information for the source and destination subscription and resource types.
+There's a third-party tool named [Azure Resource Migration Support tool v10](https://jtjsacpublic.blob.core.windows.net/blogsharedfiles/AzureResourceMigrationSupportV10.xlsx) that can help you plan a large resource migration. It's an Excel workbook that helps you track and compare resource information for the source and destination subscription and resource types. This workbook is based upon the data documented at [Move operation support for resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/move-support-resources).
 
 For more information about using the tool, see [Azure Subscription Migrations](https://jacktracey.co.uk/migration/azure-subscription-migrations/). Instructions to use the tool are on the Intro Page sheet in the workbook.
 
