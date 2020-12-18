@@ -11,7 +11,7 @@ ms.author: msangapu
 ---
 # Monitor App Service instances using health check
 
-This article uses Health check in the Azure Portal to monitor App Service app instances. Health check increases your application's availability by removing unhealthy instances from the load balancer.
+This article uses Health check in the Azure Portal to monitor App Service app instances. Health check increases your application's availability by removing unhealthy instances.
 
 ## Prerequisites
 
@@ -21,8 +21,8 @@ This article uses Health check in the Azure Portal to monitor App Service app in
 ## What App Service does with health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive), or fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation.
-- After removal from the load balancer, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
+- If an instance doesn't respond with a status code between 200-299 (inclusive), or fails to respond to the ping, the system determines it's unhealthy and removes it.
+- After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
 
 > [!NOTE]
@@ -50,13 +50,13 @@ The Health check path should check critical components of your application. For 
 
 #### Max failures
 
-You can configure the number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This setting range is between 2 and 10. For example, if it's set to `2`, your instances will be removed from the load balancer after `2` failed pings.
+You can configure the number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This setting range is between 2 and 10. For example, if it's set to `2`, your instances will be removed after `2` failed pings.
 
-Furthermore, when you are scaling up or out, App Service pings the health check path to ensure new instances are ready before adding them to the load balancer.
+Furthermore, when you are scaling up or out, App Service pings the health check path to ensure new instances are ready.
 
 #### Percentage of unhealthy instances
 
-To avoid overwhelming remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded from the load balancer rotation. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. If you'd like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
+To avoid overwhelming remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. If you'd like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
 
 #### Authentication and security
 
