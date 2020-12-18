@@ -47,7 +47,8 @@ Description of app type here - make it as short as possible but as long as requi
 |--|--|:-:|:-:|:-:|:-:|
 | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | [MSAL Node.js](./msal-js-initializing-client-applications.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
-<br/><sup>1</sup> :warning: TODO: Explanation of what it means to be "Supported by Microsoft" :warning:
+
+<sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
 ## :warning: CURRENT DOC CONTENT BELOW THIS HEADING :warning:
 
