@@ -9,14 +9,6 @@ ms.date: 12/18/2020
 
 # Enable Snapshot Debugger for .NET and .NET Core apps in Azure Function
 
-> [!NOTE]
-> If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
-> * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-> * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-> * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-> * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-> * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-
 Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure Function on Windows Service Plans.
 
 We recommend you run your application on the Basic service tier or higher when using Snapshot Debugger.
@@ -29,20 +21,27 @@ For most applications, the Free and Shared service tiers don't have enough memor
 
 ## Enable Snapshot Debugger
 
+If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
+* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
 To enable Snapshot Debugger in your Function app, you have to update your `host.json` file by adding the property `snapshotConfiguration` as defined below and redeploy your function.
 
-    ```json
-    {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-        "snapshotConfiguration": {
-            "isEnabled": true
-        }
-        }
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "snapshotConfiguration": {
+        "isEnabled": true
+      }
     }
-    }
-    ```
+  }
+}
+```
 
 Snapshot Debugger is pre-installed as part of the Azure Function runtime, which by default it's disabled.
 
@@ -52,90 +51,90 @@ Just as reference, for a simple Function app (.NET Core), below is how it will l
 
 Project csproj
 
-    ```c#
-    <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <AzureFunctionsVersion>v2</AzureFunctionsVersion>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Update="host.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="local.settings.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-        </None>
-    </ItemGroup>
-    </Project>
-    ```
+```c#
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
+</ItemGroup>
+<ItemGroup>
+    <None Update="host.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+</ItemGroup>
+</Project>
+```
 
 Function class
 
-    ```c#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.Logging;
+```c#
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
-    namespace SnapshotCollectorAzureFunction
+namespace SnapshotCollectorAzureFunction
+{
+    public static class ExceptionFunction
     {
-        public static class ExceptionFunction
+        [FunctionName("ExceptionFunction")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+            ILogger log)
         {
-            [FunctionName("ExceptionFunction")]
-            public static Task<IActionResult> Run(
-                [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-                ILogger log)
-            {
-                log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
-                throw new NotImplementedException("Dummy");
-            }
+            throw new NotImplementedException("Dummy");
         }
     }
-    ```
+}
+```
 
 Host file
 
-    ```json
-    {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-        "samplingExcludedTypes": "Request",
-        "samplingSettings": {
-            "isEnabled": true
-        },
-        "snapshotConfiguration": {
-            "isEnabled": true
-        }
-        }
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true
+      }
     }
-    }
-    ```
+  }
+}
+```
 
 ## Disable Snapshot Debugger
 
 To disable Snapshot Debugger in your Function app, you just need to update your `host.json` file by and set to `false` the property `snapshotConfiguration.isEnabled`.
 
-    ```json
-    {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-        "snapshotConfiguration": {
-            "isEnabled": false
-        }
-        }
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "snapshotConfiguration": {
+        "isEnabled": false
+      }
     }
-    }
-    ```
+  }
+}
+```
 
 We recommend you have Snapshot Debugger enabled on all your apps to ease diagnostics of application exceptions.
 
