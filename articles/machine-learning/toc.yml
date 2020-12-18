@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
+    - name: Open source integrations
+      href: concept-open-source.md      
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Security
