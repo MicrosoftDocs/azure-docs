@@ -14,7 +14,7 @@ ms.reviewer:
 ms.date: 05/29/2020
 ---
 # Quickstart: Use Python to query a database in Azure SQL Database or Azure SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In this quickstart, you use Python to connect to Azure SQL Database or Azure SQL Managed Instance, and use T-SQL statements to query data.
 
