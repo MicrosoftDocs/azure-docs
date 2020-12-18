@@ -39,6 +39,7 @@ Cosmos DB SDK on any IO failure will attempt to retry the failed operation if re
 
 1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
 2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is a must that user's application logic to handle the failure and retry.
+3. [Trouble shooting sdk availability](troubleshoot-sdk-availability.md) explains retries for multi-region Cosmos DB accounts.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
