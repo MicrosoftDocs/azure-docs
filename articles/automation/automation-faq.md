@@ -9,7 +9,7 @@ ms.date: 12/17/2020
 
 # Azure Automation frequently asked questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any additional questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any other questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
 
 ## Update Management
 
@@ -27,7 +27,7 @@ When you deploy updates to a Linux machine, you can select update classification
 
 Because Update Management performs update enrichment in the cloud, you can flag some updates in Update Management as having a security impact, even though the local machine doesn't have that information. If you apply critical updates to a Linux machine, there might be updates that aren't marked as having a security impact on that machine and therefore aren't applied. However, Update Management might still report that machine as noncompliant because it has additional information about the relevant update.
 
-Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting ONLY **Other updates** as the classification can cause some additional security updates to be installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you might be required to rerun the update deployment and then verify the deployment through the update log.
+Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting ONLY **Other updates** as the classification can install some other security updates if they are related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you might be required to rerun the update deployment and then verify the deployment through the update log.
 
 ### Can I deploy updates across Azure tenants?
 
@@ -53,7 +53,7 @@ For hybrid jobs on Windows Hybrid Runbook Workers, you can choose to install any
 
 ### Can Python 2 and Python 3 runbooks run in same automation account?
 
-Yes, there are no limitation for using Python 2 and Python 3 runbooks in same automation account.  
+Yes, there is no limitation for using Python 2 and Python 3 runbooks in same automation account.  
 
 ### What is the plan for migrating existing Python 2 runbooks and packages to Python 3?
 
@@ -73,7 +73,7 @@ Python 3 is a new runbook definition, which distinguishes between Python 2 and P
 
 ## Next steps
 
-If your question isn't answered here, you can refer to the following sources for additional questions and answers.
+If your question isn't answered here, you can refer to the following sources for more questions and answers.
 
 - [Azure Automation](/answers/topics/azure-automation.html)
 - [Feedback forum](https://feedback.azure.com/forums/905242-update-management)
