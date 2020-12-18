@@ -1,24 +1,24 @@
 ---
-title: Quickstart - Azure Key Vault Secret client library for Java
+title: Quickstart - Azure Key Vault Key client library for Java
 description: Provides a quickstart for the Azure Key Vault Sectret client library for Java.
-author: msmbaldwin
+author: vicolina
 ms.custom: devx-track-java, devx-track-azurecli
-ms.author: mbaldwin
-ms.date: 10/20/2019
+ms.author: vicolina
+ms.date: 12/18/2020
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: keys
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Key Vault Secret client library for Java
-Get started with the Azure Key Vault Secret client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
+# Quickstart: Azure Key Vault Key client library for Java
+Get started with the Azure Key Vault Key client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
 
 Additional resources:
 
-* [Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets)
+* [Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys)
 * [API reference documentation](https://azure.github.io/azure-sdk-for-java/keyvault.html)
 * [Product documentation](index.yml)
-* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)
 
 ## Prerequisites
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -45,11 +45,11 @@ This quickstart is using the Azure Identity library with Azure CLI to authentica
 2. Sign in with your account credentials in the browser.
 
 ### Create a new Java console app
-In a console window, use the `mvn` command to create a new Java console app with the name `akv-secrets-java`.
+In a console window, use the `mvn` command to create a new Java console app with the name `akv-keys-java`.
 
 ```console
-mvn archetype:generate -DgroupId=com.keyvault.secrets.quickstart
-                       -DartifactId=akv-secrets-java
+mvn archetype:generate -DgroupId=com.keyvault.keys.quickstart
+                       -DartifactId=akv-keys-java
                        -DarchetypeArtifactId=maven-archetype-quickstart
                        -DarchetypeVersion=1.4
                        -DinteractiveMode=false
@@ -61,16 +61,16 @@ The output from generating the project will look something like this:
 [INFO] ----------------------------------------------------------------------------
 [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
 [INFO] ----------------------------------------------------------------------------
-[INFO] Parameter: groupId, Value: com.keyvault.secrets.quickstart
-[INFO] Parameter: artifactId, Value: akv-secrets-java
+[INFO] Parameter: groupId, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: artifactId, Value: akv-keys-java
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-[INFO] Parameter: package, Value: com.keyvault.secrets.quickstart
+[INFO] Parameter: package, Value: com.keyvault.keys.quickstart
 [INFO] Parameter: packageInPathFormat, Value: com/keyvault/quickstart
-[INFO] Parameter: package, Value: com.keyvault.secrets.quickstart
-[INFO] Parameter: groupId, Value: com.keyvault.secrets.quickstart
-[INFO] Parameter: artifactId, Value: akv-secrets-java
+[INFO] Parameter: package, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: groupId, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: artifactId, Value: akv-keys-java
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-[INFO] Project created from Archetype in dir: /home/user/quickstarts/akv-secrets-java
+[INFO] Project created from Archetype in dir: /home/user/quickstarts/akv-keys-java
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -79,10 +79,10 @@ The output from generating the project will look something like this:
 [INFO] ------------------------------------------------------------------------
 ```
 
-Change your directory to the newly created `akv-secrets-java/` folder.
+Change your directory to the newly created `akv-keys-java/` folder.
 
 ```console
-cd akv-secrets-java
+cd akv-keys-java
 ```
 
 ### Install the package
@@ -91,7 +91,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 ```xml
     <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-security-keyvault-secrets</artifactId>
+      <artifactId>azure-security-keyvault-keys</artifactId>
       <version>4.2.3</version>
     </dependency>
 
@@ -106,10 +106,10 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 #### Grant access to your key vault
-Create an access policy for your key vault that grants secret permissions to your user account.
+Create an access policy for your key vault that grants key permissions to your user account.
 
 ```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### Set environment variables
@@ -130,7 +130,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 ## Object model
-The Azure Key Vault Secret client library for Java allows you to manage secrets. The [Code examples](#code-examples) section shows how to create a client, set a secret, retrieve a secret, and delete a secret.
+The Azure Key Vault Key client library for Java allows you to manage keys. The [Code examples](#code-examples) section shows how to create a client, create a key, retrieve a key, and delete a key.
 
 The entire console app is [below](#sample-code).
 
@@ -142,10 +142,11 @@ Add the following directives to the top of your code:
 import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import com.azure.security.keyvault.secrets.models.DeletedSecret;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
+import com.azure.security.keyvault.keys.KeyClient;
+import com.azure.security.keyvault.keys.KeyClientBuilder;
+import com.azure.security.keyvault.keys.models.DeletedKey;
+import com.azure.security.keyvault.keys.models.KeyType;
+import com.azure.security.keyvault.keys.models.KeyVaultKey;
 ```
 
 ### Authenticate and create a client
@@ -157,48 +158,48 @@ In the example below, the name of your key vault is expanded to the key vault UR
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
 String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
 
-SecretClient secretClient = new SecretClientBuilder()
+KeyClient keyClient = new KeyClientBuilder()
     .vaultUrl(keyVaultUri)
     .credential(new DefaultAzureCredentialBuilder().build())
     .buildClient();
 ```
 
-### Save a secret
-Now that your application is authenticated, you can put a secret into your key vault using the `secretClient.setSecret` method. This requires a name for the secret -- we've assigned the value "mySecret" to the `secretName` variable in this sample.
+### Create a key
+Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type -- we've assigned the value "myKey" to the `keyName` variable and use a an RSA `KeyType` in this sample.
 
 ```java
-secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
+keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
+You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
+az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
-### Retrieve a secret
-You can now retrieve the previously set secret with the `secretClient.getSecret` method.
+### Retrieve a key
+You can now retrieve the previously created key with the `keyClient.getKey` method.
 
 ```java
-KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
+KeyVaultKey retrievedKey = keyClient.getKey(keyName);
  ```
 
-You can now access the value of the retrieved secret with `retrievedSecret.getValue()`.
+You can now access the details of the retrieved key with operations like `retrievedKey.getProperties`, `retrievedKey.getKeyOperations`, etc.
 
-### Delete a secret
-Finally, let's delete the secret from your key vault with the `secretClient.beginDeleteSecret` method.
+### Delete a key
+Finally, let's delete the key from your key vault with the `keyClient.beginDeleteKey` method.
 
-Secret deletion is a long running operation, for which you can poll its progress or wait for it to complete.
+Key deletion is a long running operation, for which you can poll its progress or wait for it to complete.
 
 ```java
-SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(secretName);
+SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
+You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
+az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
 ## Clean up resources
@@ -214,17 +215,16 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Sample code
 ```java
-package com.keyvault.secrets.quickstart;
-
-import java.io.Console;
+package com.keyvault.keys.quickstart;
 
 import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import com.azure.security.keyvault.secrets.models.DeletedSecret;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret
+import com.azure.security.keyvault.keys.KeyClient;
+import com.azure.security.keyvault.keys.KeyClientBuilder;
+import com.azure.security.keyvault.keys.models.DeletedKey;
+import com.azure.security.keyvault.keys.models.KeyType;
+import com.azure.security.keyvault.keys.models.KeyVaultKey;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, IllegalArgumentException {
@@ -233,46 +233,35 @@ public class App {
 
         System.out.printf("key vault name = %s and key vault URI = %s \n", keyVaultName, keyVaultUri);
 
-        SecretClient secretClient = new SecretClientBuilder()
-            .vaultUrl(keyVaultUri)
-            .credential(new DefaultAzureCredentialBuilder().build())
-            .buildClient();
+        KeyClient keyClient = new KeyClientBuilder()
+                .vaultUrl(keyVaultUri)
+                .credential(new DefaultAzureCredentialBuilder().build())
+                .buildClient();
 
-        Console con = System.console();  
+        String keyName = "myKey";
 
-        String secretName = "mySecret";
+        System.out.print("Creating a key in " + keyVaultName + " called '" + keyName + " ... ");
 
-        System.out.println("Please provide the value of your secret > ");
-        
-        String secretValue = con.readLine();
+        keyClient.createKey(keyName, KeyType.RSA);
 
-        System.out.print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with value '" + secretValue + "` ... ");
+        System.out.print("done.");
+        System.out.println("Retrieving key from " + keyVaultName + ".");
 
-        secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
+        KeyVaultKey retrievedKey = keyClient.getKey(keyName);
 
-        System.out.println("done.");
-        System.out.println("Forgetting your secret.");
-        
-        secretValue = "";
-        System.out.println("Your secret's value is '" + secretValue + "'.");
+        System.out.println("Your key's ID is '" + retrievedKey.getId() + "'.");
+        System.out.println("Deleting your key from " + keyVaultName + " ... ");
 
-        System.out.println("Retrieving your secret from " + keyVaultName + ".");
-
-        KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
-
-        System.out.println("Your secret's value is '" + retrievedSecret.getValue() + "'.");
-        System.out.print("Deleting your secret from " + keyVaultName + " ... ");
-
-        SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(secretName);
+        SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
         deletionPoller.waitForCompletion();
 
-        System.out.println("done.");
+        System.out.print("done.");
     }
 }
 ```
 
 ## Next steps
-In this quickstart you created a key vault, stored a secret, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
