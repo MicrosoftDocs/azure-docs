@@ -470,7 +470,59 @@ $rule.ResourceAccessRules
 
 ### [Azure CLI](#tab/azure-cli)
 
-Need these steps.
+You can use Azure CLI commands to add or remove resource network rules.
+
+#### Install the preview extension
+
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Then, verify that the version of Azure CLI that have installed is `2.13.0` or higher by using the following command.
+
+   ```azurecli
+   az --version
+   ```
+
+   If your version of Azure CLI is lower than `2.13.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+3. Type the following command to install the preview extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### Grant access
+
+Add a network rule that grants access from a resource instance.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### Remove access
+
+Remove a network rule that grants access from a resource instance.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### View a list of allowed resource instances
+
+View a complete list of resource instances that have been granted access to the storage account.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
 
 ---
 
