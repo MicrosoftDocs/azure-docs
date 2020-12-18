@@ -23,11 +23,10 @@ This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A database 
-
-[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
-
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
+- A database where you can run a query.
+
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 ## Get server connection information
 
