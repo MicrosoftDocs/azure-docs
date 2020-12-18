@@ -1,5 +1,5 @@
 ---
-title: Platform-supported migration tool for Azure Service Manager to Azure Resource Manager migration.
+title: Platform-supported migration tool.
 description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager.
 author: tanmaygore
 manager: vashan
