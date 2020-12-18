@@ -56,7 +56,7 @@ If you don’t have a role that grants any management layer permissions, Storage
 If you want to access blob containers or queues, you can attach to those resources using your Azure credentials.
 
 1. Open the Connect dialog.
-2. Select "Add a resource via Azure Active Directory (Azure AD). Select Next.
+2. Select "Add a resource via Azure Active Directory (Azure AD)". Select Next.
 3. Select the user account and tenant associated with the resource you're attaching to. Select Next.
 4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Select Next then Connect.
 
