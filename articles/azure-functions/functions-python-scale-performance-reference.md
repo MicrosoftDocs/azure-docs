@@ -113,7 +113,7 @@ For I/O-bound apps, you should see substantial gains by increasing the number of
 For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 
 > [!NOTE]
->  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practice).
+>  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practice.md).
 
 
 #### Managing Event Loop
