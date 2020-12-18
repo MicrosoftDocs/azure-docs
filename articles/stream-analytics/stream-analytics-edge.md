@@ -112,7 +112,7 @@ For further assistance, try the [Microsoft Q&A question page for Azure Stream An
 
 ## Next steps
 
-* [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)
+* [More information on Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [Stream Analytics on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Develop Stream Analytics Edge jobs using Visual Studio tools](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md)
