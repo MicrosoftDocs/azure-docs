@@ -267,10 +267,10 @@ filters:
 ### Footer settings
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### Click tracking

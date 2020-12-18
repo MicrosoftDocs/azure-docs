@@ -275,30 +275,30 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```
