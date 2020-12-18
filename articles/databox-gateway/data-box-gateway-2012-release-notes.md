@@ -15,7 +15,7 @@ ms.author: alkohli
 
 The following release notes identify the critical open issues and the resolved issues for the 2012 release of <!--Azure Stack Edge and -->Azure Data Box Gateway.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure <!--Stack Edge/-->Data Box Gateway, carefully review the information in the release notes.
+The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure <!--Stack Edge/-->Data Box Gateway, carefully review the information in the release notes.
 
 This release corresponds to the software versions:
 
@@ -29,14 +29,14 @@ This release corresponds to the software versions:
 
 This release contains the following bug fix:
 
-- **Upload issue** - This release fixes an upload problem where upload restarts due to failures can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large in size relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures that sufficient opportunity is given for upload completion before restarting upload for a given file.<!--Is this Patch 7831646 (ID195692227: SR#: 120070124003931), addressed in the 2007 release notes?-->
+- **Upload issue** - This release fixes an upload problem where upload restarts because of failures can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large in size relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures sufficient opportunity for upload completion before restarting upload for a given file.<!--Is this Patch 7831646 (ID195692227: SR#: 120070124003931), addressed in the 2007 release notes?-->
 
 This release also contains the following updates:
 
 <!-- - The base image for the Windows VHD has been updated.-->
-- All cumulative Windows updates and .NET framework updates are included that were released through October 2020.
+- All cumulative Windows updates and .NET framework updates released through October 2020.
 <!--- The BMC firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory install to address incompatibility with newer Dell power supply units.-->
-- Retain the static IP address for Azure Data Box Gateway across software updates.
+- The static IP address for Azure Data Box Gateway is retained across software updates.
 <!--- This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.-->
 
 ## Known issues in this release
