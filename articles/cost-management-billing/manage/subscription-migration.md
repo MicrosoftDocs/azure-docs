@@ -32,7 +32,7 @@ As you begin to plan your subscription migration, consider the information neede
 - What is the subscriptions current offer type and what do you want to migrate it too?
   - Microsoft Online Service Program (MOSP), also known as Pay-As-You-Go (PAYG).
   - Microsoft Cloud Solution Provider (CSP) v1
-  - CSP V2 (Azure plan)
+  - Microsoft Cloud Solution Provider (CSP) v2 (Azure Plan), also known as Microsoft Partner Agreement (MPA).
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA)
   - Others like MSDN, BizSpark, EOPEN, and Azure Pass.
