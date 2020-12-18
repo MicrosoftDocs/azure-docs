@@ -40,7 +40,7 @@ Communication Services uses Azure Notification Hub as a pass-through service to 
 
 ### Notification Hub provisioning 
 
-To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](../../notification-hubs/create-notification-hub-portal.md) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notification System you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) and select your target client platform from the drop-down list near the top of the page.
+To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](../../notification-hubs/create-notification-hub-portal.md) within the same subscription as your Communication Services resource. You must configure the Azure Notification Hub for the Platform Notification System you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) and select your target client platform from the drop-down list near the top of the page.
 
 > [!NOTE]
 > Currently the APNs and FCM platforms are supported.  
@@ -48,7 +48,7 @@ The APNs platform needs to be configured with token authentication mode. Certifi
 
 Once your Notification hub is configured, you can associate it to your Communication Services resource by supplying a connection string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain `Send` permissions. We recommend creating another access policy with `Send` only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### Using the Azure Resource Manager client to configure the Notification Hub
+#### Using the Azure Resource Manager client to link your Notification Hub
 
 To log into Azure Resource Manager, execute the following and sign in using your credentials.
 
@@ -62,7 +62,7 @@ armclient login
 armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers/Microsoft.Communication/CommunicationServices/<resource_id>/linkNotificationHub?api-version=2020-08-20-preview "{'connectionString': '<connection_string>','resourceId': '<resource_id>'}"
 ```
 
-#### Using the Azure portal to configure the Notification Hub
+#### Using the Azure portal to link your Notification Hub
 
 In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resourceId here:
 
@@ -78,7 +78,7 @@ Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getti
 
 ### Troubleshooting guide for push notifications
 
-When push notifications aren't being received on the device, there are three places where the notifications could have been dropped: 
+When you don't see push notifications on your device, there are three places where the notifications could have been dropped:
 
 1. Azure Notification Hubs didn't accept the notification from Azure Communication Services
 1. The Platform Notification System (for example APNs and FCM) didn't accept the notification from Azure Notification Hubs
@@ -92,32 +92,31 @@ The following are some misconfiguration that might be the cause why Azure Notifi
 
 #### Azure Notification Hub not linked to the Communication Services resource
 
-There might be the case that the Azure Notification Hub was not linked to the Communication Services resource. For that the [Notification Hub provisioning section](#notification-hub-provisioning) should be used.
+There might be the case that you didn't link your Azure Notification Hub to your Communication Services resource. You can take a look in [Notification Hub provisioning section](#notification-hub-provisioning) to see how to link them.
 
 #### The linked Azure Notification Hub isn't configured
 
-The Azure Notification Hub has to be configured with the Platform Notification System credentials for the platform that is needed. More details could be found in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+You have to configure the linked Notification Hub with the with the Platform Notification System credentials for the platform (for example iOS or android) that you would like to use. For more details on how that can be done you can take a look in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
 #### The linked Azure Notification Hub doesn't exist
 
-The Azure Notification Hub linked to your Communication Services resource doesn't exist anymore.
+The Azure Notification Hub linked to your Communication Services resource doesn't exist anymore. Check that the linked Notification Hub still exists.
 
 #### The Azure Notification Hub APNs platform is configured with certificate authentication mode
 
-As mentioned above, certificate authentication mode is not currently supported with the APNs platform.
-The APNs platform should be configured with token authentication mode as specified in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+In case you want to use the APNs platform with certificate authentication mode, it is not currently supported. You should configure the APNs platform with token authentication mode as specified in [Set up push notifications in a notification hub](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
 
 #### The linked connection string doesn't have `Send` permission
 
-The connection string that the Azure Notification Hub was linked with to your Communication Services resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Azure Notification Hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
+The connection string that you used to link your Notification Hub to your Communication Services resource needs to have the `Send` permission. For more details about how you can create a new connection string or see the current connection string from your Azure Notification Hub you can take a look in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
 #### The linked connection string or Azure Notification Hub resourceId aren't valid
 
-Make sure the Communication Services resource is configured with the correct connection string and Azure Notification Hub resourceId
+Make sure that you configure Communication Services resource with the correct connection string and Azure Notification Hub resourceId
 
 #### The linked connection string is regenerated
 
-In case the connection string used to link your Azure Notification Hub to your Communication Services resource, the new connection string has to be updated in your Communication Services resource by relinking the Notification Hub.
+In case that you regenerated the connection string used to link your Azure Notification Hub to your Communication Services resource, you have to update the connection string with the new one in your Communication Services resource by [relinking the Notification Hub](#notification-hub-provisioning).
 
 ## Next steps
 
