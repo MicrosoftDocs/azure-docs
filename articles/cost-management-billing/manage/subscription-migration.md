@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure subscription migration hub
 
-This article helps you understand what's needed to migrate Azure subscriptions and provides links to other articles for more detailed information about specific migrations or transfers. Azure subscriptions are created for different Azure agreement types and migration from a source agreement type to another varies. Subscription migration can be an automatic or a manual process, depending on the source and destination subscription type. If it's a manual process, the subscription agreement types determine how much manual effort is needed.
+This article helps you understand what's needed to migrate Azure subscriptions between different billing models and types and then provides links to other articles for more detailed information about specific migrations or transfers. Azure subscriptions are created upon different Azure agreement types and a migration from a source agreement type to another varies depending on the source and destination agreement types. Subscription migrations can be an automatic or a manual process, depending on the source and destination subscription type. If it's a manual process, the subscription agreement types determine how much manual effort is needed.
 
 This article focuses on subscription level migrations. However, resource migration is also discussed.
 
