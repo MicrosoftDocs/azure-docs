@@ -35,7 +35,9 @@ zone_pivot_groups: b2c-policy-type
 
 To use a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce **App Manager**. For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
-1. From **Setup**, enter **Apps** in the **Quick Find** box, and select **App Manager**.
+1. [Sign in to Salesforce](https://login.salesforce.com/).
+1. From the menu, select **Setup**.
+1.  Expand **Apps**, and then select **App Manager**.
 1. Select **New Connected App**.
 1. Under the **Basic Information**, enter:
     1. **Connected App Name** - The connected app name is displayed in the App Manager and on its App Launcher tile. The name must be unique within your org. 

@@ -30,6 +30,8 @@ This tutorial covers the following tasks:
 > * Debug the failed script
 > * Clean up resources
 
+For a Microsoft Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
 ## Prerequisites
 
 To complete this article, you need:
