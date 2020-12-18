@@ -50,19 +50,19 @@ To configure the integration of ArcGIS Enterprise into Azure AD, you need to add
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **ArcGIS Enterprise**, select **ArcGIS Enterprise** from result panel then click **Add** button to add the application.
 
-	 ![ArcGIS Enterprise in the results list](common/search-new-app.png)
+    ![ArcGIS Enterprise in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** Initiated mode:
 
@@ -110,54 +110,54 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
     ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ArcGIS Enterprise Client support team](mailto:support@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider section**, which is explained later in this tutorial.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ArcGIS Enterprise Client support team](mailto:support@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider section**, which is explained later in this tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure ArcGIS Enterprise Single Sign-On
 
 1. To automate the configuration within ArcGIS Enterprise, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](common/install-myappssecure-extension.png)
 
 1. After adding extension to the browser, click on **Set up ArcGIS Enterprise** will direct you to the ArcGIS Enterprise application. From there, provide the admin credentials to sign into ArcGIS Enterprise. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](common/setup-sso.png)
 
 1. If you want to setup ArcGIS Enterprise manually, log in to your ArcGIS Enterprise company site as an administrator.
 
 
 1. Select **Organization >EDIT SETTINGS**.
 
-	![Screenshot shows the ArcGIS Enterprise Organization tab with Edit settings called out.](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Screenshot shows the ArcGIS Enterprise Organization tab with Edit settings called out.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Select **Security** tab.
 
-	![Screenshot shows the Security tab selected.](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Screenshot shows the Security tab selected.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
 
-	![Screenshot shows Enterprise Logins via SAML where you can select Set Enterprise Login.](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Screenshot shows Enterprise Logins via SAML where you can select Set Enterprise Login.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. On the **Set Identity Provider** section, perform the following steps:
 
-	![Screenshot shows Set Identity Provider where you perform the steps described here.](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Screenshot shows Set Identity Provider where you perform the steps described here.](./media/arcgisenterprise-tutorial/configure4.png)
 
-	a. Please provide a name like **Azure Active Directory Test** in the **Name** textbox.
+    a. Please provide a name like **Azure Active Directory Test** in the **Name** textbox.
 
-	b. In the **URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
+    b. In the **URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
-	c. Click **Show advanced settings** and copy the **Entity ID** value and paste it into the **Identifier** textbox in the **ArcGIS Enterprise Domain and URLs** section in Azure portal.
-	
-	![Screenshot shows where to get the Entity I D and update identify provider.](./media/arcgisenterprise-tutorial/configure5.png)
+    c. Click **Show advanced settings** and copy the **Entity ID** value and paste it into the **Identifier** textbox in the **ArcGIS Enterprise Domain and URLs** section in Azure portal.
 
-	d. Click **UPDATE IDENTITY PROVIDER**.
+    ![Screenshot shows where to get the Entity I D and update identify provider.](./media/arcgisenterprise-tutorial/configure5.png)
+
+    d. Click **UPDATE IDENTITY PROVIDER**.
 
 ### Create an Azure AD test user 
 
@@ -176,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -190,11 +190,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ArcGIS Enterprise**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, type and select **ArcGIS Enterprise**.
 
-	![The ArcGIS Enterprise link in the Applications list](common/all-applications.png)
+    ![The ArcGIS Enterprise link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
