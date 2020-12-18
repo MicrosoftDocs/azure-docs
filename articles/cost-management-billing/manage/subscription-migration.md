@@ -40,7 +40,7 @@ As you begin to plan your subscription migration, consider the information neede
 
 You should have an answer for each question before you proceed with any migration.
 
-The first two questions help you help understand the reasons why the migration is necessary. Answers help you to communicate early with others to set expectations and timelines. Subscription migration effort varies greatly, but a migration is likely to take longer than expected.
+Answers help you to communicate early with others to set expectations and timelines. Subscription migration effort varies greatly, but a migration is likely to take longer than expected.
 
 Answers for the last two questions help define technical paths that you'll need to follow and identify limitations that a migration combination might have. Limitations are covered more fully in the next section.
 
