@@ -21,8 +21,8 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
   
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]  
   
-  > [!NOTE]
-  > The **dedicated-hsm** extension is part of the **hardware-security-modules** extension for Azure CLI and requires version 2.3.1 or higher. The extension automatically installs the first time you run an **az dedicated-hsm** command. For more information about Azure CLI extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    > [!NOTE]
+    > The **dedicated-hsm** extension is part of the **hardware-security-modules** extension for Azure CLI and requires version 2.3.1 or higher. The extension automatically installs the first time you run an **az dedicated-hsm** command. For more information about Azure CLI extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   
 - All requirements met for a dedicated HSM, including registration, approval, and a virtual network and virtual machine to use for provisioning. For more information about dedicated HSM requirements and prerequisites, see [Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI](tutorial-deploy-hsm-cli.md).
   
