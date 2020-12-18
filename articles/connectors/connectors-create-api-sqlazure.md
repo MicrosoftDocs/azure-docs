@@ -182,7 +182,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 <a name="daylight-savings-standard-time"></a>
 
-## Shift between daylight savings time and standard time
+## Shift between daylight saving time and standard time
 
 Connection-based triggers where you need to create a connection first, such as the SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurring connection-based triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* other factors that might produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 

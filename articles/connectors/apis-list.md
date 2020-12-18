@@ -416,19 +416,23 @@ If you don't select a time zone, daylight saving time (DST) might affect when tr
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs not only depend on the recurrence schedule, but also the last trigger execution *and* these other factors that might cause run times to drift or produce unexpected behavior, for example:
+In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 
-* Latency during storage calls.
-
 * Any failures or retries that the trigger incurs.
+
+* Latency during storage calls.
 
 * Not adjusting for events such as when daylight saving time (DST) starts and ends.
 
 * Other factors that can affect when the next run time happens.
 
-To work around these problems, try these options:
+To resolve or work around these problems, try these solutions:
+
+* Make sure that you select a time zone so that your logic app runs at your specified start time. Otherwise, DST might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+  When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. By specifying a time zone, the UTC time for your logic app also shifts to counter the seasonal time change.
 
 * Use the Recurrence trigger and provide a start date and time plus the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
