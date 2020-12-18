@@ -80,7 +80,7 @@ The following table lists the version names of Service Fabric and their correspo
 | 5.5 CU1 | 5.5.216.0    | NA |
 | 5.5 CU2 |	5.5.219.0	 | NA |
 | 5.5 CU3 | 5.5.227.0	 | NA |
-| 5.5 CU4 | 5.5.232.0 	 | NA |
+| 5.5 CU4 | 5.5.232.0 | NA |
 | 5.6 RTO |	5.6.204.9494 | NA |
 | 5.6 CU2 | 5.6.210.9494 | NA |
 | 5.6 CU3 |	5.6.220.9494 | NA |

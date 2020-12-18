@@ -44,7 +44,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2012 R2 and higher (including Windows Server Core)
+- Windows Server 2008 R2, Windows Server 2012 R2 and higher (including Server Core)
 - Ubuntu 16.04 and 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)

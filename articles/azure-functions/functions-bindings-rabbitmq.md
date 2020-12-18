@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid: 
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -13,9 +13,9 @@ ms.custom:
 # RabbitMQ bindings for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
 
-Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ Binding extensions allow you to send and receive messages using the RabbitMQ API with Functions.
+Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
 
 | Action | Type |
 |---------|---------|
@@ -26,7 +26,7 @@ Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [trigg
 
 To get started with developing with this extension, make sure you first [set up a RabbitMQ endpoint](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). To learn more about RabbitMQ, check out their [getting started page](https://www.rabbitmq.com/getstarted.html).
 
-### Functions 2.x and higher
+### Functions 3.x and higher
 
 Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
 
@@ -42,9 +42,9 @@ Working with the trigger and bindings requires that you reference the appropriat
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-### Functions 1.x
+### Functions 1.x and 2.x
 
-RabbitMQ Binding extensions are not supported for Functions 1.x. Please use Functions 2.x and higher.
+RabbitMQ Binding extensions are not supported for Functions 1.x and 2.x. Please use Functions 3.x and higher.
 
 ## Next steps
 
