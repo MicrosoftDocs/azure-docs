@@ -130,7 +130,7 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
 ## Shift between daylight saving time and standard time
 
-Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Connection-based recurrence triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* other factors that might produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurring connection-based triggers use the time zone only to determine the initial start time. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
@@ -250,21 +250,15 @@ This action gets the content from a file on an SFTP server by specifying the fil
 
 <a name="troubleshooting-errors"></a>
 
-## Troubleshoot errors
+## Troubleshoot problems
 
 This section describes possible solutions to common errors or problems.
 
-<a name="file-does-not-exist"></a>
+<a name="trigger-start-time-drift"></a>
 
-### 404 error: "A reference was made to a file or folder which does not exist"
+### Trigger start time drifts from specified start time
 
-This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but immediately moves the newly created file before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if your logic app moves the file, the Logic Apps service can no longer find the file so you get the `404` error message.
-
-If you can't avoid or delay moving the file, you can skip reading the file's metadata after file creation instead by following these steps:
-
-1. In the **Create file** action, open the **Add new parameter** list, select the **Get all file metadata** property, and set the value to **No**.
-
-1. If you need this file metadata later, you can use the **Get file metadata** action.
+In recurring connection-based triggers, such as SFTP-SSH, the schedule isn't the only driver that controls execution. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="connection-attempt-failed"></a>
 
@@ -283,6 +277,18 @@ This error can happen when your logic app can't successfully establish a connect
 * To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 
 * Review the SFTP server log to check whether the request from logic app reached the SFTP server. To get more information about the connectivity problem, you can also run a network trace on your firewall and your SFTP server.
+
+<a name="file-does-not-exist"></a>
+
+### 404 error: "A reference was made to a file or folder which does not exist"
+
+This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but immediately moves the newly created file before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if your logic app moves the file, the Logic Apps service can no longer find the file so you get the `404` error message.
+
+If you can't avoid or delay moving the file, you can skip reading the file's metadata after file creation instead by following these steps:
+
+1. In the **Create file** action, open the **Add new parameter** list, select the **Get all file metadata** property, and set the value to **No**.
+
+1. If you need this file metadata later, you can use the **Get file metadata** action.
 
 ## Connector reference
 

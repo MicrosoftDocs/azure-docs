@@ -268,13 +268,23 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 ## Troubleshoot problems
 
-* Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Here are some examples:
+<a name="connection-problems"></a>
 
-  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+### Connection problems
 
-  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Here are some examples:
 
-  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+<a name="trigger-start-time-drift"></a>
+
+### Trigger start time drifts from specified start time
+
+In recurring connection-based triggers, such as SQL Server, the schedule isn't the only driver that controls execution. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* other factors that might cause run times to drift or produce unexpected behavior. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 ## Connector-specific details
 

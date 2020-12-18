@@ -408,13 +408,19 @@ To avoid this shift so that your logic app runs at your specified start time, ma
 
 ### Recurrence for connection-based triggers
 
-In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors that might produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends:
+In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the last trigger execution, the recurrence schedule, *and* these other factors that might cause run times to drift or produce unexpected behavior, for example:
 
-* Any failures or retries that a connection-based trigger incurs.
+* Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 
-* Whether the connection-based trigger accesses a server that has more data, which the trigger immediately tries to fetch.
+* Latency during storage calls.
+
+* Any failures or retries that the trigger incurs.
+
+* Not adjusting for events such as when daylight saving time (DST) starts and ends.
 
 * Other factors that can affect when the next run time happens.
+
+To work around these issues, you can try using the Recurrence trigger that specifies a start time and the specific times when you want the trigger to run, or you can use the Sliding Window trigger, which avoids missed recurrences.
 
 <a name="custom"></a>
 
