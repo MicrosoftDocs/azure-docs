@@ -11,46 +11,47 @@ ms.author: msangapu
 ---
 # Monitor App Service instances using health check
 
-![Health check success diagram][1]
+This article uses Health check in the Azure Portal to monitor App Service app instances. Health check increases your application's availability by removing unhealthy instances from the load balancer.
 
-This article uses Health check in the Azure Portal to monitor App Service app instances. Health check finds unhealthy instances on your app and removes them, providing smoother end-user experience.
+## Prerequisites
 
-## What App Service does for you with health checks
+- An existing [App Service app](index.yml).
+- An [App Service plan](/overview-hosting-plans) with two or more instances.
 
-- When a Health check path is provided, it pings all instances of your App Service web app every minute.
-- The path must respond (within one minute) with a status code between 200 and 299 (inclusive).
-- If an instance fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation. This prevents the load balancer from routing requests to the unhealthy instances.
-- If it continues to respond unsuccessfully, App Service will restart the underlying VM in an effort to return the instance to a healthy state.
+## What App Service does with health checks
+
+- Given a custom path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
+- If an instance doesn't respond with a status code between 200-299 (inclusive), or fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation.
+- After removal from the load balancer, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
+- If an instance remains unhealthy for one hour, it will be replaced with new instance.
 
 > [!NOTE]
-> - If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
-> - Remember that your App Service Plan must be scaled to two or more instances for the load balancer exclusion to occur. If you only have 1 instance, it will not be removed from the load balancer even if it is unhealthy.
-> - App Service does not follow 302 redirects on the health check path.
->
+> - Health check doesn't follow 302 redirects on the custom path.
+> - At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+
+## Health check path best practices
+
+The Health check path should check the critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate that the app is unhealthy.
 
 ## Enable Health Check
 
-**NEED SCREENSHOT and remove Jason's contact info from it**
+![Health check navigation in Azure Portal][3]
 
 Open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
-## Configuration
+### Configuration
 
-### Max failures
+#### Max failures
 
 You can configure the required number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This app setting can be set to any integer between 2 and 10. For example, if this is set to `2`, your instances will be removed from the load balancer after two failed pings.
 
 Furthermore, when you are scaling up or out, App Service will ping the health check path to ensure that the new instances are ready for requests before being added to the load balancer.
 
-### Unhealthy instances
-
-![Health check failure diagram][2]
+#### Percentage of unhealthy instances
 
 The remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled out to 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the load balancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.If you would like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
 
-## Health check path best practices
 
-The Health check path should check the critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate that the app is unhealthy.
 
 ## Authentication
 
@@ -70,5 +71,6 @@ After providing your application's health check path, you can monitor the health
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 
-[1]: ./media/app-service-monitor-health-check/health-check-success-diagram.png
-[2]: ./media/app-service-monitor-health-check/health-check-failure-diagram.png
+[1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
+[2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png
+[3]: ./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png
