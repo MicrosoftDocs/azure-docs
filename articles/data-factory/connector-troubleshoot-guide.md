@@ -1011,15 +1011,15 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Resolution**: You can learn about the current situation of FIPS mode in Windows from [this article](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate if you can disable FIPS on the Self-hosted Integration Runtime machine.
 
-On the other hand, if you just want to let Azure Data Factory bypass FIPS and make the activity runs succeeded, you can follow these steps:
+    On the other hand, if you just want to let Azure Data Factory bypass FIPS and make the activity runs succeeded, you can follow these steps:
 
-1. Open the folder where Self-hosted Integration Runtime is installed, usually under `C:\Program Files\Microsoft Integration Runtime\<IR version>\Shared`.
+    1. Open the folder where Self-hosted Integration Runtime is installed, usually under `C:\Program Files\Microsoft Integration Runtime\<IR version>\Shared`.
 
-2. Open "diawp.exe.config", add `<enforceFIPSPolicy enabled="false"/>` into the `<runtime>` section like the following.
+    2. Open "diawp.exe.config", add `<enforceFIPSPolicy enabled="false"/>` into the `<runtime>` section like the following.
 
-     ![Disable FIPS](./media/connector-troubleshoot-guide/disable-fips-policy.png)
+        ![Disable FIPS](./media/connector-troubleshoot-guide/disable-fips-policy.png)
 
-3. Restart the Self-hosted Integration Runtime machine.
+    3. Restart the Self-hosted Integration Runtime machine.
 
 ## Next steps
 
