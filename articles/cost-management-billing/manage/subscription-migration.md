@@ -28,7 +28,7 @@ For subscription migrations between different Azure AD tenants please follow thi
 As you begin to plan your subscription migration, consider the information needed to answer to the following questions:
 
 - Why is the subscription migration required?
-- What's your timeline to complete the migration?
+- What are the desired timelines for the subscription migration?
 - What subscription types are the source and destination subscriptions?
   - Microsoft Online Service Program (MOSP), also called pay-as-you-go.
   - Microsoft Cloud Solution Provider (CSP) v1
