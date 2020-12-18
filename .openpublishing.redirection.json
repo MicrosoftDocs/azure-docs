@@ -6571,7 +6571,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
+      "source_path_from_root": "/articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": false
     },
