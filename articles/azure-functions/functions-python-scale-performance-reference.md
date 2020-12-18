@@ -169,7 +169,7 @@ For more processing units especially in CPU-bound operation, you might be able t
 
 For more information about Azure Functions Python development, see the following resources:
 
-* [Azure Functions Python developer guide](functions-reference-python)
-* [Best practices for Azure Functions](functions-best-practices)
-* [Azure Functions developer reference](functions-reference)
+* [Azure Functions Python developer guide](functions-reference-python.md)
+* [Best practices for Azure Functions](functions-best-practices.md)
+* [Azure Functions developer reference](functions-reference.md)
 
