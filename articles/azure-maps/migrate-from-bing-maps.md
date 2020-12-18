@@ -67,7 +67,7 @@ Bing Maps provides basic key-based authentication. Azure Maps provides both basi
 
 ## Licensing considerations
 
-When migrating to Azure Maps from Bing Maps, the following information should be considered with regards to licensing.
+When migrating to Azure Maps from Bing Maps, the following information should be considered with regard to licensing.
 
 * Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). To reduce  costs for developers, Azure Maps automatically caches map tiles. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
 
