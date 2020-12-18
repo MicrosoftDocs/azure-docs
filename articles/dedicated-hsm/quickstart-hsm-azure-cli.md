@@ -11,7 +11,7 @@ ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Manage Azure Dedicated HSM with the Azure CLI
+# Quickstart: Create Azure Dedicated HSM with the Azure CLI
 
 This article describes how to create and manage an Azure Dedicated HSM by using the [az dedicated-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm) Azure CLI extension.
 
@@ -19,7 +19,7 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
 
 - An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
   
-- [Azure CLI installed](/cli/azure/install-azure-cli), if you choose to work locally. Or you can run Azure CLI commands in the interactive Azure Cloud Shell. For instructions, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]  
   
   > [!NOTE]
   > The **dedicated-hsm** extension is part of the **hardware-security-modules** extension for Azure CLI and requires version 2.3.1 or higher. The extension automatically installs the first time you run an **az dedicated-hsm** command. For more information about Azure CLI extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -45,7 +45,7 @@ az group create --name myRG --location westus
 To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command. The following example provisions a dedicated HSM named `hsm1` in the `westus` region, `myRG` resource group, specified subscription, and `MyHSM-vnet` virtual network and subnet:
 
 ```azurecli-interactive
-az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
+az dedicated-hsm create --resource-group myRG  --name hsm1 --location westus --network-profile-network-interfaces \
      /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
 ```
 
@@ -56,7 +56,7 @@ The deployment takes approximately 25 to 30 minutes to complete.
 To get a current dedicated HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command. The following example gets the `hsm1` dedicated HSM in the `myRG` resource group.
 
 ```azurecli-interactive
-az dedicated-hsm show --resource group myRG --name hsm1
+az dedicated-hsm show --resource-group myRG --name hsm1
 ```
 
 ## Update a dedicated HSM
@@ -77,7 +77,7 @@ az dedicated-hsm list --resource-group myRG
 
 ## Remove a dedicated HSM
 
-To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command. The following example deletes the `hsm1` dedicated HSM in the `myRG` resource group:
+To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command. The following example deletes the `hsm1` dedicated HSM from the `myRG` resource group:
 
 ```azurecli-interactive
 az dedicated-hsm delete --resource-group myRG –-name hsm1
@@ -88,7 +88,7 @@ az dedicated-hsm delete --resource-group myRG –-name hsm1
 If you no longer need the resource group you created for dedicated HSM, you can delete it by running the [az group delete](/cli/azure/group#az_group_delete) command. This command deletes the group and all resources in it, including any that are unrelated to dedicated HSM. The following example deletes the `myRG` resource group and everything in it:
 
 ```azurecli-interactive
-az group delete --myRG
+az group delete --name myRG
 ```
 
 ## Next steps
