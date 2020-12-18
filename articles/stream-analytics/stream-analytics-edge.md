@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/18/2020
 ms.custom: contperf-fy21q2
 ---
 
@@ -56,7 +56,6 @@ The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query 
 * User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](./stream-analytics-edge-csharp-udf.md) (preview).
 * User-defined aggregates (UDA).
 * Azure ML functions.
-* Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time, only CSV and JSON are supported.
 * The following  SQL operators:
     * PARTITION BY
@@ -87,7 +86,7 @@ The only supported stream input and stream output type is Edge Hub. Reference in
 
 ## Azure Stream Analytics module image information 
 
-This version information was last updated on 2019-06-27:
+This version information was last updated on 2020-09-21:
 
 - Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
    - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
