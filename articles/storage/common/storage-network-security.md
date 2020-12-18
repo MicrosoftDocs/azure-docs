@@ -65,6 +65,8 @@ You can manage default network access rules for storage accounts through the Azu
 
 4. Click **Save** to apply your changes.
 
+<a id="powershell"></a>
+
 #### [PowerShell](#tab/azure-powershell)
 
 1. Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
@@ -370,8 +372,6 @@ The types of operations that a resource instance can perform on storage account 
 
 You can use add or remove resource instance network rules in the Azure portal.
 
-##### Grant access
-
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
 2. Locate your storage account and display the account overview.
@@ -382,11 +382,7 @@ You can use add or remove resource instance network rules in the Azure portal.
 
 5. In the **Instance name** drop-down list, choose the resource instance.
 
-6. Click **Save** to apply your changes.
-
-   The resource instance appears in the **Resource instances** section of the network settings page. 
-
-##### Remove access
+6. Click **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
 
 To remove the resource instance, click the delete icon (:::image type="icon" source="media/storage-network-security/delete_icon.png":::) next to the resource instance.
 
@@ -399,23 +395,21 @@ You can use PowerShell commands to add or remove resource instance network rules
 
 ##### Install the preview module
 
-1. Install the latest version of the PowershellGet module.
+Install the latest version of the PowershellGet module. Then, close and reopen the PowerShell console.
 
-   ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
 
-2. Close, and then reopen the PowerShell console.
+Install **Az.Storage** preview module.
 
-3. Install **Az.Storage** preview module.
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
 
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
-   ```
+For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
-
-##### Grant access
+#### Grant access
 
 Add a network rule that grants access from a resource instance.
 
@@ -441,7 +435,7 @@ $accountName = "mystorageaccount"
 Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
 ```
 
-##### Remove access
+#### Remove access
 
 Remove a network rule that grants access from a resource instance.
 
@@ -463,7 +457,7 @@ $accountName = "mystorageaccount"
 Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
 ```
 
-##### View a list of allowed resource instances
+#### View a list of allowed resource instances
 
 View a complete list of resource instances that have been granted access to the storage account.
 
