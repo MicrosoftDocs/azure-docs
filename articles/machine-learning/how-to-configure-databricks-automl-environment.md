@@ -117,6 +117,44 @@ Try it out:
 
 + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
 
+## Troubleshooting
+
+* **Failure when installing packages**
+
+    Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
+    
+    ```python
+    psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+    ```
+
+    Alternatively, you can use init scripts if you keep facing install issues with Python libraries. This approach isn't officially supported. For more information, see [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+* **Import error: cannot import name `Timedelta` from `pandas._libs.tslibs`**: If you see this error when you use automated machine learning, run the two following lines in your notebook:
+    ```
+    %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+    %sh /databricks/python/bin/pip install pandas==0.23.4
+    ```
+
+* **Import error: No module named 'pandas.core.indexes'**: If you see this error when you use automated machine learning:
+
+    1. Run this command to install two packages in your Azure Databricks cluster:
+    
+       ```bash
+       scikit-learn==0.19.1
+       pandas==0.22.0
+       ```
+    
+    1. Detach and then reattach the cluster to your notebook.
+    
+    If these steps don't solve the issue, try restarting the cluster.
+
+* **FailToSendFeather**: If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
+    
+    * Upgrade `azureml-sdk[automl]` package to the latest version.
+    * Add `azureml-dataprep` version 1.1.8 or above.
+    * Add `pyarrow` version 0.11 or above.
+  
+
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
