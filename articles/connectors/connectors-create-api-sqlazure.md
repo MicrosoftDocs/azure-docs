@@ -3,9 +3,9 @@ title: Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance
 description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 12/18/2020
 tags: connectors
 ---
 

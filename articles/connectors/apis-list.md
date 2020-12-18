@@ -3,9 +3,9 @@ title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, such as built-in, managed, on-premises, integration account, ISE, and enterprise connectors
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/18/2020
 ---
 
 # Connectors for Azure Logic Apps

@@ -4,9 +4,9 @@ description: Automate tasks that monitor, create, manage, send, and receive file
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/18/2020
 tags: connectors
 ---
 
