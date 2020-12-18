@@ -47,7 +47,7 @@ To configure the least-privilege permissions, you need:
   ```json
   {
     "roleName": "deployment-script-min",
-    "Description": "Configure least privilege for the deployment principal in deployment script",
+    "description": "Configure least privilege for the deployment principal in deployment script",
     "type": "customRole",
     "IsCustom": true,
     "permissions": [
@@ -59,7 +59,7 @@ To configure the least-privilege permissions, you need:
         ],
       }
     ],
-    "AssignableScopes": [
+    "assignableScopes": [
       "[subscription().id]"
     ]
   }
@@ -72,7 +72,7 @@ To configure the least-privilege permissions, you need:
   ```json
   {
     "roleName": "deployment-script-min-mi",
-    "Description": "Configure least privilege for the managed identity in deployment script",
+    "description": "Configure least privilege for the managed identity in deployment script",
     "type": "customRole",
     "IsCustom": true,
     "permissions": [
@@ -91,7 +91,7 @@ To configure the least-privilege permissions, you need:
         ],
       }
     ],
-    "AssignableScopes": [
+    "assignableScopes": [
       "[subscription().id]"
     ]
   }
