@@ -27,9 +27,10 @@ The important fields are:
 public class AzureFrontendAccountInfo
 {
     // Domain that will be used for account authentication for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
-    // [region] should be set to the location of the Azure Remote Rendering account.
+    // [region] should be set to the domain of the Azure Remote Rendering account.
     public string AccountAuthenticationDomain;
     // Domain that will be used to generate sessions for the Azure Remote Rendering service, in the form [region].mixedreality.azure.com.
+    // [region] should be selected based on the region closest to the user. For example, westus2.mixedreality.azure.com or westeurope.mixedreality.azure.com.
     public string AccountDomain;
 
     // Can use one of:
