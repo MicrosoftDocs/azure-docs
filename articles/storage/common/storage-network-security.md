@@ -110,7 +110,6 @@ You can manage default network access rules for storage accounts through the Azu
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
-
 ---
 
 ## Grant access from a virtual network
@@ -361,7 +360,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Grant access from Azure resource instances (preview)
 
-Applications might depend on an Azure resource such as a logic app or a function app. Each of these resource instances might require direct access to the data in your storage account. Those instances will have access if they are deployed to a virtual network that you've included in your network rules. Otherwise, you can add rules that grant access to those resource instances so that the application can use them to connect to your data. 
+In some cases, an application might depend on an Azure resource, such as a logic app, or a function app. These resource *instances* can access data in your account if they are deployed to a virtual network that you've included in your network rules. Otherwise, you can grant access to the resource instance directly by creating a network rule. Then, the application can use the resource instance to interact with your data. 
 
 The types of operations that a resource instance can perform on storage account data is determined by Azure Active Directory (Azure AD) role assignments of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
@@ -370,7 +369,7 @@ The types of operations that a resource instance can perform on storage account 
 
 ### [Portal](#tab/azure-portal)
 
-You can use add or remove resource instance network rules in the Azure portal.
+You can add or remove resource network rules in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -388,7 +387,7 @@ To remove the resource instance, click the delete icon (:::image type="icon" sou
 
 ### [PowerShell](#tab/azure-powershell)
 
-You can use PowerShell commands to add or remove resource instance network rules.
+You can use PowerShell commands to add or remove resource network rules.
 
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
