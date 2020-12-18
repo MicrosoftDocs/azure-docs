@@ -16,7 +16,9 @@ ms.custom:
 
 This article helps you understand the things you consider before you transfer an Enterprise Agreement (EA) subscription to a CSP v2 (Azure plan). Overall, you should get familiar with the migration process documented at [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Then, assess or qualify the migration with the following questions.
 
-*Does the customer have any Azure Reservations for any resources like VMs, Storage accounts, or Data Lakes?* When yes, such resources aren't transferred during the migration. They must be canceled and repurchased after they're migrated to CSP v2. Or, you can leave them in place and then purchase them under CSP when they expire to renew them. If you need assistance or additional information, you can create a CSP support request to help you make a decision.
+*Does the customer have any Azure Reservations for any resources like VMs, Storage accounts, or Data Lakes?* When yes, reservations aren't transferred during the migration. They must be cancelled and repurchased after they're migrated to CSP v2. Or, you can leave them in place to be used by eligible resources in subscriptions that are left on the EA, if the reservations scoping will cover the relevant resources. Then when the reservations expire, migrate the subscriptions to CSP v2 and then re-purchase the reservations via the CSP model.
+[!IMPORTANT]
+> Reservations will not be transferred from EA to CSP v2 and will also not apply to resources in subscriptions migrated to CSP v2 if the reservations remain on the EA.
 
 *Does the customer have any subscriptions that they want to migrate that under the Dev/Test offer?* If so, they can be migrated. However, discounted Dev/Test pricing isn't kept when the subscription is migrated to CSP. The resources in the subscriptions are charged at the normal CSP price list rate. Essentially, they're converted to normal CSP v2 subscriptions with pay-as-you-go pricing.
 
