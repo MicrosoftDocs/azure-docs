@@ -1,9 +1,7 @@
 {
   "build_entry_point": "docs",
   "redirection_files": [
-    ".openpublishing.redirection.json",
-    "articles/active-directory/.openpublishing.redirection.active-directory.json",
-    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json"
+    ".openpublishing.redirection.json"
   ],
   "docsets_to_publish": [
     {
