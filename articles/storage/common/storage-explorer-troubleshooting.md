@@ -188,7 +188,7 @@ If you can't remove an attached account or storage resource through the UI, you 
 Storage Explorer supports connecting to Azure Storage resources via a proxy server. If you experience any issues connecting to Azure via proxy, here are some suggestions.
 
 > [!NOTE]
-> Storage Explorer only supports basic authentication with proxy servers. Other authentications methods, such as NTLM, are not supported.
+> Storage Explorer only supports basic authentication with proxy servers. Other authentication methods, such as NTLM, are not supported.
 
 > [!NOTE]
 > Storage Explorer doesn't support proxy auto-config files for configuring proxy settings.
