@@ -123,7 +123,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyNearExpiryEventGridNotification** |Key near expiry event published |
 | **KeyExpiredEventGridNotification** |Key expired event published |
 
-# [Secrets](#tab/Keys)
+# [Secrets](#tab/Secrets)
 
 | operationName | REST API command |
 | --- | --- |
@@ -142,7 +142,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |
 
-# [Certificates](#tab/Keys)
+# [Certificates](#tab/Cerificates)
 
 | operationName | REST API command |
 | --- | --- |
