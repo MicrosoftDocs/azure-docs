@@ -197,11 +197,11 @@ Storage Explorer supports connecting to Azure Storage resources via a proxy serv
 
 The **Application → Proxy → Proxy configuration** setting determines which source Storage Explorer gets the proxy configuration from.
 
-If "Use environment variables" is selected, make sure the `HTTPS_PROXY` or `HTTP_PROXY` environment variables are correct. If these variables aren't found or invalid, Storage Explorer won't use a proxy. Restart Storage Explorer if any changes are made to these variables.
+If you select "Use environment variables", make sure to set the `HTTPS_PROXY` or `HTTP_PROXY` environment variables (environment variables are case-sensitive, so be sure to set the correct variables). If these variables are undefined or invalid, Storage Explorer won't use a proxy. Restart Storage Explorer after modifying any environment variables.
 
-If "Use app proxy settings" is selected, make sure the in-app settings are correct.
+If you select "Use app proxy settings", make sure the in-app proxy settings are correct.
 
-### Additional steps for diagnosing issues
+### Steps for diagnosing issues
 
 If you're still experiencing issues, try these troubleshooting methods:
 
@@ -209,19 +209,25 @@ If you're still experiencing issues, try these troubleshooting methods:
 2. Verify that other applications that use the proxy server work as expected.
 3. Verify that you can connect to the portal for the Azure environment you're trying to use.
 4. Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive an `InvalidQueryParameterValue` or similar XML response.
-5. If someone else is also using Storage Explorer with your proxy server, verify that they can connect. If they can, you may have to contact your proxy server admin.
+5. Check whether someone else using Storage Explorer with the same proxy server can connect. If they can, you may have to contact your proxy server admin.
 
 ### Tools for diagnosing issues
 
-If you have networking tools, such as Fiddler, you can diagnose problems as follows:
+A networking tool, such as Fiddler, can help you diagnose problems.
 
-* If you have to work through your proxy, you may have to configure your networking tool to connect through the proxy.
-* Check the port number used by your networking tool.
-* Configure Storage Explorer proxy settings to use the local host URL and the networking tool's port number. When set correctly, your networking tool will log network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response similar to:
+1. Configure your networking tool as a proxy server running on the local host. If you have to continue working behind an actual proxy, you may have to configure your networking tool to connect through the proxy.
+2. Check the port number used by your networking tool.
+3. Configure Storage Explorer proxy settings to use the local host and the networking tool's port number (such as "localhost:8888").
+ 
+When set correctly, your networking tool will log network requests made by Storage Explorer to management and service endpoints.
+ 
+If your networking tool doesn't appear to be logging Storage Explorer traffic, try testing your tool with a different application. For example, enter the endpoint URL for one of your storage resources (such as `https://contoso.blob.core.windows.net/`) in a web browser, and you'll receive a response similar to:
 
   ![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
   The response suggests the resource exists, even though you can't access it.
+
+If your networking tool only shows traffic from other applications, you may need to adjust the proxy settings in Storage Explorer. Otherwise, you made need to adjust your tool's settings.
 
 ### Contact proxy server admin
 
