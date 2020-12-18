@@ -27,7 +27,7 @@
       href: tutorial-python-virtual-machine.md
   - name: Azure App Service
     items:
-    - name: Use Azure Key Vault wit an Web App in .NET
+    - name: Use Azure Key Vault with a Web App in .NET
       href: tutorial-net-create-vault-azure-web-app.md
   - name: Azure Kubernetes Service
     items: 

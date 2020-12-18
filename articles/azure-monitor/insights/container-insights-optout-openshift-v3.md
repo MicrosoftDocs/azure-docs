@@ -104,7 +104,7 @@ Execute the following command with Azure CLI on Linux to remove the solution and
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
