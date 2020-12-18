@@ -310,7 +310,7 @@ When attempting to interpret a model with respect to the original dataset it is 
 
 The top ribbon shows the overall statistics on your model and data. You can slice and dice your data into dataset cohorts, or subgroups, to investigate or compare your model’s performance and explanations across these defined subgroups. By comparing your dataset statistics and explanations across those subgroups, you can get a sense of why possible errors are happening in one group versus another.
 
-[![Creating, editing, and viewing dataset cohorts](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_cohorts.gif#lightbox)
+[![Creating, editing, and viewing dataset cohorts](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
 
 ### Understand entire model behavior (global explanation) 
 
@@ -319,17 +319,17 @@ The first three tabs of the explanation dashboard provide an overall analysis of
 #### Model performance
 Evaluate the performance of your model by exploring the distribution of your prediction values and the values of your model performance metrics. You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset. Select filters along y-value and x-value to cut across different dimensions. View metrics such as accuracy, precision, recall, false positive rate (FPR) and false negative rate (FNR).
 
-[![Model performance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/model_performance.gif)](./media/how-to-machine-learning-interpretability-aml/model_performance.gif#lightbox)
+[![Model performance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
 
 #### Dataset explorer
 Explore your dataset statistics by selecting different filters along the X, Y, and color axes to slice your data along different dimensions. Create dataset cohorts above to analyze dataset statistics with filters such as predicted outcome, dataset features and error groups. Use the gear icon in the upper right-hand corner of the graph to change graph types.
 
-[![Dataset explorer tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset_explorer.gif#lightbox)
+[![Dataset explorer tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
 
 #### Aggregate feature importance
 Explore the top-k important features that impact your overall model predictions (also known as global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Click on any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.
 
-[![Aggregate feature importance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate_feature_importance.gif#lightbox)
+[![Aggregate feature importance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
 
 ### Understand individual predictions (local explanation) 
 
@@ -341,7 +341,7 @@ The fourth tab of the explanation tab lets you drill into an individual datapoin
 |What-If analysis|Allows changes to feature values of the selected real data point and observe resulting changes to prediction value by generating a hypothetical datapoint with the new feature values.|
 |Individual Conditional Expectation (ICE)|Allows feature value changes from a minimum value to a maximum value. Helps illustrate how the data point's prediction changes when a feature changes.|
 
-[![Individual feature importance and What-if tab in explanation dashboard](./media/how-to-machine-learning-interpretability-aml/individual_tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual_tab.gif#lightbox)
+[![Individual feature importance and What-if tab in explanation dashboard](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
 
 > [!NOTE]
 > These are explanations based on many approximations and are not the "cause" of predictions. Without strict mathematical robustness of causal inference, we do not advise users to make real-life decisions based on the feature perturbations of the What-If tool. This tool is primarily for understanding your model and debugging.
@@ -359,7 +359,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 
-   [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model_explanation_dashboard_aml_studio.jpg)](./media/how-to-machine-learning-interpretability-aml/model_explanation_dashboard_aml_studio.jpg#lightbox)
+   [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.jpg)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.jpg#lightbox)
 
 * **Models** pane
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
