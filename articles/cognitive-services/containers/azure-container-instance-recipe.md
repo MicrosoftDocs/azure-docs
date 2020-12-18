@@ -59,7 +59,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 1. Select the **Overview** and copy the IP address. It will be a numeric IP address such as `55.55.55.55`.
 1. Open a new browser tab and use the IP address, for example, `http://<IP-address>:5000 (http://55.55.55.55:5000`). You will see the container's home page, letting you know the container is running.
 
-    ![Container's home page](./media/cognitive-services-containers-api-documentation/container-webpage.png)
+    ![Container's home page](../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png)
 
 1. Select **Service API Description** to view the swagger page for the container.
 
