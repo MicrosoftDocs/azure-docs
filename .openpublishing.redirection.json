@@ -1552,7 +1552,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
-      "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
       "redirect_document_id": false
     },
     {
@@ -28167,12 +28167,12 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/app-frameworks.md",
-      "redirect_url": "/azure//virtual-machines/linux/index",
+      "redirect_url": "/azure/virtual-machines/linux/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
-      "redirect_url": "/azure//virtual-machines/linux/create-ssh-secured-vm-from-template",
+      "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
       "redirect_document_id": false
     },
     {
