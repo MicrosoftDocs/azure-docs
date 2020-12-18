@@ -4,6 +4,8 @@ description: This article describes Azure Monitor Insights for Azure Data Explor
 services: azure-monitor 
 ms.topic: conceptual
 ms.date: 01/05/2021
+author: lgayhardt
+ms.author: lagayhar
 
 ---
 
