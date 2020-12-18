@@ -1,5 +1,5 @@
 ---
-title: Azure subscription migration
+title: Azure subscription migration hub
 description: This article helps you understand what's needed to migrate Azure subscriptions and provides links to other articles for more detailed information.
 author: bandersmsft
 ms.reviewer: jatracey
@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 12/18/2020
 ms.author: banders
 ms.custom: 
 ---
@@ -16,9 +16,9 @@ ms.custom:
 
 This article helps you understand what's needed to migrate Azure subscriptions between different billing models and types and then provides links to other articles for more detailed information about specific migrations or transfers. Azure subscriptions are created upon different Azure agreement types and a migration from a source agreement type to another varies depending on the source and destination agreement types. Subscription migrations can be an automatic or a manual process, depending on the source and destination subscription type. If it's a manual process, the subscription agreement types determine how much manual effort is needed.
 
-This article focuses on subscription migrations. However, resource migration is also discussed as this is required for some susbcription migration scenarios. 
+This article focuses on subscription migrations. However, resource migration is also discussed because it's required for some subscription migration scenarios.
 
-For subscription migrations between different Azure AD tenants please follow this [documentation.](https://docs.microsoft.com/en-us/azure/role-based-access-control/transfer-subscription)
+For more information about subscription migrations between different Azure AD tenants, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 > [!NOTE]
 > The rest of this page refers to subscription migrations within the same Azure AD tenant, unless otherwise specified.
@@ -28,17 +28,17 @@ For subscription migrations between different Azure AD tenants please follow thi
 As you begin to plan your subscription migration, consider the information needed to answer to the following questions:
 
 - Why is the subscription migration required?
-- What are the desired timelines for the subscription migration?
-- What is the subscriptions current offer type and what do you want to migrate it too?
+- What are the wanted timelines for the subscription migration?
+- What is the subscription's current offer type and what do you want to migrate it too?
   - Microsoft Online Service Program (MOSP), also known as Pay-As-You-Go (PAYG).
   - Microsoft Cloud Solution Provider (CSP) v1
   - Microsoft Cloud Solution Provider (CSP) v2 (Azure Plan), also known as Microsoft Partner Agreement (MPA).
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA)
   - Others like MSDN, BizSpark, EOPEN, Azure Pass and Free Trial.
-- Do you have the required permissions on the subscription to perform a migration?
+- Do you have the required permissions on the subscription to accomplish a migration?
 
-You should have an answer for each question before you proceed with any migration.
+You should have an answer for each question before you continue with any migration.
 
 Answers help you to communicate early with others to set expectations and timelines. Subscription migration effort varies greatly, but a migration is likely to take longer than expected.
 
@@ -61,7 +61,7 @@ The following table describes subscription migration support between the differe
 | EA | CSP v2 (Azure plan) | The migration is an Azure billing change. There are some limitations with reservations and some Azure Marketplace items. Marketplace items must be available in the CSP Marketplace to transfer. There's no subscription or resource downtime. The migration is only available to CSP Direct Bill Partners who are Azure Expert MSPs. For more information, see [Transfer an EA subscription to CSP v2](transfer-enterprise-subscription-partner.md) and [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). |
 | EA | MCA | The migration is an Azure billing change. There's no subscription or resource downtime. For more information, see [Set up your billing account for a Microsoft Customer Agreement]( https://docs.microsoft.com/azure/cost-management-billing/manage/mca-setup-account). |
 | EA | MSDN or BizSpark | Manually migrate resources between subscriptions. Downtime is possible and there are some limitations. For more information, see [LINKNAME](URL). |
-| EA | EA | If you want to migrate to a different Azure AD tenant, then must manually migrate resources between subscriptions and downtime is possible. There are some limitations. For more information, see [Azure Enterprise transfers](ea-transfers.md). <p> If you want to migrate to the same Azure AD Tenant, there's no need to migrate the subscription. Instead, just change the subscription owner. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
+| EA | EA | If you want to migrate to a different Azure AD tenant, then must manually migrate resources between subscriptions and downtime is possible. There are some limitations. For more information, see [Azure Enterprise transfers](ea-transfers.md). <p> If you want to migrate to the same Azure AD Tenant, there's no need to migrate the subscription. Instead, change the subscription owner. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
 | MSDN | MCA | The migration is an Azure billing change. There's no subscription or resource downtime. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). |
 | BizSpark | MCA | Manually migrate resources between subscriptions. Downtime is possible and there are some limitations. Not all offer types can migrate to MCA. For more information, see [Supported subscription types](../understand/subscription-transfer.md#supported-subscription-types). |
 | MSDN or BizSpark | EA | The migration is an Azure billing change. There's no subscription or resource downtime. For more information, see [LINKNAME](URL). |
@@ -77,7 +77,7 @@ The following table describes subscription migration support between the differe
 | CSP v2 (Azure plan) | MSDN or BizSpark | Manually migrate resources between subscriptions. Downtime is possible and there are some limitations. For more information, see [LINKNAME](URL). |
 | CSP v2 (Azure plan) | EA | Manually migrate resources between subscriptions. Downtime is possible and there are some limitations. For more information, see [LINKNAME](URL). |
 | CSP v2 (Azure plan) | MOSP (pay-as-you-go) | Manually migrate resources between subscriptions. Downtime is possible and there are some limitations. For more information, see [LINKNAME](URL). |
-| CSP v2 (Azure plan) | CSP v2 (Azure plan) | Partners can migrate subscriptions, but the customer must initiate the process. For more information, see [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md). |
+| CSP v2 (Azure plan) | CSP v2 (Azure plan) | Partners can migrate subscriptions, but the customer must start the process. For more information, see [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md). |
 
 ## Perform resource migrations
 
