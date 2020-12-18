@@ -23,9 +23,9 @@ This article uses Health check in the Azure Portal to monitor App Service app in
 - If it continues to respond unsuccessfully, App Service will restart the underlying VM in an effort to return the instance to a healthy state.
 
 > [!NOTE]
-> App Service does not follow 302 redirects on the health check path.
-> If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
-> Remember that your App Service Plan must be scaled to two or more instances for the load balancer exclusion to occur. If you only have 1 instance, it will not be removed from the load balancer even if it is unhealthy.
+> - If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+> - Remember that your App Service Plan must be scaled to two or more instances for the load balancer exclusion to occur. If you only have 1 instance, it will not be removed from the load balancer even if it is unhealthy.
+> - App Service does not follow 302 redirects on the health check path.
 >
 
 ## Enable Health Check
@@ -33,10 +33,6 @@ This article uses Health check in the Azure Portal to monitor App Service app in
 **NEED SCREENSHOT and remove Jason's contact info from it**
 
 Open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
-
-> [!NOTE]
->To enable the feature with ARM templates, set the `healthcheckpath` property of the `Microsoft.Web/sites` resource to the health check path on your site, for example: `"/api/health/"`. To disable the feature, set the property back to the empty string, `""`.
->
 
 ## Configuration
 
