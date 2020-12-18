@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Azure File Sync?
-    href: storage-files-introduction.md
+    href: storage-file-sync-introduction.md
 - name: Quickstarts
   items:
   - name: Create / use file shares - Windows
