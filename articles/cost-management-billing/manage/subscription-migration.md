@@ -36,7 +36,7 @@ As you begin to plan your subscription migration, consider the information neede
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA)
   - Others like MSDN, BizSpark, EOPEN, Azure Pass and Free Trial.
-- Do you need to export all resources from every source subscription?
+- Do you have the required permissions on the subscription to perform a migration?
 
 You should have an answer for each question before you start a migration.
 
