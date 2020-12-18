@@ -38,7 +38,7 @@ As you begin to plan your subscription migration, consider the information neede
   - Others like MSDN, BizSpark, EOPEN, Azure Pass and Free Trial.
 - Do you have the required permissions on the subscription to perform a migration?
 
-You should have an answer for each question before you start a migration.
+You should have an answer for each question before you proceed with any migration.
 
 The first two questions help you help understand the reasons why the migration is necessary. Answers help you to communicate early with others to set expectations and timelines. Subscription migration effort varies greatly, but a migration is likely to take longer than expected.
 
