@@ -297,7 +297,7 @@ The default module code receives messages in an input queue and passes them alon
 
 ## Build and push your module
 
-In the preceding section, you created an IoT Edge solution and added code to the **CSharpModule** module twin to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry.
+In the preceding section, you created an IoT Edge solution and added code to **CSharpModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry.
 
 ### Sign in to Docker
 
