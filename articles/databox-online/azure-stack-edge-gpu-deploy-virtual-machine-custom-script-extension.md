@@ -527,7 +527,7 @@ Here is a sample output:
 > [!NOTE]
 > When the deployment is complete, the `ProvisioningState` changes to `Succeeded`.
 
-The extension execution output is logged to the following file: `/var/log/azure/nvidia-vmext-status`.
+The extension execution output is logged to the following file: `/var/lib/waagent/custom-script/download/0/`.
 
 
 ## Remove Custom Script Extension
