@@ -3,12 +3,12 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft and the community in PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
 ---
 # Use runbooks and modules in PowerShell Gallery
 
-Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community. You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#use-python-runbooks) from the Azure Automation Github organization. You can also contribute to the community by sharing [scenarios that you develop](#add-a-powershell-runbook-to-the-gallery).
+Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community. You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#use-python-runbooks) from the Azure Automation GitHub organization. You can also contribute to the community by sharing [scenarios that you develop](#add-a-powershell-runbook-to-the-gallery).
 
 > [!NOTE]
 > The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation).
@@ -91,7 +91,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
 ## Use Python runbooks
 
-Python Runbooks are available in the [Azure Automation GitHub organization](https://github.com/azureautomation). When you contribute to our GitHub repo, add the tag **(Github Topic) : Python3** when you upload your contribution.
+Python Runbooks are available in the [Azure Automation GitHub organization](https://github.com/azureautomation). When you contribute to our GitHub repo, add the tag **(GitHub Topic) : Python3** when you upload your contribution.
 
 ## Request a runbook or module
 

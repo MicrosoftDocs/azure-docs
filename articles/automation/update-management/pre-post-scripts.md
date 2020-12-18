@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
 ---
 
