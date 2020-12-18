@@ -127,9 +127,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. If you want to setup AskYourTeam manually, in a different web browser window, sign in to your AskYourTeam company site as an administrator.
 
-1. Click on the **My Organisation**.
+1. Click on the **My Organization**.
 
-    ![Screenshot shows the My Organisation link.](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organization link.](./media/askyourteam-tutorial/user1.png)
 
 1. Click on **Integrations**.
 
@@ -164,9 +164,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into AskYourTeam website as an administrator.
 
-1. Click on the **My Organisation**.
+1. Click on the **My Organization**.
 
-    ![Screenshot shows the My Organisation link where you begin this task.](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organization link where you begin this task.](./media/askyourteam-tutorial/user1.png)
 
 1. Click **Users** and select **New User**.
 
