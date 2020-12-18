@@ -47,9 +47,30 @@ You can start your logic app workflow by using the Recurrence trigger or Sliding
 
 Here are the differences between these triggers:
 
-* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval. You can specify a start date and time along with the time zone. If you select "Day", you can specify hours of the day and minutes of the hour, for example, every day at 2:30. If you select "Week", you can also select days of the week, such as Wednesday and Saturday. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval.
 
-* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't support advanced schedules, for example, specific hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
+  If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule.
+
+  > [!TIP]
+  > If a recurrence doesn't specify a specific [start date and time](#start-time), the first recurrence runs immediately 
+  > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
+  > date and time for when you want the first recurrence to run.
+  >
+  > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
+  > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
+  > factors such as latency during storage calls. To make sure that your logic app doesn't miss a recurrence, especially when 
+  > the frequency is in days or longer, try these options:
+  >
+  > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the properties 
+  > named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+  >
+  > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+
+  For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+
+* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Sliding Window trigger goes back and processes the missed recurrences.
+
+  You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't support advanced schedules, for example, specific hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
@@ -61,9 +82,9 @@ After any action in your logic app workflow, you can use the Delay and Delay Unt
 
 * **Delay until**: Wait to run the next action until the specified date and time. For more information, see [Delay the next action in workflows](../connectors/connectors-native-delay.md).
 
-## Patterns for start date and time
-
 <a name="start-time"></a>
+
+## Patterns for start date and time
 
 Here are some patterns that show how you can control recurrence with the start date and time, and how the Logic Apps service runs these recurrences:
 
@@ -73,25 +94,6 @@ Here are some patterns that show how you can control recurrence with the start d
 | Start time in the past | **Recurrence** trigger: Calculates run times based on the specified start time and discards past run times. Runs the first workload at the next future run time. <p>Runs future workloads based on calculations from the last run time. <p><p>**Sliding Window** trigger: Calculates run times based on the specified start time and honors past run times. <p>Runs future workloads based on calculations from the specified start time. <p><p>For more explanation, see the example following this table. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
 | Start time now or in the future | Runs the first workload at the specified start time. <p>Runs future workloads based on calculations from the last run time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, Logic Apps calculates future run times by using the hours or minutes, respectively, from the first run time. |
 ||||
-
-> [!IMPORTANT]
-> If a recurrence doesn't specify a specific start time, the first recurrence runs immediately when 
-> you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
-> provide a start time for the first time when you want the recurrence to run.
->
-> If a recurrence doesn't specify any other advanced scheduling options such as specific times 
-> to run future recurrences, those recurrences are based on the last run time. As a result, the start 
-> times for those recurrences might drift due to factors such as latency during storage calls.
-> 
-> To make sure that your logic app doesn't miss a recurrence, especially when the 
-> frequency is in days or longer, try these options:
-> 
-> * Provide a start time for the recurrence plus the specific times when to run subsequent 
-> recurrences by using the properties named **At these hours** and **At these minutes**, 
-> which are available only for the **Day** and **Week** frequencies.
-> 
-> * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), 
-> rather than the Recurrence trigger.
 
 *Example for past start time and recurrence but no schedule*
 

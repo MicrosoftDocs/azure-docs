@@ -396,7 +396,7 @@ Connections can access the target service or system for as long as that service 
 
 The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL Server trigger.
 
-However, for both kinds of triggers, if a recurrence doesn't specify a specific start time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start time for the first time when you want the recurrence to run.
+However, for both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
 <a name="recurrence-built-in"></a>
 
@@ -406,7 +406,7 @@ Recurring built-in triggers honor the schedule that you set, including any time 
 
 To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
 
-* Use the Recurrence trigger and provide a start time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+* Use the Recurrence trigger and provide a start date and time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
 * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
 
@@ -430,7 +430,7 @@ In recurring connection-based triggers, such as SQL Server or SFTP-SSH, the sche
 
 To work around these problems, try these options:
 
-* Use the Recurrence trigger and provide a start time plus the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+* Use the Recurrence trigger and provide a start date and time plus the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
 * To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger, 
 
