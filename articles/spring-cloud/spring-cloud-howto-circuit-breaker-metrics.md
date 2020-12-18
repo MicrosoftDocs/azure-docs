@@ -17,7 +17,7 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights?branch=pr-en-us-139984#enable-java-in-process-agent-for-application-insights).
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights). <--> to be replaced
 
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
 
@@ -54,7 +54,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
     -s ${service_name} -g ${resource_group}
 ```
 
-> Note:
+> [!Note]
 >
 > * Include the required dependency for Resilience4j:
 >
@@ -83,14 +83,14 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >   </dependency>
 >   ```
 >
-
-Navigate to the URL provided by gateway applications, and access the endpoint from [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) as follows:
-
-```
-/get
-/get/delay/{seconds}
-/get/fluxdelay/{senconds}
-```
+>
+> Navigate to the URL provided by gateway applications, and access the endpoint from [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) as follows:
+>
+>   ```
+>   /get
+>   /get/delay/{seconds}
+>   /get/fluxdelay/{senconds}
+>   ```
 
 ## Locate Resilence4j Metrics from Portal
 
@@ -98,7 +98,7 @@ Navigate to the URL provided by gateway applications, and access the endpoint fr
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
-2. Select **Metics** from the **Application Insights** page.  Select **azure.applicationinsights** from **Metrics Namespace**.  Also select **resilience4j_circuitbreaker_buffered_calls** metrics with **Average**.
+2. Select **Metrics** from the **Application Insights** page.  Select **azure.applicationinsights** from **Metrics Namespace**.  Also select **resilience4j_circuitbreaker_buffered_calls** metrics with **Average**.
 
    [ ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.png)](media/spring-cloud-resilience4j/resilience4J-1.PNG)
 
@@ -120,4 +120,6 @@ Navigate to the URL provided by gateway applications, and access the endpoint fr
 
 ## See also
 
-* Application insights TBD
+* [Application insights](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)  <--> to be replaced
+* [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
+* [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)
