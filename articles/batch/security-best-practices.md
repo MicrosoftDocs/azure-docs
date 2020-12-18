@@ -54,13 +54,21 @@ In addition to operations specific to a Batch account, [management operations](/
 
 Batch management operations via ARM are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
 
-### Use private endpoints
+### Batch pool nodes
+
+The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access is enabled by default, with communication via load balancers).
+
+### Restricting access to Batch endpoints 
+
+Several capabilities are available to limit access to the various Batch endpoints, especially when the solution uses a virtual network. 
+
+#### Use private endpoints
 
 [Azure Private Link](../private-link/private-link-overview.md) enables access to Azure PaaS Services and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. You can use Private Link to restrict access to a Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute.
 
 To use private endpoints, a Batch account needs to be configured appropriately when created; public network access configuration must be disabled. Once created, private endpoints can be created and associated with the Batch account. For more information, see [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 
-### Create pools in virtual networks
+#### Create pools in virtual networks
 
 Compute nodes in a Batch pool can communicate with each other, such as to run multi-instance tasks, without requiring a virtual network (VNET). However, by default, nodes in a pool can't communicate with virtual machines that are outside of the pool on a virtual network and have private IP addresses, such as license servers or file servers.
 
@@ -77,7 +85,7 @@ You don't have to specify NSGs at the virtual network subnet level, because Batc
 
 For more  information, see [Create an Azure Batch pool in a virtual network](batch-virtual-network.md).
 
-### Create pools with static public IP addresses
+#### Create pools with static public IP addresses
 
 By default, the public IP addresses associated with pools are dynamic; they are created when a pool is created and IP addresses can be added or removed when a pool is resized. When the task applications running on pool nodes need to access external services, access to those services may need to be restricted to specific IPs.  In this case, having dynamic IP addresses will not be manageable.
 
@@ -85,7 +93,7 @@ You can create static public IP address resources in the same subscription as th
 
 For more information, see [Create an Azure Batch pool with specified public IP addresses](create-pool-public-ip.md).
 
-### Create pools without public IP addresses
+#### Create pools without public IP addresses
 
 By default, all the compute nodes in an Azure Batch virtual machine configuration pool are assigned one or more public IP addresses. These endpoints are used by the Batch service to schedule tasks and for communication with compute nodes, including outbound access to the internet.
 
@@ -93,7 +101,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 For more information, see [Create a pool without public IP addresses](batch-pool-no-public-ip-address.md).
 
-### Limit remote access to pool nodes
+#### Limit remote access to pool nodes
 
 By default, Batch allows a node user with network connectivity to connect externally to a compute node in a Batch pool by using RDP or SSH.
 
