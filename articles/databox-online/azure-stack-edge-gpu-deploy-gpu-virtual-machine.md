@@ -39,15 +39,15 @@ This extension supports the following operating systems (OSs). Other versions ma
 | Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
 
-### Supported OS for GPU extension for Windows
+### Supported OS for GPU extension for Linux
 
 This extension supports the following OS distros, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge Pro devices.
 
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.4 |
+| Ubuntu | 18.04 LTS |
+| Red Hat Enterprise Linux | 7.4 |
 
 
 ## GPU VMs and Kubernetes
