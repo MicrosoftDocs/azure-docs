@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
@@ -20,7 +20,7 @@ When you create a Cognitive Search service, you get:
 + A search engine that performs indexing and query execution
 + Persistent storage of search indexes that you create and manage
 + A query language for composing simple to complex queries
-+ AI-centered analysis, creating searchable content out of images, raw text, application files
++ [AI-driven enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
 + Integration with other Azure services for data, machine learning/AI, and security
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
@@ -84,11 +84,11 @@ Among cloud providers, Azure Cognitive Search is strongest for full text search 
 Key strengths include:
 
 + Azure data integration (crawlers) at the indexing layer
-+ AI processing of raw data and non-text content to make it more searchable, including text from images, or finding patterns in unstructured content.
-+ Azure Private Link integration for a no-internet access requirements
++ Azure Private Link integration to support off-internet security requirements
++ Integration with AI processing to make unsearchable content types text-searchable.
 + Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
++ [Critical features](search-features-list.md): rich query language, relevance tuning, faceting, autocomplete, synonyms, geo-search, and result composition.
 + Azure scale, reliability, and world-class availability
-+ [Critical features common to search-centric apps](search-features-list.md): scoring, faceting, suggestions, synonyms, geo-search, and more.
 
 Among our customers, those able to leverage the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
 

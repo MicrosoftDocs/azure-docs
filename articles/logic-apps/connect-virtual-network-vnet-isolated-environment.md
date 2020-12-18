@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/18/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -157,21 +157,29 @@ In addition, you need to add outbound rules for [App Service Environment (ASE)](
 
 If you set up or use [forced tunneling](../firewall/forced-tunneling.md) through your firewall, you have to permit additional external dependencies for your ISE. Forced tunneling lets you redirect Internet-bound traffic to a designated next hop, such as your virtual private network (VPN) or to a virtual appliance, rather than to the Internet so that you can inspect and audit outbound network traffic.
 
-Usually, all ISE outbound dependency traffic travels through the virtual IP address (VIP) that is provisioned with your ISE. However, if you change the traffic routing either to or from your ISE, you need to permit the following outbound dependencies on your firewall by setting their next hop to `Internet`. If you use Azure Firewall, follow the [instructions to set up your firewall with your App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working.
 
-If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working:
+* User defined routes
 
-* [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+  To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
+  
+  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+  * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Azure API Management addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Service endpoints
 
-* [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hubs because you can't send traffic through a firewall to these services.
 
-* [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Other inbound and outbound dependencies
 
-* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
-
-* You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
+   Your firewall *must* allow the following inbound and outbound dependencies:
+   
+   * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
