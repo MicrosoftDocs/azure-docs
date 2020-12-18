@@ -28,13 +28,16 @@ To learn more about how to authenticate with the Azure Identity client library, 
 The following example provides an AES-256 key when uploading a blob with the v12 client library for Blob storage. The example uses the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) object to authorize the write request with Azure AD, but you can also authorize the request with Shared Key credentials.
 
 ```csharp
-async static Task UploadBlobWithClientKey(string accountName, string containerName,
-    string blobName, Stream data, byte[] key, string keySha256)
+async static Task UploadBlobWithClientKey(Uri blobUri,
+                                          Stream data,
+                                          byte[] key,
+                                          string keySha256)
 {
-    const string blobServiceEndpointSuffix = ".blob.core.windows.net";
-    Uri accountUri = new Uri("https://" + accountName + blobServiceEndpointSuffix);
-
+    // Create a new customer-provided key.
+    // Key must be AES-256.
     var cpk = new CustomerProvidedKey(key);
+
+    // Check the key's encryption hash.
     if (cpk.EncryptionKeyHash != keySha256)
     {
         throw new InvalidOperationException("The encryption key is corrupted.");
@@ -43,20 +46,20 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
     // Specify the customer-provided key on the options for the client.
     BlobClientOptions options = new BlobClientOptions()
     {
-        CustomerProvidedKey = cpk,
+        CustomerProvidedKey = cpk
     };
 
-    // Create a client object for the Blob service, including options.
-    BlobServiceClient serviceClient = new BlobServiceClient(accountUri, 
-        new DefaultAzureCredential(), options);
+    // Create the client object with options specified.
+    BlobClient blobClient = new BlobClient(
+        blobUri,
+        new DefaultAzureCredential(),
+        options);
 
-    // Create a client object for the container.
+    // If the container may not exist yet,
+    // create a client object for the container.
     // The container client retains the credential and client options.
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient(containerName);
-
-    // Create a new block blob client object.
-    // The blob client retains the credential and client options.
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
+    BlobContainerClient containerClient =
+        blobClient.GetParentBlobContainerClient();
 
     try
     {
