@@ -46,7 +46,7 @@ Answers for the source and destination offer type questions help define technica
 
 ## Subscription migration support
 
-The following table describes subscription migration support and the considerations for subscription agreement types. Links are provided for more information about each type of migration.
+The following table describes subscription migration support between the different agreement types. Links are provided for more information about each type of migration.
 
 | **Source Subscription Type** | **Destination Subscription Type** | **Considerations** |
 | --- | --- | --- |
