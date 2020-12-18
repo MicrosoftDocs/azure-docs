@@ -16,7 +16,7 @@ ms.date: 07/09/2020
 
 
 
-In this article, you learn how to get explanations for Automated Machine Learning (AutoML) in Azure Machine Learning. AutoML helps you understand engineered feature importance. 
+In this article, you learn how to get explanations for automated machine learning (AutoML) in Azure Machine Learning. AutoML helps you understand feature importance of the models that are generated. 
 
 All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
 
@@ -40,6 +40,7 @@ Retrieve the explanation from the `best_run`, which includes explanations for bo
 > * TCNForecaster
 > * AutoArima
 > * ExponentialSmoothing
+> * Prophet
 > * Average 
 > * Naive
 > * Seasonal Average 
@@ -197,7 +198,7 @@ service.wait_for_deployment(show_output=True)
 
 ### Inference with test data
 
-Inference with some test data to see the predicted value from AutoML model. View the engineered feature importance for the predicted value.
+Inference with some test data to see the predicted value from AutoML model, currently supported only in Azure Machine Learning SDK. View the feature importances contributing towards a predicted value. 
 
 ```python
 if service.state == 'Healthy':
