@@ -382,10 +382,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
-- [Key Vault Powershell Cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.keyvault)
+- [Azure Key Vault Powershell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](https://docs.microsoft.com/en-us/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
 - [Secure access to a key vault](secure-your-key-vault.md)
-- [Azure Key Vault Developer's Guide](developers-guide.md)
-- [Best practices to use Key Vault](best-practices.md)
+- [Azure Key Vault developer's guide](developers-guide.md)
+- [Best practices to use a key vault](best-practices.md)
