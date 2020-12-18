@@ -1,12 +1,12 @@
 ---
-title: Classic to Azure Resource Manager migration technical deep dive
+title: Platform-supported migration tool for Azure Service Manager to Azure Resource Manager migration.
 description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 12/17/2020
 ms.author: tagore
 
 ---
