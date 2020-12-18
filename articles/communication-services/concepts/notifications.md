@@ -111,9 +111,13 @@ The APNs platform should be configured with token authentication mode as specifi
 
 The connection string that the Azure Notification Hub was linked with to your Communication Services resource needs to have the `Send` permission. More details about how to create a new connection string or seeing the current connection string from your Azure Notification Hub can be found in [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### The linked connection string or Azure Notification Hub  resourceId aren't valid
+#### The linked connection string or Azure Notification Hub resourceId aren't valid
 
 Make sure the Communication Services resource is configured with the correct connection string and Azure Notification Hub resourceId
+
+#### The linked connection string is regenerated
+
+In case the connection string used to link your Azure Notification Hub to your Communication Services resource, the new connection string has to be updated in your Communication Services resource by relinking the Notification Hub.
 
 ## Next steps
 
