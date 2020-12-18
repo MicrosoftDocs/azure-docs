@@ -38,7 +38,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
+For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script.
 
 To configure the least-privilege permissions, you need:
 
@@ -65,7 +65,7 @@ To configure the least-privilege permissions, you need:
   }
   ```
 
-  If the Azure Storage and the Azure Container Instance resource provider haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
+  If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
 
 - If a managed identity is used, you need to assign both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
 
@@ -96,6 +96,8 @@ To configure the least-privilege permissions, you need:
     ]
   }
   ```
+
+To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
 ## Sample templates
 
