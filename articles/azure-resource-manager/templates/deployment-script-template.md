@@ -161,7 +161,11 @@ Property value details:
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. If you use the newGuid() or the utcNow() function, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name is automatically generated.
 - **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
-- **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
+- **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+    >[!IMPORTANT]
+    > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
+
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
     Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
