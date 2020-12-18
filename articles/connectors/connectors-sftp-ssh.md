@@ -37,13 +37,13 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 * The SFTP-SSH connector supports either private key authentication or password authentication, not both.
 
-* SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. Although the default chunk size is 15 MB, this size can dynamically change, starting from 5 MB and gradually increasing to the 50 MB maximum, based on factors such as network latency, server response time, and so on.
+* SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. Although the default chunk size is 15 MB, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum, based on factors such as network latency, server response time, and so on.
 
   > [!NOTE]
   > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
   > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45 MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50 MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15 MB chunks, you can try reducing the size to 5 MB.
+  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
 
   Chunk size is associated with a connection, which means that you can use the same connection for actions that support chunking and then for actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB. This table shows which SFTP-SSH actions support chunking:
 
@@ -116,7 +116,7 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 ### Polling behavior
 
-SFTP-SSH triggers poll the SFTP file system and look for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+SFTP-SSH triggers poll the SFTP file system and look for any file that changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
 
 | SFTP client | Action |
 |-------------|--------|
@@ -140,7 +140,7 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 ### Unix-based OS
 
-1. If the PuTTY tools aren't already installed on your system, do that now, for example:
+1. If you don't have the PuTTY tools installed on your system, do that now, for example:
 
    `sudo apt-get install -y putty`
 
@@ -212,7 +212,7 @@ To create a file on your SFTP server, you can use the SFTP-SSH **Create file** a
 
    1. In the SFTP-SSH trigger or action you added, paste the *complete* key you copied into the **SSH private key** property, which supports multiple lines.  ***Make sure you paste*** the key. ***Don't manually enter or edit the key***.
 
-1. When you're done entering the connection details, select **Create**.
+1. After you finish entering the connection details, select **Create**.
 
 1. Now provide the necessary details for your selected trigger or action and continue building your logic app's workflow.
 
@@ -230,7 +230,7 @@ To override the default adaptive behavior that chunking uses, you can specify a 
 
    ![Specify chunk size to use instead](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. When you're finished, select **Done**.
+1. After you finish, select **Done**.
 
 ## Examples
 
@@ -258,7 +258,7 @@ This section describes possible solutions to common errors or problems.
 
 ### 404 error: "A reference was made to a file or folder which does not exist"
 
-This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but the newly created file is then immediately moved before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if the file is moved, the Logic Apps service can no longer find the file so you get the `404` error message.
+This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but immediately moves the newly created file before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if your logic app moves the file, the Logic Apps service can no longer find the file so you get the `404` error message.
 
 If you can't avoid or delay moving the file, you can skip reading the file's metadata after file creation instead by following these steps:
 
