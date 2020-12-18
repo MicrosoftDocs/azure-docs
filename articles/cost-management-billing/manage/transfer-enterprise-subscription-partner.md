@@ -12,7 +12,7 @@ ms.author: banders
 ms.custom: 
 ---
 
-# Transfer an EA subscription to CSP v2
+# Transfer an EA subscription to CSP v2 (Azure Plan)
 
 This article helps you understand the things you consider before you transfer an Enterprise Agreement (EA) subscription to a CSP v2 (Azure plan). Overall, you should get familiar with the migration process documented at [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Then, assess or qualify the migration with the following questions.
 
