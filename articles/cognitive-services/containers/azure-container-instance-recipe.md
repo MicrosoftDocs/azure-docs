@@ -37,13 +37,9 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 > [!IMPORTANT]
 > The LUIS container requires a `.gz` model file that is pulled in at runtime. The container must be able to access this model file via a volume mount from the container instance. To upload a model file, follow these steps:
 > 1. [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md). Take note of the Azure Storage account name, key, and file share name as you'll need them later.
-> 2. Before you upload the LUIS model (packaged app) to the Azure file share, you'll need to [export it from the LUIS portal](../LUIS/luis-container-howto.md#export-packaged-app-from-luis"). 
+> 2. [export your LUIS model (packaged app) from the LUIS portal](../LUIS/luis-container-howto.md#export-packaged-app-from-luis). 
 > 3. In the Azure portal, navigate to the **Overview** page of your storage account resource, and select **File shares**. 
-> 4. Select the file share name that you recently created, then select **Upload**.
->
-> [!div class="mx-imgBorder"]
-> ![Upload to file share](../LUIS/media/luis-how-to-deploy-to-aci/upload-file-share.png)
-
+> 4. Select the file share name that you recently created, then select **Upload**. Then upload your packaged app. 
 
 # [Azure portal](#tab/portal)
 
