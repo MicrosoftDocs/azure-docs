@@ -146,7 +146,7 @@ To customize the configuration, here are more parameters you can use:
 
 `--helm-operator-chart-version` : *Optional* chart version for Helm operator (if enabled). Default: '1.2.0'.
 
-`--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'
+`--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'. Max 23 characters.
 
 `--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -165,12 +165,6 @@ Options supported in  --operator-params
 | --git-email  | Email to use for Git commit. |
 
 * If '--git-user' or '--git-email' are not set (which means that you don't want Flux to write to the repo), then --git-readonly will automatically be set (if you have not already set it).
-
-* If enableHelmOperator is true, then operatorInstanceName + operatorNamespace strings cannot exceed 47 characters combined.  If you fail to adhere to this limit, you will get the following error:
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
 
 For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 
