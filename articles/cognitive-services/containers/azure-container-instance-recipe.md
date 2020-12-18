@@ -59,6 +59,8 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 1. Select the **Overview** and copy the IP address. It will be a numeric IP address such as `55.55.55.55`.
 1. Open a new browser tab and use the IP address, for example, `http://<IP-address>:5000 (http://55.55.55.55:5000`). You will see the container's home page, letting you know the container is running.
 
+    ![Container's home page](./media/cognitive-services-containers-api-documentation/container-webpage.png)
+
 1. Select **Service API Description** to view the swagger page for the container.
 
 1. Select any of the **POST** APIs and select **Try it out**.  The parameters are displayed including the input. Fill in the parameters.
@@ -71,7 +73,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
----
-
 > [!NOTE]
 > If you're running the Text Analytics for health container, use the following URL to submit queries: `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health`
+
+---
