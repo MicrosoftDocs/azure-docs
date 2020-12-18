@@ -402,15 +402,17 @@ However, for both kinds of triggers, if a recurrence doesn't specify a specific 
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. However, if a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. However, if a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. Also, if you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
 
-To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
+To make sure that your logic app runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try these solutions:
+
+* Make sure that you select a time zone so that your logic app runs at your specified start time. Otherwise, DST might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+  When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. By specifying a time zone, the UTC time for your logic app also shifts to counter the seasonal time change. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 * Use the Recurrence trigger and provide a start date and time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
 * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
-
-If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends. To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 <a name="recurrence-connection-based"></a>
 
