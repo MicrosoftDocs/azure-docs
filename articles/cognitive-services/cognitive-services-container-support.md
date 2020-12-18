@@ -35,13 +35,13 @@ Containerization is an approach to software distribution in which an application
 
 Azure Cognitive Services containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure Cognitive Services. You can find instructions and image locations in the tables below. A list of [container images](containers/container-image-tags.md) is also available.
 
-### Decision
+### Decision containers
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
 | [Anomaly detector][ad-containers] | **Anomaly Detector** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. | Generally available |
 
-### Language
+### Language containers
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
@@ -51,7 +51,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Text Analytics][ta-containers-sentiment] | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available |
 | [Text Analytics][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Gated preview. [Request access][request-access]. |
 
-### Speech
+### Speech containers
 
 > [!NOTE]
 > To use Speech containers, you will need to complete an [online request form](https://aka.ms/csgate).
@@ -65,7 +65,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Speech Service API][sp-containers-ntts] | **Neural Text-to-speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available |
 | [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | Determines the language of spoken audio. | Gated preview |
 
-### Vision
+### Vision containers
 
 > [!WARNING]
 > On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
