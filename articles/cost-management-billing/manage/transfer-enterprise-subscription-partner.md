@@ -41,7 +41,7 @@ You can only migrate subscriptions between the same Azure AD tenant. If the cust
 
 The customer must accept a new Microsoft Customer Agreement. It must be updated on each of their CSP customer records.
 
-The subscription migrates as a single unit, not individual resources. The subscription ID doesn't change. When one resource doesn't support the migration, then the entire subscription won't migrate to CSP v2. If you have one resource that won't migrate, you can try to migrate it to a different subscription.
+The subscription migrates as a single unit, not individual resources. The subscription ID doesn't change. When one resource doesn't support the migration, then the entire subscription will not migrate to CSP v2. If you have one resource that won't migrate, you can try to migrate that resource itself to a different subscription that isn't being migrated to CSP.
 
 Create an Azure plan for the customer using the CSP portal *before* you do a migration from EA to CSP v2 for any customer subscriptions. For more information, see [Purchase the Azure plan for customers &amp; access the latest Azure services at pay-as-you-go rates](/partner-center/purchase-azure-plan).
 
