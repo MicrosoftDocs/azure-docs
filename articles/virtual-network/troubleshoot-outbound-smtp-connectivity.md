@@ -58,11 +58,11 @@ The restrictions are in place to prevent abuse. Requests to remove these restric
 
 If you're using these subscription types, we encourage you to use SMTP relay services, as outlined earlier in this article, or to change your subscription type.
 
-## Cloud service providers (CSP)
+## Cloud Solution Provider
 
-If you're using Azure resources through a CSP, you can make a request to remove the restriction in the **Connectivity** section of the **Diagnose and Solve** blade for a virtual network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps.
+If you're using Azure resources through a Cloud Solution Provider, you can make a request to remove the restriction in the **Connectivity** section of the **Diagnose and Solve** pane for a virtual network resource in the Azure portal. If your request is accepted, your subscription will be enabled or you'll receive instructions for next steps.
 
-## Microsoft Partner Network (MPN), BizSpark Plus, or Azure Sponsorship
+## Microsoft Partner Network, BizSpark Plus, or Azure Sponsorship
 
 For subscriptions of the following types that were created after November 15, 2017, there will be technical restrictions that block email that's sent directly from VMs within the subscriptions:
 
