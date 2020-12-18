@@ -115,10 +115,10 @@ Follow these steps to configure your storage account firewall and add an excepti
     Connect-AzAccount
     ```
 4. Define variables in PowerShell: 
-    - Resource group name - you can find this in Azure Portal in overview of Synapse workspace.
-    - Account Name - name of storage account which is protected by firewall rules.
-    - Tenant ID - you can find this in Azure Portal in Azure Active Directory in tenant information.
-    - Resource ID - you can find this in Azure Portal in overview of Synapse workspace.
+    - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
+    - Account Name - name of storage account that is protected by firewall rules.
+    - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
+    - Resource ID - you can find this in Azure portal in overview of Synapse workspace.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
@@ -139,7 +139,7 @@ Follow these steps to configure your storage account firewall and add an excepti
     ```powershell
         Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
     ```
-6. Verify that rule was applied: 
+6. Verify that rule was applied in your storage account: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
         $rule.ResourceAccessRules
