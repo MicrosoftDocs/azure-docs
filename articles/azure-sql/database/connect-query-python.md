@@ -11,12 +11,12 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 05/29/2020
+ms.date: 12/19/2020
 ---
-# Quickstart: Use Python to query a database in Azure SQL Database or Azure SQL Managed Instance
+# Quickstart: Use Python to query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-In this quickstart, you use Python to connect to Azure SQL Database or Azure SQL Managed Instance, and use T-SQL statements to query data.
+In this quickstart, you use Python to connect to Azure SQL Database, Azure SQL Managed Instance, or Synapse SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
@@ -24,9 +24,11 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
-
 - [Python](https://python.org/downloads) 3 and related software
+
+- A database where you will run a query.
+
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
   # [macOS](#tab/macos)
 
@@ -51,27 +53,11 @@ To complete this quickstart, you need:
 ---
 To further explore Python and the database in Azure SQL Database, see [Azure SQL Database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
-## Get server connection information
-
-Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Go to the **SQL Databases**  or **SQL Managed Instances** page.
-
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for the database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
-
-> [!NOTE]
-> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
 ## Create code to query your database 
 
 1. In a text editor, create a new file named *sqltest.py*.  
    
 1. Add the following code. Substitute your own values for \<server>, \<database>, \<username>, and \<password>.
-   
-   >[!IMPORTANT]
-   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
    
    ```python
    import pyodbc
