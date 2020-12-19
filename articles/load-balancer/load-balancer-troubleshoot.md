@@ -43,9 +43,10 @@ In order to change the port, you can remove the health probe by updating the VM 
 
 ### Cause : VMs removed from backend pool should no longer receive traffic. The small amount of network traffic could be related to storage, DNS, and other functions within Azure.
 
-To verify, you can conduct a network trace. The FQDN used for your blob storage accounts are listed within the properties of each storage account.  From a virtual machine within your Azure subscription, you can perform an nslookup to determine the Azure IP assigned to that storage account.
+To verify, you can conduct a network trace. The FQDN used for your blob storage accounts are listed within the properties of each storage account.  From a virtual machine within your Azure subscription, you can perform nslookup to determine the Azure IP assigned to that storage account.
 
 ## Additional network captures
+
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 
 - Use ps ping from one of the backend VMs within the VNet to test the probe port response (example: ps ping 10.0.0.4:3389) and record results. 
@@ -56,10 +57,10 @@ If you decide to open a support case, collect the following information for a qu
 **Resolution**
 
 - Once you identify the resource that is in a failed state, go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource in this state.
-- Update the toggle on the right hand top corner to Read/Write.
+- Update the toggle on the right-hand top corner to Read/Write.
 - Click on Edit for the resource in failed state.
 - Click on PUT followed by GET to ensure the provisioning state was updated to Succeeded.
-- You can then proceed continue with other actions as the resource is out of failed state.
+- You can then proceed with other actions as the resource is out of failed state.
 
 ## Next steps
 
