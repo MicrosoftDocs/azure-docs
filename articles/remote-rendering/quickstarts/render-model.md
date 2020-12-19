@@ -66,7 +66,6 @@ The default model we render is a [built-in sample model](../samples/sample-model
 1. From the *Hierarchy*, select the **RemoteRendering** game object.
 1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md). If you don't have an account yet, [create one](../how-tos/create-an-account.md).
 
-TODO(ekmineev) this screenshot needs to be updated with account domain
 ![ARR Account Info](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
@@ -89,7 +88,6 @@ Congratulations! You are now viewing a remotely rendered model!
 ## Inspecting the scene
 
 Once the remote rendering connection is running, the Inspector panel updates with additional status information:
-TODO(ekmineev) this screenshot needs to be updated with account domain
 ![Unity sample playing](./media/arr-sample-configure-session-running.png)
 
 You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector.

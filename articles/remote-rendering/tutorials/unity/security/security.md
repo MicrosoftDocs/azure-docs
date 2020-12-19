@@ -375,7 +375,7 @@ The most important part of this class from an ARR perspective is this line:
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Here, we create a new **AzureFrontendAccountInfo** object using the account domain, account ID, and access token. This token is then used by the ARR service to query, create, and join remote rendering sessions as long as the user is authorized based on the role-based permissions configured earlier.
+Here, we create a new **AzureFrontendAccountInfo** object using the account domain, account ID, account authentication domain, and access token. This token is then used by the ARR service to query, create, and join remote rendering sessions as long as the user is authorized based on the role-based permissions configured earlier.
 
 With this change, the current state of the application and its access to your Azure resources looks like this:
 
@@ -397,6 +397,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     * **Active Directory Application Client ID** is the *Application (client) ID* found in your AAD app registration (see image below).
     * **Azure Tenant ID** is the *Directory (tenant) ID* found in your AAD app registration ( see image below).
     * **Azure Remote Rendering Account ID** is the same **Account ID** you've been using for **RemoteRenderingCoordinator**.
+    * **Account Authentication Domain** is the same **Account Authentication Domain** you've been using in the **RemoteRenderingCoordinator**.
 
     ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
 
