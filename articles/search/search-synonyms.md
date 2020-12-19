@@ -33,7 +33,7 @@ POST /synonymmaps?api-version=2020-06-30
 
 To create a synonym map, use the [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map) or an Azure SDK. For C# developers, we recommend [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
 
-### Defining rules
+### Define rules
 
 The `solr` format supports two kinds of rules: equivalency (terms are equal substitutes) or explicit mappings. Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter).
 
@@ -93,7 +93,7 @@ Since the backslash is itself a special character in other languages like JSON a
 }
 ```
 
-## Uploading and managing synonym maps
+## Upload and manage synonym maps
 
 As mentioned previously, you can create, delete, or modify a synonym map without disrupting query and indexing workloads. A synonym map is considered an independent asset (like indexes or data sources), and while it won't be available if you are deleting or reloading it, the absence of a synonym map won't cause indexing or queries to fail.
 
