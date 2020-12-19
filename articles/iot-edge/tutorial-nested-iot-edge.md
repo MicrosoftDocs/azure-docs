@@ -237,8 +237,6 @@ If you use azure Virtual Machine to create a hierarchy of IoT Edge devices, make
 
 [How to open ports to a virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal).
 
-It is possible to use a single port to pull images and make API calls, the process is described here: [Using one port for HTTP calls](#Using one port for HTTP calls)
-
 ### Configure the IoT Edge runtime
 
 Configure the IoT Edge runtime by following these steps on both your devices. Configuring the IoT Edge runtime for your devices consists of four steps, all accomplished by editing the IoT Edge configuration file:
