@@ -50,7 +50,7 @@ Some service principals (users and applications) are bound to a specific tenant.
 * [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) level access or higher to the subscription where you want to move your key vault.You can assign role using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), or [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 * A resource group in the new subscription. You can create one using [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell), or [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
-You can check existing roles using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal),[PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell),[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli), or [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+You can check existing roles using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli), or [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
 
 
 ## Moving Key Vault to a new subscription
@@ -64,7 +64,7 @@ You can check existing roles using [Azure portal](https://docs.microsoft.com/azu
 7. Acknowledge the warning regarding moving resources
 8. Select "OK"
 
-## Update Key Vault tenant
+## Update the tenant ID in Key Vault when moving to new tenant
 
 If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command documented below to allow you to see resources outside your current selected scope. 
 
@@ -88,6 +88,7 @@ tenantId=$(az account show --query tenantId)                               # Get
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
+### Update access policies and role assignments
 
 > [!NOTE]
 > If Key Vault is using [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permission model. You need to also remove key vault role assignments. You can remove role assignments using [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), or [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
@@ -104,7 +105,10 @@ For adding role assignments, see:
 - [Add role assignment using Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 - [Add role assignment using PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
 
-If you are using a managed identity for Azure resources, you will need to update it to the new Azure Active Directory tenant as well. For more information on managed identities, [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### Update managed identities
+
+If you are transferring entire subscription and using a managed identity for Azure resources, you will need to update it to the new Azure Active Directory tenant as well. For more information on managed identities, [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
 If you are using managed identity, you'll also have to update the identity because the old identity will no longer be in the correct Azure Active Directory tenant. See the following documents to help resolve this issue. 
 
