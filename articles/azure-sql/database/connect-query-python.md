@@ -57,7 +57,7 @@ To further explore Python and the database in Azure SQL Database, see [Azure SQL
 
 1. In a text editor, create a new file named *sqltest.py*.  
    
-1. Add the following code. Substitute your own values for \<server>, \<database>, \<username>, and \<password>.
+1. Add the following code. Get the connection information from the prerequisites section and substitute your own values for \<server>, \<database>, \<username>, and \<password>.
    
    ```python
    import pyodbc
