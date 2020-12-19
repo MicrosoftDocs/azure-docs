@@ -23,14 +23,14 @@
     href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
-  - name: Azure File Sync
-    items: 
-    - name: Planning for an Azure File Sync deployment
-      href: ../files/storage-sync-files-planning.md
-    - name: Networking considerations for hybrid access
-      href: ../files/storage-sync-files-networking-overview.md
-    - name: About cloud tiering
-      href: ../files/storage-sync-cloud-tiering.md
+  - name: Planning for an Azure File Sync deployment
+    href: ../files/storage-sync-files-planning.md
+  - name: Networking considerations for hybrid access
+    href: ../files/storage-sync-files-networking-overview.md
+  - name: Optimize Azure file shares
+    href: optimize-file-share.md
+  - name: About cloud tiering
+    href: ../files/storage-sync-cloud-tiering.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance
