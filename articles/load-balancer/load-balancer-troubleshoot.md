@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Load Balancer
+title: Troubleshoot common issues Azure Load Balancer
 description: Learn how to troubleshoot common issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
@@ -32,12 +32,12 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-overview.md) on your subnet.
 
-## Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool.
+## Cannot change backend port for existing LB rule of a load balancer which has virtual machine scale set deployed in the backend pool.
 
-### Cause : The backend port cannot be modified for a load balancing rule that's used by a health probe for load balancer referenced by VM Scale Set.
+### Cause : The backend port cannot be modified for a load balancing rule that's used by a health probe for load balancer referenced by virtual machine scale set
 
-**Resolution** 
-In order to change the port, you can remove the health probe by updating the VM Scale Set, update the port and then configure the health probe again.
+**Resolution**
+In order to change the port, you can remove the health probe by updating the virtual machine scale set, update the port and then configure the health probe again.
 
 ## Small traffic is still going through load balancer after removing VMs from backend pool of the load balancer.
 
