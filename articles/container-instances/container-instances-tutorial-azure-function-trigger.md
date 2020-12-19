@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Trigger container group by Azure function
+title: Tutorial - Trigger container group by Azure Function
 description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure container instances
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
 ---
 
-# Tutorial: Use an HTTP-triggered Azure function to create a container group
+# Tutorial: Use an HTTP-triggered Azure Function to create a container group
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that can run scripts or code in response to a variety of events, such as an HTTP request, a timer, or a message in an Azure Storage queue.
 
-In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a [container group](container-instances-container-groups.md). This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
+In this tutorial, you create an Azure Function that takes an HTTP request and triggers deployment of a [container group](container-instances-container-groups.md). This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
 
 You learn how to:
 
@@ -28,7 +28,7 @@ Additional steps in this article use Azure PowerShell. If you need to install or
 
 ## Create a basic PowerShell function
 
-Follow steps in [Create your first PowerShell function in Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
+Follow steps in [Create your first PowerShell function in Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) to create a PowerShell function using the HTTP Trigger template. Use the default Azure Function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
 
 This article assumes you publish the project using the name *myfunctionapp*, in an Azure resource group automatically named according to the function app name (also *myfunctionapp*). Substitute your unique function app name and resource group name in later steps.
 
@@ -71,7 +71,7 @@ Replace this code with the following example block. Here, if a name value is pas
 if ($name) {
     New-AzContainerGroup -ResourceGroupName myfunctionapp -Name $name `
         -Image alpine -OsType Linux `
-        -Command "echo 'Hello from an Azure container instance triggered by an Azure function'" `
+        -Command "echo 'Hello from an Azure container instance triggered by an Azure Function'" `
         -RestartPolicy Never
     if ($?) {
         $body = "This HTTP triggered function executed successfully. Started container group $name"
@@ -88,7 +88,7 @@ This example creates a container group consisting of a single container instance
 
 Ensure that the function runs locally before republishing the function app project to Azure. When run locally, the function doesn't create Azure resources. However, you can test the function flow with and without passing a name value in a query string. To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
-## Republish Azure function app
+## Republish Azure Function app
 
 After you've verified that the function runs locally, republish the project to the existing function app in Azure.
 
@@ -173,7 +173,7 @@ Get-AzContainerInstanceLog -ResourceGroupName myfunctionapp `
 Sample output:
 
 ```console
-Hello from an Azure container instance triggered by an Azure function
+Hello from an Azure container instance triggered by an Azure Function
 ```
 
 ## Clean up resources
@@ -186,7 +186,7 @@ az group delete --name myfunctionapp
 
 ## Next steps
 
-In this tutorial, you created an Azure function that takes an HTTP request and triggers deployment of a container group. You learned how to:
+In this tutorial, you created an Azure Function that takes an HTTP request and triggers deployment of a container group. You learned how to:
 
 > [!div class="checklist"]
 > * Use Visual Studio Code with the Azure Functions extension to create a basic HTTP-triggered PowerShell function.
@@ -196,7 +196,7 @@ In this tutorial, you created an Azure function that takes an HTTP request and t
 
 For a detailed example to launch and monitor a containerized job, see the blog post [Event-Driven Serverless Containers with PowerShell Azure Functions and Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) and accompanying [code sample](https://github.com/anthonychu/functions-powershell-run-aci).
 
-See the [Azure Functions documentation](../azure-functions/index.yml) for detailed guidance on creating Azure functions and publishing a functions project. 
+See the [Azure Functions documentation](../azure-functions/index.yml) for detailed guidance on creating Azure Functions and publishing a functions project. 
 
 <!-- IMAGES -->
 
