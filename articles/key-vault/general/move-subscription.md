@@ -95,9 +95,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 Now that your vault is associated with the correct tenant ID and old access policy entries or role assignments are removed, set new access policy entries or role assignments.
 
 For assigning policies, see:
-- [Assign an access policy using Portal](assign-access-policy-portal)
-- [Assign an access policy using Azure CLI](assign-access-policy-cli)
-- [Assign an access policy using PowerShell](assign-access-policy-powershell)
+- [Assign an access policy using Portal](assign-access-policy-portal.md)
+- [Assign an access policy using Azure CLI](assign-access-policy-cli.md)
+- [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
 
 For adding role assignments, see:
 - [Add role assignment using Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
