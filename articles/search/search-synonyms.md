@@ -101,7 +101,7 @@ Since the backslash is itself a special character in other languages like JSON a
 
 ## Upload and manage synonym maps
 
-As mentioned previously, you can create, delete, or modify a synonym map without disrupting query and indexing workloads. A synonym map is considered an independent asset (like indexes or data sources), and while it won't be available if you are deleting or reloading it, the absence of a synonym map won't cause indexing or queries to fail.
+As mentioned previously, you can create or update a synonym map without disrupting query and indexing workloads. A synonym map is considered an independent asset (like indexes or data sources), and while it won't be fully available if you are reloading it, the update won't cause indexing or queries to fail. Conversely, if you delete a synonym map that is referenced by fields, a query that includes the fields in question will fail with a 404 error.
 
 Creating, updating, and deleting a synonym map is always a whole-document operation, meaning that you cannot update or delete parts of the synonym map incrementally. Updating even a single rule requires a reload.
 
