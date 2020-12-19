@@ -7,17 +7,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/18/2020
 
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
 ---
 
-# Email one-time passcode authentication (Preview)
+# Email one-time passcode authentication
 
 This article describes how to enable email one-time passcode authentication for B2B guest users. The email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
 
@@ -88,15 +88,15 @@ Starting March 2021, the email one-time passcode feature will be turned on for a
     ![Email one-time passcode settings](media/one-time-passcode/otp-admin-settings.png)
 
    > [!NOTE]
-   > If you see the following toggle instead of the options shown above, this means you've previously enabled, disabled, or opted into the preview of the feature. Select **No** to disable the feature.
+   > If you see the following toggle instead of the options shown above, this means you've previously enabled, disabled, or opted into the the feature. Select **No** to disable the feature.
    >
    >![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
 5. Select **Save**.
 
-## Note for public preview customers
+## Note for customers
 
-If you've previously opted in to the email one-time passcode public preview, the March 2021 date for automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle:
+If you've previously opted in to the email one-time passcode, the March 2021 date for automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle:
 
 ![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
