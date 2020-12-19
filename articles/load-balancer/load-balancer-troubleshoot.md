@@ -30,7 +30,7 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 **Validation and resolution**
 
-Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommened for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-overview.md) on your subnet.
+Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-overview.md) on your subnet.
 
 ## Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool.
 
@@ -48,7 +48,7 @@ To verify, you can conduct a network trace. The FQDN used for your blob storage 
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 
-- Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
+- Use ps ping from one of the backend VMs within the VNet to test the probe port response (example: ps ping 10.0.0.4:3389) and record results. 
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace.
 
 ## Load Balancer in failed state
