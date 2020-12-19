@@ -57,7 +57,7 @@ az group create \
 --name $resourceGroupName \
 --location $location
 
-az group deployment create \
+az deployment group create \
 --resource-group $resourceGroupName \
 --template-uri  $templateUri
 ```

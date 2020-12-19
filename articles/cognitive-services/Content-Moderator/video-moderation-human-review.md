@@ -22,7 +22,7 @@ Use Content Moderator's machine-assisted [video moderation](video-moderation-api
 On the dashboard, select any of the review queues within the video content type. This will start a review and open the video content moderation page.
 
 > [!div class="mx-imgBorder"]
-> ![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![On Content Moderator (Preview), the slider is highlighted and set to 4 reviews. The Blur All and Black and white switches are highlighted, and both are set.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### Review count
 
@@ -51,7 +51,7 @@ In the **Detail** view, the right pane will show several tabs that give you deta
 * Select the **History** tab to see the history of the review, such as when it was created and how it was modified.
 
 > [!div class="mx-imgBorder"]
-> ![Video moderation bulk tags button](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![The right pane is highlighted, and the Notes tab is selected. There is a test area labelled Add a note.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## Apply moderation tags
 
@@ -62,7 +62,7 @@ The main task of a video review is to apply or remove moderation tags on videos 
 The **Bulk Tags** toolbar lets you add tags to multiple selected videos at once. Select one or more videos, then select the tags you would like to apply and click **submit**. 
 
 > [!div class="mx-imgBorder"]
-> ![Video moderation bulk tags button](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![The + button is highlighted in the Bulk Tags pane.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### Key frame tagging
@@ -73,7 +73,7 @@ You can also add moderation tags to specific key frames. Select the frames from 
 > If the service couldn't extract key frames, the key frame tile pane will show **No frames available** and the option to select key frames will be grayed out. In this case, you can only apply tags to the video as a whole (using the **Video tags +** button).
 
 > [!div class="mx-imgBorder"]
-> ![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![The tile pane, video player, Keyframe tags pane, and Video tags panes are all shown. The Keyframe tags + and Video tags + buttons are highlighted.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## Put a review on hold
 
@@ -82,7 +82,7 @@ The **Hold** button at the bottom of the video pane lets you put a review on hol
 You can view the videos on hold by clicking the **Hold** button at the top of the screen. The Hold pane appears on the right. From here, you can select multiple reviews on hold and either release them back into the queue, or set their expiration time. After the preconfigured amount of time, reviews on hold are released back to the queue. Select **Save** to start counting down from the currently selected expiration time.
 
 > [!div class="mx-imgBorder"]
-> ![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![On the video pane, the Hold button is highlighted. At the bottom of the pane, a Hold Time combo box is highlighted, along with Release and Save buttons.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## Submit a review
 
@@ -99,4 +99,3 @@ Once the videos expire from limbo, their reviews are marked as complete.
 - Get started with the [video moderation quickstart](video-moderation-api.md).
 - Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) for your human reviewers from your moderated output.
 - Add [video transcript reviews](video-transcript-reviews-quickstart-dotnet.md) to your video reviews.
-- Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).

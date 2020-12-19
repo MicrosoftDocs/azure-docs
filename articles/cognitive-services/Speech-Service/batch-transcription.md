@@ -43,7 +43,7 @@ As with all features of the Speech service, you create a subscription key from t
 >[!NOTE]
 > A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-If you plan to customize models, follow the steps in [Acoustic customization](how-to-customize-acoustic-models.md) and [Language customization](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
+If you plan to customize models, follow the steps in [Acoustic customization](./how-to-custom-speech-train-model.md) and [Language customization](./how-to-custom-speech-train-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
 
 >[!NOTE]
 > As a part of the REST API, Batch Transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription), which we encourage to review. To take the full advantage of Batch Transcription ability to efficiently transcribe a large number of audio files we recommend always sending multiple files per request or pointing to a Blob Storage container with the audio files to transcribe. The service will transcribe the files concurrently reducing the turnaround time. Using multiple files in a single request is very simple and straightforward - see [Configuration](#configuration) section. 
@@ -180,7 +180,7 @@ Use these optional properties to configure transcription:
 ### Storage
 
 Batch transcription can read audio from a public-visible internet URI,
-and can read audio or write transcriptions using a SAS URI with [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+and can read audio or write transcriptions using a SAS URI with [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md).
 
 ## Batch transcription result
 
@@ -215,7 +215,7 @@ Each transcription result file has this format:
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-      
+
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
@@ -225,7 +225,7 @@ Each transcription result file has this format:
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-          
+
           // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
@@ -246,7 +246,7 @@ Each transcription result file has this format:
             }
           ]
         }
-      ]    
+      ]
     }
   ]
 }

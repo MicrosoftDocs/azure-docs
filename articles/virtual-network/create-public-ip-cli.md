@@ -32,6 +32,9 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
     --name myResourceGroup \
     --location eastus2
 ```
+
+## Create public IP
+
 ---
 # [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 

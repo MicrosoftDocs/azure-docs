@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -156,11 +156,23 @@ A function app and related resources are created in Azure when you first deploy 
 > [!TIP]
 > To create a function app running on Linux instead of Windows, change the `runtime.os` element in the pom.xml file from `windows` to `linux`. Running Linux in a consumption plan is supported in [these regions](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). You can't have apps that run on Linux and apps that run on Windows in the same resource group.
 
-1. Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
+1. Before you can deploy, sign in to your Azure subscription using either Azure CLI or Azure PowerShell. 
 
+    # [Azure CLI](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+
+    # [Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    The [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet signs you into your Azure account.
+
+    ---
 
 1. Use the following command to deploy your project to a new function app.
 

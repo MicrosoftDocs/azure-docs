@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Use external tables with Synapse SQL
 
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to dedicated SQL pool or serverless SQL pool (preview).
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to dedicated SQL pool or serverless SQL pool.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -392,8 +392,6 @@ Using Data Lake exploration capabilities you can now create and query an externa
 - You must have access to the workspace with at least the Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account
 
 - You must have at least [permissions to create](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) and query external tables on the SQL pool or SQL OD
-
-- The linked service associated with the ADLS Gen2 Account **must have access to the file**. For example, if the linked service authentication mechanism is Managed Identity, the workspace Managed Identity must have at least Storage blob reader permission on the storage account
 
 From the Data panel, select the file that you would like to create the external table from:
 > [!div class="mx-imgBorder"]

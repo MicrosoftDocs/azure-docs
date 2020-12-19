@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -26,22 +26,22 @@ Speech containers enable customers to build a speech application architecture th
 > * Standard Speech-to-text
 > * Custom Speech-to-text
 > * Standard Text-to-speech
-> 
+> * Neural Text-to-speech
+>
 > The following speech containers are in gated preview.
 > * Custom Text-to-speech
 > * Speech Language Detection 
-> * Neural Text-to-speech
 >
 > To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 | Container | Features | Latest |
 |--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.6.0 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.6.0 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.8.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.8.0 |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.7.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.7.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.9.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.9.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.2.0 |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.3.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -239,13 +239,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 The following tag is an example of the format:
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 For all of the supported locales and corresponding voices of the **neural text-to-speech** container, please see [Neural Text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).

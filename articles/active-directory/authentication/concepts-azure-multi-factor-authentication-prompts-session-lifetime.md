@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication prompts and session lifetime
-description: Learn about the recommended configuration for reauthentication prompts with Azure Multi-Factor Authentication and how session lifetime is applied.
+title: Azure AD Multi-Factor Authentication prompts and session lifetime
+description: Learn about the recommended configuration for reauthentication prompts with Azure AD Multi-Factor Authentication and how session lifetime is applied.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,13 +8,13 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/31/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ---
-# Optimize reauthentication prompts and understand session lifetime for Azure Multi-Factor Authentication
+# Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
@@ -132,4 +132,4 @@ The following table summarizes the recommendations based on licenses:
 
 ## Next steps
 
-To get started, complete the tutorial to [Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) or [Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
+To get started, complete the tutorial to [Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md) or [Use risk detections for user sign-ins to trigger Azure AD Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).

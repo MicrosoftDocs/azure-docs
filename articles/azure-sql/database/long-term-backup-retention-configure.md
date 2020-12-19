@@ -10,7 +10,7 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
+ms.date: 12/16/2020
 ---
 
 # Manage Azure SQL Database long-term backup retention
@@ -97,7 +97,7 @@ For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one o
 > [!NOTE]
 > The SQL Server Contributor role does not have permission to delete LTR backups.
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+Azure RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -200,6 +200,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## Limitations
 - When restoring from an LTR backup, the read scale property is disabled. To enable, read scale on the restored database, update the database after it has been created.
+- You need to specify the target service level objective, when restoring from a LTR backup, which was created when the database was in an elastic pool. 
 
 ## Next steps
 

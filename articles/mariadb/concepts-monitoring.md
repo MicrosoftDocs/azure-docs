@@ -1,8 +1,8 @@
 ---
 title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
@@ -61,7 +61,6 @@ Learn more about how to set up notifications in the [planned maintenance notific
 
 ## Next steps
 
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
 - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
 - Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MariaDB.
-

@@ -124,7 +124,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Now that you have an instance of Network Watcher, learn about the features available:
 
-* [Topology](network-watcher-topology-overview.md)
+* [Topology](./view-network-topology.md)
 * [Packet capture](network-watcher-packet-capture-overview.md)
 * [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 * [Next hop](network-watcher-next-hop-overview.md)

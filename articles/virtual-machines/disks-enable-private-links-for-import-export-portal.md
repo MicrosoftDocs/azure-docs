@@ -22,9 +22,6 @@ You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody fro
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-## Regional availability
-
-[!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
 
 ## Create a disk access resource
 

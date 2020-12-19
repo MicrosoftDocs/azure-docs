@@ -131,7 +131,7 @@ If you are having trouble connecting, see the **Troubleshoot** section of the ta
 
 ## <a name="reset"></a>How to reset a VPN gateway
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md#resetclassic).
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](./reset-gateway.md#resetclassic).
 
 ## <a name="changesku"></a>How to change a gateway SKU
 
@@ -139,5 +139,5 @@ For steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-about-
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/).
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
 * For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md).

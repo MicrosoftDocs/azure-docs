@@ -24,7 +24,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Speech-to-text
 
-[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
+[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
 
 **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers** are available on the following platforms:
 
@@ -63,7 +63,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 #### Keyword spotting
 
-The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+The concept of [keyword spotting](./custom-keyword-basics.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
 **Keyword Spotting (KWS)** is available on the following platforms:
 
@@ -175,4 +175,4 @@ Custom text-to-speech, also known as Custom Voice is a set of online tools that 
 ## Next steps
 
 * [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

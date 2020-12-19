@@ -40,7 +40,7 @@ To delete an application from your Azure AD tenant:
 1. Select **Delete**, and then select **Yes** to confirm you want to delete the app from your Azure AD tenant.
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## Clean up resources
 

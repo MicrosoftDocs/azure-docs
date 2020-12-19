@@ -1,7 +1,7 @@
 ---
 title: Debug and troubleshoot ParallelRunStep
 titleSuffix: Azure Machine Learning
-description: Debug and troubleshoot ParallelRunStep in machine learning pipelines in the Azure Machine Learning SDK for Python. Learn common pitfalls for developing with pipelines, and tips to help you debug your scripts before and during remote execution.
+description: Debug and troubleshoot ParallelRunStep in machine learning pipelines in the Azure Machine Learning SDK for Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure MFA NPS extension - Azure Active Directory
-description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication
+title: Troubleshooting Azure AD MFA NPS extension - Azure Active Directory
+description: Get help resolving issues with the NPS extension for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,17 +8,17 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Resolve error messages from the NPS extension for Azure Multi-Factor Authentication
+# Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication
 
-If you encounter errors with the NPS extension for Azure Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Custom Views** > **Server Roles** > **Network Policy and Access Services** on the server where the NPS Extension is installed.
+If you encounter errors with the NPS extension for Azure AD Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Custom Views** > **Server Roles** > **Network Policy and Access Services** on the server where the NPS Extension is installed.
 
 ## Troubleshooting steps for common errors
 
@@ -27,12 +27,12 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **CONTACT_SUPPORT** | [Contact support](#contact-microsoft-support), and mention the list of steps for collecting logs. Provide as much information as you can about what happened before the error, including tenant ID, and user principal name (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | There may be an issue with how the client certificate was installed or associated with your tenant. Follow the instructions in [Troubleshooting the MFA NPS extension](howto-mfa-nps-extension.md#troubleshooting) to investigate client cert problems. |
 | **ESTS_TOKEN_ERROR** | Follow the instructions in [Troubleshooting the MFA NPS extension](howto-mfa-nps-extension.md#troubleshooting) to investigate client cert and ADAL token problems. |
-| **HTTPS_COMMUNICATION_ERROR** | The NPS server is unable to receive responses from Azure MFA. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com |
+| **HTTPS_COMMUNICATION_ERROR** | The NPS server is unable to receive responses from Azure AD MFA. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | On the server that runs the NPS extension, verify that you can reach  `https://adnotifications.windowsazure.com` and `https://login.microsoftonline.com/`. If those sites don't load, troubleshoot connectivity on that server. |
-| **NPS Extension for Azure MFA:** <br> NPS Extension for Azure MFA only performs Secondary Auth for Radius requests in AccessAccept State. Request received for User username with response state AccessReject, ignoring request. | This error usually reflects an authentication failure in AD or that the NPS server is unable to receive responses from Azure AD. Verify that your firewalls are open bidirectionally for traffic to and from `https://adnotifications.windowsazure.com` and `https://login.microsoftonline.com` using ports 80 and 443. It is also important to check that on the DIAL-IN tab of Network Access Permissions, the setting is set to "control access through NPS Network Policy". This error can also trigger if the user is not assigned a license. |
+| **NPS Extension for Azure AD MFA:** <br> NPS Extension for Azure AD MFA only performs Secondary Auth for Radius requests in AccessAccept State. Request received for User username with response state AccessReject, ignoring request. | This error usually reflects an authentication failure in AD or that the NPS server is unable to receive responses from Azure AD. Verify that your firewalls are open bidirectionally for traffic to and from `https://adnotifications.windowsazure.com` and `https://login.microsoftonline.com` using ports 80 and 443. It is also important to check that on the DIAL-IN tab of Network Access Permissions, the setting is set to "control access through NPS Network Policy". This error can also trigger if the user is not assigned a license. |
 | **REGISTRY_CONFIG_ERROR** | A key is missing in the registry for the application, which may be because the [PowerShell script](howto-mfa-nps-extension.md#install-the-nps-extension) wasn't run after installation. The error message should include the missing key. Make sure you have the key under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Radius Request missing mandatory Radius userName\Identifier attribute.Verify that NPS is receiving RADIUS requests | This error usually reflects an installation issue. The NPS extension must be installed in NPS servers that can receive RADIUS requests. NPS servers that are installed as dependencies for services like RDG and RRAS don't receive radius requests. NPS Extension does not work when installed over such installations and errors out since it cannot read the details from the authentication request. |
-| **REQUEST_MISSING_CODE** | Make sure that the password encryption protocol between the NPS and NAS servers supports the secondary authentication method that you're using. **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code. **CHAPV2** and **EAP** support phone call and mobile app notification. |
+| **REQUEST_MISSING_CODE** | Make sure that the password encryption protocol between the NPS and NAS servers supports the secondary authentication method that you're using. **PAP** supports all the authentication methods of Azure AD MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code. **CHAPV2** and **EAP** support phone call and mobile app notification. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
 
 ### Alternate login ID errors
@@ -52,7 +52,7 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **AuthenticationMethodNotSupported** | Specified authentication method is not supported. | Collect all your logs that include this error, and [contact support](#contact-microsoft-support). When you contact support, provide the username and the secondary verification method that triggered the error. |
 | **BecAccessDenied** | MSODS Bec call returned access denied, probably the username is not defined in the tenant | The user is present in Active Directory on-premises but is not synced into Azure AD by AD Connect. Or, the user is missing for the tenant. Add the user to Azure AD and have them add their verification methods according to the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** or **StrongAuthenticationServiceInvalidParameter** | The phone number is in an unrecognizable format | Have the user correct their verification phone numbers. |
-| **InvalidSession** | The specified session is invalid or may have expired | The session has taken more than three minutes to complete. Verify that the user is entering the verification code, or responding to the app notification, within three minutes of initiating the authentication request. If that doesn't fix the problem, check that there are no network latencies between client, NAS Server, NPS Server, and the Azure MFA endpoint.  |
+| **InvalidSession** | The specified session is invalid or may have expired | The session has taken more than three minutes to complete. Verify that the user is entering the verification code, or responding to the app notification, within three minutes of initiating the authentication request. If that doesn't fix the problem, check that there are no network latencies between client, NAS Server, NPS Server, and the Azure AD MFA endpoint.  |
 | **NoDefaultAuthenticationMethodIsConfigured** | No default authentication method was configured for the user | Have the user add or verify their verification methods according to the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md). Verify that the user has chosen a default authentication method, and configured that method for their account. |
 | **OathCodePinIncorrect** | Wrong code and pin entered. | This error is not expected in the NPS extension. If your user encounters this, [contact support](#contact-microsoft-support) for troubleshooting help. |
 | **ProofDataNotFound** | Proof data was not configured for the specified authentication method. | Have the user try a different verification method, or add a new verification methods according to the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md). If the user continues to see this error after you confirmed that their verification method is set up correctly, [contact support](#contact-microsoft-support). |
@@ -96,7 +96,7 @@ If your users are [Having trouble with two-step verification](../user-help/multi
 
 ### Health check script
 
-The [Azure MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
+The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
 
 ### Contact Microsoft support
 

@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Problems signing in to SAML-based single sign-on configured apps
 To troubleshoot the sign-in issues below, we recommend the following to better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
-- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Install the [My Apps Secure Browser Extension](./access-panel-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](./debug-saml-sso-issues.md)
 
-If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
+If you use the [testing experience](./debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
 
 To open the SAML-based single sign-on configuration page:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Coadmin**.
@@ -28,7 +28,9 @@ To open the SAML-based single sign-on configuration page:
 1.  Type **“Azure Active Directory"** in the filter search box and select the **Azure Active Directory** item.
 1.  Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 1.  Select **All Applications** to view a list of all your applications.
-	If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications**.
+
+    If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications**.
+
 1.  Select the application you want to configure for single sign-on.
 1. Once the application loads, select **Single sign-on** from the application’s left-hand navigation menu.
 1. Select SAML-based SSO.
@@ -58,7 +60,7 @@ The `AssertionConsumerServiceURL` value in the SAML request doesn't match the Re
 Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. 
 
 Verify or update the value in the Reply URL textbox to match the `AssertionConsumerServiceURL` value in the SAML request. 	
-	
+
 After you've updated the Reply URL value in Azure AD, and it matches the value sent by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role
@@ -83,7 +85,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md) to learn how to capture the SAML request.
 1. Contact the application vendor and share the following info:
     - SAML request
     - [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)
@@ -169,5 +171,5 @@ Compare the resource you’re requesting access to in code with the configured p
 
 ## Next steps
 - [Quickstart Series on Application Management](add-application-portal-assign-users.md)
-- [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Azure AD Single Sign-on SAML protocol requirements](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md)
+- [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)

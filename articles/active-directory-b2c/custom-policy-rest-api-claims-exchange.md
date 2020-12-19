@@ -50,7 +50,7 @@ Once your REST API validates the data, it must return an HTTP 200 (Ok), with the
 }
 ```
 
-The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](../azure-functions/functions-reference.md) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## Define claims
 

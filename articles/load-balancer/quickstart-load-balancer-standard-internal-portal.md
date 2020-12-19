@@ -36,6 +36,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
@@ -192,12 +194,12 @@ In this section, you'll create a load balancer rule:
     | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move the slider to **15** minutes. |
     | TCP reset | Select **Enabled**. |
-    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 4. Leave the rest of the defaults and then select **OK**.
 
 >[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## Create backend servers
 
@@ -270,6 +272,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -628,6 +632,6 @@ In this quickstart, you:
 * Attached 2 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to..
+To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md) 
+> [What is Azure Load Balancer?](load-balancer-overview.md)

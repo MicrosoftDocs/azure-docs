@@ -78,7 +78,7 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -151,7 +151,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
   [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
   The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-* [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
+* [Define an Azure AD Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
 * [Define phone number claims transformations](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

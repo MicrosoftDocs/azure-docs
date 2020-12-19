@@ -1,8 +1,8 @@
 ---
 title: Lock resources to prevent changes
-description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
+description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
 ---
 
@@ -69,19 +69,91 @@ To delete everything for the service, including the locked infrastructure resour
 
 ### ARM template
 
-When using a Resource Manager template to deploy a lock, you use different values for the name and type depending on the scope of the lock.
+When using an Azure Resource Manager template (ARM template) to deploy a lock, you need to be aware of the scope of the lock and the scope of the deployment. To apply a lock at the deployment scope, such as locking a resource group or subscription, don't set the scope property. When locking a resource within the deployment scope, set the scope property.
 
-When applying a lock to a **resource**, use the following formats:
+The following template applies a lock to the resource group it's deployed to. Notice there isn't a scope property on the lock resource because the scope of the lock matches the scope of deployment. This template is deployed at the resource group level.
 
-* name - `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-When applying a lock to a **resource group** or **subscription**, use the following formats:
+To create a resource group and lock it, deploy the following template at the subscription level.
 
-* name - `{lockName}`
-* type - `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-The following example shows a template that creates an app service plan, a web site, and a lock on the web site. The resource type of the lock is the resource type of the resource to lock and **/providers/locks**. The name of the lock is created by concatenating the resource name with **/Microsoft.Authorization/** and the name of the lock.
+When applying a lock to a **resource** within the resource group, add the scope property. Set scope to the name of the resource to lock.
+
+The following example shows a template that creates an app service plan, a web site, and a lock on the web site. The scope of the lock is set to the web site.
 
 ```json
 {
@@ -90,6 +162,10 @@ The following example shows a template that creates an app service plan, a web s
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -98,9 +174,9 @@ The following example shows a template that creates an app service plan, a web s
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -112,9 +188,9 @@ The following example shows a template that creates an app service plan, a web s
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -123,9 +199,10 @@ The following example shows a template that creates an app service plan, a web s
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -137,8 +214,6 @@ The following example shows a template that creates an app service plan, a web s
   ]
 }
 ```
-
-For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ### Azure PowerShell
 

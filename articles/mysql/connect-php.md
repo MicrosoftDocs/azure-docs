@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using PHP - Azure Database for MySQL'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
@@ -25,7 +25,7 @@ For this quickstart you need:
     | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
     | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Create a database and non-admin user](/howto-create-users?tabs=single-server)
+- [Create a database and non-admin user](./howto-create-users.md?tabs=single-server)
 - Install latest PHP version  for your operating system
     - [PHP on macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php)

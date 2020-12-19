@@ -1,8 +1,8 @@
 ---
 title: CLI script - Change server parameters - Azure Database for MariaDB
 description: This sample CLI script lists all available server configurations and updates of an Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample

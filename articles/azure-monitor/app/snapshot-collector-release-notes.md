@@ -13,9 +13,19 @@ This article contains the releases notes for the Microsoft.ApplicationInsights.S
 
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
-For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-dotnet
+For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-SnapshotCollector
 
 ## Release notes
+
+## [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+A point release to backport a fix from 1.4.0-pre.
+### Bug fixes
+- Fix [ObjectDisposedException on shutdown](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
+
+## [1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+A point release to address a problem discovered in testing Azure App Service's codeless attach scenario.
+### Changes
+- The netcoreapp3.0 target now depends on Microsoft.ApplicationInsights.AspNetCore >= 2.1.1 (previously >= 2.1.2).
 
 ## [1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 A point release to address a couple of high-impact issues.
@@ -25,9 +35,9 @@ A point release to address a couple of high-impact issues.
 
 ## [1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### Changes
-The netcoreapp2.0 target of SnapshotCollector depends on Microsoft.ApplicationInsights.AspNetCore >= 2.1.1 (again). This reverts behavior to how it was before 1.3.5. We tried to upgrade it in 1.3.6, but it broke some Azure App Service scenarios.
+- The netcoreapp2.0 target of SnapshotCollector depends on Microsoft.ApplicationInsights.AspNetCore >= 2.1.1 (again). This reverts behavior to how it was before 1.3.5. We tried to upgrade it in 1.3.6, but it broke some Azure App Service scenarios.
 ### New features
-Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable or from the TelemetryConfiguration. Primarily, this is used to set the endpoint for connecting to the Snapshot service. For more information, see the [Connection strings documentation](./sdk-connection-string.md).
+- Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable or from the TelemetryConfiguration. Primarily, this is used to set the endpoint for connecting to the Snapshot service. For more information, see the [Connection strings documentation](./sdk-connection-string.md).
 ### Bug fixes
 - Switched to using HttpClient for all targets except net45 because WebRequest was failing in some environments due to an incompatible SecurityProtocol (requires TLS 1.2).
 
@@ -65,7 +75,7 @@ Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINS
 - _Experimental feature_: Snappoint collection plans: Add "snapshotOnFirstOccurence". More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## [1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- Fixed bug that was causing SnapshotUploader.exe to hang and not upload snapshots for .NET Core apps.
+- Fixed bug that was causing SnapshotUploader.exe to stop responding and not upload snapshots for .NET Core apps.
 
 ## [1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _Experimental feature_: Snappoint collection plans. More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).

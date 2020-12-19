@@ -1,4 +1,3 @@
-
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md), and more.
 
 ![Provisioning overview diagram](./media/active-directory-app-provisioning/provisioning-overview.png)
@@ -38,7 +37,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
    ![Salesforce logo](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
+   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../articles/active-directory/develop/v2-howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
 
 * **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 

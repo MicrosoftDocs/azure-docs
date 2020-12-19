@@ -32,10 +32,10 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. This is an arbitrary string defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
-| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). This is an arbitrary URI defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
-| Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C doesn't validate this claim. |
-| Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C doesn't validate this claim. |
+| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. The audience is an arbitrary string defined by the token issuer. Azure AD B2C validates this value, and rejects the token if it doesn't match.  |
+| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). The issuer is an arbitrary URI defined by the token issuer. Azure AD B2C validates this value, and rejects the token if it doesn't match.  |
+| Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C validates this value, and rejects the token if the token is expired.|
+| Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C validates this value, and rejects the token if the token lifetime is not valid. |
 
  The following token is an example of a valid ID token:
 
@@ -81,7 +81,7 @@ The following metadata is relevant when using symmetric key.
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | issuer | Yes | Identifies the security token service (token issuer). This value must be identical to the `iss` claim within the JWT token claim. | 
-| IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim withing the JWT token claim. | 
+| IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. | 
 
 The following metadata is relevant when using an asymmetric key. 
 
@@ -89,7 +89,7 @@ The following metadata is relevant when using an asymmetric key.
 | --------- | -------- | ----------- |
 | METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint.   |
 | issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
-| IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim withing the JWT token claim. |  
+| IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. |  
 
 ## Cryptographic keys
 
@@ -185,7 +185,7 @@ See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-bu
 
 #### Step 1. Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 Run this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
@@ -268,7 +268,7 @@ For both symmetric and asymmetric approaches, the `id_token_hint` technical prof
     </RelyingParty>
     ```
 
-Depending on your business requirements, you might need to add token validations, for example to check token expiry, the format of the email address, and more. To do so, add orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). Also add a [self-asserted technical profile](self-asserted-technical-profile.md) to present an error message. 
+Depending on your business requirements, you might need to add token validations, for example check the format of the email address. To do so, add orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). Also add a [self-asserted technical profile](self-asserted-technical-profile.md) to present an error message. 
 
 ### Create and sign a token
 

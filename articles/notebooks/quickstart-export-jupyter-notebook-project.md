@@ -74,7 +74,7 @@ Azure Machine Learning provides an end-to-end machine learning platform to enabl
 1. Using the left-side navigation bar, select **Notebooks**.
 1. Click on the **Upload files** button and upload the project files that you downloaded from Azure Notebooks.
 
-For additional information about Azure ML and running Jupyter Notebooks, you can review the [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) or try the [Intro to Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) module on Microsoft Learn.
+For additional information about Azure ML and running Jupyter Notebooks, you can review the [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) or try the [Intro to Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) module on Microsoft Learn.
 
 
 ## Use Azure Lab Services
