@@ -630,47 +630,13 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
-## Using one port for HTTP calls
-It is possible to use only one port for HTTP calls:
-1. Remove NGINX_DEFAULT_PORT environment variable in IoTEdgeAPIProxy module. This will default use of port 443.
-1. Change IoTEdgeAPIProxy module port bindings to 443:
- ```json
-"settings": {
-    "image": "mcr.microsoft.com/azureiotedge-api-proxy",
-    "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
-}
- ```
-1. Remove port 443 binding in edgeHub to avoid conflict with IoTEdgeAPIProxy:
- ```json
-"settings": {
-   "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
-   "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
-}
- ```
-1. For the child iotedge
-Replace $upstream:8000/azureiotedge-hub:1.2.0-rc2 by $upstream:443/azureiotedge-hub:1.2.0-rc2
-Replace $upstream:8000/azureiotedge-agent:1.2.0-rc2 by $upstream:443/azureiotedge-agent:1.2.0-rc2
-Replace $upstream:8000/azureiotedge-simulated-temperature-sensor:1.0 by $upstream:443/azureiotedge-simulated-temperature-sensor:1.0
- 
-1. Change mention to 8000 port in the child config.yaml:
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "<parent_device_fqdn_or_ip>:443/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
-   ```
 ## IotEdge check
 Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access.
 When running "iotedge check" from the lower layer the program will try to pull the image from the parent through port 443.
-
-If the IoTEdgeAPIProxy is listen on port 443 then "iotedge check" command will just work.
-If the IoTEdgeAPIProxy is listening on a different port (8000 for example) then the correct port need to be specified:
+In this How-to, we use port 8000, so we need to specify it:
 
    ```bash
-   iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port>/azureiotedge-diagnostics:1.2.0-rc2
+   iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
    ```
    
 The azureiotedge-diagnostics is pulled from the container registry that is linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
