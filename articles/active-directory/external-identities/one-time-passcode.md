@@ -88,15 +88,15 @@ Starting March 2021, the email one-time passcode feature will be turned on for a
     ![Email one-time passcode settings](media/one-time-passcode/otp-admin-settings.png)
 
    > [!NOTE]
-   > If you see the following toggle instead of the options shown above, this means you've previously enabled, disabled, or opted into the the feature. Select **No** to disable the feature.
+   > If you see the following toggle instead of the options shown above, this means you've previously enabled, disabled, or opted into the preview of the feature. Select **No** to disable the feature.
    >
    >![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
 5. Select **Save**.
 
-## Note for customers
+## Note for public preview customers
 
-If you've previously opted in to the email one-time passcode, the March 2021 date for automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle:
+If you've previously opted in to the email one-time passcode public preview, the March 2021 date for automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle:
 
 ![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
