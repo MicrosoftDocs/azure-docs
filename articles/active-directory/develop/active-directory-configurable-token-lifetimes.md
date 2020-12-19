@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
@@ -24,7 +24,7 @@ ms.reviewer: hirsin, jlu, annaba
 >
 > For tenants that do not want to use Conditional Access after the retirement date, they can expect that Azure AD will honor the default configuration outlined in the next section.
 
-## Configurable token lifetime properties after the retirement
+## Configurable access token lifetime properties after the retirement
 Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration, Azure AD will only honor the default value described below, regardless of whether policies have custom values configured configured custom values. You can still configure access token lifetimes after the retirement. 
 
 |Property   |Policy property string    |Affects |Default |
