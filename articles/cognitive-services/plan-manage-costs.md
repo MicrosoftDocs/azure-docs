@@ -47,7 +47,7 @@ When you create resources for QnA Maker, resources for other Azure services may 
 - [Azure App Service (for the runtime)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Azure Cognitive Search (for the data)](https://azure.microsoft.com/pricing/details/search/)
  
-### Costs might accrue after resource deletion
+### Costs that might accrue after resource deletion
 
 #### QnA Maker
 
