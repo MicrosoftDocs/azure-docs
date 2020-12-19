@@ -412,6 +412,9 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Azure AD Join:
     - Enterprise state roaming for Windows 10 devices is not available
+    
+- Limitaitons with Azure AD SSPR:
+    - Azure AD SSPR from Windows 10 login screen is not available
 
 
 
