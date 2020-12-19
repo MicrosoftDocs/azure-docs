@@ -16,7 +16,7 @@ This article covers two recovery features of Azure Key Vault, soft delete and pu
 
 For more information about Key Vault, see
 - [Key Vault overview](overview.md)
-- [Azure Key Vault keys, secrets and certificates overview](about-keys-secrets-certificates.md)
+- [Azure Key Vault keys, secrets, and certificates overview](about-keys-secrets-certificates.md)
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 1. At the top of the screen click the option to "Manage deleted vaults"
 1. A context pane will open on the right side of your screen.
 1. Select your subscription.
-1. If your key vault has been soft-deleted it will appear in the context pane on the right.
+1. If your key vault has been soft deleted it will appear in the context pane on the right.
 1. If there are too many vaults, you can either click "Load More" at the bottom of the context pane or use CLI or PowerShell to get the results.
 1. Once you find the vault you wish to recover or purge, select the checkbox next to it.
 1. Select the recover option at the bottom of the context pane if you would like to recover the key vault.
@@ -382,7 +382,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
-- [Azure Key Vault Powershell cmdlets](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Azure Key Vault PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](https://docs.microsoft.com/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
