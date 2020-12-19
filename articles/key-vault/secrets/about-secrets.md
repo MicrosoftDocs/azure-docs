@@ -66,10 +66,10 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 
 For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-How-to guides to control acccess in Key Vault:
+How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
-- [Assign a Key Vault access policy using the Azure Portal](../general/assign-access-policy-portal.md)
+- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
 - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
 
 ## Secret tags  
@@ -87,7 +87,7 @@ Key Vault can manage [Azure storage account](https://docs.microsoft.com/azure/st
 - Key values are never returned in response to caller.
 - Key Vault manages keys of both storage accounts and classic storage accounts.
 
-For more information, see :
+For more information, see:
 - [Storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 - [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
 
@@ -116,10 +116,10 @@ The following permissions can be used when authorizing a user or application pri
 
 For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-How-to guides to control acccess in Key Vault:
+How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
-- [Assign a Key Vault access policy using the Azure Portal](../general/assign-access-policy-portal.md)
+- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
 - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
 
 
