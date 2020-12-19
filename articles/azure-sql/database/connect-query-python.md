@@ -24,11 +24,11 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- [Python](https://python.org/downloads) 3 and related software
-
 - A database where you will run a query.
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
+
+- [Python](https://python.org/downloads) 3 and related software
 
   # [macOS](#tab/macos)
 
