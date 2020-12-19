@@ -26,7 +26,7 @@ You can use the Video Indexer website to create and edit custom Language models 
 1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model in Video Indexer":::
+    > :::image type="content" source="./media/customize-language-model/model-customization.png" alt-text="Customize content model in Video Indexer":::
 1. Select the **Language** tab.
 
     You see a list of supported languages.

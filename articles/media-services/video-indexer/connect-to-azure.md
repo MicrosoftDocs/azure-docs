@@ -104,7 +104,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
 
-    ![New AMS account](./media/create-account/create-ams-account1.png)
+    ![New AMS account](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
@@ -115,7 +115,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
-    ![Streaming endpoints](./media/create-account/create-ams-account2.png)
+    ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
 4. For Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. In the new Media Services account, select **API access**.
