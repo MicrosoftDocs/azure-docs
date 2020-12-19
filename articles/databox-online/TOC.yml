@@ -396,6 +396,11 @@
     - name: .NET SDK
       href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet  
 
+- name: Security
+  items:
+  - name: Security baseline
+    href: security-baseline.md
+
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
