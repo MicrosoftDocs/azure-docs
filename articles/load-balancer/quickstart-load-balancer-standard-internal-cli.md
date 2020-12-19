@@ -39,6 +39,7 @@ Create a resource group with [az group create](/cli/azure/group?view=azure-cli-l
   az group create \
     --name CreateIntLBQS-rg \
     --location eastus
+
 ```
 ---
 
@@ -203,6 +204,11 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 
+* Named **myVM1**, **myVM2**, and **myVM3**.
+* In resource group **CreateIntLBQS-rg**.
+* Attached to network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**.
+* Virtual machine image **win2019datacenter**.
+* In **Zone 1**, **Zone 2**, and **Zone 3**.
 
 
 ```azurecli-interactive
@@ -212,64 +218,14 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     az vm create \
     --resource-group CreateIntLBQS-rg \
     --name myVM$n \
-    --nics myNic$n \
+    --nics myNicVM$n \
     --image win2019datacenter \
     --admin-username azureuser \
     --zone $n \
     --no-wait
-```
-### VM1
-* Named **myVM1**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM1**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 1**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM1 \
-    --nics myNicVM1 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --zone 1 \
-    --no-wait
-```
-#### VM2
-* Named **myVM2**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM2**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 2**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM2 \
-    --nics myNicVM2 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --zone 2 \
-    --no-wait
+  done
 ```
 
-#### VM3
-* Named **myVM3**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM3**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 3**.
-
-```azurecli-interactive
-   az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM3 \
-    --nics myNicVM3 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --zone 3 \
-    --no-wait
-```
 It may take a few minutes for the VMs to deploy.
 
 ## Create standard load balancer
@@ -299,7 +255,7 @@ Create a public load balancer with [az network lb create](/cli/azure/network/lb?
     --vnet-name myVnet \
     --subnet myBackendSubnet \
     --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
+    --backend-pool-name myBackEndPool
 ```
 
 ### Create the health probe
@@ -321,7 +277,7 @@ Create a health probe with [az network lb probe create](/cli/azure/network/lb/pr
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### Create the load balancer rule
@@ -364,6 +320,11 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
+* In backend address pool **myBackEndPool**.
+* In resource group **CreateIntLBQS-rg**.
+* Associated with network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**.
+* Associated with load balancer **myLoadBalancer**.
+
 ```azurecli-interactive
   array=(VM1 VM2 VM3)
   for vm in "${array[@]}"
@@ -374,52 +335,8 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --nic-name myNic$vm \
    --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
+  done
 
-```
-
-#### VM1
-* In backend address pool **myBackEndPool**.
-* In resource group **CreateIntLBQS-rg**.
-* Associated with network interface **myNicVM1** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group CreateIntLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### VM2
-* In backend address pool **myBackEndPool**.
-* In resource group **CreateIntLBQS-rg**.
-* Associated with network interface **myNicVM2** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group CreateIntLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### VM3
-* In backend address pool **myBackEndPool**.
-* In resource group **CreateIntLBQS-rg**.
-* Associated with network interface **myNicVM3** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM3 \
-   --resource-group CreateIntLBQS-rg \
-   --lb-name myLoadBalancer
 ```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
@@ -600,6 +517,13 @@ Create the availability set with [az vm availability-set create](/cli/azure/vm/a
 
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 
+* Named **myVM1**, **myVM2**, and **myVM3**.
+* In resource group **CreateIntLBQS-rg**.
+* Attached to network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**.
+* Virtual machine image **win2019datacenter**.
+* In **Zone 1**, **Zone 2**, and **Zone 3**.
+
+
 ```azurecli-interactive
   array=(1 2 3)
   for n in "${array[@]}"
@@ -612,61 +536,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --admin-username azureuser \
     --availability-set myAvailabilitySet \
     --no-wait
-```
-
-
-
-### VM1
-* Named **myVM1**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM1**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 1**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM1 \
-    --nics myNicVM1 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --availability-set myAvailabilitySet \
-    --no-wait
-```
-#### VM2
-* Named **myVM2**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM2**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 2**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM2 \
-    --nics myNicVM2 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --availability-set myAvailabilitySet \
-    --no-wait
-```
-
-#### VM3
-* Named **myVM3**.
-* In resource group **CreateIntLBQS-rg**.
-* Attached to network interface **myNicVM3**.
-* Virtual machine image **win2019datacenter**.
-* In **Zone 3**.
-
-```azurecli-interactive
-   az vm create \
-    --resource-group CreateIntLBQS-rg \
-    --name myVM3 \
-    --nics myNicVM3 \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --availability-set myAvailabilitySet \
-    --no-wait
+  done
 ```
 It may take a few minutes for the VMs to deploy.
 
@@ -756,6 +626,11 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
+* In backend address pool **myBackEndPool**.
+* In resource group **CreateIntLBQS-rg**.
+* Associated with network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**.
+* Associated with load balancer **myLoadBalancer**.
+
 ```azurecli-interactive
   array=(VM1 VM2 VM3)
   for vm in "${array[@]}"
@@ -766,40 +641,9 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --nic-name myNic$vm \
    --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
+  done
 
 ```
-
-
-#### VM1
-* In backend address pool **myBackEndPool**.
-* In resource group **CreateIntLBQS-rg**.
-* Associated with network interface **myNicVM1** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group CreateIntLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### VM2
-* In backend address pool **myBackEndPool**.
-* In resource group **CreateIntLBQS-rg**.
-* Associated with network interface **myNicVM2** and **ipconfig1**.
-* Associated with load balancer **myLoadBalancer**.
-
-```azurecli-interactive
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group CreateIntLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
 ---
 
 ## Test the load balancer
@@ -817,7 +661,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
        --version 1.8 \
        --name CustomScriptExtension \
        --vm-name $vm \
-       --resource-group CreatePubLBQS-rg \
+       --resource-group CreateIntLBQS-rg \
        --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
   done
 
@@ -847,8 +691,6 @@ Create the virtual machine with [az vm create](/cli/azure/vm?view=azure-cli-late
 * In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicTestVM**.
 * Virtual machine image **Win2019Datacenter**.
-* Choose values for **\<adminpass>** and **\<adminuser>**.
-  
 
 ```azurecli-interactive
   az vm create \
@@ -856,8 +698,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm?view=azure-cli-late
     --name myTestVM \
     --nics myNicTestVM \
     --image Win2019Datacenter \
-    --admin-username <adminuser> \
-    --admin-password <adminpass> \
+    --admin-username azureuser \
     --no-wait
 ```
 Can take a few minutes for the virtual machine to deploy.
