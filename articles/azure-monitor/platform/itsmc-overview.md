@@ -40,12 +40,12 @@ For information about legal terms and the privacy policy, see [Microsoft Privacy
 You can start using ITSMC by completing the following steps:
 
 1. [Connect ITSM products/services with IT Service Management Connector.](./itsmc-connections.md)
-1. [Add ITSMC.](/.itsmc-definition.md#add-it-service-management-connector)
+1. [Add ITSMC.](./itsmc-definition.md#add-it-service-management-connector)
 1. [Create an ITSM connection.](./itsmc-definition.md#create-an-itsm-connection)
 1. [Use the connection.](./itsmc-definition.md#use-itsmc)
 
 ## Next steps
 
-[Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
-[Add ITSM Connector](./itsmc-definition.md)
-[Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
+* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
+* [Add ITSM Connector](./itsmc-definition.md)
+* [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
