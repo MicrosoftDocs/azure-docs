@@ -29,10 +29,17 @@ To log in to the management console:
 
 ## Set up a certificate
 
-Verify that you have the username and password required for the on-premises management console. After login you must set up a certificate. The certificate ensure secured communication:  
-- Between your browser and the Defender for IoT Web Console
+Verify that you have the username and password required for the on-premises management console. After login you must set up a certificate. The certificate ensure secure communication:  
+
+- Between your browser and the Defender for IoT Web console
 - to the REST API on the sensor and on-premises management console
-- Between the management console and connected sensors.
+- Between the management console and connected sensors
+
+The following types of certificates are supported as long as they comply with the parameters in chapter 4:
+	Private / Enterprise Key Infrastructure (Private PKI)
+	Public Key Infrastructure (Public PKI)
+	Locally generated on the appliance (locally self-signed) 
+
 
 After logging in to the management console for the first time, a certificate onboarding screen opens. Import a trusted CA-signed certificate or use a locally generated  self-signed certificate and then enable validation.
 
