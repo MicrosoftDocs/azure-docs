@@ -30,7 +30,7 @@ Get started with Azure Load Balancer by using Azure CLI to create an internal lo
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true):
+Create a resource group with [az group create](/cli/azure/group):
 
 * Named **CreateIntLBQS-rg**. 
 * In the **eastus** location.
