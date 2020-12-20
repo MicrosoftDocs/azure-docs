@@ -93,4 +93,6 @@ f.    Review the notifications to see if the process finished with success
 
 ## Next Steps
 
-Learn more about [IT Service Management Connections](itsmc-connections.md)
+* [ITSM Definition](./itsmc-definition.md)
+* [ITSM Connector Overview](./itsmc-overview.md)
+* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
