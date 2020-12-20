@@ -92,5 +92,5 @@ To learn more about how to get started with Defender for IoT, see the following 
 
 - Read the Defender for IoT [overview](overview.md)
 - Verify the [System prerequisites](quickstart-system-prerequisites.md)
-- Learn more about how to [Getting started with Defender for IoT](quickstart-getting-started.md)
+- Learn more about how to [Getting started with Defender for IoT](getting-started.md)
 - Understand [Defender for IoT security alerts](concept-security-alerts.md)

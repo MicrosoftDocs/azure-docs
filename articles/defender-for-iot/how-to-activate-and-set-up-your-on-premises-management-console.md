@@ -4,7 +4,7 @@ description: Management console activation and setup ensures that sensors are re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/30/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -309,5 +309,9 @@ To unassign and delete a sensor:
 3. To delete the unassigned sensor from the site, select the sensor from the list of unassigned sensors and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
 ### See also
+<<<<<<< HEAD
 
 [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+=======
+[Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md)
+>>>>>>> 56d08f442993fb52a4e897730a5645ec4fe8c712

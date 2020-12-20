@@ -159,4 +159,4 @@ To upload the activation file:
 
 In this article, you learned how to deploy and onboard sensors. To learn more about getting started, see the following article:
 
-- [Getting started with Defender for IoT](quickstart-getting-started.md)
+- [Getting started with Defender for IoT](getting-started.md)
