@@ -48149,6 +48149,21 @@
       "source_path_from_root": "/articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
       "redirect_url": "vmware-physical-secondary-support-matrix",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
     }
   ]
 }
