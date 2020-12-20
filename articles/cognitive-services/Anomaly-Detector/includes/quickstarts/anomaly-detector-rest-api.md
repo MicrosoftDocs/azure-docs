@@ -13,8 +13,8 @@ For a high-level look at Anomaly Detector concepts, see the [overview](../../ove
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    - You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
+- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
+    - You will need the key and endpoint address from the resource you create to use the REST API. 
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Detect anomalies for an entire series
@@ -22,7 +22,7 @@ For a high-level look at Anomaly Detector concepts, see the [overview](../../ove
 At a command prompt, run the following command. You will need to insert the following values into the command.
 - Your Anomaly detector service subscription key.
 - Your Anomaly detector endpoint address. 
-- A valid JSON file of time series data to test for anomalies. If you don't have your own file you can create a sample.json file from the [Request body sample](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
+- A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the [Request body sample](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
 
 ```curl
 curl -v -X POST "https://{endpointresourcename.cognitive.microsoft.com}/anomalydetector/v1.0/timeseries/entire/detect"
@@ -37,7 +37,7 @@ For an example with all values populated:
 curl -v -X POST "https://my-resource-name.cognitiveservices.azure.com/anomalydetector/v1.0/timeseries/entire/detect" -H  "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:1111112222222ed333333ab333333333" -d "@test.json"
 ```
 
-If you used the sample data from the pre-requisites you should receive a response 200 with the following results:
+If you used the sample data from the pre-requisites, you should receive a response 200 with the following results:
 
 ```json
 {
@@ -346,7 +346,7 @@ If you used the sample data from the pre-requisites you should receive a respons
 
 ```
 
-For more information see the [Anomaly Detection REST reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
+For more information, see the [Anomaly Detection REST reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
 
 
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
