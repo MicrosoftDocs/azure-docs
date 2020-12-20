@@ -48181,6 +48181,7 @@
       "redirect_document_id": false
     },
     {
+
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
       "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
       "redirect_document_id": false
@@ -60929,6 +60930,21 @@
       "source_path_from_root": "/articles/cognitive-services/Welcome.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": true
+    },
+    {
+    "source_path_from_root":"/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+    "redirect_url":"azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+    "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
     }
   ]
 }
