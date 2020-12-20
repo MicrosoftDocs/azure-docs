@@ -21,16 +21,24 @@ The on-premises management console uses an SSL/TLS certificate to provide authen
 
 The certificate ensures secure communication:  
 
-- Between your browser and the Defender for IoT Web console
+- Between your browser and the Defender for IoT Web console - **no warning?** **Matan Halifa**
 - to the REST API on the sensor and on-premises management console
-- Between the management console and connected sensors
+- Between the management console and connected sensors - **lower part of GUI**
 
-You do not need the same certificate for the management console and connected sensors.
+Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow are not validated.
+
+Defender for IoT Support, Administrators and cyberX users can create and manage certificates.
 ### Self-signed vs CA signed certificates
 
 Using self-signed certificates is not recommended. This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  
 
-This option should never be used for production networks.
+Self-signed certificates should never be used for production networks.
+
+### Certificate violations
+IF there is a ceritcate viloation between the mangemement console 
+
+**Install on HA**
+
 ### Updating certificates
 
 You will be prompted to define a certificate for the on-premises management console the first time you log in.
@@ -40,8 +48,12 @@ To update the certificate:
 
 1. Select **System Settings**.
 1. Select **Certificates.**
-1. Define a new certificate and select **Save**.
-1. 
+1. Select **+ Add a ceritificate**.
+1. Add a certificate name.
+1. Upload a CRT file and keyfile and enter a passphrase.
+1. Upload a PEM file if, **TBD**
+1. Select **Enable Global;** Ceriticate Validation  to turn on validation. **Error on the sensor or the CM? what does the messasge say?** **CRL??**
+1. Select**Save**.
 1.**Do I see what is already uploaded?**???
 
 ### Certificate Support
@@ -57,26 +69,26 @@ The following parameters are supported by Azure Defender for IoT. Certificates w
 - Valid To = Valid future date
 - Public Key = RSA 2048bits (Minimum) or 4096bits
 - CRL Distribution Point = URL to .crl file
-- Subject CN = URL, can be a wildcard certificate e.g. Sensor.contoso.com or  *.contoso.com
+- Subject CN = URL, can be a wildcard certificate e.g. **Sensor.contoso.com or  *.contoso.com**     1111
 - Subject (C)ountry = defined, e.g. US
 - Subject (OU) Org Unit = defined, e.g. Contoso Labs
 - Subject (O)rganization = defined, e.g. Contoso Inc.
 
 **Key File**
+
 - The key file generated when you created CSR
 - RSA 2048bits (Minimum) or 4096bits
 -
 **Certificate Chain**
+
 - The intermediate certificate file (if any) that was supplied by your CA
 - The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root.
-**May include Bag attributes** ???
+**Bag attributes are  allowed** 
 
 **Passphrase**
+
 - 1 key supported
 - Setup when importing the certificate
-
-
-
 
 ## Define backup and restore settings
 

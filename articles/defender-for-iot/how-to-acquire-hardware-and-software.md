@@ -11,7 +11,9 @@ ms.service: azure
 
 # Acquire hardware and software
 
-This article provides information on certified Defender for IoT sensor appliances. This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
+This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances. 
+
+This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
 
 The article also provides details about on-premises management console appliance specifications. The on-premises management console is not available as a pre-configured appliance.
 
