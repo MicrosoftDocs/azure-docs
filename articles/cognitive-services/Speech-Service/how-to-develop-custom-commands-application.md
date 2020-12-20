@@ -568,20 +568,20 @@ By taking advantage of LG templates, you can also define complex speech response
 
 By default, the Custom Commands feature supports all capabilities, with the following minor differences:
 
-* In the LG templates, entities are represented as `${entityName}`. In Custom Commands, we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
-* Template composition and expansion are not supported in Custom Commands. This is because you never edit the *.lg* file directly, but only the responses of automatically created templates.
-* Custom functions injected by LG  are not supported in Custom Commands. Predefined functions are still supported.
-* Options (strict, replaceNull & lineBreakStyle) are not supported in Custom Commands.
+* In the LG templates, entities are represented as `${entityName}`. The Custom Commands feature doesn't use entities. But you can use parameters as variables with either the `${parameterName}` representation or the `{parameterName}` representation.
+* The Custom Commands feature doesn't support template composition and expansion, because you never edit the *.lg* file directly. You edit only the responses of automatically created templates.
+* The Custom Commands feature doesn't support custom functions that LG injects. Predefined functions are supported.
+* The Custom Commands feature doesn't support options, such as `strict`, `replaceNull`, and `lineBreakStyle`.
 
 ### Add template responses to a TurnOnOff command
 
-Modify the TurnOnOff command to add a new parameter with the following configuration:
+Modify the `TurnOnOff` command to add a new parameter. Use the following configuration.
 
 | Setting            | Suggested value       | 
 | ------------------ | --------------------- | 
 | Name               | `SubjectContext`         | 
-| Is Global          | unchecked             | 
-| Required           | unchecked               | 
+| Is Global          | unselected             | 
+| Required           | unselected               | 
 | Type               | String                |
 | Default value      | `all` |
 | Configuration      | Accept predefined input values from internal catalog | 
@@ -589,7 +589,7 @@ Modify the TurnOnOff command to add a new parameter with the following configura
 
 #### Modify a completion rule
 
-Edit the **Actions** section of existing completion rule **ConfirmationResponse**. In the **Edit action** pop-up, switch to **Template Editor** and replace the text with the following example.
+Edit the **Actions** section of the existing completion rule **ConfirmationResponse**. In the **Edit action** window, switch to **Template Editor**. Then replace the text with the following example.
 
 ```
 - IF: @{SubjectContext == "all" && SubjectDevice == "lights"}
@@ -601,37 +601,38 @@ Edit the **Actions** section of existing completion rule **ConfirmationResponse*
     - Done, turning {OnOff} the {SubjectDevice}
 ```
 
-**Train** and **Test** your application as follows. Notice the variation of responses due to usage of multiple alternatives of the template value, and also use of adaptive expressions.
+Train and Test your application using the following input and output. Notice the variation of responses. The variation is created by multiple alternatives of the template value and also by use of adaptive expressions.
 
-* Input: turn on the tv
+* Input: *turn on the tv*
 * Output: Ok, turning the tv on
-* Input: turn on the tv
+* Input: *turn on the tv*
 * Output: Done, turned on the tv
-* Input: turn off the lights
+* Input: *turn off the lights*
 * Output: Ok, turning all the lights off
-* Input: turn off room lights
+* Input: *turn off room lights*
 * Output: Ok, turning off the room lights
 
-## Use Custom Voice
+## Use a custom voice
 
-Another way to customize Custom Commands responses is to select a custom output voice. Use the following steps to switch the default voice to a custom voice.
+Another way to customize Custom Commands responses is to select an output voice. Use the following steps to switch the default voice to a custom voice.
 
-1. In your custom commands application, select **Settings** from the left pane.
-1. Select **Custom Voice** from the middle pane.
-1. Select the desired custom or public voice from the table.
+1. In your Custom Commands application, in the pane on the left, select **Settings**.
+1. In the middle pane, select **Custom Voice**.
+1. In the table, select a custom voice or public voice.
 1. Select **Save**.
 
 > [!div class="mx-imgBorder"]
-> ![Sample Sentences with parameters](media/custom-commands/select-custom-voice.png)
+> ![Screenshot showing sample sentences and parameters.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - For **Public voices**, **Neural types** are only available for specific regions. To check availability, see [standard and neural voices by region/endpoint](./regions.md#standard-and-neural-voices).
-> - For **Custom voices**, they can be created from the Custom Voice project page. See [Get Started with Custom Voice](./how-to-custom-voice.md).
+> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#standard-and-neural-voices).
+>
+> You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
 
 Now the application will respond in the selected voice, instead of the default voice.
 
 ## Next steps
 
-* Learn how to [integrate your Custom Commands application](how-to-custom-commands-setup-speech-sdk.md) with a client app using the Speech SDK.
-* [Set up continuous deployment](how-to-custom-commands-deploy-cicd.md) for your Custom Commands application with Azure DevOps. 
+* Learn how to [integrate your Custom Commands application](how-to-custom-commands-setup-speech-sdk.md) with a client app by using the Speech SDK.
+* [Set up continuous deployment](how-to-custom-commands-deploy-cicd.md) for your Custom Commands application by using Azure DevOps. 
                       
