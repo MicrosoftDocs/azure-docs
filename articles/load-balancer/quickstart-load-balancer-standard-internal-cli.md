@@ -210,7 +210,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 * Virtual machine image **win2019datacenter**.
 * In **Zone 1**, **Zone 2**, and **Zone 3**.
 
-
 ```azurecli-interactive
   array=(1 2 3)
   for n in "${array[@]}"
@@ -473,11 +472,9 @@ In this section, you create:
 * Availability set for the virtual machines
 * Three virtual machines to be used as backend servers for the load balancer.
 
-
 ### Create network interfaces for the virtual machines
 
 Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create):
-
 
 * Named **myNicVM1**, **myNicVM2**, and **myNicVM3**.
 * In resource group **CreateIntLBQS-rg**.
@@ -497,6 +494,7 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
         --network-security-group myNSG
   done
 ```
+
 ### Create availability set for virtual machines
 
 Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create):
@@ -531,7 +529,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     az vm create \
     --resource-group CreateIntLBQS-rg \
     --name myVM$n \
-    --nics myNic$n \
+    --nics myNicVM$n \
     --image win2019datacenter \
     --admin-username azureuser \
     --availability-set myAvailabilitySet \
@@ -567,7 +565,7 @@ Create a public load balancer with [az network lb create](/cli/azure/network/lb?
     --vnet-name myVNet \
     --subnet myBackendSubnet \
     --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
+    --backend-pool-name myBackEndPool
 ```
 
 ### Create the health probe
@@ -589,7 +587,7 @@ Create a health probe with [az network lb probe create](/cli/azure/network/lb/pr
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### Create the load balancer rule
@@ -662,7 +660,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
        --name CustomScriptExtension \
        --vm-name $vm \
        --resource-group CreateIntLBQS-rg \
-       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $(Hello World from $env:computername)"}'
   done
 
 ```
@@ -707,13 +705,13 @@ Can take a few minutes for the virtual machine to deploy.
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
-1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
+2. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
 
-2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
+3. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
+4. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+5. On the **Overview** page, select **Connect**, then **Bastion**.
 
 6. Enter the username and password entered during VM creation.
 
@@ -735,13 +733,14 @@ When no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli
 ```
 
 ## Next steps
-In this quickstart
+
+In this quickstart:
 
 * You created a standard or public load balancer
 * Attached virtual machines. 
 * Configured the load balancer traffic rule and health probe.
 * Tested the load balancer.
 
-To learn more about Azure Load Balancer, continue to 
+To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)
