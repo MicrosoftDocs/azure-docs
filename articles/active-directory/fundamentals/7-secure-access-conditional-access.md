@@ -15,15 +15,15 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-## Manage external access with Conditional Access policies
+# Manage external access with Conditional Access policies
 
-[Conditional Access](../conditional-access/overview.md) is the tool Azure AD uses to bring together signals, enforce policies, and determine whether a user should be allowed access to resources. For detailed information on how to create and use Conditional Access policies (CA policies), see [Plan a Conditional Access deployment](../conditional-access/plan-conditional-acces.md). 
+[Conditional Access](../conditional-access/overview.md) is the tool Azure AD uses to bring together signals, enforce policies, and determine whether a user should be allowed access to resources. For detailed information on how to create and use Conditional Access policies (CA policies), see [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md). 
 
 ![Diagram of Conditional Access signals and decisions](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-This article discusses applying CA policies to external users and assumes you don't have access to [Entitlement Management](../governance/entitlement-management-overview) functionality. CA policies can be and are used alongside Entitlement Management.
+This article discusses applying CA policies to external users and assumes you don't have access to [Entitlement Management](../governance/entitlement-management-overview.md) functionality. CA policies can be and are used alongside Entitlement Management.
 
 Earlier in this document set, you [created a security plan](3-secure-access-plan.md) that outlined:
 
@@ -36,7 +36,7 @@ You will use that plan to create your CA policies for external access.
 > [!IMPORTANT]
 > Create a few external user test accounts so that you can test the policies you create before applying them to all external users.
 
-### Conditional Access policies for external access
+## Conditional Access policies for external access
 
 The following are best practices related to governing external access with CA policies.
 
@@ -49,7 +49,7 @@ The following are best practices related to governing external access with CA po
 
 * Clearly name policies specific to external access with a naming convention. One naming convention is ‎*ExternalAccess_actiontaken_AppGroup*. For example ExternalAccess_Block_FinanceApps.
 
-### Block all external users from resources
+## Block all external users from resources
 
 You can block external users from accessing specific sets of resources with CA policies. Once you've determined the set of resources to which you want to block access, create a policy.
 
@@ -71,7 +71,7 @@ To create a policy that blocks access for external users to a set of application
 
 8. Ensure that the Enable policy setting is set to **Report only**, then select **Create**.
 
-### Block external access to all except specific external users
+## Block external access to all except specific external users
 
 There may be times you want to block external users except a specific group. For example, you may want to block all external users except those working for the finance team from the finance applications. To do this:
 
@@ -95,7 +95,7 @@ Many common Conditional Access policies are documented. See the following which 
 
 * [Require Terms of Use](../conditional-access/terms-of-use.md)
 
-### Next Steps
+## Next Steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

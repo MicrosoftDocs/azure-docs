@@ -90,7 +90,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 
 Today, you can [enforce multi-factor authentication for B2B users in your tenant](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). In the future, you will be able to trust the MFA settings of their home tenant if desired.
 
-User- and device-based sign in conditions.
+**User- and device-based sign in conditions**.
 
 | User or sign-in risk| Consider these policies |
 | - | - |
@@ -98,9 +98,6 @@ User- and device-based sign in conditions.
 | Mobile apps| Require approved apps |
 | Identity protection shows high risk| Require user to change password |
 | Network location| Require sign in from a specific IP address range to highly confidential projects |
-
-
- 
 
 Today, to use device state as an input to a policy, the device must be registered or joined to your tenant. In the future, you will be able to trust the device state from the user’s home tenant.
 
@@ -157,7 +154,7 @@ Azure AD P2 and Microsoft 365 E5 have the full suite of security and governance 
 
 ### Provisioning, signing in, reviewing access, and deprovisioning. Bolded entries are preferred methods
 
-|  | Provision external users| Enforce sign-in reqs.| Review access| Deprovision access |
+| Feature| Provision external users| Enforce sign-in reqs.| Review access| Deprovision access |
 | - | - | - | - | - |
 | Azure AD B2B Collaboration| Invite via email, OTP, self-service| | **Periodic review per partner**| Remove account<br>Restrict sign in |
 | Entitlement Management| **Add user via assignment or self-service access**​| | Access reviews|**Expiration of, or removal from, access package**|
@@ -168,7 +165,7 @@ Azure AD P2 and Microsoft 365 E5 have the full suite of security and governance 
 
  ### Access to resources. Bolded entries are preferred methods
 
-| | APP & resource access| SharePoint & OneDrive access| Teams access| Email & document security |
+|Feature | APP & resource access| SharePoint & OneDrive access| Teams access| Email & document security |
 | - |-|-|-|-|
 | Entitlement Management| **Add user via assignment or self-service access​**| **Access packages**| **Access packages**|  |
 | Office 365 Group| | Access to site(s) (and associated content) ​included with group| Access to teams (and associated content)​included with group|  |
@@ -188,7 +185,7 @@ You can achieve robust governance with Azure AD P1 and Microsoft 365 E3
 ### Provisioning, signing in, reviewing access, and deprovisioning
 
 
-| | Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
+|Feature | Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
 | - |-|-|-|-|
 | Azure AD B2B Collaboration| **Invite via email, OTP, self-service**| Direct B2B federation| **Periodic review per partner**| Remove account<br>Restrict sign in |
 | Microsoft or Office 365 Groups| | | | Expiration of or deletion of group.<br>Removal from group. |
@@ -198,7 +195,7 @@ You can achieve robust governance with Azure AD P1 and Microsoft 365 E3
 
  ### Access to resources.
 
-| | APP & resource access| SharePoint & OneDrive access| Teams access| Email & document security |
+|Feature | APP & resource access| SharePoint & OneDrive access| Teams access| Email & document security |
 | - |-|-|-|-|
 | Microsoft or Office 365 Groups| | **Access to site(s) included with group (and associated content)**|** Access to teams included with Mgroup (and associated content)**|  |
 | Sensitivity labels| | Manually classify and restrict access| Manually classify and restrict access.| Manually classify to restrict and encrypt |

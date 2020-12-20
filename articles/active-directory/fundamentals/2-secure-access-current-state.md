@@ -29,7 +29,7 @@ Individuals in your organization are probably already collaborating with users f
 
 The users initiating external collaboration best understand the applications most relevant for external collaboration, and when that access should end. Understanding these users can help you determine who should be delegated permission to inviting external users, create access packages, and complete access reviews.
 
-To find users who are currently collaborating, review the [Microsoft 365 audit log for sharing and access request activities](https://docs.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities). You can also review the [Azure AD audit log for details on who invited B2B](../external-identities/auditing-and-reporting.md) users to your directory.
+To find users who are currently collaborating, review the [Microsoft 365 audit log for sharing and access request activities](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities). You can also review the [Azure AD audit log for details on who invited B2B](../external-identities/auditing-and-reporting.md) users to your directory.
 
 ## Find current collaboration partners
 

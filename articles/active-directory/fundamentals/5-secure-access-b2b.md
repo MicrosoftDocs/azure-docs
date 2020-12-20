@@ -71,7 +71,7 @@ There are many ways to collaborate with external partners using Azure AD B2B. To
 
 * Redeeming [an invitation sent via an email](../external-identities/redemption-experience.md), or [a direct link to share](../external-identities/redemption-experience.md) a resource.
 
-* Requesting access [through an application](..y/external-identities/self-service-sign-up-overview.md) you create
+* Requesting access [through an application](../external-identities/self-service-sign-up-overview.md) you create
 
 * Requesting access through the [My Access](../governance/entitlement-management-request-access.md) portal
 
@@ -95,7 +95,7 @@ Determine who can invite guest users to access resources.
 
 If you use Azure AD entitlement management, you can configure questions for external users to answer. The questions will then be shown to approvers to help them make a decision. You can configure different sets of questions for each [access package policy](../governance/entitlement-management-access-package-approval-policy.md) so that approvers can have relevant information for the access they're approving. For example, if one access package is intended for vendor access, then the requestor may be asked for their vendor contract number. A different access package intended for suppliers, may ask for their country of origin.
 
-If you use a self-service portal, you can use [API connectors](../external-identities/api-connectors-overview.md) to collect additional attributes about users as they sign up. You can then potentially use those attributes to assign access. For example, if during the sign-up process you collect their supplier ID, you could use that attribute to dynamically assign them to a group or access package for that supplier. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the [Microsoft Graph API](..e/active-directory-b2c/manage-user-accounts-graph-api.md). 
+If you use a self-service portal, you can use [API connectors](../external-identities/api-connectors-overview.md) to collect additional attributes about users as they sign up. You can then potentially use those attributes to assign access. For example, if during the sign-up process you collect their supplier ID, you could use that attribute to dynamically assign them to a group or access package for that supplier. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the [Microsoft Graph API](../active-directory-b2c/manage-user-accounts-graph-api.md). 
 
 ### Troubleshoot invitation redemption to Azure AD users
 

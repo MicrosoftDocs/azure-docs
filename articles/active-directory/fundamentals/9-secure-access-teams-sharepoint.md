@@ -154,7 +154,7 @@ Access controls setting will affect all users in your organization. Given that y
 
 In the SharePoint admin center, you can also set how file and folder links are shared. You can also configure these setting for each site. 
 
- ![Screen shot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-file-folder-links.png)
+ ![Screen shot of file and folder link settings](media/secure-external-access/9-file-folder-links.png)
 
 If you have enabled the integration with Azure AD B2B, sharing of files and folders with those outside of the organization will result in a B2B user being created when files and folder are shared.
 

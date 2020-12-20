@@ -95,12 +95,12 @@ We recommend a naming convention for security groups that makes the purpose clea
 
 Both Azure AD security groups and Microsoft 365 groups can be created from the Azure AD portal or the M365 admin portal. Both types can be used as the basis for securing external access:
 
-| | Azure AD security groups (manual and dynamic)| Microsoft 365 Groups |
+|Considerations | Azure AD security groups (manual and dynamic)| Microsoft 365 Groups |
 | - | - | - |
 | What can the group contain?| Users<br>Groups<br>Service principles<br>Devices| Users only |
 | Where is the group created?| Azure AD portal<br>M365 portal (if to be mail enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| M365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
-| Who creates by default| Administrators <br>End-users| Administrators<br>End-users |
-| Who can be added by default| Internal users (members)| Tenant members and guests from any organization |
+| Who creates by default?| Administrators <br>End-users| Administrators<br>End-users |
+| Who can be added by default?| Internal users (members)| Tenant members and guests from any organization |
 | What does it grant access to?| Only resources to which it's assigned.| All group-related resources:<br>(Group mailbox, site, team, chats, and other included M365 resources)<br>Any other resources to which group is added |
 | Can be used with| Conditional Access<br>Entitlement Management<br>Group licensing| Conditional Access<br>Entitlement Management<br>Sensitivity labels |
 
