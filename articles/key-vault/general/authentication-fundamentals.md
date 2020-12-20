@@ -112,8 +112,6 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 * Azure RBAC permissions are compatible with Privileged Identity Management or PIM. This allows you to configure just-in-time access controls for privileged roles like Key Vault Administrator. This is a best-security practice and follows the principal of least-privilege by eliminating standing access to your key vaults.
 
-* Azure RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
-
 To learn more about Azure RBAC for Key Vault, see the following documents:
 
 * Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)

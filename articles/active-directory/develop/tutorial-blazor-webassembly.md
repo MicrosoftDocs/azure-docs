@@ -23,7 +23,7 @@ In this tutorial:
 > [!div class="checklist"]
 >
 > * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
-> * Retrieve data from a protected web API, in this case [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
 ## Prerequisites
 

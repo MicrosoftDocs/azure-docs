@@ -6,12 +6,12 @@ Microsoft provides direct support for the latest agent version and one version b
 
 ### Release status
 
-November XX, 2020: Released for download
+November 23, 2020: Released for download
 
 ### New features and improvements
 
 * Support for [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Support for groups up to size of 1500 members (during delta sync)
+* Support for groups up to size less than 1500 members during incremental or delta sync cycle. This is applicable when using group scoping filter
 * Support for large groups with member size up to 15K
 * Initial sync improvements
 * Advanced verbose logging
@@ -20,6 +20,8 @@ November XX, 2020: Released for download
 * Support for PHS filtering only for objects in scope (Originally, we were syncing password hashes for all objects)
 * Fixed the memory leak issue in the agent
 * Improved provisioning logs
+* Support for configuring [LDAP connection timeout](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Support for configuring [referral chasing](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## 1.1.96.0

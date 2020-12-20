@@ -98,7 +98,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
     The selected user identity is shown in the **Encryption type** settings.
 

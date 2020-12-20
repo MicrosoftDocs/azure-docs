@@ -46,19 +46,19 @@ To configure the integration of Andromeda into Azure AD, you need to add Androme
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Andromeda**, select **Andromeda** from result panel then click **Add** button to add the application.
 
-	![Andromeda in the results list](common/search-new-app.png)
+    ![Andromeda in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -109,58 +109,58 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
-	> [!NOTE]
-	> These values are not real. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
+    > [!NOTE]
+    > These values are not real. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
 6. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![Screenshot shows User attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
+    ![Screenshot shows User attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
 
-	> [!Important]
-	> Clear out the NameSpace definitions while setting these up.
+    > [!Important]
+    > Clear out the NameSpace definitions while setting these up.
 
 7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	| Name | Source Attribute|
-	| ------ | -----------|
-	| role 		  | App specific role |
-	| type 		  | App Type |
-	| company       | CompanyName |
+    | Name | Source Attribute|
+    | ------ | -----------|
+    | role | App specific role |
+    | type | App Type |
+    | company | CompanyName |
 
-	> [!NOTE]
-	> There are not real values. These values are only for demo purpose, please use your organization roles.
+    > [!NOTE]
+    > There are not real values. These values are only for demo purpose, please use your organization roles.
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+    1. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Screenshot shows User claims with options to Add new claim and save.](common/new-save-attribute.png)
+        ![Screenshot shows User claims with options to Add new claim and save.](common/new-save-attribute.png)
 
-	![Screenshot shows Manage user claims where you can enter values described I this step.](common/new-attribute-details.png)
+        ![Screenshot shows Manage user claims where you can enter values described I this step.](common/new-attribute-details.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    1. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+    1. Leave the **Namespace** blank.
 
-	d. Select Source as **Attribute**.
+    1. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+    1. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Ok**
+    1. Click **Ok**
 
-	g. Click **Save**.
+    1. Click **Save**.
 
 8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 9. On the **Set up Andromeda** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    1. Login URL
 
-	b. Azure AD Identifier
+    1. Azure AD Identifier
 
-	c. Logout URL
+    1. Logout URL
 
 ### Configure Andromeda Single Sign-On
 
@@ -168,35 +168,35 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 2. On the top of the menubar click **Admin** and navigate to **Administration**.
 
-	![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 3. On the left side of tool bar under **Interfaces** section, click **SAML Configuration**.
 
-	![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 4. On the **SAML Configuration** section page, perform the following steps:
 
-	![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-	a. Check **Enable SSO with SAML**.
+    1. Check **Enable SSO with SAML**.
 
-	b. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Basic SAML Configuration** section.
+    1. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Basic SAML Configuration** section.
 
-	c. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Basic SAML Configuration** section.
+    1. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Basic SAML Configuration** section.
 
-	d. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Basic SAML Configuration** section.
+    1. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Basic SAML Configuration** section.
 
-	e. Under **SAML Identity Provider** section, type your IDP Name.
+    1. Under **SAML Identity Provider** section, type your IDP Name.
 
-	f. In the **Single Sign On End Point** textbox, paste the value of **Login URL** which, you have copied from the Azure portal.
+    1. In the **Single Sign On End Point** textbox, paste the value of **Login URL** which, you have copied from the Azure portal.
 
-	g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
-	
-	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
+    1. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 
-	![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
 
-	i. Click **Save**.
+        ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -215,7 +215,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -228,11 +228,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Andromeda**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Andromeda**.
 
-	![The Andromeda link in the Applications list](common/all-applications.png)
+    ![The Andromeda link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

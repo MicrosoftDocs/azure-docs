@@ -59,11 +59,11 @@ The following figure illustrates an example deployment in which Java clients run
 
 All supported Service Bus client libraries available via the Azure SDK use AMQP 1.0.
 
-- [Azure Service Bus for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Azure Service Bus libraries for Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
@@ -84,4 +84,4 @@ Ready to learn more? Visit the following links:
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
 [Using Service Bus from Java with AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Installing Apache Qpid Proton-C on an Azure Linux VM]: 
+[Installing Apache Qpid Proton-C on an Azure Linux VM]:

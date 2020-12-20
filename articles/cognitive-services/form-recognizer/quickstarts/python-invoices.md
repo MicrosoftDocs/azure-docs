@@ -27,7 +27,7 @@ To complete this quickstart, you must have:
 - An invoice document. You can use the [sample invoice](../media/sample-invoice.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
+> This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 ## Create a Form Recognizer resource
 
@@ -289,6 +289,6 @@ The Python script can run with a single invoice or a folder as the parameter and
 In this quickstart, you used the Form Recognizer REST API with Python to extract the content from invoices. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    

@@ -20,8 +20,8 @@ With a Batch pool, you can access and store data on the OS and temporary disks o
 
 Batch will apply one of these disk encryption technologies on compute nodes, based on pool configuration and regional supportability.
 
-- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Encryption at host using a platform-managed Key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -102,5 +102,5 @@ az batch pool create \
 
 ## Next steps
 
-- Learn more about [server-side encryption of Azure Disk Storage](../virtual-machines/windows/disk-encryption.md).
+- Learn more about [server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md).
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

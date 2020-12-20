@@ -21,6 +21,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
+**Form Recognizer v2.1 public preview 2 is now available.** V2.1-preview.2 has been released, including the following features: 
+
 - **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, bill to, and more.
 
   > [Learn more about the prebuilt invoice model](concept-invoices.md)
@@ -34,6 +36,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
  
   > [Learn more about Layout extraction](concept-layout.md)
 
+- **Client library update** - The latest versions of the [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 - **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -43,8 +46,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
   ![FOTT example](./media/ui-preview.jpg)
   
-- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adujst the lables if necessary and train to improve the model.
-- **Auto Label Documets** - Automitcally labels additional documents based on previous labeld documents in the project. 
+- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
+- **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
 ## August 2020
 

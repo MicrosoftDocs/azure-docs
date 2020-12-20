@@ -45,19 +45,19 @@ To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub 
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
-	![Azure Active Directory button](common/select-azuread.png)
+    ![Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise Applications**, and then select **All Applications**.
 
-	![Enterprise Applications blade](common/enterprise-applications.png)
+    ![Enterprise Applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window.
 
-	![New application button](common/add-new-app.png)
+    ![New application button](common/add-new-app.png)
 
 4. In the search box, enter **AnswerHub**. Select **AnswerHub** in the results list, and then select **Add**.
 
-	 ![AnswerHub in the results list](common/search-new-app.png)
+    ![AnswerHub in the results list](common/search-new-app.png)
 
 ## Set up and test Azure AD single sign-on
 
@@ -89,35 +89,35 @@ In this section, you set up Azure AD single sign-on in the Azure portal.
 
 3. On the **Set up Single Sign-On with SAML** page, select the edit icon to open the **Basic SAML Configuration** dialog box.
 
-	![Set up Single Sign-On with SAML page](common/edit-urls.png)
+    ![Set up Single Sign-On with SAML page](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** section, complete the following steps:
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
-	a. In the **Sign on URL** box, enter a URL that has this pattern:
+    a. In the **Sign on URL** box, enter a URL that has this pattern:
     `https://<company>.answerhub.com`
 
     b. In the **Identifier (Entity ID)** box, enter a URL that has this pattern:
     `https://<company>.answerhub.com`
 
-	> [!NOTE]
-	> These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
 
-	![Certificate download link](common/certificatebase64.png)
+    ![Certificate download link](common/certificatebase64.png)
 
 6. In the **Set up AnswerHub** section, copy the appropriate URL or URLs, based on your requirements.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
    You can copy these URLs:
     - Login URL
 
-	- Azure AD Identifier
+    - Azure AD Identifier
 
-	- Logout URL
+    - Logout URL
 
 ### Configure AnswerHub single sign-on
 
@@ -137,13 +137,13 @@ In this section, you set up single sign-on for AnswerHub.
 4. On the **IDP Config** tab, complete these steps:
 
     ![Screenshot shows AnswerHub page with the Users & Groups tab selected.](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
-  
+
     a. In the **IDP Login URL** box, paste the **Login URL** that you copied from the Azure portal.
-  
+
     b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied from the Azure portal.
 
     c. In the **IDP Name Identifier Format** box, enter the **Identifier** value selected in the **User Attributes** section on the Azure portal.
-  
+
     d. Select **Keys and Certificates**.
 
 5. In the **Keys and Certificates** section, complete these steps:
@@ -151,7 +151,7 @@ In this section, you set up single sign-on for AnswerHub.
     ![Keys and Certificates section](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
 
     a. Open the Base64-encoded certificate that you downloaded from the Azure portal in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
-  
+
     b. Select **Save**.
 
 6. On the **IDP Config** tab, select **Save** again.
@@ -175,7 +175,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
     ![User properties](common/user-properties.png)
 
     a. In the **Name** box, enter **BrittaSimon**.
-  
+
     b. In the **User name** box, enter **brittasimon\@<yourcompanydomain.extension>**.  
     For example, BrittaSimon@contoso.com.
 
@@ -191,11 +191,11 @@ In this section, you set up the user Britta Simon to use Azure AD single sign-on
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **AnswerHub**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the list of applications, select **AnswerHub**.
 
-	![Applications list](common/all-applications.png)
+    ![Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -227,7 +227,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 4. In the left pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
-   ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+    ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
 5. In the appropriate boxes, enter the **Email address**, **Username**, and **Password** of a valid Azure AD account that you want to add, and then select **Save**.
 

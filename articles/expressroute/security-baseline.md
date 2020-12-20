@@ -54,9 +54,9 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network. While ExpressRoutes are isolated, for extra protection of other resources sharing the same virtual network, you may enable DDoS Protection Standard to guard against DDoS attacks.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -445,7 +445,7 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -859,7 +859,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 

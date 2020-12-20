@@ -38,7 +38,7 @@ Machine learning is a concept where you bring together data and an algorithm to 
 
 The process of building a machine learning system requires some knowledge of machine learning or data science.
 
-Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## What is a Cognitive Service?
 
