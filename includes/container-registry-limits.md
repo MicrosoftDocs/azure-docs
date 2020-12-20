@@ -22,6 +22,7 @@ ms.custom: include file
 | Upload bandwidth Mbps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
+| Availability zones | N/A | N/A | [Preview][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
 | &bull; Private endpoints | N/A | N/A | 10 |
@@ -51,3 +52,4 @@ ms.custom: include file
 [plink]: ../articles/container-registry/container-registry-private-link.md
 [cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
+[zones]: ../articles/container-registry/zone-redundancy.md

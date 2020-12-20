@@ -47,7 +47,7 @@ You must have the **Contributor** role on the resource group containing your VMs
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
 
-It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US.
+It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
 
 ## Participating services
 
