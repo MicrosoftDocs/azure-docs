@@ -72,7 +72,7 @@ Next, sign in to the portal. Add the new user-assigned managed identity to the *
  > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
