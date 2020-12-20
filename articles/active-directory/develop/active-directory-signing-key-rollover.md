@@ -64,28 +64,30 @@ Azure App Services' Authentication / Authorization (EasyAuth) functionality alre
 ### <a name="owin"></a>Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
 If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover automatically.
 
-You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
+You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs files.
 
-```
+```csharp
 app.UseOpenIdConnectAuthentication(
-     new OpenIdConnectAuthenticationOptions
-     {
-         // ...
-     });
+    new OpenIdConnectAuthenticationOptions
+    {
+        // ...
+    });
 ```
-```
+
+```csharp
 app.UseWsFederationAuthentication(
     new WsFederationAuthenticationOptions
     {
-     // ...
-     });
+        // ...
+    });
 ```
-```
- app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-     new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-     {
-     // ...
-     });
+
+```csharp
+app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+    new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+    {
+        // ...
+    });
 ```
 
 ### <a name="owincore"></a>Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware

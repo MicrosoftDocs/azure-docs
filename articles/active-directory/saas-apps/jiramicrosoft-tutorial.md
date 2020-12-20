@@ -35,7 +35,7 @@ To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the 
 - JIRA Core and Software 6.4 to 8.14.0 or JIRA Service Desk 3.0 to 4.11.1 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
-- JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
+- JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD
 - Admin credentials are set up in JIRA
 - WebSudo is disabled in JIRA
 - Test user created in the JIRA server application

@@ -120,7 +120,7 @@ From the previous step, you need to obtain a SAML metadata URL in the following 
 
 where `<tenant-name>` is the name of your Azure AD B2C tenant and `<policy-name>` is the name of the custom SAML policy you created in the last step.
 
-For example, https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata
+For example, "https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata"
 
 Open a web browser and navigate to the SAML Metadata URL. When the page loads, right-click anywhere on the page. Select **Save Page As** and save the file on your computer; you'll use this in the next part.
 
