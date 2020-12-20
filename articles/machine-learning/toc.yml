@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
+    - name: Open source integrations
+      href: concept-open-source.md      
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Security
@@ -515,8 +517,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
-        - name: Schedule a pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
