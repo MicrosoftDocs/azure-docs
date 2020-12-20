@@ -259,7 +259,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- | ---- |
@@ -497,7 +497,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- | ---- |
