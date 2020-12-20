@@ -519,7 +519,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 * In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicVM1**, **myNicVM2**, and **myNicVM3**.
 * Virtual machine image **win2019datacenter**.
-* In **Zone 1**, **Zone 2**, and **Zone 3**.
+* In **myAvailabilitySet**.
 
 
 ```azurecli-interactive
@@ -646,25 +646,6 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 
 ## Test the load balancer
 
-## Install IIS
-
-Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machines and set the default website to the computer name.
-
-```azurecli-interactive
-  array=(myVM1 myVM2 myVM3)
-    for vm in "${array[@]}"
-    do
-     az vm extension set \
-       --publisher Microsoft.Compute \
-       --version 1.8 \
-       --name CustomScriptExtension \
-       --vm-name $vm \
-       --resource-group CreateIntLBQS-rg \
-       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $(Hello World from $env:computername)"}'
-  done
-
-```
-
 ### Create test virtual machine
 
 Create the network interface with [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -700,6 +681,25 @@ Create the virtual machine with [az vm create](/cli/azure/vm?view=azure-cli-late
     --no-wait
 ```
 Can take a few minutes for the virtual machine to deploy.
+
+## Install IIS
+
+Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machines and set the default website to the computer name.
+
+```azurecli-interactive
+  array=(myVM1 myVM2 myVM3)
+    for vm in "${array[@]}"
+    do
+     az vm extension set \
+       --publisher Microsoft.Compute \
+       --version 1.8 \
+       --name CustomScriptExtension \
+       --vm-name $vm \
+       --resource-group CreateIntLBQS-rg \
+       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+  done
+
+```
 
 ### Test
 
