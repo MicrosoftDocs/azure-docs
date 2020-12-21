@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 12/21/2020
 ms.author: jgao
 
 ---
@@ -38,7 +38,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script.
+For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access to complete the operation in the script.
 
 To configure the least-privilege permissions, you need:
 
@@ -55,6 +55,7 @@ To configure the least-privilege permissions, you need:
         "actions": [
           "Microsoft.Storage/storageAccounts/*",
           "Microsoft.ContainerInstance/containerGroups/*",
+          "Microsoft.Resources/deployments/*",
           "Microsoft.Resources/deploymentScripts/*"
         ],
       }
@@ -67,37 +68,7 @@ To configure the least-privilege permissions, you need:
 
   If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
 
-- If a managed identity is used, you need to assign both the **Managed Identity Operator** role (built-in role) and a custom role with the following properties to the managed identity:
-
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-managed-identity",
-    "description": "Configure least privilege for the managed identity in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Insights/diagnosticSettings/*",
-          "Microsoft.ResourceHealth/availabilityStatuses/read",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.Support/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
-
-To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
+- If a managed identity is used, you need to assign the **Managed Identity Operator** role (a built-in role) to the managed identity resource:
 
 ## Sample templates
 
