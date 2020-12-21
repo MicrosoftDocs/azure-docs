@@ -530,20 +530,20 @@
         href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
-      - name: Query with sqlcmd
-        href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
         href: sql/get-started-ssms.md
-      - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
         href: sql/get-started-power-bi-professional.md
+      - name: Query with Visual Studio SSDT
+        href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
         href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query using Visual Studio .NET
         href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query using Python
         href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with sqlcmd
+        href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
   - name: Overview
