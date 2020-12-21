@@ -26,7 +26,7 @@ Use the **Client access policies** page in the Azure portal to create and manage
 
 ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)
 
-Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default). The first rule that matches is applied and later rules are ignored. <!-- xxx double check xxx -->
+Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default). The first rule that matches is applied and later rules are ignored.
 
 To create a new access policy, click the **+ Add access policy** button at the top of the list. Give the new access policy a name, and enter at least one rule.
 
@@ -44,7 +44,7 @@ Select the appropriate **Scope** value for your rule:
 * **Network** - The rule applies to clients in a range of IP addresses
 * **Default** - The rule applies to all clients.
 
-Rules in a policy are evaluated in that order.
+Rules in a policy are evaluated in that order. After a client mount request matches one rule, the others are ignored.
 
 ### Address filter
 
