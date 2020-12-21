@@ -149,6 +149,8 @@ print cert
 
 # [Python 3](#tab/python3)
 
+The following example shows how to access certificates in Python 3 runbooks.
+
 ```python
 # get a reference to the Azure Automation certificate
 cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
