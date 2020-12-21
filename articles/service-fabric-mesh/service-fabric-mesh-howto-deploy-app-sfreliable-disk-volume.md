@@ -55,7 +55,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 You can also see the state of the deployment with the command
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 Notice the name of gateway resource which has resource type as `Microsoft.ServiceFabricMesh/gateways`. This will be used in getting public IP address of the app.
