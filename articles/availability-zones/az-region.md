@@ -192,7 +192,7 @@ To learn more about Availability Zones support in these regions, contact your Mi
 
 ## Pricing for VMs in Availability Zones
 
-There is no additional cost for virtual machines deployed in an Availability Zone. 99.99% VM uptime SLA is offered when two or more VMs are deployed across two or more Availability Zones within an Azure region. There will be additional inter-Availability Zone VM-to-VM data transfer charges. For more information, review the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
+There is no additional cost for virtual machines deployed in an Availability Zone. For more information, review the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## Get started with Availability Zones
