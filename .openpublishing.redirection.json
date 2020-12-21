@@ -6546,6 +6546,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/deploy-computer-vision-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/deploy-face-container-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/deploy-form-recognizer-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/deploy-speech-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
+      "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
       "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
       "redirect_document_id": false
@@ -48151,6 +48181,7 @@
       "redirect_document_id": false
     },
     {
+
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
       "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
       "redirect_document_id": false
@@ -60899,6 +60930,21 @@
       "source_path_from_root": "/articles/cognitive-services/Welcome.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": true
+    },
+    {
+    "source_path_from_root":"/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+    "redirect_url":"azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+    "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
+      "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
     }
   ]
 }
