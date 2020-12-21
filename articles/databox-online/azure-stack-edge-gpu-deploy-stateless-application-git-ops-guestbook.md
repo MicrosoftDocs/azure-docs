@@ -28,6 +28,9 @@ This procedure is intended for those who have reviewed the [Kubernetes workloads
 
 Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ### For device
 
 1. You have sign-in credentials to a 1-node Azure Stack Edge Pro device.

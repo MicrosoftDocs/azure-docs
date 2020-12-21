@@ -138,12 +138,18 @@ For ASP.NET SignalR, when the [client connection drops](#client_connection_drop)
 
 ## 429 (Too Many Requests) returned for client requests
 
-429 returns if your **concurrent** connection count exceeds limit.
+There are two cases.
+
+### **Concurrent** connection count exceeds limit.
 
 For **Free** instances, **Concurrent** connection count limit is 20
 For **Standard** instances, **concurrent** connection count limit **per unit** is 1 K, which means Unit100 allows 100-K concurrent connections.
 
 The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
+
+### Too many negotiate requests at the same time.
+
+We suggest having a random delay before reconnecting, please check [here](#restart_connection) for retry samples.
 
 ## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later.
 

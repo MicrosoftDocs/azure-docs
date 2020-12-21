@@ -9,6 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
+ms.custom: project-no-code
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -27,19 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Prerequisites
 
-::: zone pivot="b2c-user-flow"
-
-* [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
-* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
-* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## Create an app in the Amazon developer console
 

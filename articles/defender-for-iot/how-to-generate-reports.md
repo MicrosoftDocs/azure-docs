@@ -4,7 +4,7 @@ description: Gain insight into network activity, risks, attacks, and trends by u
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -42,9 +42,7 @@ This score is based on results from packet inspection, behavioral modeling engin
 
 - Protocol issues
 
-The report provides mitigation recommendations that will help you improve your security score.
-
-:::image type="content" source="media/how-to-generate-reports/image260.png" alt-text="Top vulnerable devices.":::
+  - Secure Devices: Devices with a security score above 90%.
 
 - **Secure Devices**: Devices with a security score above 90 percent.
 
@@ -57,9 +55,11 @@ To create a report:
 1. Select **Risk Assessment** on the side menu.
 2. Select a sensor from the **Select Sensor** drop-down list.
 3. Select **Generate Report**.
-4. Select **Download** from the **Archived Reports** section.
+4. Select **Download** from the Archived Reports section.
 
-:::image type="content" source="media/how-to-generate-reports/image261.png" alt-text="Risk assessment.":::
+:::image type="content" source="media/how-to-generate-reports/risk-assessment.png" alt-text="A view of the risk assessment.":::
+
+To import a company logo:
 
 To import a company logo:
 
@@ -71,16 +71,16 @@ Attack vector reports provide a graphical representation of a vulnerability chai
 
 Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can then determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
 
-:::image type="content" source="media/how-to-generate-reports/image262.png" alt-text="Control Center.":::
+:::image type="content" source="media/how-to-generate-reports/control-center.png" alt-text="View your alerts in the control center.":::
 
 > [!NOTE]
 > Administrators and security analysts can perform the procedures described in this section.
 
 To create an attack vector simulation:
 
-1. Select :::image type="content" source="media/how-to-generate-reports/image263.png" alt-text="Plus sign.":::on the side menu to add a simulation.
+1. Select :::image type="content" source="media/how-to-generate-reports/plus.png" alt-text="Plus sign":::on the side menu to add a Simulation.
 
-   :::image type="content" source="media/how-to-generate-reports/image264.png" alt-text="Attack vector simulation.":::
+ :::image type="content" source="media/how-to-generate-reports/vector.png" alt-text="The attack vector simulation.":::
 
 2. Enter simulation properties:
 
@@ -136,7 +136,7 @@ Data-mining tools let you generate comprehensive and granular information about 
 
 You can fine-tune the report based on filters. For example, you can query a specific subnet in which firmware was updated.
 
-:::image type="content" source="media/how-to-generate-reports/active-device-list.png" alt-text="List of active devices.":::
+:::image type="content" source="media/how-to-generate-reports/active-device-list-v2.png" alt-text="List of active devices.":::
 
 Various tools are available to manage queries. For example, you can export and save.
 
@@ -165,7 +165,7 @@ You can use queries to handle an extensive range of security needs for various s
 
 ### Data-mining storage
 
-Data-mining information is saved and stored continuously, except for when a device is deleted. Data-mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
+Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
 
 ### Data mining and reports 
 
@@ -193,7 +193,7 @@ The following predefined queries are available. These queries are generated in r
 
 These reports are automatically accessible from the **Reports** screen, where RO users and other users can view them. RO users can't access data-mining reports.
 
-:::image type="content" source="media/how-to-generate-reports/data-mining-screeshot.png" alt-text="The data-mining screen.":::
+:::image type="content" source="media/how-to-generate-reports/data-mining-screeshot-v2.png" alt-text="The data mining screen.":::
 
 ### Create a data-mining report
 
@@ -201,7 +201,7 @@ To create a data-mining report:
 
 1. Select **Data Mining** from the side menu. Predefined suggested reports appear automatically.
 
-   :::image type="content" source="media/how-to-generate-reports/data-mining-selection-from-pane.png" alt-text="Select data mining from the side pane.":::
+ :::image type="content" source="media/how-to-generate-reports/data-mining-screeshot-v2.png" alt-text="Select data mining from side pane.":::
 
 2. Select :::image type="icon" source="media/how-to-generate-reports/plus-icon.png" border="false":::.
 
@@ -463,9 +463,7 @@ Risk assessment reports let you generate a security score for each network devic
 
 The report provides mitigation recommendations that will help you improve your security score.
 
-:::image type="content" source="media/how-to-generate-reports/risk-assessment-screenshot.png" alt-text="Screenshot of the risk assessment screen.":::
-
-- **Secure devices**: Devices with a security score above 90 percent.
+- Secure devices: Devices with a security score above 90%.
 
 - **Vulnerable devices**: Devices with a security score below 70 percent.
 
@@ -485,7 +483,7 @@ To import a company logo:
 
 - Select **Import Logo**.
 
-:::image type="content" source="media/how-to-generate-reports/import-logo-screenshat.png" alt-text="Import your logo through the risk assessment view.":::
+:::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="Import your logo through the risk assessment view.":::
 
 ## See also
 [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
