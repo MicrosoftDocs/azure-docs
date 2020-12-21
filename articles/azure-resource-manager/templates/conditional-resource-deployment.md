@@ -2,7 +2,7 @@
 title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 12/17/2020
 ---
 
 # Conditional deployment in ARM templates
@@ -85,5 +85,6 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 
 ## Next steps
 
+* For a Microsoft Learn module that covers conditional deployment, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
 * To create multiple instances of a resource, see [Resource iteration in ARM templates](copy-resources.md).

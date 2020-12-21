@@ -548,6 +548,8 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management Connections
         href: platform/itsmc-connections.md
+      - name: IT Service Management Connector Definition
+        href: platform/itsmc-definition.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
       - name: Troubleshooting problems in ITSM Connector
@@ -789,6 +791,8 @@
         href: app/snapshot-debugger.md 
       - name: Enable Snapshot Debugger for an App Service
         href: app/snapshot-debugger-appservice.md
+      - name: Enable Snapshot Debugger for a Function App
+        href: app/snapshot-debugger-function-app.md
       - name: Enable Snapshot Debugger for other environments
         href: app/snapshot-debugger-vm.md
       - name: Upgrade Snapshot Debugger
