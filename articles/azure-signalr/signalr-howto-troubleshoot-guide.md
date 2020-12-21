@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting guide for Azure SignalR Service"
 description: Learn how to troubleshoot common issues
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
