@@ -37,7 +37,7 @@ In October 2011, the development work transitioned to a technical committee with
 * **Technology vendors**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **User firms**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
-The current chairs of the [OASIS AMQP Technical Committee]((https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) represent Red Hat and Microsoft.
+The current chairs of the [OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) represent Red Hat and Microsoft.
 
 Some of the commonly cited benefits of open standards include:
 
