@@ -93,4 +93,4 @@ for group in groups:
 
 ## Next steps
 
-To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python3.md).
+To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python-3.md).
