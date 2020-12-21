@@ -56,7 +56,7 @@ Share credits have three states:
 
 - Accruing, when the file share is using less than the baseline IOPS.
 - Declining, when the file share is using more than the baseline IOPS and in the bursting mode.
-- Constant, hen the files share is using exactly the baseline IOPS, there are either no credits accrued or used.
+- Constant, when the files share is using exactly the baseline IOPS, there are either no credits accrued or used.
 
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
