@@ -115,7 +115,8 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 }
 ```
 
-Then apply ARM template with the CLI command:
+## CLI
+Apply ARM template with the CLI command:
 
 * For an existing Azure Spring Cloud instance:
 
