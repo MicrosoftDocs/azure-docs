@@ -74,11 +74,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## Python 2 functions to access variables
+## Python functions to access variables
 
-The functions in the following table are used to access variables in a Python 2 runbook.
+The functions in the following table are used to access variables in a Python runbook.
 
-|Python 2 Functions|Description|
+|Python Functions|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|Retrieves the value of an existing variable. |
 |`automationassets.set_automation_variable`|Sets the value for an existing variable. |
@@ -129,9 +129,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## Textual runbook examples
 
-### Retrieve and set a simple value from a variable
+# [PowerShell](#tab/azure-powershell)
 
 The following example shows how to set and retrieve a variable in a textual runbook. This example assumes the creation of integer variables named `NumberOfIterations` and `NumberOfRunnings` and a string variable named `SampleMessage`.
 
@@ -148,7 +149,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### Retrieve and set a variable in a Python 2 runbook
+# [Python 2](#tab/python2)
 
 The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 2 runbook.
 
@@ -170,6 +171,30 @@ try:
     value = automationassets.get_automation_variable("nonexisting variable")
 except AutomationAssetNotFound:
     print "variable not found"
+```
+
+# [Python 3](#tab/python3)
+
+The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
 ```
 
 ## Graphical runbook examples
