@@ -21,31 +21,27 @@ In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azur
 
 Before you begin, you’ll need:
 
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
-
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).  
+- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.  
 - [A ZPA subscription](https://azuremarketplace.microsoft.com/marketplace/apps/aad.zscalerprivateaccess?tab=Overview).
 
 ## Scenario description
 
 ZPA integration includes the following components:
 
-- **Azure AD B2C**: The identity provider (IdP) that's responsible for verifying the user’s credentials. It's also responsible for signing up a new user.
-
-- **ZPA**: The service that's responsible for securing the web application by enforcing [zero-trust access](https://www.microsoft.com/security/blog/2018/12/17/zero-trust-part-1-identity-and-access-management/#:~:text=Azure%20Active%20Directory%20%28Azure%20AD%29%20provides%20the%20strong%2C,to%20express%20their%20access%20requirements%20in%20simple%20terms.).
-
+- **Azure AD B2C**: The identity provider (IdP) that's responsible for verifying the user’s credentials. It's also responsible for signing up a new user.  
+- **ZPA**: The service that's responsible for securing the web application by enforcing [zero-trust access](https://www.microsoft.com/security/blog/2018/12/17/zero-trust-part-1-identity-and-access-management/#:~:text=Azure%20Active%20Directory%20%28Azure%20AD%29%20provides%20the%20strong%2C,to%20express%20their%20access%20requirements%20in%20simple%20terms.).  
 - **The web application**: Hosts the service that the user is trying to access.
 
 The following diagram shows how ZPA integrates with Azure AD B2C.
 
 ![Diagram of Zscaler architecture, showing how ZPA integrates with Azure AD B2C.](media/partner-zscaler/zscaler-architecture-diagram.png)
 
-The sequence of actions is outlined in the following table:
+The sequence is described in the following table:
 
 |Step | Description |
 | :-----:| :-----------|
-| 1 | A user arrives at a ZPA user portal or a ZPA browser access application.
+| 1 | A user arrives at a ZPA user portal or a ZPA browser-access application.
 | 2 | ZPA requires user context information before it can decide whether to allow the user to access the web application. To authenticate the user, ZPA performs a SAML redirect to the Azure AD B2C login page.  
 | 3 | The user arrives at the Azure AB B2C login page. New users sign up to create an account, and existing users log in with their existing credentials. Azure AD B2C validates the user's identity.
 | 4 | Upon successful authentication, Azure AD B2C redirects the user back to ZPA along with the SAML assertion. ZPA verifies the SAML assertion and sets the user context.
@@ -53,7 +49,7 @@ The sequence of actions is outlined in the following table:
 
 ## Onboard to ZPA
 
-This tutorial assumes that you already have a working setup of ZPA. If you're getting started with ZPA, refer to [step-by-step configuration guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa).
+This tutorial assumes that you already have a working ZPA setup. If you're getting started with ZPA, refer to [step-by-step configuration guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa).
 
 ## Integrate ZPA with Azure AD B2C
 
@@ -95,26 +91,26 @@ After you've configured Azure AD B2C, the rest of the IdP configuration resumes.
 >[!Note]
 >This step is required only if you haven’t already configured custom policies. If you already have one or more custom policies, you can skip this step.
 
-The article [get started with custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) provides instructions on how to configure custom policies on your Azure AD B2C tenant.
+To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started).
 
 ### Step 3: Register ZPA as a SAML application in Azure AD B2C
 
-To learn how to configure a SAML application in Azure AD B2C, see [register a SAML application in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers). 
+To configure a SAML application in Azure AD B2C, see [Register a SAML application in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers). 
 
-In [step "3.2 Upload and test your policy metadata,"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
+In step ["3.2 Upload and test your policy metadata,"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
 
-Follow the instructions through [step "4.2 Update the app manifest."](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest) In step 4.2, update the app manifest properties as follows:
+Follow the instructions through step ["4.2 Update the app manifest."](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest) In step 4.2, update the app manifest properties as follows:
 
-- For **identifierUris**: Use the Service Provider Entity ID that you noted earlier in "Step 1.6.b."**.  
+- For **identifierUris**: Use the Service Provider Entity ID that you copied or noted earlier in "Step 1.6.b."  
 - For **samlMetadataUrl**: Skip this property, because ZPA doesn't host a SAML metadata URL.  
-- For **replyUrlsWithType**: Use the Service Provider URL that you noted earlier in "Step 1.6.a."  
+- For **replyUrlsWithType**: Use the Service Provider URL that you copied or noted earlier in "Step 1.6.a."  
 - For **logoutUrl**: Skip this property, because ZPA doesn't support a logout URL.
 
 The rest of the steps aren't relevant to this tutorial.
 
 ### Step 4: Extract the IdP SAML metadata from Azure AD B2C
 
-From the preceding step, you need to obtain a SAML metadata URL in the following format:
+Next, you need to obtain a SAML metadata URL in the following format:
 
 ```https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata```
 
