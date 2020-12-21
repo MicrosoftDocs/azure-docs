@@ -12,7 +12,7 @@ ms.date: 10/07/2020
 ms.author: kgremban
 ---
 
-# Install or uninstall the Azure IoT Edge runtime
+# Install or uninstall Azure IoT Edge for Linux
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -24,8 +24,6 @@ This article lists the steps to install the Azure IoT Edge runtime on Linux or W
 
 For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
 
-# [Linux](#tab/linux)
-
 Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packages for Ubuntu Server 16.04, Ubuntu Server 18.04, and Raspbian Stretch operating systems.
 
 >[!NOTE]
@@ -33,68 +31,44 @@ Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packa
 
 Prepare your device to access the Microsoft installation packages.
 
-1. Install the repository configuration that matches your device operating system.
+Install the repository configuration that matches your device operating system.
 
-   * **Ubuntu Server 16.04**:
+* **Ubuntu Server 16.04**:
 
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
+  ```bash
+  curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+  ```
 
-   * **Ubuntu Server 18.04**:
+* **Ubuntu Server 18.04**:
 
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
+  ```bash
+  curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+  ```
 
-   * **Raspberry Pi OS Stretch**:
+* **Raspberry Pi OS Stretch**:
 
-     ```bash
-     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-     ```
+  ```bash
+  curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+  ```
 
-2. Copy the generated list to the sources.list.d directory.
+Copy the generated list to the sources.list.d directory.
 
    ```bash
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
    ```
 
-3. Install the Microsoft GPG public key.
+Install the Microsoft GPG public key.
 
    ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-# [Windows](#tab/windows)
-
-### Windows version
-
-IoT Edge with Windows containers requires Windows version 1809/build 17762, which is the latest [Windows long term support build](/windows/release-information/). For development and test scenarios, any SKU (Pro, Enterprise, Server, etc.) that supports the containers feature will work. However, be sure to review the supported systems list before going to production.
-
-IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
-
-### Container engine requirements
-
-Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) container engine. Make sure your device can support containers.
-
-If you are installing IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMware, there's a toggle to enable the feature on your virtual machine.
-
-If you are installing IoT Edge on an IoT Core device, use the following command in a [remote PowerShell session](/windows/iot-core/connect-your-device/powershell) to check whether Windows containers are supported on your device:
-
-```powershell
-Get-Service vmcompute
-```
-
----
-
 Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
 ## Install a container engine
 
-Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommended that you use the Moby-based engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
-
-# [Linux](#tab/linux)
+Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommended that you use the Moby engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
 
 Update package lists on your device.
 
@@ -118,21 +92,11 @@ If you get errors when installing the Moby container engine, verify your Linux k
 
 In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you are missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
-# [Windows](#tab/windows)
-
-For production scenarios, use the Moby-based engine that is included in the installation script. There are no additional steps to install the engine.
-
-For IoT Edge with Linux containers, you need to provide your own container runtime. Install [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) on your device and configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) before continuing.
-
----
-
 ## Install the IoT Edge security daemon
 
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
 The steps in these section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation) steps in the next section.
-
-# [Linux](#tab/linux)
 
 Update package lists on your device.
 
@@ -158,72 +122,107 @@ If you want to install a specific version of the security daemon, specify the ve
    sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
    ```
 
-If the version that you want to install isn't listed, follow the [Offline or specific version installation](#offline-or-specific-version-installation) steps in the next section. That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
+If the version that you want to install isn't listed, follow the [Offline or specific version installation](#offline-or-specific-version-installation) steps later in this article. That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
 
-# [Windows](#tab/windows)
+## Provision the device with its cloud identity
 
->[!TIP]
->For IoT Core devices, we recommend running the installation commands using a remote PowerShell session. For more information, see [Using PowerShell for Windows IoT](/windows/iot-core/connect-your-device/powershell).
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to set up the device with its cloud identity and authentication information.
 
-1. Run PowerShell as an administrator.
+Choose the next section based on which authentication type you want to use:
 
-   Use an AMD64 session of PowerShell, not PowerShell(x86). If you're unsure which session type you're using, run the following command:
+* [Option 1: Authenticate with symmetric keys](#option-1-authenticate-with-symmetric-keys)
+* [Option 2: Authenticate with X.509 certificates](option-1-authenticate-with-x509-certificates)
 
-   ```powershell
-   (Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+### Option 1: Authenticate with symmetric keys
+
+At this point, the IoT Edge runtime is installed on your Linux device, and you need to provision the device with its cloud identity and authentication information.
+
+This section walks through the steps to provision a device with symmetric key authentication. You should have registered your device in IoT Hub, and retrieved the connection string from the device information. If not, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md).
+
+On the IoT Edge device, open the configuration file.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
 
-2. Run the [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) command, which performs the following tasks:
+Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration using a connection string** section.
 
-   * Checks that your Windows machine is on a supported version.
-   * Turns on the containers feature.
-   * Downloads the moby engine and the IoT Edge runtime.
+Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
+   ```yml
+   # Manual provisioning configuration using a connection string
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+     dynamic_reprovisioning: false
    ```
 
-   The `Deploy-IoTEdge` command defaults to using Windows containers. If you want to use Linux containers, add the `ContainerOs` parameter:
+To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge -ContainerOs Linux
+Save and close the file.
+
+   `CTRL + X`, `Y`, `Enter`
+
+After entering the provisioning information in the configuration file, restart the daemon:
+
+   ```bash
+   sudo systemctl restart iotedge
    ```
 
-3. At this point, IoT Core devices may restart automatically. Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now.
+### Option 2: Authenticate with X.509 certificates
 
-When you install IoT Edge on a device, you can use additional parameters to modify the process including:
+At this point, the IoT Edge runtime is installed on your Linux device, and you need to provision the device with its cloud identity and authentication information.
 
-* Direct traffic to go through a proxy server
-* Point the installer to a local directory for offline installation.
+This section walks through the steps to provision a device with X.509 certificate authentication. You should have registered your device in IoT Hub, providing thumbprints that match the certificate and private key located on your IoT Edge device. If not, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md).
 
-For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+On the IoT Edge device, open the configuration file.
 
----
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to register your device with IoT Hub and set up the device with its cloud identity and authentication information.
+Find the provisioning configurations section of the file and uncomment the **Manual provisioning configuration using an X.509 identity certificate** section. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
-Choose the next article based on which authentication type you want to use:
+   ```yml
+   # Manual provisioning configuration using a connection string
+   provisioning:
+     source: "manual"
+     authentication:
+       method: "x509"
+       iothub_hostname: "<REQUIRED IOTHUB HOSTNAME>"
+       device_id: "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
+       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+     dynamic_reprovisioning: false
+   ```
 
-* [Symmetric key authentication](how-to-manual-provision-symmetric-key.md) is faster to get started.
-* [X.509 certificate authentication](how-to-manual-provision-x509.md) is more secure for production scenarios.
+Update the following fields:
 
-## Offline or specific version installation
+* **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
+* **device_id**: The ID that you provided when you registered the device.
+* **identity_cert**: URI to an identity certificate on the device. For example, `file:///path/identity_certificate.pem`.
+* **identity_pk**: URI to the private key file for the provided identity certificate. For example, `file:///path/identity_key.pem`.
+
+Save and close the file.
+
+   `CTRL + X`, `Y`, `Enter`
+
+After entering the provisioning information in the configuration file, restart the daemon:
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
+
+## Offline or specific version installation (optional)
 
 The steps in this section are for scenarios not covered by the standard installation steps. This may include:
 
 * Install IoT Edge while offline
 * Install a release candidate version
-* On Windows, install a version other than the latest
-
-# [Linux](#tab/linux)
 
 Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
-
-<!-- TODO: Offline installation? -->
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
@@ -247,51 +246,11 @@ Using curl commands, you can target the component files directly from the IoT Ed
       curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
       ```
 
-# [Windows](#tab/windows)
-
-During installation three files are downloaded:
-
-* A PowerShell script, which contains the installation instructions
-* Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI
-* Visual C++ redistributable package (VC runtime) installer
-
-If your device will be offline during installation, or if you want to install a specific version of IoT Edge, you can download these files ahead of time to the device. When it's time to install, point the installation script at the directory that contains the downloaded files. The installer checks that directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection.
-
-1. For the latest IoT Edge installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
-
-2. Find the version that you want to install, and download the following files from the **Assets** section of the release notes onto your IoT device:
-
-   * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab from releases 1.0.9 or newer, or Microsoft-Azure-IoTEdge.cab from releases 1.0.8 and older.
-
-   Microsoft-Azure-IotEdge-arm32.cab is also available beginning in 1.0.9 for testing purposes only. IoT Edge is not currently supported on Windows ARM32 devices.
-
-   It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
-
-3. If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
-
-4. Optionally, download an installer for Visual C++ redistributable. For example, the PowerShell script uses this version: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Save the installer in the same folder on your IoT device as the IoT Edge files.
-
-5. To install with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. 
-
-6. Run the [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) command with the `-OfflineInstallationPath` parameter. Provide the absolute path to the file directory. For example,
-
-   ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Deploy-IoTEdge -OfflineInstallationPath <path>
-   ```
-
-   The deployment command will use any components found in the local file directory provided. If either the .cab file or the Visual C++ installer is missing, it will attempt to download them.
-
----
-
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Authenticate an IoT Edge device in IoT Hub](how-to-manual-provision-symmetric-key.md).
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
 
 ## Uninstall IoT Edge
 
 If you want to remove the IoT Edge installation from your device, use the following commands.
-
-# [Linux](#tab/linux)
 
 Remove the IoT Edge runtime.
 
@@ -318,31 +277,6 @@ sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
 ```
 
-# [Windows](#tab/windows)
-
-If you want to remove the IoT Edge installation from your Windows device, use the [Uninstall-IoTEdge](reference-windows-scripts.md#uninstall-iotedge) command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data.
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-IoTEdge
-```
-
-The `Uninstall-IoTEdge` command does not work on Windows IoT Core. To remove IoT Edge, you need to redeploy your Windows IoT Core image.
-
-For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
-
----
-
 ## Next steps
 
-After installing the IoT Edge runtime, configure your device to connect with IoT Hub. The following articles walk through registering a new device in the cloud and then providing the device with its identity and authentication info.
-
-Choose the next article based on which type of authentication you want to use:
-
-* **Symmetric key**: Both IoT Hub and the IoT Edge device have a copy of a secure key. When the device connects to IoT Hub, they check that the keys match. This authentication method is faster to get started, but not as secure.
-
-  [Set up an Azure IoT Edge device with symmetric key authentication](how-to-manual-provision-symmetric-key.md)
-
-* **X.509 self-signed**: The IoT Edge device has X.509 identity certificates, and IoT Hub is given the thumbprint of the certificates. When the device connects to IoT Hub, they compare the certificate against its thumbprint. This authentication method is more secure, and recommended for production scenarios.
-
-  [Set up an Azure IoT Edge device with X.509 certificate authentication](how-to-manual-provision-x509.md)
+Continue to [deploy IoT Edge modules](how-to-deploy-modules-portal.md) to learn how to deploy modules onto your device.
