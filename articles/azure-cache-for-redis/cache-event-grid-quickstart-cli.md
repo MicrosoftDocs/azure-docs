@@ -3,7 +3,7 @@ title: Send Azure Cache for Redis events to web endpoint - Azure CLI
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events. Send the events to a Webhook. Handle the events in a web application.
 author: curib
 ms.author: cauribeg
-ms.date: 12/08/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: cache
 ---
@@ -12,11 +12,7 @@ ms.service: cache
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Azure Cache for Redis events, and trigger the event to view the result.
 
-Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
-
-When you complete the steps described in this article, you see that the event data has been sent to the web app.
-
-![Screenshot of the Azure Event Grid Viewer that shows event data that has been sent to the web app.](./media/storage-blob-event-quickstart/view-results.png)
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages. When you complete the steps described in this article, you see that the event data has been sent to the web app.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -87,7 +83,7 @@ az eventgrid event-subscription create \
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/storage-blob-event-quickstart/view-subscription-event.png)
+  :::image type="content" source="media/cache-event-grid-portal/subscription-event.png" alt-text="Azure Event Grid Viewer.":::
 
 ## Trigger an event from Azure Cache for Redis
 
