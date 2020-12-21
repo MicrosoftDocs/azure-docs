@@ -381,7 +381,7 @@ az vmss show \
 
 You can make networking updates to specific virtual machine scale set instances. 
 
-You can `PUT` against the instance, update the network configuration to add or remove network interface cards (NICs), remove an instance from a backend pool, and so much more.
+You can `PUT` against the instance to update the network configuration. This can be used to do things like add or remove network interface cards (NICs), or remove an instance from a backend pool.
 
 ```
 PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
@@ -410,7 +410,7 @@ The following example shows how to add a second IP Configuration to your NIC.
                 "primary": true,
                 "enableAcceleratedNetworking": false,
                 "networkSecurityGroup": {
-                  "id": "/subscriptions/576f5e67-b043-4ec9-81e9-47c7e8692cc4/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
                 },
                 "dnsSettings": {
                   "dnsServers": []
@@ -430,7 +430,7 @@ The following example shows how to add a second IP Configuration to your NIC.
                       },
                       "primary": true,
                       "subnet": {
-                        "id": "/subscriptions/576f5e67-b043-4ec9-81e9-47c7e8692cc4/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
                       },
                       "privateIPAddressVersion": "IPv4"
                     }
@@ -467,7 +467,7 @@ The following example shows how to add a second IP Configuration to your NIC.
                 "primary": true,
                 "enableAcceleratedNetworking": false,
                 "networkSecurityGroup": {
-                  "id": "/subscriptions/576f5e67-b043-4ec9-81e9-47c7e8692cc4/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
                 },
                 "dnsSettings": {
                   "dnsServers": []
@@ -487,7 +487,7 @@ The following example shows how to add a second IP Configuration to your NIC.
                       },
                       "primary": true,
                       "subnet": {
-                        "id": "/subscriptions/576f5e67-b043-4ec9-81e9-47c7e8692cc4/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
                       },
                       "privateIPAddressVersion": "IPv4"
                     }
@@ -496,7 +496,7 @@ The following example shows how to add a second IP Configuration to your NIC.
                     "name": "my-second-config",
                     "properties": {
                       "subnet": {
-                        "id": "/subscriptions/576f5e67-b043-4ec9-81e9-47c7e8692cc4/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
                       },
                       "privateIPAddressVersion": "IPv4"
                     }
