@@ -46,7 +46,7 @@ The use of [partner managed credentials](../external-identities/what-is-b2b.md) 
 
 ## Goals of securing external access
 
-The goals of IT-governed and delegated access differ
+The goals of IT-governed and delegated access differ.
 
 **The primary goals of IT-governed access are to:**
 
@@ -68,7 +68,7 @@ Whichever you enact for your organization and scenarios you'll need to:
 
 * **Regularly review activity and audit log to confirm compliance**. IT can delegate access decisions to business owners through entitlement management while access reviews provide a way to periodically confirm continued access. Automated data classification with sensitivity labels helps to automate encryption of sensitive content making it easy for employee end users to comply.
 
-## Next Steps 
+## Next steps 
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

@@ -27,7 +27,7 @@
     items:
     - name: Secure external access to resources
       items:
-      - name: Secure extrenal access overview
+      - name: Secure external access overview
         href: secure-external-access-resources.md 
       - name: 1 Determine your security posture
         href: 1-secure-access-posture.md  

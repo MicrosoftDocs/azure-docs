@@ -62,7 +62,7 @@ You can surface access packages through the [Azure AD My Access Portal](../gover
 ### Expiration  
 ‎Access packages can include an expiration date. Expiration can be set to a specific day or give the user a specific number of days for access. When the access package expires, and the user has no other access, the B2B guest user object representing the user can be deleted or blocked from signing in. We recommend that you enforce expiration on access packages for external users. Not all access packages have expirations. For those that don't, ensure that you perform access reviews.
 
-### Access Reviews
+### Access reviews
 
 Access packages can require periodic [access reviews](../governance/manage-guest-access-with-access-reviews.md), which require the package owner or a designee to attest to the continued need for users’ access. 
 
@@ -111,18 +111,18 @@ We recommend the practices to govern external access with Entitlement Management
 
 **Use your Identity Governance settings to remove users from your directory when their access packages expire**.
 
-![Screen shot of configuring manage the lifecycle of external users.](media/secure-external-access/6-manage-external-lifecycle.png)
+![Screenshot of configuring manage the lifecycle of external users.](media/secure-external-access/6-manage-external-lifecycle.png)
 
 These settings only apply to users who were onboarded through Entitlement Management.
 
 **[Delegate management of catalogs and access packages](../governance/entitlement-management-delegate.md) to business owners, who have more information on who should access**.
 
-![Screen shot of configuring a catalog.](media/secure-external-access/6-catalog-management.png)
+![Screenshot of configuring a catalog.](media/secure-external-access/6-catalog-management.png)
 
 **‎[Enforce expiration of access packages](../governance/entitlement-management-access-package-lifecycle-policy.md) to which external users have access.**
 
 
-![Screen shot of configuring access package expiration.](media/secure-external-access/6-access-package-expiration.png)
+![Screenshot of configuring access package expiration.](media/secure-external-access/6-access-package-expiration.png)
 
 * If you know the end date of a project-based access package, use the On Date to set the specific date. 
 
@@ -134,7 +134,7 @@ These settings only apply to users who were onboarded through Entitlement Manage
 
 **[Enforce access reviews of packages](../governance/manage-guest-access-with-access-reviews.md) to avoid inappropriate access for guests.**
 
-![Screen shot of creating a new access package.](media/secure-external-access/6-new-access-package.png)
+![Screenshot of creating a new access package.](media/secure-external-access/6-new-access-package.png)
 
 * Enforce reviews quarterly.
 
@@ -144,7 +144,7 @@ These settings only apply to users who were onboarded through Entitlement Manage
 
 For more information, see [Govern access for external users in Azure AD Entitlement Management](../governance/entitlement-management-external-users.md) 
 
-### Next Steps
+### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

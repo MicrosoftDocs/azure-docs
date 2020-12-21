@@ -1,5 +1,5 @@
 ---
-title: Secure external access with groups
+title: Secure external access with groups | Azure Active Directory
 description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
 author: BarbaraSelden
@@ -73,7 +73,7 @@ For example, you can assign users to groups based on their:
 
 Dynamic groups can contain either users or devices, but not both. You add queries based on user attributes to assign users into the dynamic group. The below example shows queries that add users to the group if they are members (not guests) and in the finance department.
 
-![Screen shot of configuring dynamic membership rules.](media/secure-external-access/4-dynamic-membership-rules.png)
+![Screenshot of configuring dynamic membership rules.](media/secure-external-access/4-dynamic-membership-rules.png)
 
 For more information on dynamic groups, see [Create or update a dynamic group in Azure Active Directory.](../users-groups-roles/groups-create-rule.md)
 
@@ -131,7 +131,7 @@ To create a group [in the Azure portal](https://docs.microsoft.com/azure/active-
 > [!NOTE]
 > A security group can be used for assignment of up to 1500 applications, but not more. 
 
-![Screen shot of creating a security group.](media/secure-external-access/4-create-security-group.png)
+![Screenshot of creating a security group.](media/secure-external-access/4-create-security-group.png)
 
 > [!IMPORTANT]
 > **To create a mail-enabled security group, go to the [Microsoft 365 Admin center](https://admin.microsoft.com/)**. You cannot create it in the Azure AD portal. 
@@ -141,7 +141,7 @@ To create a group [in the Azure portal](https://docs.microsoft.com/azure/active-
 
 Hybrid organizations have both an on-premises infrastructure and an Azure AD cloud infrastructure. Many hybrid organizations that use Active Directory create their security groups on-premises and sync them to the cloud. By using this method, only users in the on-premises environment can be added to the security groups.
 
-**Protect your on-premises infrastructure from compromise, as a breach on-opremises can be used to gain access to your Microsoft 365 tenant**. See [Protecting Microsoft 365 from on-premises attacks](https://aka.ms/protectm365) for guidance.
+**Protect your on-premises infrastructure from compromise, as a breach on-premises can be used to gain access to your Microsoft 365 tenant**. See [Protecting Microsoft 365 from on-premises attacks](https://aka.ms/protectm365) for guidance.
 
 ## Microsoft 365 Groups
 
@@ -161,11 +161,11 @@ M365 Groups have the following nuances for their roles
 
 You select email alias, privacy, and whether to enable the group for teams at the time of set-up. 
 
-![Screen shot of editing Microsoft 365 Group settings](media/secure-external-access/4-edit-group-settings.png)
+![Screenshot of editing Microsoft 365 Group settings](media/secure-external-access/4-edit-group-settings.png)
 
 After setup, you add members, and configure settings for email usage, etc.
 
-### Next Steps
+### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

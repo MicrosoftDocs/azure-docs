@@ -1,5 +1,5 @@
 ---
-title: Discover the current state of external collaboration | Azure Active Directory
+title: Discover the current state of external collaboration with Azure Active Directory
 description: Learn methods to discover the current state of your collaboration.
 services: active-directory
 author: BarbaraSelden
@@ -45,7 +45,7 @@ Another way to discover who you currently collaborate with, or with whom you hav
 
 Consider if your organization wants to allow collaboration with only specific organizations. Also consider if your organization wants to block collaboration with specific organizations. These settings can apply for overall B2B redemption or to only a specific access package.
 
-![Screen shot of allow deny list  in creating a new access package.](media/secure-external-access/2-new-access-package.png)
+![Screenshot of allow deny list  in creating a new access package.](media/secure-external-access/2-new-access-package.png)
 
 
 ## Find access being granted to external users
@@ -62,9 +62,7 @@ Specifically investigate access to all of your business-sensitive and business-c
 ### Detect Ad Hoc Sharing
 If your email and network plans enable it, you can investigate content being shared through email or through unauthorized software as a service (SaaS) apps. [Microsoft 365 Data Loss Protection](https://docs.microsoft.com/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) helps you identify, prevent, and monitor the accidental sharing of sensitive information across your Microsoft 365 infrastructure. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) can help you identify the use of unauthorized SaaS apps in your environment.
 
-## Next Steps
-
-
+## Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

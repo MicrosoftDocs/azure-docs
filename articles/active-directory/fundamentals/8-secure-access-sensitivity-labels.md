@@ -1,5 +1,5 @@
 ---
-title: Control external access to resources with Sensitivity Labels
+title: Control external access to resources with Sensitivity Labels in Microsoft 365
 description: Use sensitivity labels as a part of your overall security plan for external access.
 services: active-directory
 author: BarbaraSelden
@@ -131,7 +131,7 @@ Once you have determined how you want to use sensitivity labels, and to what con
 
 6. [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
 
-### Next Steps
+### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

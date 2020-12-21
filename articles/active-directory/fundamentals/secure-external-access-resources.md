@@ -33,7 +33,10 @@ Microsoft offers comprehensive suites of tools for secure external access.  Azur
 
 This document set is designed to enable you to move from ad hoc or loosely governed external collaboration to a more secure state. 
 
+## Next steps
+
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+
 
 1. [Determine your desired security posture for external access](1-secure-access-posture.md)
 

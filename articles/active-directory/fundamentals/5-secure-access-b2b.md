@@ -52,7 +52,7 @@ Also note that limiting to a single domain may inadvertently prevent authorized 
 
 There are circumstances in which you would want to only allow specific collaboration partners. For example, a university system may only want to allow their own faculty access to a resource tenant. Or a conglomerate may only want to allow specific subsidiaries to collaborate with each other to achieve compliance with a required framework.
 
-#### Using Allow and Deny lists
+#### Using allow and deny lists
 
 You can use an allow list or deny list to [restrict invitations to B2B users](../external-identities/allow-deny-list.md) from specific organizations. You can use only an allow or a deny list, not both.
 
@@ -87,7 +87,7 @@ Determine who can invite guest users to access resources.
 
 * Determine if you want users with a userType of Guest, which is the default account type for Azure AD B2B users, to be able to invite other guests. 
 
-![Screen shot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
+![Screenshot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
 
  
 
@@ -113,7 +113,7 @@ Most organizations aren't monolithic. That is, there are some resources that are
 
 By default, guest users can see information and attributes about tenant members and other partners, including group memberships. Consider if your security requirements call for limiting external user access to this information.
 
-![Screen shot of configuring external collaboration settings.](media/secure-external-access/5-external-collaboration-settings.png)
+![Screenshot of configuring external collaboration settings.](media/secure-external-access/5-external-collaboration-settings.png)
 
 We recommend the following restrictions for guest users.
 
@@ -198,7 +198,7 @@ For more information on managing unsanctioned applications, see:
 * [Sanctioning and unsanctioning an application.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
 
  
-### Next Steps
+### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

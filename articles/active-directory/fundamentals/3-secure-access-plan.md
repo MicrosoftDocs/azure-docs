@@ -197,13 +197,13 @@ You can achieve robust governance with Azure AD P1 and Microsoft 365 E3
 
 |Feature | APP & resource access| SharePoint & OneDrive access| Teams access| Email & document security |
 | - |-|-|-|-|
-| Microsoft or Office 365 Groups| | **Access to site(s) included with group (and associated content)**|** Access to teams included with Mgroup (and associated content)**|  |
+| Microsoft or Office 365 Groups| | **Access to site(s) included with group (and associated content)**|**Access to teams included with Microsoft 365 group (and associated content)**|  |
 | Sensitivity labels| | Manually classify and restrict access| Manually classify and restrict access.| Manually classify to restrict and encrypt |
 | Conditional Access Policies| CA policies for access control| | |  |
 | Additional methods| | Restrict SharePoint site access granularly with security groups.<br>Disallow direct sharing.| **Restrict external invitations from within teams**|  |
 
 
-### Next Steps
+### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

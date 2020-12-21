@@ -1,5 +1,5 @@
 ---
-title: Secure external access to Microsoft Teams, SharePoint, and OneDrive
+title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory
 description: Secure access to Microsoft 365 services as a part of your overall external access security.
 services: active-directory
 author: BarbaraSelden
@@ -25,7 +25,7 @@ This article guides you to determine and configure external collaboration to mee
 
 Sharing in Microsoft 365 is in part governed by the [External Identities | External collaboration settings](https://aad.portal.azure.com/) in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides any sharing settings configured in Microsoft 365. An exception to this is that if Azure AD B2B integration isn't enabled, SharePoint and OneDrive can be configured to support ad-hoc sharing via one-time passcodes (OTP).
 
-![Screen shot of External collaboration settings](media/secure-external-access/9-external-collaboration-settings.png)
+![Screenshot of External collaboration settings](media/secure-external-access/9-external-collaboration-settings.png)
 
 ### Guest user access
 
@@ -108,7 +108,7 @@ Azure AD B2B provides authentication and management of guest users. With SharePo
 
 *External Sharing* can be set for both SharePoint and OneDrive. OneDrive restrictions can't be more permissive than the SharePoint settings.
 
- ![Screen shot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
+ ![Screenshot of external sharing settings in SharePoint and OneDrive](media/secure-external-access/9-sharepoint-settings.png)
 
 SharePoint integration with Azure AD B2B changes how controls interact with accounts.
 
@@ -154,7 +154,7 @@ Access controls setting will affect all users in your organization. Given that y
 
 In the SharePoint admin center, you can also set how file and folder links are shared. You can also configure these setting for each site. 
 
- ![Screen shot of file and folder link settings](media/secure-external-access/9-file-folder-links.png)
+ ![Screenshot of file and folder link settings](media/secure-external-access/9-file-folder-links.png)
 
 If you have enabled the integration with Azure AD B2B, sharing of files and folders with those outside of the organization will result in a B2B user being created when files and folder are shared.
 
@@ -170,7 +170,7 @@ To learn more about governing external access to SharePoint see the following:
 
 * [SharePoint and OneDrive integration with Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
 
-#### Next Steps
+#### Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 

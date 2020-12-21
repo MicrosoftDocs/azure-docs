@@ -95,7 +95,7 @@ Many common Conditional Access policies are documented. See the following which 
 
 * [Require Terms of Use](../conditional-access/terms-of-use.md)
 
-## Next Steps
+## Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 
