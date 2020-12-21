@@ -24,12 +24,15 @@
   - name: Managed Service offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
-  - name: Cloud Solution Provider program considerations
+  - name: Cloud Solution Provider program
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
-  - name: Azure Lighthouse in enterprise scenarios
+  - name: Enterprise scenarios
     displayName: corporation, IT, consolidate
     href: ./concepts/enterprise.md
+  - name: ISV scenarios
+    displayName: independent, software, vendor, saas
+    href: ./concepts/isv-scenarios.md
   - name: Azure Lighthouse and Azure managed applications 
     displayName: managed apps, ama
     href: ./concepts/managed-applications.md

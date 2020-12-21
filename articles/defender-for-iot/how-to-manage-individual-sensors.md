@@ -288,7 +288,7 @@ The following procedure describes how to update a standalone sensor by using the
 
 6. On the **Version Upgrade** pane, select **Upgrade**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane.png" alt-text="Screenshot of the Upgrade pane.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the upgrade pane.":::
 
 7. Select the file that you downloaded from the Defender for IoT **Updates** page.
 

@@ -13,17 +13,15 @@ ms.service: azure
 
 In large organizations, user permissions can be complex and might be determined by a global organizational structure, in addition to the standard site and zone structure.
 
-To support the demand for global user access permissions that are more complex, you can create a global business topology that's based on business units, regions, sites, and zones. You can then define user access permissions around these entities.
+To support the demand for more complex global user access permissions, you can create a global business topology that is based on business units, regions and sites, and then define user access permissions around these entities.
 
 Working with access tools for business topology helps organizations implement zero-trust strategies by better controlling where users manage and analyze assets in the Azure Defender for IoT platform.
 
 ## About access groups
 
-You establish global access control by creating user access groups. Access groups consist of rules regarding which users can access specific business entities.
+Global access control is established by creating user Access Groups. Access Groups consist of rules regarding which users can access specific business entities. Working with groups lets you control view and configuration access to Defender for IoT for specific user roles at relevant business units, regions, and specific sites.
 
-Working with groups lets you control view and configuration access to Defender for IoT for specific user roles at relevant business units, regions, specific sites, and zones.
-
-For example, you might allow security analysts from an Active Directory group to access all West European automotive and glass production lines, as well as a plastic line in one zone.
+For example, allow Security Analysts from an Active Directory group access to all West European automotive and glass production lines, as well as a plastic line in one region.
 
 :::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
 
@@ -79,7 +77,7 @@ When you're creating rules, be aware of the following information:
 
 - For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window.
 
-- You can assign only one element per rule. For example, you can assign one business unit, one region, one site, and one zone for each rule. Create additional rules for the group if, for example, you want users in one Active Directory group to have access to different business units in different regions.
+- You can only assign one element per rule. For example, one business unit, one region, and one site for each rule. Create addition rules for the group if, for example, you want users in one Active Directory group to have access to different business units in different regions.
 
 - If you change an entity and the change affects the rule logic, the rule will be deleted. If changes made to a topology entity affect the rule logic such that all rules are deleted, the access group remains but the users can't sign in to the on-premises management console. Users are notified to contact their administrator to sign in.
 

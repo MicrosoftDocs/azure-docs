@@ -29,7 +29,7 @@ The dashboard allows you to quickly view the security status of your network. It
 
 - Timeline with the alert description.
 
-:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/dashboard-alert-screen.png" alt-text="Dashboard":::
+:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/dashboard-alert-screen-v2.png" alt-text="Dashboard":::
 
 ## Viewing the latest alerts
 
@@ -93,7 +93,7 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 - Administrators and Security Analysts only - change the status of the alert from unacknowledged to acknowledged. Select Learn to approve detected activity.
 
-:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v2.png" alt-text="Unauthorized Internet connectivity detected":::
+:::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Unauthorized Internet connectivity detected":::
 
 ## See also
 

@@ -27,7 +27,7 @@
       href: tutorial-python-virtual-machine.md
   - name: Azure App Service
     items:
-    - name: Use Azure Key Vault wit an Web App in .NET
+    - name: Use Azure Key Vault with a Web App in .NET
       href: tutorial-net-create-vault-azure-web-app.md
   - name: Azure Kubernetes Service
     items: 
@@ -120,10 +120,6 @@
       href: developers-guide.md
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
-    - name: Save Web App secrets
-      href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-    - name: Service-to-service authentication with .NET
-      href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
@@ -176,13 +172,13 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/keyvault/management?view=azure-python
+    href: /python/api/overview/azure/key-vault-index?view=azure-python
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

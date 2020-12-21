@@ -1,13 +1,16 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 11/18/2020
+ms.date: 12/18/2020
 ms.topic: conceptual
 ---
 
 # Azure Batch best practices
 
 This article discusses a collection of best practices and useful tips for using the Azure Batch service effectively, based on real-life experiences with Batch. These tips can help you enhance performance and avoid design pitfalls in your Azure Batch solutions.
+
+> [!TIP]
+> For guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
 
 ## Pools
 
@@ -139,6 +142,10 @@ A [compute node](nodes-and-pools.md#nodes) is an Azure virtual machine (VM) or c
 ### Idempotent start tasks
 
 Just as with other tasks, the node [start task](jobs-and-tasks.md#start-task) should be idempotent, as it will be rerun every time the node boots. An idempotent task is simply one that produces a consistent result when run multiple times.
+
+### Isolated nodes
+
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### Manage long-running services via the operating system services interface
 

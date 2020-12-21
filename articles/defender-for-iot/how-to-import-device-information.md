@@ -40,7 +40,7 @@ To import:
 
 2. In the upper-right corner of the **Devices** window, select :::image type="icon" source="media/how-to-import-device-information/file-icon.png" border="false":::.
 
-   :::image type="content" source="media/how-to-import-device-information/device-window.png" alt-text="Screenshot of the device window.":::
+   :::image type="content" source="media/how-to-import-device-information/device-window-v2.png" alt-text="Screenshot of the device window.":::
 
 3. Select **Export Devices**. An extensive range of information appears in the exported file. This information includes protocols that the device uses and the device authorization status.
 
@@ -52,7 +52,7 @@ To import:
 
 5. From the **Import/Export** drop-down menu in the **Device** window, select **Import Devices**.
 
-   :::image type="content" source="media/how-to-import-device-information/import-assets.png" alt-text="Import devices through the device window.":::
+   :::image type="content" source="media/how-to-import-device-information/import-assets-v2.png" alt-text="Import devices through the device window.":::
 
 6. Select **Import Devices** and select the CSV file that you want to import. The import status messages appear on the screen until the **Import Devices** dialog box closes.
 
@@ -74,7 +74,7 @@ To import the IP address, OS, and patch level:
 
 2. On the side menu, select **Import Settings**.
 
-   :::image type="content" source="media/how-to-import-device-information/import-settings-screen.png" alt-text="Import your settings.":::
+   :::image type="content" source="media/how-to-import-device-information/import-settings-screen-v2.png" alt-text="Import your settings.":::
 
 3. To upload the required configuration, in the **Device Info** section, select **Add** and upload the CSV file that you prepared.
 
@@ -127,7 +127,7 @@ To import:
 
 2. In the upper-right corner of the **Devices** window, select :::image type="icon" source="media/how-to-import-device-information/file-icon.png" border="false":::.
 
-   :::image type="content" source="media/how-to-import-device-information/device-window.png" alt-text="The window to pick your device from.":::
+   :::image type="content" source="media/how-to-import-device-information/device-window-v2.png" alt-text="The window to pick your device from.":::
 
 3. Select **Export Devices**. An extensive range of information appears in the exported file. Examples include protocols that the device uses and the device authorization status.
 
@@ -139,7 +139,7 @@ To import:
 
 5. From the **Import/Export** drop-down menu in the **device** window, select **Import Devices**.
 
-   :::image type="content" source="media/how-to-import-device-information/import-assets.png" alt-text="Import your devices.":::
+   :::image type="content" source="media/how-to-import-device-information/import-assets-v2.png" alt-text="Import your devices.":::
 
 6. Select **Import Devices** and select the CSV file that you want to import. The import status messages appear on the screen until the **Import Devices** dialog box closes.
 
@@ -161,7 +161,7 @@ To import the IP address, OS, and patch level:
 
 2. On the side menu, select **Import Settings**.
 
-   :::image type="content" source="media/how-to-import-device-information/import-settings-screen.png" alt-text="Fill out the import settings screen.":::
+   :::image type="content" source="media/how-to-import-device-information/import-settings-screen-v2.png" alt-text="Fill out the import settings screen.":::
 
 3. To upload the required configuration, in the **Device Info** section, select **Add** and upload the CSV file that you've prepared.
 

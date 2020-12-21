@@ -92,8 +92,8 @@ Nested JSON data sources are supported, but are indexed based off of parent fiel
 ```json
 {
     "tag": [{
-    	"a":"1",
-    	"b":"2"
+      "a":"1",
+      "b":"2"
     }]
 }
 ```

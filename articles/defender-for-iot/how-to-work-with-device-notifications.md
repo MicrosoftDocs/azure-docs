@@ -71,7 +71,7 @@ You might need to handle several notifications simultaneously. For example:
 
 - If a group of devices in a certain line was phased out and isn't active anymore, you can instruct the sensor to remove these devices from the console.
 
-You can instruct the sensor to apply newly detected information to multiple devices or ignore it.   
+You can instruct the sensor to apply newly detected information to multiple devices or ignore it.   
 
 To display notifications and handle notifications:
 
