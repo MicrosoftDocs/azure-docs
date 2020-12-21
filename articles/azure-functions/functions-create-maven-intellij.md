@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function with Java and IntelliJ 
+title: Create an Azure Function with Java and IntelliJ 
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Java and IntelliJ.
 author: jeffhollan
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
 ---
 
-# Create your first Azure function with Java and IntelliJ
+# Create your first Azure Function with Java and IntelliJ
 
 This article shows you:
 - How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA
