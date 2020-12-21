@@ -45,7 +45,7 @@ When the policy runs, Azure AD B2C sends and receives claims to and from interna
 
 ### Manipulating your claims
 
-The [claims transformations](claimstransformations.md) are predefined functions that can be used to convert a given claim into another one, evaluate a claim, or set a claim value. For example adding an item to a string collection, changing the case of a string, or evaluate a data and time claim. A claims transformation specifies a transform method. 
+The [claims transformations](claimstransformations.md) are predefined functions that can be used to convert a given claim into another one, evaluate a claim, or set a claim value. For example adding an item to a string collection, changing the case of a string, or evaluate a date and time claim. A claims transformation specifies a transform method. 
 
 ### Customize and localize your UI
 
