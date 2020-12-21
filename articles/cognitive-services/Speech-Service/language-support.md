@@ -135,7 +135,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 
 > [!NOTE]
 > Neural voices are created from samples that use a 24 khz sample rate.
-> All voices can upsample or downsample to other sample rates.
+> All voices can upsample or downsample to other sample rates when synthesizing.
 
 
 | Language | Locale | Gender | Voice name | Style support |
@@ -297,7 +297,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
 > **The en-US-AriaRUS** and **en-US-GuyRUS** voices are also created from samples that use a 24 khz sample rate.
-> All voices can upsample or downsample to other sample rates.
+> All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
