@@ -39,18 +39,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 The following example shows how to read the message as a POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -212,7 +217,7 @@ The following table explains the binding configuration properties that you set i
 |**userNameSetting**|**UserNameSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "%< UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. PasswordSetting: "%< PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0.|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -276,7 +281,7 @@ This section describes the global configuration settings available for this bind
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |queueName|n/a| Name of the queue to receive messages from.|
 |connectionString|n/a|The RabbitMQ message queue connection string. Please note that the connection string is directly specified here and not through an app setting.|
-|port|0|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0.|
+|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 ## Local testing
 
@@ -301,9 +306,9 @@ If you are testing locally without a connection string, you should set the "host
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|hostName|n/a|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|userName|n/a|(ignored if using ConnectionStringSetting) <br>Name to access the queue |
-|password|n/a|(ignored if using ConnectionStringSetting) <br>Password to access the queue|
+|hostName|n/a|(ignored if using connectionString) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|userName|n/a|(ignored if using connectionString) <br>Name to access the queue |
+|password|n/a|(ignored if using connectionString) <br>Password to access the queue|
 
 ## Monitoring RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:

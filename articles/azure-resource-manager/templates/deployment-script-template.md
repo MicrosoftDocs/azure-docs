@@ -68,7 +68,7 @@ To configure the least-privilege permissions, you need:
 
   If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
 
-- If a managed identity is used, you need to assign **Managed Identity Operator** (a built-in role) to the managed identity resource.
+- If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
 ## Sample templates
 

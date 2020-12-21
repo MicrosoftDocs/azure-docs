@@ -52,10 +52,10 @@ To create a connection, you'll need to prep your ITSM tool to allow the connecti
 
 Based on the ITSM product you're connecting to, select one of the following links for instructions:
 
-- [System Center Service Manager](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
 After you've prepped your ITSM tools, complete these steps to create a connection:
 

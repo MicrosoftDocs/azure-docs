@@ -26,7 +26,7 @@ This tutorial focuses on adding the necessary bits to a native `Holographic App`
 
 For this tutorial you need:
 
-* Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
+* Your account information (account ID, account key, account domain, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/).
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
@@ -165,7 +165,8 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         RR::AzureFrontendAccountInfo init;
         init.AccountId = "00000000-0000-0000-0000-000000000000";
         init.AccountKey = "<account key>";
-        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+        init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
         m_modelURI = "builtin://Engine";
         m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
 
@@ -216,7 +217,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
 
 The code calls member functions `SetNewSession` and `SetNewState`, which we will implement in the next paragraph along with the rest of the state machine code.
 
-Note that credentials are hard-coded in the sample and needs to be filled out in place ([account ID, account key](../../../how-tos/create-an-account.md#retrieve-the-account-information), and [domain](../../../reference/regions.md)).
+Note that credentials are hard-coded in the sample and needs to be filled out in place ([account ID, account key, account domain](../../../how-tos/create-an-account.md#retrieve-the-account-information), and [remote rendering domain](../../../reference/regions.md)).
 
 We do the de-initialization symmetrically and in reverse order at the end of the destructor body:
 
