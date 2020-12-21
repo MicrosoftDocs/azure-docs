@@ -1,5 +1,5 @@
 ---
-title: Control external access to resources with Sensitivity Labels in Microsoft 365
+title: Control external access to resources in Azure Active Directory with sensitivity labels.
 description: Use sensitivity labels as a part of your overall security plan for external access.
 services: active-directory
 author: BarbaraSelden
