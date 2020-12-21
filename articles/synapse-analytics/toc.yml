@@ -522,7 +522,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Tools to connect to Synapse workspaces
+    - name: Connect with tools and applications
       items:
       - name: Overview
         href: sql/connect-overview.md
@@ -538,6 +538,12 @@
         href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
         href: sql/get-started-power-bi-professional.md
+      - name: Query using .NET Core
+        href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Visual Studio .NET
+        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Python
+        href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Apache Spark
   items:
   - name: Overview
