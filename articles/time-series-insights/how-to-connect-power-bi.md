@@ -26,7 +26,8 @@ You'll learn how to:
 ## Prerequisites
 
 * Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
-* Have or create an [Azure Time Series Insights Gen2 environment](time-series-insights-update-how-to-manage.md)
+* Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+* Have or create an [Azure Time Series Insights Gen2 environment](./how-to-provision-manage.md)
 
 Please review [environment access policies](./concepts-access-policies.md) and make sure you have either direct access or guest access to the Azure Time Series Insights Gen2 environment. 
 
@@ -89,9 +90,9 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
 1. On the left side of the window, make sure you have selected the **Report** view.
 
-    [![Select the Report View](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Screenshot shows Report view icon.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.	In the **Visualizations** column, select your visual of choice. For example, select **Line chart**. This will add a blank line chart to your canvas.
+1. In the **Visualizations** column, select your visual of choice. For example, select **Line chart**. This will add a blank line chart to your canvas.
 
 1.	In the **Fields** list, select **_Timestamp** and drag it to the **Axis** field to display time along the X-axis. Make sure to switch to **_Timestamp** to as the value for the **Axis** (default is **Date Hierarchy**).
 
@@ -101,14 +102,13 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
     [![Create a basic line chart](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.	To add another chart to your canvas, select anywhere on the canvas outside the line chart and repeat this process.
+1. To add another chart to your canvas, select anywhere on the canvas outside the line chart and repeat this process.
 
     [![Create additional charts to share](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
 Once you have created your report, you can publish it to Power BI Reporting Services and share with others in your organization.
 
 ## Advanced editing
-
 If you have already loaded a dataset in Power BI but would like to modify the query (such as the date/time or Environment ID parameters), you can do this via Power BI’s Advanced Editor functionality. Refer to the [Power BI documentation](https://docs.microsoft.com/power-bi/desktop-query-overview) to learn more about how to make changes using the **Power Query Editor**. 
 
 ## Next Steps

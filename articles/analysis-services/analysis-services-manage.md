@@ -15,7 +15,7 @@ Once you've created an Analysis Services server in Azure, there may be some admi
 ## Azure portal
 [Azure portal](https://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
 
-![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Screenshot that shows the Azure portal where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## SQL Server Management Studio
 Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
@@ -25,7 +25,7 @@ Connecting to your server in Azure is just like connecting to a server instance 
 ### Download and install SSMS
 To get all the latest features, and the smoothest experience when connecting to your Azure Analysis Services server, be sure you're using the latest version of SSMS. 
 
-[Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### To connect with SSMS
@@ -61,4 +61,3 @@ When connecting using SSMS, if you run into problems, you may need to clear the 
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
 If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Get data from Azure Analysis Services server](analysis-services-connect.md).
-

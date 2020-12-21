@@ -1,30 +1,30 @@
 ---
 title: Setting Up the Azure Import/Export Tool v1 | Microsoft Docs
-description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service. This refers to v1 of the Import/Export Tool.
-author: twooley
+description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service. This article refers to version 1 of the Import/Export Tool.
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/15/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
 ---
 
 # Setting up the Azure Import/Export Tool v1
 The Microsoft Azure Import/Export Tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use the tool for the following functions:  
 
--   Before creating an import job, you can use this tool to copy data to the hard drives you are going to ship to a Windows Azure data center.  
+-   Before creating an import job, you can use this tool to copy data to the hard drives you're shipping to a Windows Azure data center.  
 
 -   After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs.  
 
 -   After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.  
 
 ## Prerequisites  
-If you are preparing drives for an import job, you will need to meet the following prerequisites:  
+If you're preparing drives for an import job, you'll need to meet the following prerequisites:  
 
 -   You must have an active Azure subscription.  
 
--   Your subscription must include a storage account with enough available space to store the files you are going to import.  
+-   Your subscription must include a storage account with enough available space to store the files you're importing.  
 
 -   You need at least one of the account keys for the storage account.  
 
@@ -34,7 +34,7 @@ If you are preparing drives for an import job, you will need to meet the followi
 
 -   BitLocker must be enabled on the copy machine.  
 
--   You will need one or more drives that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.  
+-   You'll need one or more drives that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.  
 
 -   The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
@@ -67,7 +67,7 @@ If you are attempting to repair an import that has partially failed, you will ne
 
 - Hddid.dll  
 
-  Copy these files to a working directory, for example, `c:\WAImportExport`. Next, open a command line window in Administrator mode, and set the above directory as current directory.  
+  Copy these files to a working directory, for example, `c:\WAImportExport`. Next, open a command-line window in Administrator mode, and set the above directory as current directory.  
 
   To output help for the command, run the tool without parameters:  
 
@@ -244,9 +244,8 @@ Examples:
 
 ## Next steps
 
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Previewing Drive usage for an export job](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an import job](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Previewing Drive usage for an export job](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Reviewing job status with copy log files](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an import job](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)

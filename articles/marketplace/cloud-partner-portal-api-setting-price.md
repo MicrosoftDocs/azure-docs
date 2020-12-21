@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
+ms.date: 09/02/2020
 ---
 
 # Pricing for virtual machine offers
@@ -102,7 +102,7 @@ spreadsheet URI and the evaluated prices for the region.
 
 ## New core sizes added on 7/2/2019
 
-VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices.  Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
+VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices. Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
 
 ## Regions
 
@@ -126,7 +126,7 @@ customized core pricing, and their corresponding currency codes.
 | CR         | Costa Rica           | CRC               |
 | HR         | Croatia              | HRK               |
 | CY         | Cyprus               | EUR               |
-| CZ         | Czech Republic       | CZK               |
+| CZ         | Czechia       | CZK               |
 | DK         | Denmark              | DKK               |
 | DO         | Dominican Republic   | USD               |
 | EC         | Ecuador              | USD               |
@@ -156,7 +156,6 @@ customized core pricing, and their corresponding currency codes.
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lithuania            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | North Macedonia      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
@@ -165,6 +164,7 @@ customized core pricing, and their corresponding currency codes.
 | NL         | Netherlands          | EUR               |
 | NZ         | New Zealand          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | North Macedonia      | MKD               |
 | NO         | Norway               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

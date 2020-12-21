@@ -55,7 +55,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
     Also, check:
 
    - the spam settings of your email client (like Outlook, Gmail)
-      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Office 365, G-suite)
+      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
       - the settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**

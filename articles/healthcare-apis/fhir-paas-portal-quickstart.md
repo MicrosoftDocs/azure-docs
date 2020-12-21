@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 03/15/2020
-ms.author: matjazl
+ms.author: cavoeg
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
@@ -62,7 +62,10 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
 
 >[!div class="nextstepaction"]
 >[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Register Applications Overview](fhir-app-registration.md)

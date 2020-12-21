@@ -146,11 +146,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--log-level** string     Define the log verbosity for the log file, available levels: `INFO`(all requests and responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`). 
 
+**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is not preserved for folders.
+
+**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, `include-pattern`).
+
 **--put-md5**     Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
 **--recursive**    `True` by default, look into subdirectories recursively when syncing between directories. (default `True`). 
 
-**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`). 
+**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`). 
 
 ## Options inherited from parent commands
 

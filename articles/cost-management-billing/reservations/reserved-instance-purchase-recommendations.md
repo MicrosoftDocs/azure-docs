@@ -5,8 +5,9 @@ author: banders
 ms.author: banders
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/02/2020
 ---
 
 # Reservation recommendations
@@ -19,6 +20,7 @@ The following steps define how recommendations are calculated:
 2. Based on the usage data, the engine simulates your costs with and without reservations.
 3. The costs are simulated for different quantities, and the quantity that maximizes the savings is recommended.
 4. If your resources are shut down regularly, the simulation won't find any savings, and no purchase recommendation is provided.
+5. Recommendation recommendations calculation includes any special discounts that your might have on your on-demand usage rates.
 
 ## Recommendations in the Azure portal
 
@@ -46,11 +48,11 @@ To maximize savings with reservations, try to purchase reservations as close to 
 
 Reservation purchase recommendations are available in Azure Advisor. Keep in mind the following points:
 
-- Advisor has only single-subscription scope recommendations.
-- Recommendations are calculated by considering past 30-day usage trend.
+- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), go to Azure portal > Reservations > Add and select the type that you want to see the recommendations for.
+- Recommendations available in advisor considerer past 30-day usage trend.
 - Recommendations quantity and savings are for 3-Year reservation where available. If 3 Year reservation is not sold for the service, the recommendation is calculated using 1 year reservation price.
-- Recommendation recommendations factor any special discounts that your might have on your on-demand usage rates.
-- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
+- Recommendation recommendations calculations include any special discounts that your might have on your on-demand usage rates.
+- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take upto 5 days to disappear.
 
 ## Other expected API behavior
 

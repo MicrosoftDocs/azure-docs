@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create an Azure DB for PostgreSQL - ARM template'
-description: In this article, learn how to create an Azure Database for PostgreSQL single server by using an Azure Resource Manager template.
-author: mgblythe
+description: In this quickstart, learn how to create an Azure Database for PostgreSQL single server by using an Azure Resource Manager template.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
 ---
 
@@ -17,7 +17,7 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ You create an Azure Database for PostgreSQL server with a configured set of comp
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
+:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json":::
 
 The template defines five Azure resources:
 
@@ -61,7 +61,7 @@ More Azure Database for PostgreSQL template samples can be found in [Azure Quick
 
 Select the following link to deploy the Azure Database for PostgreSQL server template in the Azure portal:
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 On the **Deploy Azure Database for PostgreSQL with VNet** page:
 
@@ -71,7 +71,7 @@ On the **Deploy Azure Database for PostgreSQL with VNet** page:
 
 3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
 
-    ![Deploy Azure Database for PostgreSQL with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Deploy Azure Database for PostgreSQL with VNet window, Azure quickstart template, Azure portal":::
 
 4. Change the other default settings if you want:
 

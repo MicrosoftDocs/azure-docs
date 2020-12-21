@@ -5,11 +5,11 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
 
 ---
-# Configure development environment for deployment scripts in templates (Preview)
+# Configure development environment for deployment scripts in templates
 
 Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
@@ -150,7 +150,10 @@ The following ARM template creates a container instance and a file share, and th
 ```
 The default value for the mount path is **deploymentScript**.  This is the path in the container instance where it is mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.   See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
 
 The template suspends the container instance 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
 

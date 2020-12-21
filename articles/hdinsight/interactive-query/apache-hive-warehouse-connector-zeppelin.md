@@ -13,6 +13,9 @@ ms.date: 05/28/2020
 
 HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we'll focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
 
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Prerequisite
 
 Complete the [Hive Warehouse Connector setup](apache-hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.

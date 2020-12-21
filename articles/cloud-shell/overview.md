@@ -29,7 +29,7 @@ You can access the Cloud Shell in three ways:
 
     ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-- **Code snippets**: On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
+- **Code snippets**: On [docs.microsoft.com]() and [Microsoft Learn](/learn/), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
 
     ```azurecli-interactive
     az account show
@@ -83,8 +83,8 @@ Cloud Shell is a flexible tool that can be used from:
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI documentation](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/)
+* [Azure CLI documentation](/cli/azure)
+* [Azure PowerShell documentation](/powershell/azure/)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -107,7 +107,7 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 * Cloud Shell persists $HOME using a 5-GB image held in your file share
 * Permissions are set as a regular Linux user in Bash
 
-Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](features-powershell.md).
+Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](./features.md).
 
 ## Pricing
 

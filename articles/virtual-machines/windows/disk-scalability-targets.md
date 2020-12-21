@@ -17,7 +17,7 @@ See [Windows VM sizes](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 ## Managed virtual machine disks
 
-Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+Sizes denoted with an asterisk are currently in preview. See our [FAQ](../faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 

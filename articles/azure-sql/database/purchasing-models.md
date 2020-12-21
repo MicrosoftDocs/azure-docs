@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database and SQL Managed Instance
@@ -66,7 +66,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) service tiers for SQL Database and SQL Managed Instance.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -121,7 +121,7 @@ You can add additional eDTUs to an existing pool with no database downtime and w
 
 ### Determine the number of DTUs needed by a workload
 
-If you want to migrate an existing on-premises or SQL Server virtual machine workload to SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing SQL Database workload, use [query-performance insights](query-performance-insight-use.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+If you want to migrate an existing on-premises or SQL Server virtual machine workload to SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing SQL Database workload, use [query-performance insights](query-performance-insight-use.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
 
 ### Determine DTU utilization
 
@@ -129,7 +129,7 @@ To determine the average percentage of DTU/eDTU utilization relative to the DTU/
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-The input values for this formula can be obtained from [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), and [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. In other words, to determine the percentage of DTU/eDTU utilization toward the DTU/eDTU limit of a database or an elastic pool, pick the largest percentage value from the following: `avg_cpu_percent`, `avg_data_io_percent`, and `avg_log_write_percent` at a given point in time.
+The input values for this formula can be obtained from [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), and [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. In other words, to determine the percentage of DTU/eDTU utilization toward the DTU/eDTU limit of a database or an elastic pool, pick the largest percentage value from the following: `avg_cpu_percent`, `avg_data_io_percent`, and `avg_log_write_percent` at a given point in time.
 
 > [!NOTE]
 > The DTU limit of a database is determined by CPU, reads, writes, and memory available to the database. However, because the SQL Database engine typically uses all available memory for its data cache to improve performance, the `avg_memory_usage_percent` value will usually be close to 100 percent, regardless of current database load. Therefore, even though memory does indirectly influence the DTU limit, it is not used in the DTU utilization formula.
@@ -144,13 +144,13 @@ In the DTU-based purchasing model, customers cannot choose the hardware generati
 
 For example, a database can be moved to a different hardware generation if it's scaled up or down to a different service objective, or if the current infrastructure in a datacenter is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
 
-If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](./service-tiers-dtu.md#dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
 
 However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the DTU benchmark, it's possible to see performance differences if the database moves from one hardware generation to another.
 
 For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware versus Gen5 due to a higher memory per core ratio on Gen4.
 
-Customers with workloads that are sensitive to hardware changes or customers who wish to control the choice of hardware generation for their database can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware generations](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Customers with workloads that are sensitive to hardware changes or customers who wish to control the choice of hardware generation for their database can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware generations](./service-tiers-vcore.md#hardware-generations).
 
 ## Frequently asked questions (FAQs)
 

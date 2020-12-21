@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 01/25/2019
 ---
 # Disaster recovery strategies for applications using Azure SQL Database elastic pools
@@ -72,7 +72,7 @@ I am a mature SaaS application with tiered service offers and different SLAs for
 
 To support this scenario, separate the trial tenants from paid tenants by putting them into separate elastic pools. The trial customers have lower eDTU or vCores per tenant and lower SLA with a longer recovery time. The paying customers are in a pool with higher eDTU or vCores per tenant and a higher SLA. To guarantee the lowest recovery time, the paying customers' tenant databases are geo-replicated. This configuration is illustrated on the next diagram.
 
-![Figure 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![Diagram shows a primary region and a D R region which employ geo-replication between the management database and paid customers primary pool and secondary pool with no replication for the trial customers pool.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 As in the first scenario, the management databases are quite active so you use a single geo-replicated database for it (1). This ensures the predictable performance for new customer subscriptions, profile updates, and other management operations. The region in which the primaries of the management databases reside is the primary region and the region in which the secondaries of the management databases reside is the DR region.
 
@@ -80,7 +80,7 @@ The paying customers’ tenant databases have active databases in the “paid”
 
 If an outage occurs in the primary region, the recovery steps to bring your application online are illustrated in the next diagram:
 
-![Figure 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Diagram shows an outage for the primary region, with failover to the management database, paid customer secondary pool, and creation and restore for trial customers.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Immediately fail over the management databases to the DR region (3).
 * Change the application’s connection string to point to the DR region. Now all new accounts and tenant databases are created in the DR region. The existing trial customers see their data temporarily unavailable.
@@ -93,7 +93,7 @@ At this point your application is back online in the DR region. All paying custo
 
 When the primary region is recovered by Azure *after* you have restored the application in the DR region you can continue running the application in that region or you can decide to fail back to the primary region. If the primary region is recovered *before* the failover process is completed, consider failing back right away. The failback takes the steps illustrated in the next diagram:
 
-![Figure 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![Diagram shows failback steps to implement after restoring the primary region.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Cancel all outstanding geo-restore requests.
 * Fail over the management databases (8). After the region’s recovery, the old primary automatically become the secondary. Now it becomes the primary again.  
@@ -122,7 +122,7 @@ To support this scenario, use three separate elastic pools. Provision two equal 
 
 To guarantee the lowest recovery time during outages, the paying customers' tenant databases are geo-replicated with 50% of the primary databases in each of the two regions. Similarly, each region has 50% of the secondary databases. This way, if a region is offline, only 50% of the paid customers' databases are impacted and have to fail over. The other databases remain intact. This configuration is illustrated in the following diagram:
 
-![Figure 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![Diagram shows a primary region called Region A and secondary region called Region B which employ geo-replication between the management database and paid customers primary pool and secondary pool with no replication for the trial customers pool.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 As in the previous scenarios, the management databases are quite active so configure them as single geo-replicated databases (1). This ensures the predictable performance of the new customer subscriptions, profile updates and other management operations. Region A is the primary region for the management databases and the region B is used for recovery of the management databases.
 
@@ -130,7 +130,7 @@ The paying customers’ tenant databases are also geo-replicated but with primar
 
 The next diagram illustrates the recovery steps to take if  an outage occurs in region A.
 
-![Figure 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Diagram shows an outage for the primary region, with failover to the management database, paid customer secondary pool, and creation and restore for trial customers to region B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Immediately fail over the management databases to region B (3).
 * Change the application’s connection string to point to the management databases in region B. Modify the management databases to make sure the new accounts and tenant databases are created in region B and the existing tenant databases are found there as well. The existing trial customers see their data temporarily unavailable.
@@ -146,7 +146,7 @@ At this point your application is back online in region B. All paying customers 
 
 When region A is recovered you need to decide if you want to use region B for trial customers or failback to using the trial customers pool in region A. One criteria could be the % of trial tenant databases modified since the recovery. Regardless of that decision, you need to re-balance the paid tenants between two pools. the next diagram illustrates the process when the trial tenant databases fail back to region A.  
 
-![Figure 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![Diagram shows failback steps to implement after restoring Region A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Cancel all outstanding geo-restore requests to trial DR pool.
 * Fail over the management database (8). After the region’s recovery, the old primary automatically became the secondary. Now it becomes the primary again.  

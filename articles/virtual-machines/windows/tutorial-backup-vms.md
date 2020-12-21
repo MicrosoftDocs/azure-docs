@@ -56,7 +56,7 @@ In this example, we show how to recover the image file that is used in the defau
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
 
-    ![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
+    ![Screenshot that shows the default IIS web page.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Connect to the VM.
 1. On the VM, open **File Explorer** and navigate to \inetpub\wwwroot and delete the file **iisstart.png**.

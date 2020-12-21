@@ -1,6 +1,8 @@
 ---
 title: Use NLP with LUIS for chat bots
-description: Cognitive Services provides two natural language processing services, Language Understanding and QnA Maker, each with a different purpose. Understand when to use each service and how they compliment each other.
+description: Learn when to use Language Understanding and when to use QnA Maker and understand how they compliment each other.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ---

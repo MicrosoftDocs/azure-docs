@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
+ms.custom: devx-track-csharp
 ---
 
 # How to use Collaborative Translation Framework (CTF) reporting

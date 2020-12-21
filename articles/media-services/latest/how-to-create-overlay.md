@@ -5,12 +5,15 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 08/31/2020
 ---
 
 # How to create an overlay with Media Encoder Standard
 
-The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+The Media Encoder Standard allows you to overlay an image, audio file, or another video onto another video. The input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+
 
 ## Prerequisites
 
@@ -25,7 +28,7 @@ The Media Encoder Standard allows you to overlay an image onto an existing video
     "AccountName": "",
     "ArmAadAudience": "https://management.core.windows.net/",
     "ArmEndpoint": "https://management.azure.com/",
-    "Region": "",
+    "Location": "",
     "ResourceGroup": "",
     "SubscriptionId": ""
     }

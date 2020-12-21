@@ -28,4 +28,4 @@ All transient errors (for example, network errors) are retried regardless of the
 
 
 ## Next steps
-[Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Troubleshooting guide for Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

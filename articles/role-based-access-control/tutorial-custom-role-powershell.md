@@ -49,7 +49,7 @@ Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure resource provider operations](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize

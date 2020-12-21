@@ -43,7 +43,7 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory)| Standard_DS3 (4 cores, 14 GB memory)|
 | **Region availability** |All Azure regions |Azure regions that support Premium Storage and DS3 Azure VMs<br></br>Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region. |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br> |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-account-create.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br> |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios <br></br>Low latency and higher performance workloads<br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
@@ -92,7 +92,7 @@ Before you provision the cloud appliance, you need to make the following prepara
 Make the following updates to your StorSimple Device Manager service before you create a cloud appliance:
 
 * Add [access control records](storsimple-8000-manage-acrs.md) for the VMs that are going to be the host servers for your cloud appliance.
-* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/common/storage-create-storage-account.md).
+* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/common/storage-account-create.md).
 * Use a different storage account for cloud appliance creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:
@@ -263,7 +263,7 @@ To stop all the charges, you must delete the cloud appliance. To delete the back
 ## Troubleshoot Internet connectivity errors
 During the creation of a cloud appliance, if there is no connectivity to the Internet, the creation step fails. To troubleshoot Internet connectivity failures, perform the following steps in the Azure portal:
 
-1. [Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
+1. [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
 2. Remote log into the virtual machine created in the preceding step.
 3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
 4. Run the following cmd at the prompt.

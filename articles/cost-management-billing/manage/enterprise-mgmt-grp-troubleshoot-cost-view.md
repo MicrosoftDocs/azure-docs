@@ -4,8 +4,9 @@ description: Learn how to resolve any issues you might have with organizational 
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 06/05/2019
+ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -35,7 +36,7 @@ If you get an error message stating **This asset is unavailable** when trying to
 
 ![Screenshot that shows "asset is unavailable" message.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Ask your Azure subscription or management group administrator for access. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Ask your Azure subscription or management group administrator for access. For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 - If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

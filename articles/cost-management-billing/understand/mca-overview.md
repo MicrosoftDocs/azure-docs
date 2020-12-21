@@ -4,8 +4,9 @@ description: Learn about your Microsoft Customer Agreement billing account, incl
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

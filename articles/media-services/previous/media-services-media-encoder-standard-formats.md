@@ -19,6 +19,8 @@ ms.reviewer: anilmur
 ---
 # Media Encoder Standard Formats and Codecs
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
 > * [Version 3](../latest/media-encoder-standard-formats.md)

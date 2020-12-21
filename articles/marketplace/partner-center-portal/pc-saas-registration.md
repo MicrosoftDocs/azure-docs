@@ -15,7 +15,7 @@ This article explains how to register a SaaS application using the Microsoft [Az
 
 Azure Marketplace does not impose any constraints on the authentication method your SaaS service uses for end users. The flow below is required only for authenticating the SaaS Service in Azure Marketplace.
 
-For more information about Azure AD (Active Directory), see [What is authentication](../../active-directory/develop/authentication-scenarios.md)?
+For more information about Azure AD (Active Directory), see [What is authentication](../../active-directory/develop/authentication-vs-authorization.md)?
 
 ## Register an Azure AD-secured app
 
@@ -32,11 +32,11 @@ Any application that wants to use the capabilities of Azure AD must first be reg
     -   **Application type**:  
         
         Select **Web app / API** for
-        [client applications](../../active-directory/develop/active-directory-dev-glossary.md#client-application))
-        and [resource/API applications](../../active-directory/develop/active-directory-dev-glossary.md#resource-server))
+        [client applications](../../active-directory/develop/developer-glossary.md#client-application))
+        and [resource/API applications](../../active-directory/develop/developer-glossary.md#resource-server))
         that are installed on a secure server. This setting is used for
-        OAuth confidential [web clients](../../active-directory/develop/active-directory-dev-glossary.md#web-client))
-        and public [user-agent-based  clients](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
+        OAuth confidential [web clients](../../active-directory/develop/developer-glossary.md#web-client))
+        and public [user-agent-based  clients](../../active-directory/develop/developer-glossary.md#user-agent-based-client)).
         The same application can also expose both a client and resource/API.
 
         For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) section of the [Azure AD Developers Guide](../../active-directory/develop/index.yml).
@@ -82,7 +82,7 @@ Post<br>
 
 |  Property name     |  Required         |  Description |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Grant type. Use `"client_credentials"`. |
+|  `grant_type`      |  True      |  Grant type. Use `"client_credentials"`. |
 |  `client_id`       |  True      |  Client/app identifier associated with the Azure AD app. |
 |  `client_secret`   |  True      |  Secret associated with the Azure AD app. |
 |  `resource`        |  True      |  Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` because Marketplace SaaS API is always the target resource in this case. |

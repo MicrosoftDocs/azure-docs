@@ -32,7 +32,7 @@ There are three ways to resolve this issue. The choices below are in listed in i
     If you change the internal URL but don’t want to change the landing page for users, change the Home page URL to the previously published internal URL. This can be done by going to “Azure Active Directory” -&gt; App Registrations -&gt; select the application -&gt; Branding. In the branding section, you see the field “Home Page URL”, which you can adjust to be the desired landing page. If you are still using the legacy App registrations experience the properties tab would show the "Home Page URL" details. 
     
     > [!IMPORTANT]
-    > In order to make the above changes you require rights to modify application objects in Azure AD.The user needs to be assigned [Application Administrator](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) role which grants application modificaion rights in Azure AD to the user.
+    > In order to make the above changes you require rights to modify application objects in Azure AD.The user needs to be assigned [Application Administrator](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) role which grants application modificaion rights in Azure AD to the user.
     >
 
 2.  If your applications use fully qualified domain names (FQDNs), use [custom domains](application-proxy-configure-custom-domain.md) to publish your applications. This feature allows the same URL to be used both internally and externally.

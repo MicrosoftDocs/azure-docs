@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date:  06/30/2020	
 ---	
 
-# Frequently asked questions about Azure Dev Tools for Teaching
+# Frequently asked questions about the Education Hub
 
 This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
 
@@ -41,7 +41,7 @@ Your Azure for Students subscription provides you with access to certain softwar
 
 ### What is Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+[Microsoft Learn](/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
 
 ### Can Azure for Students be used for production or only for development?
 
@@ -92,7 +92,7 @@ You can download this software in the [Education Hub](https://ms.portal.azure.co
 
 ### What is Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+[Microsoft Learn](/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
 
 ## Azure Academic Grant
 
@@ -147,6 +147,11 @@ Azure course credits only cover usage from the time you activate the Azure Spons
 If you look at a specific subscription in the Subscriptions blade in your Azure portal, you will see **Offer Name** as one of the properties. The Offer Name will say **Azure Sponsorship** if it is connected to your course credits. If **Azure Sponsorship** doesn't display, then contact support to get it converted.
 
 ## Azure Dev Tools for Teaching
+
+### Who is eligible to purchase Microsoft Azure Dev Tools for Teaching?
+
+Only academic institutions that have purchased a Volume Licensing (VL) agreement with Microsoft are able to enroll into Azure Dev Tools for Teaching.  If you are currently a Dev Tools for Teaching customer without a VL agreement, you can continue to renew your subscription. For more information on VL agreements for academic institutions, please visit https://aka.ms/ees 
+
 
 ### What products are included in the Azure Dev Tools for Teaching subscription?
 

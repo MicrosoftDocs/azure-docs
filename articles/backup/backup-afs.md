@@ -24,9 +24,9 @@ In this article, you'll learn how to:
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## Configure backup from the Recovery Services Vault
+## Configure backup from the Recovery Services vault
 
-The following steps explain how you can configure backup for multiple file shares from the recovery service vault pane:
+The following steps explain how you can configure backup for multiple file shares from the Recovery Services vault pane:
 
 1. In the [Azure portal](https://portal.azure.com/), open the Recovery Services vault you want to use for configuring backup for the file share.
 
@@ -118,16 +118,16 @@ The following steps explain how you can configure backup for individual file sha
 
 1. For the Recovery Services vault selection, do one of the following:
 
-    * If you already have a vault, select the **Select existing** Recovery service vault radio button, and choose one of the existing vaults from **Vault Name** drop down menu.
+    * If you already have a vault, select the **Select existing** Recovery Services vault radio button, and choose one of the existing vaults from **Vault Name** drop down menu.
 
        ![Select existing vault](./media/backup-afs/select-existing-vault.png)
 
-    * If you don't have a vault, select the **Create new** Recovery service vault radio button. Specify a name for the vault. It's created in the same region as the file share. By default, the vault is created in the same resource group as the file share. If you want to choose a different resource group, select **Create New** link below the **Resource Type** drop down and specify a name for the resource group. Select **OK** to continue.
+    * If you don't have a vault, select the **Create new** Recovery Services vault radio button. Specify a name for the vault. It's created in the same region as the file share. By default, the vault is created in the same resource group as the file share. If you want to choose a different resource group, select **Create New** link below the **Resource Type** drop down and specify a name for the resource group. Select **OK** to continue.
 
        ![Create new vault](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you are trying to protect, the recovery services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. For the **Backup Policy** selection, do one of the following:
 
@@ -163,7 +163,7 @@ The following steps explain how you can configure backup for individual file sha
 
 Occasionally, you might want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common reason to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it might be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an on-demand backup is often required before you make planned changes to your file shares.
 
-### From the Recovery services vault
+### From the Recovery Services vault
 
 1. Open the Recovery Services vault you used to back up your file share. On the **Overview** pane, select **Backup items** under the **Protected items** section.
 

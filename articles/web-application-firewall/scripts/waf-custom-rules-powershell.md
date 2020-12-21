@@ -6,7 +6,8 @@ ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create WAF custom rules with Azure PowerShell

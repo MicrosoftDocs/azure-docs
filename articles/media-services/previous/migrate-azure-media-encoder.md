@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Migrate from Azure Media Encoder to Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article discusses the steps for migrating from the legacy Azure Media Encoder (AME) media processor (which is being retired) to the Media Encoder Standard media processor. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 

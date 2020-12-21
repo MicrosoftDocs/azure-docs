@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to manage an Azure Maps account. 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt

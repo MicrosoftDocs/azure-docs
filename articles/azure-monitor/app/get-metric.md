@@ -4,8 +4,6 @@ description: Learn how to effectively use the GetMetric() call to capture locall
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/28/2020
 ---
 

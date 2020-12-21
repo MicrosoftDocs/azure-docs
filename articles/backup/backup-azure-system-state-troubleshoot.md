@@ -12,10 +12,10 @@ This article describes solutions for issues that you might come across while usi
 
 ## Basic troubleshooting
 
-We recommend you perform the below validation, before you start troubleshooting System State backup:
+We recommend you perform the following validation steps, before you start troubleshooting System State backup:
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Ensure there is network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Ensure there's network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
 - [Ensure 5-10% free volume space is available on scratch folder location](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Check if another process or antivirus software is interfering with Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
@@ -32,12 +32,12 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 ### Limitation
 
-- Recovering to different hardware using System State recovery is not recommended by Microsoft
+- Recovering to different hardware using System State recovery isn't recommended by Microsoft
 - System State backup currently supports "on-premises" Windows servers. This functionality isn't available for Azure VMs.
 
 ## Prerequisites
 
-Before we troubleshoot System State Backup with Azure Backup, perform the below prerequisites check.  
+Before we troubleshoot System State Backup with Azure Backup, perform the following prerequisites check.  
 
 ### Verify Windows Server Backup is installed
 
@@ -51,7 +51,7 @@ If the output displays the **Install State** as **available**, then it means Win
 
 #### Method 1: Install Windows Server Backup using PowerShell
 
-To install Windows Server Backup using PowerShell, run the below command:
+To install Windows Server Backup using PowerShell, run the following command:
 
   ```powershell
   Install-WindowsFeature -Name Windows-Server-Backup
@@ -59,33 +59,33 @@ To install Windows Server Backup using PowerShell, run the below command:
 
 #### Method 2: Install Windows Server Backup using Server Manager
 
-To install Windows Server Backup using Server Manager, perform the steps below:
+To install Windows Server Backup using Server Manager, perform the following steps:
 
-1. In **Server Manger**, click **Add roles and features**. The **Add roles and features wizard** appears.
+1. In **Server Manger**, select **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Select **Installation Type** and click **Next**.
+2. Select **Installation Type** and select **Next**.
 
     ![Installation Type](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Select a server from the server pool and click **Next**. In the Server Role, leave the default selection and click **Next**.
-4. Select **Windows Server Backup** in **Features** tab and click **Next**.
+3. Select a server from the server pool and select **Next**. In the Server Role, leave the default selection and select **Next**.
+4. Select **Windows Server Backup** in **Features** tab and select **Next**.
 
-    ![features](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Select features window](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. In the **Confirmation** tab, click **Install** to start the installation process.
+5. In the **Confirmation** tab, select **Install** to start the installation process.
 6. In the **Results** tab, it will display the Windows Server Backup feature is successfully installed on your Windows Server.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Results of installation](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### System Volume information permission
 
-Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the above permissions are not set correctly
+Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the permissions above aren't set correctly.
 
 ### Dependent services
 
-Ensure the below services are in running state:
+Ensure the services below are in the running state:
 
 **Service Name** | **Startup Type**
 --- | ---
@@ -108,7 +108,7 @@ To validate Windows Server Backup status, perform the following steps:
 
     - If it fails with this error, then reinstall the Windows Server Backup feature on the server machine as mentioned in step 1 of the prerequisites.
 
-  - Ensure WSB backup is working properly, by running the below command from elevated command prompt:
+  - Ensure WSB backup is working properly, by running the following command from an elevated command prompt:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
@@ -132,7 +132,7 @@ If the job fails, it indicates a WSB issue that would result in MARS agent Syste
 
 | Symptom | Resolution
 | -- | --
-| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### EFI partition locked
 

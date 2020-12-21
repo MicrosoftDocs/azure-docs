@@ -1,16 +1,17 @@
 ---
 title: Azure Cosmos DB SQL Python API, SDK & resources
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -21,24 +22,39 @@ ms.custom: devx-track-python
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## Release history
+
+### 4.1.0 (2020-08-10)
+
+- Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
+
+**New features**
+- Added the ability to set the analytical storage TTL when creating a new container.
+
+**Bug fixes**
+- Fixed support for dicts as inputs for get_client APIs.
+- Fixed Python 2/3 compatibility in query iterators.
+- Fixed type hint error (Issue #12570).
+- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError (Issue #11793).
 
 ### 4.0.0
 
@@ -105,7 +121,7 @@ ms.custom: devx-track-python
 
 * The constructor of `CosmosClient` has been updated:
 
-  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the master key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
+  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the primary key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
 
   * The `connection_policy` parameter has been made a keyword only parameter, and while it is still supported, each of the individual attributes of the policy can now be passed in as explicit keyword arguments:
 
@@ -341,4 +357,4 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 ## Next steps
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

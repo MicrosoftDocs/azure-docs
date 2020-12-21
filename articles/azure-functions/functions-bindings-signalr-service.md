@@ -32,7 +32,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
-[Update your extensions]: ./install-update-binding-extensions-manual.md
+[Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -52,4 +52,4 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 ## Next steps
 
 - [Return the service endpoint URL and access token (Input binding)](./functions-bindings-signalr-service-input.md)
-- [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md) 
+- [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md)

@@ -66,7 +66,7 @@ Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-
 
 You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
 
-For detailed estimate on costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
+For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### Managed disks are now used to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?
@@ -252,8 +252,6 @@ A replication policy defines the settings for the retention history of recovery 
 - 24 hours for the retention history of recovery points.
 - 4 hours for the frequency of app-consistent snapshots.
 
-[Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
-
 ### What is a crash-consistent recovery point?
 
 A crash-consistent recovery point has the on-disk data as if you pulled the power cord from the server during the snapshot. The crash-consistent recovery point doesn't include anything that was in memory when the snapshot was taken.
@@ -269,6 +267,9 @@ Site Recovery creates a crash-consistent recovery point every 5 minutes.
 Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots while also capturing data in memory and all transactions in process.
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
+
+>[!Note]
+>Creation of application-consistent recovery points fails on Windows machine, if it has more than 64 volumes.
 
 ### What is the impact of application-consistent recovery points on application performance?
 

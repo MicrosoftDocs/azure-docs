@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect with PHP - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
@@ -45,7 +45,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for PostgreSQL server name](./media/connect-php/1-connection-string.png)
+ :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
@@ -210,6 +210,16 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	// Closing connection
 	pg_close($connection);
 ?>
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

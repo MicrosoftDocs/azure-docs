@@ -3,7 +3,7 @@ title: Get started with Azure AD authentication
 description: Learn how to access Azure Active Directory (Azure AD) authentication to consume the Azure Media Services API. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,10 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
-# Get credentials to access Media Services API  
+# Get credentials to access Media Services API
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When you use Azure AD authentication to access the Azure Media Services API, you have two authentication options:
 
@@ -33,9 +35,9 @@ This article describes steps for getting credentials to access Media Services AP
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](create-account-howto.md).
 
-## Use the Azure portal
+## [Portal](#tab/portal/)
 
-### API access 
+### API access
 
 The **API access** page lets you select the authentication method you want to use to connect to the API. The page also provides the values you need to connect to the API.
 
@@ -65,7 +67,7 @@ This option could be used to authenticate an employee or member of an Azure Acti
 
 Copy your credentials to connect your user application from the **Connect to Media Services API** section. You can get text values or copy the JSON or XML blocks.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## [CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

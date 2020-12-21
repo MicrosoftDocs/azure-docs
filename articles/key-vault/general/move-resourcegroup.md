@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
@@ -19,6 +19,10 @@ Customer intent: As a key vault administrator, I want to move my vault to anothe
 ## Overview
 
 Moving a key vault across resource groups is a supported key vault feature. Moving a key vault between resource groups will not affect key vault firewall or access policy configurations. Connected applications and service principals should continue to work as intended.
+
+> [!IMPORTANT]
+> **Key Vaults used for disk encryption cannot be moved.**
+> If you are using key vault with disk encryption for a VM, the key vault cannot be moved to a different resource group or a subscription while disk encryption is enabled. You must disable disk encryption prior to moving the key vault to a new resource group or subscription. 
 
 ## Design Considerations
 

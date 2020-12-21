@@ -5,19 +5,21 @@ titleSuffix: Azure Media Services
 description: Learn about terminology and concepts for Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 02/18/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Media Services terminology and concepts
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic gives a brief overview of Azure Media Services terminology and concepts. The article also provides links to articles with an in-depth explanation of Media Services v3 concepts and functionality.
 
@@ -25,7 +27,7 @@ The fundamental concepts described in these topics should be reviewed before sta
 
 > [!NOTE]
 > Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), and [get info about accessing APIs](./access-api-howto.md).
-> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

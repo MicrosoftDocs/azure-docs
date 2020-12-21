@@ -63,7 +63,7 @@ Azure provides several PaaS compute offerings, including the Web Apps feature of
 
 SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
 
-Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
+Microsoft 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
 ## Azure services
 
@@ -125,7 +125,7 @@ Services for networking both within Azure and between Azure and on-premises data
 
 - Azure Content Delivery Network
 
-For detailed documentation on Azure services, see [Azure service documentation](https://docs.microsoft.com/azure).
+For detailed documentation on Azure services, see [Azure service documentation](/azure).
 
 ## Azure key concepts
 
@@ -137,7 +137,7 @@ One of the beneﬁts of using Azure is that you can deploy your applications int
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### Resources
 
@@ -165,11 +165,11 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 
 #### REST APIs
 
-Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
+Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](/rest/api/index).
 
 ### Azure Cloud Shell
 
-Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## Azure subscriptions
 
@@ -193,9 +193,9 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 ### Grant administrative access to an Azure subscription
 
-RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
+Azure RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
-For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -233,7 +233,7 @@ Resource Manager provides several benefits:
 
 - You can define the dependencies between resources so they are deployed in the correct order.
 
-- You can apply access control to all services in your resource group because RBAC is natively integrated into the management platform.
+- You can apply access control to all services in your resource group because Azure RBAC is natively integrated into the management platform.
 
 - You can apply tags on resources to logically organize all the resources in your subscription.
 
@@ -277,11 +277,11 @@ The following mechanisms are available for deployment automation:
 
 - **Template linking**: From within one Resource Manager template, you can link to another template. This allows deployment decomposition into a set of targeted, purpose-specific templates.
 
-You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
+You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 
 Finally, you can convert existing resource groups into a reusable template from the Azure portal. This can be helpful if you want to create a deployable template of an existing resource group, or you just want to examine the underlying JSON. To export a resource group, select the **Automation Script** button from the resource group’s settings.
 
-## Security of Azure resources (RBAC)
+## Security of Azure resources (Azure RBAC)
 
 You can grant operational access to user accounts at a specified scope: subscription, resource group, or individual resource. This means you can deploy a set of resources into a resource group, such as a virtual machine and all related resources, and grant permissions to a specific user or group. This approach limits access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or a virtual network.
 
@@ -301,7 +301,7 @@ Here are a few example [built-in roles in Azure](../../role-based-access-control
 
 - **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -309,7 +309,7 @@ Azure Virtual Machines is one of the central IaaS services in Azure. Azure Virtu
 
 When you’re deploying an Azure VM, you can select an image from the Azure Marketplace, or you can provide you own generalized image. This image is used to apply the operating system and initial configuration. During the deployment, Resource Manager will handle some configuration settings, such as assigning the computer name, administrative credentials, and network configuration. You can use Azure virtual machine extensions to further automate configurations such as software installation, antivirus configuration, and monitoring solutions.
 
-You can create virtual machines in many different sizes. The size of virtual machine dictates resource allocation such as processing, memory, and storage capacity. In some cases, specific features such as RDMA-enabled network adapters and SSD disks are available only with certain VM sizes. For a complete list of VM sizes and capabilities, see “Sizes for virtual machines in Azure” for [Windows](../../virtual-machines/windows/sizes.md) and [Linux](../../virtual-machines/linux/sizes.md).
+You can create virtual machines in many different sizes. The size of virtual machine dictates resource allocation such as processing, memory, and storage capacity. In some cases, specific features such as RDMA-enabled network adapters and SSD disks are available only with certain VM sizes. For a complete list of VM sizes and capabilities, see “Sizes for virtual machines in Azure” for [Windows](../../virtual-machines/sizes.md) and [Linux](../../virtual-machines/sizes.md).
 
 ### Use cases
 
@@ -339,7 +339,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for virtual machines
 
-Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/public-ip-addresses.md).
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -373,7 +373,7 @@ Azure Storage supports three kinds of blobs:
 
 - **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
 
-For more information, see [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+For more information, see [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 #### File storage
 
@@ -389,7 +389,7 @@ Azure Table storage is a service that stores structured NoSQL data in the cloud.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table. A storage account can contain any number of tables, up to the capacity limit of the storage account.
 
-For more information, see [Get started with Azure Table storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+For more information, see [Get started with Azure Table storage](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### Queue storage
 
@@ -409,15 +409,15 @@ In addition to deploying a storage account from the Azure portal, you can deploy
 
 #### PowerShell
 
-Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/common/storage-azure-cli.md)
+As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Access and security for Azure Storage
 
@@ -441,7 +441,7 @@ Each storage account has two authentication keys, a primary and a secondary. Eit
 
 #### Shared access signatures
 
-If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/common/storage-sas-overview.md).
 
 ## Azure Virtual Network
 
@@ -451,7 +451,7 @@ Virtual networks are necessary to support communications between virtual machine
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Azure Virtual Network for a 2-tier Web Application](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### Hybrid virtual networks
 
@@ -474,7 +474,7 @@ There are several options for deploying a virtual network.
 
 ### Access and security for virtual networks
 
-You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/security-overview.md).
+You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/network-security-groups-overview.md).
 
 ## Next steps
 

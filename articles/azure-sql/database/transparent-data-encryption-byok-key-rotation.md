@@ -5,9 +5,9 @@ description: Learn how to rotate the Transparent Data Encryption (TDE) protector
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
@@ -22,7 +22,7 @@ This article describes key rotation for a [server](logical-servers.md) using a T
 This guide discusses two options to rotate the TDE protector on the server.
 
 > [!NOTE]
-> A paused Azure Synapse Analytics SQL pool must be resumed before key rotations.
+> A paused dedicated SQL pool in Azure Synapse Analytics must be resumed before key rotations.
 
 > [!IMPORTANT]
 > Do not delete previous versions of the key after a rollover. When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups.
@@ -31,11 +31,11 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse Analytics. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
 - You must have Azure PowerShell installed and running.
-- [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) to learn more.
+- [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/general/overview.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 
-For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).

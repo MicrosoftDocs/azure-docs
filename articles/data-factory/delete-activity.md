@@ -47,6 +47,7 @@ Here are some recommendations for using the Delete activity:
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
+-   [HDFS](connector-hdfs.md)
 
 ## Syntax
 
@@ -59,8 +60,11 @@ Here are some recommendations for using the Delete activity:
             "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
-        "recursive": true/false,
-        "maxConcurrentConnections": <number>,
+        "storeSettings": {
+            "type": "<source type>",
+            "recursive": true/false,
+            "maxConcurrentConnections": <number>
+        },
         "enableLogging": true/false,
         "logStorageSettings": {
             "linkedServiceName": {
@@ -128,7 +132,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 Now you are using the Delete activity to delete folder or files by the combination of different property value from the dataset and the Delete activity:
 
-| folderPath (from dataset) | fileName (from dataset) | recursive (from the Delete activity) | Output |
+| folderPath | fileName | recursive | Output |
 |:--- |:--- |:--- |:--- |
 | Root/ Folder_A_2 | NULL | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Root/ Folder_A_2 | NULL | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -756,7 +760,7 @@ You can also get the template to move files from [here](solution-template-move-f
 
 -   Delete activity does not support deleting list of folders described by wildcard.
 
--   When using file attribute filter: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "fileName": "*" in dataset.
+-   When using file attribute filter in delete activity: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "wildcardFileName": "*" in delete activity as well.
 
 ## Next steps
 

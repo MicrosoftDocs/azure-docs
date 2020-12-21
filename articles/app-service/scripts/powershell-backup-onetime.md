@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Back up an app'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to back up an app.
 author: msangapu-msft
@@ -8,7 +8,7 @@ ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
 # Back up a web app using PowerShell
