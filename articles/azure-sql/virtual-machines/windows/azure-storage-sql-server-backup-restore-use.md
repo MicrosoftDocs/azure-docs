@@ -20,7 +20,7 @@ ms.author: mathoma
 # Use Azure Storage for SQL Server backup and restore
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to Azure Blob storage. You can use this functionality to back up to and restore from Azure Blob storage and a SQL Server database. Backup to the cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
+Starting with SQL Server 2012 SP1 CU2, you can now write back up SQL Server databases directly to Azure Blob storage. Use this functionality to back up to and restore from Azure Blob storage. Back up to the cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue `BACKUP` or `RESTORE` statements by using Transact-SQL or SMO.
 
 ## Overview
 SQL Server 2016 introduces new capabilities; you can use [file-snapshot backup](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) to perform nearly instantaneous backups and incredibly quick restores.
@@ -56,15 +56,15 @@ The following SQL Server components are used when backing up to Azure Blob stora
 
 | Component | Description |
 | --- | --- |
-| **URL** |A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. The URL must point to an actual blob, not just a container. If the blob does not exist, it is created. If an existing blob is specified, BACKUP fails, unless the > WITH FORMAT option is specified. The following is an example of the URL you would specify in the BACKUP command: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS is recommended but not required. |
+| **URL** |A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL provides the location and name of the SQL Server backup file. The URL must point to an actual blob, not just a container. If the blob does not exist, Azure creates it. If an existing blob is specified, the backup command fails, unless the `WITH FORMAT` option is specified. The following is an example of the URL you would specify in the BACKUP command: `https://<storageaccount>.blob.core.windows.net/<container>/<FILENAME.bak>`.<br><br> HTTPS is recommended but not required. |
 | **Credential** |The information that is required to connect and authenticate to Azure Blob storage is stored as a credential. In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created. For more information, see [SQL Server Credential](/sql/t-sql/statements/create-credential-transact-sql). |
 
 > [!NOTE]
 > SQL Server 2016 has been updated to support block blobs. Please see [Tutorial: Using Microsoft Azure Blob storage with SQL Server 2016 databases](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) for more details.
 > 
-> 
 
 ## Next steps
+
 1. Create an Azure account if you don't already have one. If you are evaluating Azure, consider the [free trial](https://azure.microsoft.com/free/).
 2. Then go through one of the following tutorials that walk you through creating a storage account and performing a restore.
    
