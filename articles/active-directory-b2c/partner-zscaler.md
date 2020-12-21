@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C
 
-In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Zscaler Private Access](https://www.zscaler.com/products/zscaler-private-access). Zscaler Private Access (ZPA) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a virtual private network (VPN). The Zscaler secure hybrid access offering enables a zero-attack surface for consumer-facing applications when it's combined with Azure AD B2C.
+In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Zscaler Private Access (ZPA](https://www.zscaler.com/products/zscaler-private-access). ZPA delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a virtual private network (VPN). The Zscaler secure hybrid access offering enables a zero-attack surface for consumer-facing applications when it's combined with Azure AD B2C.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ This tutorial assumes that you already have a working ZPA setup. If you're getti
 
 ### Step 1: Configure Azure AD B2C as an IdP on ZPA
 
-To configure Azure AD B2C as an [identity provider on ZPA](https://help.zscaler.com/zpa/configuring-idp-single-sign), do the following:
+To configure Azure AD B2C as an [IdP on ZPA](https://help.zscaler.com/zpa/configuring-idp-single-sign), do the following:
 
 1. Log in to the [ZPA Admin Portal](https://admin.private.zscaler.com).
 
@@ -97,13 +97,13 @@ To configure custom policies on your Azure AD B2C tenant, see [Get started with 
 
 To configure a SAML application in Azure AD B2C, see [Register a SAML application in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers). 
 
-In step ["3.2 Upload and test your policy metadata,"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
+In step ["3.2 Upload and test your policy metadata"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
 
-Follow the instructions through step ["4.2 Update the app manifest."](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest) In step 4.2, update the app manifest properties as follows:
+Follow the instructions through step ["4.2 Update the app manifest"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest). In step 4.2, update the app manifest properties as follows:
 
-- For **identifierUris**: Use the Service Provider Entity ID that you copied or noted earlier in "Step 1.6.b."  
+- For **identifierUris**: Use the Service Provider Entity ID that you copied or noted earlier in "Step 1.6.b".  
 - For **samlMetadataUrl**: Skip this property, because ZPA doesn't host a SAML metadata URL.  
-- For **replyUrlsWithType**: Use the Service Provider URL that you copied or noted earlier in "Step 1.6.a."  
+- For **replyUrlsWithType**: Use the Service Provider URL that you copied or noted earlier in "Step 1.6.a".  
 - For **logoutUrl**: Skip this property, because ZPA doesn't support a logout URL.
 
 The rest of the steps aren't relevant to this tutorial.
@@ -122,15 +122,15 @@ Open a web browser and go to the SAML metadata URL. Right-click anywhere on the 
 
 ### Step 5: Complete the IdP configuration on ZPA
 
-Complete the [IdP configuration in the ZPA Admin Portal](https://help.zscaler.com/zpa/configuring-idp-single-sign) that you partially configured earlier in "Step 1: Configure Azure AD B2C as an IdP on ZPA."
+Complete the [IdP configuration in the ZPA Admin Portal](https://help.zscaler.com/zpa/configuring-idp-single-sign) that you partially configured earlier in "Step 1: Configure Azure AD B2C as an IdP on ZPA".
 
 1. In the [ZPA Admin Portal](https://admin.private.zscaler.com), go to **Administration** > **IdP Configuration**.
 
-1. Select the IdP that you configured in "Step 1," and then select **Resume**.
+1. Select the IdP that you configured in "Step 1", and then select **Resume**.
 
 1. On the **Add IdP Configuration** pane, select the **Create IdP** tab, and then do the following:
 
-   a. Under **IdP Metadata File**, upload the metadata file that you saved earlier in "Step 4: Extract the IdP SAML metadata from Azure AD B2C."  
+   a. Under **IdP Metadata File**, upload the metadata file that you saved earlier in "Step 4: Extract the IdP SAML metadata from Azure AD B2C".  
    b. Verify that the **Status** for the IdP configuration is **Enabled**.  
    c. Select **Save**.
 
