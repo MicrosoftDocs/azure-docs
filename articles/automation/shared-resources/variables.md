@@ -197,6 +197,8 @@ except AutomationAssetNotFound:
     print ("variable not found")
 ```
 
+---
+
 ## Graphical runbook examples
 
 In a graphical runbook, you can add activities for the internal cmdlets `Get-AutomationVariable` or `Set-AutomationVariable`. Just right-click each variable in the Library pane of the graphical editor and select the activity that you want.

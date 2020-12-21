@@ -151,6 +151,8 @@ print (cred["username"])
 print (cred["password"])
 ```
 
+---
+
 ## Graphical runbook example
 
 You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.

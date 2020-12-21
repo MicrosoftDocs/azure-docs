@@ -157,6 +157,8 @@ cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
 print (cert)
 ```
 
+---
+
 ## Graphical runbook example
 
 Add an activity for the internal `Get-AutomationCertificate` cmdlet to a graphical runbook by right-clicking on the certificate in the Library pane, and selecting **Add to canvas**.
