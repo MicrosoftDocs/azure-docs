@@ -33,9 +33,9 @@ This tutorial describes the steps you need to perform in both PaperCut Cloud Pri
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A user account in PaperCut Cloud Print Management with Admin permissions
+* A PaperCut Cloud Print Management administrator account.
 
 
 ## Step 1. Plan your provisioning deployment
@@ -72,7 +72,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to PaperCut Cloud Print Management
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in PaperCut Cloud Print Management based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for PaperCut Cloud Print Management in Azure AD:
 
@@ -102,7 +102,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to PaperCut Cloud Print Management**.
+8. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
+   ![Mapping](media/papercut-cloud-print-management-provisioning-tutorial/mapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to PaperCut Cloud Print Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in PaperCut Cloud Print Management for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the PaperCut Cloud Print Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
