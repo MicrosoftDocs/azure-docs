@@ -119,15 +119,7 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## Problem: Power BI Connector shows "Unable to Connect"
-
-This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
-
-[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-* Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again. 
-
+  
 ## Next steps
 
 - Read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
