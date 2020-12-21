@@ -47,7 +47,7 @@ A prediction resource is used for recognition when your Custom Commands applicat
 In the empty Smart-Room-Lite Custom Commands application you created, add a command. The command will process an utterance, `Turn on the tv`. It will respond with the message `Ok, turning the tv on`.
 
 1. Create a new command by selecting **New command** at the top of the left pane. The **New command** window opens.
-1. For the **Name** field, provide the value **TurnOn**.
+1. For the **Name** field, provide the value `TurnOn`.
 1. Select **Create**.
 
 The middle pane lists the properties of the command. 
@@ -169,7 +169,7 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
 
 1. Add a new parameter to the command. The parameter represents whether the user wants to turn the device on or off.
    1. At top of the middle pane, select  **Add**. From the drop-down menu, select **Parameter**.
-   1. In the pane on the right, in the **Parameters** section, in the **Name** box, add **OnOff**.
+   1. In the pane on the right, in the **Parameters** section, in the **Name** box, add `OnOff`.
    1. Select **Required**. In the **Add response for a required parameter** window, select **Simple editor**. In the **First variation** field, add *On or Off?*.
    1. Select **Update**.
 
@@ -479,7 +479,7 @@ To add a confirmation, you use the `SetTemperature` command. To achieve confirma
           1. Change the name to **Confirmation temperature denied**.
           1. Leave the existing **Confirmation was denied** condition.
           1. Add a new condition: **Type** > **Required parameters** > **Temperature**.
-          1. Add a new action: **Type** > **Send speech response** > **No problem. What temperature then?**
+          1. Add a new action: **Type** > **Send speech response** > **No problem. What temperature then?**.
           1. Leave the default **Post-execution state** value as **Wait for user's input**.
 
 > [!IMPORTANT]
@@ -502,7 +502,7 @@ In this section, you'll configure a one-step correction. This correction is used
 
 In the left pane, select the **SetAlarm** command. Then and add the new parameter **AlarmTone**.
         
-- **Name** > **AlarmTone**
+- **Name** > `AlarmTone`
 - **Type** > **String**
 - **Default Value** > **Chimes**
 - **Configuration** > **Accept predefined input values from the internal catalog**
