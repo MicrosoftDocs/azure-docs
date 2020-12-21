@@ -428,6 +428,6 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 ## Next steps
 
-[ITSM Connector Overview](itsmc-overview.md)
- [Create ITSM work items from Azure alerts](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
-[Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
+* [ITSM Connector Overview](itsmc-overview.md)
+* [Create ITSM work items from Azure alerts](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
+* [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)

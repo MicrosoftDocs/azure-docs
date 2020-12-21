@@ -135,7 +135,7 @@ run = exp.submit(src)
 
 This example shows how to submit MLflow projects locally with Azure Machine Learning tracking.
 
-Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally. Your experiments can run via a Jupyter notebook or code editor.
+Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally. Your experiments can run via a Jupyter Notebook or code editor.
 
 ```shell
 pip install azureml-mlflow
