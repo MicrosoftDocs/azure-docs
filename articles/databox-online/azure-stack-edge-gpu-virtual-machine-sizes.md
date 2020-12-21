@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -22,7 +22,7 @@ This article describes the supported sizes for the virtual machines running on y
 
 ## Unsupported VM operations and cmdlets
 
-Extensions, scale sets, availability sets, snapshots are not supported.
+Scale sets, availability sets, snapshots are not supported.
 
 ## Next steps
 
