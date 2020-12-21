@@ -26,7 +26,7 @@ Ensure the following prerequisites are met:
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
-## Connection Procedure
+## Connection procedure
 
 Use the following procedure to create a Cherwell connection:
 

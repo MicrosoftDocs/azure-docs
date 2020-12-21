@@ -27,7 +27,7 @@ Ensure the following prerequisites are met:
 
 - User role:  Administrator.
 
-## Connection Procedure
+## Connection procedure
 
 Use the following procedure to create a Provance connection:
 
@@ -48,7 +48,7 @@ Use the following procedure to create a Provance connection:
 | **Connection Name**   | Type a name for the Provance instance that you want to connect with ITSMC.  You use this name later when you configure work items in this ITSM/ view detailed log analytics. |
 | **Partner type**   | Select **Provance**. |
 | **Username**   | Type the user name that can connect to ITSMC.    |
-| **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service._|
+| **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service.|
 | **Server URL**   | Type the URL of your Provance instance that you want to connect to ITSMC. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md). |
 | **Data Sync Scope**   | Select the Provance work items that you want to sync to Azure Log Analytics, through ITSMC.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
