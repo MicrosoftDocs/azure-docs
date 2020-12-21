@@ -53,7 +53,7 @@ Although the preservation of privacy should be the goal, there is a tradeoff whe
 Implementing differentially private systems is difficult. SmartNoise is an open-source project that contains different components for building global differentially private systems. SmartNoise is made up of the following top-level components:
 
 - Core
-- System
+- SDK
 
 ### Core
 
@@ -66,7 +66,7 @@ The core library includes the following privacy mechanisms for implementing a di
 |Runtime     | The medium to execute the analysis. The reference runtime is written in Rust but runtimes can be written using any computation framework such as SQL and Spark depending on your data needs.        |
 |Bindings     | Language bindings and helper libraries to build analyses. Currently SmartNoise provides Python bindings. |
 
-### System
+### SDK
 
 The system library provides the following tools and services for working with tabular and relational data:
 
@@ -80,4 +80,4 @@ The system library provides the following tools and services for working with ta
 
 [Preserve data privacy](how-to-differential-privacy.md) in Azure Machine Learning.
 
-To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core package](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise System package](https://github.com/opendifferentialprivacy/smartnoise-system) and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).
+To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core package](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).
