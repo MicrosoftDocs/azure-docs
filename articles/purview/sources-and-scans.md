@@ -26,7 +26,7 @@ Azure Purview supports the following sources:
 | Azure Data Explorer                      | Service Principal                              | UX            |
 | Azure Data Lake Storage Gen1 (ADLS Gen1) | Service Principal, MSI                              | UX            |
 | Azure Data Lake Storage Gen2 (ADLS Gen2) | Account Key, Service Principal, MSI            | UX            |
-| Cosmos DB                                 | Account Key                                    | UX            |
+| Azure Cosmos DB                          | Account Key                                    | UX            |
 
 
 > [!Note]

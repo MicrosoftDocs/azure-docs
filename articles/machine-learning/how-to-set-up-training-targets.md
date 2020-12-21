@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
+ms.custom: how-to, devx-track-python, contperf-fy21q1
 ---
 
 # Configure and submit training runs

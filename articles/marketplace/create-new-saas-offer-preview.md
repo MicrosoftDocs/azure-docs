@@ -15,7 +15,7 @@ ms.date: 09/02/2020
 As you create your software as a service (SaaS) offer in Partner Center, you need to define a preview audience who can review your offer listing before it goes live. This article explains how to configure a preview audience.
 
 > [!NOTE]
-> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to market your SaaS offer](create-new-saas-offer-marketing.md).
+> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
 
 ## Define a preview audience
 

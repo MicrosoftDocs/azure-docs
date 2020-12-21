@@ -16,6 +16,7 @@ This how-to guide describes how to access, view, and filter Purview Glossary ins
 
 In this how-to guide, you'll learn how to:
 
+> [!div class="checklist"]
 > - Go to Insights from your Purview account
 > - Get a bird's eye view of your data
 

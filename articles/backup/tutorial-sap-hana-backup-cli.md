@@ -121,7 +121,7 @@ To protect and configure backup on a database, one at a time, we use the [az bac
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
     --protectable-item-type SAPHANADatabse \
     --server-name hxehost \
     --workload-type SAPHANA \

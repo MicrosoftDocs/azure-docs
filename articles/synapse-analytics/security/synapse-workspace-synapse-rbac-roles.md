@@ -23,7 +23,7 @@ For users familiar with the Synapse RBAC roles provided during the preview, the 
 - **New lower-level scopes** are introduced for several roles.  These scopes allow roles to be restricted to specific resources or objects.
 
 >[!Note]
->- The **new roles and lower-level scopes are currently in preview**.  You are encouraged to use these new roles and scopes, which are fully supported, and to provide feedback on their use.
+>The **new Synapse RBAC roles and lower-level scopes are currently in preview**.  You are encouraged to use these new roles and scopes, which are fully supported, and to provide feedback on their use.
 
 ## Built-in Synapse RBAC roles and scopes
 

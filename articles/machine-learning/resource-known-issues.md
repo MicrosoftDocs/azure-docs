@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
 
 ---
@@ -206,7 +206,10 @@ If you are using file share for other workloads, such as data transfer, the re
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 ### Mount dataset
-* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: Re-try logic has been added in `azureml-sdk >=1.12.0` to mitigate the issue. If you are on previous azureml-sdk versions, please upgrade to the latest version. If you are already on `azureml-sdk>=1.12.0`, please recreate your environment so that you have the latest patch with the fix.
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
+  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, please update `azureml-dataset-runtime` and it's dependencies to be the latest for the specific minor version, or if you are using it in a run, please recreate your environment so it can have the latest patch with the fix. 
+  * If you are using `azureml-sdk<1.12.0`, please upgrade to the latest version.
+  * If you have outbound NSG rules, please make sure there is a outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
 ### Data labeling projects
 
@@ -351,7 +354,14 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
- 
+
+* **Failed deployment**: For versions <= 1.18.0 of the SDK, the base image created for deployment may fail with the following error: "ImportError: cannot import name `cached_property` from `werkzeug`". 
+
+  The following steps can work around the issue:
+  1. Download the model package
+  2. Un-zip the package
+  3. Deploy using the un-zipped assets
+
 * **Forecasting R2 score is always zero**: This issue arises if the training data provided has time series that contains the same value for the last `n_cv_splits` + `forecasting_horizon` data points. If this pattern is expected in your time series, you can switch your primary metric to normalized root mean squared error.
  
 * **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
@@ -414,6 +424,16 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
   1. Start a command shell, activate conda environment where automated ml packages are installed.
   2. Enter `pip freeze` and look for `tensorflow`, if found, the version listed should be < 1.13
   3. If the listed version is a not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
+
+## Model explanations
+
+* **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently do not support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features. 
+
+* **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting has regression models which support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is just not supported for forecasting because of complexity in their data pipelines.
+
+* **Local explanation for data index**: The explanation dashboard does not support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in AzureML studio will correspond to the index in the validation dataset.
+
+* **What-if/ICE plots not supported in AML studio**: What-If and Individual Conditional Expectation (ICE) plots are not supported in AzureML studio under the Explanations tab since the uploaded explanation needs an active compute to recalculate predictions and probabilities of perturbed features. It is currently supported in Jupyter notebooks when run as a widget using the SDK.
 
 ## Deploy & serve models
 

@@ -40,22 +40,23 @@ Run the following command:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-It returns an output like:
+For example:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Use these end points to:
 - Form your connection strings and connect with your client tools or applications
@@ -63,7 +64,7 @@ Use these end points to:
 
 For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group. For example:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -85,11 +86,11 @@ postgres=#
 ## From CLI with kubectl
 - If your server group is of Postgres version 12 (default), then the following command:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - If your server group is of Postgres version 11, then the following command:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
@@ -148,12 +149,6 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 
 ```ruby
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
-```
-
-### Web App
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
 ```
 
 ## Next steps

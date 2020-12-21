@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
+ms.date: 12/03/2020
 ---
 
 # Automatically label your data in Azure Purview
@@ -31,13 +31,7 @@ Purview uses the same classifications, also known as sensitive information types
 > While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
 > 
 
-Sensitivity labels in Azure Purview can be used to:
-
-- **Automatically apply labels** to files and database columns
-
-- **Control** who can and cannot access your data
-
-- **Enforce protection settings**, such as encryption, on labeled data
+Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
 For more information, see:
 
@@ -191,7 +185,6 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |**Azure Blob Storage**     |[Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
-|**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
 | | |
 
 ## View labels on assets

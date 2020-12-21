@@ -1,7 +1,7 @@
 ---
 title: 'Register and scan Azure SQL Database Managed Instance'
 description: This tutorial describes how to scan Azure SQL Database Managed Instance 
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -21,6 +21,10 @@ The Azure SQL Database Managed Instance data source supports the following funct
 - **Full and incremental scans** to capture metadata and classification in Azure SQL Database Managed Instance.
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
+
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Managed Instance.
 
 ## Prerequisites
 
@@ -96,6 +100,20 @@ It is required to get the service principal's application ID and secret:
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
+
+### Firewall settings
+
+Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+
+1. Navigate to your database account
+1. Select the server name in the **Overview** page
+1. Select **Security > Firewalls and virtual networks**
+1. Select **Yes** for **Allow Azure services and resources to access this server**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="register sources options" border="true":::
+    
+> [!Note]
+> Currently Azure Purview does not support VNET configuration. Therefore you cannot do IP-based firewall settings.
 
 ## Register an Azure SQL Database Managed Instance data source
 

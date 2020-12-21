@@ -23,15 +23,19 @@ Azure Functions requires an Azure Storage account when you create a function app
 
 ## Storage account requirements
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These unsupported accounts are filtered out of from the Storage Account blade when creating a function app.
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication.
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
-While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow are guaranteed to meet these storage account requirements.  
+While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to meet these storage account requirements. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. In this flow, you are only allowed to choose existing storage accounts in the same region as the function app you're creating. To learn more, see [Storage account location](#storage-account-location).
 
 ## Storage account guidance
 
 Every function app requires a storage account to operate. If that account is deleted your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following additional  considerations apply to the Storage account used by function apps.
+
+### Storage account location
+
+For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If, for some reason, you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
 
 ### Storage account connection setting
 
