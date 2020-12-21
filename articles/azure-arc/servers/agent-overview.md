@@ -111,7 +111,7 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-The URLs in the previous table are required in addition to the Service Tag IP address range information because the majority of services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+The URLs in the previous table are required in addition to the Service Tag IP address range information because most services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
 ### Register Azure resource providers
 
@@ -164,7 +164,7 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
 
-After installing the Connected Machine agent for Windows, the following additional system-wide configuration changes are applied.
+After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
 * The following installation folders are created during setup.
 
@@ -216,7 +216,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-After installing the Connected Machine agent for Linux, the following additional system-wide configuration changes are applied.
+After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 
 * The following installation folders are created during setup.
 
