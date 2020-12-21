@@ -2,7 +2,7 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/17/2020
 ---
 # Resource iteration in ARM templates
 
@@ -286,10 +286,9 @@ The following examples show common scenarios for creating more than one instance
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+* For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For other uses of the copy element, see:
   * [Property iteration in ARM templates](copy-properties.md)
   * [Variable iteration in ARM templates](copy-variables.md)
   * [Output iteration in ARM templates](copy-outputs.md)
 * For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
-* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
