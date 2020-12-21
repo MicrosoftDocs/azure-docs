@@ -14,13 +14,13 @@ ms.author: alkohli
 
 # Deploy Custom Script Extension on VMs running on your Azure Stack Edge Pro device
 
-The Custom Script Extension downloads and runs scripts on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template. 
+The Custom Script Extension downloads and runs scripts or commands on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template. 
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
 ## About custom script extension
 
-The Custom Script Extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
+The Custom Script Extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide scripts or commands to the extension runtime.
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, or the Azure Virtual Machines REST API.
 
@@ -44,7 +44,7 @@ The Custom Script Extension for Linux will run on the following OSs. Other versi
 | Linux: Ubuntu | 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.4 |
 
-### Script location
+<!--### Script location
 
 Instead of the scripts, in this article, we pass a command to execute via the Custom Script Extension. 
 
@@ -55,7 +55,7 @@ To download a script externally such as from GitHub or Azure Storage, make sure 
 If your script is on a local server, then you may still need additional firewall and Network Security Group ports need to be opened.
 
 > [!NOTE]
-> Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. 
+> Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. -->
 
 ## Prerequisites
 
