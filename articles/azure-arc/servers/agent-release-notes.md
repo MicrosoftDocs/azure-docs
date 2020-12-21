@@ -1,6 +1,6 @@
 ---
 title: What's new with Azure Arc enabled servers agent
-description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
+description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
 ms.date: 12/21/2020
 ---
@@ -62,7 +62,7 @@ Version: 1.0 (General Availability)
 - Added `azcmagent show --json` option to output agent state in easily parseable format.
 - Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure.
 - Added `azcmagent disconnect --force-local-only` option to allow reset of local agent state when Azure service cannot be reached.
-- Added `azcmagent connect --cloud` option to support additional clouds. In this release, only Azure is supported by service at time of agent release.
+- Added `azcmagent connect --cloud` option to support other clouds. In this release, only Azure is supported by service at time of agent release.
 - Agent has been localized into Azure-supported languages.
 
 ### Fixed
