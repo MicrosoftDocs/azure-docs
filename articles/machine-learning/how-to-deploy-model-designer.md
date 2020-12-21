@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
+ms.custom: how-to, deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
