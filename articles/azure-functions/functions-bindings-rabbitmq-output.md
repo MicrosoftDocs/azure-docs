@@ -44,11 +44,8 @@ public static async Task Run(
 [RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<string> outputEvents,
 ILogger log)
 {
-    // processing:
-    var myProcessedEvent = DoSomething(rabbitMQEvent);
-    
      // send the message
-    await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    await outputEvents.AddAsync(JsonConvert.SerializeObject(rabbitMQEvent));
 }
 ```
 
