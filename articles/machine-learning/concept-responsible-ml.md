@@ -58,7 +58,7 @@ When data is used for analysis, it's important that the data remains private and
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points.
 
-Implementing differentially private systems is difficult. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and SmartNoise](./concept-differential-privacy.md) article.
+Implementing differentially private systems is difficult. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the SmartNoise project, see the [preserve data privacy by using differential privacy and SmartNoise](./concept-differential-privacy.md) article.
 
 ## Work on encrypted data with homomorphic encryption
 
