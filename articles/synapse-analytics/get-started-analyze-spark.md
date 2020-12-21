@@ -56,7 +56,7 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
+1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh** to find the following databases:
 
     - **SQLPOOL1 (SQL)**
     - **nyctaxi (Spark)**
@@ -64,7 +64,7 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Return to your notebook.
-1. Create a new code cell and enter the following text. Then run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
+1. Create a new code cell and enter the following text.
 
    ```py
    %%pyspark
@@ -72,7 +72,8 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
    display(df)
    ```
 
-1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
+1. Run the cell to show the NYC Taxi data you loaded into the **nyctaxi** Spark database.
+1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves and displays the results of the analysis into a table called **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark
