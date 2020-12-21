@@ -416,7 +416,10 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
 > rather than specify inbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available.
+> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
+> rather than specify inbound managed connector IP address prefixes for each region.
+> These tags work across the regions where the Logic Apps service is available.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -482,9 +485,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
 > rather than specify outbound Logic Apps IP address prefixes for each region.
-> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
-> rather than specify outbound managed connector IP address prefixes for each region. 
-> These tags work across the regions where the Logic Apps service is available. 
+> This tag works across the regions where the Logic Apps service is available. 
 
 <a name="multi-tenant-outbound"></a>
 
