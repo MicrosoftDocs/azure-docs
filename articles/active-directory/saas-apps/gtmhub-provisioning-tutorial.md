@@ -56,10 +56,10 @@ In order to connect your provisioning application to your Gtmhub account you wil
     ![API Tokens tab](media/gtmhub-provisioning-tutorial/api-tokens.png)
 2. Click on **Issue Token** and select **SCIM**. Enter a name for the token and click the **Generate API Token** button.
 
-    ![API Tokens tab](media/gtmhub-provisioning-tutorial/generate-token.png)
+    ![Generate Tokens tab](media/gtmhub-provisioning-tutorial/generate-token.png)
 3. Once the token is generated you can copy and use it in your Azure AD provisioning application.
 
-    ![Token](media/gtmhub-provisioning-tutorial/token.png)
+    ![Copy Token](media/gtmhub-provisioning-tutorial/token.png)
 
 ### To compile the tenant url:
 
