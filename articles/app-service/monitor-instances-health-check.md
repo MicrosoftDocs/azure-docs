@@ -11,12 +11,7 @@ ms.author: msangapu
 ---
 # Monitor App Service instances using health check
 
-This article uses Health check in the Azure Portal to monitor App Service app instances. Health check increases your application's availability by removing unhealthy instances.
-
-## Prerequisites
-
-- An existing [App Service app](index.yml).
-- An [App Service plan](/overview-hosting-plans) with two or more instances.
+This article uses Health check in the Azure Portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check.
 
 ## What App Service does with health checks
 
@@ -26,12 +21,10 @@ This article uses Health check in the Azure Portal to monitor App Service app in
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
 
 > [!NOTE]
->
-> - Health check doesn't follow 302 redirects.
-> - At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+> Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 >
 
-## Health check path best practices
+## Best practices
 
 ![Health check failure][2]
 
