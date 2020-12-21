@@ -14,19 +14,6 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
 
 The current pricing for Azure Files can be found on the [Azure Files pricing page](https://azure.microsoft.com/en-us/details/storage/files/).
 
-## Storage units
-If you have viewed the Azure Files pricing page, or have looked at the Azure Files portal, you might have noticed that Azure Files is using the International System (SI), or metric system, storage units for base-2 storage: KiB, MiB, GiB, and TiB. Although these units may look different than units that see in the Windows File Exporer, these units are actually the units you are used to! Windows (and many Linux utilities) are measuring storage using the base-2 counting system, but mislabel them using the base-10 storage units (KB, MB, GB, TB, etc.). Windows and many other software vendors use the incorrect units for historical reasons; many software utilities began using "kilobyte" to mean 1,024 bytes, "megabyte" to mean 1,048,576 bytes (1024<sup>2</sup> bytes), etc. before these units were standardized as part of the International System of Units. Since the prefixes `kilo`, `mega`, `tera`, etc. are base-10 for existing SI units (i.e. kilogram, kilometer, etc.), new prefixes were chosen for base-2 units (`kibi`, `mebi`, `tebi`, etc.).
-
-| Acronym | Definition | Unit | Windows mislabels as |
-|---------|------------|------|----------------------|
-| KiB | 1,024 bytes | kibibyte | KB (kilobyte) |
-| MiB | 1,024 KiB (1,048,576 bytes) | mebibyte | MB (megabyte) |
-| GiB | 1024 MiB (1,073,741,824 bytes) | gibibyte | GB (gigabyte) |
-| TiB | 1024 GiB (1,099,511,627,776 bytes) | tebibyte | TB (terabyte) |
-
-> [!Important]  
-> All core, first party Azure storage services including Azure Files use base-2 units to measure storage. Although we are endeavoring to label storage quantities correctly, you may see incorrectly labeled base-10 units in our documentation.
-
 ## Provisioned billing
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
