@@ -134,7 +134,7 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
 > [!NOTE]
-> Neural voices are created from samples that use a 24khz sample rate.
+> Neural voices are created from samples that use a 24 khz sample rate.
 > All voices can upsample or downsample to other sample rates.
 
 
