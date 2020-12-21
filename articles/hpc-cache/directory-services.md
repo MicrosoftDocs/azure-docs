@@ -16,8 +16,8 @@ You might need to enable **Extended groups** if your workflow includes NFS stora
 
 After you click the button to enable extended groups, you must choose the source that Azure HPC Cache will use to get user and group credentials.
 
-* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. (You can't use Azure Active Directory for this task.)
-* [Flat file](#configure-a-file-download) - Download /etc/group and /etc/passwd files from a network location.
+* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Azure Active Directory for this task.
+* [Flat file](#configure-a-file-download) - Download `/etc/group` and `/etc/passwd` files from a network location.
 * [LDAP](#configure-ldap) - Get credentials from a Lightweight Directory Access Protocol (LDAP)-compatible source.
 
 > [!NOTE]
@@ -43,12 +43,12 @@ In the **Credentials** section, provide an AD administrator username and passwor
 
 Save the settings by clicking the button at the top of the page.
 
-## Configure a file download
+## Configure file download
 
-These values are required if you want to download files with your user and group information. The files must be in the standard Linux/UNIX /etc/group and /etc/passwrd format.
+These values are required if you want to download files with your user and group information. The files must be in the standard Linux/UNIX `/etc/group` and `/etc/passwrd` format.
 
-* **User file URI** - Enter the complete URI for the /etc/passwrd file.
-* **Group file URI** - Enter the complete URI for the /etc/group file.
+* **User file URI** - Enter the complete URI for the `/etc/passwrd` file.
+* **Group file URI** - Enter the complete URI for the `/etc/group` file.
 
 ## Configure LDAP
 
@@ -56,25 +56,23 @@ Fill in these values if you want to use a non-AD LDAP source to get user and gro
 
 * **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use. <!-- only one, not up to 3 -->
 
-* **LDAP base DN** - Specify the base distinguished name for the LDAP domain. <!-- xxx we specify base DN here but bind DN only if there's encryption?  xxx LDAP queries are performed on the base DN, the DN of the entry, and all entries below it in the directory tree. -->Ask your LDAP administrator if you don’t know your base DN.
+* **LDAP base DN** - Specify the base distinguished name for the LDAP domain, in DN format. <!-- xxx we specify base DN here but bind DN only if there's encryption?  xxx LDAP queries are performed on the base DN, the DN of the entry, and all entries below it in the directory tree. -->Ask your LDAP administrator if you don’t know your base DN.
 
 The server and base DN are the only required settings to make LDAP work, but the additional options make your connection more secure.
 
 ![screenshot of the LDAP configuration area of the directory services page settings page](media/ldap-settings.png)
 
-In the **Secure access** section, you can enable encryption for the LDAP connection. After you click **Yes** to enable encryption, you have these options:
+In the **Secure access** section, you can enable encryption and certificate validation for the LDAP connection. After you click **Yes** to enable encryption, you have these options:
 
-* **Require valid certificate** - Only accept externally validated security certificates. You must provide the certificate authority information in the field below.
+* **Require valid certificate** - When this is set, the LDAP server's certificate is verified against the certificate authority in the URI field below.
 
-  If you use a self-signed certificate, leave this set to **No** and leave the URI field empty.
-
-* **CA certificate URI** - Specify the path to the certificate provider. This field is required to use the externally validated certificates setting.
+* **CA certificate URI** - Specify the path to the authoritative certificate. This can be a link to a CA-validated certificate or to a self-signed certificate. This field is required to use the externally validated certificates setting.
 
 * **Auto-download certificate** - Choose **Yes** if you want to try to download a certificate as soon as you submit these settings.
 
 Fill in the **Credentials** section if you want to use static credentials for LDAP security.
 
-* **Bind DN** - Enter the bind distinguished name to use to authenticate to the LDAP server.
+* **Bind DN** - Enter the bind distinguished name to use to authenticate to the LDAP server. (Use DN format.)
 * **Bind password** - Provide the password for the bind DN.
 
 ## Next steps
