@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Manage external access with Entitlement Management
+# Manage external access with Entitlement Management 
 
 
 [Entitlement management](../governance/entitlement-management-overview.md) is an identity governance capability that enables organizations to manage identity and access lifecycle at scale by automating access request workflows, access assignments, reviews, and expiration. Entitlement management allows delegated non-admins to create [access packages](../governance/entitlement-management-overview.md) that external users from other organizations can request access to. One and multi-stage approval workflows can be configured to evaluate requests, and [provision](../governance/what-is-provisioning.md) users for time-limited access with recurring reviews. Entitlement management enables policy-based provisioning and deprovisioning of external accounts.

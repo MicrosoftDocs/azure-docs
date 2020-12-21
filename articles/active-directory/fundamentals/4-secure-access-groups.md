@@ -1,5 +1,5 @@
 ---
-title: Secure external access with groups | Azure Active Directory
+title: Secure external access with groups in Azure Active Directory and Microsoft 365
 description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
 author: BarbaraSelden
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing external access with groups
+# Securing external access with groups 
 
 Groups are an essential part of any access control strategy. Azure Active Directory (Azure AD) security groups and Microsoft 365 (M365) Groups can be used as the basis for securing access to resources.
 

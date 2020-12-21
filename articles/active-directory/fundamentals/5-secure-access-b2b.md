@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Transition to governed collaboration with Azure Active Directory B2B collaboration
+# Transition to governed collaboration with Azure Active Directory B2B collaboration 
 
 Getting your collaboration under control is key to securing external access to your resources. Before going forward with this article, be sure that you have:
 

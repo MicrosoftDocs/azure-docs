@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# 3. Create a security plan for external access
+# 3. Create a security plan for external access 
 
 Now that you have [determined your desired security posture security posture for external access](1-secure-access-posture.md) and [discovered your current collaboration state](2-secure-access-current-state.md), you can create an external user security and governance plan. 
 
@@ -88,7 +88,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 | High risk| Require MFA always for external users |
 
 
-Today, you can [enforce multi-factor authentication for B2B users in your tenant](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). In the future, you will be able to trust the MFA settings of their home tenant if desired.
+Today, you can [enforce multi-factor authentication for B2B users in your tenant](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). 
 
 **User- and device-based sign in conditions**.
 
@@ -99,7 +99,7 @@ Today, you can [enforce multi-factor authentication for B2B users in your tenant
 | Identity protection shows high risk| Require user to change password |
 | Network location| Require sign in from a specific IP address range to highly confidential projects |
 
-Today, to use device state as an input to a policy, the device must be registered or joined to your tenant. In the future, you will be able to trust the device state from the user’s home tenant.
+Today, to use device state as an input to a policy, the device must be registered or joined to your tenant. 
 
 [Identity Protection risk-based policies](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk) can be used. However, issues must be mitigated in the user’s home tenant.
 

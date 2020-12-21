@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Manage external access with Conditional Access policies
+# Manage external access with Conditional Access policies 
 
 [Conditional Access](../conditional-access/overview.md) is the tool Azure AD uses to bring together signals, enforce policies, and determine whether a user should be allowed access to resources. For detailed information on how to create and use Conditional Access policies (CA policies), see [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md). 
 

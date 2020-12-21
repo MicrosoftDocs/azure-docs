@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Discover the current state of external collaboration in your organization
+# Discover the current state of external collaboration in your organization 
 
 Before discovering the current state of your external collaboration, you should [determine your desired security posture](1-secure-access-posture.md). You'll considered your organization’s needs for centralized vs. delegated control, and any relevant governance, regulatory, and compliance targets. 
 
