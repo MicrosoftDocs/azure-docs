@@ -61,7 +61,7 @@ If your script is on a local server, then you may still need additional firewall
 
 1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
 
-1. You should have a V created and deployed on your device. To create VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. You should have a VM created and deployed on your device. To create VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
     If you need to download a script externally such as from GitHub or Azure Storage, while configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the script.
 

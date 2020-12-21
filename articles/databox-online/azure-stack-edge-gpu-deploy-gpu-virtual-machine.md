@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -54,21 +54,21 @@ This extension supports the following OS distros, depending on the driver suppor
 
 Before you deploy GPU VMs on your device, review the following considerations if  Kubernetes is configured on the device.
 
-#### For 1 GPU device: 
+#### For 1-GPU device: 
 
 - **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes will not have access to the GPU in this case.
 
 - **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim the GPU on your device and the VM creation will fail as there are no GPU resources available.
 
-#### For 2 GPU device
+#### For 2-GPU device
 
-- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM that you create will claim 1 GPU on your device and Kubernetes configuration will also be successful and claim the remaining 1 GPU.	
+- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM that you create will claim one GPU on your device and Kubernetes configuration will also be successful and claim the remaining one GPU.	
 
-- **Create 2 GPU VMs followed by Kubernetes configuration on your device**: In this scenario, the 2 GPU VMs will claim the 2 GPUs on the device and the Kubernetes is configured successfully with no GPUs. 
+- **Create two GPU VMs followed by Kubernetes configuration on your device**: In this scenario, the two GPU VMs will claim the two GPUs on the device and the Kubernetes is configured successfully with no GPUs. 
 
-- **Configure Kubernetes on your device followed by creation of a GPU VMs**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
+- **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
 
-If you have GPU VMs running on your device and Kubernetes is also configured, then any time the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device.
+If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device.
 
 
 ## Create GPU VMs
@@ -546,7 +546,7 @@ Follow these steps to verify the driver installation:
     
     Administrator@VM1:~$
 	```
-2. Run the nvidia-smi command line utility installed with the driver. If the driver is successfully installed, you will be able to run the utility and see the following output:
+2. Run the nvidia-smi command-line utility installed with the driver. If the driver is successfully installed, you will be able to run the utility and see the following output:
 
     ```powershell
     Administrator@VM1:~$ nvidia-smi

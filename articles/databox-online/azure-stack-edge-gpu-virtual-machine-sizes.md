@@ -20,6 +20,7 @@ This article describes the supported sizes for the virtual machines running on y
 
 [!INCLUDE [azure-stack-edge-gateway-supported-vm-sizes](../../includes/azure-stack-edge-gateway-supported-vm-sizes.md)]
 
+
 ## Unsupported VM operations and cmdlets
 
 Scale sets, availability sets, snapshots are not supported.
