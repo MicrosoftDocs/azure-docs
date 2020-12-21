@@ -217,7 +217,7 @@ The following table explains the binding configuration properties that you set i
 |**userNameSetting**|**UserNameSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "%< UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. PasswordSetting: "%< PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting.|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -281,7 +281,7 @@ This section describes the global configuration settings available for this bind
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |queueName|n/a| Name of the queue to receive messages from.|
 |connectionString|n/a|The RabbitMQ message queue connection string. Please note that the connection string is directly specified here and not through an app setting.|
-|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting..|
+|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 ## Local testing
 
