@@ -120,6 +120,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## See also
 
-* [Application insights](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
+* [Application insights](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
 * [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
 * [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)
