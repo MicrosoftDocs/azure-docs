@@ -57,11 +57,11 @@ To customize language-specific strings, use the [localization](localization.md) 
 
 ## Relying party policy overview
 
-A relying party application, which in SAML protocol is known as a service provider, calls the [relying party policy](relyingparty.md) to execute a specific user journey. The relying party policy specifies the user journey to be executed, and list of claims that the token includes. 
+A relying party application, which in the SAML protocol is known as a service provider, calls the [relying party policy](relyingparty.md) to execute a specific user journey. The relying party policy specifies the user journey to be executed, and list of claims that the token includes. 
 
 ![Diagram showing the policy execution flow](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-All relying party applications that use the same policy, receive the same token claims, and the user goes through the same user journey.
+All relying party applications that use the same policy will receive the same token claims, and the user goes through the same user journey.
 
 ### User journeys
 
