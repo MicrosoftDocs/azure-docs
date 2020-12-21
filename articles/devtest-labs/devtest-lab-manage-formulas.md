@@ -56,7 +56,7 @@ The following steps guide you through the process of creating a formula from a c
     - **Expiration date and time** - You can't edit this field. 
     - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.  
 
-        ![Advanced settings page](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Screenshot that shows the Advanced Settings for the "Create formula (reusable base)" page.](./media/devtest-lab-create-formulas/advanced-settings.png)
     - If you selected a Shared Image Gallery image as the base, you also see the **image version** field that allows you to select the version of the image from the gallery that you want to use as the base. 
 
         ![Advanced settings page](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
@@ -94,7 +94,7 @@ To modify a formula, follow these steps:
 3. From the list of labs, select the desired lab.  
 4. On the lab's page, select **Formulas (reusable bases)**.
    
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Screenshot that shows the lab's page with "Formulas (reusable bases)" selected.](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. On the **Lab formulas** page, select the formula you wish to modify.
 6. On the **Update formula** page, make the desired edits, and select **Update**.
 
@@ -109,7 +109,7 @@ To delete a formula, follow these steps:
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. On the **Lab formulas** page, select the ellipsis to the right of the formula you wish to delete.
    
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+    ![Screenshot that shows the "Lab formulas" page with the ellipsis for the formula options highlighted.](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. On the formula's context menu, select **Delete**.
    
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)

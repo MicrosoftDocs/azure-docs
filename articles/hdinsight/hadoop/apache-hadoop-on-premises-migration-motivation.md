@@ -180,7 +180,7 @@ This section provides template questionnaires to help gather important informati
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 
 |Data authorization requirements?|  Yes||
-|Role-Based Access Control?|        Yes||
+|Role-based access control?|        Yes||
 |Auditing needed?|                  Yes||
 |Data encryption at rest?|          Yes||
 |Data encryption in transit?|       Yes||

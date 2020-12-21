@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
 ---
 # Designing globally available services using Azure SQL Database

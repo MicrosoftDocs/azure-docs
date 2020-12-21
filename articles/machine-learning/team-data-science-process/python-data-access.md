@@ -65,7 +65,7 @@ The code snippets provided by Azure Machine Learning Studio (classic) for use wi
 
 For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio (classic) on the **USERS** page under **Settings**.
 
-![Security][security]
+![Screenshot shows settings in the USERS page of Azure Machine Learning Studio.][security]
 
 If your role is not set as **Owner**, you can either request to be reinvited as an owner, or ask the owner of the workspace to provide you with the code snippet.
 
@@ -86,7 +86,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
 2. Select the dataset you would like to access. You can select any of the datasets from the **MY DATASETS** list or from the **SAMPLES** list.
 3. From the bottom toolbar, click **Generate Data Access Code**. If the data is in a format incompatible with the Python client library, this button is disabled.
    
-    ![Datasets][datasets]
+    ![Screenshot shows datasets with the GENERATE DATA ACCESS CODE.][datasets]
 4. Select the code snippet from the window that appears and copy it to your clipboard.
    
     ![Generate data access code button][dataset-access-code]
@@ -358,6 +358,5 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

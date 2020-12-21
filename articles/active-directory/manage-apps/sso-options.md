@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
@@ -15,11 +15,11 @@ ms.reviewer: arvindh, japere
 
 # Single sign-on options in Azure AD
 
-Single sign-on provides many of benefits over traditional sign-on methods.
+Single sign-on provides many benefits over traditional sign-on methods.
 
-- **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
+- **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or My Apps. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
-- **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
+- **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
 
 To learn more about single sign-on, see [What is single sign-on?](what-is-single-sign-on.md).
 
@@ -44,7 +44,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | [Linked](#linked-sign-on) | cloud and on-premises | Choose linked sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
 | [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. This mode is the default when you create the app.|
 | [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Choose IWA single sign-on for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. |
-| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
+| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
 
 ## OpenID Connect and OAuth
 
@@ -54,7 +54,7 @@ For more information, see:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Microsoft identity platform developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Microsoft identity platform developer’s guide](../develop/index.yml).
 
 ## SAML SSO
 
@@ -118,7 +118,7 @@ Passwords for each application can either be managed by the Azure AD administrat
 
 When the Azure AD administrator manages the credentials:  
 
-- The user doesn't need to reset or remember the user name and password. The user can access the application by clicking on it in their access panel or via a provided link.
+- The user doesn't need to reset or remember the user name and password. The user can access the application by clicking on it in their My Apps or via a provided link.
 - The administrator can do management tasks on the credentials. For example, the administrator can update application access according to user group memberships and employee status.
 - The administrator can use administrative credentials to provide access to applications shared among many users. For example, the administrator can allow everyone who can access an application to have access to a social media or document sharing application.
 
@@ -132,7 +132,7 @@ Linked sign-on enables Azure AD to provide single sign-on to an application that
 
 ### Linked sign-on for application migration
 
-Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure Active Directory, you can use linked sign-on to quickly publish links to all the applications you intend to migrate.  Users can find all the links in the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) or the [Office 365 application launcher](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Users won't know they're accessing a linked application or a migrated application.  
+Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure Active Directory, you can use linked sign-on to quickly publish links to all the applications you intend to migrate.  Users can find all the links in the [MyApps portal](../user-help/my-apps-portal-end-user-access.md) or the [Microsoft 365 application launcher](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Users won't know they're accessing a linked application or a migrated application.  
 
 Once a user has authenticated with a linked application, an account record needs to be created before the end user is provided single sign-on access. Provisioning this account record can either occur automatically, or it can occur manually by an administrator.
 
@@ -175,24 +175,14 @@ This diagram explains the flow when a user accesses an on-premises application t
 
 ## Header-based SSO
 
-Header-based single sign-on works for applications that use HTTP headers for authentication. This sign-on method uses a third-party authentication service called PingAccess. A user only needs to authenticate to Azure AD.
+Header-based single sign-on works for applications that use HTTP headers for authentication.
 
-Choose header-based single sign-on when Application Proxy and PingAccess are configured for the application.
+Choose header-based single sign-on when Application Proxy is configured for the on-premises application.
 
-To configure header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md).
+To learn more about header-based authentication, see [Header-based SSO](application-proxy-configure-single-sign-on-with-headers.md).
 
-### What is PingAccess for Azure AD?
-
-Using PingAccess for Azure AD, users can access and single sign-on to applications that use headers for authentication. Application Proxy treats these applications like any other, using Azure AD to authenticate access and then passing traffic through the connector service. After authentication occurs, the PingAccess service translates the Azure AD access token into a header format that is sent to the application.
-
-Your users won’t notice anything different when they sign in to use your corporate applications. They can still work from anywhere on any device. The Application Proxy connectors direct remote traffic to all applications, and they’ll continue to load balance automatically.
-
-### How do I get a license for PingAccess?
-
-Since this scenario is offered through a partnership between Azure AD and PingAccess, you need licenses for both services. However, Azure AD Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can acquire an additional license from PingAccess.
-
-For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
 * [Plan a single sign-on deployment](plan-sso-deployment.md)
+* [Single sign-on with on-premises apps](application-proxy-config-sso-how-to.md)

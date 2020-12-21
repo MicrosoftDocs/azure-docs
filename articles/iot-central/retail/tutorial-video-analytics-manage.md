@@ -20,8 +20,8 @@ In this tutorial, you learn how to:
 
 Before you start, you should complete:
 
-* The [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
-* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
+* One of the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) or [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) tutorials.
+* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
 
 You should have [Docker](https://www.docker.com/products/docker-desktop) installed on your local machine to run the video viewer application.
 
@@ -149,22 +149,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Navigate to the **Monitor** dashboard in your application. Then click one of the captured object detection hyperlinks on the **Inference Event Video** tile. The video appears on a page displayed by the local video player:
+Navigate to the **camera-003** device and select the **Dashboard** tab. Then click one of the captured object detection hyperlinks on the **Inference Event Video** tile. The video appears on a page displayed by the local video player:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Video snippet":::
 
-## Change the simulated devices in Application Dashboard
+## Change the simulated devices in application dashboards
 
 The application dashboards are originally populated with telemetry and properties generated from the IoT Central simulated devices. To configure the tiles to telemetry from real cameras or the Live555 simulator, follow these steps:
 
-1. Navigate to the **Real Camera Monitor** dashboard.
+1. Navigate to the **(Sample) Real Camera Monitor** application dashboard.
 1. Select **Edit**.
+1. Select the **Note** tile and delete it.
+1. Change the dashboard title to *Real Camera Monitor*.
 1. On the **Inference Count** tile, select the configure icon.
 1. In the **Configure Chart** section, select one or more real cameras in the **LVA Edge Object Detector** device group.
 1. Select the `AI Inference Interface/Inference Count` telemetry field.
 1. Select **Update**.
-
-   
 
 1. Repeat the steps for the following tiles:
     1. **Detection** pie chart uses the `AI Inference Interface/Inference/entity/tag/value` telemetry type.

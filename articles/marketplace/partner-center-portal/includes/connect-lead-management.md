@@ -5,13 +5,13 @@ documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 08/24/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ---
 
-When you publish your offer to the marketplace via Partner Center, you need to connect your offer to your CRM system. In this way, you can receive customer contact information immediately after a customer expresses interest or deploys your product.
+When you publish your offer to the commercial marketplace via Partner Center, you need to connect your offer to your CRM system. This way, you can receive customer contact information immediately after a customer expresses interest or deploys your product.
 
 1. Select a lead destination where you want us to send customer leads. The following CRM systems are supported:
 
@@ -24,7 +24,6 @@ When you publish your offer to the marketplace via Partner Center, you need to c
     * [Azure table](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [HTTPS endpoint](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Read this linked documentation for your selected lead destination to see how to set up the lead destination to receive leads from your marketplace offer.
-3. Connect your offer to the lead destination when you publish the offer to the marketplace in Partner Center. For information on how to do this, see the linked documentation.
-4. Confirm that the connection to the lead destination is set up properly. After you've configured your lead destination properly, select **Publish** on your offer in Partner Center. Then we'll validate the connection and send you a test lead. When you view the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment.
-5. Make sure the connection to the lead destination stays up to date so that you don't lose any leads. Make sure you update these connections whenever something has changed on your end.
+1. Read the applicable linked documentation above to learn how to set up your lead destination and receive leads from your commercial marketplace offers.
+1. After you've connected your offer to your lead destination, select **Publish** on your offer in Partner Center. We'll validate the connection and send you a test lead. When you view the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment.
+1. Make sure the connection to the lead destination stays up to date so you don't lose any leads. Make sure you update these connections whenever something has changed.

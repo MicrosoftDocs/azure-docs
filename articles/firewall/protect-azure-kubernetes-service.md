@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
 ---
 
@@ -42,7 +42,13 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
    - TCP [*IPAddrOfYourAPIServer*]:443 is required if you have an app that needs to talk to the API server. This change can be set after the cluster is created.
    - TCP port 9000,  and UDP port 1194 for the tunnel front pod to communicate with the tunnel end on the API server.
 
-      To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table.
+      To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table:
+
+   | Destination Endpoint                                                             | Protocol | Port    | Use  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. |
+   | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. |
+
    - UDP port 123 for Network Time Protocol (NTP) time synchronization (Linux nodes).
    - UDP port 53 for DNS is also required if you have pods directly accessing the API server.
 

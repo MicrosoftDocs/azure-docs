@@ -148,7 +148,7 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 
 ## Run your application in the compute and storage emulators
 
-The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](storage/common/storage-use-emulator.md).
+The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure Storage Emulator for development and testing](storage/common/storage-use-emulator.md).
 
 Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
 
@@ -184,9 +184,9 @@ To publish your application, you need to first import your publish settings by u
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[service configuration (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
 [sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

@@ -8,6 +8,7 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
+ms.custom: devx-track-csharp
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template

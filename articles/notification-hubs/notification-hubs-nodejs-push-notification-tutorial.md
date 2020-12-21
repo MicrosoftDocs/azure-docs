@@ -18,7 +18,7 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js

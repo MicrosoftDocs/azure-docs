@@ -21,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 > [!Note]
-> Due to Azure security requirements, Azure Data Catalog has enfored Transport Layer Security (TLS) 1.2. TLS 1.0 and TLS 1.1 have been disabled. You may encounter errors running the registration tool if your machine is not updated for TLS 1.2. See [Enable Transport Layer Security (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) to update your machine for TLS 1.2.
+> Due to Azure security requirements, Azure Data Catalog has enfored Transport Layer Security (TLS) 1.2. TLS 1.0 and TLS 1.1 have been disabled. You may encounter errors running the registration tool if your machine is not updated for TLS 1.2. See [Enable Transport Layer Security (1.2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) to update your machine for TLS 1.2.
 
 To get started, you need to have:
 

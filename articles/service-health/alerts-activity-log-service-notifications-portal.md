@@ -1,6 +1,6 @@
 ---
 title: Receive activity log alerts on Azure service notifications using Azure portal
-description: Get notified via SMS, email, or webhook when Azure service occurs.
+description: Learn how to use the Azure portal to set up activity log alerts for service health notifications by using the Azure portal.
 ms.topic: conceptual
 ms.date: 06/27/2019
 ---

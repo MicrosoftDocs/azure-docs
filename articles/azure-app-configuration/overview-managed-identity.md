@@ -29,7 +29,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
+- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating an App Configuration store and assigning it an identity using the CLI:
 
@@ -62,7 +62,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
+- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
 

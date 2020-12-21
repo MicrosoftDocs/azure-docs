@@ -45,7 +45,7 @@ Site Recovery can manage replication for:
 **Supported** | **Details**
 --- | ---
 **Replication scenarios** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux), Azure Stack VMs to Azure.<br/><br/> Replicate AWS Windows instances to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
-**Regions** | Review [supported regions](https://azure.microsoft.com/regions/services/) for Site Recovery. |
+**Regions** | Review [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) for Site Recovery. |
 **Replicated machines** | Review the replication requirements for [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) replication, [on-premises VMware VMs and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines), and [on-premises Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms).
 **Workloads** | You can replicate any workload running on a machine that's supported for replication. And, the Site Recovery team did app-specific tests for a [number of apps](site-recovery-workload.md#workload-summary).
 

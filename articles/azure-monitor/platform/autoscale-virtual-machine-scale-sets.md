@@ -60,7 +60,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following configuration:
 
-    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![Screenshot shows the profiles element.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

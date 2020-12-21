@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/24/2019
 ---
 # Use PowerShell to import a BACPAC file into a database in SQL Database

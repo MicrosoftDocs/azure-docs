@@ -4,6 +4,7 @@ description: Learn how you can save costs for Azure App Service Isolated Stamp F
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
@@ -33,7 +34,7 @@ Buy Windows stamp reservations if you have one or more Windows workers on the st
 
 ## Buy Isolated Stamp reserved capacity
 
-You can buy Isolated Stamp reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pay for the reservation [up front or with monthly payments](monthly-payments-reservations.md). To buy reserved capacity, you must have the owner role for at least one enterprise subscription or an individual subscription with pay-as-you-go rates.
+You can buy Isolated Stamp reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pay for the reservation [up front or with monthly payments](./prepare-buy-reservation.md). To buy reserved capacity, you must have the owner role for at least one enterprise subscription or an individual subscription with pay-as-you-go rates.
 
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if the setting is disabled, you must be an EA Admin.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Synapse Analytics reserved capacity.

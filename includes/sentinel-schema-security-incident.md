@@ -19,7 +19,7 @@ ms.custom: include file
 | **Classification** | string | Incident closing classification |
 | **ClassificationComment** | string | Incident closing classification comment |
 | **ClassificationReason** | string | Incident closing classification reason |
-| **ClosureTime** | datetime | Timestamp (UTC) of when the incident was last closed |
+| **ClosedTime** | datetime | Timestamp (UTC) of when the incident was last closed |
 | **Comments** | dynamic | Incident comments |
 | **CreatedTime** | datetime | Timestamp (UTC) of when the incident was created |
 | **Description** | string | Incident description |

@@ -147,7 +147,7 @@ The deployment always calls `npm install` before any custom command.
 
 | Command            | Description |
 |---------------------|-------------|
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build --prod`. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
+| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
 ## Route file location
@@ -159,6 +159,36 @@ You can customize the workflow to look for the [routes.json](routes.md) in any f
 | `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
 
  Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `app_artifact_location` by default.
+
+## Environment variables
+
+You can set environment variables for your build via the `env` section of a job's configuration.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          ###### Repository/Build Configurations
+          app_location: "/"
+          api_location: "api"
+          app_artifact_location: "public"
+          ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          HUGO_VERSION: 0.58.0
+```
 
 ## Next steps
 

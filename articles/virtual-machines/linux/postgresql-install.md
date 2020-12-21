@@ -160,7 +160,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
     You should receive the following output:
 
-![image](./media/postgresql-install/no1.png)
+![Screenshot that shows the output after you initialize the database.](./media/postgresql-install/no1.png)
 
 ## Set up PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -181,7 +181,7 @@ Modify two variables in the /etc/init.d/postgresql file. The prefix is set to th
 # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
-![image](./media/postgresql-install/no2.png)
+![Screenshot that shows the installation prefix and the data directory.](./media/postgresql-install/no2.png)
 
 Change the file to make it executable:
 
@@ -203,7 +203,7 @@ Check if the endpoint of PostgreSQL is on:
 
 You should see the following output:
 
-![image](./media/postgresql-install/no3.png)
+![Screenshot that shows the endpoint of PostgreSQL is on.](./media/postgresql-install/no3.png)
 
 ## Connect to the Postgres database
 Switch to the postgres user once again:
@@ -242,11 +242,11 @@ You have now set up a four-column table with the following column names and rest
 
 You should see the following if your table has been successfully created:
 
-![image](./media/postgresql-install/no4.png)
+![Screenshot that shows the message that appears when your table is created successfully.](./media/postgresql-install/no4.png)
 
 You can also check the table structure by using the following command:
 
-![image](./media/postgresql-install/no5.png)
+![Screenshot that shows the command for checking your table structure.](./media/postgresql-install/no5.png)
 
 ### Add data to a table
 First, insert information into a row:
@@ -257,7 +257,7 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Cassero
 
 You should see this output:
 
-![image](./media/postgresql-install/no6.png)
+![Screenshot that shows the row information that you added.](./media/postgresql-install/no6.png)
 
 You can add a couple more people to the table as well. Here are some options, or you can create your own:
 
@@ -278,7 +278,7 @@ select * from potluck;
 
 The output is:
 
-![image](./media/postgresql-install/no7.png)
+![Screenshot that shows the output from the command for showing a table.](./media/postgresql-install/no7.png)
 
 ### Delete data in a table
 Use the following command to delete data in a table:

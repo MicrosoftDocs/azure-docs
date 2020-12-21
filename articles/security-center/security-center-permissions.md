@@ -6,14 +6,12 @@ cloud: na
 documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid:
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/02/2020
+ms.topic: overview
+ms.date: 12/01/2020
 ms.author: memildin
 
 ---
@@ -41,7 +39,7 @@ The following table displays roles and allowed actions in Security Center.
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edit security policy|-|✔|-|-|✔|
 |Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
-|Change subscription pricing tier|-|✔|-|-|✔|
+|Enable / disable Azure Defender|-|✔|-|-|✔|
 |Enable / disable auto-provisioning|-|✔|-|✔|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Dismiss alerts|-|✔|-|✔|✔|
@@ -53,10 +51,10 @@ The following table displays roles and allowed actions in Security Center.
 >
 
 ## Next steps
-This article explained how Security Center uses RBAC to assign permissions to users and identified the allowed actions for each role. Now that you're familiar with the role assignments needed to monitor the security state of your subscription, edit security policies, and apply recommendations, learn how to:
+This article explained how Security Center uses Azure RBAC to assign permissions to users and identified the allowed actions for each role. Now that you're familiar with the role assignments needed to monitor the security state of your subscription, edit security policies, and apply recommendations, learn how to:
 
 - [Set security policies in Security Center](tutorial-security-policy.md)
 - [Manage security recommendations in Security Center](security-center-recommendations.md)
 - [Monitor the security health of your Azure resources](security-center-monitoring.md)
 - [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)
-- [Monitor partner security solutions](security-center-partner-solutions.md)
+- [Monitor partner security solutions](./security-center-partner-integration.md)

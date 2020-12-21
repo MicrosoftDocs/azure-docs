@@ -2,12 +2,12 @@
 title: 'Troubleshoot network link performance: Azure'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
-author: tracsman
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
 
 ---
@@ -117,7 +117,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 ![2][2]
 
 >[!NOTE]
-> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
+> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Microsoft 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
 >
 >
 
@@ -205,6 +205,6 @@ Test setup:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index
+[Network Docs]: ../index.yml
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT

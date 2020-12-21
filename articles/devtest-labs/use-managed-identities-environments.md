@@ -6,35 +6,38 @@ ms.date: 06/26/2020
 ---
 
 # Use Azure managed identities to deploy environments in a lab 
+
 As a lab owner, you can use a managed identity to deploy environments in a lab. This feature is helpful in scenarios where the environment contains or has references to Azure resources such as key vaults, shared image galleries, and networks that are external to the environment’s resource group. It enables creation of sandbox environments that aren't limited to the resource group of that environment.
 
 > [!NOTE]
 > Currently, a single user-assigned identity is supported per lab. 
 
 ## Prerequisites
+
 - [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Make sure your managed identity was created in the same region and subscription as your lab. The managed identity does not need to be in the same resource group.
 
 ## Use Azure portal
+
 In this section you, as a lab owner, use the Azure portal to add a user-managed identity to the lab. 
 
-1. On the lab page, select **Configuration and policies**. 
-1. Select **Identity** in the **Settings** section.
-1. To add a user assigned identity, select **Add** on the toolbar. 
-1. Select an **identity** from a pre-populated drop-down list.
-1. Select **OK**.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **DevTest Labs**.
+1. From the list of labs, select the lab you want.
+1. Select **Configuration and policies** -> **Identity (Preview)**. 
+1. To add a user assigned identity, select the **User Assigned** tab.
+1. Press **Add** .
+1. Select an existing user you have created and/or have access to from the drop-down.
+ 
     ![Add user-managed identity](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. You see the added user-managed identity in the list. 
+1. Press **Save** on top of the page.
 
-    ![User-managed identity in the list](./media/use-managed-identities-environments/identity-in-list.png)
-
-Once saved, the lab will use this identity while deploying all lab environments. You can also access the identity resource in Azure by selecting the identity from the list. 
+    Once saved, the lab will use this identity while deploying all lab environments. You can also access the identity resource in Azure by selecting the identity from the list. 
 
 The lab owner doesn't need to do anything special while deploying an environment as long as the identity added to the lab has permissions to the external resources that the environment needs to access. 
 
 To change the user-managed identity assigned to the lab, remove the identity attached to the lab first and then add another one to the lab. To remove an identity attached to the lab, select **... (ellipsis)**, and click **Remove**. 
-
-![User-managed identity in the list](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## Use API
 

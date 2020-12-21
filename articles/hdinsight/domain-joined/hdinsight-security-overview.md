@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -55,7 +55,7 @@ To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azur
 
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it.
 
-Azure storage and Data Lake Storage Gen1/Gen2, support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with server-side encryption of data at rest.
+HDInsight supports data encryption at rest with both platform managed and [customer managed keys](../disk-encryption.md). Encryption of data in transit is handled with both TLS and IPSec. See [Encryption in transit for Azure HDInsight](encryption-in-transit.md) for more information.
 
 ### Compliance
 
@@ -74,23 +74,25 @@ The following table provides links to resources for each type of security soluti
 | Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  | Customer |
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
-|  | Configure [Azure virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Cosmos DB and [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
-|  | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. | Customer |
-|  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
-|  | Control access to your data by Azure support using [Customer lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
-| Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+|  | Configure [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Cosmos DB and [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Customer |
+|  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
+|  | Configure [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md) for Azure Storage encryption | Customer |
+|  | Control access to your data by Azure support using [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
+| Application and middleware security | Integrate with AAD-DS and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Operating system security | Create clusters with most recent secure base image | Customer |
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
+|  | Ensure [CMK disk encryption for VMs](../disk-encryption.md) | Customer |
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) | Customer |
+|  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) or [private link](../hdinsight-private-link.md) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
+|  | Configure [IPSec encryption in transit](encryption-in-transit.md) between cluster nodes | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |
 
 ## Next steps
 
 * [Plan for HDInsight clusters with ESP](apache-domain-joined-architecture.md)
-* [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md)
+* [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md)

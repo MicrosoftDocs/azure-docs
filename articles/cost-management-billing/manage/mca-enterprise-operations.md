@@ -4,11 +4,12 @@ description: Learn how to complete Enterprise Agreement tasks in your new billin
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 09/03/2020
 ms.author: banders
-
 ---
+
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
 
 If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, a new billing account is created for the agreement. The billing in your new account is organized differently than your Enterprise Agreement. This article describes how you can use the new billing account to perform tasks that you performed in your Enterprise Agreement.

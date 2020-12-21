@@ -15,7 +15,7 @@ ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
@@ -668,18 +668,18 @@ OriginalUrl.
 <xsl-transform>
     <parameter name="User-Agent">@(context.Request.Headers.GetValueOrDefault("User-Agent","non-specified"))</parameter>
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    	<xsl:output method="xml" indent="yes" />
-    	<xsl:param name="User-Agent" />
-    	<xsl:template match="* | @* | node()">
-    		<xsl:copy>
-    			<xsl:if test="self::* and not(parent::*)">
-    				<xsl:attribute name="User-Agent">
-    					<xsl:value-of select="$User-Agent" />
-    				</xsl:attribute>
-    			</xsl:if>
-    			<xsl:apply-templates select="* | @* | node()" />
-    		</xsl:copy>
-    	</xsl:template>
+        <xsl:output method="xml" indent="yes" />
+        <xsl:param name="User-Agent" />
+        <xsl:template match="* | @* | node()">
+            <xsl:copy>
+                <xsl:if test="self::* and not(parent::*)">
+                    <xsl:attribute name="User-Agent">
+                        <xsl:value-of select="$User-Agent" />
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="* | @* | node()" />
+            </xsl:copy>
+        </xsl:template>
     </xsl:stylesheet>
   </xsl-transform>
 ```
@@ -694,15 +694,15 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-      	<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    		<xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
-    		<!-- Copy all nodes directly-->
-    		<xsl:template match="node()| @*|*">
-    			<xsl:copy>
-    				<xsl:apply-templates select="@* | node()|*" />
-    			</xsl:copy>
-    		</xsl:template>
-      	</xsl:stylesheet>
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
+            <!-- Copy all nodes directly-->
+            <xsl:template match="node()| @*|*">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()|*" />
+                </xsl:copy>
+            </xsl:template>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>
@@ -729,4 +729,4 @@ For more information, see the following topics:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](./policy-reference.md)

@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT for Azure
-description: Introduction to Avere vFXT for Azure, a cloud cache layer for HPC
+description: Learn about Avere vFXT for Azure, a cloud-based filesystem caching solution for data-intensive high-performance computing tasks.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview

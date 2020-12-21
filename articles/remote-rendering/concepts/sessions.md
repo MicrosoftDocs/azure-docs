@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Remote Rendering Sessions
@@ -25,7 +26,7 @@ Once you are *connected* to an active session, operations such as [loading model
 
 ### Managing multiple sessions simultaneously
 
-It is not possible to fully *connect* to multiple sessions from one device. However, you can create, observe and shut down as many sessions as you like from a single application. As long as the app is not meant to ever connect to a session, it doesn't need to run on a device like HoloLens 2, either. A use case for such an implementation may be if you want to control sessions through a central mechanism. For example, one could build a web app, where multiple tablets and HoloLenses can log into. Then the app can display options on the tablets, such as which CAD model to display. If a user makes a selection, this information is communicated to all HoloLenses to create a shared experience.
+It is not possible to fully *connect* to multiple sessions from one device. However, you can create, observe and shut down as many sessions as you like from a single application. As long as the app is not meant to ever connect to a session, it doesn't need to run on a device like HoloLens 2, either. A use case for such an implementation may be if you want to control sessions through a central mechanism. For example, one could build a web app, where multiple tablets and HoloLens devices can log into. Then the app can display options on the tablets, such as which CAD model to display. If a user makes a selection, this information is communicated to all HoloLens devices to create a shared experience.
 
 ## Session phases
 
@@ -35,10 +36,10 @@ Every session undergoes multiple phases.
 
 When you ask ARR to [create a new session](../how-tos/session-rest-api.md#create-a-session), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted for 30 days, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
 
-Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the *Standard* or *Premium* size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
+Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the [*Standard*](../reference/vm-sizes.md) or [*Premium*](../reference/vm-sizes.md) size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> If you request a *Standard* VM size and the request fails due to high demand, that doesn't imply that requesting a *Premium* server will fail, as well. So if it is an option for you, you can try falling back to a *Premium* VM.
+> If you request a *Standard* server size and the request fails due to high demand, that doesn't imply that requesting a *Premium* server will fail, as well. So if it is an option for you, you can try falling back to a *Premium* server size.
 
 When the service finds a suitable server, it has to copy the proper virtual machine (VM) onto it to turn it into an Azure Remote Rendering host. This process takes several minutes. Afterwards the VM is booted and the **session state** transitions to **Ready**.
 
@@ -67,11 +68,11 @@ A session may also be stopped because of some failure.
 In all cases, you won't be billed further once a session is stopped.
 
 > [!WARNING]
-> Whether you connect to a session, and for how long, doesn't affect billing. What you pay for the service depends on the *session duration*, that means the time that a server is exclusively reserved for you, and the requested hardware capabilities (the VM size). If you start a session, connect for five minutes and then don't stop the session, such that it keeps running until its lease expires, you will be billed for the full session lease time. Conversely, the *maximum lease time* is mostly a safety net. It does not matter whether you request a session with a lease time of eight hours, then only use it for five minutes, if you manually stop the session afterwards.
+> Whether you connect to a session, and for how long, doesn't affect billing. What you pay for the service depends on the *session duration*, that means the time that a server is exclusively reserved for you, and the requested hardware capabilities (the [allocated size](../reference/vm-sizes.md)). If you start a session, connect for five minutes and then don't stop the session, such that it keeps running until its lease expires, you will be billed for the full session lease time. Conversely, the *maximum lease time* is mostly a safety net. It does not matter whether you request a session with a lease time of eight hours, then only use it for five minutes, if you manually stop the session afterwards.
 
 #### Extend a session's lease time
 
-You can [extend the lease time](../how-tos/session-rest-api.md#update-a-session) of an active session, if it turns out that you need it longer.
+You can [extend the lease time](../how-tos/session-rest-api.md#modify-and-query-session-properties) of an active session, if it turns out that you need it longer.
 
 ## Example code
 
@@ -102,6 +103,8 @@ while (true)
     {
         break;
     }
+    // REST calls must not be issued too frequently, otherwise the server returns failure code 429 ("too many requests"). So we insert the recommended delay of 10s
+    await Task.Delay(TimeSpan.FromSeconds(10));
 }
 
 if (sessionProperties.Status != RenderingSessionStatus.Ready)
@@ -138,6 +141,15 @@ The lifetime of a virtual machine isn't tied to the `AzureFrontend` instance or 
 The persistent session ID can be queried via `AzureSession.SessionUUID()` and cached locally. With this ID, an application can call `AzureFrontend.OpenSession` to bind to that session.
 
 When `AzureSession.IsConnected` is true, `AzureSession.Actions` returns an instance of `RemoteManager`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
+
+## API documentation
+
+* [C# AzureSession class](/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend.OpenRenderingSession()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C++ AzureSession class](/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend::OpenRenderingSession](/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## Next steps
 

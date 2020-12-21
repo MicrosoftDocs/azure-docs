@@ -1,16 +1,17 @@
 ---
-title: Install and run containers - Face
+title: Install and run Docker containers for the Face API
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to download, install, and run containers for Face in this walkthrough tutorial.
+description: Use the Docker container for the Face API to detect and identify human faces in images.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
+keywords: on-premises, Docker, container, identify
 ---
 
 # Install and run Face containers (Preview)
@@ -18,9 +19,9 @@ ms.author: aahi
 > [!IMPORTANT]
 > The limit for Face container users has been reached. We are not currently accepting new applications for the Face container.
 
-Azure Cognitive Services Face provides a standardized Linux container for Docker that detects human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
+Azure Cognitive Services Face API provides a Linux Docker container that detects and analyzes human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

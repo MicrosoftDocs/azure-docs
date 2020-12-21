@@ -13,7 +13,7 @@ This is the recommended way for you to deploy any setup, governance, or cluster 
 
 When applicable, manage your applications as Resource Manager resources to improve:
 * Audit trail: Resource Manager audits every operation and keeps a detailed *Activity Log* that can help you trace any changes made to these applications and your cluster.
-* Role-based access control (RBAC): Managing access to clusters as well as applications deployed on the cluster can be done via the same Resource Manager template.
+* Azure role-based access control (Azure RBAC): Managing access to clusters as well as applications deployed on the cluster can be done via the same Resource Manager template.
 * Azure Resource Manager (via Azure portal) becomes a one-stop-shop for managing your cluster and critical application deployments.
 
 The following snippet shows the different kinds of resources that can be managed via a template:

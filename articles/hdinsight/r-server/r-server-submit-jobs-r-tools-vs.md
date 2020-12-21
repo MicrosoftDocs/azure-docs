@@ -12,9 +12,9 @@ ms.date: 06/19/2019
 
 # Submit jobs from R Tools for Visual Studio
 
-[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019).
 
-RTVS enhances your R workflow by offering tools such as the [R Interactive window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (code completion), [plot visualization](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) through R libraries such as ggplot2 and ggviz, [R code debugging](https://docs.microsoft.com/visualstudio/rtvs/debugging), and more.
+RTVS enhances your R workflow by offering tools such as the [R Interactive window](/visualstudio/rtvs/interactive-repl) (REPL), intellisense (code completion), [plot visualization](/visualstudio/rtvs/visualizing-data) through R libraries such as ggplot2 and ggviz, [R code debugging](/visualstudio/rtvs/debugging), and more.
 
 ## Set up your environment
 
@@ -27,7 +27,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 3. You need to have public and private keys for SSH authentication.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Install [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. ML Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
+4. Install [ML Server](/previous-versions/machine-learning-server/install/r-server-install-windows) on your machine. ML Server provides the [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) and `RxSpark` functions.
 
 5. Install [PuTTY](https://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
 
@@ -44,7 +44,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 ## Execute local R methods
 
 1. Create your HDInsight ML Services cluster.
-2. Install the [RTVS extension](https://docs.microsoft.com/visualstudio/rtvs/installation).
+2. Install the [RTVS extension](/visualstudio/rtvs/installation).
 3. Download the [samples zip file](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Open `examples/Examples.sln` to launch the solution in Visual Studio.
 5. Open the `1-Getting Started with R.R` file in the `A first look at R` solution folder.

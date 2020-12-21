@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 
 # Deployment technologies in Azure Functions
 
-You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an overview of the deployment methods available to you and recommendations for the best method to use in various scenarios. It also provides an exhaustive list of and key details about the underlyng deployment technologies. 
+You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an overview of the deployment methods available to you and recommendations for the best method to use in various scenarios. It also provides an exhaustive list of and key details about the underlying deployment technologies. 
 
 ## Deployment methods
 
-The deployment technology you use to publish code to Azure is generally determined by the way in which you publish your app. The appropriate deployment method is determined by specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you are more likely to publish continously from source control or by using an automated publishing pipeline, which includes additional validation and testing.  
+The deployment technology you use to publish code to Azure is generally determined by the way in which you publish your app. The appropriate deployment method is determined by specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you are more likely to publish continuously from source control or by using an automated publishing pipeline, which includes additional validation and testing.  
 
 The following table describes the available deployment methods for your Function project.
 
@@ -82,7 +82,7 @@ To enable remote build on Linux, the following [application settings](functions-
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
@@ -181,7 +181,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (command line)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
@@ -200,9 +200,15 @@ The following table shows the operating systems and languages that support porta
 
 <sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
 
+## Deployment behaviors
+
+When you do a deployment, all existing executions are allowed to complete or time out, after which the new code is loaded to begin processing requests.
+
+If you need more control over this transition, you should use deployment slots.
+
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](functions-deployment-slots.md) documentation for details.
 
 ## Next steps
 

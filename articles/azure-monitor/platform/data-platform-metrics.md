@@ -13,30 +13,51 @@ ms.date: 03/26/2019
 ms.author: bwren
 ---
 
-# Metrics in Azure Monitor
+# Azure Monitor Metrics overview
+Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data from [monitored resources](../monitor-reference.md) into a time series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time. Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. You can analyze them interactively with metrics explorer, be proactively notified with an alert when a value crosses a threshold, or visualize them in a workbook or dashboard.
+
 
 > [!NOTE]
-> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platform](data-platform.md) for a comparison of the two.
+> Azure Monitor Metrics is one half of the data platform supporting Azure Monitor. The other is [Azure Monitor Logs](data-platform-logs.md) which collects and organizes log and performance data and allows it to be analyzed with a rich query language. Metrics are more lightweight than data in Azure Monitor Logs and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. Metrics though can only store numeric data in a particular structure, while Logs can store a variety of different data types each with their own structure. You can also perform complex analysis on Logs data using log queries which cannot be used for analysis of Metrics data.
 
-Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. This article describes how metrics are structured, what you can do with them, and identifies different data sources that store data in metrics.
-
-## What are metrics?
-Metrics are numerical values that describe some aspect of a system at a particular time. Metrics are collected at regular intervals and are useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
 ## What can you do with Azure Monitor Metrics?
-The following table lists the different ways that you can use metric data in Azure Monitor.
+The following table lists the different ways that you can use Metrics in Azure Monitor.
 
-|  | Description |
+|  |  |
 |:---|:---|
 | **Analyze** | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
-| **Visualize** | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](./workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | **Alert** | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
+| **Visualize** | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](./workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | **Automate** |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
-| **Export** | [Route Metrics to Logs](./resource-logs.md#send-to-azure-storage) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
 | **Retrieve** | Access metric values from a command line using  [PowerShell cmdlets](/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |
+| **Export** | [Route Metrics to Logs](./resource-logs.md#send-to-azure-storage) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
 | **Archive** | [Archive](./platform-logs-overview.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
-## How is data in Azure Monitor Metrics structured?
+![Metrics overview](media/data-platform-metrics/metrics-overview.png)
+
+
+## Data collection
+There are three fundamental sources of metrics collected by Azure Monitor. Once these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source.
+
+**Azure resources**. Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
+
+**Applications**. Metrics are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
+
+**Virtual machine agents**. Metrics are collected from the guest operating system of a virtual machine. Enable guest OS metrics for Windows virtual machines with [Windows Diagnostic Extension (WAD)](./diagnostics-extension-overview.md) and for Linux virtual machines with [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
+
+**Custom metrics**. You can define metrics in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service using the [custom metrics API](metrics-store-custom-rest-api.md).
+
+- See [What is monitored by Azure Monitor?](../monitor-reference.md) for a complete list of data sources that can send data to Azure Monitor Metrics.
+
+## Metrics explorer
+Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
+
+![Metrics Explorer](media/data-platform/metrics-explorer.png)
+
+- See [Getting started with Azure Monitor metrics explorer](metrics-getting-started.md) to get started using metrics explorer.
+
+## Data structure
 Data collected by Azure Monitor Metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
 * The time the value was collected
@@ -75,22 +96,6 @@ This non-dimensional metric can only answer a basic question like "what was my n
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
 
 This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics.
-
-## Interacting with Azure Monitor Metrics
-Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
-
-![Metrics Explorer](media/data-platform/metrics-explorer.png)
-
-## Sources of Azure Monitor Metrics
-There are three fundamental sources of metrics collected by Azure Monitor. Once these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source.
-
-**Platform metrics** are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
-
-**Guest OS metrics** are collected from the guest operating system of a virtual machine. Enable guest OS metrics for Windows virtual machines with [Windows Diagnostic Extension (WAD)](./diagnostics-extension-overview.md) and for Linux virtual machines with [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
-
-**Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
-
-**Custom metrics** are metrics that you define in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service using the [custom metrics API](metrics-store-custom-rest-api.md).
 
 ## Retention of Metrics
 For most resources in Azure, metrics are stored for 93 days. There are some exceptions:

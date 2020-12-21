@@ -199,7 +199,7 @@ module.exports = function (context, myQueueItem) {
 
 # [Python](#tab/python)
 
-The following example shows how to send an SMS message using the output binding as defined in the following *function.js*.
+The following example shows how to send an SMS message using the output binding as defined in the following *function.json*.
 
 ```json
     {

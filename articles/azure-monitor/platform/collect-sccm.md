@@ -131,7 +131,7 @@ After you have completed initial configuration to import device collections from
 4. Select **Computer Groups** and then select **SCCM**.  
 5. Select **Import Configuration Manager collection memberships** and then click **Save**.  
    
-    ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Screenshot of the Computer Groups advanced settings for S C C M containing the option for Import Configuration Manager collection memberships.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## View data from Configuration Manager
 
@@ -139,7 +139,7 @@ After you've added a Log Analytics connection to Configuration Manager and insta
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
 
-![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups02.png)
+![Screenshot of the Computer Groups advanced settings for S C C M showing the option for Import Configuration Manager collection memberships selected.](./media/collect-sccm/sccm-computer-groups02.png)
 
 When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../log-query/log-query-overview.md), you can perform further in-depth analysis the collection membership data.
 

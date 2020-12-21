@@ -62,7 +62,7 @@ You can create the Log Analytics workspace manually or by using a template. The 
    * **Location**: Enter the location.
    * **Pricing tier**: Select **OK** to complete.
 
-For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
 
 #### To create the Log Analytics workspace through the monitoring template from Azure market place:
 
@@ -186,7 +186,7 @@ The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view
 
 ### 2. Create alert rules
 
-You can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), and customize the queries and threshold values as needed. The following are recommended alerts:
+You can [create the alerts](../azure-monitor/platform/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

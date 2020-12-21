@@ -27,7 +27,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     If there are errors in this step, the status updates to *Scan completed with errors*. Unlock the device and go to **Connect and copy** page, download the issues list, and resolve the errors.
 
-    ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+    ![Prepare to ship 4](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
     Once the errors are resolved, run **Prepare to ship**.
 
@@ -36,7 +36,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
     1. Make a note of the completion reference number. Depending on the country in which you are, this number may be required for different operations.
     2. Download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
-        ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship5.png)
+        ![Prepare to ship 5](media/data-box-prepare-to-ship/prepare-to-ship5.png)
     3. Select and download the shipping instructions for the device. The shipping instructions are different depending on the country in which you are located.
     4. If the E-ink is not displaying the shipping label, you can download the reverse shipment label here. 
 

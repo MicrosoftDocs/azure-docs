@@ -5,9 +5,10 @@ author: bandersmsft
 ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ---
 
 # Quickstart: Create a budget with an ARM template

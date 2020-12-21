@@ -3,6 +3,7 @@ title: Azure Service Bus message transfers, locks, and settlement
 description: This article provides an overview of Azure Service Bus message transfers, locks, and settlement operations.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Message transfers, locks, and settlement

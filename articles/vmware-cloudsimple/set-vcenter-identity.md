@@ -122,7 +122,7 @@ After the network connection is established, follow the steps in [Add On-Premise
 
 6. Select **Active Directory as an LDAP Server** and click **Next**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Screenshot that highlights the Active Directory as an LDAP Server option.](media/OnPremAD04.png)
 
 7. Specify the identity source parameters for your environment and click **Next**.
 
