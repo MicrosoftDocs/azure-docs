@@ -177,7 +177,7 @@ You can leverage the [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/
 
 Azure Databricks runs can be deployed to the following endpoints, 
 * [Azure Container Instance](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-deloy-models-with-mlflow.md#deploy-to-aks)
+* [Azure Kubernetes Service](how-to-use-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### Deploy models to ADB endpoints for batch scoring 
 
