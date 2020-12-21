@@ -297,6 +297,9 @@
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: How to troubleshoot environments
+          displayName: troubleshoot, envrionment, debug, image
+          href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
         - name: Label data
@@ -601,6 +604,8 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md      
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Known issues
