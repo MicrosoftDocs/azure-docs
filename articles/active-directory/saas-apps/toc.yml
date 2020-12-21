@@ -2069,6 +2069,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: GroupTalk
         href: grouptalk-provisioning-tutorial.md
+      - name: Gtmhub
+        href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
       - name: Hootsuite
@@ -2109,12 +2111,14 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
-      - name: myPolicies
-        href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
         href: mindtickle-provisioning-tutorial.md
       - name: Miro
         href: miro-provisioning-tutorial.md
+      - name: monday.com
+        href: mondaycom-provisioning-tutorial.md
+      - name: myPolicies
+        href: mypolicies-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netskope User Authentication
