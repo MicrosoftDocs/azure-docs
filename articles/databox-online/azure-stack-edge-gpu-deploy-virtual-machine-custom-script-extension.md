@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -46,7 +46,7 @@ The Custom Script Extension for Linux will run on the following OSs. Other versi
 
 ### Script location
 
-You can configure the extension to use your Azure Blob storage credentials to access Azure Blob storage. The script location can be anywhere, as long as the VM can route to that end point, such as GitHub or an internal file server. In this article, we pass a command to execute via the Custom Script Extension. <!-- confirm with Rajesh -->
+Instead of the scripts, in this article, we pass a command to execute via the Custom Script Extension. 
 
 ### Internet Connectivity
 
@@ -76,7 +76,7 @@ Depending on the operating system for your VM, you could install Custom Script E
 
 ### Custom Script Extension for Windows
 
-To deploy Custom Script Extension for Windows for a VM running on your device, edit the `addCSExtWindowsVM.parameters.json` parameters file and then deploy the template `addextensiontoVM.json`.
+To deploy Custom Script Extension for Windows for a VM running on your device, edit the `addCSExtWindowsVM.parameters.json` parameters file and then deploy the template `addCSextensiontoVM.json`.
 
 #### Edit parameters file
 
@@ -144,70 +144,13 @@ Here is a sample parameter file that was used in this article.
 ```
 #### Deploy template
 
-Deploy the template `addextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
+Deploy the template `addCSextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
 
 ```powershell
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "apiProfile": "2018-03-01-hybrid",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the existing VM to add custom script extension to"
-      }
-    },
-    "extensionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the extension"
-      }
-    },
-    "publisher": {
-      "type": "string",
-      "metadata": {
-        "description": "Publisher of the extension"
-      }
-    },
-    "type": {
-      "type": "string",
-      "metadata": {
-        "description": "Type of the extension"
-      }
-    },
-    "typeHandlerVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Type handler of the extension"
-      }
-    },
-    "settings": {
-      "type": "object",
-      "metadata": {
-        "description": "Settings for extension"
-      }
-    }
-  },
-  "variables": {
-    "extensionName": "[concat(parameters('vmName'),'/',parameters('extensionName'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[variables('extensionName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "publisher": "[parameters('publisher')]",
-        "type": "[parameters('type')]",
-        "typeHandlerVersion": "[parameters('typeHandlerVersion')]",
-        "autoUpgradeMinorVersion": true,
-        "settings": "[parameters('settings')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
+$templateFile = "<Path to addCSExtensiontoVM.json file>"
+$templateParameterFile = "<Path to addCSExtWindowsVM.parameters.json file>"
+$RGName = "<Resource group name>"
+New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Deployment name>"
 ```
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
@@ -215,8 +158,7 @@ Deploy the template `addextensiontoVM.json`. This template deploys extension to 
 Here is a sample output:
 
 ```powershell
-PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtWindowsVM.parameters"
-PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addExtensiontoVM.json"
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensiontoVM.json"
 PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addCSExtWindowsVM.parameters.json"
 PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
 PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment7"
@@ -300,7 +242,7 @@ In this instance, the command to execute for the custom extension was: `md C:\\U
 
 ### Custom Script Extension for Linux
 
-To deploy Custom Script Extension for Windows for a VM running on your device, edit the `addCSExtLinuxVM.parameters.json` parameters file and then deploy the template `addCSExtLinuxtoVM.json`.
+To deploy Custom Script Extension for Windows for a VM running on your device, edit the `addCSExtLinuxVM.parameters.json` parameters file and then deploy the template `addCSExtensiontoVM.json`.
 
 #### Edit parameters file
 
@@ -339,99 +281,10 @@ Provide your VM name, name for the extension and the command that you want to ex
 Here is a sample parameter file that was used in this article:
 
 ```powershell
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "value": "Linuxvm" 
-        },
-        "extensionName": {
-            "value": "LinuxCustomScriptExtension" 
-        },
-        "publisher": {
-            "value": "Microsoft.Azure.Extensions" 
-        },
-        "type": {
-            "value": "CustomScript" 
-        },
-        "typeHandlerVersion": {
-            "value": "2.0" 
-        },
-        "settings": {
-            "value": {
-                "commandToExecute" : "sudo echo 'some text' >> /home/Administrator/file2.txt"
-            }
-        }
-    }
-}
-```
-#### Deploy template
-
-Deploy the template `addCSExtLinuxVM.json`. This template deploys extension to an existing VM. Run the following command:
-
-```powershell
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "apiProfile": "2018-03-01-hybrid",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the existing VM to add custom script extension to"
-      }
-    },
-    "extensionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the extension"
-      }
-    },
-    "publisher": {
-      "type": "string",
-      "metadata": {
-        "description": "Publisher of the extension"
-      }
-    },
-    "type": {
-      "type": "string",
-      "metadata": {
-        "description": "Type of the extension"
-      }
-    },
-    "typeHandlerVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Type handler of the extension"
-      }
-    },
-    "settings": {
-      "type": "object",
-      "metadata": {
-        "description": "Settings for extension"
-      }
-    }
-  },
-  "variables": {
-    "extensionName": "[concat(parameters('vmName'),'/',parameters('extensionName'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[variables('extensionName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "publisher": "[parameters('publisher')]",
-        "type": "[parameters('type')]",
-        "typeHandlerVersion": "[parameters('typeHandlerVersion')]",
-        "autoUpgradeMinorVersion": true,
-        "settings": "[parameters('settings')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
+$templateFile = "<Path to addCSExtensionToVM.json file>"
+$templateParameterFile = "<Path to addCSExtLinuxVM.parameters.json file>"
+$RGName = "<Resource group name>"
+New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Deployment name>"
 ```	
 
 > [!NOTE]
