@@ -10,7 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/21/2020
 ms.author: pafarley
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-set-formre
 
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: forms processing, automated data processing
@@ -24,6 +24,8 @@ Use the Form Recognizer client library to:
 
 * [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
+* [Recognize business cards](#recognize-business-cards)
+* [Recognize invoices](#recognize-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -49,5 +51,11 @@ Use the Form Recognizer client library to:
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end
