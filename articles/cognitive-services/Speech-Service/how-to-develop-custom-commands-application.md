@@ -15,7 +15,7 @@ ms.author: trbye
 
 # Develop Custom Commands applications
 
-In this how-to article, you learn how to develop and configure Custom Commands applications. The Custom Commands feature helps you build rich voice-command apps that are optimized for voice-first interaction experiences. The feature is best suited to task completion or command-and-control scenarios. It's particularly well-suited for Internet of Things (IoT) devices and for ambient and headless devices.
+In this how-to article, you learn how to develop and configure Custom Commands applications. The Custom Commands feature helps you build rich voice-command apps that are optimized for voice-first interaction experiences. The feature is best suited to task completion or command-and-control scenarios. It's particularly well suited for Internet of Things (IoT) devices and for ambient and headless devices.
 
 In this article, you create an application that can turn a TV on and off, set the temperature, and set an alarm. After you create these basic commands, you'll learn about the following options for customizing commands:
 
@@ -243,11 +243,11 @@ Select **Save**.
 
 #### Modify completion rules to include parameters
 
-Modify the existing completion rule ConfirmationResponse.
+Modify the existing completion rule `ConfirmationResponse`.
 
 1. In the **Conditions** section, select **Add a condition**.
 1. In the **New Condition** window, in the **Type** list, select **Required parameters**. In the list that follows, select both **OnOff** and **SubjectDevice**.
-1. Leave **IsGlobal** as unselected.
+1. Leave **IsGlobal** unselected.
 1. Select **Create**.
 1. In the **Actions** section, edit the **Send speech response** action by hovering over it and selecting the edit button. This time, use the newly created `OnOff` and `SubjectDevice` parameters:
 
@@ -273,14 +273,14 @@ When the training finishes, select **Test**. A **Test your application** window 
 
 Modify the `SetTemperature` command to enable it to set the temperature as the user directs.
 
-Add new parameter `Temperature`. Use the following configuration:
+Add a `Temperature` parameter. Use the following configuration:
 
 | Configuration      | Suggested value     |
 | ------------------ | ----------------|
-| Name               | `Temperature`           |
-| Required           | selected         |
-| Response for required parameter      | Simple editor > `What temperature would you like?`
-| Type               | Number          |
+| **Name**               | `Temperature`           |
+| **Required**           | Selected         |
+| **Response for required parameter**      | **Simple editor** > `What temperature would you like?`
+| **Type**               | `Number`          |
 
 
 Edit the example utterances to use the following values.
@@ -296,8 +296,8 @@ Edit the existing completion rules. Use the following configuration.
 
 | Configuration      | Suggested value     |
 | ------------------ | ----------------|
-| Conditions         | Required parameter > Temperature           |
-| Actions           | Send speech response > `Ok, setting temperature to {Temperature} degrees` |
+| **Conditions**         | **Required parameter** > **Temperature**           |
+| **Actions**           | **Send speech response** > `Ok, setting temperature to {Temperature} degrees` |
 
 ### Configure parameters for a SetAlarm command
 
@@ -305,12 +305,12 @@ Add a parameter called `DateTime`. Use the following configuration.
 
    | Setting                           | Suggested value                     | 
    | --------------------------------- | ----------------------------------------|
-   | Name                              | `DateTime`                               |
-   | Required                          | selected                                 |
-   | Response for required parameter   | Simple editor > `For what time?`            | 
-   | Type                              | DateTime                                |
-   | Date Defaults                     | If the date is missing, use today            |
-   | Time Defaults                     | If the time is missing, use the start of the day     |
+   | **Name**                              | `DateTime`                               |
+   | **Required**                          | Selected                                 |
+   | **Response for required parameter**   | **Simple editor** > `For what time?`            | 
+   | **Type**                              | **DateTime**                                |
+   | **Date Defaults**                     | If the date is missing, use today.            |
+   | **Time Defaults**                     | If the time is missing, use the start of the day.     |
 
 
 > [!NOTE]
@@ -329,7 +329,7 @@ Edit the existing completion rules. Use the following configuration.
 
    | Setting    | Suggested value                               |
    | ---------- | ------------------------------------------------------- |
-   | Actions    | Send speech response > `Ok, alarm set for {DateTime}`  |
+   | **Actions**    | **Send speech response** > `Ok, alarm set for {DateTime}`  |
 
 Test the three commands together by using utterances related to different commands. (You can switch between the different commands.)
 
@@ -353,18 +353,18 @@ In this section, you learn more about advanced parameter configuration, includin
 
 The Custom Commands feature allows you to configure string-type parameters to refer to external catalogs hosted over a web endpoint. So you can update the external catalog independently without editing the Custom Commands application. This approach is useful in cases where the catalog entries are numerous.
 
-Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. We want to move out this content to an external data source that can be updated independently.
+Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. Move out this content to an external data source that can be updated independently.
 
-To do move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint. Use the following configuration.
+To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint. Use the following configuration.
 
 | Setting | Suggested value |
 |----|----|
-| Name | `getDevices` |
-| URL | `https://aka.ms/speech/cc-sampledevices` |
-| Method | GET |
+| **Name** | `getDevices` |
+| **URL** | `https://aka.ms/speech/cc-sampledevices` |
+| **Method** | **GET** |
 
 
-If the suggested value for the URL doesn't work for you, configure and host a simple web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
+If the suggested value for the URL doesn't work for you, configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
     
 ```json
 {
@@ -390,9 +390,9 @@ Next go the **SubjectDevice** parameter settings page. Set up the following prop
 
 | Setting | Suggested value |
 | ----| ---- |
-| Configuration | Accept predefined inputs from external catalog |                               
-| Catalog endpoint | getDevices |
-| Method | GET |
+| **Configuration** | **Accept predefined inputs from external catalog** |                               
+| **Catalog endpoint** | `getDevices` |
+| **Method** | **GET** |
 
 Then select **Save**.
 
@@ -411,21 +411,21 @@ Try it out by selecting **Train**. After the training finishes, select **Test** 
 
 ### Add validation to parameters
 
-*Validations* are constructs that apply to certain parameter types that allow you to configure constraints on the parameter's value. They prompt you for corrections if values to don't fall within the constraints. For a list of parameter types that extend the validation construct, see [Custom Commands concepts and definitions](./custom-commands-references.md)
+*Validations* are constructs that apply to certain parameter types that allow you to configure constraints on the parameter's value. They prompt you for corrections if values don't fall within the constraints. For a list of parameter types that extend the validation construct, see [Custom Commands concepts and definitions](./custom-commands-references.md).
 
 Test out validations by using the `SetTemperature` command. Use the following steps to add a validation for the `Temperature` parameter.
 
 1. In the pane on the left, select the **SetTemperature** command.
 1. In the middle pane, select **Temperature**.
-1. In the pane on the right, select **Add a validation** present.
+1. In the pane on the right, select **Add a validation**.
 1. In the **New validation** window, configure validation as shown in the following table. Then select **Create**.
 
 
     | Parameter configuration | Suggested value | Description |
     | ---- | ---- | ---- |
-    | Min Value | `60` | For Number parameters, the minimum value this parameter can assume |
-    | Max Value | `80` | For Number parameters, the maximum value this parameter can assume |
-    | Failure response |  Simple editor > First Variation > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt to ask for a new value if the validation fails |
+    | **Min Value** | `60` | For Number parameters, the minimum value this parameter can assume |
+    | **Max Value** | `80` | For Number parameters, the maximum value this parameter can assume |
+    | **Failure response** |  **Simple editor** > **First variation** > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt to ask for a new value if the validation fails |
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot showing how to add a range validation.](media/custom-commands/add-validations-temperature.png)
@@ -450,12 +450,12 @@ For more information about interaction rules, see [Custom Commands concepts and 
 
 ### Add confirmations to a command
 
-To add a confirmation, use the `SetTemperature` command. To achieve confirmation, you create interaction rules by using the following steps:
+To add a confirmation, you use the `SetTemperature` command. To achieve confirmation, create interaction rules by using the following steps:
 
 1. In the pane on the left, select the **SetTemperature** command.
 1. In the middle pane, add interaction rules by selecting **Add**. Then select **Interaction rules** > **Confirm command**.
 
-    This action adds three interaction rules. These rules ask the user to confirm the date and time of the alarm. They expect a confirmation (yes or no) for the next turn.
+    This action adds three interaction rules. The rules ask the user to confirm the date and time of the alarm. They expect a confirmation (yes or no) for the next turn.
 
     1. Modify the **Confirm command** interaction rule by using the following configuration:
         1. Change the name to **Confirm temperature**.
@@ -513,7 +513,7 @@ Next, update the response for the **DateTime** parameter to **Ready to set alarm
 
 1. Select the existing completion rule **ConfirmationResponse**.
 1. In the pane on the right, hover over the existing action and select **Edit**.
-1. Update the speech response to *OK, alarm set for {DateTime}. The alarm tone is {AlarmTone}.*
+1. Update the speech response to `OK, alarm set for {DateTime}. The alarm tone is {AlarmTone}`.
 
 > [!IMPORTANT]
 > The alarm tone can change without any explicit configuration in an ongoing command. For example, it can change when the command hasn't finished yet. A correction is enabled *by default* for all of the command parameters, regardless of the turn number, if the command is yet to be fulfilled.
@@ -544,12 +544,12 @@ Try out the changes by selecting **Train**. Wait for the training to finish, and
 
 ## Add language-generation templates for speech responses
 
-Language-generation templates allow you to customize the responses sent to the client. They introduce variance into the responses. You can achieve language-generation by using:
+Language-generation (LG) templates allow you to customize the responses sent to the client. They introduce variance into the responses. You can achieve language generation by using:
 
 * Language-generation templates.
 * Adaptive expressions.
 
-Custom Commands templates are based on the Bot Framework's [LG templates](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). Because the Custom Commands feature creates a new LG template when required (that is, for speech responses in parameters or actions), you don't have to specify the name of the LG template. 
+Custom Commands templates are based on the Bot Framework's [LG templates](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). Because the Custom Commands feature creates a new LG template when required (for speech responses in parameters or actions), you don't have to specify the name of the LG template. 
 
 So you don't need to define your template like this:
 
@@ -560,7 +560,7 @@ So you don't need to define your template like this:
     - Proceeding to turn {OnOff} {SubjectDevice}
  ```
 
-Instead, you can just define the body of the template without the name, like this:
+Instead, you can define the body of the template without the name, like this:
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing a template editor example.](./media/custom-commands/template-editor-example.png)
@@ -583,13 +583,13 @@ Modify the `TurnOnOff` command to add a new parameter. Use the following configu
 
 | Setting            | Suggested value       | 
 | ------------------ | --------------------- | 
-| Name               | `SubjectContext`         | 
-| Is Global          | unselected             | 
-| Required           | unselected               | 
-| Type               | String                |
-| Default value      | `all` |
-| Configuration      | Accept predefined input values from internal catalog | 
-| Predefined input values | `room`, `bathroom`, `all`|
+| **Name**               | `SubjectContext`         | 
+| **Is Global**          | Unselected             | 
+| **Required**           | Unselected               | 
+| **Type**               | **String**                |
+| **Default value**      | `all` |
+| **Configuration**      | **Accept predefined input values from internal catalog** | 
+| **Predefined input values** | `room`, `bathroom`, `all`|
 
 #### Modify a completion rule
 
@@ -605,7 +605,7 @@ Edit the **Actions** section of the existing completion rule **ConfirmationRespo
     - Done, turning {OnOff} the {SubjectDevice}
 ```
 
-Train and Test your application using the following input and output. Notice the variation of responses. The variation is created by multiple alternatives of the template value and also by use of adaptive expressions.
+Train and test your application by using the following input and output. Notice the variation of responses. The variation is created by multiple alternatives of the template value and also by use of adaptive expressions.
 
 * Input: *turn on the tv*
 * Output: Ok, turning the tv on
@@ -618,7 +618,7 @@ Train and Test your application using the following input and output. Notice the
 
 ## Use a custom voice
 
-Another way to customize Custom Commands responses is to select an output voice. Use the following steps to switch the default voice to a custom voice.
+Another way to customize Custom Commands responses is to select an output voice. Use the following steps to switch the default voice to a custom voice:
 
 1. In your Custom Commands application, in the pane on the left, select **Settings**.
 1. In the middle pane, select **Custom Voice**.
