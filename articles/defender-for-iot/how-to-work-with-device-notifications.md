@@ -67,17 +67,17 @@ This article describes the notification event types you may receive, as well as 
 
 You may need to handle several notifications simultaneously. For example, if:
 
-  -  IT did an OS upgrade to a large set of network servers, you can instruct the sensor to learn the new server versions for all upgraded servers. 
+  - IT did an OS upgrade to a large set of network servers, you can instruct the sensor to learn the new server versions for all upgraded servers. 
 
   - A group of devices in a certain line was phased out and are not active anymore, you can instruct the sensor to remove these devices from the console.
 
-You can instruct the sensor to apply newly detected information to multiple devices or ignore it.   
+You can instruct the sensor to apply newly detected information to multiple devices or ignore it.   
 
 To display notifications and handle notifications:
 
 1. Use the **filter by type, date range** options or the **Select All** option. Deselect notifications as required.
 
-2. Instruct the sensor to apply newly detected information to selected devices by selecting **LEARN**. Instead, instruct the sensor to ignore newly detected information by selecting **DISMISS**.  The number of notifications you can simultaneously learn and dismiss, as well as the number of notifications you must handle individually is shown.
+2. Instruct the sensor to apply newly detected information to selected devices by selecting **LEARN**. Instead, instruct the sensor to ignore newly detected information by selecting **DISMISS**.  The number of notifications you can simultaneously learn and dismiss, as well as the number of notifications you must handle individually is shown.
 
 **New IPs** and **No Subnets** **configured** events cannot be handled simultaneously. They require manual confirmation.
 
