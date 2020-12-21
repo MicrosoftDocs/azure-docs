@@ -223,7 +223,7 @@ Enter the name of your resource group as the value for the first parameter, and 
 
 Select **OK** to start the runbook. The runbook runs and starts the VM that you specified.
 
-## Error Handling in Python
+## Error handling in Python
 
 You can also use the following conventions to retrieve various streams from your Python runbooks, including WARNING, ERROR, and DEBUG streams.
 
