@@ -30,7 +30,7 @@ To get started with developing with this extension, make sure you first [set up 
 
 Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
 
-| Language                                        | Add by...                                   | Remarks 
+| Language                                        | Add by...                                   | Remarks
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installing the [NuGet package], version 4.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
