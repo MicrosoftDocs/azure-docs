@@ -26,43 +26,43 @@ The Event Timeline provides a view of events that took place in the network acco
 > [!NOTE]
 > **Administrators** and **Security Analysts** may perform the procedures described in this section.
 
-**To view the event logs:**
+To view the event logs:
 
 1. From the side menu, select **Event Timeline**.
 
-   :::image type="content" source="media/how-to-track-sensor-activity/image197.png" alt-text="Event Timeline":::
+   :::image type="content" source="media/how-to-track-sensor-activity/event-timeline.png" alt-text="View your events on the Event Timeline.":::
 
 In addition to presenting the events detected by the sensor, you can manually add events to the timeline. This process is useful in case the event took place in some external system, but it has impact on your network, and it is important to record it and present it as a part of the event timeline.
 
-**To add the events manually:**
+To add the events manually:
 
 1. Select **Create Event** to add an event manually.
 
-**To export the event log info into a CSV file:**
+To export the event log info into a CSV file:
 
 1. Select **Export**.
 
 ## Filter event timeline
 
-Filter the timeline to display assets and events of interest to you.
+Filter the timeline to display devices and events of interest to you.
 
-**To filter the timeline:**
+To filter the timeline:
 
 1. Select **Advanced Filters**.
 
-   :::image type="content" source="media/how-to-track-sensor-activity/image202.png" alt-text="Events Advanced Filters":::
+   :::image type="content" source="media/how-to-track-sensor-activity/advance-filters.png" alt-text="Use the Events Advanced Filters window to filter your events.":::
 
 2. Set event filter(s), as follows:
 
-   - **Include Address:** Display specific events assets.
+   - **Include Address:** Display specific events devices.
 
-   - **Exclude Address:** Hide specific events assets.
+   - **Exclude Address:** Hide specific events devices.
 
    - **Include Event Types:** Display specific events types.
 
    - **Exclude Event Types:** Hide specific events types.
 
-   - **Asset Group:** Select an asset group, as it was defined in the **Asset Map**. Only the events of this group are presented.
+   - **Device Group:** Select an device group, as it was defined in the **Device Map**. Only the events of this group are presented.
 
 3. Select **Clear All** to clear all the selected filters.
 
@@ -76,9 +76,9 @@ Filter the timeline to display assets and events of interest to you.
 
     - Select the related alerts (if any) to display a detailed description of the alert.
 
-    - Select the asset to display the asset on the map.
+    - Select the device to display the device on the map.
 
-    - Select the **Filter events by related assets** in order to filter by related assets.
+    - Select the **Filter events by related devices** in order to filter by related devices.
 
     - Select **PCAP File** to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
 

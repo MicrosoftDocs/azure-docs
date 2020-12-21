@@ -115,7 +115,7 @@ To plan your rack installation:
 3. Have AC power available for the appliance.
 4. Prepare the LAN cable for connecting the management to the network switch.
 5. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
-6. Configure, connect, and validate SPAN ports in the mirrored switches as agreed in the architecture review session.
+6. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
 7. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
 8. Open all the relevant firewall ports.
 
@@ -204,7 +204,7 @@ Typically, NTA sensors are deployed in layers 0 to 3 of the OSI model.
 
 #### Example: Ring topology
 
-The ring network is a network topology in which each switch or node connects to exactly two other switches, forming a single continuous pathway for the traffic.
+The ring network is a topology in which each switch or node connects to exactly two other switches, forming a single continuous pathway for the traffic.
 
 :::image type="content" source="media/how-to-set-up-your-network/ring-topology.PNG" alt-text="Diagram of the ring topology.":::
 
@@ -242,7 +242,7 @@ SPAN and RSPAN are Cisco terminology. Other brands of switches have similar func
 
 #### Switch SPAN port
 
-A switch port analyzer mirrors local traffic from interfaces on the switch to interfaces on the same switch. Here are some considerations:
+A switch port analyzer mirrors local traffic from interfaces on the switch to interface on the same switch. Here are some considerations:
 
 - Verify that the relevant switch supports the port mirroring function.  
 
@@ -289,7 +289,7 @@ The data in the VLAN is then delivered through trunked ports across multiple swi
 
 ##### More about RSPAN
 
-- RSPAN is an advanced feature that requires a special VLAN to carry the traffic that SPAN monitors between switches. RSPAN is not supported on all switches. Verify that this switch supports the RSPAN function.
+- RSPAN is an advanced feature that requires a special VLAN to carry the traffic that SPAN monitors between switches. RSPAN is not supported on all switches. Verify that the switch supports the RSPAN function.
 
 - The mirroring option is disabled by default.
 
@@ -428,13 +428,13 @@ For some architectures, the Defender for IoT appliance will also monitor layer 3
 
 - What is the cost/benefit versus the importance of monitoring this switch?
 
-- If a switch is unmanaged, will it be possible to monitor the traffic from the higher-level switch?
+- If a switch is unmanaged, will it be possible to monitor the traffic from a higher-level switch?
 
   If the ICS architecture is a ring topology, only one switch in this ring needs to be monitored.
 
 - What is the security or operational risk in this network?
 
-- Is it possible to monitor the switch's VLAN? Is that VLAN is visible in another switch that we can monitor?
+- Is it possible to monitor the switch's VLAN? Is that VLAN visible in another switch that we can monitor?
 
 #### Technical validation
 
@@ -495,7 +495,7 @@ Use these sections for troubleshooting issues:
 
     1. To change the default gateway IP address, select **Y**.
 
-    1. For the input interface change (for sensor only), select **N**.
+    1. For the input interface change (for sensor only), select **Y**.
 
     1. For the bridge interface, select **N**.
 
@@ -596,7 +596,7 @@ An overview of the industrial network diagram will allow you to define the prope
 
     If yes, who? __________________________________ 
 
-    What is this policy? __________________________________ 
+    What is their policy? __________________________________ 
 
     For example:
 

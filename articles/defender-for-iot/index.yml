@@ -28,7 +28,7 @@ landingContent:
           - text: Solution Architecture
             url: architecture.md
           - text: Get started with Azure Defender for IoT
-            url: quickstart-getting-started.md 
+            url: getting-started.md 
       - linkListType: whats-new
         links:
           - text: Release Notes

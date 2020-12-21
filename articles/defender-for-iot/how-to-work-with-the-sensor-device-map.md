@@ -19,7 +19,7 @@ The Device Map provides a graphical representation of network devices detected. 
 
   - Generate reports, for example export device details and summaries.
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Screenshot of the device map.":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Screenshot of the device map.":::
 
 To access the map:
 
@@ -201,7 +201,7 @@ This view provides an at-a-glance view of devices represented as follows:
 
   - Black dots indicate devices with no alerts
 
-:::image type="content" source="media/how-to-work-with-maps/colored-dots.png" alt-text="Bird eye view":::
+:::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Bird eye view":::
 
 ### Device type and connection view 
 
@@ -237,7 +237,7 @@ To enable simplified map views:
 
   - Select **System Settings** and then toggle the **Simplified Map View** option.
 
-:::image type="content" source="media/how-to-work-with-maps/simplify-view.png" alt-text="Simplify map view":::
+:::image type="content" source="media/how-to-work-with-maps/simplify-view-v2.png" alt-text="Simplify map view":::
 
 ## Learn more about devices
 
@@ -295,7 +295,7 @@ Select a connection while the Quick Properties screen is open to see the protoco
 
 You can view device proprieties for each device displayed on the map. For example, the device name, type or OS, or the firmware or vendor.
 
-:::image type="content" source="media/how-to-work-with-maps/device-properties.png" alt-text="View and manage device properties":::
+:::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="View and manage device properties":::
 
 The following information can be updated manually. Information manually entered will override information discovered by Defender for IoT.
 
@@ -394,11 +394,11 @@ Each slot appears with the number of underlying devices and the icon that shows 
 
 When you select a slot, the slot details appear:
 
-:::image type="content" source="media/how-to-work-with-maps/slot-selection.png" alt-text="select a slot":::
+:::image type="content" source="media/how-to-work-with-maps/slot-selection-v2.png" alt-text="select a slot":::
 
 To view the underlying devices behind the slot, select **VIEW ON MAP**. The slot is presented in the device map with all the underlying modules and devices connected to it.
 
-:::image type="content" source="media/how-to-work-with-maps/map-appearance.png" alt-text="VIEW ON MAP":::
+:::image type="content" source="media/how-to-work-with-maps/map-appearance-v2.png" alt-text="VIEW ON MAP":::
 
 ## View a timeline of events for the device
 
@@ -581,7 +581,7 @@ When merging, you instruct the sensor to combine the device properties of two de
 
 For example, if you merge two devices with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. You can only merge authorized devices.
 
-:::image type="content" source="media/how-to-work-with-maps/properties-view.png" alt-text="Device Properties window":::
+:::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Device Properties window":::
 
 The event timeline presents the merge event.
 
@@ -597,7 +597,7 @@ To merge devices:
 
 3. In the set merge device attributes dialog box, choose a device name.
 
-   :::image type="content" source="media/how-to-work-with-maps/name-the-device.png" alt-text="attributes dialog box":::
+   :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="attributes dialog box":::
 
 4. Select **Save**.
 

@@ -28,7 +28,7 @@ Follow the steps listed in [Quickstart: Create a Synapse workspace](../quickstar
 1. Select “Yes” for the “Allow outbound data traffic only to approved targets” option.
 1. Choose the approved Azure AD tenants for this workspace.
 1. Review the configuration and create the workspace.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Create a workspace with data exfiltration protection":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Screenshot that shows a Create Synapse workspace with 'Enable manage virtual network' selected.":::
 
 ## Manage approved Azure Active Directory tenants for the workspace
 1. From the workspace’s Azure portal, navigate to “Approved Azure AD tenants”. The list of approved Azure AD tenants for the workspace will be listed here. The workspace’s tenant is included by default and is not listed.
