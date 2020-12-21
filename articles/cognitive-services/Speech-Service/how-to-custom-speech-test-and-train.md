@@ -131,6 +131,8 @@ After you've gathered your audio files and corresponding transcriptions, package
 > [!div class="mx-imgBorder"]
 > ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
+See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model.
+
 ## Related text data for training
 
 Product names or features that are unique, should include related text data for training. Related text helps ensure correct recognition. Two types of related text data can be provided to improve recognition:
