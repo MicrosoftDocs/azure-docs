@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Remote Web Service Deployment
+title: Troubleshooting remote model deployment 
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
+description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,9 +13,9 @@ ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
 ---
 
-# Troubleshoot model deployment
+# Troubleshooting remote model deployment 
 
-Learn how to troubleshoot and solve, or work around, common remote Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
+Learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model to Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ Learn how to troubleshoot and solve, or work around, common remote Docker deploy
 When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
 1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
-1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your Workspace's default container registry.
+1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your workspace's default container registry.
 1. The Docker image from your container registry is downloaded to your compute target.
-1. Your Workspace's default Blob store is mounted to your compute target, giving you access to registered models
+1. Your workspace's default Blob store is mounted to your compute target, giving you access to registered models
 1. Your web server is initialized by running your entry script's `init()` function
 1. When your deployed model receives a request, your `run()` function handles that request
 

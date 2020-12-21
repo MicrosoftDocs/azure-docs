@@ -596,9 +596,6 @@
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Known issues
-      displayName: bugs, errors, troubleshoot
-      href: resource-known-issues.md
     - name: User forum
       href: https://docs.microsoft.com/answers/topics/azure-machine-learning.html
     - name: Stack Overflow

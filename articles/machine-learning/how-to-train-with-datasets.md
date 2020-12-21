@@ -218,6 +218,7 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+
 ## Directly access datasets in your script
 
 Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and registered dataset by name. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
@@ -254,6 +255,33 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 + The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
 + See how to [parametize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
+
+## Troubleshooting
+
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
+  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and it's dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
+  * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
+  * If you have outbound NSG rules, make sure there is a outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
+
+### Overloaded AzureFile storage
+
+If you receive an error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, apply following workarounds.
+
+If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
+
+### Passing data as input
+
+*  **TypeError: FileNotFound: No such file or directory**: This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
+    
+    ```python
+    # Note the leading / in '/tmp/dataset'
+    script_params = {
+        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+    } 
+    ```
+
+    If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
+
 
 ## Next steps
 

@@ -1661,6 +1661,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/resource-known-issues.md",
+      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code.md",
+      "redirect_document_id": false
+    },
+    
+    {
       "source_path": "articles/machine-learning/how-to-create-your-first-pipeline.md",
       "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
       "redirect_document_id": true
