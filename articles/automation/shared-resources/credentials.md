@@ -97,7 +97,7 @@ A runbook or DSC configuration retrieves a credential asset with the internal `G
 
 Alternatively, you can use the [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential) method to retrieve a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that represents an unsecured version of the password.
 
-## Textual runbook example
+### Textual runbook example
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -153,7 +153,7 @@ print (cred["password"])
 
 ---
 
-## Graphical runbook example
+### Graphical runbook example
 
 You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
 

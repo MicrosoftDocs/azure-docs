@@ -121,7 +121,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName $ResourceGroupNam
 
 To retrieve a certificate, use the internal `Get-AutomationCertificate` cmdlet. You can't use the [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) cmdlet, because it returns information about the certificate asset, but not the certificate itself.
 
-## Textual runbook examples
+### Textual runbook examples
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -161,7 +161,7 @@ print (cert)
 
 ---
 
-## Graphical runbook example
+### Graphical runbook example
 
 Add an activity for the internal `Get-AutomationCertificate` cmdlet to a graphical runbook by right-clicking on the certificate in the Library pane, and selecting **Add to canvas**.
 
