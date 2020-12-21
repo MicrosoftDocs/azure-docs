@@ -75,7 +75,7 @@ Since the account credentials are hardcoded in the tutorial's source code, chang
 
 Specifically, change the following values:
 * `init.AccountId`, `init.AccountKey`, and `init.AccountAuthenticationDomain` to use your account data. See paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* The region part of the `init.AccountDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`
+* Specify where to create the remote rendering session by modifying the region part of the `init.AccountDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`.
 * In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the powershell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md#create-a-session) directly.
 Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed in, the sample will create a new session upon each startup, which may take several minutes.
 
