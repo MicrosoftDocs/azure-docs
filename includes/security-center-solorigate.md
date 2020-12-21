@@ -6,4 +6,5 @@ ms.date: 12/22/2020
 ms.topic: include
 ---
 
-[Learn how Microsoft is helping to protect customers from Solorigate, a recent sophisticated attack](https://aka.ms/solorigate).
+> [!TIP]
+> [Learn how Microsoft is helping to protect customers from Solorigate, a recent sophisticated attack](https://aka.ms/solorigate).

@@ -18,7 +18,7 @@ ms.author: memildin
 ---
 # What is Azure Security Center?
 
-[!INCLUDE [Solorigate banner](../includes/security-center-solorigate.md)]
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
