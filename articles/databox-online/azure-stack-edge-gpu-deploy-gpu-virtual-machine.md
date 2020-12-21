@@ -68,7 +68,7 @@ Before you deploy GPU VMs on your device, review the following considerations if
 
 - **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
 
-If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device.
+If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device or create GPU VMs.
 
 
 ## Create GPU VMs
@@ -197,8 +197,8 @@ PS C:\WINDOWS\system32>
 Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
 
 ```powershell
-$templateFile = "Path to addGPUextensiontoVM.json" 
-$templateParameterFile = "Path to addGPUExtWindowsVM.parameters.json" 
+$templateFile = "<Path to addGPUextensiontoVM.json>" 
+$templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
 $RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
@@ -339,7 +339,7 @@ To deploy Nvidia GPU drivers for an existing VM, edit the `addGPUExtLinuxVM.para
 
 #### Edit parameters file
 
-The file `addGPUExtLinuxVM.parameters.json` takes the following parameters:
+If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
 ```powershell
 "parameters": {	
@@ -368,7 +368,46 @@ The file `addGPUExtLinuxVM.parameters.json` takes the following parameters:
 	}
 	}
 ```
-Here is a sample parameter file that was used in this article:
+If using Red Hat Enterprise Linux (RHEL), file takes the following parameters:
+
+
+```powershell
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "<name of the VM>" 
+        },
+        "extensionName": {
+            "value": "<name for the extension. Example: linuxGpu>" 
+        },
+        "publisher": {
+            "value": "Microsoft.HpcCompute" 
+        },
+        "type": {
+            "value": "NvidiaGpuDriverLinux" 
+        },
+        "typeHandlerVersion": {
+            "value": "1.3" 
+        },
+        "settings": {
+            "value": {
+                    "isCustomInstall":true,
+                    "DRIVER_URL":"https://go.microsoft.com/fwlink/?linkid=874273",
+                    "CUDA_ver":"10.0.130",
+                    "PUBKEY_URL":"http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
+                    "DKMS_URL":"https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
+                    "LIS_URL":"https://aka.ms/lis",
+                    "LIS_RHEL_ver":"3.10.0-1062.9.1.el7"
+            }
+        }
+    }
+}
+```
+
+
+Here is a sample Ubuntu parameter file that was used in this article:
 
 ```powershell
 {
@@ -401,6 +440,8 @@ Here is a sample parameter file that was used in this article:
     }
 }
 ```
+
+
 #### Deploy template
 
 Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
