@@ -38,7 +38,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access to complete the operation in the script.
+For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources required for the deployment script resource to execute—a storage account and an Azure container instance. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access to complete the operation in the script.
 
 To configure the least-privilege permissions, you need:
 
@@ -68,7 +68,7 @@ To configure the least-privilege permissions, you need:
 
   If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add **Microsoft.Storage/register/action** and **Microsoft.ContainerInstance/register/action**.
 
-- If a managed identity is used, you need to assign the **Managed Identity Operator** role (a built-in role) to the managed identity resource:
+- If a managed identity is used, you need to assign **Managed Identity Operator** (a built-in role) to the managed identity resource.
 
 ## Sample templates
 
