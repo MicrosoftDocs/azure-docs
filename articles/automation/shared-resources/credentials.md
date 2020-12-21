@@ -3,7 +3,7 @@ title: Manage credentials in Azure Automation
 description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/03/2020
+ms.date: 12/17/2020
 ms.topic: conceptual
 ---
 
@@ -46,9 +46,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > You should avoid using variables in the `Name` parameter of `Get-AutomationPSCredential`. Their use can complicate discovery of dependencies between runbooks or DSC configurations and credential assets at design time.
 
-## Python 2 functions that access credentials
+## Python functions that access credentials
 
-The function in the following table is used to access credentials in a Python 2 runbook.
+The function in the following table is used to access credentials in a Python 2 and 3 runbook.
 
 | Function | Description |
 |:---|:---|
@@ -97,7 +97,9 @@ A runbook or DSC configuration retrieves a credential asset with the internal `G
 
 Alternatively, you can use the [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential) method to retrieve a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that represents an unsecured version of the password.
 
-### Textual runbook example
+## Textual runbook example
+
+# [PowerShell](#tab/azure-powershell)
 
 The following example shows how to use a PowerShell credential in a runbook. It retrieves the credential and assigns its user name and password to variables.
 
@@ -121,21 +123,7 @@ $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$sec
 Connect-AzAccount -Credential $myPsCred
 ```
 
-### Graphical runbook example
-
-You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
-
-![Add credential cmdlet to canvas](../media/credentials/credential-add-canvas.png)
-
-The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
-
-![Credential workflow with pipeline link example](../media/credentials/get-credential.png)
-
-## Use credentials in a DSC configuration
-
-While DSC configurations in Azure Automation can work with credential assets using `Get-AutomationPSCredential`, they can also pass credential assets via parameters. For more information, see [Compiling configurations in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
-
-## Use credentials in a Python 2 runbook
+# [Python 2](#tab/python2)
 
 The following example shows an example of accessing credentials in Python 2 runbooks.
 
@@ -148,6 +136,34 @@ cred = automationassets.get_automation_credential("credtest")
 print cred["username"]
 print cred["password"]
 ```
+
+# [Python 3](#tab/python3)
+
+The following example shows an example of accessing credentials in Python 3 runbooks.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print (cred["username"])
+print (cred["password"])
+```
+
+## Graphical runbook example
+
+You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
+
+![Add credential cmdlet to canvas](../media/credentials/credential-add-canvas.png)
+
+The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
+
+![Credential workflow with pipeline link example](../media/credentials/get-credential.png)
+
+## Use credentials in a DSC configuration
+
+While DSC configurations in Azure Automation can work with credential assets using `Get-AutomationPSCredential`, they can also pass credential assets via parameters. For more information, see [Compiling configurations in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
 
 ## Next steps
 

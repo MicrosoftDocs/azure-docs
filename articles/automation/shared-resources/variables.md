@@ -76,7 +76,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ## Python functions to access variables
 
-The functions in the following table are used to access variables in a Python runbook.
+The functions in the following table are used to access variables in a Python 2 and 3 runbook.
 
 |Python Functions|Description|
 |:---|:---|
