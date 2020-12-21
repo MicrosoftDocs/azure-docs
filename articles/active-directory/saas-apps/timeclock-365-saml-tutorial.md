@@ -72,11 +72,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://live.timeclock365.com/login`
 
-    b. In the **Reply URL** text box, type the URL:
-    `https://live.timeclock365.com/saml/login_check`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -110,7 +108,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign in to your Timeclock 365 SAML company site as an administrator.
 
-1. Perform the following steps in the following page.
+1. Perform the below mentioned steps.
 
     ![Timeclock configuration](./media/timeclock-365-saml-tutorial/saml-configuration.png)
 
@@ -118,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **IDP metadata path**, paste the **App Federation Metadata Url** that you have copied from the Azure portal.
 
-    c. Click on **Update**.
+    c. Then, click on **Update**.
 
 ### Create Timeclock 365 SAML test user
 
@@ -132,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Create test user2 ](./media/timeclock-365-saml-tutorial/add-user-2.png)
 
-1. Click on **Create**.
+1. Click on **Create** button to create the test user.
 
 ## Test SSO 
 
