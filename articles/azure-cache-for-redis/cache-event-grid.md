@@ -14,7 +14,7 @@ Azure Cache for Redis events, such as patching, scaling, import/export (RDB) eve
 
 See the [Azure Cache for Redis events schema](../event-grid/event-schema-azure-cache.md) article to view the full list of the events that Azure Cache for Redis supports.
 
-If you want to try Azure Cache for Redis events, see the following [quickstart](cache-event-grid-quickstart.md) article.
+If you want to try Azure Cache for Redis events, see the following [quickstart](cache-event-grid-quickstart-cli.md) article.
 
 ## The event model
 
@@ -47,4 +47,4 @@ Learn more about Event Grid and give Azure Cache for Redis events a try:
 
 - [About Event Grid](../event-grid/overview.md)
 - [Azure Cache for Redis events schema](../event-grid/event-schema-azure-cache.md)
-- [Route Azure Cache for Redis events to a custom web endpoint](cache-event-grid-quickstart.md)
+- [Route Azure Cache for Redis events to a custom web endpoint](cache-event-grid-quickstart-cli.md)

@@ -4,7 +4,7 @@ description: Use Azure Event Grid to subscribe to Azure Cache for Redis events. 
 author: curib
 ms.author: cauribeg
 ms.date: 12/21/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: cache
 ---
 
