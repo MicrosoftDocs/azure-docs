@@ -17,6 +17,8 @@ ms.author: memildin
 
 # What's new in Azure Security Center?
 
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
+
 Security Center is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
 This page is updated frequently, so revisit it often. 
