@@ -4646,13 +4646,13 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registers Power BI Dedicated resource provider. |
-> | Microsoft.PowerBIDedicated/capacities/read | Retrieves the information of the specified Power BI Dedicated Capacity. |
-> | Microsoft.PowerBIDedicated/capacities/write | Creates or updates the specified Power BI Dedicated Capacity. |
-> | Microsoft.PowerBIDedicated/capacities/delete | Deletes the Power BI Dedicated Capacity. |
+> | Microsoft.PowerBIDedicated/capacities/read | Retrieves the information of the specified Power BI capacity. |
+> | Microsoft.PowerBIDedicated/capacities/write | Creates or updates the specified Power BI capacity. |
+> | Microsoft.PowerBIDedicated/capacities/delete | Deletes the Power BI capacity. |
 > | Microsoft.PowerBIDedicated/capacities/suspend/action | Suspends the Capacity. |
 > | Microsoft.PowerBIDedicated/capacities/resume/action | Resumes the Capacity. |
 > | Microsoft.PowerBIDedicated/capacities/skus/read | Retrieve available SKU information for the capacity |
-> | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Checks that given Power BI Dedicated Capacity name is valid and not in use. |
+> | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Checks that the given Power BI capacity name is valid and not in use. |
 > | Microsoft.PowerBIDedicated/locations/operationresults/read | Retrieves the information of the specified operation result. |
 > | Microsoft.PowerBIDedicated/locations/operationstatuses/read | Retrieves the information of the specified operation status. |
 > | Microsoft.PowerBIDedicated/operations/read | Retrieves the information of operations |
