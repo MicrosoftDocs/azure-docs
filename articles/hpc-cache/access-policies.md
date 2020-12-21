@@ -14,7 +14,7 @@ This article explains how to create and apply custom client access policies for 
 
 Client access policies control how clients are able to connect to the storage target exports. You can control things like root squash and read/write access at the client host or network level.
 
-Access policies are applied on a namespace path, which means that you can use a different access policy for two different exports on an NFS storage system.
+Access policies are applied to a namespace path, which means that you can use different access policies for two different exports on an NFS storage system.
 
 This feature is for workflows where you need to control how different groups of clients access the storage targets.
 
@@ -26,7 +26,7 @@ Use the **Client access policies** page in the Azure portal to create and manage
 
 ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)
 
-Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default).
+Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default). The first rule that matches is applied and later rules are ignored. <!-- xxx double check xxx -->
 
 To create a new access policy, click the **+ Add access policy** button at the top of the list. Give the new access policy a name, and enter at least one rule.
 
@@ -52,7 +52,7 @@ The **Address filter** value specifies which clients match the rule.
 
 If you set the scope to **host**, you can specify only one IP address in the filter. For the scope setting **default**, you can't enter any IP addresses in the **Address filter** field because the default scope matches all clients.
 
-Specify the IP address or range of addresses (in CIDR notation) for this rule.
+Specify the IP address or range of addresses for this rule. Use CIDR notation (example: 0.1.0.0/16) to specify an address range.
 
 ### Access level
 
@@ -68,13 +68,13 @@ SUID typically is used to increase a user’s privileges temporarily so that the
 
 ### Submount access
 
-Check this box to allow the specified clients to access this export's subdirectories.
+Check this box to allow the specified clients to directly mount this export's subdirectories.
 
 ### Root squash
 
 Choose whether or not to set root squash for clients that match this rule.
 
-This value lets you allow root squash at the storage export level.
+This value lets you allow root squash at the storage export level. You also can [set root squash at the cache level](configuration.md#configure-root-squash).
 
 If you turn on root squash, you must also set the anonymous ID user value to one of these options:
 

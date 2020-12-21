@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
 ---
 
@@ -17,7 +17,7 @@ You might need to enable **Extended groups** if your workflow includes NFS stora
 After you click the button to enable extended groups, you must choose the source that Azure HPC Cache will use to get user and group credentials.
 
 * [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Azure Active Directory for this task.
-* [Flat file](#configure-a-file-download) - Download `/etc/group` and `/etc/passwd` files from a network location.
+* [Flat file](#configure-file-download) - Download `/etc/group` and `/etc/passwd` files from a network location.
 * [LDAP](#configure-ldap) - Get credentials from a Lightweight Directory Access Protocol (LDAP)-compatible source.
 
 > [!NOTE]
