@@ -24,7 +24,7 @@ The Azure SQL Database data source supports the following functionality:
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Database. 
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) in Azure SQL Database. 
 
 ## Prerequisites
 
