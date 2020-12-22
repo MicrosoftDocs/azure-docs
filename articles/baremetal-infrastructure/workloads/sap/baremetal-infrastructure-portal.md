@@ -2,14 +2,14 @@
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 12/31/2020
 ---
 
 # Manage BareMetal Instances through the Azure portal
  
 This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal Instances](baremetal-overview-architecture.md). This article also shows you the activities you can do in the Azure portal with your deployed BareMetal Instance units. 
  
-## Register the BareMetalInfrastructure resource provider
+## Register the resource provider
 An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview. By default, the Azure subscription you use for BareMetal Instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal Instance units, you must register the resource provider with your subscription. There are two ways to register the BareMetal Instance resource provider:
  
 * [Azure CLI](#azure-cli)
@@ -45,7 +45,7 @@ You'll need to list your subscription in the Azure portal and then double-click 
 >[!NOTE]
 >If the resource provider is not registered, select **Register**.
  
-:::image type="content" source="media/baremetal-infra-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot that shows the BareMetal Instance unit registered":::
+:::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot that shows the BareMetal Instance unit registered":::
  
 ## BareMetal Instance units in the Azure portal
  
@@ -55,11 +55,11 @@ During the deployment of your BareMetal Instances, a new [Azure resource group](
 
 1. In the BareMetal subscription, in the Azure portal, select **Resource groups**.
  
-   :::image type="content" source="media/baremetal-infra-portal/view-baremetal-instance-units-azure-portal.png" alt-text="Screenshot that shows the list of Resource Groups":::
+   :::image type="content" source="media/baremetal-infrastructure-portal/view-baremetal-instance-units-azure-portal.png" alt-text="Screenshot that shows the list of Resource Groups":::
 
 1. In the list, locate the new resource group.
  
-   :::image type="content" source="media/baremetal-infra-portal/filter-resource-groups.png" alt-text="Screenshot that shows the BareMetal Instance unit in a filtered Resource groups list" lightbox="media/baremetal-infra-portal/filter-resource-groups.png":::
+   :::image type="content" source="media/baremetal-infrastructure-portal/filter-resource-groups.png" alt-text="Screenshot that shows the BareMetal Instance unit in a filtered Resource groups list" lightbox="media/baremetal-infrastructure-portal/filter-resource-groups.png":::
    
    >[!TIP]
    >You can filter on the subscription you used to deploy the BareMetal Instance. After you filter to the proper subscription, you might have a long list of resource groups. Look for one with a post-fix of **-Txxx** where xxx is three digits like **-T250**.
@@ -73,7 +73,7 @@ During the deployment of your BareMetal Instances, a new [Azure resource group](
  
 You can view the details of a single unit. In the list of the BareMetal instance, select the single instance you want to view.
  
-:::image type="content" source="media/baremetal-infra-portal/view-attributes-single-baremetal-instance.png" alt-text="Screenshot that shows the BareMetal Instance unit attributes of a single instance" lightbox="media/baremetal-infra-portal/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Screenshot that shows the BareMetal Instance unit attributes of a single instance" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes. On the left, you'll see the Resource group, Azure region, and subscription name and ID. If you assigned tags, then you'll see them here as well. By default, the BareMetal Instance units don't have tags assigned.
  
@@ -93,13 +93,13 @@ The possible hardware revisions are:
 Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/linux/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
  
 >[!TIP]
->To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency with SAP applications](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+>To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
  
 ## Check activities of a single instance
  
 You can check the activities of a single unit. One of the main activities recorded are restarts of the unit. The data listed includes the activity's status, timestamp the activity triggered, subscription ID, and the Azure user who triggered the activity.
  
-:::image type="content" source="media/baremetal-infra-portal/check-activities-single-baremetal-instance.png" alt-text="Screenshot that shows the BareMetal Instance unit activities" lightbox="media/baremetal-infra-portal/check-activities-single-baremetal-instance.png":::
+:::image type="content" source="media/baremetal-infrastructure-portal/check-activities-single-baremetal-instance.png" alt-text="Screenshot that shows the BareMetal Instance unit activities" lightbox="media/baremetal-infrastructure-portal/check-activities-single-baremetal-instance.png":::
  
 Changes to the unit's metadata in Azure also get recorded in the Activity log. Besides the restart initiated, you can see the activity of **Write BareMetallnstances**. This activity makes no changes on the BareMetal Instance unit itself but documents the changes to the unit's metadata in Azure.
  
@@ -117,7 +117,7 @@ When you acquire the instances, you can go to the Properties section to view the
  
 Another critical piece of information you'll see is the storage NFS IP address. It isolates your storage to your **tenant** in the BareMetal Instance stack. You'll use this IP address when you edit the [configuration file for storage snapshot backups](../../../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots).
  
-:::image type="content" source="media/baremetal-infra-portal/baremetal-instance-properties.png" alt-text="Screenshot that shows the BareMetal Instance property settings" lightbox="media/baremetal-infra-portal/baremetal-instance-properties.png":::
+:::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Screenshot that shows the BareMetal Instance property settings" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## Restart a unit through the Azure portal
  
@@ -125,7 +125,7 @@ There are various situations where the OS won't finish a restart, which requires
  
 Select **Restart** and then **Yes** to confirm the restart of the unit.
  
-:::image type="content" source="media/baremetal-infra-portal/baremetal-instance-restart.png" alt-text="Screenshot that shows how to restart the BareMetal Instance unit":::
+:::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Screenshot that shows how to restart the BareMetal Instance unit":::
  
 When you restart a BareMetal Instance unit, you'll experience a delay. During this delay, the power state moves from **Starting** to **Started**, which means the OS has started up completely. As a result, after a restart, you can't log into the unit as soon as the state switches to **Started**.
  
@@ -165,4 +165,4 @@ It takes up to five business days for a support representative to confirm your r
 
 ## Next steps
 
-If you want to learn more about instances, see [SAP HANA on Azure (Large Instances)](../../../virtual-machines/workloads/sap/get-started.md).
+If you want to learn more about the workloads, see [BareMetal workload types](../../../virtual-machines/workloads/sap/get-started.md).
