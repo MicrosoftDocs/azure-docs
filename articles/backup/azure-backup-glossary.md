@@ -97,11 +97,11 @@ A datasource backed up to a vault with a particular backup and retention policy 
 
 ## Backup rule / Backup policy
 
-A backup rule is a user-defined rule that specifies when and how often backups should be performed on a datasource. For some workload types, backup policy also provides a way to specify the snapshotting method to be applied on the datasource (full, incremental, differential). Backup policies are often created as a combination of backup rules and retention rules.
+A backup rule is a user-defined rule that specifies when and how often backups should be performed on a datasource. For some workload types, backup policy also provides a way to specify the snapshot method to be applied on the datasource (full, incremental, differential). Backup policies are often created as a combination of backup rules and retention rules.
 
 ## Backup vault
 
-An ARM Resource of type *Microsoft.DataProtection/BackupVaults*. Currently, Backup vaults are used to back up Azure Databases for PostgreSQL Server. [Learn more about Backup vaults](backup-azure-recovery-services-vault-overview.md).
+An Azure Resource Manager resource of type *Microsoft.DataProtection/BackupVaults*. Currently, Backup vaults are used to back up Azure Databases for PostgreSQL Server. [Learn more about Backup vaults](backup-azure-recovery-services-vault-overview.md).
 
 ## BCDR (Business Continuity and Disaster Recovery)
 
@@ -155,11 +155,11 @@ In full backups, a copy of the whole data source is stored for every backup.
 
 ## GFS Backup Policy
 
-A GFS (Grandfather-father-son) backup policy is one that enables you to define weekly, monthly, and yearly backup schedules in addition to the daily backup schedule. The weekly backups are known "sons", the monthly backups are known as "fathers" and the yearly backups are known as "grandfathers". Each of these sets of backup copies can be configured to be retained for different durations of time, allowing for more customizability of retention choices for backup copies. GFS policies are useful in retaining backups for a long period of time in a more storage-efficient manner.
+A GFS (Grandfather-father-son) backup policy is one that enables you to define weekly, monthly, and yearly backup schedules in addition to the daily backup schedule. The weekly backups are known "sons", the monthly backups are known as "fathers" and the yearly backups are known as "grandfathers". Each of these sets of backup copies can be configured to be retained for different durations of time, allowing for more customization of retention choices for backup copies. GFS policies are useful in retaining backups for a long period of time in a more storage-efficient manner.
 
 ## IaaS VMs / Azure VMs
 
-Refer to [Azure VM documentation](https://docs.microsoft.com/azure/virtual-machines/)
+Refer to the [Azure VM documentation](https://docs.microsoft.com/azure/virtual-machines/).
 
 ## Incremental backup
 
@@ -191,7 +191,7 @@ With Azure Backup Server, you can protect application workloads such as Hyper-V 
 
 ## Managed disks
 
-Refer to the [Managed disks documentation](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)
+Refer to the [Managed disks documentation](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
 
 ## MARS Agent
 
@@ -243,15 +243,15 @@ A copy of the original data that is being backed up. A retention point is associ
 
 ## Recovery Services vault
 
-An ARM Resource of type *Microsoft.RecoveryServices/vaults*. Currently, Recovery Services vaults are used to back up the following workloads: Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, and Azure File shares. It's also used to back up on-premises workloads using MARS, Azure Backup Server (MABS), and System Center DPM. [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
+An Azure Resource Manager resource of type *Microsoft.RecoveryServices/vaults*. Currently, Recovery Services vaults are used to back up the following workloads: Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, and Azure File shares. It's also used to back up on-premises workloads using MARS, Azure Backup Server (MABS), and System Center DPM. [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
 
 ## Resource group
 
-Refer to [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)v
+Refer to the [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
 
 ## REST API
 
-Refer to the [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/)
+Refer to the [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).
 
 ## Retention rule
 
@@ -293,7 +293,7 @@ An Azure subscription is a logical container used to provision resources in Azur
 
 (Workload-specific term)
 
-Backs up operating system files. This backup allows you to recover when a computer starts, but system files and the registry are lost. [Learn more](backup-mabs-system-state-and-bmr.md)
+Backs up operating system files. This backup allows you to recover when a computer starts, but system files and the registry are lost. [Learn more](backup-mabs-system-state-and-bmr.md).
 
 ## Tenant
 
@@ -301,7 +301,7 @@ A tenant is a representation of an organization. It's a dedicated instance of Az
 
 ## Unmanaged disk
 
-Refer to the [Unmanaged disks documentation](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#azure-unmanaged-disks)
+Refer to the [Unmanaged disks documentation](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#azure-unmanaged-disks).
 
 ## Vault
 
@@ -309,7 +309,7 @@ A storage entity in Azure that houses backup data. It's also a unit of RBAC and 
 
 ## Vault credentials
 
-The vault credentials file is a certificate generated by the portal for each vault. This is used while registering a server to the vault. [Learn more](backup-azure-dpm-introduction.md)
+The vault credentials file is a certificate generated by the portal for each vault. This is used while registering a server to the vault. [Learn more](backup-azure-dpm-introduction.md).
 
 ## VNET (Virtual Network)
 
