@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
 ---
 
@@ -21,9 +21,11 @@ After you click the button to enable extended groups, you must choose the source
 * [LDAP](#configure-ldap) - Get credentials from a Lightweight Directory Access Protocol (LDAP)-compatible source.
 
 > [!NOTE]
-> Make sure that your cache can access its group information source from inside its secure subnetwork.<!-- Provide a < what? > -->
+> Make sure that your cache can access its group information source from inside its secure subnetwork.<!-- + details/examples -->
 
-![screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and Active directory selected from the drop-down control labeled Download source](media/directory-services.png)
+The **Username downloaded** field shows the status of the most recent group information download.
+
+![screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and the drop-down menu labeled Download source open](media/directory-services-select-group-source.png)
 
 ## Configure Active Directory
 
@@ -39,9 +41,11 @@ Under **Active directory details**, supply these values:
 
 * **Cache server name (computer account)** - Set the name that will be assigned to this HPC cache when it joins the AD domain. Specify a name that is easy to recognize as this cache. The name can be up to 15 characters long and can include capital or lowercase letters, numbers, hyphens (-), and underscores (_).
 
-In the **Credentials** section, provide an AD administrator username and password that the Azure HPC Cache can use to access the AD server. This information is encrypted when stored, and can't be queried.
+* In the **Credentials** section, provide an AD administrator username and password that the Azure HPC Cache can use to access the AD server. This information is encrypted when stored, and can't be queried.
 
 Save the settings by clicking the button at the top of the page.
+
+![screenshot of Download details section with Active Directory values filled in](media/group-download-details-ad.png)
 
 ## Configure file download
 
@@ -50,17 +54,19 @@ These values are required if you want to download files with your user and group
 * **User file URI** - Enter the complete URI for the `/etc/passwrd` file.
 * **Group file URI** - Enter the complete URI for the `/etc/group` file.
 
+![screenshot of Download details section for a flat file download](media/group-download-details-file.png)
+
 ## Configure LDAP
 
 Fill in these values if you want to use a non-AD LDAP source to get user and group credentials. Check with your LDAP administrator if you need help with these values.
 
 * **LDAP server** - Enter the fully qualified domain name or the IP address of the LDAP server to use. <!-- only one, not up to 3 -->
 
-* **LDAP base DN** - Specify the base distinguished name for the LDAP domain, in DN format. <!-- xxx we specify base DN here but bind DN only if there's encryption?  xxx LDAP queries are performed on the base DN, the DN of the entry, and all entries below it in the directory tree. -->Ask your LDAP administrator if you don’t know your base DN.
+* **LDAP base DN** - Specify the base distinguished name for the LDAP domain, in DN format. Ask your LDAP administrator if you don’t know your base DN.
 
 The server and base DN are the only required settings to make LDAP work, but the additional options make your connection more secure.
 
-![screenshot of the LDAP configuration area of the directory services page settings page](media/ldap-settings.png)
+![screenshot of the LDAP configuration area of the directory services page settings page](media/group-download-details-ldap.png)
 
 In the **Secure access** section, you can enable encryption and certificate validation for the LDAP connection. After you click **Yes** to enable encryption, you have these options:
 
