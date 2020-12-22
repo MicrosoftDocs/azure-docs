@@ -11,6 +11,7 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
 # Troubleshooting remote model deployment 

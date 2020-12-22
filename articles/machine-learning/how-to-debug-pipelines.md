@@ -10,6 +10,7 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
+#Customer intent: As a data scientist, I want to figure out why my pipeline doesn't work so that I can fix it.
 ---
 
 # Troubleshooting machine learning pipelines

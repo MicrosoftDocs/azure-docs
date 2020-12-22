@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting local model deployment
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Azure Machine Learning Docker deployment errors locally.
+description: Try a local model deployment as a first step in troubleshooting model deployment errors.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
-# Troubleshooting local model deployment
+# Troubleshooting with a local model deployment
 
-Learn how to troubleshoot and solve, or work around, common Azure Machine Learning Docker web service deployment errors locally.
-
-As a first step in troubleshooting a model deployment to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), use a local deployment.  Using a local web service makes it easier to troubleshoot problems.
+Try a local model deployment as a first step in troubleshooting deployment to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS).  Using a local web service makes it easier to spot and fix common Azure Machine Learning Docker web service deployment errors.
 
 ## Prerequisites
 

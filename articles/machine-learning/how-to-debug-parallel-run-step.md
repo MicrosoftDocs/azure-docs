@@ -11,6 +11,8 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
+#Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
+
 ---
 
 # Troubleshooting the ParallelRunStep
@@ -23,7 +25,7 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 
  Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
 
-##  `ParallelRunStep` script requirements
+##  Script requirements
 
 The script for a `ParallelRunStep` *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
