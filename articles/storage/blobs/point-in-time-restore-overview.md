@@ -56,8 +56,9 @@ When you enable point-in-time restore for a storage account, you specify a reten
 The retention period begins a few minutes after you enable point-in-time restore. Keep in mind that you cannot restore blobs to a state prior to the beginning of the retention period. For example, if you enabled point-in-time restore on May 1st with a retention of 30 days, then on May 15th you can restore to a maximum of 15 days. On June 1st, you can restore data from between 1 and 30 days.
 
 The retention period for point-in-time restore must be at least one day less than the retention period specified for soft delete. For example, if the soft delete retention period is set to 7 days, then the point-in-time restore retention period may be between 1 and 6 days.
->[!CAUTION]
->The time it takes to restore is based on the churn rate of the account based on the number of adds, deletes, and modifications made through time and the number of days restored back to.  As an example, an account with 1M objects with 3,000 object adds per day and 1,000 deletes per day would take approximately 2 hours to do a restore 30 days in the past.  A retention period and restoration more than 90 days in the past would not be recommended for an account with this amount of changes.
+
+> [!IMPORTANT]
+> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 ### Permissions for point-in-time restore
 
