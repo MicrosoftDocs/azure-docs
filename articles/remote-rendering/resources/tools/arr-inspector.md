@@ -103,17 +103,3 @@ In the top-right corner, a switch allows you to pause live update of the panels.
 ![Pause Mode](./media/pause-mode.png)
 
 When re-enabling live update, all panels are reset.
-
-## Host configuration
-
-By default the tool connects to the ARR server that is running on the same host serving the ArrInspector. However, you can configure it to inspect another server, assuming it's running an ARR instance with the tooling port open.
-
-To do so, access the main menu on the left of the header bar and select *Host configuration*. Click **Add new host**, and enter the name and hostname. For *hostname* only use the hostname ending in `.mixedreality.azure.com`, don't include `http://` or a port.
-
-![Host Configuration](./media/host-configuration.png)
-
-To quickly switch from one host to another, use the drop-down at the top right.
-
-![Host Combo](./media/host-switch-combo.png)
-
-The host list is stored in the browser local storage, so it will be preserved when reopening the same browser.
