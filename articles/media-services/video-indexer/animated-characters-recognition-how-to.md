@@ -31,6 +31,11 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
 
+Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+
+> [!NOTE]
+> The training of the model should be done only via Video Indexer, and not via the Custom Vision website. 
+
 #### Connect a Custom Vision account with API 
 
 Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
@@ -77,6 +82,8 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
 ### Index a video with an animated model
 
+For the initial training, upload at least two videos. Each should be preferably longer than 15 minutes, before expecting good recognition model. If you have shorter episodes, we recommend uploading at least 30 minutes of video content before training. This will allow you to merge groups that belong to the same character from different scenes and backgrounds, and therefore increase the chance it will detect the character in the following episodes you index. To train a model on multiple videos (episodes) you need to index them all with the same animation model. 
+
 1. Click on the **Upload** button.
 1. Choose a video to upload (from a file or a URL).
 1. Click on **Advanced options**.
@@ -85,8 +92,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Click on upload.
 1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pane.
 
-> [!NOTE] 
-> Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
 
 ### Customize the animated characters models
 
