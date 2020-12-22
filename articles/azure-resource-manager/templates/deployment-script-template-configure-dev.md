@@ -195,7 +195,7 @@ You can also upload the file by using the Azure portal and Azure CLI.
 1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
 1. In the console pane, run the following commands:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -205,13 +205,13 @@ You can also upload the file by using the Azure portal and Azure CLI.
 
     ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
 
-1. If using AZ CLI container image:
+1. If you use the AZ CLI container image, run this code:
 
-```
-cd /mnt/azscripts/azscriptinput
-ls
-./userscript.sh
-```
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## Use Docker
 
