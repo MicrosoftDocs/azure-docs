@@ -62,7 +62,7 @@ tutorial
 - `.azureml`: Hidden subdirectory for storing Azure Machine Learning configuration files.
 
 > [!TIP]
-> If you're on a Mac, in a Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a period.  Or use the command terminal to create the directory.
+> If you're on a Mac, in a Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  Or use the command terminal to create the directory.
 
 
 > [!div class="nextstepaction"]
