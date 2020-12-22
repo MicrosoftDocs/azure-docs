@@ -4,7 +4,7 @@ description: How to create and apply custom access policies to limit client acce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
 ---
 
@@ -24,13 +24,13 @@ If you don't need fine-grained control over storage target access, you can use t
 
 Use the **Client access policies** page in the Azure portal to create and manage policies. <!-- is there AZ CLI for this? -->
 
-<!-- ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png) -->
-
-[ ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)](media/policies-overview-draft.png#lightbox)
+[![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview.png)](media/policies-overview.png#lightbox)
 
 Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default). The first rule that matches is applied and later rules are ignored.
 
 To create a new access policy, click the **+ Add access policy** button at the top of the list. Give the new access policy a name, and enter at least one rule.
+
+![screenshot of access policies edit blade with multiple rules filled in. Click ok to save the rule.](media/add-policy.png)
 
 The rest of this section explains the values you can use in rules.
 
@@ -60,11 +60,11 @@ Specify the IP address or range of addresses for this rule. Use CIDR notation (e
 
 Set what privileges to grant the clients that match the scope and filter.
 
-Options are read/write, read-only, or none.
+Options are **read/write**, **read-only**, or **no access**.
 
 ### SUID
 
-Check the SUID box to allow files in storage to set user IDs upon access.
+Check the **SUID** box to allow files in storage to set user IDs upon access.
 
 SUID typically is used to increase a user’s privileges temporarily so that the user can accomplish a task related to that file.
 
@@ -85,8 +85,6 @@ If you turn on root squash, you must also set the anonymous ID user value to one
 * **-1** (no access)
 * **65535** (no access)
 * **0** (unprivileged root)
-
-![screenshot of access policies edit blade with multiple rules filled in. Click ok to save the rule.](media/add-policy-draft.png)
 
 ## Next steps
 
