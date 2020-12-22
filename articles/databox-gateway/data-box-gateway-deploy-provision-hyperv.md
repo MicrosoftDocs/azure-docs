@@ -115,10 +115,6 @@ Perform the following steps to provision a device in your hypervisor.
 10. Review the **Summary** and then click **Finish** to create the virtual machine.
 
     ![Completing the New Virtual Machine wizard page](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-
-> [!NOTE]
-> You can't provision a new Data Box Gateway by copying your configured VHD. Each new Data Box Gateway virtual device must be provisioned from a virtual device image for Hyper-V that is downloaded from the Azure portal.<!--Should the note go after Step 10, when they save the new virtual machine, or at the end of the procedure, when the VM is fully configured? Should we note that the device will malfunction if they try to do this, or is that understood?-->
-
 11. To meet the minimum requirements, you need four virtual processors. To add four virtual processors, select your host system in the **Hyper-V Manager** window. In the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
 
     ![Virtual machine settings](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
@@ -153,6 +149,11 @@ Perform the following steps to provision a device in your hypervisor.
 21. Return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
 
     ![Settings page](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+Your virtual machine is now fully configured.
+
+> [!NOTE]
+> You can't provision a new Data Box Gateway by copying your configured VHD. Each new Data Box Gateway virtual device must be provisioned from a virtual device image for Hyper-V that is downloaded from the Azure portal.
 
 ## Start the virtual device and get the IP
 
