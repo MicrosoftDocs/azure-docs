@@ -197,7 +197,7 @@ The following example uses version 1 of the `functions-action` and a `publish pr
 Set up a .NET Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure Function app with a Linux environment
+name: Deploy DotNet project to Azure Function App with a Linux environment
 
 on:
   [push]
@@ -236,7 +236,7 @@ jobs:
 Set up a .NET Windows workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure Function app with a Windows environment
+name: Deploy DotNet project to Azure Function App with a Windows environment
 
 on:
   [push]
