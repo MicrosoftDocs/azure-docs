@@ -13,7 +13,7 @@ ms.author: mingshen
 
 When you publish your offer to the commercial marketplace via Partner Center, you need to connect your offer to your CRM system. This way, you can receive customer contact information immediately after a customer expresses interest or deploys your product.
 
-1. Under **Customer leads**, select **Edit**.
+1. Under **Customer leads**, select **Connect**.
 1. In the **Connection details** dialog box, select a **Lead destination** where you want us to send customer leads.
 1. Complete the fields that appear. For detailed steps on setting up your lead destination to receive leads from your offers, select one of the following supported CRM systems:
 

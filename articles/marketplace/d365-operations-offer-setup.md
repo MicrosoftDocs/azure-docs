@@ -27,7 +27,7 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
-> [!NOTE]
+> [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
 
 ## New offer
@@ -75,7 +75,7 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 [!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
 
-For more information, see [Lead management overview](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Business Applications ISV Program
 

@@ -9,7 +9,7 @@ ms.author: navits
 ms.date: 12/04/2020
 ---
 
-# Planning a Microsoft Dynamics 365 offer
+# Plan a Microsoft Dynamics 365 offer
 
 This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI. AppSource allows paid (*Get It Now*), list (*Contact Me*), and trial (*Try It Now*) offers.
 
