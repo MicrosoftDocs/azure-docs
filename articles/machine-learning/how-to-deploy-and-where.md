@@ -345,7 +345,6 @@ For more information, see the documentation for [WebService.delete()](/python/ap
 
 ---
 
-
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
