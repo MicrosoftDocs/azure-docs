@@ -13,19 +13,41 @@ ms.author: v-tcassi
 
 # Install and provision Azure IoT Edge for Linux on a Windows device
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices from PC class to industrial servers. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices through the use of Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
-<!-- Revisit once released -->
 ## Prerequisites
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An [Azure IoT Edge device ID](how-to-manual-provision-symmetric-key.md#create-an-iot-edge-device-in-the-azure-portal).
-* Access to [Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed](https://microsoft.sharepoint.com/teams/AzureEFLOW/Wiki/Windows%20Admin%20Center.aspx). <!-- Update with proper links -->
+* Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
+   1. Visit the [Windows Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).
+
+   1. In the previews dropdown, select **Windows Admin Center Preview - Build 2012**, and choose **Confirm**.
+
+      ![Choose the Windows Admin Center Preview - Build 2012 from the dropdown menu of available previews.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
+
+   1. In the **Select Language** dropdown, choose **English**, and choose **Confirm**.
+
+   1. Choose **Download Now** to download the *WindowsAdminCenterPreview2012.msi*.
+
+   1. Run the *WindowsAdminCenterPreview2012.msi* and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
+
+   1. On the first use of Windows Admin Center, you will be prompted to select a certificate to use. Select **Windows Admin Center Client** as your certificate.
+
+   1. It is time to install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
+
+      ![Select the gear icon in the top right of the dashboard to access the settings.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
+
+   1. On the **Settings** pane that opens on the left, under **Gateway**, select **Extensions**.
+
+   1. On the **Available extensions** tab, find **Azure IoT Edge** in the list of extensions. Choose it, and select the **Install** prompt above the list of extensions.
+
+   1. After the installation completes, you should see in the list of installed extensions on the **Installed extensions** tab.
 
 Minimum system requirements:
 
@@ -34,40 +56,19 @@ Minimum system requirements:
 * Minimum RAM: 4 GB
 * Minimum Storage: 10 GB
 
-<!-- Temporary note; signage should be good by release -->
-> [!NOTE]
-> The execution policy on the target device needs to be set to `Bypass` or `RemoteSigned`, because the IoT Edge for Windows module is not properly signed. Any deployment attempt with a different execution policy will fail as the module cannot be loaded.
->
-> Signing of the Azure IoT Edge for Windows collaterals is ongoing work.
->
-> You can check the current execution policy in an elevated PowerShell prompt using:
->
->    ```azurepowershell-interactive
->    Get-ExecutionPolicy -List
->    ```
->
-> If the execution policy of `local machine` is either `AllSigned` or `Restricted`, set the execution policy to `Bypass` or `RemoteSigned`:
->
->    ```azurepowershell-interactive
->    Set-ExecutionPolicy - ExecutionPolicy RemoteSigned -Force
->    ```
-
 ## Create a new deployment
 
 Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
-On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. In this guide, this local host connection will also serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
+On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. You can use Windows Admin Center to make deployments of Azure IoT Edge for Linux on Windows to both your local device and remote devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows. If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device before proceeding](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
    ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
-> [!NOTE]
-> If you do not see your desired target device in the list, follow the [instructions to add your device before proceeding](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
-
 1. Select **Add**.
 
-1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. This guide creates a deployment to a new device. Select **Create new**
+1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. The **Add** feature allows you to connect to an existing deployment of Azure IoT Edge for Linux on Windows that is not connected to Windows Admin Center. **Create new** allows you to create a new deployment of Azure IoT Edge for Linux on Windows on your target device. This guide creates a deployment to a new device. Select **Create new**.
 
    ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
 
@@ -83,7 +84,6 @@ On the Windows Admin Center start page, under the list of connections, you will 
 
 1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
 
-   <!-- Visuals may change with updates; fewer settings visible to customers in future -->
    ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
 1. Accept the default settings on the **2.2 Settings** tab.
@@ -98,6 +98,9 @@ Once your deployment is complete, you are ready to provision your device. Select
 
 Install IoT Edge for Linux on Windows onto your target device if you have not already.
 
+> [!NOTE]
+> The following PowerShell process outlines how to create a local host deployment of Azure IoT Edge for Linux on Windows. To create a deployment to a remote target device using PowerShell, you can use [Remote PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
+
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
    ```azurepowershell-interactive
@@ -111,14 +114,6 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```azurepowershell-interactive
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
-
-   <!-- Temporary note; signage should be good by release -->
-   > [!NOTE]
-   > To ensure the deployment can complete, temporarily change the execution policy to `AllSigned`.
-   >
-   >    ```azurepowershell-interactive
-   >    Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
-   >    ```
 
 1. Create the IoT Edge for Linux on Windows deployment.
 
@@ -146,6 +141,7 @@ To provision your device, you have three options:
 * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-symmetric-keys)
 * [Automatic provisioning using DPS and X.509 certificates](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-x509-certificates)
 
+<!-- Update flow with restructuring of register, install, authenticate articles  -->
 ## Provision your device
 
 Choose a method for provisioning your device and follow the instructions in the appropriate section. You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
@@ -184,7 +180,9 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 ### Provisioning via DPS using symmetric keys
 
-This section covers provisioning your device automatically using DPS and symmetric keys. To continue with these steps, follow the [instructions on how to use DPS and symmetric keys to automatically provision an IoT Edge device](how-to-auto-provision-symmetric-keys.md) to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and symmetric keys. To continue with these steps, follow the [instructions on how to use DPS and symmetric keys to automatically provision an IoT Edge device](how-to-auto-provision-symmetric-keys.md) to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service#enrollment).
+
+Once you complete these steps, return here.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -226,7 +224,9 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 ### Provisioning via DPS using X.509 certificates
 
-This section covers provisioning your device automatically using DPS and X.509 certificates. To continue with these steps, follow the [instructions on how to use DPS and X.509 certificates to automatically provision an IoT Edge device](how-to-auto-provision-x509-certs.md) to create test certificates if necessary, create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and X.509 certificates. To continue with these steps, follow the [instructions on how to use DPS and X.509 certificates to automatically provision an IoT Edge device](how-to-auto-provision-x509-certs.md) to create test certificates if necessary, create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service#enrollment).
+
+Once you complete these steps, return here.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
