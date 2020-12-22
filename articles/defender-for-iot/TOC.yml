@@ -47,9 +47,8 @@
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS
+      href: iot-security-azure-rtos.md
       items: 
-        - name: Security Module for Azure RTOS
-          href: iot-security-azure-rtos.md
         - name: Understand the Security Module for Azure RTOS
           href: concept-rtos-security-module.md
         - name: Security Module for Azure RTOS alerts and recommendations 
