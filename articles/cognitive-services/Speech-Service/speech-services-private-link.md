@@ -29,7 +29,7 @@ Perform the following tasks to use a Speech service through a private endpoint:
 2. [Create and configure private endpoint(s)](#enable-private-endpoints)
 3. [Adjust existing applications and solutions](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-To remove private endpoints later, but still use the Speech service, you will perform the tasks found in [this section](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
+To remove private endpoints later, but still use the Speech resource, you will perform the tasks found in [this section](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 
 ## Create a custom domain name
 
@@ -51,7 +51,9 @@ To create a custom domain name using Azure portal, follow these steps:
 1. Select the required Speech Resource.
 1. In the **Resource Management** group in the left navigation pane, click **Networking**.
 1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
-1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will start `https://{your custom name}.cognitiveservices.azure.com`. **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
+1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will look like:
+    `https://{your custom name}.cognitiveservices.azure.com`. 
+    **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
 1. After the operation completes, in the **Resource management** group, click **Keys and Endpoint**. Confirm the new endpoint name of your resource starts this way:
 
     `https://{your custom name}.cognitiveservices.azure.com`
@@ -233,7 +235,7 @@ Get familiar with the general principles of [DNS for private endpoints in Cognit
 
 We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
 
-Log on to a virtual machine located in the virtual network to which you have attached your private endpoint. Open Windows Command Prompt or Bash shell, execute 'nslookup' command and ensure it successfully resolves your resource custom domain name:
+Log on to a virtual machine located in the virtual network to which you have attached your private endpoint. Open Windows Command Prompt or Bash shell, run `nslookup` and confirm it successfully resolves your resource custom domain name:
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -252,10 +254,10 @@ This check is necessary if you plan to use your private endpoint enabled Speech 
 
 We use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
 
-On any machine attached to a network from which you allow access to the resource, open Windows Command Prompt or Bash shell, enter the  `nslookup` command and ensure it successfully resolves your resource custom domain name:
+On any computer attached to a network from which you allow access to the resource, open Windows Command Prompt or Bash shell, run the `nslookup` command and confirm it successfully resolves your resource custom domain name:
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
-Server:  Unknown
+Server:  UnKnown
 Address:  fe80::1
 
 Non-authoritative answer:
