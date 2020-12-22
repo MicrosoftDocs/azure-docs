@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
+ROBOTS: NOINDEX
 ---
 
 # How to change the token lifetime defaults for a custom-developed application
