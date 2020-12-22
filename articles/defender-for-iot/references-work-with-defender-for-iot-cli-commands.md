@@ -264,6 +264,31 @@ This article describes the commands available to perform various system actions 
 |Display the status of all Defender for IoT platform services|`system sanity`|Checks the sanity of the system, by listing the current status of all Defender for IoT platform services.|
 |Show the software version|`system version`|Displays the version of the software currently running on the system.|
 
+## Deploy SSL and TLS certificates to appliances
+
+You can import SSL and TLS enterprise certificates by entering the following command into the CLI.
+
+```azurecli-interactive
+cyberx-xsense-certificate-import
+```
+The certificate files need to be uploaded to the device to use the tool. This can be done through tools such as WinSCP or Wget. 
+
+The command supports the following input flags:
+
+| Flag | Description |
+|--|--|
+| -h | Shows the command line help syntax. |
+| --crt | The path to the certificate file (CRT extension). |
+| --key | *.key file, key length should be minimum 2048 bits. |
+| --chain | Path to certificate chain file (optional). |
+| --pass | Passphrase used to encrypt the certificate (optional). |
+| --passphrase-set | The default is **False**, **unused** <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). |  |
+
+When using the tool;
+- Verify the certificates files are readable on the appliance 
+
+- Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
+    
 ## See also
 
 [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
