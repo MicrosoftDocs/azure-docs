@@ -28,12 +28,11 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 
 ## Enable Health Check
 
-![Health check navigation in Azure Portal][3]
-
-
 > [!CAUTION]
 > Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
 >
+
+![Health check navigation in Azure Portal][3]
 
 - To enable Health check, browse to the Azure Portal and select your App Service app.
 - Under **Monitoring**, select **Health check**.
