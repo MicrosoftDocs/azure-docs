@@ -243,7 +243,7 @@ A copy of the original data that is being backed up. A retention point is associ
 
 ## Recovery Services vault
 
-An ARM Resource of type *Microsoft.RecoveryServices/vaults*. Currently, Recovery Services vaults are used to back up the following workloads: Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, and Azure File shares. It's also used to back up on-premises workloads using Azure Backup Agent, Azure Backup Serve, and System Center DPM. [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
+An ARM Resource of type *Microsoft.RecoveryServices/vaults*. Currently, Recovery Services vaults are used to back up the following workloads: Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, and Azure File shares. It's also used to back up on-premises workloads using MARS, Azure Backup Server (MABS), and System Center DPM. [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
 
 ## Resource group
 
