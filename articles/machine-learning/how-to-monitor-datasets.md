@@ -357,7 +357,7 @@ Limitations and known issues for data drift monitors:
     ```python
     import time
     time.sleep(600)
-```
+    ```
 
 ## Next steps
 

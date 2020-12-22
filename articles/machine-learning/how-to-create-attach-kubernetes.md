@@ -345,7 +345,7 @@ Many webservice failures in AKS can be debugged by connecting to the cluster usi
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
-`
+```
 
 ## Next steps
 
