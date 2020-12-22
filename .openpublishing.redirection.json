@@ -1731,6 +1731,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/resource-known-issues.md",
+      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -26787,7 +26792,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/resource-known-issues.md",
-      "redirect_url": "/azure/machine-learning/resource-known-issues",
+      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
       "redirect_document_id": true
     },
     {
@@ -47021,6 +47026,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/translator/ctf-reporting.md",
+      "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/return-n-best-translations.md",
+      "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/transform-text.md",
+      "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/v2-0-reference.md",
+      "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
+      "redirect_document_id": false
+    },   
+    {
       "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
       "redirect_document_id": false
@@ -60945,6 +60970,11 @@
       "source_path_from_root": "/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
       "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-deployment-guide.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    }       
   ]
 }

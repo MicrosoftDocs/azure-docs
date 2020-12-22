@@ -210,9 +210,9 @@ Restricting access in this manner only applies to data in the Application Insigh
 
 ## Use APIs and command line
 
-You can automate the process described earlier using Azure Resource Manager templates and command-line interfaces.
+You can automate the process described earlier using Azure Resource Manager templates, REST and command-line interfaces.
 
-To create and manage private link scopes, use [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Using this command, you can create scopes, associate Log Analytics workspaces and Application Insights components, and add/remove/approve private endpoints.
+To create and manage private link scopes, use the [REST API](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 To manage network access, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
