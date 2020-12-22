@@ -227,7 +227,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 You'll see the "Hello World!" message you saw earlier when you visited `http://localhost:5000`.
 
-For more information about deploying web application usig Git, see [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+For more information about deploying web application using Git, see [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
  
 ## Configure the web app to connect to Key Vault
 
