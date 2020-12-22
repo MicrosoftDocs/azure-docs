@@ -47,15 +47,15 @@ To get started:
 
 1. Set your parameters for export:
 
-   1. **Data format**: Choose whether you want to export **Aggregate data** or **Raw events** to Power BI. 
+   * **Data format**: Choose whether you want to export **Aggregate data** or **Raw events** to Power BI. 
 
        > [!NOTE]
        > * If you export raw events, you can aggregate that data later in Power BI. However, if you export aggregate data, you cannot revert to raw data in Power BI. 
        > * There is a 250,000 event count limit for Raw Event level data.
 
-   1. **Time Range**: Choose whether you'd like to see a **fixed** time range or the **latest** data in Power BI. Choosing the fixed time range means the data in the search span you've charted will be exported to Power BI. Choosing the latest time range means that Power BI will grab the latest data for the search span you've chosen (e.g. If you chart any 1 hour of data and choose the "latest" setting, Power BI Connector will always make queries for the latest 1 hour of data.)
+   * **Time Range**: Choose whether you'd like to see a **fixed** time range or the **latest** data in Power BI. Choosing the fixed time range means the data in the search span you've charted will be exported to Power BI. Choosing the latest time range means that Power BI will grab the latest data for the search span you've chosen (e.g. If you chart any 1 hour of data and choose the "latest" setting, Power BI Connector will always make queries for the latest 1 hour of data.)
   
-   1. **Store Type**: Choose whether you'd like to run your selected query against **Warm Store** or **Cold Store**. 
+   * **Store Type**: Choose whether you'd like to run your selected query against **Warm Store** or **Cold Store**. 
 
     > [!TIP]
     > * Azure Time Series Insights Explorer will automatically select the recommended parameters depending on the data you've chosen to export. 
