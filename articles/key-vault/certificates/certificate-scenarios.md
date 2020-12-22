@@ -36,6 +36,7 @@ Certificates are composed of three interrelated resources linked together as a K
     The following CAs are the current partnered providers with Key Vault. Learn more [here](./create-certificate.md#partnered-ca-providers)   
     -   DigiCert - Key Vault offers OV TLS/SSL certificates with DigiCert.  
     -   GlobalSign - Key Vault offers OV TLS/SSL certificates with GlobalSign.  
+    -   SSL.com - Key Vault offers OV and EV TLS/SSL certificates with SSL.com.  
 
 **Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use TLS/SSL certificates via Key Vault.
 
