@@ -4,7 +4,7 @@ description: Learn how to manage individual sensors, including managing activati
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -83,6 +83,122 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 - **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sensor Management** page of the Defender for IoT portal. If this doesn't work, contact Microsoft Support.
 
+## Manage certificates
+
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first time setup, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
+
+This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
+
+### About certificates
+
+Azure Defender for IoT uses SSL/TLS certificates to:
+
+1. Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
+
+1. Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**
+
+ Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
+
+### Update certificates
+
+Sensor Administrator users can update certificates.
+
+To update a certificate:  
+
+1. Select **System Settings**.
+1. Select **SSL/TLS Certificates.**
+1. Delete or edit the certificate and add a new one.
+    - Add a certificate name.
+    - Upload a CRT file and key file and enter a passphrase.
+    - Upload a PEM file if required.
+
+To change the validation setting:
+
+1. Enable or Disable the **Enable Certificate Validation** toggle.
+1. Select **Save**.
+
+If the option is enabled and validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console.
+
+### Certificate Support
+
+The following certificates are supported:
+
+- Private / Enterprise Key Infrastructure (Private PKI) 
+- Public Key Infrastructure (Public PKI) 
+- Locally generated on the appliance (locally self-signed). **Using self-signed certificates is not recommended.** This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated, and the security of your system cannot be maintained. Self-signed certificates should never be used for production networks.  
+
+The following parameters are supported: Certificates with other parameters may work but cannot be supported by Microsoft.
+
+Certificate CRT
+
+- The primary certificate file for your domain name
+- Signature Algorithm = SHA256RSA
+- Signature Hash Algorithm = SHA256
+- Valid from = Valid past date
+- Valid To = Valid future date
+- Public Key = RSA 2048bits (Minimum) or 4096bits
+- CRL Distribution Point = URL to .crl file
+- Subject CN = URL, can be a wildcard certificate e.g. example.contoso.com or  *.contoso.com**
+- Subject (C)ountry = defined, e.g. US
+- Subject (OU) Org Unit = defined, e.g. Contoso Labs
+- Subject (O)rganization = defined, e.g. Contoso Inc.
+
+Key File
+
+- The key file generated when you created CSR
+- RSA 2048bits (Minimum) or 4096bits
+
+Certificate Chain
+
+- The intermediate certificate file (if any) that was supplied by your CA
+- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. Bag attributes are  allowed. 
+
+Passphrase
+
+- 1 key supported
+- Setup when importing the certificate
+
+#### Encryption key artifacts
+
+**.pem – Certificate Container File**
+
+The name is from Privacy Enhanced Mail (PEM), an historic method for secure email but the container format it used lives on, and is a base64 translation of the x509 ASN.1 keys.  
+
+Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files /etc/ssl/certs), or may include an entire certificate chain including public key, private key, and root certificates.  
+
+It may also encode a CSR as the PKCS10 format can be translated into PEM.
+
+**.cert .cer .crt – Certificate Container File**
+
+A .pem (or rarely .der) formatted file with a different extension. It is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
+
+**.key – Private Key File**
+
+*A PEM formatted file containing just the private-key of a specific certificate and is merely a conventional name and not a standardized one.* 
+##### Use CLI commands to deploy certificates
+
+Use the *cyberx-xsense-certificate-import* CLI command to import certificates. To use this tool, certificate files need to be uploaded to the device (using tools such as winscp or wget).
+
+The command supports the following input flags:
+
+-h  Show the command line help syntax
+
+--crt  Path to certificate file (CRT extension)
+
+--key  *.key file, key length should be minimum 2048 bits
+
+--chain  Path to certificate chain file (optional)
+
+--pass  Passphrase used to encrypt the certificate (optional)
+
+--passphrase-set  Default = False, unused. Set to TRUE to use previous passphrase supplied with previous certificate (optional)
+
+When using the CLI command:
+
+- Verify the certificate files are readable on the appliance.
+
+**- Confirm with your IT team that the appliance domain (as it appears in the certificate) with your DNS server and  corresponding IP. **TBD****
+
 ## Connect a sensor to the management console
 
 This section describes how to ensure connection between the sensor and the on-premises management console. You need to do this if you're working in an air-gapped network and want to send asset and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
@@ -127,7 +243,7 @@ To change the name:
 
 1. Select **Save**. The new name is applied.
 
-## Change the name of a cloud-connected sensor
+### Change the name of a cloud-connected sensor
 
 If your sensor was registered as a cloud-connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
 
@@ -326,7 +442,7 @@ System properties control various operations and settings in the sensor. Editing
 
 Consult with [Microsoft Support](https://support.microsoft.com/) before you change your settings.
 
-To access system properties: 
+To access system properties:
 
 1. Sign in to the on-premises management console or the sensor.
 

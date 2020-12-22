@@ -27,5 +27,4 @@ Defender for IoT routes all traffic from all European regions to the West Europe
 
 ## See also
 
-- [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
 - [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)

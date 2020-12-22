@@ -11,56 +11,76 @@ ms.service: azure
 
 # Manage the on-premises management console
 
-This article covers various on-premises management console options, for example, backup and restore, defining the host name, and setting up a proxy to sensors.
+This article covers various on-premises management console options, for example, backup and restore, downloading committee device activation file, updating certificates, setting up a proxy to sensors and more.
 
-Management console onboarding is carried out from the Azure portal.
+On-=premises management console onboarding is carried out from the Azure portal.
+
+## Upload an activation file
+
+After you first-time log in, an activation file for the  on-premises management console was downloaded. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
+
+After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+
+To upload an activation file:
+
+1. Go to the Defender for IoT **Pricing** page.
+1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download activation file.":::
+
+1. Select **System Settings** from the management console.
+1. Select **Activation**.
+1. Select **Choose a File** and select the file that you saved.
 
 ## Manage certificates
 
-The on-premises management console uses an SSL/TLS certificate to provide authentication for a server or website and enables an encrypted connection. This certificate communicate to the client that the web service host demonstrated ownership of the domain to a certificate authority at the time of certificate issuance.
+Following on-premises management console installation, a local self-signed certificate is generated and used to access the management console web application. When logging in to the management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
-The certificate ensures secure communication:  
+This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
 
-- Between your browser and the Defender for IoT Web console - **no warning?** **Matan Halifa**
-- to the REST API on the sensor and on-premises management console
-- Between the management console and connected sensors - **lower part of GUI**
+### About certificates
 
-Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow are not validated.
+Azure Defender for IoT uses SSL/TLS certificates to:
 
-Defender for IoT Support, Administrators and cyberX users can create and manage certificates.
-### Self-signed vs CA signed certificates
+1. Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
 
-Using self-signed certificates is not recommended. This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  
+1. Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**
 
-Self-signed certificates should never be used for production networks.
+ Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
 
-### Certificate violations
-IF there is a ceritcate viloation between the mangemement console 
 
-**Install on HA**
 
-### Updating certificates
+### Update certificates
 
-You will be prompted to define a certificate for the on-premises management console the first time you log in.
-You can update the certificate after initial login.
+On-premises management console Administrator users can update certificates.
 
-To update the certificate:  
+To update a certificate:  
 
 1. Select **System Settings**.
-1. Select **Certificates.**
-1. Select **+ Add a ceritificate**.
-1. Add a certificate name.
-1. Upload a CRT file and keyfile and enter a passphrase.
-1. Upload a PEM file if, **TBD**
-1. Select **Enable Global;** Ceriticate Validation  to turn on validation. **Error on the sensor or the CM? what does the messasge say?** **CRL??**
-1. Select**Save**.
-1.**Do I see what is already uploaded?**???
+1. Select **SSL/TLS Certificates.**
+1. Delete or edit the certificate and add a new one.
+    - Add a certificate name.
+    - Upload a CRT file and key file and enter a passphrase.
+    - Upload a PEM file if required.
+
+To change the validation setting:
+
+1. Enable or Disable the **Enable Certificate Validation** toggle.
+1. Select **Save**.
+
+If the option is enabled and validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console.
 
 ### Certificate Support
 
-The following parameters are supported by Azure Defender for IoT. Certificates with other parameters may work, but cannot be supported by Microsoft.
+The following certificates are supported:
 
-**Certificate CRT**
+- Private / Enterprise Key Infrastructure (Private PKI) 
+- Public Key Infrastructure (Public PKI) 
+- Locally generated on the appliance (locally self-signed). **Using self-signed certificates is not recommended.** This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated, and the security of your system cannot be maintained. Self-signed certificates should never be used for production networks.  
+
+The following parameters are supported: Certificates with other parameters may work but cannot be supported by Microsoft.
+
+Certificate CRT
 
 - The primary certificate file for your domain name
 - Signature Algorithm = SHA256RSA
@@ -69,28 +89,67 @@ The following parameters are supported by Azure Defender for IoT. Certificates w
 - Valid To = Valid future date
 - Public Key = RSA 2048bits (Minimum) or 4096bits
 - CRL Distribution Point = URL to .crl file
-- Subject CN = URL, can be a wildcard certificate e.g. **Sensor.contoso.com or  *.contoso.com**     1111
+- Subject CN = URL, can be a wildcard certificate e.g. example.contoso.com or  *.contoso.com**
 - Subject (C)ountry = defined, e.g. US
 - Subject (OU) Org Unit = defined, e.g. Contoso Labs
 - Subject (O)rganization = defined, e.g. Contoso Inc.
 
-**Key File**
+Key File
 
 - The key file generated when you created CSR
 - RSA 2048bits (Minimum) or 4096bits
--
-**Certificate Chain**
+
+Certificate Chain
 
 - The intermediate certificate file (if any) that was supplied by your CA
-- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root.
-**Bag attributes are  allowed** 
+- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. Bag attributes are  allowed. 
 
-**Passphrase**
+Passphrase
 
 - 1 key supported
 - Setup when importing the certificate
 
-## Define backup and restore settings
+#### Encryption key artifacts
+
+**.pem – Certificate Container File**
+
+The name is from Privacy Enhanced Mail (PEM), an historic method for secure email but the container format it used lives on, and is a base64 translation of the x509 ASN.1 keys.  
+
+Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files /etc/ssl/certs), or may include an entire certificate chain including public key, private key, and root certificates.  
+
+It may also encode a CSR as the PKCS10 format can be translated into PEM.
+
+**.cert .cer .crt – Certificate Container File**
+
+A .pem (or rarely .der) formatted file with a different extension. It is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
+
+**.key – Private Key File**
+
+*A PEM formatted file containing just the private-key of a specific certificate and is merely a conventional name and not a standardized one.* 
+##### Use CLI commands to deploy certificates
+
+Use the *cyberx-xsense-certificate-import* CLI command to import certificates. To use this tool, certificate files need to be uploaded to the device (using tools such as winscp or wget).
+
+The command supports the following input flags:
+
+-h  Show the command line help syntax
+
+--crt  Path to certificate file (CRT extension)
+
+--key  *.key file, key length should be minimum 2048 bits
+
+--chain  Path to certificate chain file (optional)
+
+--pass  Passphrase used to encrypt the certificate (optional)
+
+--passphrase-set  Default = False, unused. Set to TRUE to use previous passphrase supplied with previous certificate (optional)
+
+When using the CLI command: 
+
+- Verify the certificate files are readable on the appliance.
+
+- Confirm with your IT team that the appliance domain (as it appears in the certificate) with your DNS server and  corresponding IP. **TBD**
+- ## Define backup and restore settings
 
 The on-premises management console system backup is performed automatically, daily. The data is saved on a different disk: The default location is `/var/cyberx/backups`. 
 
@@ -222,9 +281,8 @@ To change the name:
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Screenshot that shows the changed name of the console.":::
 
-## Next Steps
+## See also
 
-You may also want to carry out the following on the management console:
+[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
-[Troubleshoot the sensor and on-premises management console]
-(how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+[Manage individual sensors](how-to-manage-individual-sensors.md)

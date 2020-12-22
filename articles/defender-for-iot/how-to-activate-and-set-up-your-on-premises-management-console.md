@@ -27,52 +27,53 @@ To log in to the management console:
 
 1. Enter the username and password that your administrator sent to you, and then select **LOGIN**.
 
+## Upload an activation file
+
+After first-time log in, activate the on-premises management console by downloading an activation file from the Defender for IoT portal **Pricing** page. This file contains the aggregate committed devices defined during the onboarding process. Committed devices indicates the number of devices that will be monitored by Defender for IoT per subscription.
+
+To upload an activation file:
+
+1. Go to the Defender for IoT **Pricing** page.
+1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download activation file.":::
+
+1. Select **System Settings** from the management console.
+1. Select **Activation**.
+1. Select **Choose a File** and select the file that you saved.
+
+After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
 ## Set up a certificate
 
-Verify that you have the username and password required for the on-premises management console. After login you must set up a certificate. The certificate ensure secure communication:  
+Following management console installation, a local self-signed certificate is generated and used to access the management console. After logging in to the management console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
 
-- Between your browser and the Defender for IoT Web console
-- to the REST API on the sensor and on-premises management console
-- Between the management console and connected sensors
+Two levels of security are available:
 
-The following types of certificates are supported as long as they comply with the parameters in chapter 4:
-	Private / Enterprise Key Infrastructure (Private PKI)
-	Public Key Infrastructure (Public PKI)
-	Locally generated on the appliance (locally self-signed) 
+- Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
+- Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
 
+The following types of certificates are supported:
 
-After logging in to the management console for the first time, a certificate onboarding screen opens. Import a trusted CA-signed certificate or use a locally generated  self-signed certificate and then enable validation.
+- Private / Enterprise Key Infrastructure (Private PKI)
+- Public Key Infrastructure (Public PKI)
+- Locally generated on the appliance (locally self-signed). **It is recommended not to use a self-signed certificate.**
+The certificate is INSECURE and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  This option should never be used for production networks.
 
-**For CA-signed certificates**
+To upload a certificate:
 
-1. Define a Certificate name.
-1. Upload the CRT and Key files
+1. When prompted after login, define a Certificate name.
+1. Upload the CRT and Key files.
 1. Enter a passphrase and upload a PEM file if required.
 
 You may need to refresh your screen after uploading the CA-signed certificate.
 
-**For self-signed certificates**
-
-Select **Use a locally  generated self-signed certificate (insecure, not recommended)**. It is recommended to use a CA-signed certificate.
+To disable validation between the management console and connected sensors:
 
 1. Select **Next**.
-1. Select**Enable system-wide validation...**.  **When enabled  TBD TBD.**
-1. For information about validation failures, uploading a new certificate, supported cerficate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). 
 
-## Upload the activation file
+1.Turn-off  **Enable system-wide validation...**.  
 
-After you first-time log in and certificate definition, activate the on-premises management console by downloading an activation file from the Defender for IoT portal **Pricing** page. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
-
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
-
-To acquire and upload an activation file:
-
-1. Go to the ADefender for IoT **Pricing** page.
-1. Select the tab for the on-premises management console.
-1. Download the activation file for the management console and save it.
-1. Select **System Settings** from the management console.
-1. Select **Activation**.
-1. Select **Choose a File** and select the file that you saved.
+For information about uploading a new certificate, supported certificate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
 ## Connect sensors to the on-premises management console
 
@@ -308,7 +309,6 @@ To unassign and delete a sensor:
 
 3. To delete the unassigned sensor from the site, select the sensor from the list of unassigned sensors and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
-### See also
+## See also
 
 [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-[Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md)

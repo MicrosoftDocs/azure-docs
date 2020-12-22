@@ -40,8 +40,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Acquire hardware and software
-            url: how-to-acquire-hardware-and-software.md
+          - text: Identify required appliances
+            url: how-to-identify-required-appliances.md
           - text: Install software
             url: how-to-install-software.md
           - text: Set up your network
