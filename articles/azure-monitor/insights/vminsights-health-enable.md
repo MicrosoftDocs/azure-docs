@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
+ms.custom: references_regions
 
 ---
 
@@ -28,10 +29,12 @@ Virtual Machine must run one of the following operating systems:
 
 Virtual machine must be located in one of the following regions:
 
+- Australia Central
 - Australia East
 - Australia Southeast
 - Central India
 - Central US
+- East Asia
 - East US
 - East US 2
 - East US 2 EUAP
@@ -42,6 +45,7 @@ Virtual machine must be located in one of the following regions:
 - South Central US
 - Southeast Asia
 - UK South
+- West Central US
 - West Europe
 - West US
 - West US 2
@@ -66,7 +70,7 @@ Log Analytics workspace must be located in one of the following regions:
 - Required Azure resource providers must be registered as described in the following section.
 
 ## Register required Azure resource providers
-The following Azure resource providers need to registered for your subscription to enable Azure Monitor for VMs guest health. 
+The following Azure resource providers  be registered for your subscription to enable Azure Monitor for VMs guest health. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights

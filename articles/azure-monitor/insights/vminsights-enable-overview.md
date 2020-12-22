@@ -22,9 +22,9 @@ This article provides an overview of the options available to enable Azure Monit
 
 To set up Azure Monitor for VMs:
 
-* Enable a single Azure VM, Azure VMSS, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
-* Enable multiple Azure VMs, Azure VMSS, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
-* Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
+* Enable a single Azure virtual machine, Azure virtual machine scale set, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
+* Enable multiple Azure virtual machines, Azure virtual machines, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant virtual machines and scale sets are reported, so you can decide whether to enable them and to remediate them.
+* Enable multiple Azure virtual machines, Azure Arc virtual machines, Azure virtual machine scale sets, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
 * Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
 
 ## Supported machines
@@ -63,7 +63,7 @@ Azure Monitor for VMs requires a Log Analytics workspace. See [Configure Log Ana
 Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
 
 - [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
-- Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which is used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
+- Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
 > [!NOTE]
 > The Log Analytics agent is the same agent used by System Center Operations Manager. Azure Monitor for VMs can monitor agents that are also monitored by Operations Manager if they are directly connected, and you install the Dependency agent on them. Agents connected to Azure Monitor through a [management group connection](../tform/../platform/om-agents.md) cannot be monitored by Azure Monitor for VMs.
@@ -81,7 +81,7 @@ The following are multiple methods for deploying these agents.
 
 
 ## Management packs
-When a Log Analytics workspace is configured for Azure Monitor for VMs, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*. 
+When a Log Analytics workspace is configured for Azure Monitor for VMs, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
 
 The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 
