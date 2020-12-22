@@ -64,9 +64,10 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 ### Create an animated characters model
 
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
-1. Click on the content model customization button on the top-right corner of the page.
+1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
-    ![Screenshot that shows the "Video Indexer" page with the "content model customization" button selected in the top-right corner.](./media/animated-characters-recognition/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model in Video Indexer":::
 1. Go to the **Animated characters** tab in the model customization section.
 1. Click on **Add model**.
 1. Name you model and click enter to save the name.
