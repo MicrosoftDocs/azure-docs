@@ -33,8 +33,7 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 
 Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
 
-> [!NOTE]
-> The training of the model should be done only via Video Indexer, and not via the Custom Vision website. 
+Note that the training of the model should be done only via Video Indexer, and not via the Custom Vision website. 
 
 #### Connect a Custom Vision account with API 
 
