@@ -855,12 +855,12 @@ The script will print responses to the console until the **Analyze Business Card
 
 ## Recognize invoices
 
-# [version 2.0](#tab/ga)
+# [version 2.0](#tab/v2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
 
-# [version 2.1 preview](#tab/preview)
+# [version 2.1 preview](#tab/v2-1)
 
 To start analyzing an invoice, call the **[Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
 
