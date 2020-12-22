@@ -100,6 +100,11 @@ A database that you [add to an autoprotected instance](backup-sql-server-databas
 
 Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
 
+## Does Azure Backup perform a checksum operation on the data stream?
+
+We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Azure workload backup computes the checksum on the data stream and stores it explicitly during the backup operation. This checksum stream is then taken as a reference and cross-verified with the checksum of the data stream during the restore operation to make sure that the data is consistent.
+
 ## Next steps
 
 Learn how to [back up a SQL Server database](backup-azure-sql-database.md) that's running on an Azure VM.
