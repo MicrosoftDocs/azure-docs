@@ -282,7 +282,7 @@ At this point, the function app begins loading the image.
 
 We will now run and test our Azure Function HTTP trigger.
 
-1. Go to your Azure Function app in the Azure portal.
+1. Go to your Azure Function App in the Azure portal.
 1. Under developer, select **Code + Test**. 
 1. On the right hand side, select the **Input** tab. 
 1. Click on the **Run** button to test the Azure Function HTTP trigger. 
