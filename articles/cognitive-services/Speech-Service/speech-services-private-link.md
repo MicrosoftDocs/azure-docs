@@ -35,7 +35,7 @@ To remove private endpoints later, but still use the Speech resource, you will p
 
 Private endpoints require a [Cognitive Services custom subdomain name](../cognitive-services-custom-subdomains.md). Follow the instructions below to create one for your Speech resource.
 
-> [!IMPORTANT]
+> [!CAUTION]
 > A Speech resource with custom domain name enabled uses a different way to interact with the Speech service.
 > You probably need to adjust your application code for both [private endpoint enabled](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#use-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
 >
