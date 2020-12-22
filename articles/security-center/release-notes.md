@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 12/15/2020
 ms.author: memildin
 
 ---
@@ -35,6 +35,9 @@ Updates in December include:
 - [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
 - [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
+- [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+
 
 ### Azure Defender for SQL servers on machines is generally available
 
@@ -90,6 +93,36 @@ These new protections greatly enhance your resiliency against attacks from threa
     - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
     - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
     - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+
+### New security alerts page in the Azure portal (preview)
+
+Azure Security Center's security alerts page has been redesigned to provide:
+
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other
+- **Better performance** for large alerts lists
+- **Keyboard navigation** through the alert list
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+
+To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
+
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+
+### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 
+
+The Security Center experience within SQL provides access to the following Security Center and Azure Defender for SQL features:
+
+- **Security recommendations** – Security Center periodically analyzes the security state of all connected Azure resources to identify potential security misconfigurations. It then provides recommendations on how to remediate those vulnerabilities and improve organizations’ security posture.
+- **Security alerts** – a detection service that continuously monitors Azure SQL activities for threats such as SQL injection, brute-force attacks, and privilege abuse. This service triggers detailed and action-oriented security alerts in Security Center and provides options for continuing investigations with Azure Sentinel, Microsoft’s Azure-native SIEM solution.
+- **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.	 
+
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
 
 
 ## November 2020
@@ -510,7 +543,7 @@ Related pages:
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
 
-Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
@@ -782,7 +815,7 @@ The adaptive application controls feature has received two significant updates:
 
     * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
 
-    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc.).
+    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
 
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).

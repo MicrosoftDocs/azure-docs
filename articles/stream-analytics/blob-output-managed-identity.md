@@ -5,10 +5,10 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
+ms.date: 12/15/2020
 ---
 
-# Use Managed Identity (preview) to authenticate your Azure Stream Analytics job to Azure Blob Storage output
+# Use Managed Identity (preview) to authenticate your Azure Stream Analytics job to Azure Blob Storage
 
 [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) (preview) for output to Azure Blob storage gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
@@ -93,7 +93,7 @@ Using Azure Resource Manager allows you to fully automate the deployment of your
     The above job can be deployed to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. After the job is created, you can use Azure Resource Manager to retrieve the job's full definition.
