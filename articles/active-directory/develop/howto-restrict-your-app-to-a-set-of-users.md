@@ -78,7 +78,7 @@ There are two ways to create an application with enabled user assignment. One re
 
 Once you've configured your app to enable user assignment, you can go ahead and assign users and groups to the app.
 
-1. Select the **Users and groups** pane in the application’s left-hand navigation menu.
+1. Select the **Users and groups** pane in the enterprise application’s left-hand navigation menu.
 1. At the top of the **Users and groups** list, select the **Add user** button to open the **Add Assignment** pane.
 1. Select the **Users** selector from the **Add Assignment** pane. 
 

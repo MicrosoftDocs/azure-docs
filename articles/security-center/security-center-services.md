@@ -106,7 +106,7 @@ For information about when recommendations are generated for each of these prote
 | Service / Feature | US Gov | China Gov |
 |------|:----:|:----:|
 |[Just-in-time VM access](security-center-just-in-time.md) (1)|✔|✔|
-|[File integrity monitoring](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[File integrity monitoring](security-center-file-integrity-monitoring.md) (1)|✔|✔|
 |[Adaptive application controls](security-center-adaptive-application.md) (1)|✔|✔|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md) (1)|-|-|
 |[Docker host hardening](harden-docker-hosts.md) (1)|✔|✔|
@@ -114,7 +114,7 @@ For information about when recommendations are generated for each of these prote
 |[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Connect AWS account](quickstart-onboard-aws.md) (1)|-|-|
 |[Connect GCP account](quickstart-onboard-gcp.md) (1)|-|-|
-|[Continuous export](continuous-export.md)|✔|✔|
+|[Continuous export](continuous-export.md)|✔|✔ (2)|
 |[Workflow automation](workflow-automation.md)|✔|✔|
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|

@@ -13,6 +13,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### December 2020
+
+* All LUIS users are required to [migrate to a LUIS authorint resouurce](luis-migration-authoring.md)
+
 ### June 2020
 
 * [Preview 3.0 Authoring](luis-migration-authoring-entities.md) SDK -

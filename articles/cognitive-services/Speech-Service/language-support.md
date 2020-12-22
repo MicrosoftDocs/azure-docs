@@ -133,6 +133,11 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
+> [!NOTE]
+> Neural voices are created from samples that use a 24 khz sample rate.
+> All voices can upsample or downsample to other sample rates when synthesizing.
+
+
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
 | Arabic (Egypt) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
@@ -288,6 +293,11 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+
+> [!NOTE]
+> With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
+> **The en-US-AriaRUS** and **en-US-GuyRUS** voices are also created from samples that use a 24 khz sample rate.
+> All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
