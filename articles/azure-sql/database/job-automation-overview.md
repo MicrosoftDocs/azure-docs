@@ -49,6 +49,8 @@ It is worth noting a couple of differences between SQL Agent and the Database El
 |**Scope** | Any number of databases in Azure SQL Database and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shard map (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. The Multi Server Administration feature of SQL Server Agent allows for master/target instances to coordinate job execution. |
 |**Supported APIs and Tools** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
+- **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many Azure SQL Databases. See [Job Automation with Elastic Jobs](job-automation-with-elastic-jobs.md) for more information.
+- 
 ## SQL Agent Jobs
 
 SQL Agent Jobs are a specified series of T-SQL scripts against your database. Use jobs to define an administrative task that can be run one or more times and monitored for success or failure. 
