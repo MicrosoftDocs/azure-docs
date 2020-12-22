@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Create a web application using Azure Maps
             url: quick-demo-map-app.md
+          - text: Create an Android app using Azure Maps
+            url: quick-android-map.md
       - linkListType: concept
         links:
           - text: Choose the right pricing tier for Maps account
@@ -137,12 +139,26 @@ landingContent:
   # Card
   - title: Developing with Android SDK
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Load GeoJSON data into map
+            url: tutorial-load-geojson-file-android.md
       - linkListType: how-to-guide
         links:
           - text: Getting started with Android map control
             url: how-to-use-android-map-control-library.md
-          - text: Display metadata information of a feature
-            url: display-feature-information-android.md
+          - text: Create a data source
+            url: create-data-source-android-sdk.md
+          - text: Add a bubble layer
+            url: map-add-bubble-layer-android.md
+          - text: Add a symbol layer
+            url: how-to-add-symbol-to-android-map.md
+          - text: Add a line layer
+            url: android-map-add-line-layer.md
+          - text: Add a polygon layer
+            url: how-to-add-shapes-to-android-map.md
+          - text: Use data-driven style expressions
+            url: data-driven-style-expressions-android-sdk.md
           - text: Add a tile layer to a map
             url: how-to-add-tile-layer-android-map.md
           - text: Add a shapes to a map
@@ -183,7 +199,7 @@ landingContent:
             url: /rest/api/maps/timezone
   
     # Card
-  - title: Developing with Elevation Service
+  - title: Developing with Elevation service
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -231,7 +247,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Mobility service data structures
+          - text: Mobility services
             url: mobility-service-data-structure.md
       - linkListType: how-to-guide
         links:
@@ -241,16 +257,18 @@ landingContent:
             url: how-to-request-real-time-data.md
       - linkListType: reference
         links:
-          - text: Mobility Service
+          - text: Mobility services
             url: /rest/api/maps/mobility
 
   # Card
-  - title: Developing with Weather Services
+  - title: Developing with Weather services
     linkLists:
       - linkListType: concept
         links:
-          - text: Weather Service concept
+          - text: Weather services concepts
             url: weather-services-concepts.md
+          - text: Weather services FAQ
+            url: weather-services-faq.md
       - linkListType: tutorial
         links:
           - text: Analyze weather data using Azure Notebooks (Python)
@@ -261,5 +279,5 @@ landingContent:
             url: how-to-request-weather-data.md
       - linkListType: reference
         links:
-          - text: Weather Service
+          - text: Weather services
             url: /rest/api/maps/weather

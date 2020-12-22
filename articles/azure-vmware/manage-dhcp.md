@@ -2,6 +2,7 @@
 title: Manage DHCP for Azure VMware Solution
 description: Learn how to create and manage DHCP for your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.custom: contperf-fy21q2
 ms.date: 11/09/2020
 ---
 # Manage DHCP for Azure VMware Solution

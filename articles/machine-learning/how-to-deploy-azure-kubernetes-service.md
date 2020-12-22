@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -215,7 +215,7 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace
+
 # define the endpoint and version name
 endpoint_name = "mynewendpoint"
 version_name= "versiona"

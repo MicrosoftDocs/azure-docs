@@ -101,7 +101,7 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
   * Claims transformation rules
   * Attribute mappings (User provisioning)
 * For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
-  * [Application](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Application](/graph/api/resources/application)
   * [Service Principal](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## Why do applications integrate with Azure AD?

@@ -95,8 +95,6 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
-  - name: SSO sessions
-    href: session-overview.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
 - name: How-to guides
@@ -121,157 +119,119 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
-  - name: User flow
+  - name: Create a flow
     items:
-    - name: Create a flow
-      items:
-      - name: Sign-up or sign-in
-        href: tutorial-create-user-flows.md
-      - name: Resource owner password credentials
-        href: configure-ropc.md
-      - name: Set up self-serve password reset
-        href: user-flow-self-service-password-reset.md
+    - name: Sign-up or sign-in policy
+      href: add-sign-up-and-sign-in-policy.md
+    - name: Password reset policy
+      href: add-password-reset-policy.md
+    - name: Password change policy
+      href: add-password-change-policy.md
+    - name: Profile editing policy
+      href: add-profile-editing-policy.md
+    - name: Resource owner password credentials policy
+      href: add-ropc-policy.md
+    - name: Set up self-serve password reset policy (Deprecated)
+      href: user-flow-self-service-password-reset.md
+    - name: Phone sign-up & sign-in
+      href: phone-authentication-user-flows.md
+  - name: Identity providers
+    items:
+    - name: Add an identity provider
+      href: add-identity-provider.md
+    - name: AD FS
+      href: identity-provider-adfs.md
+    - name: Amazon
+      href: identity-provider-amazon.md
+    - name: Azure AD (Single-tenant)
+      href: identity-provider-azure-ad-single-tenant.md
+    - name: Azure AD (Multi-tenant)
+      href: identity-provider-azure-ad-multi-tenant.md
+    - name: Facebook
+      href: identity-provider-facebook.md
+    - name: Generic identity provider
+      href: identity-provider-generic-openid-connect.md
+    - name: GitHub
+      href: identity-provider-github.md
+    - name: Google
+      href: identity-provider-google.md
+    - name: ID.me
+      href: identity-provider-id-me.md
+    - name: LinkedIn
+      href: identity-provider-linkedin.md
+    - name: Microsoft Account
+      href: identity-provider-microsoft-account.md
+    - name: QQ
+      href: identity-provider-qq.md
+    - name: Salesforce
+      href: identity-provider-salesforce.md
+    - name: Salesforce (SAML)
+      href: identity-provider-salesforce-saml.md
+    - name: Twitter
+      href: identity-provider-twitter.md
+    - name: WeChat
+      href: identity-provider-wechat.md
+    - name: Weibo
+      href: identity-provider-weibo.md
+    - name: Pass through identity provider token
+      href: idp-pass-through-user-flow.md
+  - name: UX customization
+    items:
+    - name: Configure user input
+      href: configure-user-input.md
+    - name: Customize the UI with company branding
+      href: company-branding.md
+    - name: Customize the UI with HTML template
+      href: customize-ui-with-html.md
+    - name: JavaScript and page layouts
+      href: javascript-and-page-layout.md
+    - name: Customize language
+      href: language-customization.md
+    - name: Password complexity
+      href: password-complexity.md
+    - name: Disable email verification
+      href: disable-email-verification.md
+    - name: Enable MFA
+      href: multi-factor-authentication.md
+      displayName: multi-factor auth
+    - name: Set up direct sign-in
+      href: direct-signin.md
+  - name: Tokens and session management
+    items:
+    - name: Configure session behavior
+      href: session-behavior.md
+      displayName: SSO, KMSI, Keep me signed in
+    - name: Configure tokens
+      href: configure-tokens.md
+  - name: Define custom attributes
+    href: user-flow-custom-attributes.md
+  - name: Identity Protection and Conditional Access
+    items:
+    - name: Set up Identity Protection and Conditional Access
+      href: conditional-access-identity-protection-setup.md
     - name: Add Conditional Access
       href: conditional-access-user-flow.md
-    - name: UX customization
-      items:
-      - name: Customize the UI
-        href: customize-ui-overview.md
-      - name: JavaScript and page layouts
-        href: user-flow-javascript-overview.md
-      - name: Customize language
-        href: user-flow-language-customization.md
-      - name: Password complexity
-        href: user-flow-password-complexity.md
-      - name: Disable email verification
-        href: user-flow-disable-email-verification.md
-      - name: Enable MFA
-        href: custom-policy-multi-factor-authentication.md
-        displayName: multi-factor auth
-    - name: External identity providers
-      items:
-      - name: Amazon
-        href: identity-provider-amazon.md
-      - name: Azure AD (Single-tenant)
-        href: identity-provider-azure-ad-single-tenant.md
-      - name: Microsoft Account
-        href: identity-provider-microsoft-account.md
-      - name: Facebook
-        href: identity-provider-facebook.md
-      - name: GitHub
-        href: identity-provider-github.md
-      - name: Google
-        href: identity-provider-google.md
-      - name: LinkedIn
-        href: identity-provider-linkedin.md
-      - name: QQ
-        href: identity-provider-qq.md
-      - name: Twitter
-        href: identity-provider-twitter.md
-      - name: WeChat
-        href: identity-provider-wechat.md
-      - name: Weibo
-        href: identity-provider-weibo.md
-      - name: Generic identity provider
-        href: identity-provider-generic-openid-connect.md
-    - name: Tokens and session management
-      items:
-      - name: Configure tokens
-        href: configure-tokens.md
-      - name: Configure session behavior
-        href: session-behavior.md
-    - name: Configure age gating
-      href: basic-age-gating.md
-    - name: Define custom attributes
-      href: user-flow-custom-attributes.md
-    - name: API connectors (preview)
-      items:
-      - name: Overview
-        href: api-connectors-overview.md
-      - name: Add an API connector
-        href: add-api-connector.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-user-flow.md
-  - name: Identity Protection and Conditional Access
-    href: conditional-access-identity-protection-setup.md
+  - name: Configure age gating
+    href: basic-age-gating.md
+  - name: API connectors (preview)
+    items:
+    - name: Overview
+      href: api-connectors-overview.md
+    - name: Add an API connector
+      href: add-api-connector.md
   - name: Custom policy
     items:
-    - name: Create a policy
+    - name: Custom policy overview
+      href: custom-policy-trust-frameworks.md
+    - name: Get started with custom policies
+      href: custom-policy-get-started.md
+    - name: Custom email verification
       items:
-      - name: Get started with custom policies
-        href: custom-policy-get-started.md
-      - name: Resource owner password credentials
-        href: ropc-custom.md
-        displayName: ropc
-      - name: Enable keep me signed in
-        href: custom-policy-keep-me-signed-in.md
-        displayName: kmsi
-      - name: Password change
-        href: custom-policy-password-change.md
-      - name: Phone sign-up & sign-in
-        href: phone-authentication.md
-        displayName: otp, passwordless, phone number
-    - name: UX customization
-      items:
-      - name: Configure user input
-        href: custom-policy-configure-user-input.md
-        displayName: ui, ux
-      - name: Customize the UI
-        href: custom-policy-ui-customization.md
-        displayName: ux, input, cors, html, css
-      - name: Customize language
-        href: custom-policy-localization.md
-      - name: Custom email verification
-        items:
-        - name: Mailjet
-          href: custom-email-mailjet.md
-        - name: SendGrid
-          href: custom-email-sendgrid.md
-        displayName: verification
-      - name: Disable email verification
-        href: custom-policy-disable-email-verification.md
-      - name: Enable JavaScript
-        href: javascript-samples.md
-      - name: Password complexity
-        href: custom-policy-password-complexity.md
-    - name: External identity providers
-      items:
-      - name: OIDC/OAuth providers
-        items:
-        - name: Amazon
-          href: identity-provider-amazon-custom.md
-        - name: Azure AD (Single-tenant)
-          href: identity-provider-azure-ad-single-tenant-custom.md
-        - name: Azure AD (Multi-tenant)
-          href: identity-provider-azure-ad-multi-tenant-custom.md
-        - name: Google
-          href: identity-provider-google-custom.md
-        - name: LinkedIn
-          href: identity-provider-linkedin-custom.md
-        - name: Microsoft Account
-          href: identity-provider-microsoft-account-custom.md
-        - name: Twitter
-          href: identity-provider-twitter-custom.md
-      - name: SAML providers
-        items:
-        - name: AD FS
-          href: identity-provider-adfs2016-custom.md
-          displayName: SAML
-        - name: Salesforce
-          href: identity-provider-salesforce-custom.md
-          displayName: SAML
-    - name: Tokens and session management
-      items:
-      - name: Customize tokens
-        href: configure-tokens-custom-policy.md
-      - name: Configure session behavior
-        href: session-behavior-custom-policy.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-custom.md
-    - name: Adaptive experience
-      items:
-      - name: Set up direct sign-in
-        href: direct-signin.md
+      - name: Mailjet
+        href: custom-email-mailjet.md
+      - name: SendGrid
+        href: custom-email-sendgrid.md
+      displayName: verification
     - name: Add your own business logic
       items:
       - name: Integrate REST API
@@ -284,8 +244,6 @@
         displayName: rest claims exchange
       - name: Secure REST API
         href: secure-rest-api.md
-    - name: Define custom attributes
-      href: custom-policy-custom-attributes.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
@@ -298,8 +256,6 @@
       href: analytics-with-application-insights.md
     - name: Reference
       items:
-      - name: Trust Framework definition
-        href: custom-policy-trust-frameworks.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
       - name: BuildingBlocks
@@ -345,11 +301,9 @@
       - name: ClaimsProviders
         href: claimsproviders.md
         items:
-        - name: TechnicalProfiles
+        - name: Technical Profiles
           href: technicalprofiles.md
           items:
-          - name: About technical profiles
-            href: technical-profiles-overview.md
           - name: About validation technical profiles
             href: validation-technical-profile.md
           - name: Application Insights
@@ -400,6 +354,8 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: UserInfo endpoint
+    href: userinfo-endpoint.md
   - name: Partner integration
     items:
     - name: Azure AD B2C partner gallery
@@ -436,6 +392,8 @@
       href: partner-typingdna.md
     - name: WhoIAM
       href: partner-whoiam.md
+    - name: Zscaler
+      href: partner-zscaler.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

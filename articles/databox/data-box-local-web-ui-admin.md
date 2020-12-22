@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ---
 
@@ -17,23 +17,21 @@ This article describes some of the configuration and management tasks performed 
 
 The local web UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, erase local data from the device, and generate a support package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
 ## Generate Support package
 
 If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue.
 
 To generate a Support package, take the following steps:
 
-1. In the local web UI, go to **Contact Support**. Optionally, select **Include memory dump**. Then select **Create Support package**.
+1. In the local web UI, go to **Contact Support**. Optionally, select **Include memory dumps**. Then select **Create Support package**.
 
     A memory dump is the contents of your device's memory, saved after a system failure.
 
-    You shouldn't select the **Include memory dump** option unless Support asks for one. It takes a long time to gather a support package that includes a memory dump, and sensitive data is included.
+    You shouldn't select the **Include memory dumps** option unless Support asks for one. It takes a long time to gather a support package that includes memory dumps, and sensitive data is included.
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    A Support package is gathered. This operation takes a few minutes if you only include system logs. If you include a memory dump, it takes a lot longer.
+    A Support package is gathered. This operation takes a few minutes if you only include system logs. If you include memory dumps, it takes a lot longer.
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 

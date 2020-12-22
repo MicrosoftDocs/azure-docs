@@ -1,6 +1,9 @@
 ---
 title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'Register and scan Azure SQL Database'
 description: This tutorial describes how to scan Azure SQL Database 
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -21,6 +21,10 @@ The Azure SQL Database data source supports the following functionality:
 - **Full and incremental scans** to capture metadata and classification in Azure SQL Database.
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
+
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Database. 
 
 ## Prerequisites
 

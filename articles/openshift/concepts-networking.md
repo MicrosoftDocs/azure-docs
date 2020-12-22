@@ -73,7 +73,7 @@ The following networking features are specific to Azure Red Hat OpenShift:
 * Pod CIDR should be minimum /18 in size (The pod network is non-routable IPs, and is only used inside the OpenShift SDN).
 * Each node is allocated /23 subnet (512 IPs) for its pods. This value cannot be changed.
 * You cannot attach a pod to multiple networks.
-* You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)).
+* You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
 
 ## Network settings
 

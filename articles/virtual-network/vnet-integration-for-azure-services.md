@@ -8,7 +8,7 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
@@ -16,9 +16,9 @@ ms.author: kumud
 
 # Integrate Azure services with virtual networks for network isolation
 
-Virtual Network integration for an Azure service enables you to lock down access to the service to only your virtual network infrastructure. The VNet infrastructure also includes peered virtual networks and on-premises networks.
+Virtual Network (VNet) integration for an Azure service enables you to lock down access to the service to only your virtual network infrastructure. The VNet infrastructure also includes peered virtual networks and on-premises networks.
 
-Azure services achieve network isolation by one or more of the following methods:
+VNet integration provides Azure services the benefits of network isolation and can be accomplished by one or more of the following methods:
 - [Deploying dedicated instances of the service into a virtual network](virtual-network-service-endpoints-overview.md). The services can then be privately accessed within the virtual network and from on-premises networks.
 - Using [Private Endpoint](../private-link/private-endpoint-overview.md) that connects you privately and securely to a service powered by [Azure Private Link](../private-link/private-link-overview.md). Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your virtual network.
 - Accessing the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
