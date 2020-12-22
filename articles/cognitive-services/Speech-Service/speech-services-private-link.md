@@ -37,7 +37,7 @@ Private endpoints require a [Cognitive Services custom subdomain name](../cognit
 
 > [!CAUTION]
 > A Speech resource with custom domain name enabled uses a different way to interact with the Speech service.
-> You probably need to adjust your application code for both [private endpoint enabled](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#use-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
+> You probably must adjust your application code for both [private endpoint enabled](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#use-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
 >
 > When you enable a custom domain name, the operation is [**not reversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
