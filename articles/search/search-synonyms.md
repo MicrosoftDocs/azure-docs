@@ -28,8 +28,8 @@ POST /synonymmaps?api-version=2020-06-30
     "name": "geo-synonyms",
     "format": "solr",
     "synonyms": "
-    USA, United States, United States of America\n
-    Washington, Wash., WA => WA\n"
+        USA, United States, United States of America\n
+        Washington, Wash., WA => WA\n"
 }
 ```
 
@@ -85,8 +85,7 @@ If you need to define synonyms that contain commas or other special characters, 
 ```json
 {
 "format": "solr",
-"synonyms": "
-    WA\, USA, WA, Washington\n"
+"synonyms": "WA\, USA, WA, Washington\n"
 }
 ```
 
@@ -94,14 +93,14 @@ Since the backslash is itself a special character in other languages like JSON a
 
 ```json
 {
-    "format":"solr",
-    "synonyms": "WA\\, USA, WA, Washington"
+"format":"solr",
+"synonyms": "WA\\, USA, WA, Washington"
 }
 ```
 
 ## Upload and manage synonym maps
 
-As mentioned previously, you can create or update a synonym map without disrupting query and indexing workloads. A synonym map is considered an independent asset (like indexes or data sources), and while it won't be fully available if you are reloading it, the update won't cause indexing or queries to fail. Conversely, if you delete a synonym map that is referenced by fields, a query that includes the fields in question will fail with a 404 error.
+As mentioned previously, you can create or update a synonym map without disrupting query and indexing workloads. A synonym map is a standalone object (like indexes or data sources), and while it won't be fully available if you are reloading it, the update won't cause indexing or queries to fail. However, once you add a synonym map to a field definition, if you then delete or update a synonym map, any query that includes the fields in question will fail with a 404 error.
 
 Creating, updating, and deleting a synonym map is always a whole-document operation, meaning that you cannot update or delete parts of the synonym map incrementally. Updating even a single rule requires a reload.
 
