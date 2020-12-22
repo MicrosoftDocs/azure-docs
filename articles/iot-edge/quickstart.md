@@ -183,9 +183,9 @@ Confirm that the module deployed from the cloud is running on your IoT Edge devi
 
       :::image type="content" source="media/quickstart/EFLOW/CommandShell.png" alt-text="Screenshot - Command Shell":::
 
-To verify the three modules on your device, run the following command:
+To verify the three modules on your device, run the following **bash command**:
 
-```bash
+```
 sudo iotedge list
 ```
 
@@ -196,7 +196,7 @@ sudo iotedge list
 
 View the messages being sent from the temperature sensor module to the cloud.
 
-```bash
+```
 iotedge logs SimulatedTemperatureSensor -f
 ```
 
