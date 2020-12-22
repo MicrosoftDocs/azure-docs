@@ -53,7 +53,7 @@ To create a custom domain name using Azure portal, follow these steps:
 1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
 1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will look like:
     `https://{your custom name}.cognitiveservices.azure.com`. 
-    **After you create a custom domain name, it _cannot_ be changed.** After you've entered your custom domain name, click **Save**.
+    **After you create a custom domain name, it _cannot_ be changed! Re-read the caution alert above.** After you've entered your custom domain name, click **Save**.
 1. After the operation completes, in the **Resource management** group, click **Keys and Endpoint**. Confirm the new endpoint name of your resource starts this way:
 
     `https://{your custom name}.cognitiveservices.azure.com`
@@ -127,9 +127,9 @@ subdomainName        : my-custom-name
 
 To enable custom domain name for the selected Speech Resource, we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet.
 
-> [!IMPORTANT]
+> [!CAUTION]
 > After the code below runs successfully, you will create a custom domain name for your Speech resource.
-> This name **cannot** be changed. See more information in the **Important** alert above.
+> This name **cannot** be changed. See more information in the **Caution** alert above.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
@@ -142,7 +142,7 @@ $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
 # Set the custom domain name to the selected resource.
-# IMPORTANT: THIS CANNOT BE CHANGED OR UNDONE!
+# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -200,8 +200,8 @@ az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and run the command below.
 
-> [!IMPORTANT]
-> After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the Important alert above.
+> [!CAUTION]
+> After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the caution alert above.
 
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
