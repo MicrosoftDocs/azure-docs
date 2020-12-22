@@ -99,6 +99,8 @@ With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hos
 
 With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
+---
+
 ## Update the runtime containers
 
 The way that you update the IoT Edge agent and IoT Edge hub containers depends on whether you use rolling tags (like 1.0) or specific tags (like 1.0.7) in your deployment.
