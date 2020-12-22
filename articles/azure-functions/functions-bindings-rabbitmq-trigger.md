@@ -83,7 +83,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
