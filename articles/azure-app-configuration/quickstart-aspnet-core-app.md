@@ -84,7 +84,7 @@ dotnet new mvc --no-https --output TestAppConfig
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
-     #### [.NET Core 5.x](#tab/core3x)
+     #### [.NET 5.x](#tab/core5x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
