@@ -123,12 +123,15 @@ The data object has the following properties:
 | status | string | The status of the event. Failed or succeeded. |
 
 
-## Tutorials and how-tos
+## Quickstarts
 
-|Title  |Description  |
-|---------|---------|
-| [Quickstart: route Azure Cache for Redis events to a custom web endpoint with Azure CLI]() | Shows how to use Azure CLI to send Azure Cache for Redis events to a WebHook. |
-| [Azure Cache for Redis Event Grid Overview](../azure-cache-for-redis/cache-event-grid.md) | Overview of integrating Azure Cache for Redis with Event Grid. |
+If you want to try Azure Cache for Redis events, see any of these quickstart articles:
+
+|If you want to use this tool:    |See this article: |
+|--|-|
+|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](cache-event-grid-quickstart-portal.md)|
+|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](cache-event-grid-quickstart-powershell.md)|
+|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](ache-event-grid-quickstart-cli.md)|
 
 ## Next steps
 

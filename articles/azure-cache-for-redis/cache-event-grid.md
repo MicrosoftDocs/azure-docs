@@ -14,7 +14,13 @@ Azure Cache for Redis events, such as patching, scaling, import/export (RDB) eve
 
 See the [Azure Cache for Redis events schema](../event-grid/event-schema-azure-cache.md) article to view the full list of the events that Azure Cache for Redis supports.
 
-If you want to try Azure Cache for Redis events, see the following [quickstart](cache-event-grid-quickstart-cli.md) article.
+If you want to try Azure Cache for Redis events, see any of these quickstart articles:
+
+|If you want to use this tool:    |See this article: |
+|--|-|
+|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](cache-event-grid-quickstart-portal.md)|
+|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](cache-event-grid-quickstart-powershell.md)|
+|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](ache-event-grid-quickstart-cli.md)|
 
 ## The event model
 
@@ -47,4 +53,6 @@ Learn more about Event Grid and give Azure Cache for Redis events a try:
 
 - [About Event Grid](../event-grid/overview.md)
 - [Azure Cache for Redis events schema](../event-grid/event-schema-azure-cache.md)
-- [Route Azure Cache for Redis events to a custom web endpoint](cache-event-grid-quickstart-cli.md)
+- [Route Azure Cache for Redis events to web endpoint with Azure CLI](cache-event-grid-quickstart-cli.md)
+- [Route Azure Cache for Redis events to web endpoint with the Azure portal](cache-event-grid-quickstart-portal.md)
+- [Route Azure Cache for Redis events to web endpoint with PowerShell](cache-event-grid-quickstart-powershell.md)

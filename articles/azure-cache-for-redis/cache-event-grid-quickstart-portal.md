@@ -120,4 +120,4 @@ Now that you know how to create custom topics and event subscriptions, learn mor
 
 - [Reacting to Azure Cache for Redis events](cache-event-grid.md)
 - [About Event Grid](../event-grid/overview.md)
-- [Route Azure Cache for Redis events to web endpoint with Azure CLI](cache-event-grid-quickstart-cli.md)
+

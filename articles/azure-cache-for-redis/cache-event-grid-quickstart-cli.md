@@ -72,11 +72,11 @@ You subscribe to a topic to tell Event Grid which events you want to track and w
 The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```azurecli-interactive
-cacheid=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id>)
+cacheId=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id>)
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --source-resource-id $cacheid \
+  --source-resource-id $cacheId \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```
