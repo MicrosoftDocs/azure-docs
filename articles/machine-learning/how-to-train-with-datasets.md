@@ -254,14 +254,14 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## Notebook examples
 
 + The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
-+ See how to [parametize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
++ See how to [parametrize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## Troubleshooting
 
 * **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
-  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and it's dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
+  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
-  * If you have outbound NSG rules, make sure there is a outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
+  * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
 ### Overloaded AzureFile storage
 

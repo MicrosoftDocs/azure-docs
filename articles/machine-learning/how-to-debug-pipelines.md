@@ -134,7 +134,7 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
 1. Expand the right pane, and select the **70_driver_log.txt** to view the file in browser. You can also download logs locally.
 
-    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
+    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### Get logs from pipeline runs
 

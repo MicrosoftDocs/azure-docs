@@ -165,7 +165,7 @@ service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
 ```
 
-If you have multiple Tenant, you may need to add the following authenticate code before `ws = Workspace.from_config()`
+If you have multiple Tenants, you may need to add the following authenticate code before `ws = Workspace.from_config()`
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

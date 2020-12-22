@@ -146,7 +146,7 @@ Some examples include:
    ```
 
 
-1. Forecasting tasks require additional setup, see the [Auto-train a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
+1. Forecasting tasks require extra setup, see the [Autotrain a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
 
     ```python
     time_series_settings = {
@@ -234,7 +234,7 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 
 Ensemble models are enabled by default, and appear as the final run iterations in an AutoML run. Currently **VotingEnsemble** and **StackEnsemble** are supported. 
 
-Voting implements soft-voting which uses weighted averages. The stacking implementation uses a two layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. 
+Voting implements soft-voting, which uses weighted averages. The stacking implementation uses a two layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. 
 
 If you are using ONNX models, **or** have model-explainability enabled, stacking is disabled and only voting is utilized.
 
@@ -382,26 +382,26 @@ For general information on how model explanations and feature importance can be 
   * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
   To work around this issue, take either of the following two steps depending on your `AutoML` SDK training version:
-  1. If your `AutoML` SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+    * If your `AutoML` SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+      
+      ```bash
+         pip install --upgrade pandas==0.25.1
+         pip install --upgrade scikit-learn==0.22.1
+      ```
+      
+    * If your `AutoML` SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
   
-  ```bash
-     pip install --upgrade pandas==0.25.1
-     pip install --upgrade scikit-learn==0.22.1
-  ```
-  
-  2. If your `AutoML` SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
-  
-  ```bash
-    pip install --upgrade pandas==0.23.4
-    pip install --upgrade scikit-learn==0.20.3
-  ```
+      ```bash
+        pip install --upgrade pandas==0.23.4
+        pip install --upgrade scikit-learn==0.20.3
+      ```
 
 * **Failed deployment**: For versions <= 1.18.0 of the SDK, the base image created for deployment may fail with the following error: "ImportError: cannot import name `cached_property` from `werkzeug`". 
 
   The following steps can work around the issue:
   1. Download the model package
-  2. Un-zip the package
-  3. Deploy using the un-zipped assets
+  2. Unzip the package
+  3. Deploy using the unzipped assets
 
 * **Forecasting R2 score is always zero**: This issue arises if the training data provided has time series that contains the same value for the last `n_cv_splits` + `forecasting_horizon` data points. If this pattern is expected in your time series, you can switch your primary metric to normalized root mean squared error.
  
@@ -451,21 +451,21 @@ For general information on how model explanations and feature importance can be 
 * **workspace.from_config fails**: If the calls ws = Workspace.from_config()' fails -
   1. Ensure that the configuration.ipynb notebook has run successfully.
   2. If the notebook is being run from a folder that is not under the folder where the `configuration.ipynb` was run, copy the folder aml_config and the file config.json that it contains to the new folder. Workspace.from_config reads the config.json for the notebook folder or its parent folder.
-  3. If a new subscription, resource group, workspace or region, is being used, make sure that you run the `configuration.ipynb` notebook again. Changing config.json directly will only work if the workspace already exists in the specified resource group under the specified subscription.
-  4. If you want to change the region, please change the workspace, resource group or subscription. `Workspace.create` will not create or update a workspace if it already exists, even if the region specified is different.
+  3. If a new subscription, resource group, workspace, or region, is being used, make sure that you run the `configuration.ipynb` notebook again. Changing config.json directly will only work if the workspace already exists in the specified resource group under the specified subscription.
+  4. If you want to change the region, change the workspace, resource group, or subscription. `Workspace.create` will not create or update a workspace if it already exists, even if the region specified is different.
   
 * **Sample notebook fails**: If a sample notebook fails with an error that property, method, or library does not exist:
-  * Ensure that the correct kernel has been selected in the jupyter notebook. The kernel is displayed in the top right of the notebook page. The default is azure_automl. Note that the kernel is saved as part of the notebook. So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
+  * Ensure that the correct kernel has been selected in the Jupyter Notebook. The kernel is displayed in the top right of the notebook page. The default is azure_automl. The kernel is saved as part of the notebook. So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
       * For Azure Notebooks, it should be Python 3.6. 
       * For local conda environments, it should be the conda environment name that you specified in automl_setup.
-  * Ensure the notebook is for the SDK version that you are using. You can check the SDK version by executing `azureml.core.VERSION` in a jupyter notebook cell. You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
+  * Ensure the notebook is for the SDK version that you are using. You can check the SDK version by executing `azureml.core.VERSION` in a Jupyter Notebook cell. You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
 
 * **`import numpy` fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
 
 * **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13 You may check the version of TensorFlow and uninstall as follows -
   1. Start a command shell, activate conda environment where automated ml packages are installed.
   2. Enter `pip freeze` and look for `tensorflow`, if found, the version listed should be < 1.13
-  3. If the listed version is a not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
+  3. If the listed version is not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
 
 ## Next steps
 

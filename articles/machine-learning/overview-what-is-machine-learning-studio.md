@@ -100,8 +100,6 @@ The following table summarizes the key differences between ML Studio (classic) a
 
 * **Missing user interface items in studio** Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from appearing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio. For more information, see [Manage users and roles](how-to-assign-roles.md).
 
-* **Supported browsers in Azure Machine Learning studio**: 
-
 ## Next steps
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  

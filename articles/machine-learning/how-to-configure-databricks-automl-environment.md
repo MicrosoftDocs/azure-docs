@@ -1,7 +1,7 @@
 ---
-title: Develop with autoML & Azure Databricks
+title: Develop with AutoML & Azure Databricks
 titleSuffix: Azure Machine Learning
-description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with autoML.
+description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with AutoML.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 
-# Set up a development environment with Azure Databricks and autoML in Azure Machine Learning 
+# Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 
 
 Learn how to configure a development environment in Azure Machine Learning that uses Azure Databricks and automated ML.
 
@@ -27,9 +27,9 @@ For information on other machine learning development environments, see [Set up 
 Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
 
-## Azure Databricks with Azure Machine Learning and autoML
+## Azure Databricks with Azure Machine Learning and AutoML
 
-Azure Databricks integrates with Azure Machine Learning and its autoML capabilities. 
+Azure Databricks integrates with Azure Machine Learning and its AutoML capabilities. 
 
 You can use Azure Databricks:
 
