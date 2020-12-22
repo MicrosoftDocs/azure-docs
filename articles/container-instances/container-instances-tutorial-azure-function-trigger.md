@@ -88,7 +88,7 @@ This example creates a container group consisting of a single container instance
 
 Ensure that the function runs locally before republishing the function app project to Azure. When run locally, the function doesn't create Azure resources. However, you can test the function flow with and without passing a name value in a query string. To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
-## Republish Azure Function app
+## Republish Azure Function App
 
 After you've verified that the function runs locally, republish the project to the existing function app in Azure.
 
