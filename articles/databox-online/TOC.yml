@@ -222,7 +222,7 @@
       - name: Deploy VMs - Azure PowerShell cmdlets
         href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
       - name: Deploy VMs - Azure PowerShell script
-        href: azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md 
+        href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
       - name: Deploy VMs - Azure CLI/Python
         href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md 
       - name: Deploy Custom Script Extension on VMs
