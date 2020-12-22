@@ -104,7 +104,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```csx
+```C#
 using System;
 using Microsoft.Extensions.Logging;
 
