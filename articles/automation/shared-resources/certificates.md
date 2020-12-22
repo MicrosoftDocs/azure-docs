@@ -3,7 +3,7 @@ title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ---
 
@@ -35,12 +35,12 @@ The internal cmdlet in the following table is used to access certificates in you
 |:---|:---|
 |`Get-AutomationCertificate`|Gets a certificate to use in a runbook or DSC configuration. Returns a [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) object.|
 
-> [!NOTE] 
+> [!NOTE]
 > You should avoid using variables in the `Name` parameter of `Get-AutomationCertificate` in a runbook or DSC configuration. Such variables can complicate discovery of dependencies between runbooks or DSC configurations and Automation variables at design time.
 
 ## Python functions to access certificates
 
-Use the function in the following table to access certificates in a Python 2 and 3 runbook.
+Use the function in the following table to access certificates in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 | Function | Description |
 |:---|:---|
@@ -149,7 +149,7 @@ print cert
 
 # [Python 3](#tab/python3)
 
-The following example shows how to access certificates in Python 3 runbooks.
+The following example shows how to access certificates in Python 3 runbooks (preview).
 
 ```python
 # get a reference to the Azure Automation certificate
