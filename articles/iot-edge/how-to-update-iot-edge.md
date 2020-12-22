@@ -25,7 +25,7 @@ The IoT Edge security daemon is a native component that needs to be updated usin
 
 Check the version of the security daemon running on your device by using the command `iotedge version`.
 
-# Linux(#tab/linux)
+# [Linux](#tab/linux)
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
@@ -93,7 +93,7 @@ curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-st
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
 
-# Windows(#tab/windows)
+# [Windows](#tab/windows)
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and is managed with Microsoft Update to keep the components up to date. Currently, there are no updates available.
 

@@ -137,7 +137,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 Choose the next section based on which authentication type you want to use:
 
 * [Option 1: Authenticate with symmetric keys](#option-1-authenticate-with-symmetric-keys)
-* [Option 2: Authenticate with X.509 certificates](option-1-authenticate-with-x509-certificates)
+* [Option 2: Authenticate with X.509 certificates](#option-2-authenticate-with-x509-certificates)
 
 ### Option 1: Authenticate with symmetric keys
 
@@ -153,8 +153,6 @@ On the IoT Edge device, open the configuration file.
 
 Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration using a connection string** section.
 
-Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
-
    ```yml
    # Manual provisioning configuration using a connection string
    provisioning:
@@ -162,6 +160,8 @@ Update the value of **device_connection_string** with the connection string from
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
      dynamic_reprovisioning: false
    ```
+
+Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 

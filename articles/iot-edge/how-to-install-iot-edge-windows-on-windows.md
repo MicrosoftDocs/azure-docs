@@ -110,7 +110,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 Choose the next section based on which authentication type you want to use:
 
 * [Option 1: Authenticate with symmetric keys](#option-1-authenticate-with-symmetric-keys)
-* [Option 2: Authenticate with X.509 certificates](option-2-authenticate-with-x509-certificates)
+* [Option 2: Authenticate with X.509 certificates](#option-2-authenticate-with-x509-certificates)
 
 ### Option 1: Authenticate with symmetric keys
 
