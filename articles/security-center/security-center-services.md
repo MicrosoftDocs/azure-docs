@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.author: memildin
 ---
 
@@ -119,7 +119,7 @@ For information about when recommendations are generated for each of these prote
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|
 |[Email notifications for security alerts](security-center-provide-security-contact-details.md)|✔|✔|
-|[Asset inventory](asset-inventory.md)|-|-|
+|[Asset inventory](asset-inventory.md)|✔|✔|
 |[Azure Defender for App Service](defender-for-app-service-introduction.md)|-|-|
 |[Azure Defender for Storage](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|

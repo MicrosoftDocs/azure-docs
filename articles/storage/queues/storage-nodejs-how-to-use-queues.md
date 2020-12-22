@@ -4,7 +4,7 @@ description: Learn to use the Azure Queue Storage to create and delete queues. L
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
