@@ -119,23 +119,23 @@
   items:
   - name: Create an IoT Edge device
     items:
-    - name: Install runtime
-      href: how-to-install-iot-edge.md
-    - name: Register and authenticate device
+    - name: Register device in IoT Hub
+      href: how-to-register-device.md
+    - name: Install and provision IoT Edge
       items:
-      - name: Symmetric key authentication
-        href: how-to-manual-provision-symmetric-key.md
-      - name: X.509 certificate authentication
-        href: how-to-manual-provision-x509.md
+      - name: Install IoT Edge for Linux
+        href: how-to-install-iot-edge.md
     - name: Update runtime
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
-    - name: Create test certificates
-      href: how-to-create-test-certificates.md
-    - name: IoT Edge on Kubernetes
+  - name: Alternative device scenarios
+    items:
+    - name: Run IoT Edge with Windows containers
+      href: how-to-install-iot-edge-windows-on-windows.md
+    - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
-    - name: IoT Edge virtual machine using an ARM template
+    - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
   - name: Auto-provision with DPS
     items:
@@ -243,6 +243,8 @@
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
+  - name: Create test certificates
+    href: how-to-create-test-certificates.md
   - name: Windows device management scripts
     href: reference-windows-scripts.md
   - name: Azure CLI
