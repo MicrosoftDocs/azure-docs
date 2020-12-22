@@ -303,7 +303,9 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 ---
 
-## Update the cluster
+## Troubleshooting
+
+### Update the cluster
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 

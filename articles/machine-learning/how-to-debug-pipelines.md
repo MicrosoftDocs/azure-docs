@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting your ML pipeline runs
+title: Troubleshooting ML pipelines
 titleSuffix: Azure Machine Learning
-description: Debug your Azure Machine Learning pipelines in Python. Learn common pitfalls and tips to help debug your scripts before and during remote execution.
+description: How to troubleshoot when you get errors running a machine learning pipeline. Common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-#Customer intent: As a data scientist, I want to figure out why my pipeline doesn't work so that I can fix it.
+#Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
 ---
 
 # Troubleshooting machine learning pipelines
 
-In this article, you learn tips and methods to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning designer](./concept-designer.md). 
+In this article, you learn how to troubleshoot when you get errors running a [machine learning pipeline](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning designer](./concept-designer.md). 
 
 ## Troubleshooting tips
 

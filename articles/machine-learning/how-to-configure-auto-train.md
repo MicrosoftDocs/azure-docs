@@ -376,20 +376,20 @@ For general information on how model explanations and feature importance can be 
 
 ## Troubleshooting
 
-* **Recent upgrade of AutoML dependencies to newer versions will be breaking compatibility**:  As of version 1.13.0 of the SDK, models won't be loaded in older SDKs due to incompatibility between the older versions we pinned in our previous packages, and the newer versions we pin now. You will see error such as:
+* **Recent upgrade of `AutoML` dependencies to newer versions will be breaking compatibility**:  As of version 1.13.0 of the SDK, models won't be loaded in older SDKs due to incompatibility between the older versions we pinned in our previous packages, and the newer versions we pin now. You will see error such as:
   * Module not found: Ex.`No module named 'sklearn.decomposition._truncated_svd`,
   * Import errors: Ex.`ImportError: cannot import name 'RollingOriginValidator'`,
   * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
-  To work around this issue, take either of the following two steps depending on your AutoML SDK training version:
-  1. If your AutoML SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+  To work around this issue, take either of the following two steps depending on your `AutoML` SDK training version:
+  1. If your `AutoML` SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
   
   ```bash
      pip install --upgrade pandas==0.25.1
      pip install --upgrade scikit-learn==0.22.1
   ```
   
-  2. If your AutoML SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
+  2. If your `AutoML` SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
   
   ```bash
     pip install --upgrade pandas==0.23.4
@@ -446,7 +446,7 @@ For general information on how model explanations and feature importance can be 
   * Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`.
   * Ensure access to the region using the Azure portal.
   
-* **import AutoMLConfig fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name AutoMLConfig` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
+* **`import AutoMLConfig` fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name AutoMLConfig` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
 
 * **workspace.from_config fails**: If the calls ws = Workspace.from_config()' fails -
   1. Ensure that the configuration.ipynb notebook has run successfully.
@@ -460,9 +460,9 @@ For general information on how model explanations and feature importance can be 
       * For local conda environments, it should be the conda environment name that you specified in automl_setup.
   * Ensure the notebook is for the SDK version that you are using. You can check the SDK version by executing `azureml.core.VERSION` in a jupyter notebook cell. You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
 
-* **Numpy import fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
+* **`import numpy` fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
 
-* **Numpy import fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13 You may check the version of TensorFlow and uninstall as follows -
+* **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13 You may check the version of TensorFlow and uninstall as follows -
   1. Start a command shell, activate conda environment where automated ml packages are installed.
   2. Enter `pip freeze` and look for `tensorflow`, if found, the version listed should be < 1.13
   3. If the listed version is a not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.

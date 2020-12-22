@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting the ParallelRunStep
 titleSuffix: Azure Machine Learning
-description: Troubleshoot the ParallelRunStep in machine learning pipelines in the Azure Machine Learning SDK for Python.
+description: Tips for how to troubleshoot when you get errors using the ParallelRunStep in machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.date: 09/23/2020
 
 # Troubleshooting the ParallelRunStep
 
-In this article, you learn how to debug and troubleshoot the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 For general tips on troubleshooting a pipeline, see [Troubleshooting machine learning pipelines](how-to-debug-pipelines.md).
 
