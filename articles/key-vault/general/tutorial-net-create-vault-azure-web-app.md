@@ -23,7 +23,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 In this tutorial, you'll create and deploy Azure web application to [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). You'll  use a managed identity to authenticate your Azure web app with an Azure key vault using [Azure Key Vault secret client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). The same basic principles apply when you use the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
 For more information about Azure App service web applications and deployment presented in this tutorial, see:
-- [App Service overview](https://docs.microsoft.com/en-us/azure/app-service/overview)
+- [App Service overview](https://docs.microsoft.com/azure/app-service/overview)
 - [Create an ASP.NET Core web app in Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
 - [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
 
@@ -38,7 +38,7 @@ To complete this tutorial, you need:
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
 
-If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](###Create-and-assign-a-managed-identity) and [modify web application code](###Modify-the-app-to-access-your-key-vault) sections.
+If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](#Create-and-assign-a-managed-identity) and [modify web application code](#Modify-the-app-to-access-your-key-vault) sections.
 
 ## Create a .NET Core app
 In this step, you'll set up the local .NET Core project.
