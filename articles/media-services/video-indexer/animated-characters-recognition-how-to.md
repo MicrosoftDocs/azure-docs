@@ -22,9 +22,7 @@ This article demonstrates to how to use the animated character detection with th
 
 ## Use the animated character detection with portal 
 
-This section describes the steps you need to take to start using the animated character detection model. 
-
-Since in  the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model and skip the following section ("Connect your Custom Vision account").
+In the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
 
 ### Connect your Custom Vision account (paid accounts only)
 
@@ -38,15 +36,14 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
 
 1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
-1. Copy the following keys: 
+1. Copy the keys for the Training and Prediction resources:
 
-    * Training key (for the training resource)
-    * Prediction key (for the prediction resource)
-    * Endpoint 
-    * Prediction resource ID
-    
     > [!NOTE]
     > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
+1. Provide other information:
+
+    * Endpoint 
+    * Prediction resource ID
 1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
 1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
 1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
@@ -79,7 +76,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
 ### Index a video with an animated model
 
-1. Click on the **Upload** button from the top menu.
+1. Click on the **Upload** button.
 1. Choose a video to upload (from a file or a URL).
 1. Click on **Advanced options**.
 1. Under **People / Animated characters** choose **Animation models**.
@@ -108,7 +105,6 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
      1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
     Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
-
 1. Delete an animated character.
 
     1. To delete an animated character in your video insights, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
@@ -116,7 +112,6 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
     > [!NOTE]
     > This will delete the insight from this video but will not affect the model.
-
 1. Delete a model.
 
     1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.
