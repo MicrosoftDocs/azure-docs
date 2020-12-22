@@ -1732,7 +1732,7 @@
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
-      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code.md",
+      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
       "redirect_document_id": false
     },
     {
@@ -26792,7 +26792,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/resource-known-issues.md",
-      "redirect_url": "/azure/machine-learning/resource-known-issues",
+      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
       "redirect_document_id": true
     },
     {
