@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
 ---
 
@@ -16,13 +16,15 @@ Read [Plan the aggregated namespace](hpc-cache-namespace.md) to learn more about
 
 The **Namespace** page in the Azure portal shows the paths that clients use to access your data through the cache. Use this page to create, remove, or change namespace paths. You also can configure namespace paths by using the Azure CLI.
 
-All of the existing client-facing paths are listed on the **Namespace** page. If a storage target does not have any paths, it does not appear in the table.
+All of the client-facing paths that have been defined for this cache are listed on the **Namespace** page. Storage targets that don't have any namespace paths defined yet don't appear in the table.
 
-You can sort the table columns by clicking the arrows and better understand your cache's aggregated namespace.
+You can sort the table columns to better understand your cache's aggregated namespace. Click the arrows in the column headers to sort the paths.
 
-![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png)
+<!-- ![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory, and Client access policy. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png) -->
 
-## Add or edit client-facing namespace paths
+[ ![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory, and Client access policy. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png) ](media/namespace-page.png#lightbox)
+
+## Add or edit namespace paths
 
 You must create at least one namespace path before clients can access the storage target. (Read [Mount the Azure HPC Cache](hpc-cache-mount.md) for more about client access.)
 
@@ -41,6 +43,8 @@ From the Azure portal, load the **Namespace** settings page. You can add, change
   * Select the storage target from the drop-down list. (In this screenshot, the blob storage target can't be selected because it already has a namespace path.)
 
     ![Screenshot of the new namespace edit fields with the storage target selector exposed](media/namespace-select-storage-target.png)
+
+  * Select which access policy to use for this path. Learn more about customizing client access in [Use client access policies](access-policies.md).
 
   * For an Azure Blob storage target, the export and subdirectory paths are automatically set to ``/``.
 
@@ -76,7 +80,7 @@ This list shows the maximum number of namespace paths per configuration.
 
   * 3 TB cache - 10 namespace paths
   * 6 TB cache - 10 namespace paths
-  * 23 TB cache - 20 namespace paths
+  * 12 TB cache - 20 namespace paths
 
 * Up to 4 GB/s throughput:
 
@@ -103,6 +107,10 @@ From the Azure portal, load the **Namespace** settings page. You can add, edit, 
 Fill in these values for each namespace path:
 
 * **Namespace path** - The client-facing file path.
+
+* **Client access policy** - Select which access policy to use for this path. Learn more about customizing client access in [Use client access policies](access-policies.md).
+
+  ![screenshot of the portal namespace page with the add page page open at the right and the drop-down list of client access policies showing](media/nfs-select-policy-draft.png)
 
 * **Storage target** - If creating a new namespace path, select a storage target from the drop-down menu.
 
