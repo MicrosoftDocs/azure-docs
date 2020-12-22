@@ -32,15 +32,6 @@ Make sure that the following steps can be used to access the device from your cl
     > [!NOTE]
     > If creating GPU VMs, select a network interface connected to the Internet. This allows you to install GPU extension on your device.
 
-    <!--If you decide to use another network interface for compute, make sure that you:
-    
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-    
-    - Delete all virtual network interfaces and the virtual network associated with this network interface. 
-    
-    - You can now enable another network interface for compute.-->
-
-<!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 
 1. Enable VM role from the Azure portal. This step creates a unique subscription for your device that is used to create VMs via the local APIs of the device. 
 
