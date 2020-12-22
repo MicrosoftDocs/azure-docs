@@ -14,7 +14,7 @@ ms.date: 12/22/2020
 
 # Azure Machine Learning Curated Environments
 
-This article lists the curated environments in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
+This article lists the curated environments in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
 > This list is updated as of December 2020. Use the Python SDK to get the most updated list of environments and their dependencies. For more information, see the [environments article](./how-to-use-environments.md#use-a-curated-environment).
