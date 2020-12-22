@@ -29,7 +29,7 @@ Here is an overview of the steps it contains:
 2. Write an Azure Function with an [Event Grid](../event-grid/overview.md) trigger
 3. Add authentication code to the function (to be able to access Azure Digital Twins)
 4. Publish the function app to Azure
-5. Set up [security](concepts-security.md) access for the Azure Function app
+5. Set up [security](concepts-security.md) access for the Azure Function App
 
 ## Prerequisite: Set up Azure Digital Twins instance
 
@@ -184,10 +184,10 @@ For your Functions app to be able to access Azure Digital Twins, it needs to hav
 
 Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
 
-## Set up security access for the Azure Function app
-You can set up security access for the Azure Function app using one of these options:
+## Set up security access for the Azure Function App
+You can set up security access for the Azure Function App using one of these options:
 
-### Option 1: Set up security access for the Azure Function app using CLI
+### Option 1: Set up security access for the Azure Function App using CLI
 
 The Azure Function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
@@ -215,7 +215,7 @@ Lastly, you can make the URL of your Azure Digital Twins instance accessible to 
 ```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
-### Option 2: Set up security access for the Azure Function app using Azure portal
+### Option 2: Set up security access for the Azure Function App using Azure portal
 
 A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
 
