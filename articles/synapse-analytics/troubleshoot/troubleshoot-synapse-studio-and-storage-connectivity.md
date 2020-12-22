@@ -20,10 +20,10 @@ If your storage account lacks the proper permissions, you aren't able to expand 
 The detailed error message may vary, but the general meaning of the error message is: "This request is not authorized to perform this operation.".
 
 In the linked storage node:  
-![Storage connectivity issue 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+![Storage connectivity issue 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
 
 In the storage container node:  
-![Storage connectivity issue 1.1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.1.png)
+![Storage connectivity issue 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **SOLUTION**: To assign your account to the proper role, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -33,10 +33,10 @@ In the storage container node:
 When selecting the arrow to expand the storage structure in "Data" --> "Linked" in Synapse Studio, you may see the "REQUEST_SEND_ERROR" issue in the left panel. See the issue symptom screenshot below:
 
 In the linked storage node:  
-![Storage connectivity issue 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+![Storage connectivity issue 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
 
 In the storage container node:  
-![Storage connectivity issue 2.1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.1.png)
+![Storage connectivity issue 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 There might be several possible reasons behind this issue:
 
