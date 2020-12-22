@@ -71,10 +71,10 @@ Let's use the sample template to create a scale set and apply the Custom Script 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -129,10 +129,10 @@ To update the Custom Script Extension definition, edit your template to referenc
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az group deployment create](/cli/azure/group/deployment). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
+Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az deployment group create](/cli/azure/deployment/group). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

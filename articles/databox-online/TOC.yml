@@ -289,8 +289,8 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2011 - Current 
-      href: azure-stack-edge-gpu-2011-release-notes.md
+    - name: 2012 - Current 
+      href: azure-stack-edge-gpu-2012-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 
@@ -395,6 +395,11 @@
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
       href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet  
+
+- name: Security
+  items:
+  - name: Security baseline
+    href: security-baseline.md
 
 - name: Resources
   items:
