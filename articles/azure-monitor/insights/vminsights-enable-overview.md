@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/27/2020
+ms.date: 12/22/2020
 ms.custom: references_regions
 
 ---
@@ -27,63 +27,22 @@ To set up Azure Monitor for VMs:
 * Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
 * Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
 
-## Prerequisites
-
-Before you start, make sure that you understand the information in the following sections. 
-
->[!NOTE]
->The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
-
-### Log Analytics workspace
-
-Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
-
-- Africa
-  - South Africa North
-- Asia Pacific
-  - East Asia
-  - Southeast Asia
-- Australia
-  - Australia East
-  - Australia Southeast
-- Azure Government
-  - US Gov Az
-  - US Gov Va
-- Canada
-  - Canada Central
-- Europe
-  - North Europe
-  - West Europe
-- India
-  - Central India
-- Japan
-  - Japan East
-- United Kingdom
-  - UK South
-- United States
-  - Central US
-  - East US
-  - East US2
-  - North Central US
-  - South Central US
-  - West Central US
-  - West US
-  - West US 2
-
-
->[!NOTE]
->You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
->
-
-If you don't have a Log Analytics workspace, you can create one by using one of the  resources:
-* [Azure CLI](../learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+## Supported machines
+Azure Monitor for VMs supports the following machines:
 
 - Azure virtual machine
 - Azure virtual machine scale set
 - Hybrid virtual machine connected with Azure Arc
+
+
+## Supported Azure Arc machines
+Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
+
+| Connected source | Supported | Description |
+|:--|:--|:--|
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../platform/agents-overview.md#supported-operating-systems). |
+| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| System Center Operations Manager management group | No | |
 
 ## Supported operating systems
 
@@ -98,18 +57,8 @@ See the following list of considerations on Linux support of the Dependency agen
 - For Debian distros other than version 9.4, the map feature isn't supported, and the Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
 - The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
-
-
-
-## Supported Azure Arc machines
-Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
-
-| Connected source | Supported | Description |
-|:--|:--|:--|
-| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../platform/agents-overview.md#supported-operating-systems). |
-| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
-| System Center Operations Manager management group | No | |
-
+## Log Analytics workspace
+Azure Monitor for VMs requires a Log Analytics workspace. See [Configure Log Analytics workspace for Azure Monitor for VMs](vminsights-configure-workspace.md) for details and requirements of this workspace.
 ## Agents
 Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
 

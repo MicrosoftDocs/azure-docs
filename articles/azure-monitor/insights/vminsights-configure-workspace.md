@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 12/22/2020
 
 ---
 
@@ -40,29 +40,13 @@ You can create a new Log Analytics workspace using any of the following methods.
 * [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## Supported regions
+Azure Monitor for VMs supports a Log Analytics workspace in any of the [regions supported by Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) except for the following:
 
-Azure Monitor for VMs supports Log Analytics workspaces in the following regions, although you can monitor virtual machines in any region. The virtual machines themselves aren't limited to the regions supported by the Log Analytics workspace.
+- Germany West Central
+- Korea Central
 
-- West Central US
-- West US
-- West US 2
-- South Central US
-- East US
-- East US2
-- Central US
-- North Central US
-- US Gov Az
-- US Gov Va
-- Canada Central
-- UK South
-- North Europe
-- West Europe
-- East Asia
-- Southeast Asia
-- Central India
-- Japan East
-- Australia East
-- Australia Southeast
+>[!NOTE]
+>You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 
 ## Azure role-based access control
 To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
