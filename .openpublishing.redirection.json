@@ -55380,8 +55380,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/databox-online/azure-stack-edge-j-series-virtual-machine-powershell-script.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-virtual-machine-powershell-script",
+      "source_path": "articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
       "redirect_document_id": false
     },
     {
