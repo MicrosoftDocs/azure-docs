@@ -1,6 +1,6 @@
 ---
 title: Track sensor activity
-description: Event Timeline presents a timeline of activity detected on your network, including alerts and alert management actions, network events and user operations such as user sign-in and user deletion.
+description: The event timeline presents a timeline of activity detected on your network, including alerts and alert management actions, network events, and user operations such as user sign-in and user deletion.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -13,36 +13,36 @@ ms.service: azure
 
 ## Event timeline
 
-The Event Timeline presents a timeline of activity detected by your sensor, for example:
+The event timeline presents a timeline of activity that your sensor has detected. For example:
 
   - Alerts and alert management actions
 
-  - Network Events
+  - Network events
 
   - User operations such as user sign-in and user deletion
 
-The Event Timeline provides a view of events that took place in the network according in chronological order. The Event Timeline allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
+The event timeline provides a chronological view of events that happened in the network. The event timeline allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
 
 > [!NOTE]
-> **Administrators** and **Security Analysts** may perform the procedures described in this section.
+> *Administrators* and *security analysts* can perform the procedures described in this section.
 
 To view the event logs:
 
-1. From the side menu, select **Event Timeline**.
+- From the side menu, select **Event Timeline**.
 
-   :::image type="content" source="media/how-to-track-sensor-activity/event-timeline.png" alt-text="View your events on the Event Timeline.":::
+   :::image type="content" source="media/how-to-track-sensor-activity/event-timeline.png" alt-text="View your events on the event timeline.":::
 
-In addition to presenting the events detected by the sensor, you can manually add events to the timeline. This process is useful in case the event took place in some external system, but it has impact on your network, and it is important to record it and present it as a part of the event timeline.
+In addition to viewing the events that the sensor has detected, you can manually add events to the timeline. This process is useful if the event happened in an external system but has an impact on your network, and it's important to record the event and present it as a part of the timeline.
 
-To add the events manually:
+To add events manually:
 
-1. Select **Create Event** to add an event manually.
+- Select **Create Event**.
 
-To export the event log info into a CSV file:
+To export event log information into a CSV file:
 
-1. Select **Export**.
+- Select **Export**.
 
-## Filter event timeline
+## Filter the event timeline
 
 Filter the timeline to display devices and events of interest to you.
 
@@ -52,35 +52,37 @@ To filter the timeline:
 
    :::image type="content" source="media/how-to-track-sensor-activity/advance-filters.png" alt-text="Use the Events Advanced Filters window to filter your events.":::
 
-2. Set event filter(s), as follows:
+2. Set event filters, as follows:
 
-   - **Include Address:** Display specific events devices.
+   - **Include Address**: Display specific event devices.
 
-   - **Exclude Address:** Hide specific events devices.
+   - **Exclude Address**: Hide specific event devices.
 
-   - **Include Event Types:** Display specific events types.
+   - **Include Event Types**: Display specific event types.
 
-   - **Exclude Event Types:** Hide specific events types.
+   - **Exclude Event Types**: Hide specific event types.
 
-   - **Device Group:** Select an device group, as it was defined in the **Device Map**. Only the events of this group are presented.
+   - **Device Group**: Select a device group, as it was defined in the device map. Only the events of this group are presented.
 
 3. Select **Clear All** to clear all the selected filters.
 
-4. Search by Alerts Only, Alerts and Notices, or All Events.
+4. Search by **Alerts Only**, **Alerts and Notices**, or **All Events**.
 
 5. Select **Select Date** to choose a specific date. Choose a day, hour, and minute. Events from the selected time frame are shown.
 
 6.  Select **User Operations** to include or exclude user operation events.
 
-7.  Select the down arrow **V** to view more information about the event:
+7.  Select the arrow (**V**) to view more information about the event:
 
     - Select the related alerts (if any) to display a detailed description of the alert.
 
     - Select the device to display the device on the map.
 
-    - Select the **Filter events by related devices** in order to filter by related devices.
+    - Select **Filter events by related devices** if you want to filter by related devices.
 
-    - Select **PCAP File** to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
+    - Select **PCAP File** to download the PCAP file (if it exists) that contains a packet capture of the whole network at a specific time. 
+    
+      The PCAP file contains technical information that can help engineers determine exactly where the event was and what's happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
 
 ## See also
 
