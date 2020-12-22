@@ -133,7 +133,7 @@ The inventory page in Azure Security Center has been refreshed with the followin
 - **Guides and feedback** added to the toolbar. This opens a pane with links to related information and tools. 
 - **Subscriptions filter** added to the default filters available for your resources.
 - **Open query** link for opening the current filter options as an Azure Resource Graph query (formerly called "View in resource graph explorer").
-- **Multi-row controls** for each filter. Use the additional options within the filter controls to sort your filters into an order that you choose.
+- **Operator options** for each filter. Now you can choose from additional logical operators other than '='. For example, you might want to find all resources with active recommendations whose titles include the string 'encrypt'. 
 
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
 
