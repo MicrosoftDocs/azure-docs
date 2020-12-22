@@ -693,7 +693,10 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 
 ## Recognize business cards
 
-# [v2.1 preview](#tab/v2-1)  
+# [v2.0](#tab/v2-0)  
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
 
 # [v2.1 preview](#tab/v2-1)  
 
@@ -710,7 +713,7 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/busin
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get business card results
@@ -848,12 +851,21 @@ This sample illustrates the JSON output returned by Form Recognizer. It has been
 
 The script will print responses to the console until the **Analyze Business Card** operation completes.
 
+---
+
 ## Recognize invoices
+
+# [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+# [version 2.1 preview](#tab/preview)
 
 To start analyzing an invoice, call the **[Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{your receipt URL}` with the URL address of a receipt image.
+1. Replace `{your invoice URL}` with the URL address of an invoice document.
 1. Replace `{subscription key}` with your subscription key.
 
 ```bash
@@ -866,7 +878,7 @@ curl -v -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoi
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get invoice results
@@ -886,14 +898,169 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoic
 
 You'll receive a `200 (Success)` response with JSON output. The `"readResults"` field contains every line of text that was extracted from the invoice, the `"pageResults"` includes the tables and selections marks extracted from the invoice and the `"documentResults"` field contains key/value information for the most relevant parts of the invoice.
 
-See the following invoice document and its corresponding JSON output:
+See the following invoice document and its corresponding JSON output. The JSON content has been shortened for readability.
 
 * [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
-* [Sample invoice JSON output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice-output.json)
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2020-11-06T23:32:11Z",
+    "lastUpdatedDateTime": "2020-11-06T23:32:20Z",
+    "analyzeResult": {
+        "version": "2.1.0",
+        "readResults": [{
+            "page": 1,
+            "angle": 0,
+            "width": 8.5,
+            "height": 11,
+            "unit": "inch"
+        }],
+        "pageResults": [{
+            "page": 1,
+            "tables": [{
+                "rows": 3,
+                "columns": 4,
+                "cells": [{
+                    "rowIndex": 0,
+                    "columnIndex": 0,
+                    "text": "QUANTITY",
+                    "boundingBox": [0.4953,
+                    5.7306,
+                    1.8097,
+                    5.7306,
+                    1.7942,
+                    6.0122,
+                    0.4953,
+                    6.0122]
+                },
+                {
+                    "rowIndex": 0,
+                    "columnIndex": 1,
+                    "text": "DESCRIPTION",
+                    "boundingBox": [1.8097,
+                    5.7306,
+                    5.7529,
+                    5.7306,
+                    5.7452,
+                    6.0122,
+                    1.7942,
+                    6.0122]
+                },
+                ...
+                ],
+                "boundingBox": [0.4794,
+                5.7132,
+                8.0158,
+                5.714,
+                8.0118,
+                6.5627,
+                0.4757,
+                6.5619]
+            },
+            {
+                "rows": 2,
+                "columns": 6,
+                "cells": [{
+                    "rowIndex": 0,
+                    "columnIndex": 0,
+                    "text": "SALESPERSON",
+                    "boundingBox": [0.4979,
+                    4.963,
+                    1.8051,
+                    4.963,
+                    1.7975,
+                    5.2398,
+                    0.5056,
+                    5.2398]
+                },
+                {
+                    "rowIndex": 0,
+                    "columnIndex": 1,
+                    "text": "P.O. NUMBER",
+                    "boundingBox": [1.8051,
+                    4.963,
+                    3.3047,
+                    4.963,
+                    3.3124,
+                    5.2398,
+                    1.7975,
+                    5.2398]
+                },
+                ...
+                ],
+                "boundingBox": [0.4976,
+                4.961,
+                7.9959,
+                4.9606,
+                7.9959,
+                5.5204,
+                0.4972,
+                5.5209]
+            }]
+        }],
+        "documentResults": [{
+            "docType": "prebuilt:invoice",
+            "pageRange": [1,
+            1],
+            "fields": {
+                "AmountDue": {
+                    "type": "number",
+                    "valueNumber": 610,
+                    "text": "$610.00",
+                    "boundingBox": [7.3809,
+                    7.8153,
+                    7.9167,
+                    7.8153,
+                    7.9167,
+                    7.9591,
+                    7.3809,
+                    7.9591],
+                    "page": 1,
+                    "confidence": 0.875
+                },
+                "BillingAddress": {
+                    "type": "string",
+                    "valueString": "123 Bill St, Redmond WA, 98052",
+                    "text": "123 Bill St, Redmond WA, 98052",
+                    "boundingBox": [0.594,
+                    4.3724,
+                    2.0125,
+                    4.3724,
+                    2.0125,
+                    4.7125,
+                    0.594,
+                    4.7125],
+                    "page": 1,
+                    "confidence": 0.997
+                },
+                "BillingAddressRecipient": {
+                    "type": "string",
+                    "valueString": "Microsoft Finance",
+                    "text": "Microsoft Finance",
+                    "boundingBox": [0.594,
+                    4.1684,
+                    1.7907,
+                    4.1684,
+                    1.7907,
+                    4.2837,
+                    0.594,
+                    4.2837],
+                    "page": 1,
+                    "confidence": 0.998
+                },
+                ...                
+            }
+        }]
+    }
+}
+```
+
+---
 
 ## Train a custom model
 
-You'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
+To train a custom model, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
 
 > [!NOTE]
 > You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../../overview.md#train-with-labels) section of the overview to learn more about this feature.
@@ -904,16 +1071,16 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../sas-instructions.md)]
 
-    # [v2.0](#tab/v2-0)    
-    ```bash
-    curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
-    ```
-    # [v2.1 preview](#tab/v2-1)    
-    ```bash
-    curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
-    ```
-    
-    ---
+# [v2.0](#tab/v2-0)    
+```bash
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
+```
+# [v2.1 preview](#tab/v2-1)    
+```bash
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
+```
+
+---
 
 
 You'll receive a `201 (Success)` response with a **Location** header. The value of this header is the ID of the new model being trained.
@@ -927,15 +1094,13 @@ After you've started the train operation, you use a new operation, **[Get Custom
 1. Replace `{model ID}` with the model ID you received in the previous step
 
 
-
 # [v2.0](#tab/v2-0)    
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.1/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
-```ce\": \""{SAS URL}"\"}"
+curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
     
 ---
@@ -1020,13 +1185,14 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Replace `{subscription key}` with your subscription key.
 
 # [v2.0](#tab/v2-0)    
+
 ```bash
 curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ \"source\": \""{SAS URL}"\" } "
 ```
+
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-```bash
-curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.1/custom/models/{model ID}/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ \"source\": \""{SAS URL}"\" } "
+curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ \"source\": \""{SAS URL}"\" } "
 ```
     
 ---
@@ -1043,7 +1209,6 @@ Use the following API to query the results of the Analyze operation.
 1. Replace `{result ID}` with the ID that you received in the previous section.
 1. Replace `{subscription key}` with your subscription key.
 
-
 # [v2.0](#tab/v2-0)    
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyzeResults/{result ID}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
@@ -1052,7 +1217,6 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/ana
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview/custom/models/{model ID}/analyzeResults/{result ID}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
-    
 ---
 
 You'll receive a `200 (Success)` response with a JSON body in the following format. The output has been shortened for simplicity. Notice the `"status"` field near the bottom. This will have the value `"succeeded"` when the Analyze operation is complete. If the Analyze operation hasn't completed, you'll need to query the service again by rerunning the command. We recommend an interval of one second or more between calls.
@@ -1331,7 +1495,6 @@ This sample JSON output has been shortened for simplicity.
   }
 }
 ``` 
-
 ---
 
 ### Improve results
@@ -1347,10 +1510,19 @@ Use the following command to return a list of all the custom models that belong 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
+# [v2.0](#tab/v2-0)    
+```bash
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models?op=full"
+-H "Ocp-Apim-Subscription-Key: {subscription key}"
+```
+
+# [v2.1 preview](#tab/v2-1)    
+
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models?op=full"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
+---
 
 You'll receive a `200` success response, with JSON data like the following. The `"modelList"` element contains all of your created models and their information.
 
@@ -1381,12 +1553,22 @@ To retrieve detailed information about a specific custom model, use the followin
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
+# [v2.0](#tab/v2-0)    
+
+```bash
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
+-H "Ocp-Apim-Subscription-Key: {subscription key}"
+--data-ascii "{body}" 
+```
+
+# [v2.1 preview](#tab/v2-1)    
+
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
-
 --data-ascii "{body}" 
 ```
+---
 
 You'll receive a `200` success response, with JSON data like the following.
 
