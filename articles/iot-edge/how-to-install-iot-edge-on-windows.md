@@ -25,7 +25,8 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An [Azure IoT Edge device ID](how-to-manual-provision-symmetric-key.md#create-an-iot-edge-device-in-the-azure-portal).
 * Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
-   1. Visit the [Windows Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).
+   <!-- The link below needs the language localization to work; otherwise broken -->
+   1. Visit the [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
 
    1. In the previews dropdown, select **Windows Admin Center Preview - Build 2012**, and choose **Confirm**.
 
@@ -62,13 +63,13 @@ Create your deployment of Azure IoT Edge for Linux on Windows on your target dev
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
-On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. You can use Windows Admin Center to make deployments of Azure IoT Edge for Linux on Windows to both your local device and remote devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows. If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device before proceeding](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
+On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. You can use Windows Admin Center to make deployments of Azure IoT Edge for Linux on Windows to both your local device and remote devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows. If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
    ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
 1. Select **Add**.
 
-1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. The **Add** feature allows you to connect to an existing deployment of Azure IoT Edge for Linux on Windows that is not connected to Windows Admin Center. **Create new** allows you to create a new deployment of Azure IoT Edge for Linux on Windows on your target device. This guide creates a deployment to a new device. Select **Create new**.
+1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. The **Add** feature allows you to connect to an existing deployment of Azure IoT Edge for Linux on Windows that is not yet connected to Windows Admin Center. **Create new** allows you to create a new deployment of Azure IoT Edge for Linux on Windows on your target device. This guide creates a deployment to a new device. Select **Create new**.
 
    ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
 
