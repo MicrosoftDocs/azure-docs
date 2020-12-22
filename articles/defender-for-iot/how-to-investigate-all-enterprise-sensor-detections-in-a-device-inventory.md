@@ -194,7 +194,7 @@ To view alerts associated with a specific zone:
 
 - Select the alert icon form the **Zone** window. 
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="Screenshot of the default Business Unit view with examples.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="The default Business Unit view with examples.":::
 
 For more information, see [Overview: Working with alerts](how-to-work-with-alerts-on-premises-management-console.md).
 
@@ -202,9 +202,9 @@ For more information, see [Overview: Working with alerts](how-to-work-with-alert
 
 To view the device inventory associated with a specific zone:
 
-- Select **View Device Inventory** form the **Zone** window.
+- Select **View Device Inventory** from the **Zone** window.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="Screenshot of the default Business Unit view with examples.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="The device inventory screen will appear.":::
 
 For more information, see [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 

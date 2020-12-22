@@ -5,13 +5,6 @@
   items:
   - name: Solution architecture
     href: architecture.md
-  - name: Security Module for Azure RTOS
-    href: iot-security-azure-rtos.md
-  - name: Edge security module
-    href: security-edge-architecture.md
-    items:
-    - name: Security agents
-      href: overview-security-agents.md
   - name: What's New
     href: overview-release-notes.md
 - name: Quickstarts
@@ -55,10 +48,16 @@
     items: 
     - name: Security Module for Azure RTOS
       items: 
+        - name: Security Module for Azure RTOS
+          href: iot-security-azure-rtos.md
         - name: Understand the Security Module for Azure RTOS
           href: concept-rtos-security-module.md
         - name: Security Module for Azure RTOS alerts and recommendations 
           href: concept-rtos-security-alerts-recommendations.md
+    - name: Edge security module
+      href: security-edge-architecture.md
+    - name: Security agents
+      href: overview-security-agents.md
     - name: Security agent authentication
       href: concept-security-agent-authentication-methods.md
     - name: Security module
