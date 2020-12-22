@@ -7,13 +7,13 @@ ms.date:  12/22/2020
 
 # Frequently asked questions about Azure VMware Solution
 
-In this article, we answer frequently asked questions about Azure VMware Solution.
+In this article, we'll answer frequently asked questions about Azure VMware Solution.
 
 ## General
 
 #### What is Azure VMware Solution?
 
-As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers' digital transformation. Azure VMware Solution combines VMware's Software-Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
+As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers' digital transformation. Azure VMware Solution combines VMware's Software-Defined Data Center (SDDC) software with Microsoft's Azure global cloud service ecosystem. Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
 
 ## Azure VMware Solution Service
 
@@ -53,10 +53,8 @@ Updates made to the service itself follows Microsoft Azure's standard change man
 
 With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
-
-
 #### Can Azure VMware Solution VMs be managed by VMRC?
-Yes. Provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
+Yes. Provided the system it's installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
 
 #### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
 No. Use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) to meet the VM prerequisites specified in those instructions. 
@@ -65,19 +63,19 @@ No. Use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-
 No, because of bandwidth and latency requirements.
 
 #### Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
-Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You can't use Azure Bastion to connect to Azure VMware Solution VMs since they aren't Azure IaaS objects.
 
 #### Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
 No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
 
 #### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
-Yes, you can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
+Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network.  To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
 
 ## Compute, network, storage, and backup
 
 #### Is there more than one type of host available?
 
-There is only one type of host available.
+There's only one type of host available.
 
 #### What are the CPU specifications in each type of host?
 
@@ -182,7 +180,7 @@ In the Azure portal, enable internet connectivity for a private cloud. With NSX-
 
 #### Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
 
-No. Network traffic inbound from the Internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the Internet through the [Public IP](public-ip-usage.md) option in your Azure portal for you Azure VMware Solution private cloud.
+No. Network traffic inbound from the Internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the Internet through the [Public IP](public-ip-usage.md) option in your Azure portal for your Azure VMware Solution private cloud.
 
 #### Do I need to restrict internet access from VMs on logical networks to the internet?
 
@@ -239,7 +237,7 @@ You'll need an Azure account in an Azure subscription.
 
 #### Are Red Hat solutions supported on Azure VMware Solution?
 
-Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella. Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
+Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella. Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
 #### Is VMware HCX Enterprise available, and if so, how much does it cost?
 
@@ -288,11 +286,11 @@ Before you can create your Azure VMware Solution resource, you'll submit a suppo
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+   For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances for their customers. See the [Save costs with a reserved instance](reserved-instance.md) article for more information. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
