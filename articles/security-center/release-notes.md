@@ -137,6 +137,8 @@ The inventory page in Azure Security Center has been refreshed with the followin
 
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
 
+Learn more about inventory in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
 ## November 2020
 
 Updates in November include:
@@ -486,7 +488,7 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
-Learn more in [Explore and manage your resources with asset inventory and management tools](asset-inventory.md).
+Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 
 
