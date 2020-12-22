@@ -1,6 +1,6 @@
 ---
-title: Supported features available in Azure Security Center | Microsoft Docs
-description: This document provides a list of services supported by Azure Security Center.
+title: Azure Security Center's features according to OS, machine type, and cloud
+description: Learn about which Azure Security Center features are available according to their OS, type, and cloud deployment.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/17/2020
 ms.author: memildin
 ---
 
@@ -98,6 +98,41 @@ For information about when recommendations are generated for each of these prote
 
 > [!NOTE]
 > Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
+
+
+
+## Feature support in government clouds
+
+| Service / Feature | US Gov | China Gov |
+|------|:----:|:----:|
+|[Just-in-time VM access](security-center-just-in-time.md) (1)|✔|✔|
+|[File integrity monitoring](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Adaptive application controls](security-center-adaptive-application.md) (1)|✔|✔|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Docker host hardening](harden-docker-hosts.md) (1)|✔|✔|
+|[Integrated vulnerability assessment for machines](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
+|[Connect AWS account](quickstart-onboard-aws.md) (1)|-|-|
+|[Connect GCP account](quickstart-onboard-gcp.md) (1)|-|-|
+|[Continuous export](continuous-export.md)|✔|✔ (2)|
+|[Workflow automation](workflow-automation.md)|✔|✔|
+|[Recommendation exemption rules](exempt-resource.md)|-|-|
+|[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|
+|[Email notifications for security alerts](security-center-provide-security-contact-details.md)|✔|✔|
+|[Asset inventory](asset-inventory.md)|-|-|
+|[Azure Defender for App Service](defender-for-app-service-introduction.md)|-|-|
+|[Azure Defender for Storage](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Azure Defender for Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
+|[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|||
+
+(1) Requires **Azure Defender for servers**
+
+(2) Partial
 
 
 ## Next steps

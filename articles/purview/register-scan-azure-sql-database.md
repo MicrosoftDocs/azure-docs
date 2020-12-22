@@ -1,7 +1,7 @@
 ---
 title: 'Register and scan Azure SQL Database'
 description: This tutorial describes how to scan Azure SQL Database 
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog

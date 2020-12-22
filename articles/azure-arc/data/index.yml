@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: MikeRayMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: mikeray #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/22/2020 #Required; mm/dd/yyyy format.
+  ms.date: 12/16/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -56,7 +56,6 @@ landingContent:
           - text: Restore
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
 
-
   # Card (optional)
   - title: Azure Arc enabled SQL Managed Instance (preview)
     linkLists:
@@ -70,3 +69,12 @@ landingContent:
             url: migrate-to-managed-instance.md
           - text: Restore
             url: restore-adventureworks-sample-db.md
+
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+
