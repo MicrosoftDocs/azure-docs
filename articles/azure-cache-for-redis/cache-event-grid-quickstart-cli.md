@@ -10,7 +10,7 @@ ms.service: cache
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Azure Cache for Redis events, and trigger the event to view the result.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Azure Cache for Redis events, trigger an event, and view the result.
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages. When you complete the steps described in this article, you see that the event data has been sent to the web app.
 

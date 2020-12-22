@@ -138,6 +138,8 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+      - name: Azure Cache for Redis
+        href: event-schema-azure-cache.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events
