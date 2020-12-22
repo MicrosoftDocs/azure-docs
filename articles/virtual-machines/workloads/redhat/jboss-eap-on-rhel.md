@@ -207,7 +207,7 @@ You can deploy the template in the following ways:
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
   For details on installing and configuring the Azure CLI, see [Install the CLI](/cli/azure/install-azure-cli).

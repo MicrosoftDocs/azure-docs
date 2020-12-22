@@ -53,8 +53,9 @@ The main benefits of the integration are:
 Start using the ITSM Connector tool with these steps:
 
 1. Register your app with Azure AD.
-2. Create a Secure Webhook action group.
-3. Configure your partner environment. 
+1. Define Service Principle.
+1. Create a Secure Webhook action group.
+1. Configure your partner environment.
 
 Secure Export supports connections with the following ITSM tools:
 * [ServiceNow](#connect-servicenow-to-azure-monitor)
@@ -70,6 +71,13 @@ Follow these steps to register the application with Azure AD:
 
    [![Screenshot of the option for setting the U R I of the application I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
 4. Select **Save**.
+
+## Define Service Principle
+
+The Action Group service will need permission to acquire authentication tokens from your AAD application in order to authentication with Service now. To grant those permissions you will need to create a service principal for the Action Group service in your tenant. 
+You can use this [PowerShell commands](./action-groups.md#secure-webhook-powershell-script) for this purpose. (Requires tenant admin privileges).
+As an optional step you can define application role in the created app’s manifest which can allow you to further restrict access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal. 
+This can be done through the same [PowerShell commands](./action-groups.md#secure-webhook-powershell-script).
 
 ## Create a Secure Webhook action group
 

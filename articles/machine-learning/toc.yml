@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
+    - name: Open source integrations
+      href: concept-open-source.md      
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Security
@@ -295,6 +297,9 @@
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: How to troubleshoot environments
+          displayName: troubleshoot, envrionment, debug, image
+          href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
         - name: Label data
@@ -370,6 +375,8 @@
           href: how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: how-to-train-with-custom-image.md
+        - name: Migrate from Estimators to ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
           items: 
             - name: Start, monitor or cancel runs
@@ -408,6 +415,9 @@
           href: how-to-configure-auto-train.md
         - name: Use automated ML (interface)
           href: how-to-use-automated-ml-for-ml-models.md
+        - name: Use automated ML with Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Use remote compute targets
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
@@ -463,6 +473,8 @@
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
+      - name: Troubleshoot & debug (local)
+        href: how-to-troubleshoot-deployment-local.md
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
@@ -508,8 +520,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
-        - name: Schedule a pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
@@ -594,6 +604,8 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md      
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Known issues

@@ -1,7 +1,7 @@
 ---
-title: Retrain models by using Azure Machine Learning designer
+title: Use pipeline parameters to retrain models in the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to retrain machine learning models with published pipelines in Azure Machine Learning designer.
+description: Retrain models with published pipelines and pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Retrain models with Azure Machine Learning designer
+# Use pipeline parameters to retrain models in the designer
 
 
-In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model. You will use published pipelines to automate your workflow and set parameters to train your model on new data. 
+In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model using pipeline parameters. You will use published pipelines to automate your workflow and set parameters to train your model on new data. Pipeline parameters let you re-use existing pipelines for different jobs.  
 
 In this article, you learn how to:
 
