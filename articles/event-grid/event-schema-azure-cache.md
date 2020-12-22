@@ -129,9 +129,9 @@ If you want to try Azure Cache for Redis events, see any of these quickstart art
 
 |If you want to use this tool:    |See this article: |
 |--|-|
-|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](cache-event-grid-quickstart-portal.md)|
-|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](cache-event-grid-quickstart-powershell.md)|
-|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](ache-event-grid-quickstart-cli.md)|
+|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](../azure-cache-for-redis/cache-event-grid-quickstart-portal.md)|
+|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md)|
+|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](../azure-cache-for-redis/cache-event-grid-quickstart-cli.md)|
 
 ## Next steps
 
