@@ -1,5 +1,5 @@
 ---
-title: Migrate to Connection Monitor (Preview) from Network Performance Monitor
+title: Migrate to Connection Monitor from Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Network Performance Monitor.
 services: network-watcher
@@ -10,18 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to migrate from Network Performance Monitor to Connection Monitor. 
 ---
-# Migrate to Connection Monitor (Preview) from Network Performance Monitor
+# Migrate to Connection Monitor from Network Performance Monitor
 
 You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
-> [!IMPORTANT]
-> Connection Monitor is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Only tests from Service Connectivity Monitor can be migrated to Connection Monitor.
@@ -73,5 +69,5 @@ After the migration, be sure to:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Connection Monitor to Connection Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic)
+* [Migrate from Connection Monitor to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

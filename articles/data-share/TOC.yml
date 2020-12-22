@@ -27,6 +27,8 @@
   items:
   - name: Security
     items:
+    - name: Security overview
+      href: security.md
     - name: Security baseline
       href: security-baseline.md
   - name: Azure Data Share terminology
@@ -45,7 +47,7 @@
     items:
     - name: Share from Azure Storage
       href: how-to-share-from-storage.md
-    - name: Share from Azure SQL Database or Synapse Analytics
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
       href: how-to-share-from-sql.md
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
@@ -62,8 +64,6 @@
     href: how-to-revoke-share-subscription.md
   - name: Monitor
     href: how-to-monitor.md
-  - name: Security
-    href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Troubleshoot

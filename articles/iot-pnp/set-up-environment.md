@@ -140,4 +140,4 @@ az group delete --name my-pnp-resourcegroup
 Now that you've set up your environment, you can try one of the quickstarts or tutorials such as:
 
 > [!div class="nextstepaction"]
-> [Connect a sample IoT Plug and Play device application to IoT Hub (Node.js)](quickstart-connect-device-node.md)
+> [Connect a sample IoT Plug and Play device application to IoT Hub](quickstart-connect-device.md)

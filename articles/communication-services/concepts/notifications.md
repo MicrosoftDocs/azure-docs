@@ -43,13 +43,10 @@ Communication Services uses Azure Notification Hub as a pass-through service to 
 To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](../../notification-hubs/create-notification-hub-portal.md) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notifications Service you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) and select your target client platform from the drop-down list near the top of the page.
 
 > [!NOTE]
-> Currently the APNs and FCM platforms are supported.
+> Currently the APNs and FCM platforms are supported.  
+The APNs platform needs to be configured with token authentication mode. Certificate authentication mode is not supported as of now. 
 
 Once your Notification hub is configured, you can associate it to your Communication Services resource by supplying a connection string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
-
-> [!IMPORTANT]
-> This is applicable only to token authentication mode. Certificate authentication mode is not supported as of now.  
-In order to enable APNS VOIP notifications, you must set the value of the bundle id when configuring the notification hub to be your application bundle ID with the `.voip` suffix. See [Use APNS VOIP through Notification Hubs](../../notification-hubs/voip-apns.md) for more details.
 
 #### Using the Azure Resource Manager client to configure the Notification Hub
 
@@ -72,7 +69,8 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
 
 > [!NOTE]
-> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
+> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.  
+Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
 
 #### Device registration 
 

@@ -108,7 +108,7 @@ deviceTRUST is a Windows Virtual Desktop value-added services provider that cont
 
 deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements.
 
-- [Go to the partner website](https://devicetrust.com/wvd).
+- [Go to the partner website](https://devicetrust.com/).
 
 ## Ekran System
 

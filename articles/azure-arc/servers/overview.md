@@ -24,7 +24,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
 
-- Use [Update Management](../../automation/update-management/update-mgmt-overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
+- Use [Update Management](../../automation/update-management/overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
 
     > [!NOTE]
     > At this time, enabling Update Management directly from an Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.

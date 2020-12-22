@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 11/05/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,30 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## December 2020
+
+### Updated articles
+
+- [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Use the AD FS application activity report (preview) to migrate applications to Azure AD](migrate-adfs-application-activity.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+
+
+## November 2020
+
+### New articles
+- [Header-based single sign-on for on-premises apps with Azure AD App Proxy (Preview)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### Updated articles
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## October 2020
 

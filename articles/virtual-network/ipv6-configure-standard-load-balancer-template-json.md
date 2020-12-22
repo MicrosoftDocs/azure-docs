@@ -73,8 +73,8 @@ Template section to add:
               "protocol": "Tcp",
               "sourcePortRange": "33819-33829",
               "destinationPortRange": "5000-6000",
-              "sourceAddressPrefix": "2001:db8:deca:deed::/64",
-              "destinationAddressPrefix": "2001:db8:deca:deed::/64",
+              "sourceAddressPrefix": "fd00:db8:deca:deed::/64",
+              "destinationAddressPrefix": "fd00:db8:deca:deed::/64",
               "access": "Allow",
               "priority": 1003,
               "direction": "Inbound"
@@ -96,9 +96,9 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
           {
             "name": "v6route",
             "properties": {
-              "addressPrefix": "2001:db8:deca:deed::/64",
+              "addressPrefix": "fd00:db8:deca:deed::/64",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "2001:db8:ace:f00d::1"
+              "nextHopIpAddress": "fd00:db8:ace:f00d::1"
             }
 ```
 

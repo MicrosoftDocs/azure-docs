@@ -2,7 +2,6 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.author: tredavis
 ms.date: 11/09/2020
 ---
 
@@ -25,7 +24,7 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 >[!NOTE]
->For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
+>For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 ## Create the jump box
 

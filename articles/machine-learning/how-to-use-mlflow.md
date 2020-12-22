@@ -135,7 +135,7 @@ run = exp.submit(src)
 
 This example shows how to submit MLflow projects locally with Azure Machine Learning tracking.
 
-Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally. Your experiments can run via a Jupyter notebook or code editor.
+Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally. Your experiments can run via a Jupyter Notebook or code editor.
 
 ```shell
 pip install azureml-mlflow
@@ -314,7 +314,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, comput
 
 ```
 
-Then, register and deploy the model in one step with the Azure Machine Learning SDK [deploy()](Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 

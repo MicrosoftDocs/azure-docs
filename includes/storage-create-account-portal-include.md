@@ -15,7 +15,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **Add**.
 1. On the **Basics** tab, select the subscription in which to create the storage account.
-1. Under the **Resource group** field, select your desired resource group, or create a new resource group.  For more information on Azure resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
+1. Under the **Resource group** field, select your desired resource group, or create a new resource group.  For more information on Azure resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md).
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
 1. Select a location for your storage account, or use the default location.
 1. Select a performance tier. The default tier is *Standard*.

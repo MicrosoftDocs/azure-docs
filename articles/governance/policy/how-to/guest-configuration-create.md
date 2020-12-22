@@ -200,7 +200,7 @@ package consists of:
 
 PowerShell cmdlets assist in creating the package.
 No root level folder or version folder is required.
-The package format must be a .zip file.
+The package format must be a .zip file and cannot exceed a total size of 100MB when uncompressed.
 
 ### Storing Guest Configuration artifacts
 

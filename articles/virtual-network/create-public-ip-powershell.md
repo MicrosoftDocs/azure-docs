@@ -40,6 +40,8 @@ $loc = 'eastus2'
 
 New-AzResourceGroup -Name $rg -Location $loc
 ```
+## Create public IP
+
 ---
 # [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 

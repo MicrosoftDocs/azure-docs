@@ -145,7 +145,8 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
 Use the following information to create an AWS connector and start monitoring your AWS costs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to **Cost Management + Billing** > **Cost Management**.
+2. Go to Azure Home by clicking **Home** in the menu on the left ("hamburger" menu icon with 3 lines).
+3. Go to **Tools** > **Cost Management** at the bottom of the page.
 3. Under **Settings**, select **Connectors for AWS**.  
 4. Select **+Add** at the top of the page to create a connector.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Example showing the Connectors for AWS setting" :::

@@ -1,5 +1,5 @@
 ---
-title: Migrate to Connection Monitor (Preview) from Connection Monitor
+title: Migrate to Connection Monitor from Connection Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Connection Monitor.
 services: network-watcher
@@ -10,18 +10,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
-# Migrate to Connection Monitor (Preview) from Connection Monitor (Classic)
+# Migrate to Connection Monitor from Connection Monitor (Classic)
 
-You can migrate existing connection monitors to new, improved Connection Monitor (Preview)  with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
-
-> [!IMPORTANT]
-> Connection Monitor is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+You can migrate existing connection monitors to new, improved Connection Monitor with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
 ## Key points to note
 
@@ -29,7 +24,7 @@ The migration helps produce the following results:
 
 * Agents and firewall settings work as is. No changes are required. 
 * Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
-* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent [Preview] and RoundTripTimeMs [Preview]) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). 
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). 
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
    * **Dashboards and integrations**: Require manually editing of the metrics set. 
@@ -64,5 +59,5 @@ After the migration begins, the following changes take place:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Network Performance Monitor to Connection Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [Migrate from Network Performance Monitor to Connection Monitor](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

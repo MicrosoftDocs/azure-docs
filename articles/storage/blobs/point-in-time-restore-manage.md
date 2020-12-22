@@ -25,7 +25,7 @@ To learn more about point-in-time restore, see [Point-in-time restore for block 
 
 Before you enable and configure point-in-time restore, enable its prerequisites for the storage account: soft delete, change feed, and blob versioning. For more information about enabling each of these features, see these articles:
 
-- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
 
@@ -244,6 +244,6 @@ To run the restore operation synchronously and block on execution until it is co
 ## Next steps
 
 - [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
-- [Soft delete](soft-delete-overview.md)
+- [Soft delete](./soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)

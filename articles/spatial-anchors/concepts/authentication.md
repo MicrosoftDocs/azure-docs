@@ -1,12 +1,12 @@
 ---
 title: Authentication and authorization
 description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 10/08/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
@@ -188,7 +188,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
 **In your code**
 
 >[!NOTE]
-> You can use the service sample that's available on GitHub.
+> You can use the [service sample](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) that is available as a part of the [Spatial Anchors sample apps](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.

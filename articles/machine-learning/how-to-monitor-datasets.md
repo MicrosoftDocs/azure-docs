@@ -1,7 +1,7 @@
 ---
-title: Analyze and monitor for data drift on datasets (preview)
+title: Detect data drift on datasets (preview)
 titleSuffix: Azure Machine Learning
-description: Create Azure Machine Learning datasets monitors (preview), monitor for data drift in datasets, and set up alerts.
+description: Learn how to set up data drift detection in Azure Learning. Create datasets monitors (preview), monitor for data drift, and set up alerts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -19,7 +19,7 @@ ms.custom: how-to, data4ml
 
 
 > [!IMPORTANT]
-> Detecting data drift on datasets is currently in public preview.
+> Data drift detection for datasets is currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -316,6 +316,48 @@ After identifying metrics to set up alert rules, create a new alert rule:
 You can use an existing action group, or create a new one to define the action to be taken when the set conditions are met:
 
 ![New action group](./media/how-to-monitor-datasets/action-group.png)
+
+
+## Troubleshooting
+
+Limitations and known issues for data drift monitors:
+
+* The time range when analyzing historical data is limited to 31 intervals of the monitor's frequency setting. 
+* Limitation of 200 features, unless a feature list is not specified (all features used).
+* Compute size must be large enough to handle the data.
+* Ensure your dataset has data within the start and end date for a given monitor run.
+* Dataset monitors will only work on datasets that contain 50 rows or more.
+* Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the following table. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
+
+    | Feature type | Data type | Condition | Limitations | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
+    | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
+
+* When you have [created a data drift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
+
+    1. Check if you have selected the right date range at the top of the page.  
+    1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
+    1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
+
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
+
+* From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. In a script or Notebook, wait 10 minutes to ensure cells below will run.
+
+    ```python
+    import time
+    time.sleep(600)
+    ```
 
 ## Next steps
 

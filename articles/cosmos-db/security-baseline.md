@@ -441,11 +441,11 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Currently not available; Customer Lockbox not yet supported for Azure Database for Cosmos DB.
+**Guidance**: Customer Lockbox is not applicable for Cosmos DB.  Microsoft employees cannot access data resources even with customer permissions.
 
 List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
