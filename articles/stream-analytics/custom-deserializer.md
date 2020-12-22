@@ -13,7 +13,7 @@ ms.date: 12/17/2020
 
 Azure Stream Analytics has [built-in support for three data formats](stream-analytics-parsing-json.md): JSON, CSV, and Avro. With custom .NET deserializers, you can read data from other formats such as [Protocol Buffer](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) and other user defined formats for both cloud and edge jobs.
 
-This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio or Visual Studio Code. 
+This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio.
 
 In this tutorial, you learn how to:
 
@@ -204,15 +204,16 @@ The container you create will be used to store assets related to your Stream Ana
 
 1. Open **ProtobufCloudDeserializer.asaql** and select **Run Locally** from CodeLens then choose **Use Local Input** from the dropdown list.
 
-2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code.md).
+2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code).   
 
    ![Check local run result](./media/custom-deserializer/check-local-run-result-vscode.png)
+
 
 You have successfully implemented a custom deserializer for your Stream Analytics job! In this tutorial, you tested the custom deserializer locally with local input data. You can also test it [using live data input in the cloud](visual-studio-code-local-run-live-input.md). For running the job in the cloud, you would properly configure the input and output. Then submit the job to Azure from Visual Studio Code to run your job in the cloud using the custom deserializer you just implemented.
 
 ### Debug your deserializer
 
-You can debug your .NET deserializer locally the same way you debug standard .NET code.
+You can debug your .NET deserializer locally the same way you debug standard .NET code. 
 
 1. Add breakpoints in your .NET function.
 
@@ -243,4 +244,5 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 In this tutorial, you learned how to implement a custom .NET deserializer for the protocol buffer input serialization. To learn more about creating custom deserializers, continue to the following article:
 
 > [!div class="nextstepaction"]
-> [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)
+> * [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)
+> * [Create .NET deserializers for Azure Stream Analytics jobs in Visual Studio Code](visual-studio-code-custom-deserializer.md)
