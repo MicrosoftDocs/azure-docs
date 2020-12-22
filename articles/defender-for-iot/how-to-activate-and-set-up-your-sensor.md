@@ -1,25 +1,27 @@
 ---
 title: Activate and set up your sensor
-description: After completing Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to, sign in to the Defender for IoT sensor console, upload an activation file generated for your sensor, and start working with your sensor.
+description: After completing sensor deployment, onboarding and network setup, you can sign in to the sensor console, upload an activation file, and certificate and start monitoring your network.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/10/2020
+ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
 # Sign in and activate a sensor 
 
-After completing Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to:
+After completing Defender for IoT sensor deployment, the onboarding and network setup, you can:
 
 - Sign in to the Defender for IoT sensor console.
 
 - Upload an activation file generated for your sensor.
 
+- Upload a certificate.
+
 - Start working with your sensor.
 
-Your sensor was onboarded with Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor, otherwise known as the sensor management mode.
+Your sensor was onboarded to the Defender for IoT  Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor, otherwise known as the sensor management mode.
 
 | Mode type | Description |
 |--|--|
@@ -30,17 +32,13 @@ During the onboarding process, a locally connected or cloud connected activation
 
 ## First-time sign in and preliminary setup
 
-If you are logging in for the first time, you need to activate the sensor by uploading the activation file that was generated and downloaded during the onboarding process.
+If you are logging in for the first time, you need to:
 
-The activation file generation and downloading activity were carried out on the **Azure Defender for IoT portal, Onboard sensor** page.
+- Activate the sensor by uploading the activation file that was generated and downloaded on the Azure Defender for IoT portal during the sensor onboarding process. The activation file contains instructions regarding the management mode of the sensor. **A unique activation file should be uploaded to each sensor you deploy.**
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT portal, Onboard sensor":::
 
-The activation file contains instructions regarding the management mode of the sensor.
-
-**A unique activation file should be uploaded to each sensor you deploy.**
-
-You can perform the preliminary setup after activation.
+- Upload an SSL/TLS certificate.
 
 ## Before you begin
 
@@ -51,6 +49,8 @@ Before you sign in, verify that you have access to the:
 - Sensor IP address that was defined during the installation.
 
 - User sign in credentials needed for this sensor.
+
+- A CA-signed certificate required by your company.
 
 To sign-in for the first time:
 
@@ -105,6 +105,38 @@ To update sensor network configuration parameters:
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration":::
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
+1. 
+## Uplaod a certificate
+
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor console. After logging in to the console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
+
+Two levels of security are available:
+
+- Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
+- Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
+
+The following types of certificates are supported:
+
+- Private / Enterprise Key Infrastructure (Private PKI)
+- Public Key Infrastructure (Public PKI)
+- Locally generated on the appliance (locally self-signed). 
+**It is recommended not to use a self-signed certificate.**
+The certificate is INSECURE and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  This option should never be used for production networks.
+
+To upload a certificate:
+
+1. When prompted after login, define a Certificate name.
+1. Upload the CRT and Key files.
+1. Enter a passphrase and upload a PEM file if required.
+
+You may need to refresh your screen after uploading the CA-signed certificate.
+
+To disable validation between the management console and connected sensors:
+
+1. Select **Next**.
+1. Turn-off  the **Enable system-wide validation...** toggle.  
+
+For information about uploading a new certificate, supported certificate files, and related items, see [Manage individual sensors](how-to-manage-individual-sensors.md). 
 
 ## Subsequent logins
 
@@ -191,8 +223,6 @@ You access console tools from the side menu.
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
-
-
-### See also
+### Next steps
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

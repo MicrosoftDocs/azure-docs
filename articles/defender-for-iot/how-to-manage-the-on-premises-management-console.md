@@ -48,8 +48,6 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
  Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
 
-
-
 ### Update certificates
 
 On-premises management console Administrator users can update certificates.
@@ -102,7 +100,8 @@ Key File
 Certificate Chain
 
 - The intermediate certificate file (if any) that was supplied by your CA
-- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. Bag attributes are  allowed. 
+- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. 
+- Can include Bag attributes. 
 
 Passphrase
 

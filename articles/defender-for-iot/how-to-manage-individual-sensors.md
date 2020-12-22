@@ -151,7 +151,8 @@ Key File
 Certificate Chain
 
 - The intermediate certificate file (if any) that was supplied by your CA
-- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. Bag attributes are  allowed. 
+- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. 
+- Can include Bag attributes.
 
 Passphrase
 
