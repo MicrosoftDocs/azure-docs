@@ -177,28 +177,33 @@ Confirm that the module deployed from the cloud is running on your IoT Edge devi
 
       :::image type="content" source="media/quickstart/EFLOW/ConnectEdge.png" alt-text="Screenshot - Connect Device":::
 
-2. Under **Tools** select **Command Shell** to open a Windows PowerShell Window where you can run commands to verify your deployed module.
+2. On the **Overview** page you will see the **IoT Edge Module List** and **IoT Edge Status** where you can see the various modules that have been deployed as well as the device status.  
+
+3. Under **Tools** select **Command Shell**. In this prompt you have used ssh (secure shell) to connect to your Azure IoT Edge device's Linux VM on your Windows PC.
 
       :::image type="content" source="media/quickstart/EFLOW/CommandShell.png" alt-text="Screenshot - Command Shell":::
 
 To verify the three modules on your device, run the following command:
 
-```powershell
-iotedge list
+```bash
+sudo iotedge list
 ```
 
-   ![View three modules on your device](./media/quickstart/iotedge-list-2.png)
-
-View the messages being sent from the temperature sensor module to the cloud.
-
-```powershell
-iotedge logs SimulatedTemperatureSensor -f
-```
+   :::image type="content" source="media/quickstart/EFLOW/IoTEdgeList.png" alt-text="Screenshot - Command Shell List":::
 
    >[!TIP]
    >IoT Edge commands are case-sensitive when referring to module names.
 
-   ![View the data from your module](./media/quickstart/iotedge-logs.png)
+View the messages being sent from the temperature sensor module to the cloud.
+
+```bash
+iotedge logs SimulatedTemperatureSensor -f
+```
+
+    :::image type="content" source="media/quickstart/EFLOW/TemperatureSensor.png" alt-text="Screenshot - Temperature Sensor":::
+
+   >[!TIP]
+   >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
