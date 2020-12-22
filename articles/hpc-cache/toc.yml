@@ -51,7 +51,7 @@
     - name: Customize access policies
       href: access-policies.md
     - name: Set up directory services
-      name: directory-services.md
+      href: directory-services.md
 
 - name: Reference
   items:
