@@ -101,9 +101,9 @@ Each ESXi host in Azure VMware Solution is configured with four 25-Gbps NICs, tw
 
 Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
 
-#### You document that Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution. What about other independent software vendors (ISVs) backup solutions?
+####  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
 
-As far as we know, any backup solution that uses VMware VADP with the HotAdd transport mode should work right out of the box on Azure VMware Solution.
+Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware VADP with the HotAdd transport mode would work right out of the box on Azure VMware Solution.
 
 #### What about support for ISV backup solutions?
 

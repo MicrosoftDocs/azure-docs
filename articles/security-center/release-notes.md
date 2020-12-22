@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 12/22/2020
 ms.author: memildin
 
 ---
@@ -37,6 +37,7 @@ Updates in December include:
 - [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
 
 
 ### Azure Defender for SQL servers on machines is generally available
@@ -124,6 +125,17 @@ The Security Center experience within SQL provides access to the following Secur
 
 :::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
 
+
+### Asset inventory tools and filters updated
+
+The inventory page in Azure Security Center has been refreshed with the following changes:
+
+- **Guides and feedback** added to the toolbar. This opens a pane with links to related information and tools. 
+- **Subscriptions filter** added to the default filters available for your resources.
+- **Open query** link for opening the current filter options as an Azure Resource Graph query (formerly called "View in resource graph explorer").
+- **Operator options** for each filter. Now you can choose from additional logical operators other than '='. For example, you might want to find all resources with active recommendations whose titles include the string 'encrypt'. 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
 
 ## November 2020
 
