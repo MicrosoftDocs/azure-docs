@@ -32,7 +32,7 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 
 
 > [!CAUTION]
-> Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots) and swapping to production.
+> Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
 >
 
 - To enable Health check, browse to the Azure Portal and select your App Service app.
@@ -42,7 +42,7 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 
 ### Configuration
 
-The following table details [app setting](configure-common) configuration options:
+The following table details [app setting](configure-common.md) configuration options:
 
 | App setting name | Allowed values | Description |
 |-|-|-|
