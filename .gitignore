@@ -24,4 +24,3 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 !/.vscode/settings.json
-articles/active-directory/fundamentals/protect-m365-from-on-premises-attacks.md
