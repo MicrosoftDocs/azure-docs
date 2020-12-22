@@ -20,9 +20,7 @@ All of the client-facing paths that have been defined for this cache are listed 
 
 You can sort the table columns to better understand your cache's aggregated namespace. Click the arrows in the column headers to sort the paths.
 
-<!-- xxx new screenshot with access policy xxx -->
-
-![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page-draft.png)
+![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory, and Client access policy. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png)
 
 ## Add or edit namespace paths
 

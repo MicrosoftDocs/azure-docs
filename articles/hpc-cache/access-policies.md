@@ -24,7 +24,9 @@ If you don't need fine-grained control over storage target access, you can use t
 
 Use the **Client access policies** page in the Azure portal to create and manage policies. <!-- is there AZ CLI for this? -->
 
-![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)
+<!-- ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png) -->
+
+[ ![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview-draft.png)](media/policies-overview-draft.png#lightbox)
 
 Each policy is made up of rules. The rules are applied to hosts in order from the smallest scope (host) to the largest (default). The first rule that matches is applied and later rules are ignored.
 
