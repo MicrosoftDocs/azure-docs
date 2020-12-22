@@ -61,7 +61,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
 1. Click on the **Content model customization** button in the top-right corner.
 1. Go to the **Animated characters** tab.
-1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
+1. Once you click on Manage models in Custom Vision, you will be transferred to the Custom Vision account you just connected.
 
 > [!NOTE]
 > Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
