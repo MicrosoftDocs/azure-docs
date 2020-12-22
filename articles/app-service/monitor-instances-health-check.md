@@ -11,7 +11,9 @@ ms.author: msangapu
 ---
 # Monitor App Service instances using health check
 
-This article uses Health check in the Azure Portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check.
+![Health check failure][2]
+
+This article uses Health check in the Azure Portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
 
 ## What App Service does with health checks
 
@@ -24,15 +26,14 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 > Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 >
 
-## Best practices
-
-![Health check failure][2]
-
-The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate  the app is unhealthy.
-
 ## Enable Health Check
 
 ![Health check navigation in Azure Portal][3]
+
+
+> [!CAUTION]
+> Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots) and swapping to production.
+>
 
 - To enable Health check, browse to the Azure Portal and select your App Service app.
 - Under **Monitoring**, select **Health check**.
@@ -41,15 +42,12 @@ The Health check path should check critical components of your application. For 
 
 ### Configuration
 
-#### Max failures
+The following table details [app setting](configure-common) configuration options:
 
-You can configure the number of failed pings with the `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` app setting. This setting range is between 2 and 10. For example, if it's set to `2`, your instances will be removed after `2` failed pings.
-
-Furthermore, when you are scaling up or out, App Service pings the health check path to ensure new instances are ready.
-
-#### Percentage of unhealthy instances
-
-To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default is 50).
+| App setting name | Allowed values | Description |
+|-|-|-|
+|`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | You can configure the maximum number of failed pings with this app setting. This setting range is between 2 and 10. For example, if it's set to `2`, your instances will be removed after `2` failed pings. Furthermore, when you are scaling up or out, App Service pings the health check path to ensure new instances are ready. |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default is 50). |
 
 #### Authentication and security
 
