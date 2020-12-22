@@ -18,10 +18,10 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 ## Analyze NYC Taxi data in blob storage using Spark
 
-1. In the **Data** hub, select **Add a new resource** (plus button above **Linked**) >> **Browse gallery**.
+1. In the **Data** hub, select **Add a new resource** (plus button above **Linked**) > **Browse gallery**.
 1. Select **NYC Taxi & Limousine Commission - yellow taxi trip records**.
-1. On the bottom of the page, select **Continue** >> **Add dataset**.
-1. In the **Data** hub under **Linked**, right-click **Azure Blob Storage**, and then select **Sample Datasets** >> **nyc_tlc_yellow**
+1. On the bottom of the page, select **Continue** > **Add dataset**.
+1. In the **Data** hub under **Linked**, right-click **Azure Blob Storage**, and then select **Sample Datasets** > **nyc_tlc_yellow**.
 1. Select **New notebook** to create a new notebook with the following code:
 
     ```py
@@ -45,7 +45,7 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 Data is available in a table in **SQLPOOL1**. Load it into a Spark database named **nyctaxi**.
 
 1. In Synapse Studio, go to the **Develop** hub.
-1. Select **+** >> **Notebook**.
+1. Select **+** > **Notebook**.
 1. On the top of the notebook, set the **Attach to** value to **Spark1**.
 1. Select **Add code** to add a notebook code cell, and then enter the following text:
 
@@ -56,7 +56,7 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. On the **Data** hub, right-click **Databases**, and then select **Refresh** to see the following databases:
+1. On the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
     - **SQLPOOL1 (SQL)**
     - **nyctaxi (Spark)**
@@ -96,7 +96,7 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
 
 Earlier you copied data from the dedicated SQL pool table **SQLPOOL1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then you aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now you'll copy the data from **nyctaxi.passengercountstats** into a dedicated SQL pool table named **SQLPOOL1.dbo.PassengerCountStats**.
 
-In your notebook, run the following cell to copy the aggregated Spark table back into the dedicated SQL pool table.
+Run the following cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
 
 ```scala
 %%spark
