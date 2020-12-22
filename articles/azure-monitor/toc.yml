@@ -549,13 +549,15 @@
       - name: ITSM Connector Azure Configuration
         href: platform/itsmc-definition.md
       - name: ITSM Connector Partners Setup
-        href: platform/itsmc-connections.md
         items:
+        - name: Overview
+          href: platform/itsmc-connections.md
         - name: ServiceNow
           href: platform/itsmc-connections-servicenow.md
         - name: System Center Service Manager
-          href: platform/itsmc-connections-scsm.md
           items:
+          - name: Setup
+            href: platform/itsmc-connections-scsm.md
           - name: Create Service Manager web app
             href: platform/itsmc-service-manager-script.md
         - name: Cherwell

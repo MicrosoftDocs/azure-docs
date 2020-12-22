@@ -17,8 +17,6 @@ ms.author: memildin
 
 # Security alerts - a reference guide
 
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
-
 This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
 At the bottom of this page, there's a table describing the Azure Security Center kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
