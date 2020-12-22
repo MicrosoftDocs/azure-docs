@@ -144,7 +144,7 @@ Perform the following steps to provision a device in your hypervisor.
     ![Specify Name and Location page](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. On the **Configure Disk** page, select the **Create a new blank virtual hard disk** option, and specify the size as **2 TB** (or more).
 
-    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
+    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once it's provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
 
     ![Configure Disk page](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard closes and a virtual hard disk is added to your machine.
