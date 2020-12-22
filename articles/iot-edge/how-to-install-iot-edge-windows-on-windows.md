@@ -12,7 +12,7 @@ ms.date: 12/18/2020
 ms.author: kgremban
 ---
 
-# Install or uninstall Azure IoT Edge for Windows
+# Install and manage Azure IoT Edge for Windows
 
 Azure IoT Edge for Windows runs directly on your host Windows device and uses Windows containers to run business logic at the edge.
 
@@ -110,7 +110,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 Choose the next section based on which authentication type you want to use:
 
 * [Option 1: Authenticate with symmetric keys](#option-1-authenticate-with-symmetric-keys)
-* [Option 2: Authenticate with X.509 certificates](option-1-authenticate-with-x509-certificates)
+* [Option 2: Authenticate with X.509 certificates](option-2-authenticate-with-x509-certificates)
 
 ### Option 1: Authenticate with symmetric keys
 
@@ -237,7 +237,37 @@ If your device will be offline during installation, or if you want to install a 
 
    The deployment command will use any components found in the local file directory provided. If either the .cab file or the Visual C++ installer is missing, it will attempt to download them.
 
+## Update IoT Edge
 
+Use the `Update-IoTEdge` command to update the security daemon. The script automatically pulls the latest version of the security daemon.
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
+```
+
+Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+
+If you want to update to a specific version of the security daemon, find the version you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
+```
+
+>[!NOTE]
+>The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
+
+If you want to update a device offline, find the version you want to target from [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the *IoTEdgeSecurityDaemon.ps1* and *Microsoft-Azure-IoTEdge.cab* files. It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
+
+If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
+
+To update with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Update-IoTEdge` command and provide the absolute path to the file directory. For example,
+
+```powershell
+. <path>\IoTEdgeSecurityDaemon.ps1
+Update-IoTEdge -OfflineInstallationPath <path>
+```
+
+For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell script for IoT Edge on Windows](reference-windows-scripts.md).
 
 ## Uninstall IoT Edge
 

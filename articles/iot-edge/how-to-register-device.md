@@ -16,7 +16,7 @@ ms.author: kgremban
 
 This article provides the steps to register a new IoT Edge device in IoT Hub.
 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
+Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
 The steps in this article walk through a process called manual provisioning, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
@@ -24,13 +24,13 @@ The steps in this article walk through a process called manual provisioning, whe
 
   This authentication method is faster to get started, but not as secure.
 
-* **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents its certificates and IoT Hub can verify that they match the thumbprints.
+* **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
 
   This authentication method is more secure, and recommended for production scenarios.
 
 This article covers both authentication methods.
 
-If you have many devices to set up and don't want to manually provision each one, use one of the following article to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
+If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 
 * [Create and provision IoT Edge devices using X.509 certificates](how-to-auto-provision-x509-certs.md)
 * [Create and provision IoT Edge devices with a TPM](how-to-auto-provision-simulated-device-linux.md)
@@ -55,13 +55,13 @@ A free or standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in you
 
 ---
 
-## Register with symmetric keys
+## Option 1: Register with symmetric keys
 
 You can use several tools to register a new IoT Edge device in IoT Hub and retrieve its connection string, depending on your preference.
 
 # [Portal](#tab/azure-portal)
 
-In your IoT Hub in the Azure portal, IoT Edge devices are created and managed separately from IOT devices that are not edge enabled.
+In your IoT hub in the Azure portal, IoT Edge devices are created and managed separately from IoT devices that are not edge enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
@@ -94,9 +94,9 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 1. Select your Azure subscription.
 1. Select your IoT hub.
 
-### Create an IoT Edge device with Visual Studio Code
+### Register a new device with Visual Studio Code
 
-1. In the VS Code Explorer, expand the **Azure IoT Hub** section.
+1. In the Visual Studio Code Explorer, expand the **Azure IoT Hub** section.
 1. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, click on or hover over the header.
 1. Select **Create IoT Edge Device**.
 1. In the text box that opens, give your device an ID.
@@ -121,26 +121,27 @@ This command includes three parameters:
 
 ---
 
-## Register with X.509 certificates
+Now that you have a device registered in IoT Hub, retrieve the connection string that you use to complete installation and provisioning of the IoT Edge runtime. Follow the steps later in this article to [View registered devices and retrieve connection strings](#view-registered-devices-and-retrieve-connection-strings).
+
+## Option 2: Register with X.509 certificates
 
 Manual provisioning with X.509 certificates requires IoT Edge version 1.0.10 or newer.
 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
-
-For X.509 certificate authentication, this information is provided in the form of *thumbprints* taken from your device identity certificates. These thumbprints are given to IoT Hub at the time of device registration so that the service can recognize the device when it connects.
+For X.509 certificate authentication, each device's authentication information is provided in the form of *thumbprints* taken from your device identity certificates. These thumbprints are given to IoT Hub at the time of device registration so that the service can recognize the device when it connects.
 
 ### Create certificates and thumbprints
 
-When you provision an IoT Edge device with X.509 certificates, you use what is called a *device identity certificate*. This certificate is only used for provisioning an IoT Edge device and authenticating the device with Azure IoT Hub. It is a leaf certificate that doesn't sign other certificates. The device identity certificate is separate from the certificate authority (CA) certificates that the IoT Edge device presents to modules or downstream devices for verification. For more information about how the CA certificates are used in IoT Edge devices, see [Azure IoT Edge certificate usage detail](iot-edge-certs.md).
-
-When you create device identity certificates, set the certificate common name (CN) with the device ID that you want the device to have in your IoT hub.
-
-After you create the device identity certificate, you should have two files: a .cer or .pem file that contains the public portion of the certificate, and a .cer or .pem file with the private key of the certificate.
+When you provision an IoT Edge device with X.509 certificates, you use what is called a *device identity certificate*. This certificate is only used for provisioning an IoT Edge device and authenticating the device with Azure IoT Hub. It is a leaf certificate that doesn't sign other certificates. The device identity certificate is separate from the certificate authority (CA) certificates that the IoT Edge device presents to modules or downstream devices for verification. For more information about how the CA certificates are used in IoT Edge devices, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 You need the following files for manual provisioning with X.509:
 
-* Two sets of device identity certificates and private key certificates. One set of certificate/key files is provided to the IoT Edge runtime.
-* Thumbprints taken from both device identity certificates. Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. Both thumbprints are provided to IoT Hub at the time of device registration.
+* Two of device identity certificates with their matching private key certificates in .cer or .pem formats.
+
+  One set of certificate/key files is provided to the IoT Edge runtime. When you create device identity certificates, set the certificate common name (CN) with the device ID that you want the device to have in your IoT hub.
+
+* Thumbprints taken from both device identity certificates.
+
+  Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. Both thumbprints are provided to IoT Hub at the time of device registration.
 
 If you don't have certificates available, you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). Follow the instructions in that article to set up certificate creation scripts, create a root CA certificate, and then create two IoT Edge device identity certificates.
 
@@ -150,11 +151,13 @@ One way to retrieve the thumbprint from a certificate is with the following open
 openssl x509 -in <certificate filename>.pem -text -fingerprint
 ```
 
-You can use several tools to register a new IoT Edge device in IoT Hub and upload its certificate thumbprints. Currently, the Azure IoT extension for Visual Studio Code doesn't support device registration with X.509 certificates.
+### Register a new device
+
+You can use several tools to register a new IoT Edge device in IoT Hub and upload its certificate thumbprints.
 
 # [Portal](#tab/azure-portal)
 
-In your IoT Hub in the Azure portal, IoT Edge devices are created and managed separately from IOT devices that are not edge enabled.
+In your IoT hub in the Azure portal, IoT Edge devices are created and managed separately from IoT devices that are not edge enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
@@ -169,6 +172,10 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
    * Provide the primary and secondary identity certificate thumbprints. Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes.
 
 1. Select **Save**.
+
+# [Visual Studio Code](#tab/visual-studio-code)
+
+Currently, the Azure IoT extension for Visual Studio Code doesn't support device registration with X.509 certificates.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -189,19 +196,26 @@ This command includes several parameters:
 
 ---
 
-## View registered devices
+Now that you have a device registered in IoT Hub, you are ready to install and provisioning the IoT Edge runtime on your device. IoT Edge devices that authenticate with X.509 certificates don't use connection strings, so you can continue to the next step:
+
+* [Install or uninstall Azure IoT Edge for Linux](how-to-install-iot-edge.md)
+* [Install or uninstall Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md)
+
+## View registered devices and retrieve connection strings
+
+Devices that use symmetric key authentication need their connection strings to complete installation and provisioning of the IoT Edge runtime.
+
+Devices that use X.509 certificate authentication do not need connection strings. Instead, those devices need their IoT hub name, their device name, and their certificate files to complete installation and provisioning of the IoT Edge runtime.
 
 # [Portal](#tab/azure-portal)
-
-### View IoT Edge devices in the Azure portal
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
 ![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
 
-### Retrieve the connection string in the Azure portal
-
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
+
+Devices that authenticate with symmetric keys have their connection strings available to copy in the portal.
 
 1. From the **IoT Edge** page in the portal, click on the device ID from the list of IoT Edge devices.
 2. Copy the value of either **Primary Connection String** or **Secondary Connection String**.
@@ -253,3 +267,10 @@ The value for the `device-id` parameter is case-sensitive.
 When copying the connection string to use on a device, don't include the quotation marks around the connection string.
 
 ---
+
+## Next steps
+
+Now that you have a device registered in IoT Hub, you are ready to install and provisioning the IoT Edge runtime on your device.
+
+* [Install or uninstall Azure IoT Edge for Linux](how-to-install-iot-edge.md)
+* [Install or uninstall Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md)

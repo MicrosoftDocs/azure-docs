@@ -119,25 +119,23 @@
   items:
   - name: Create an IoT Edge device
     items:
-    - name: Register in IoT Hub
+    - name: Register device in IoT Hub
       href: how-to-register-device.md
-    - name: Run IoT Edge on Linux devices
+    - name: Install and provision IoT Edge
       items:
-      - name: Install and manually provision runtime
+      - name: Install IoT Edge for Linux
         href: how-to-install-iot-edge.md
-      - name: Update runtime
-        href: how-to-update-iot-edge.md
-    - name: Run IoT Edge on Windows devices
-      items:
-      - name: IoT Edge with Windows containers
-        href: how-to-install-iot-edge-windows-on-windows.md
+    - name: Update runtime
+      href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
     - name: Create test certificates
       href: how-to-create-test-certificates.md
+    - name: Run IoT Edge with Windows containers
+      href: how-to-install-iot-edge-windows-on-windows.md
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
-    - name: IoT Edge virtual machine using an ARM template
+    - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
   - name: Auto-provision with DPS
     items:

@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/21/2020
 ms.author: kgremban
 ---
 
@@ -16,53 +16,59 @@ ms.author: kgremban
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-There are two steps to setting up an IoT Edge device. The first step is to install the runtime and its dependencies, which is covered by this article. The second step is to connect the device to its identity in the cloud and set up authentication with IoT Hub. Those steps are in the next articles.
-
-This article lists the steps to install the Azure IoT Edge runtime on Linux or Windows devices. For Windows devices, you have an additional choice of using Linux containers or Windows containers. Currently, Windows containers on Windows are recommended for production scenarios. Linux containers on Windows are useful for development and testing scenarios, especially if you're developing on a Windows PC in order to deploy to Linux devices.
+This article lists the steps to install the Azure IoT Edge runtime on Linux devices.
 
 ## Prerequisites
 
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
+* A [registered device ID](how-to-register-device.md)
 
-Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packages for Ubuntu Server 16.04, Ubuntu Server 18.04, and Raspbian Stretch operating systems.
+  If you registered your device with symmetric key authentication, have the device connection string ready.
 
->[!NOTE]
->Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private private key available on your device.
 
-Prepare your device to access the Microsoft installation packages.
+* A Linux device
 
-Install the repository configuration that matches your device operating system.
+  Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packages for Ubuntu Server 16.04, Ubuntu Server 18.04, and Raspberry Pi OS Stretch operating systems.
 
-* **Ubuntu Server 16.04**:
+  For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
+
+  >[!NOTE]
+  >Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Prepare your device to access the Microsoft installation packages.
+
+  Install the repository configuration that matches your device operating system.
+
+  * **Ubuntu Server 16.04**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+    ```
+
+  * **Ubuntu Server 18.04**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+    ```
+
+  * **Raspberry Pi OS Stretch**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+    ```
+
+  Copy the generated list to the sources.list.d directory.
 
   ```bash
-  curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+  sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
   ```
 
-* **Ubuntu Server 18.04**:
+  Install the Microsoft GPG public key.
 
   ```bash
-  curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
   ```
-
-* **Raspberry Pi OS Stretch**:
-
-  ```bash
-  curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-  ```
-
-Copy the generated list to the sources.list.d directory.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-Install the Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
 
 Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
@@ -96,7 +102,7 @@ In the output of the script, check that all items under `Generally Necessary` an
 
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The steps in these section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation) steps in the next section.
+The steps in these section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps in the next section.
 
 Update package lists on your device.
 
@@ -116,13 +122,13 @@ If you want to install the most recent version of the security daemon, use the f
    sudo apt-get install iotedge
    ```
 
-If you want to install a specific version of the security daemon, specify the version from the apt list output. Also specify the same version for the **libiothsm-std** package, which otherwise would install its latest version. For example, the following command installs the most recent version of the 1.0.8 release:
+Or, if you want to install a specific version of the security daemon, specify the version from the apt list output. Also specify the same version for the **libiothsm-std** package, which otherwise would install its latest version. For example, the following command installs the most recent version of the 1.0.10 release:
 
    ```bash
-   sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+   sudo apt-get install iotedge=1.0.10* libiothsm-std=1.0.10*
    ```
 
-If the version that you want to install isn't listed, follow the [Offline or specific version installation](#offline-or-specific-version-installation) steps later in this article. That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
+If the version that you want to install isn't listed, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps later in this article. That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
 
 ## Provision the device with its cloud identity
 

@@ -20,7 +20,7 @@ The IoT Edge documentation on this site is available for two different versions 
 
 * **IoT Edge 1.0.10** covers all features and capabilities through the latest generally available release: [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10).
 * **IoT Edge 1.2 (preview)** contains additional content for features and capabilities that are in the latest preview release: [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1)
-  * While IoT Edge 1.2 is in preview, you need to install the release candidate versions. For more information, see [Offline or specific version installation](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation).
+  * While IoT Edge 1.2 is in preview, you need to install the release candidate versions. For more information, see [Offline or specific version installation](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation-optional).
 
 ## Version history
 
