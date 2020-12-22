@@ -109,11 +109,11 @@ The following json is an example.  The latest template schema can be found [here
       }
     ],
     "scriptContent": "
-        param([string] $name)
-        $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
-        Write-Output $output
-        $DeploymentScriptOutputs = @{}
-        $DeploymentScriptOutputs['text'] = $output
+      param([string] $name)
+      $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
+      Write-Output $output
+      $DeploymentScriptOutputs = @{}
+      $DeploymentScriptOutputs['text'] = $output
     ", // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
