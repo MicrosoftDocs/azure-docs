@@ -2,13 +2,12 @@
 title: Frequently asked questions
 description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
-ms.date:  11/19/2020
-ms.author: dikamath
+ms.date:  12/22/2020
 ---
 
 # Frequently asked questions about Azure VMware Solution
 
-This article answers frequently asked questions about Azure VMware Solution.
+In this article, we answer frequently asked questions about Azure VMware Solution.
 
 ## General
 
@@ -36,8 +35,7 @@ At launch, Azure VMware Solution won't support a single management experience ac
 
 #### Can I use vRealize Suite running on-premises? 
 
-Specific integrations and use cases may be evaluated on a case-by-case
-basis.
+Specific integrations and use cases may be evaluated on a case-by-case basis.
 
 #### Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
 
@@ -58,7 +56,7 @@ With the new Azure VMware Solution, Microsoft and VMware have a direct cloud pro
 
 
 #### Can Azure VMware Solution VMs be managed by VMRC?
-Yes, provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
+Yes. Provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
 
 #### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
 No. Use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) to meet the VM prerequisites specified in those instructions. 
@@ -123,7 +121,7 @@ No.
 
 No, private cloud hosts and clusters are dedicated and securely erased before and after use.
 
-#### What are the minimum and the maximum number of hosts per cluster?
+#### What are the minimum and maximum number of hosts per cluster?
 
 Clusters can scale between 3 and 16 ESXi hosts. Trial clusters are limited to three hosts.
 
@@ -188,7 +186,7 @@ No. Network traffic inbound from the Internet directly to private clouds isn't a
 
 #### Do I need to restrict internet access from VMs on logical networks to the internet?
 
-Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
+Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
 
 
 #### Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
