@@ -141,7 +141,7 @@ The container you create will be used to store assets related to your Stream Ana
   dotnet new classlib -o ProtobufDeserializer
   ```
 
-2. Go to the **ProtobufDeserializer** project directory and install the [Microsoft.Azure.StreamAnalytics](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics/) and [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/) NuGet packages. 
+2. Go to the **ProtobufDeserializer** project directory and install the [Microsoft.Azure.StreamAnalytics](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics/) and [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/) NuGet packages.
 
   ```dotnetcli
   dotnet add package Microsoft.Azure.StreamAnalytics
@@ -151,8 +151,7 @@ The container you create will be used to store assets related to your Stream Ana
   dotnet add package Google.Protobuf
   ```
 
-3. Add the [MessageBodyProto class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyProto.cs) and the [MessageBodyDeserializer class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyDeserializer.cs) to your project. 
-
+3. Add the [MessageBodyProto class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyProto.cs) and the [MessageBodyDeserializer class](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/MessageBodyDeserializer.cs) to your project.
 
 4. Build the **ProtobufDeserializer** project.
 
@@ -204,7 +203,7 @@ The container you create will be used to store assets related to your Stream Ana
 
 1. Open **ProtobufCloudDeserializer.asaql** and select **Run Locally** from CodeLens then choose **Use Local Input** from the dropdown list.
 
-2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code).   
+2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code).
 
    ![Check local run result](./media/custom-deserializer/check-local-run-result-vscode.png)
 
