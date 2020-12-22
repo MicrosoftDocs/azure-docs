@@ -298,7 +298,8 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Proxies aren't supported.
 - EventLog isn't supported.
 - User must be directly mapped to Azure AD server principal (login) to create, modify or execute SQL Agent jobs. Users that are not directly mapped, e.g. users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
-
+- The Multi Server Administration feature for master/target (MSX/TSX) jobs are ...
+ 
 The following SQL Agent features currently aren't supported:
 
 - Proxies
