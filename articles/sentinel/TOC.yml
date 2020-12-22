@@ -209,7 +209,7 @@
   items:
   - name: REST APIs
     href: /rest/api/securityinsights/
-  - name: Azure Sentinel connector reference
+  - name: Azure Sentinel LogicApp connector reference
     href: /connectors/azuresentinel/
   - name: Azure Monitor data reference
     href: /azure/azure-monitor/reference/
