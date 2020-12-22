@@ -209,8 +209,20 @@
   items:
   - name: REST APIs
     href: /rest/api/securityinsights/
+  - name: Azure Sentinel connector reference
+    href: /connectors/azuresentinel/
+  - name: Azure Monitor data reference
+    href: /azure/azure-monitor/reference/
   - name: Network normalization schema
     href: normalization-schema.md
+  - name: DataSource schema reference
+    href: datasource-schema-ref.md
+  - name: Kusto Query Language
+    items:
+    - name: Kusto query overview
+      href: /azure/data-explorer/kusto/query/
+    - name: Kusto Query Language quick reference
+      href: /azure/data-explorer/kql-quick-reference
 - name: Resources
   items:
   - name: Useful resources
