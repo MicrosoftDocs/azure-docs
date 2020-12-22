@@ -178,7 +178,7 @@ if __name__ == "__main__":
     # set up pytorch environment
     env = Environment.from_conda_specification(
         name='pytorch-env',
-        file_path='./azureml/pytorch-env.yml'
+        file_path='./.azureml/pytorch-env.yml'
     )
     config.run_config.environment = env
 
