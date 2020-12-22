@@ -28,11 +28,11 @@ Supported data types:
 * IIS Logs
 
 ## Using Private links
-Customer managed storage accounts are required in some use cases, when private links are used to connect to Azure Monitor resources. One such case is the ingestion of Custom logs or IIS logs. These data types are first uploaded as blobs to an intermediary Azure Storage account and only then ingested to a workspace. Similarly, some Azure Monitor solutions may use storage accounts to store large files, such as Watson dump files, which are used by the Azure Security Center solution. 
+Customer managed storage accounts are required in some use cases, when private links are used to connect to Azure Monitor resources. One such case is the ingestion of Custom logs or IIS logs. These data types are first uploaded as blobs to an intermediary Azure Storage account and only then ingested to a workspace. Similarly, some Azure Monitor solutions may use storage accounts to store large files, such as Azure Security Center (ASC) which may need to upload files. 
 
 ##### Private Link scenarios that require a customer-managed storage
 * Ingestion of Custom logs and IIS logs
-* Allowing ASC solution to collect Watson dump files
+* Allowing ASC solution to upload files
 
 ### How to use a customer-managed storage account over a Private Link
 ##### Workspace requirements
@@ -41,14 +41,15 @@ When connecting to Azure Monitor over a private link, Log Analytics agents are o
 For the storage account to successfully connect to your private link, it must:
 * Be located on your VNet or a peered network and connected to your VNet over a private link. This allows agents on your VNet to send logs to the storage account.
 * Be located on the same region as the workspace it’s linked to.
-* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should also allow this exception: “allow trusted Microsoft services to access this storage account”. This allows Log Analytics to read the logs ingested to this storage account.
+* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should select the exception: “Allow trusted Microsoft services to access this storage account”.
+![Storage account trust MS services image](./media/private-storage/storage-trust.png)
 * If your workspace handles traffic from other networks as well, you should configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
 ##### Link your storage account to a Log Analytics workspace
 You can link your storage account to the workspace via the [Azure CLI](/cli/azure/monitor/log-analytics/workspace/linked-storage) or [REST API](/rest/api/loganalytics/linkedstorageaccounts). 
 Applicable dataSourceType values:
 * CustomLogs – to use the storage for custom logs and IIS logs during ingestion.
-* AzureWatson – use the storage for Watson dump files uploaded by the ASC (Azure Security Center) solution. 
+* AzureWatson – use the storage for files uploaded by the ASC (Azure Security Center) solution. 
 For more information on managing retention, replacing a linked storage account, and monitoring your storage account activity, see [Managing linked storage accounts](#managing-linked-storage-accounts). 
 
 ## Encrypting data with CMK
