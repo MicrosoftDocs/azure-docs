@@ -42,7 +42,7 @@ Make sure that the following steps can be used to access the device from your cl
 
 <!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 
-1. Enable VM role from the Azure portal. This step creates a unique subscription for your device that is used to create VMs svia the local APIs of the device. 
+1. Enable VM role from the Azure portal. This step creates a unique subscription for your device that is used to create VMs via the local APIs of the device. 
 
     1. To enable VM role, in the Azure portal, go to the Azure Stack Edge resource for your Azure Stack Edge device. Go to **Edge compute > Virtual Machines**.
 

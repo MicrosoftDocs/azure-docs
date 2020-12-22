@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -34,9 +34,9 @@ For Azure Resource Manager, only a single user-visible fixed subscription is sup
 This subscription contains all the resources that are created required for VM creation. 
 
 > [!IMPORTANT]
-> This subscription is not connected or related to your Azure subscription and lives locally on your device.
+> This subscription is created when you enable VMs from the Azure portal and it lives locally on your device .
 
-This subscription will be used to deploy the VMs.
+This subscription is used to deploy the VMs.
 
 1.  To list this subscription, type:
 
