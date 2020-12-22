@@ -119,7 +119,7 @@ For information about when recommendations are generated for each of these prote
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|
 |[Email notifications for security alerts](security-center-provide-security-contact-details.md)|✔|✔|
-|[Asset inventory](asset-inventory.md)|-|-|
+|[Asset inventory](asset-inventory.md)|✔|✔|
 |[Azure Defender for App Service](defender-for-app-service-introduction.md)|-|-|
 |[Azure Defender for Storage](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
