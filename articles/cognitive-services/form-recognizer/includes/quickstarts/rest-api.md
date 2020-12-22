@@ -311,7 +311,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
-![A receipt from Contoso store](../media/contoso-allinone.jpg)
+![A receipt from Contoso store](../../media/contoso-allinone.jpg)
 
 The `"readResults"` node contains all of the recognized text (if you set the optional *includeTextDetails* parameter to `true`). Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
@@ -333,7 +333,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
-![A receipt from Contoso store](../media/contoso-allinone.jpg)
+![A receipt from Contoso store](../../media/contoso-allinone.jpg)
 
 The `"readResults"` node contains all of the recognized text (if you set the optional *includeTextDetails* parameter to `true`). Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
@@ -697,7 +697,7 @@ curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer
 
 You'll receive a `200 (Success)` response with JSON output. The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful contact information like the company name, first name, last name, phone number, and so on.
 
-![A business card from Contoso company](../media/business-card-english.jpg)
+![A business card from Contoso company](../../media/business-card-english.jpg)
 
 This sample illustrates the JSON output returned by Form Recognizer. It has been truncated for readability.
 
@@ -860,16 +860,16 @@ See the following invoice document and its corresponding JSON output:
 
 ## Train a custom model
 
-You'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
+You'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
 
 > [!NOTE]
-> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
+> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../../overview.md#train-with-labels) section of the overview to learn more about this feature.
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../sas-instructions.md)]
 
     # [v2.0](#tab/v2-0)    
     ```bash
@@ -1303,7 +1303,7 @@ This sample JSON output has been shortened for simplicity.
 
 ### Improve results
 
-[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
+[!INCLUDE [improve results](../improve-results-unlabeled.md)]
 
 ## Manage custom models
 
