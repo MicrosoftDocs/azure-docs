@@ -57,7 +57,7 @@ With the new Azure VMware Solution, Microsoft and VMware have a direct cloud pro
 Yes. Provided the system it's installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
 
 #### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
-No. Use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) to meet the VM prerequisites specified in those instructions. 
+No. To meet the VM prerequisites follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
 
 #### Is VMware HCX supported on VPNs?
 No, because of bandwidth and latency requirements.
@@ -69,7 +69,7 @@ Azure Bastion is the service recommended to connect to the jump box to prevent e
 No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
 
 #### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
-Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network.  To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
+Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
 
 ## Compute, network, storage, and backup
 
