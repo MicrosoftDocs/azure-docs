@@ -119,4 +119,4 @@ Get started by creating your first flow, logic app, or function app. Select any 
 
 * [Get started with Power Automate](/power-automate/getting-started)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create your first Azure function](functions-create-first-azure-function.md)
+* [Create your first Azure Function](functions-create-first-azure-function.md)
