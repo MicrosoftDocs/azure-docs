@@ -1,15 +1,15 @@
 ---
 title: Manage Python 3 packages in Azure Automation
-description: This article tells how to manage Python 3 packages in Azure Automation.
+description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ---
 
-# Manage Python 3 packages in Azure Automation
+# Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how to manage and use Python 3 packages in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
 ## Import packages
 
