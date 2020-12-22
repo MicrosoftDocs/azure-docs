@@ -116,6 +116,9 @@ mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees 
 
 If you have foreign keys in your schema, the initial load and continuous sync of the migration will fail.  Execute the following script in MySQL Workbench to extract the drop foreign key script and add foreign key script.
 
+> [!NOTE]
+> Change 'SchemaName' to your schema name in where clause.
+
 ```sql
 SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
@@ -134,7 +137,7 @@ SET group_concat_max_len = 8192;
   GROUP BY SchemaName;
  ```
 
-Run the drop foreign key (which is the second column) in the query result to drop foreign key.
+Run the drop foreign key (which is the second column) in the query result on both source and target databases to drop foreign key.
 
 > [!NOTE]
 > Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
