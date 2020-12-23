@@ -252,7 +252,7 @@ Do the following steps in the Azure portal to order a device.
     Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
    > [!NOTE]
-   > If you select Azure Premium FileStorage accounts, the provisioned quota on the file shares will increase to the size of data being copied. After the quota is increased, it isn't adjusted again, for example, if the Data Box can't copy your data for some reason.
+   > If you select Azure Premium FileStorage accounts, the provisioned quota on the file shares will increase to the size of data being copied. After the quota is increased, it isn't adjusted again, for example, if the Data Box can't copy your data for some reason. This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs.<!--Link to how to adjust the quota on an Azure storage account.-->
 
     Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
 
