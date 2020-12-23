@@ -88,6 +88,9 @@ As you configure the account, choose these values:
 
 You can accept the default values for all other settings. 
 
+** Followed article to the letter and receive a validation error on "every" attempt to make use of a Private Endpoint.  Workflow for VNet Service Endpoint works fine, although Private Endpoint errors with message "Preflight validation failed" **
+
+
 ## Step 6: Create a container
 
 Create a container in your storage account by using any of these tools or SDKs:
