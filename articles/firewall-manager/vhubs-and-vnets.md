@@ -33,7 +33,7 @@ The following table compares these two architecture options and can help you dec
 |**Automated branch connectivity using SDWAN**      |Not supported|Supported|
 |**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
 |**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated|
-|**Azure Firewall Availability Zones**     |Supported|Not yet available|
+|**Azure Firewall Availability Zones**     |Supported|Not yet available|  ** Creating a "New" Hub Virtual Network using AZFW Manager ignores the Availability Zone selection **
 |**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via security partner provider flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
 |**Multiple security provider support**|Supported with manually configured forced tunneling to third-party firewalls|Automated support for two security providers: Azure Firewall for private traffic filtering and third party for Internet filtering|
