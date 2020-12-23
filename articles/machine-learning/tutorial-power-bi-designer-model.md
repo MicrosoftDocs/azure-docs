@@ -10,6 +10,7 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
+ms.custom: designer
 ---
 
 # Tutorial:  Power BI integration - drag-and-drop to create the predictive model (part 1 of 2)

@@ -133,14 +133,19 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
+> [!NOTE]
+> Neural voices are created from samples that use a 24 khz sample rate.
+> All voices can upsample or downsample to other sample rates when synthesizing.
+
+
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
 | Arabic (Egypt) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
 | Arabic (Egypt) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>New</sup> | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>New</sup> | General |
-| Bulgarian (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
-| Bulgarian (Bulgary) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
+| Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>New</sup> | General |
@@ -288,6 +293,11 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+
+> [!NOTE]
+> With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
+> **The en-US-AriaRUS** and **en-US-GuyRUS** voices are also created from samples that use a 24 khz sample rate.
+> All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
