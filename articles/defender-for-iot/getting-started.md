@@ -97,6 +97,5 @@ If you are working with sensors that are locally connected, securely record the 
 
 ## Next steps
 
-- [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
 - [Identify required appliances](how-to-identify-required-appliances.md)
 - [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)
