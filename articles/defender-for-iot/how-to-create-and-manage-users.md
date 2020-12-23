@@ -4,18 +4,14 @@ description: Create and manage users of sensors, on-premises management consoles
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/08/2020
+ms.date: 12/21/2020
 ms.topic: article
 ms.service: azure
 ---
 
 # About Defender for IoT console and cloud users
 
-This article describes how to create and manage users of sensors, on-premises management consoles, and cloud users. You can assign users different roles which are associated with a range of permissions and tools. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
-
-## Sensor and console users
-
-You can assign sensor and on-premises management consoles users the following roles, administrator, security analyst, or read-only user. 
+This article describes how to create and manage sensor and on-premises management console users. User roles include administrators, security analysts, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
 
 Features are also available to track user activity and enable Active Directory sign-in.
 
@@ -48,6 +44,7 @@ This section describes permissions available to administrators, security analyst
 | Manage system settings |  |  | ✓ |
 | Manage users |  |  | ✓ |
 | Send alert data to partners |  |  | ✓ |
+| Manage certificates |  |  | ✓ |
 | Session timeout when users are not active | 30 minutes | 30 minutes  | 30 minutes  |
 
 #### Assign users to access groups
@@ -77,6 +74,7 @@ This section describes permissions available to sensor administrators, security 
 | View programming change history | ✓ | ✓ | ✓ |
 | Create customized alert rules |  | ✓ | ✓ |
 | Manage multiple notifications simultaneously |  | ✓ | ✓ |
+| Manage certificates |  |  | ✓ |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
 ### Define users

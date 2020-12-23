@@ -1,17 +1,17 @@
 ---
-title: Acquire hardware and software 
-description: Learn about software and hardware for certified Defender for IoT sensors and the on-premises management console. 
+title: Identify required appliances 
+description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Acquire hardware and software
+# Identify required appliances
 
-This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances. 
+This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances.
 
 This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
 

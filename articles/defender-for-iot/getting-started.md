@@ -50,7 +50,7 @@ Azure Defender for IoT supports various certified appliances:
 
 - Your own certified device and install the on-premises management console software on it. The on-premises management console is not available as a pre-configured appliance.
 
-For more information see, [Acquire hardware and software](how-to-acquire-hardware-and-software.md).
+For more information see, [Acquire hardware and software](how-to-identify-required-appliances.md).
 
 ## 2. Acquire and Install on-premises management console software
 
