@@ -67,7 +67,7 @@ const main = async () => {
 };
 
 main().catch((error) => {
-  console.log("Encountered and error");
+  console.log("Encountered an error");
   console.log(error);
 })
 ```
