@@ -1,3 +1,35 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@lyrana 
+Virginia001
+/
+azure-docs-pr
+Private
+forked from MicrosoftDocs/azure-docs-pr
+0
+0
+2.7k
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+azure-docs-pr/articles/time-series-insights/TOC.yml
+@lyrana
+lyrana Update TOC.yml
+Latest commit 5f226be 7 days ago
+ History
+ 29 contributors
+@KingdomOfEnds@shreyasharmamsft@Virginia001@BryanLa@JasonWHowell@paulth1@jborsecnik@v-alje@SnehaGunda@philmea@kgremban@sandshadow
+225 lines (225 sloc)  8.39 KB
+  
 - name: Azure Time Series Insights documentation
   href: index.yml
 - name: Overview
@@ -85,6 +117,8 @@
     href: ./how-to-ingest-data-event-hub.md
   - name: Connect to IoT Hub
     href: ./how-to-ingest-data-iot-hub.md
+  - name: Monitor Azure Time Series Insights
+    href: ./how-to-monitor-tsi.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Azure Time Series Insights Gen2
@@ -171,6 +205,8 @@
     items:
     - name: JavaScript Client SDK
       href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
+  - name: Monitor data reference
+    href: how-to-monitor-tsi-reference.md
   - name: Azure CLI
     href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
 - name: Resources
@@ -219,3 +255,15 @@
     href: https://channel9.msdn.com/Search?term=time%20series%20insights
   - name: Azure IoT updates
     href: https://azure.microsoft.com/roadmap/?category=iot
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
