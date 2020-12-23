@@ -20,7 +20,7 @@ Specifically, you learn how to:
 * Explore simulated devices.
 * Explore and configure rules.
 * Configure jobs.
-* Customize your application branding by using white labeling.
+* Customize your application branding.
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ Take a look at the **Wide World waste management dashboard**, which you see afte
 As a builder, you can create and customize views on the dashboard for operators. First, let's explore the dashboard. 
 
 >[!NOTE]
->All data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
+>All data shown in the dashboard is based on simulated device data, which you'll see  more of in the next section. 
 
 The dashboard consists of different tiles:
 
@@ -87,7 +87,7 @@ The dashboard consists of different tiles:
 
 * **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
-     ![Screenshot of Connected Waste Management Template dashboard map.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
+     ![Screenshot of Connected Waste Management Template Dashboard map.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
 * **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
@@ -138,11 +138,11 @@ Try to customize the following:
 
 Here's how:
 1. From the device template menu, select **Cloud property**.
-1. Select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property could be an alerting threshold specific to installation area, asset information, or maintenance information. 
+1. Select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information. 
 1. Select **Save**. 
  
 ### Views 
-The Connected Waste Bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties. 
+The connected waste bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties. 
 
   ![Screenshot of Connected Waste Management Template Device templates views.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
@@ -158,7 +158,7 @@ To create a new device template, select **+ New**, and follow the steps. You can
 
 In Azure IoT Central, you can create simulated devices to test your device template and application. 
 
-The Connected waste management application has two simulated devices associated with the Connected Waste Bin device template. 
+The Connected waste management application has two simulated devices associated with the connected waste bin device template. 
 
 ### View the devices
 
@@ -183,7 +183,7 @@ You can add new devices by selecting **+ New** on the **Devices** tab.
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules to automatically monitor device telemetry, and to trigger actions when one or more conditions are met. The actions might include sending email notifications, triggering an action in Power Automate, or a starting a webhook action to send data to other services.
+In Azure IoT Central, you can create rules to automatically monitor device telemetry, and to trigger actions when one or more conditions are met. The actions might include sending email notifications, triggering an action in Power Automate, or starting a webhook action to send data to other services.
 
 The Connected waste management application has four sample rules.
 
@@ -198,7 +198,7 @@ The Connected waste management application has four sample rules.
 
  1. The **Bin full alert** checks the following condition: **Fill level is greater than or equal to Bin full alert threshold**.
 
-    The **Bin full alert threshold** is a cloud property that's defined in the Connected waste bin device template. 
+    The **Bin full alert threshold** is a cloud property that's defined in the connected waste bin device template. 
 
 Now let's create an email action.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
+title: 'Tutorial: Create a solar panel monitoring app with Azure IoT Central'
 description: 'Tutorial: Learn how to create a solar panel application by using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
@@ -12,11 +12,11 @@ manager: abjork
 
 # Tutorial: Create and explore the solar panel monitoring app template 
 
-This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn how to:
+This tutorial guides you through the process of creating a solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn how to:
 
 
 > [!div class="checklist"]
-> * Create the solar panel app for free
+> * Create a solar panel app for free
 > * Walk through the application
 > * Clean up resources
 
@@ -53,7 +53,7 @@ You can create this application in three simple steps:
 
 You can modify your new solar panel app at any time. For now, ensure that the app is deployed and working as expected before you modify it.
 
-To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data. 
+To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation can take a few minutes to generate the data. 
 
 ## Application walk-through
 After you successfully deploy the app template, you'll want to explore the app a bit more. Notice that it comes with sample smart meter device, device model, and dashboard.
@@ -81,7 +81,7 @@ Select the sample device, **SP0123456789**. From the **Update Properties** tab, 
 
 
 ### Device template
-To see the solar panel device model, select the **Device templates** tab. The model has pre-defined interfaces for data, properties, commands, and views.
+To see the solar panel device model, select the **Device templates** tab. The model has predefined interfaces for data, properties, commands, and views.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of Solar Panel Monitoring Template Device templates.](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
@@ -101,4 +101,4 @@ If you decide not to continue using this application, delete your application wi
 > [!div class="nextstepaction"]
 > [Azure IoT Central - solar panel app architecture](./concept-iot-central-solar-panel-app.md)
 * [Create solar panel application templates for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [IoT Central overview](../index.yml)
+* [Azure IoT Central overview](../index.yml)
