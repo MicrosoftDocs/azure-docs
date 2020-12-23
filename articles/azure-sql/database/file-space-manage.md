@@ -117,7 +117,7 @@ Understanding the following storage space quantities are important for managing 
 |**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this condition occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
 
 > [!NOTE]
-> The error message "The elastic pool has reached its storage limit" indicates that the database objects have been allocated enough space to meet the elastic pool storage limit, but there may be unused space in the data space allocation. Consider increasing the elastic pool's storage limit, or as a short-term solution, freeing up some space using the [**Reclaim unused allocated space**](#reclaim-unused-allocated-space) section below. You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
+> The error message "The elastic pool has reached its storage limit" indicates that the database objects have been allocated enough space to meet the elastic pool storage limit, but there may be unused space in the data space allocation. Consider increasing the elastic pool's storage limit, or as a short-term solution, freeing up data space using the [**Reclaim unused allocated space**](#reclaim-unused-allocated-space) section below. You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
 
 ## Query an elastic pool for storage space information
 
@@ -210,6 +210,8 @@ DBCC SHRINKDATABASE (N'db1');
 ```
 
 Shrink commands  impact database performance while running, and if possible should be run during periods of low usage.  
+
+You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
 
 For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
