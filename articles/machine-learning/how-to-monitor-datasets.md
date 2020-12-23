@@ -90,9 +90,13 @@ Dataset monitors depend on the following Azure services.
 | *Application insights*| Drift emits metrics to Application Insights belonging to the machine learning workspace.
 | *Azure blob storage*| Drift emits metrics in json format to Azure blob storage.
 
-## Start with dataset
+### Baseline and target datasets 
 
-Use [Azure machine learning datasets](how-to-create-register-datasets.md) to monitor for data drift. Specify a baseline dataset - usually the training dataset for a model. A target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
+You monitor [Azure machine learning datasets](how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
+* Baseline dataset - usually the training dataset for a model.
+* Target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
+
+The monitor will compare the baseline and target datasets.
 
 ## Create target dataset
 
@@ -151,9 +155,9 @@ If your data is partitioned by date, as is the case here, you can also specify t
 
 ---
 
-## Create dataset monitors
+## Create dataset monitor
 
-Create dataset monitors to detect and alert to data drift on a new dataset.  Use either the [Python SDK](#sdk-monitor) or [Azure Machine Learning studio](#studio-monitor).
+Create a dataset monitor to detect and alert to data drift on a new dataset.  Use either the [Python SDK](#sdk-monitor) or [Azure Machine Learning studio](#studio-monitor).
 
 # [Python](#tab/python)
 <a name="sdk-monitor"></a>
