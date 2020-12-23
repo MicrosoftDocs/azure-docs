@@ -532,4 +532,10 @@ docker stop debug
 
 Now that you've set up VS Code Remote, you can use a compute instance as remote compute from VS Code to interactively debug your code. 
 
-[Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+Learn more about troubleshooting:
+
+* [Local model deployment](how-to-troubleshoot-deployment-local.md)
+* [Remote model deployment](how-to-troubleshoot-deployment.md)
+* [Machine learning pipelines](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

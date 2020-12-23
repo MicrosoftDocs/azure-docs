@@ -10,7 +10,7 @@ ms.service: security-center
 ms.topic: how-to
 ---
 
-# Explore and manage your resources with asset inventory and management tools
+# Explore and manage your resources with asset inventory
 
 The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
 
