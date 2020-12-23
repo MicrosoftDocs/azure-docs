@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function with Kotlin and IntelliJ 
+title: Create an Azure Function with Kotlin and IntelliJ 
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Kotlin and IntelliJ.
 author: dglover
 ms.service: azure-functions
