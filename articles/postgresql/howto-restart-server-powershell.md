@@ -17,9 +17,8 @@ your server for maintenance reasons, which causes a short outage during the oper
 The server restart is blocked if the service is busy. For example, the service may be processing a
 previously requested operation such as scaling vCores.
 
-The amount of time required to complete a restart depends on the PostgreSQL recovery process. To reduce
-the restart time, we recommend you minimize the amount of activity occurring on the server before
-the restart.
+> [!NOTE] 
+> The time required to complete a restart depends on the PostgreSQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart. You may also want to increase the checkpoint frequency. You can also tune checkpoint related parameter values including `max_wal_size`. It is also recommended to run `CHECKPOINT` command prior to restarting the server.
 
 ## Prerequisites
 
