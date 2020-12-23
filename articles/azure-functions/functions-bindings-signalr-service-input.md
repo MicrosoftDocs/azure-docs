@@ -276,5 +276,5 @@ public SignalRConnectionInfo negotiate(
 
 ## Next steps
 
-- [Handle messages from SignalR Service  (Trigger bidning)](./functions-bindings-signalr-service-trigger.md)
+- [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
 - [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md) 

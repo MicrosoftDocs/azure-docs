@@ -244,7 +244,7 @@ If you want to use more than one Function App together with one SignalR Service,
 
 ## Step by step sample
 
-You can follow the sample in Github to deploy a chat room on Function App with SignalR Service trigger binding and upstream feature: [Bidirectional Chatroom Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
+You can follow the sample in GitHub to deploy a chat room on Function App with SignalR Service trigger binding and upstream feature: [Bidirectional chat room sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## Next steps
 

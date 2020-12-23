@@ -52,6 +52,6 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 
 ## Next steps
 
-- [Handle messages from SignalR Service  (Trigger bidning)](./functions-bindings-signalr-service-trigger.md)
+- [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
 - [Return the service endpoint URL and access token (Input binding)](./functions-bindings-signalr-service-input.md)
 - [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md)
