@@ -65,9 +65,9 @@ If your script is on a local server, then you may still need additional firewall
 
     If you need to download a script externally such as from GitHub or Azure Storage, while configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the script.
 
-        Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If you've identified that Kubernetes is not needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.    
+    Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If you've identified that Kubernetes is not needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.    
 
-        ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+    ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
 ## Install Custom Script Extension
 
