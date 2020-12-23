@@ -233,7 +233,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Map to target databases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to four databases for concurrent migration. Also, there is a limit of two instances of Azure Database Migration Service per region in a subscription. For example, if you have 40 databases to migrate, you can only migrate eight of them concurrently, and only if you have created two instances of Azure Database Migration Service.
+   > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to 4 databases for concurrent migration. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region. For example, if you have 80 databases to migrate, you can migrate 40 of them to the same region concurrently, but only if you have created 10 instances of the Azure Database Migration Service.
 
 3. Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 
