@@ -37,8 +37,6 @@ Your jobs can connect to the following Azure services using this technique:
 
 If your jobs need to connect to other input or output types, then the only option is to use private endpoints in Stream Analytics clusters.
 
-You can implement machine learning models as a user-defined function (UDF) in your Azure Stream Analytics jobs to do real-time scoring and predictions on your streaming input data. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) allows you to use any popular open-source tool, such as Tensorflow, scikit-learn, or PyTorch, to prep, train, and deploy models.
-
 ## Next steps
 
 * [Create and remove Private Endpoints in Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/private-endpoints)
