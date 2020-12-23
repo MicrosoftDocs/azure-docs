@@ -363,5 +363,4 @@ Limitations and known issues for data drift monitors:
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) to set up a dataset monitor.
 * See how to set up data drift on [models deployed to Azure Kubernetes Service](./how-to-enable-data-collection.md).
-* Set up dataset drift monitors with [event grid](how-to-use-event-grid.md). 
-* See these common [troubleshooting tips](resource-known-issues.md#data-drift) if you're having problems.
+* Set up dataset drift monitors with [event grid](how-to-use-event-grid.md).
