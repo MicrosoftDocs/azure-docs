@@ -98,7 +98,7 @@ To access storage that is protected with the firewall via User Identity, you can
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
-1. Open PowerShell or [install PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)
+1. Open PowerShell or [install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
 2. Install the updated Az. Storage Module: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
