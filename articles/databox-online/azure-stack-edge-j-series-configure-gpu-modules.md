@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 12/23/2020
 ms.author: alkohli
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
@@ -29,6 +29,29 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
 1. In the Azure portal, go to the resource associated with your device. 
 
+2. Go to **Overview**. On the **IoT Edge** tile, select **How to get started?**.
+
+    ![Configure module to use GPU 1](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
+
+3. Under **Enable IoT Edge service**, click **Add**.
+
+    ![Configure module to use GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
+
+  <!--1. Provide a name for the IoT Hub resource that you want to create for your device. TO use a free tier, select an existing resource. 
+    2. Make a note of the IoT Edge device and the IoT Gateway device that are created with the IoT Hub resource. You will use this information in the later steps. - Something is missing here? They go straight from Add to viewing a completed configuration. No screen is shown for providing a & b.-->
+
+   It takes several minutes to create the IoT Hub resource. 
+
+4. After the resource is created, in the **Configure Edge compute** tile, select **View config** to view the details of the IoT Hub resource.
+
+    ![Configure module to use GPU 4](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-4.png)
+
+<!--LEGACY FLOW - ## Configure module to use GPU
+
+To configure a module to use the GPU on your Azure Stack Edge Pro device to run a module, follow these steps.
+
+1. In the Azure portal, go to the resource associated with your device. 
+
 2. Go to **Edge compute > Get started**. In the **Configure Edge compute** tile, select Configure.
 
     ![Configure module to use GPU 1](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
@@ -43,9 +66,9 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
 4. It takes several minutes to create the IoT Hub resource. After the resource is created, in the **Configure Edge compute** tile, select **View config** to view the details of the IoT Hub resource.
 
-    ![Configure module to use GPU 4](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-4.png)
+    ![Configure module to use GPU 4](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-4.png)-->
 
-5. Go to **Automatic device management > IoT Edge**.
+5. Go to **Automatic device management > IoT Edge**.<!--This doesn't follow from previous updated screen. How do they get here?-->
 
     ![Configure module to use GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
