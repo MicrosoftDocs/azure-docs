@@ -62,6 +62,7 @@ These are the parameters required by each of these spatial analysis operations.
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
+| ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
@@ -269,7 +270,11 @@ Sample JSON for an event output by this operation.
                 "x": 0.0,
                 "y": 0.0
             },
-            "metadataType": ""
+            "metadata": {
+	        "attributes": {
+	            "face_Mask": 0.99
+	        }
+	    }
         },
         {
             "type": "person",
@@ -292,8 +297,12 @@ Sample JSON for an event output by this operation.
                 "x": 0.0,
                 "y": 0.0
             },
-            "metadataType": ""
-        }
+            "metadata":{
+	        "attributes": {
+	            "face_noMask": 0.99
+	        }
+            }
+	}
     ],
     "schemaVersion": "1.0"
 }
@@ -319,6 +328,8 @@ Sample JSON for an event output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
+| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
@@ -388,7 +399,11 @@ Sample JSON for detections output by this operation.
                 ]
             },
             "confidence": 0.9005028605461121,
-            "metadataType": ""
+            "metadata": {
+	        "attributes": {
+	            "face_Mask": 0.99
+	        }
+	    }
         }
     ],
     "schemaVersion": "1.0"
@@ -412,6 +427,8 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
+| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
@@ -472,7 +489,11 @@ Sample JSON for detections output by this operation.
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": ""
+            "metadata": {
+	        "attributes": {
+	            "face_Mask": 0.99
+	        }
+	    }
         }
     ],
     "schemaVersion": "1.0"
@@ -497,6 +518,8 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
+| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
 
