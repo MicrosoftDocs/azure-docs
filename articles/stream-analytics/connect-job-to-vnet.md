@@ -1,5 +1,5 @@
 ---
-title: Connect Stream Analytics jobs to resources in a VNET
+title: Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNET)
 description: This article describes how to connect an Azure Stream Analytics job with resources that are in a VNET.
 author: sidram
 ms.author: sidram
@@ -14,8 +14,8 @@ ms.custom: devx-track-js
 Your Stream Analytics jobs make outbound connections to your input and output Azure resources to process data in real time and produce results. These input and output resources (for example, Azure Event Hubs and Azure SQL Database) could be behind an Azure firewall or in an Azure Virtual Network (VNet). Stream Analytics service operates from networks that can't be directly included in your network rules.
 
 However, there are two ways to securely connect your Stream Analytics jobs to your input and output resources in such scenarios.
-1. Using private endpoints in Stream Analytics clusters.
-2. Using Managed Identity authentication mode coupled with 'Allow trusted services' networking setting.
+* Using private endpoints in Stream Analytics clusters.
+* Using Managed Identity authentication mode coupled with 'Allow trusted services' networking setting.
 
 Your Stream Analytics job does not accept any inbound connection.
 
@@ -26,8 +26,8 @@ The creation of private endpoints in your Stream Analytics cluster is a [two ste
 
 ## Managed identity authentication with 'Allow trusted services' configuration
 Some Azure services provide **Allow trusted Microsoft services** networking setting, which when enabled, allows your Stream Analytics jobs to securely connect to your resource using strong authentication. This option allows you to connect your jobs to your input and output resources without requiring a Stream Analytics cluster and private endpoints. Configuring your job to use this technique is a 2-step operation:
-1. Use Managed Identity authentication mode when configuring input or output in your Stream Analytics job.
-2. Grant your specific Stream Analytics jobs explicit access to your target resources by assigning an Azure role to the job's system-assigned managed identity. 
+* Use Managed Identity authentication mode when configuring input or output in your Stream Analytics job.
+* Grant your specific Stream Analytics jobs explicit access to your target resources by assigning an Azure role to the job's system-assigned managed identity. 
 
 Enabling **Allow trusted Microsoft services** does not grant blanket access to any job. This gives you full control of which specific Stream Analytics jobs can access your resources securely. 
 
