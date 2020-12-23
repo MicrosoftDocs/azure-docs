@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 
-# Deploy ML models with MLflow and Azure Machine Learning (preview)
+# Deploy MLflow models with Azure Machine Learning (preview)
 
 In this article, learn how to deploy your MLflow model as an Azure Machine Learning web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
 

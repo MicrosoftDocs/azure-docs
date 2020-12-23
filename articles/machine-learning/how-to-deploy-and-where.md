@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 ---
 
-# Deploy MLflow models with Azure Machine Learning
+# Deploy models with Azure Machine Learning
 
 Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
