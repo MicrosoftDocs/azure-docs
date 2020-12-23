@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/22/2020
+ms.date: 12/23/2020
 ms.author: memildin
 
 ---
@@ -38,6 +38,7 @@ Updates in December include:
 - [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
 - [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
+- [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
 
 
 ### Azure Defender for SQL servers on machines is generally available
@@ -138,6 +139,17 @@ The inventory page in Azure Security Center has been refreshed with the followin
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
 
 Learn more about inventory in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+
+### Recommendation about web apps requesting SSL certificates no longer part of secure score
+
+The recommendation "Web apps should request an SSL certificate for all incoming requests" has been moved from the security control **Manage access and permissions** (worth a maximum of 4 pts) into **Implement security best practices** (which is worth no points). 
+
+Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+Wish this change, the recommendation is now a recommended best practice which does not impact your score. 
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 ## November 2020
 
