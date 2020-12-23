@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 12/15/2020
+ms.date: 12/23/2020
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ For import orders, following table shows the supported storage accounts.
 | General-purpose v1 Premium  |  | Y| | |
 | General-purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
 | General-purpose v2 Premium  |  |Y | | |
-| File storage Premium |  |  | Y |  |  
+| Azure Premium FileStorage |  |  | Y |  |  
 | Blob storage Standard |Y | | |Both hot and cool are supported. |
 
 \* *- Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
@@ -32,7 +32,7 @@ For export orders, following table shows the supported storage accounts.
 | General-purpose v1 Premium  |  | Y| | |
 | General-purpose v2 Standard  | Y | Y | Y | Hot, Cool|
 | General-purpose v2 Premium  |  |Y | | |
-| File storage Premium |  |  | Y |  |
+| Azure Premium FileStorage |  |  | Y |  |
 | Blob storage Standard |Y | | |Hot, Cool |
 | Block Blob storage Premium |Y | | |Hot, Cool |
 | Page Blob storage Premium | |Y | | |
