@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 12/23/2020
 ms.custom: devx-track-js
 ---
-# Connect Stream Analytics jobs to resources in a Azure Virtual Network (VNet)
+# Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNet)
 
-Your Stream Analytics jobs makes outbound connections to your input and output Azure resources to process data in real time and produce results. These input and output resources (e.g., Azure Event Hubs and Azure SQL Database) could be behind an Azure firewall or in a Azure Virtual Network (VNet). Stream Analytics service operates from networks that can't be directly included in your network rules.
+Your Stream Analytics jobs make outbound connections to your input and output Azure resources to process data in real time and produce results. These input and output resources (for example, Azure Event Hubs and Azure SQL Database) could be behind an Azure firewall or in an Azure Virtual Network (VNet). Stream Analytics service operates from networks that can't be directly included in your network rules.
 
-However, there are 2 ways to securely connect your Stream Analytics jobs to your input and output resources in such scenarios.
+However, there are two ways to securely connect your Stream Analytics jobs to your input and output resources in such scenarios.
 1. Using private endpoints in Stream Analytics clusters.
 2. Using Managed Identity authentication mode coupled with 'Allow trusted services' networking setting.
 
 Your Stream Analytics job does not accept any inbound connection.
 
 ## Private endpoints in Stream Analytics clusters.
-[Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview) is a single tenant dedicated compute cluster where you can run your Stream Analytics jobs. You can create managed private endpoints in your Stream Analytics cluster which allows any jobs running on your cluster to make a secure outbound connection to your input and output resources.
+[Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview) is a single tenant dedicated compute cluster where you can run your Stream Analytics jobs. You can create managed private endpoints in your Stream Analytics cluster, which allows any jobs running on your cluster to make a secure outbound connection to your input and output resources.
 
-The creation of private endpoints in your Stream Analytics cluster is a [2 step operation](https://docs.microsoft.com/azure/stream-analytics/private-endpoints). This option is best suited for medium to large streaming workloads as the minimum size of a Stream Analytics cluster is 36 SUs (although the 36 SUs can be shared by different jobs in various subscriptions or environments like development, test and production).
+The creation of private endpoints in your Stream Analytics cluster is a [two step operation](https://docs.microsoft.com/azure/stream-analytics/private-endpoints). This option is best suited for medium to large streaming workloads as the minimum size of a Stream Analytics cluster is 36 SUs (although the 36 SUs can be shared by different jobs in various subscriptions or environments like development, test, and production).
 
 ## Managed identity authentication with 'Allow trusted services' configuration
-Some Azure services provide **Allow trusted Microsoft services** networking setting, which when enabled enables your Stream Analytics jobs to securely connect to your resource using strong authentication. This option allows you to connect your jobs to your input and output resources without requiring a Stream Analytics cluster and private endpoints. Configuring this is a 2 step operation:
+Some Azure services provide **Allow trusted Microsoft services** networking setting, which when enabled, allows your Stream Analytics jobs to securely connect to your resource using strong authentication. This option allows you to connect your jobs to your input and output resources without requiring a Stream Analytics cluster and private endpoints. Configuring your job to use this technique is a 2-step operation:
 1. Use Managed Identity authentication mode when configuring input or output in your Stream Analytics job.
 2. Grant your specific Stream Analytics jobs explicit access to your target resources by assigning an Azure role to the job's system-assigned managed identity. 
 
@@ -35,7 +35,7 @@ Your jobs can connect to the following Azure services using this technique:
 1. [Blob Storage or Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) - can be your job's storage account, streaming input or output.
 2. [Azure Event Hubs](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) - can be your job's streaming input or output.
 
-If your jobs needs to connect to other input or output types, then the only option is to use private endpoints in Stream Analytics clusters.
+If your jobs need to connect to other input or output types, then the only option is to use private endpoints in Stream Analytics clusters.
 
 You can implement machine learning models as a user-defined function (UDF) in your Azure Stream Analytics jobs to do real-time scoring and predictions on your streaming input data. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) allows you to use any popular open-source tool, such as Tensorflow, scikit-learn, or PyTorch, to prep, train, and deploy models.
 
