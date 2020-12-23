@@ -257,7 +257,17 @@ Refer to Java [attributes and annotations](#attributes-and-annotations).
 
 ## Enable Runtime Scaling
 
-In order for the RabbitMQ trigger to scale out to multiple instances, the 'Runtime Scale Monitoring' setting must be enabled. For information on how to enable this setting, please refer [here](functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+In order for the RabbitMQ trigger to scale out to multiple instances, the **Runtime Scale Monitoring** setting must be enabled. 
+
+In the portal, this setting can be found under **Configuration** > **Function runtime settings** for your function app.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+In the CLI, you can enable **Runtime Scale Monitoring** by using the following command:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## Dead letter queues
 Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  In order to use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
