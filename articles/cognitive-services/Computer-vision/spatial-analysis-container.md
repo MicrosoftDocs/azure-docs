@@ -80,7 +80,7 @@ You won't be able to run the container if your Azure subscription has not been a
 
 ## Set up the host computer
 
-It is recommended that you use an Azure Stack Edge device for your host computer. Click **Desktop Machine** if you're configuring a different device.
+It is recommended that you use an Azure Stack Edge device for your host computer. Click **Desktop Machine** if you're configuring a different device, or **Virtual Machine** if you're utilizing a VM.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -305,6 +305,97 @@ sudo systemctl restart iotedge
 Deploy the spatial analysis container as an IoT Module on the host computer, either from the [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
 
 Use the below steps to deploy the container using the Azure CLI.
+
+---
+
+#### [Set Up an Azure VM with a GPU](#tab/virtual-machine)
+
+An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
+
+#### Create the VM
+
+Open the Azure portal and navigate to the `Create a virtual machine` wizard, shown below:
+
+[VM Image 1]
+
+Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size.
+
+[VM Image 2]
+
+To locate the VM size, select "See all sizes" and then view the list for "Non-premium storage VM sizes", shown below.
+
+[VM Image 3]
+
+Then, select either "NC6" or NC6_Promo" if it is available for a discounted price.
+
+[VM Image 4]
+
+Next, Create the VM. Once created, navigate to the VM resource in the Azure Portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
+
+[VM Image 5]
+
+Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
+
+### Verify Graphics Drivers are Installed
+
+Run the following command to verify that the graphics drivers have been successfully installed. 
+
+```bash
+nvidia-smi
+```
+
+You should see the following output:
+
+[VM Image 6]
+
+### Install Docker CE and nvidia-docker2 on the VM
+
+Run the following commands one at a time in order to install Docker CE and nvidia-docker2 on the VM.
+
+Install Docker CE on the host computer.
+
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+```
+
+
+Install the *nvidia-docker-2* software package.
+
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce nvidia-docker2
+```
+```bash
+sudo systemctl restart docker
+```
+
+Now that you have set up and configured your VM, follow the steps below to deploy the spatial analysis container. 
 
 ---
 
