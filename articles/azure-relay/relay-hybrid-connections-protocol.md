@@ -637,7 +637,7 @@ connect to is the same as for the listener, but the "action" differs and the
 token needs a different permission:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 The _namespace-address_ is the fully qualified domain name of the Azure Relay
@@ -665,7 +665,7 @@ The query string parameter options are as follows:
  parameters defined here. A complete expression may then be as follows:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 The `path` expression is passed through to the listener in the address URI contained in the "accept" control message.
@@ -702,7 +702,7 @@ HTTP requests are pointed at the entity's regular runtime address, without the
 $hc infix that is used for hybrid connections WebSocket clients.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 The _namespace-address_ is the fully qualified domain name of the Azure Relay

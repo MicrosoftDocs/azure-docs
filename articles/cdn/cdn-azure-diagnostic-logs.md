@@ -55,7 +55,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** for more information.
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  

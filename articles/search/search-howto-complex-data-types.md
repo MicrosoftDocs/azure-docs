@@ -9,7 +9,7 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/27/2020
 ---
 
 # How to model complex data types in Azure Cognitive Search
@@ -58,8 +58,6 @@ The following JSON document is composed of simple fields and complex fields. Com
   ]
 }
 ```
-
-<a name="indexing-complex-types></a>
 
 ## Indexing complex types
 

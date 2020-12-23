@@ -43,7 +43,7 @@ Security info methods are used for both two-factor security verification and for
 Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
 
 >[!Important]
-> If you have setup Microsoft Authenticator app on 5 different devices or 5 hardware tokens , you would not be able to setup a sixth one and may see the following error message.
+> If you have setup Microsoft Authenticator app on 5 different devices or 5 hardware tokens, you would not be able to setup a sixth one and may see the following error message.
 > 
 > **You can't setup Microsoft Authenticator because you already have five authenticator apps or hardware tokens. Please contact your administrator to delete one of your authenticator apps or hardware tokens.**
 

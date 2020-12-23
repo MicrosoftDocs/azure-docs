@@ -53,17 +53,24 @@ Build succeeded.
 
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
-#### [version 3.1 preview](#tab/preview)
+> [!NOTE]
+> The Form Recognizer 3.0.0 SDK reflects API version 2.0
+
+#### [version 2.1 preview](#tab/preview)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
+
+> [!NOTE]
+> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
+
 ---
 
 > [!TIP]
@@ -84,9 +91,9 @@ In the application's **Program** class, create variables for your resource's key
 
 In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later.
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
 ---
@@ -122,7 +129,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -131,7 +138,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -163,13 +170,13 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these to the root of your **Program** class.
 
-* To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Then, use the above steps to get the SAS URL of an individual document in blob storage.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). 
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
 ---
@@ -184,7 +191,7 @@ To recognize the content of a file at a given URL, use the `StartRecognizeConten
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
 
 > [!TIP]
-> You can also get content from a local file. See the [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also get content from a local file. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The rest of this task prints the content information to the console.
 
@@ -234,7 +241,7 @@ To recognize receipts from a URL, use the `StartRecognizeReceiptsFromUri` method
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
 > [!TIP]
-> You can also recognize local receipt images. See the [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also recognize local receipt images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of `RecognizedReceipt` objects: one for each page in the submitted document. The following code processes the receipt at the given URI and prints the major fields and values to the console.
 
@@ -284,11 +291,15 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-#### [version 3.0](#tab/ga)
-
-#### [version 3.1 preview](#tab/preview)
-
 ## Recognize business cards
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
+
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model.
 
@@ -297,13 +308,22 @@ To recognize business cards from a URL, use the `StartRecognizeBusinessCardsFrom
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
 
 > [!TIP]
-> You can also recognize local receipt images. See the [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also recognize local receipt images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of `RecognizedForm` objects: one for each card in the document. The following code processes the business card at the given URI and prints the major fields and values to the console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
+---
+
 ## Recognize invoices
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model.
 
@@ -312,7 +332,7 @@ To recognize invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` m
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> You can also recognize local invoice images. See the [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also recognize local invoice images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of `RecognizedForm` objects: one for each invoice in the submitted document. The following code processes the invoice at the given URI and prints the major fields and values to the console.
 
@@ -466,7 +486,7 @@ You'll use the `StartRecognizeCustomFormsFromUri` method.
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
 > [!TIP]
-> You can also analyze a local file. See the [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also analyze a local file. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) methods, such as **StartRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 

@@ -223,31 +223,16 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
-* Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
+After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
 ```
-
-Also verify that your Azure CLI version is 2.0.80 or higher:
-
-```azurecli
-az --version
-```
-
-Then sign in to Azure through the CLI:
-
-```azurecli
-az login
-```
-
-The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
-
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
 ## Clone or download the sample app
 
@@ -338,8 +323,6 @@ ENTRYPOINT ["init.sh"]
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 

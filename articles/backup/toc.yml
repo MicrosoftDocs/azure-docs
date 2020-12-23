@@ -66,6 +66,8 @@
       href: sap-hana-backup-support-matrix.md
     - name: Azure file share backup support matrix
       href: azure-file-share-support-matrix.md
+    - name: Active Directory domain controllers
+      href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
@@ -92,6 +94,8 @@
     href: backup-architecture.md
   - name: Guidance and best practices
     href: guidance-best-practices.md
+  - name: Glossary of terms
+    href: azure-backup-glossary.md
 - name: How to guides
   items:
   - name: Vaults
@@ -421,8 +425,10 @@
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
+    - name: Azure VM file recovery
+      href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
-      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md     
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow

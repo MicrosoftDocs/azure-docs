@@ -111,7 +111,7 @@ Verify any settings that might have been customized for your federation design a
 For more information, see these articles:
 
 * [AD FS prompt=login parameter support](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios after converting this domain from federated to managed authentication. After you disable federation, you sever the relationship to your on-premises federation and this includes on-premises MFA adapters. 

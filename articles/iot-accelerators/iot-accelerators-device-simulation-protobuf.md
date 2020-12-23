@@ -279,4 +279,4 @@ route based on message headers.
 
 ## Next steps
 
-Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is to learn now to [Deploy a custom image to the cloud](iot-accelerators-device-simulation-deploy-image.md).
+Now you've learned how to customize Device Simulation to use Protobuf to send telemetry, the next step is visit the GitHub repository to learn more [Device simulation](https://github.com/Azure/device-simulation-dotnet).

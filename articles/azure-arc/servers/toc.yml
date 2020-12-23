@@ -55,6 +55,8 @@
           href: manage-vm-extensions-powershell.md
         - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
+    - name: Used managed identities on server
+      href: managed-identity-authentication.md
     - name: Manage agent
       href: manage-agent.md
   - name: Scenarios
@@ -62,7 +64,7 @@
     - name: Onboard to Azure Sentinel
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Azure Security Center
-      href: /security-center/quickstart-onboard-machines.md
+      href: ../../security-center/quickstart-onboard-machines.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues

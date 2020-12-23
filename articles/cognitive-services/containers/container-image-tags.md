@@ -47,6 +47,17 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
+Release notes for `3.2-preview.1`:
+
+* New v3.2 container
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# [Previous versions](#tab/previous)
+
 Release notes for `v2.0.013250001-amd64-preview`:
 
 * Further decrease memory usage for container.
@@ -54,13 +65,6 @@ Release notes for `v2.0.013250001-amd64-preview`:
 * Fixed missing results when Redis cache is set-up and `ResultExpirationPeriod` is set to 0.
 * Remove request body size limitation of 26MB. Container can now accept >26MB files.
 * Add time stamp and build version to console logging.
-
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# [Previous versions](#tab/previous)
 
 Release notes for `1.1.013050001-amd64-preview`
 
@@ -83,6 +87,7 @@ Release notes for `1.1.013050001-amd64-preview`
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |

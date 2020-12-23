@@ -140,9 +140,9 @@ Standard provides additional mitigation capabilities over the Basic service tier
 
 |Resource|Link|
 |---|---|
-|Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](../virtual-network/ddos-protection-overview.md)|
+|Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](../ddos-protection/ddos-protection-overview.md)|
 |Azure DDoS Best Practices|[https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices](../ddos-protection/fundamental-best-practices.md)|
-|Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)|
+|Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)|
 |
 
 ### Traffic Manager

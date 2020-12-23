@@ -79,7 +79,8 @@
       href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
-      href: deploy-form-recognizer-on-container-instances.md
+      maintainContext: true 
+      href: ../containers/azure-container-instance-recipe.md
     - name: Cognitive Services containers documentation
       href: ../containers/index.yml
   - name: Back up and recover models

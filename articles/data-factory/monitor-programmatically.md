@@ -8,8 +8,8 @@ ms.workload: data-services
 
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.custom: devx-track-python
 ---

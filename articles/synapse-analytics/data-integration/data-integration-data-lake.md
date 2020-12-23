@@ -68,4 +68,4 @@ In this step, you manually trigger the pipeline published in the previous step.
 
 ## Next steps
 
-For more information on data integration for Synapse Analytics, see the [Ingesting data into a dedicated SQL pool](data-integration-sql-pool.md) article.
+For more information on data integration for Azure Synapse Analytics, see the [Ingesting data into a dedicated SQL pool](data-integration-sql-pool.md) article.

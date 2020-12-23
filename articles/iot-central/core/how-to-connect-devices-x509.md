@@ -12,13 +12,13 @@ ms.custom: device-developer
 
 # How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
 
-IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509.  X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
+IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509.  X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
 This article shows two ways of using X.509 - [group enrollments](how-to-connect-devices-x509.md#use-a-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-an-individual-enrollment) useful for testing.
 
 ## Prerequisites
 
-- Completion of [Create and connect a client application to your Azure IoT Central application (Node.js)](./tutorial-connect-device-nodejs.md) tutorial.
+- Completion of [Create and connect a client application to your Azure IoT Central application (JavaScript)](./tutorial-connect-device.md) tutorial.
 - [Git](https://git-scm.com/download/).
 - Download and install [OpenSSL](https://www.openssl.org/). If you're using Windows, you can use the binaries from the [OpenSSL page on SourceForge](https://sourceforge.net/projects/openssl/).
 
@@ -92,7 +92,7 @@ After you save the enrollment group, make a note of the ID Scope.
 
 ## Run sample device code
 
-1. Copy the **sampleDevice01_key.pem** and **sampleDevice01_cert.pem** files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
+1. Copy the **sampleDevice01_key.pem** and **sampleDevice01_cert.pem** files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
 1. Navigate to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application and run the following command to install the X.509 package:
 
@@ -144,7 +144,7 @@ After you save the enrollment group, make a note of the ID Scope.
     ```
 
     > [!TIP]
-    > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md) tutorial.
+    > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
 
 1. Execute the script and verify the device was provisioned successfully:
 
@@ -192,7 +192,7 @@ The device is now provisioned with X.509 certificate.
 
 ## Run a sample individual enrollment device
 
-1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
+1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
 1. Modify the environment variables you used in  as follows:
 

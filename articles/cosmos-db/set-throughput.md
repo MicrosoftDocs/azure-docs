@@ -132,7 +132,7 @@ You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-me
 
 As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
 
-This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint from 10 to 1 on eligible accounts.
+This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint on eligible accounts.
 
 You currently need to have at least 1 container or shared-throughput database containing more than 1 TB of data in your account to be eligible. To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
 

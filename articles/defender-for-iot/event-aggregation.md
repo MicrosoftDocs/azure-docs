@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
 ---
 
 # Defender for IoT event aggregation
 
-Defender for IoT security agents collects data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
+Defender for IoT security agents collect data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the additional quota and costs while keeping your devices protected, Defender for IoT Agents aggregate these types of events.
 
