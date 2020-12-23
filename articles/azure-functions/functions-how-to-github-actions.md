@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 
 # Continuous delivery by using GitHub Action
 
-Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your Azure function app. 
+Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your Azure Function app. 
 
 In GitHub Actions, a [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your functions app project on GitHub. 
 
@@ -197,7 +197,7 @@ The following example uses version 1 of the `functions-action` and a `publish pr
 Set up a .NET Linux workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to Azure Function App with a Linux environment
 
 on:
   [push]
@@ -236,7 +236,7 @@ jobs:
 Set up a .NET Windows workflow that uses a publish profile.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to Azure Function App with a Windows environment
 
 on:
   [push]
