@@ -41,9 +41,10 @@ To create a virtual machine (VM) in the virtual network you [identified or creat
 
 ## Connect to a virtual network with ExpressRoute
 
-If you didn't define a virtual network in the deployment step and your intent is to connect the Azure VMware Solution's ExpressRoute to an existing ExpressRoute Gateway, follow the steps below.
+>[!IMPORTANT]
+>If you've already defined a virtual network in the deployment screen in Azure, then skip to the next section.
 
-If you've already defined a virtual network in the deployment screen in Azure, then skip to the next section.
+If you didn't define a virtual network in the deployment step and your intent is to connect the Azure VMware Solution's ExpressRoute to an existing ExpressRoute Gateway, follow these steps.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
