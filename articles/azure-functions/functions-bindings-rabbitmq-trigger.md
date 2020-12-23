@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption is not supported.
+> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
