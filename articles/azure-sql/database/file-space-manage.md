@@ -78,7 +78,7 @@ Modify the following query to return the amount of database data space used.  Un
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### Database data space allocated and unused allocated space
@@ -92,7 +92,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### Database data max size
@@ -102,7 +102,7 @@ Modify the following query to return the database data max size.  Units of the q
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## Understanding types of storage space for an elastic pool
@@ -117,7 +117,7 @@ Understanding the following storage space quantities are important for managing 
 |**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this condition occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
 
 > [!NOTE]
-> The error message "The elastic pool has reached its storage limit" indicates that the database objects have been allocated enough space to meet the elastic pool storage limit, but there may be unused space in the data space allocation. Consider increasing the elastic pool's storage limit, or as a short-term solution, freeing up some space using the [**Reclaim unused allocated space**](#Reclaim-unused-allocated-space) section below. You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
+> The error message "The elastic pool has reached its storage limit" indicates that the database objects have been allocated enough space to meet the elastic pool storage limit, but there may be unused space in the data space allocation. Consider increasing the elastic pool's storage limit, or as a short-term solution, freeing up some space using the [**Reclaim unused allocated space**](#reclaim-unused-allocated-space) section below. You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
 
 ## Query an elastic pool for storage space information
 
@@ -133,7 +133,7 @@ Modify the following query to return the amount of elastic pool data space used.
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### Elastic pool data space allocated and unused allocated space
@@ -184,7 +184,7 @@ The following screenshot is an example of the output of the script:
 
 ### Elastic pool data max size
 
-Modify the following T-SQL query to return the elastic pool data max size.  Units of the query result are in MB.
+Modify the following T-SQL query to return the last recorded elastic pool data max size.  Units of the query result are in MB.
 
 ```sql
 -- Connect to master
@@ -192,13 +192,13 @@ Modify the following T-SQL query to return the elastic pool data max size.  Unit
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## Reclaim unused allocated space
 
 > [!NOTE]
-> This command can impact database performance while it is running, and if possible should be run during periods of low usage.
+> Shrink commands impact database performance while running, and if possible should be run during periods of low usage.
 
 ### DBCC shrink
 
@@ -206,24 +206,25 @@ Once databases have been identified for reclaiming unused allocated space, modif
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-This command can impact database performance while it is running, and if possible should be run during periods of low usage.  
+Shrink commands  impact database performance while running, and if possible should be run during periods of low usage.  
 
-For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
 ### Auto-shrink
 
 Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
+By default, Auto Shrink is disabled as recommended for most databases. For more information, see [Considerations for AUTO_SHRINK](/sql/admin/considerations-autogrow-autoshrink.md#considerations-for-auto_shrink).
 To enable auto shrink, modify the name of the database in the following command.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options.
+For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options.md) options.
 
 ### Rebuild indexes
 
@@ -236,5 +237,5 @@ After database data files are shrunk, indexes may become fragmented and lose the
   - [Resource limits for single databases using the DTU-based purchasing model](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database vCore-based purchasing model limits for elastic pools](resource-limits-vcore-elastic-pools.md)
   - [Resources limits for elastic pools using the DTU-based purchasing model](resource-limits-dtu-elastic-pools.md)
-- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
+- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes.md).
