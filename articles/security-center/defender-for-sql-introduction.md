@@ -49,7 +49,9 @@ These two plans include functionality for identifying and mitigating potential d
 
 - [Vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md) - The scanning service to discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
 
-- [Advanced threat protection](../azure-sql/database/threat-detection-overview.md) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
+- [Advanced threat protection](../azure-sql/database/threat-detection-overview.md) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. 
+    > [!TIP]
+    > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 ## What kind of alerts does Azure Defender for SQL provide?
@@ -70,8 +72,3 @@ In this article, you learned about Azure Defender for SQL.
 
 > [!div class="nextstepaction"]
 > [Scan your SQL servers for vulnerabilities with Azure Defender](defender-for-sql-usage.md)
-
-For related material, see the following articles: 
-
-- [How to enable Azure Defender for SQL database servers](../azure-sql/database/azure-defender-for-sql.md)
-- [The list of security alerts for SQL servers](alerts-reference.md#alerts-sql-db-and-warehouse)

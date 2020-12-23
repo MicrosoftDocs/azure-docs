@@ -196,7 +196,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> If you were previously using the PyTorch estimator to configure your PyTorch training jobs, please note that Estimators will be deprecated in a future release of the Azure ML SDK. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using DL frameworks.
+> If you were previously using the PyTorch estimator to configure your PyTorch training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## Submit your run
 
@@ -312,6 +312,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 If you would instead like to use the Gloo backend for distributed training, specify `communication_backend='Gloo'` instead. The Gloo backend is recommended for distributed CPU training.
 
 For a full tutorial on running distributed PyTorch on Azure ML, see [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+
+### Troubleshooting
+
+* **Horovod has been shut down**: In most cases, if you encounter "AbortedError: Horovod has been shut down", there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
 ## Export to ONNX
 

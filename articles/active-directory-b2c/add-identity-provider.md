@@ -36,6 +36,7 @@ You typically use only one identity provider in your applications, but you have 
 * [Facebook](identity-provider-facebook.md)
 * [Generic identity provider](identity-provider-generic-openid-connect.md)
 * [GitHub](identity-provider-github.md)
+* [ID.me](identity-provider-id-me.md)
 * [Google](identity-provider-google.md)
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)

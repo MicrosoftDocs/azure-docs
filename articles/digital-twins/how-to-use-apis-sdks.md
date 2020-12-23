@@ -27,7 +27,7 @@ This article gives an overview of the APIs available, and the methods for intera
 
 The control plane APIs are [ARM](../azure-resource-manager/management/overview.md) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
 
-The most current control plane API version is _**2020-10-31**_.
+The most current control plane API version is _**2020-12-01**_.
 
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest Swagger in the [control plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.

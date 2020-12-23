@@ -107,4 +107,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize the style of the Developer portal pages](api-management-customize-styles.md)
+> [Customize the style of the Developer portal pages](api-management-howto-developer-portal-customize.md)
