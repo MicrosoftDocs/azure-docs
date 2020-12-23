@@ -114,8 +114,8 @@ Deploy the VM as you would in any vSphere environment.  Attach the VM to one of 
 
 Log into the VM created in the previous step and verify connectivity;
 
-1. Ping an IP on the Internet.
-2. Go to an Internet site via a web browser.
+1. Ping an IP on the internet.
+2. In a web browser, go to an internet site.
 3. Ping the jump box that sits on the Azure Virtual Network.
 
 >[!IMPORTANT]
