@@ -1,8 +1,8 @@
 ---
 title: Create Custom .NET deserializers for Azure Stream Analytics cloud jobs
 description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio Code.
-author: sujie
-ms.author: sujie
+author: su-jie
+ms.author: su-jie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
@@ -95,7 +95,7 @@ You can create, test and debug a custom .NET deserializer for an Azure Stream An
 
 1. Open **ProtobufCloudDeserializer.asaql** and select **Run Locally** from CodeLens then choose **Use Local Input** from the dropdown list.
 
-2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code).   
+2. Observe the results in **Results** tab in job diagram view on the right. You can also click the steps in the job diagram to view intermediate result. More details please see [Debug locally using job diagram](debug-locally-using-job-diagram-vs-code.md).   
 
    ![Check local run result](./media/custom-deserializer/check-local-run-result-vscode.png)
 
