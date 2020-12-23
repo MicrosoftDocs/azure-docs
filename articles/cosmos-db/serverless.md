@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 12/23/2020
 ---
 
 # Azure Cosmos DB serverless (Preview)
@@ -14,7 +14,7 @@ ms.date: 11/25/2020
 > [!IMPORTANT]
 > Azure Cosmos DB serverless is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB serverless lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode.
+Azure Cosmos DB serverless lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. Serverless containers can serve thousands of requests per second with no minimum charge and no capacity planning required.
 
 > [!IMPORTANT] 
 > Do you have any feedback about serverless? We want to hear it! Feel free to drop a message to the Azure Cosmos DB serverless team: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
@@ -31,13 +31,12 @@ Azure Cosmos DB serverless best fits scenarios where you expect:
 - **Low, intermittent and unpredictable traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
 - **Moderate performance**: Because serverless containers have [specific performance characteristics](#performance)
 
-For these reasons, Azure Cosmos DB serverless should be considered for the following types of workload:
+For these reasons, Azure Cosmos DB serverless should be considered in the following situations:
 
-- Development
-- Testing
-- Prototyping
-- Proof of concept
-- Non-critical application with light traffic
+- Getting started with Azure Cosmos DB
+- Development, testing and prototyping of new applications
+- Running small-to-medium applications with intermittent traffic that is hard to forecast
+- Integrating with serverless compute services like [Azure Functions](../azure-functions/functions-overview.md)
 
 See the [how to choose between provisioned throughput and serverless](throughput-serverless.md) article for more guidance on how to choose the offer that best fits your use-case.
 
