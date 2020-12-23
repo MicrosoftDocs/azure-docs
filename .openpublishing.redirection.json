@@ -56382,14 +56382,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/kubernetes-draft.md",
-      "redirect_url": "/azure/aks/quickstart-helm",
-      "redirect_document_id": false
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-springerlink-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/springerlink-tutorial",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-sprinklr-tutorial.md",
