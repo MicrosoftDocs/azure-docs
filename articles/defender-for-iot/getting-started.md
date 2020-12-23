@@ -89,7 +89,7 @@ If you are working with sensors that are locally connected, securely record the 
 - Tweak system settings in the sensor console.
 
 - Connect sensors to an on-premises management console.
-
+[Identify required appliances](how-to-identify-required-appliances.md)
 ## 7. Populate Azure Sentinel with alert information
 
 - To send alert information to Azure Sentinel, configure Azure Sentinel: [Connect your data from Defender for IoT to Azure Sentinel](how-to-configure-with-sentinel.md).
@@ -98,5 +98,5 @@ If you are working with sensors that are locally connected, securely record the 
 ## Next steps
 
 - [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
-- [About the Defender for IoT Installation](how-to-install-software.md)
+- [Identify required appliances](how-to-identify-required-appliances.md)
 - [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)

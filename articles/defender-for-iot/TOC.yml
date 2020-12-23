@@ -99,8 +99,6 @@
         href: how-to-work with-the-sensor-console-dashboard.md
     - name: Prepare your on-premises management console
       items:
-      - name: Deploy the on-premises management console
-        href: how-to-deploy-management-console-appliance.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
