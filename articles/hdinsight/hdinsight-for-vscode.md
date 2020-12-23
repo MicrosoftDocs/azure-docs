@@ -263,7 +263,8 @@ The tool also supports the **Spark SQL** query:
 
 
 > [!NOTE]
-> Ms-python >=2020.5.78807 version is not supported on this extention  is a [known issue](#known-issues).
+>
+> ["Ms-python >=2020.5.78807 version is not supported on this extention"](#issue-changed) has been resolved. The latest ms-python version can be used for now.
 
 ## Submit PySpark batch job
 
