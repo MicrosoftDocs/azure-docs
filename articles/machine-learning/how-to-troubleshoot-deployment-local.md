@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot web service deployment locally
+title: Troubleshooting local model deployment
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Azure Machine Learning Docker deployment errors locally.
+description: Try a local model deployment as a first step in troubleshooting model deployment errors.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
-# Troubleshoot model deployment locally
+# Troubleshooting with a local model deployment
 
-Learn how to troubleshoot and solve, or work around, common Azure Machine Learning Docker web service deployment errors locally.
+Try a local model deployment as a first step in troubleshooting deployment to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS).  Using a local web service makes it easier to spot and fix common Azure Machine Learning Docker web service deployment errors.
 
 ## Prerequisites
 
@@ -28,8 +29,6 @@ Learn how to troubleshoot and solve, or work around, common Azure Machine Learni
     To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 
 ## Debug locally
-
-If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems.
 
 You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
 
