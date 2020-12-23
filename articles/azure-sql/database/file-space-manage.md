@@ -216,7 +216,8 @@ For more information about this command, see [SHRINKDATABASE](/sql/t-sql/databas
 ### Auto-shrink
 
 Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
-By default, Auto Shrink is disabled as recommended for most databases. For more information, see [Considerations for AUTO_SHRINK](/sql/admin/considerations-autogrow-autoshrink.md#considerations-for-auto_shrink).
+By default, Auto Shrink is disabled as recommended for most databases. For more information, see [Considerations for AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 To enable auto shrink, modify the name of the database in the following command.
 
 ```sql
@@ -224,7 +225,7 @@ To enable auto shrink, modify the name of the database in the following command.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options.md) options.
+For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options) options.
 
 ### Rebuild indexes
 
@@ -237,5 +238,5 @@ After database data files are shrunk, indexes may become fragmented and lose the
   - [Resource limits for single databases using the DTU-based purchasing model](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database vCore-based purchasing model limits for elastic pools](resource-limits-vcore-elastic-pools.md)
   - [Resources limits for elastic pools using the DTU-based purchasing model](resource-limits-dtu-elastic-pools.md)
-- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
-- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes.md).
+- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
