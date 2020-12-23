@@ -251,12 +251,6 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-See our quickstarts for language-specific examples:
-
-* [.NET Core, C#](/azure/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](/azure/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
-
 ### HTTP status codes
 
 The HTTP status code for each response indicates success or common errors.
