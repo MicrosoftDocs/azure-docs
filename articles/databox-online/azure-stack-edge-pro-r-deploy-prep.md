@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 12/23/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -145,7 +145,7 @@ After the resource is successfully created and deployed, you're notified. Select
 
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -153,19 +153,17 @@ If you run into any issues during the order process, see [Troubleshoot order iss
 
 After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Pro device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Select the resource that you created. Select **Overview** and then select **Device setup**.
+1. Select the resource that you created, and select **Overview**.
 
-    ![Select Device setup](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. In **Essentials**, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters.
 
-2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
+    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault.
 
-    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
-
-    Once you have specified a key vault name, select **Generate key** to create an activation key. 
+3. Once you have specified a key vault name, select **Generate activation key** to create an activation key.
 
     ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
 
 
 > [!IMPORTANT]
