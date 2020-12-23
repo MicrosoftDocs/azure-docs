@@ -21,11 +21,12 @@ Azure Machine Learning offers deployment configurations for:
  1. [Azure Container Instance (ACI)](#deploy-to-aci) which is a suitable choice for a quick dev-test deployment.
  1. [Azure Kubernetes Service (AKS)](#deploy-to-aks) which is recommended for scalable production deployments.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond the model training phase, to the  deployment phase of your production model. The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow model as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond the model training phase, to the  deployment phase of your production model.
 
 >[!NOTE]
 > As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
 
+The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow model as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
 
 ![ deploy mlflow models with azure machine learning](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
