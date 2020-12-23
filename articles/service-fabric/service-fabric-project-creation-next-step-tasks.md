@@ -9,11 +9,11 @@ ms.custom: contperf-fy21q2
 # Your Service Fabric application and next steps
 Your Azure Service Fabric application has been created. This article includes a number of resources, some more information you might be interested in, and potential [next steps](#next-steps).
 
-New users may find [tutorials, walkthroughs, and samples](#get-started-with-tutorials-walk-throughs-and-samples) helpful. It can also be useful to examine the [structure of the created application project](#the-application-project). Also included are descriptions of Service Fabric's [programming models](#learn-more-about-programming-models), [service communication](#learn-about-service-communication), [application security](#learn-about-configuring-application-security), and [application lifecycle](#learn-about-application-lifecycle).
+New users may find [tutorials, walkthroughs, and samples](#get-started-with-tutorials-walk-throughs-and-samples) helpful. It can also be useful to examine the [structure of the created application project](#the-application-project). Also included are descriptions of Service Fabric's [programming models](#learn-more-about-the-programming-models), [service communication](#learn-about-service-communication), [application security](#learn-about-configuring-application-security), and [application lifecycle](#learn-about-the-application-lifecycle).
 
 More experienced users may find the Service Fabric [best practices](#learn-about-best-practices) section useful to learn how to take advantage of the platform and structure applications with maximum efficacy.
 
-For those with questions or feedback, or who are looking to report an issue, see the [corresponding section](#have-questions-or-feedback-need-to-report-an-issue).
+For those with questions or feedback, or who are looking to report an issue, see the [corresponding section](#have-questions-or-feedback--need-to-report-an-issue).
 
 ## Get started with tutorials, walk-throughs, and samples
 Ready to get started?  
@@ -56,14 +56,14 @@ As with other platforms, a Service Fabric application usually goes through the f
 ## Learn about best practices
 Service Fabric has a number of articles describing [best practices](./service-fabric-best-practices-overview). Take advantage of this information to help ensure your cluster and application run as well as possible.
 The topics covered include:
-* [Security](./service-fabric-best-practices-security)
-* [Networking](./service-fabric-best-practices-networking)
-* [Compute planning and scaling](./service-fabric-best-practices-capacity-scaling)
-* [Infrastructure as code](./service-fabric-best-practices-infrastructure-as-code)
-* [Monitoring and diagnostics](./service-fabric-best-practices-monitoring)
-* [Application design](./service-fabric-best-practices-applications)
+* [Security](./service-fabric-best-practices-security.md)
+* [Networking](./service-fabric-best-practices-networking.md)
+* [Compute planning and scaling](./service-fabric-best-practices-capacity-scaling.md)
+* [Infrastructure as code](./service-fabric-best-practices-infrastructure-as-code.md)
+* [Monitoring and diagnostics](./service-fabric-best-practices-monitoring.md)
+* [Application design](./service-fabric-best-practices-applications.md)
 
-Also included is a [production readiness checklist](./service-fabric-production-readiness-checklist) that integrates all of the best practice information in an easy-to-consume format.
+Also included is a [production readiness checklist](./service-fabric-production-readiness-checklist.md) that integrates all of the best practice information in an easy-to-consume format.
 
 ## Have questions or feedback?  Need to report an issue?
 Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.
