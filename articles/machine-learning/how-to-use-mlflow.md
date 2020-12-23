@@ -203,7 +203,7 @@ run.get_metrics()
 
 ## Manage models 
 
-Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow related metadata such as, run id is also tagged with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs. 
+Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow related metadata such as, run ID is also tagged with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs. 
 
 If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](how-to-deploy-models-with-mlflow.md).
 
