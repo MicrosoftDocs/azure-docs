@@ -366,7 +366,7 @@ You can unlink a workspace from a cluster. After unlinking a workspace from the 
 Old data of the unlinked workspace might be left on the cluster. If this data is encrypted using customer-managed keys (CMK), the Key Vault secrets are kept. The system is abstracts this change from Log Analytics users. Users can just query the workspace as usual. The system performs cross-cluster queries on the backend as needed with no indication to users.  
 
 > [!WARNING] 
-> There is a limit of two linking operations per workspace within a month. Take time to consider and plan unlinking actions accordingly. 
+> There is a limit of two linking operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
 
 ## Delete a dedicated cluster
 
@@ -377,6 +377,9 @@ Once the cluster resource is deleted, the physical cluster enters a purge and de
 A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got disassociated from the *Cluster* resource with *Cluster* resource deletion, you need to re-associate your workspaces after the recovery. The recovery operation cannot be performed by the user contact your Microsoft channel or support for recovery requests.
 
 Within the 14 days after deletion, the cluster resource name is reserved and cannot be used by other resources.
+
+> [!WARNING] 
+> There is a limit of three clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
 **PowerShell**
 
