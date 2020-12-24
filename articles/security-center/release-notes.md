@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2020
+ms.date: 12/24/2020
 ms.author: memildin
 
 ---
@@ -39,7 +39,7 @@ Updates in December include:
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
 - [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
 - [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
-- [Regulatory compliance information available in continuous export (in preview)](#regulatory-compliance-information-available-in-continuous-export-in-preview)
+- [Continuous export gets new data types and improved deployifnotexist policies](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
 
 
 ### Azure Defender for SQL servers on machines is generally available
@@ -153,7 +153,7 @@ Wish this change, the recommendation is now a recommended best practice which do
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
-### Continuous export gets new data types and improved deployifnotexist templates
+### Continuous export gets new data types and improved deployifnotexist policies
 
 Azure Security Center's continuous export tools enable you to export Security Center's recommendations and alerts for use with other monitoring tools in your environment.
 
