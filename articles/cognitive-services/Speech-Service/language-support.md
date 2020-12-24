@@ -330,7 +330,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | English (United Kingdom) | `en-GB` | Female | `en-GB-Susan`|
 | English (United States) | `en-US` | Male | `en-US-BenjaminRUS`|
 | English (United States) | `en-US` | Male | `en-US-GuyRUS`|
-| English (United States) | `en-US` | Female | `en-US-JessaRUS`|
+| English (United States) | `en-US` | Female | `en-US-AriaRUS`|
 | English (United States) | `en-US` | Female | `en-US-ZiraRUS`|
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
 | French (Canada) | `fr-CA` | Female | `fr-CA-Caroline`|
