@@ -98,15 +98,15 @@ Before tagging and training the model, all animated characters will be named “
 1. Name the characters in Video Indexer.
 
     1. After the model created character group, it is recommended to review these groups in Custom Vision. 
-    1. To tag an animated character in your video, go to the Insights tab and click on the Edit button on the top-right corner of the window. 
-    1. In the Insights pane, click on any of the detected animated characters and change their names from "Unknown #X" to a temporary name (or the name that was previously assigned to the character). 
+    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window. 
+    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" to a temporary name (or the name that was previously assigned to the character). 
     1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer. 
 1. Paid accounts only: Review the groups in Custom Vision 
 
     > [!NOTE]
-    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about improving your classifier in Custom Vision. It’s important to note that training of the model should be done only via Video Indexer (as described in this topid), and not via the Custom Vision website. 
+    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). It’s important to note that training of the model should be done only via Video Indexer (as described in this topid), and not via the Custom Vision website. 
 
-    1. Go to the Custom Models page in Video Indexer and choose the Animated characters tab. 
+    1. Go to the **Custom Models** page in Video Indexer and choose the **Animated characters** tab. 
     1. Click on the Edit button for the model you are working on to manage it in Custom Vision. 
     1. Review each character group: 
 
@@ -119,7 +119,7 @@ Before tagging and training the model, all animated characters will be named “
 
     1. After you finished editing all names you want, you need to train the model. 
     1. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
-    1. Open the customization page and click on the Animated characters tab and then click on the Train button to train your model. In order to keep the connection between Video 
+    1. Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model. In order to keep the connection between Video 
     
 Indexer and the model, don't train the model in the Custom Vision website (paid accounts have access to Custom Vision website), only in Video Indexer. 
 Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
