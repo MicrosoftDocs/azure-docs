@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/24/2020
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -142,7 +142,8 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
-| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | No, [SQL Managed Instance is not supported](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) due to [load balancer constraint in VNet global peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | No, [SQL Managed Instance is not supported](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) due to [load balancer constraint in VNet global peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). |
+| [Elastic jobs](elastic-jobs-overview.md) | Yes - see [Elastic jobs (preview)](elastic-jobs-overview.md) | No ([SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) can be used instead). |
 
 ## Tools
 
