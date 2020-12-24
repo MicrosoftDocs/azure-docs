@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 12/23/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -149,19 +149,19 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
 
 After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Mini R device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Select the resource that you created. Select **Overview** and then select **Device setup**.
+1. Select the resource you created, and select **Overview**.
 
-    ![Select Device setup](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Select Device setup](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
+2. In the right pane, enter a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters.
 
     A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
 
-    Once you have specified a key vault name, select **Generate key** to create an activation key. 
+    Once you've specified a key vault name, select **Generate key** to create an activation key.
 
     [![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
-    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+    Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.

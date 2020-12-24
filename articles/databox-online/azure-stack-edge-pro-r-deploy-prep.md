@@ -155,16 +155,15 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Select the resource that you created, and select **Overview**.
 
-2. In **Essentials**, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters.
+2. In the right pane, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters.
 
-    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault.
+   A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is storyed in the key vault.
 
-3. Once you have specified a key vault name, select **Generate activation key** to create an activation key.
+   Once you've specified a key vault name, select **Generate activation key** to create an activation key.
 
-    ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
-
+   Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
