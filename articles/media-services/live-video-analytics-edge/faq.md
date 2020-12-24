@@ -50,9 +50,9 @@ No, we don't support Open Network Video Interface Forum (ONVIF) discovery of dev
 
 ## Streaming and playback
 
-**Can I play back assets recorded to AMS from the edge by using Media Services streaming technologies such as HLS or DASH?**
+**Can I play back assets recorded to Azure Media Services from the edge by using streaming technologies such as HLS or DASH?**
 
-Yes. You can stream recorded assets like any other asset in Azure Media Services (AMS). To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/dynamic-packaging-overview.md).
+Yes. You can stream recorded assets like any other asset in Azure Media Services. To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/dynamic-packaging-overview.md).
 
 **Can I use the standard content protection and DRM features of Media Services on an archived asset?**
 
@@ -163,7 +163,7 @@ On the server side, the score route knows who is calling. If ID=1, then it can k
 
 With a gRPC extension, each session is for a single camera feed, so there's no need to provide an ID. Now, with the extensionConfiguration property, you can store the video frames in a buffer and define the server to process (infer) after *x* number of frames are received. 
 
-**Do all ProcessMediaStreams on a particular container run the same AI model? 
+**Do all ProcessMediaStreams on a particular container run the same AI model?** 
 
 No. Start or stop calls from the end user in a graph instance constitute a session, or perhaps there's a camera disconnect or reconnect. The goal is to persist one session if the camera is streaming video. 
 
@@ -198,7 +198,7 @@ Today, we are providing bounding box coordinates as inference messages only. You
 
 Any field that you don't supply a value to is given a [default value, as specified by gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
 
-Live Video Analytics uses the *proto3* version of the protocol buffer language. All the protocol buffer data that's used by Live Video Analytics contracts is available in the [protocol buffer files defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
+Live Video Analytics uses the *proto3* version of the protocol buffer language. All the protocol buffer data that's used by Live Video Analytics contracts is available in the [protocol buffer files](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
 
 **How can I ensure that I'm using the latest protocol buffer files?** 
 
@@ -208,7 +208,7 @@ You can obtain the latest protocol buffer files on the [contract files site](htt
 microsoft.azure.media.live_video_analytics.extensibility.grpc.v1 
 ```
 
-Any updates to these files, will increment the “v-value” at the end of the name. 
+Any updates to these files will increment the "v-value" at the end of the name. 
 
 > [!NOTE]
 > Because Live Video Analytics uses the proto3 version of the language, the fields are optional, and the version is backward and forward compatible. 
