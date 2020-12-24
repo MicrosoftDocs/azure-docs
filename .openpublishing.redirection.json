@@ -16356,8 +16356,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2011-release-notes.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2012-release-notes",
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-virtual-machine-image.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-virtual-machine-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
       "redirect_document_id": false
     },
     {
