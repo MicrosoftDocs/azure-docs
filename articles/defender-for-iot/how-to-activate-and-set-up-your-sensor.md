@@ -105,7 +105,10 @@ To update sensor network configuration parameters:
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration":::
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
-1. 
+
+## Perform Password Recovery
+
+If you purchased a pre-configured appliance?
 ## Upload a certificate
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor console. After logging in to the console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.

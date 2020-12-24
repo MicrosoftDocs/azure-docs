@@ -13,7 +13,7 @@ ms.service: azure
 
 This article covers various on-premises management console options, for example, backup and restore, downloading committee device activation file, updating certificates, setting up a proxy to sensors and more.
 
-On-=premises management console onboarding is carried out from the Azure portal.
+On-premises management console onboarding is carried out from the Azure portal.
 
 ## Upload an activation file
 

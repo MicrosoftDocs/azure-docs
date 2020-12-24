@@ -14,8 +14,6 @@
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
-    - name: Set up and onboarding overview
-      href: quickstart-prepare-network-for-defender-for-iot.md
     - name: Get started with Azure Defender for IoT
       href: getting-started.md
   - name: Agent-based solution for Device Builders

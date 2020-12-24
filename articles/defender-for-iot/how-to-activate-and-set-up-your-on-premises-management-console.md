@@ -4,7 +4,7 @@ description: Management console activation and setup ensures that sensors are re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/20/2020
+ms.date: 12/24/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -43,6 +43,10 @@ To upload an activation file:
 1. Select **Choose a File** and select the file that you saved.
 
 After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+
+## Perform Password Recovery
+
+If you purchased a pre-configured appliance. TBD?For management console as well? 
 ## Set up a certificate
 
 Following management console installation, a local self-signed certificate is generated and used to access the management console. After logging in to the management console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.

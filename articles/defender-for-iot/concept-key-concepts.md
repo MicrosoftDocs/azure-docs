@@ -11,13 +11,21 @@ ms.service: azure
 
 # Basic concepts 
 
-**Rapid non-invasive deployment:** The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring. It has zero impact on OT networks since it isn’t placed in the data path and doesn’t actively scan OT device. To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component that uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as desired.
+## Rapid non-invasive deployment
 
-**Passive monitoring** with deep packet inspection (DPI): Use DPI to dissect traffic from both serial and ethernet control network equipment.
+The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring. It has zero impact on OT networks since it isn’t placed in the data path and doesn’t actively scan OT device. To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component that uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as desired.
 
-**Embedded knowledge** of ICS protocols, device, and applications: DPI alone is not enough to identify protocol anomalies and identify device at a granular level. The Defender for IoT sensor addresses some of the largest and most complex environments. In fact, more than 1300 OT networks have been analyzed to date, across all industrial sectors.
+## Passive monitoring
 
-**Analytics and self-learning engines:** Engines identify security issues via continuous monitoring and five different analytics engines that incorporate self-learning to eliminate the need for updating signatures or defining rules. The engines leverage ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies. The five engines are:
+ Use Deep Packet Inspection (DPI) to dissect traffic from both serial and ethernet control network equipment.
+
+## Embedded knowledge ##
+
+Embedded knowledge of ICS protocols, device, and applications: DPI alone is not enough to identify protocol anomalies and identify device at a granular level. The Defender for IoT sensor addresses some of the largest and most complex environments. In fact, more than 1300 OT networks have been analyzed to date, across all industrial sectors.
+
+## Analytics and self-learning engines
+
+ Engines identify security issues via continuous monitoring and five different analytics engines that incorporate self-learning to eliminate the need for updating signatures or defining rules. The engines leverage ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies. The five engines are:
 
    - **Protocol violation detection engine**: Identifies the use of packet structures and field values that violate ICS protocol specifications.
 
@@ -29,53 +37,25 @@ ms.service: azure
 
    - **Operational incident detection:** Operational issues such as intermittent connectivity that can indicate early signs of equipment failure.
 
-**Network Traffic Analysis (NTA) for risk and vulnerability assessment:** Unique in the industry, Defender for IoT uses proprietary Network Traffic Analysis (NTA) algorithms to passively identify all network and endpoint vulnerabilities such as unauthorized remote access connections, rogue, or undocumented device, weak authentication, vulnerable device (based on unpatched CVEs), unauthorized bridges between subnets and weak firewall rules.
+## Network Traffic Analysis (NTA) for risk and vulnerability assessment
 
- **Data mining for investigations, forensics, and threat hunting:** The platform provides an intuitive data mining interface for granular searching of historical traffic across all relevant dimensions. For example, time period, IP address, MAC address, ports, in addition to protocol-specific queries based on function codes, protocol services, modules. Full-fidelity PCAPs are also provided for further drill-down analysis.
+Unique in the industry, Defender for IoT uses proprietary Network Traffic Analysis (NTA) algorithms to passively identify all network and endpoint vulnerabilities such as unauthorized remote access connections, rogue, or undocumented device, weak authentication, vulnerable device (based on unpatched CVEs), unauthorized bridges between subnets and weak firewall rules.
 
-**Localization:** Many console features support an extensive range of languages.
+## Data mining for investigations, forensics, and threat hunting
 
-**Integrations:** You can expand Defender for IoT's capabilities by sharing both device and alert information with partner systems. Integrations help enterprises bridge previously siloed security solutions to significantly enhance device visibility and threat intelligence, as well as accelerate the system-wide responses and mitigate risks faster. Integrations reduce complexity and eliminate IT and OT silos by integrating them into your existing SOC workflows and security stack. For example:
+The platform provides an intuitive data mining interface for granular searching of historical traffic across all relevant dimensions. For example, time period, IP address, MAC address, ports, in addition to protocol-specific queries based on function codes, protocol services, modules. Full-fidelity PCAPs are also provided for further drill-down analysis.
 
-- SIEMs such as IBM QRadar, Splunk, ArcSight, LogRhythm, RSA NetWitness.
+## Sensor Cloud Management Mode
 
-- Security orchestration and ticketing systems such as ServiceNow, IBM Resilient.
+The sensor cloud management mode determines where device, alert, and other information detected by the sensor is displayed.
 
-- Secure remote access solutions such as CyberArk Privileged Session Manager (PSM), BeyondTrust.
+For **cloud connected sensors**, information detected by the sensor is displayed in the sensor console. In addition, alert information is delivered through an IoT Hub and can be shared with other Azure services, for example Azure Sentinel.
 
-- Secure network access control (NAC) systems such as Aruba ClearPass, Forescout CounterACT.
+For **locally connected sensor**s, information detected by the sensor is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 
-- Firewalls such as Fortinet and Checkpoint.
-- 
+## Air-gapped networks
 
-**Complete Protocol Support:** In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard. Using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plugins that decode network traffic based on defined protocols. Traffic is analyzed by services to provide complete monitoring, alerting and reporting. Use Horizon to:
-
-    - **Expand** visibility and control without the need to upgrade to new versions.
-    - **Secure** proprietary information by developing on-site as an external plugin.
-
-    - **Localize** text for alerts, events, and protocol parameters
-
-In addition, proprietary protocol alerts can be used to communicate information:
-
-- About traffic detections based on protocols and underlying protocols in a proprietary Horizon plugin.
-
-- About a combination of protocol fields from all protocol layers. For example, in an environment running MODBUS, you may want to generate an alert when the sensor detects a write command to a memory register on a specific IP address and ethernet destination, or an alert when any access is performed to a specific IP address.
-
-Alerts are triggered when Horizon alert, rule conditions, are met. 
-
-In addition, working with Horizon custom alerts lets you write your own alert titles and messages. Protocol fields and values resolved can also be embedded in the alert message text.
-
-Using custom, conditioned-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
-2.	Define a sensor management mode. The management mode determines where device, alert, and other information detected by the sensor is displayed.
-
-**Sensor Cloud Management Mode:** The sensor cloud management mode determines where device, alert, and other information detected by the sensor is displayed. 
-For cloud connected sensors, information detected by the sensor is displayed in the sensor console. In addition, alert information is delivered through an IoT Hub and can be shared with other Azure services, for example Azure Sentinel.
-
-For locally connected sensors, information detected by the sensor is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
-
-
-
-**Air-gapped networks**: If you are working in an air-gapped environment, the  Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
+If you are working in an air-gapped environment, the  Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
 
 Defender for IoT provides a consolidated view of all your devices, and critical information about them, such as type (PLC, RTU, DCS, etc.), manufacturer, model, and firmware revision level, as well as alert information.  
 
@@ -88,10 +68,53 @@ In addition to managing the data received from deployed sensors, the on-premises
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display":::
 
 It is recommended that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
+## Integrations
 
-**High availability:** Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+You can expand Defender for IoT's capabilities by sharing both device and alert information with partner systems. Integrations help enterprises bridge previously siloed security solutions to significantly enhance device visibility and threat intelligence, as well as accelerate the system-wide responses and mitigate risks faster. Integrations reduce complexity and eliminate IT and OT silos by integrating them into your existing SOC workflows and security stack. For example:
+
+- SIEMs such as IBM QRadar, Splunk, ArcSight, LogRhythm, RSA NetWitness.
+
+- Security orchestration and ticketing systems such as ServiceNow, IBM Resilient.
+
+- Secure remote access solutions such as CyberArk Privileged Session Manager (PSM), BeyondTrust.
+
+- Secure network access control (NAC) systems such as Aruba ClearPass, Forescout CounterACT.
+
+- Firewalls such as Fortinet and Checkpoint.
+
+## Complete protocol support
+
+In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard. Using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plugins that decode network traffic based on defined protocols. Traffic is analyzed by services to provide complete monitoring, alerting and reporting. Use Horizon to:
+
+- Expand visibility and control without the need to upgrade to new versions.
+- Secure  proprietary information by developing on-site as an external plugin.
+
+- Localize text for alerts, events, and protocol parameters
+
+In addition, proprietary protocol alerts can be used to communicate information:
+
+- About traffic detections based on protocols and underlying protocols in a proprietary Horizon plugin.
+
+- About a combination of protocol fields from all protocol layers. For example, in an environment running MODBUS, you may want to generate an alert when the sensor detects a write command to a memory register on a specific IP address and ethernet destination, or an alert when any access is performed to a specific IP address.
+
+Alerts are triggered when Horizon alert, rule conditions, are met.
+
+In addition, working with Horizon custom alerts lets you write your own alert titles and messages. Protocol fields and values resolved can also be embedded in the alert message text.
+
+Using custom, conditioned-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
+2.	Define a sensor management mode. The management mode determines where device, alert, and other information detected by the sensor is displayed.
+
+
+
+## High availability
+
+Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with a on-premises management console pair that includes a primary and secondary appliance.
+
+## Localization
+
+Many console features support an extensive range of languages.
 
 ## Next step
 
