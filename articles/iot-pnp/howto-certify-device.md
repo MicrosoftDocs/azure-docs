@@ -169,7 +169,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 To use the [certification portal](https://aka.ms/acdp), you must use an Azure Active Directory from your work or school tenant.
 
-To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
+To publish the models to the [Azure IoT Public Model Repository](https://github.com/Azure/iot-plugandplay-models), your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 
 ### Company profile
 
