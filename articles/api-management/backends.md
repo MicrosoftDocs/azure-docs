@@ -30,7 +30,7 @@ https://github.com/Azure-Samples/service-fabric-api-management
 
 he certificate is added to an Azure key vault.
 
-* **Sample Service Fabric app** - 
+* **Sample Service Fabric app** -  Create a Web API app and deploy to the Service Fabric cluster as described in [Integrate API Management wth Service Fabric in Azure](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 T
 * **API Management instance** - in at least Developer tier (for VNet) in same region as SF cluster and VNet.
@@ -86,6 +86,10 @@ Add this policy to the **Inbound processing** seciton. In `backend-id`, substitu
 ```
 
 :::image type="content" source="media/backends/set-backend-service.png" alt-text="Configure set-backend-service policy":::
+
+## Test backend API
+
+
 
 ## Create backend - Azure PowerShell
 
