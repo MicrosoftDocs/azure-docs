@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Mini R device. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
+This tutorial is the first in the series of deployment tutorials that are required to completely deploy a Azure Stack Edge Mini R device. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -32,7 +32,7 @@ To deploy Azure Stack Edge Mini R, refer to the following tutorials in the presc
 | --- | --- |
 | **Preparation** |These steps must be completed in preparation for the upcoming deployment. |
 | **[Deployment configuration checklist](#deployment-configuration-checklist)** |Use this checklist to gather and record information before and during the deployment. |
-| **[Deployment prerequisites](#prerequisites)** |These validate the environment is ready for deployment. |
+| **[Deployment prerequisites](#prerequisites)** |These prerequisites validate that the environment is ready for deployment. |
 |  | |
 |**Deployment tutorials** |These tutorials are required to deploy your Azure Stack Edge Mini R device in production. |
 |**[1. Prepare the Azure portal for device](azure-stack-edge-mini-r-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install the physical device. |
@@ -42,7 +42,7 @@ To deploy Azure Stack Edge Mini R, refer to the following tutorials in the presc
 |**[5. Configure device settings](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)** |Configure certificates using your own certificates, set up VPN, and configure encryption-at-rest for your device.   |
 |**[7. Activate the device](azure-stack-edge-mini-r-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. This will also create a Kubernetes cluster. |
+|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
 
 You can now begin to set up the Azure portal.
 
@@ -101,7 +101,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     
     |Setting  |Value  |
     |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
+    |Subscription    |The subscription is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 
