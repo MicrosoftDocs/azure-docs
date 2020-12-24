@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 12/23/2020
 ---
 
 # How to choose between provisioned throughput and serverless
@@ -20,7 +20,7 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Criteria | Provisioned throughput | Serverless |
 | --- | --- | --- |
 | Status | Generally available | In preview |
-| Best suited for | Mission-critical workloads requiring predictable performance | Small-to-medium non-critical workloads with light and intermittent traffic |
+| Best suited for | Mission-critical workloads requiring predictable performance | Small-to-medium workloads with light and intermittent traffic that is hard to forecast |
 | How it works | For each of your containers, you provision some amount of throughput expressed in [Request Units](request-units.md) per second. Every second, this amount of Request Units is available for your database operations. Provisioned throughput can be updated manually or adjusted automatically with [autoscale](provision-throughput-autoscale.md). | You run your database operations against your containers without having to provision any capacity. |
 | Geo-distribution | Available (unlimited number of Azure regions) | Unavailable (serverless accounts can only run in 1 Azure region) |
 | Maximum storage per container | Unlimited | 50 GB |
