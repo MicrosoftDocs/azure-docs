@@ -7,27 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 12/23/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
 
-<!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
-
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell.
+This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 ## Prerequisites
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
-
 
 
 ## Query for built in subscription on the device
@@ -37,9 +34,9 @@ For Azure Resource Manager, only a single user-visible fixed subscription is sup
 This subscription contains all the resources that are created required for VM creation. 
 
 > [!IMPORTANT]
-> This subscription is not connected or related to your Azure subscription and lives locally on your device.
+> This subscription is created when you enable VMs from the Azure portal and it lives locally on your device .
 
-This subscription will be used to deploy the VMs.
+This subscription is used to deploy the VMs.
 
 1.  To list this subscription, type:
 
@@ -190,7 +187,7 @@ If you are using *https*, then you need to install appropriate certificates on y
 
 Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account that you created in earlier steps. 
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
+<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -206,8 +203,40 @@ A sample output using AzCopy 7.3 is shown below. For more information on this co
 
 ```powershell
 AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\ /Dest:http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
+```-->
+Use the following commands with AzCopy 10:  
+
+```powershell
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>)[0].Value
+
+$endPoint = (Get-AzureRmStorageAccount -name <StorageAccountName> -ResourceGroupName <ResourceGroupName>).PrimaryEndpoints.Blob
+
+$StorageAccountContext = New-AzureStorageContext -StorageAccountName <StorageAccountName> -StorageAccountKey <StorageAccountKey> -Endpoint <Endpoint>
+
+$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context <StorageAccountContext> -Protocol HttpsOnly
+
+<AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
+Here is an example output: 
+
+```powershell
+$ContainerName = <ContainerName>
+$ResourceGroupName = <ResourceGroupName>
+$StorageAccountName = <StorageAccountName>
+$VHDPath = "Full VHD Path"
+$VHDFile = <VHDFileName>
+
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
+
+$endPoint = (Get-AzureRmStorageAccount -name $StorageAccountName -resourcegroupname $ResourceGroupName).PrimaryEndpoints.Blob
+
+$StorageAccountContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $endPoint
+
+$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
+
+C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
+```
 
 ## Create managed disks from the VHD
 
@@ -291,12 +320,19 @@ You must create one virtual network and associate a virtual network interface be
 > -   Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
 
  
-**Create a Vnet**
+**Query the automatically created Vnet**
+
+When you enable compute from the local UI of your device, a Vnet `ASEVNET` is created automatically under `ASERG` resource group. 
+Use the following command to query the existing Vnet:
 
 ```powershell
+$aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
+```
+
+<!--```powershell
 $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPrefix <Address Prefix>
 $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
-```
+```-->
 
 **Create a Vnic using the Vnet subnet ID**
 
@@ -494,72 +530,6 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 
 For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
-
-## Supported VM sizes
-
-The VM size determines the amount of compute resources like CPU, GPU, and memory that are made available to the VM. Virtual machines should be created using a VM size appropriate for the workload. Even though all machines will be running on the same hardware, machine sizes have different limits for disk access, which can help you manage overall disk access across your VMs. If a workload increases, an existing virtual machine can also be resized.
-
-The following Standard Dv2 series VMs are supported for creation on Azure Stack Edge Pro device.
-
-### Dv2-series
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
-|-------------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1_v2** |1   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
-|**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
-|**Standard_D3_v2** |4   |14  |200  |500 |12000 |16 / 16x500 |4 |
-|**Standard_D4_v2** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
-|**Standard_D5_v2** |16  |56  |800  |500 |48000 |64 / 64x500 |8 |
-
-### DSv2-series
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
-|--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |2 |
-|**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
-|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
-|**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
-|**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
-
-### Dv2-series
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
-|--------------------|----|----|-----|----|-------|-------------|---------|
-|**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
-|**Standard_D12_v2** |4   |28  |200  |500 |12000  |16 / 16x500  |4 |
-|**Standard_D13_v2** |8   |56  |400  |500 |24000  |32 / 32x500  |8 |
-|**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64x500  |8 |
-
-
-### DSv2-series
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
-
-For more information, go to [Dv2 series on General Purpose VM sizes](../virtual-machines/dv2-dsv2-series.md#dv2-series).
-
-## Unsupported VM operations and cmdlets
-
-Extension, scale sets, availability sets, snapshots are not supported.
-
-## Configure AzCopy
-
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
-
-On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
-
-### On Windows client 
-
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
-
-### On Linux client
-
-`export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`
-
-To verify if the environment variable for AzCopy was set correctly, take the following steps:
-
-1. Run "azcopy env"
-2. Find `AZCOPY_DEFAULT_SERVICE_API_VERSION` parameter. This should have the value you set in the preceding steps.
 
 
 ## Next steps
