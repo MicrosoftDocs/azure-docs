@@ -39,6 +39,7 @@ Updates in December include:
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
 - [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
 - [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Regulatory compliance information available in continuous export (in preview)](#regulatory-compliance-information-available-in-continuous-export-in-preview)
 
 
 ### Azure Defender for SQL servers on machines is generally available
@@ -150,6 +151,15 @@ Ensuring your web apps request a certificate certainly makes them more secure. H
 Wish this change, the recommendation is now a recommended best practice which does not impact your score. 
 
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### Regulatory compliance information available in continuous export (in preview)
+
+Regulatory compliance assessment data is now available in continuous export. You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national/sovereign clouds.
+
+:::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliant assessment information with your continuous export data.":::
+
+Learn more in [Continuously export Security Center data](continuous-export.md).
 
 ## November 2020
 
