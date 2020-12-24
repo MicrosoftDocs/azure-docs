@@ -35,7 +35,7 @@ To remove private endpoints later, but still use the Speech resource, you will p
 
 Private endpoints require a [Cognitive Services custom subdomain name](../cognitive-services-custom-subdomains.md). Follow the instructions below to create one for your Speech resource.
 
-> [!CAUTION]
+> [!WARNING]
 > A Speech resource with custom domain name enabled uses a different way to interact with the Speech service.
 > You probably must adjust your application code for both [private endpoint enabled](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [**not** private endpoint enabled](#use-speech-resource-with-custom-domain-name-without-private-endpoints) scenarios.
 >
@@ -53,7 +53,7 @@ To create a custom domain name using Azure portal, follow these steps:
 1. In **Firewalls and virtual networks** tab, click **Generate Custom Domain Name**. A new right panel appears with instructions to create a unique custom subdomain for your resource.
 1. In the Generate Custom Domain Name panel, enter a custom domain name portion. Your full custom domain will look like:
     `https://{your custom name}.cognitiveservices.azure.com`. 
-    **After you create a custom domain name, it _cannot_ be changed! Re-read the caution alert above.** After you've entered your custom domain name, click **Save**.
+    **After you create a custom domain name, it _cannot_ be changed! Re-read the warning alert above.** After you've entered your custom domain name, click **Save**.
 1. After the operation completes, in the **Resource management** group, click **Keys and Endpoint**. Confirm the new endpoint name of your resource starts this way:
 
     `https://{your custom name}.cognitiveservices.azure.com`
@@ -127,9 +127,9 @@ subdomainName        : my-custom-name
 
 To enable custom domain name for the selected Speech Resource, we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet.
 
-> [!CAUTION]
+> [!WARNING]
 > After the code below runs successfully, you will create a custom domain name for your Speech resource.
-> This name **cannot** be changed. See more information in the **Caution** alert above.
+> This name **cannot** be changed. See more information in the **Warning** alert above.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
@@ -142,7 +142,7 @@ $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
 # Set the custom domain name to the selected resource.
-# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
+# WARNING: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -200,7 +200,7 @@ az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and run the command below.
 
-> [!CAUTION]
+> [!WARNING]
 > After successful execution of the command below you will create a custom domain name for your Speech resource. This name **cannot** be changed. See more information in the caution alert above.
 
 ```azurecli
@@ -211,9 +211,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ## Enable private endpoints
 
-Enable private endpoint using Azure portal, Azure PowerShell, or Azure CLI.
-
-We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the Virtual Network with the necessary updates for the private endpoints, which we create by default during the provisioning process. However, if you are using your own DNS server, you may need to make additional changes to your DNS configuration. See [DNS for private endpoints](#dns-for-private-endpoints) section. The best is to decide on DNS strategy **before** provisioning private endpoint(s) for a production Speech resource. We also recommend preliminary testing, especially if you are using your own DNS server.
+We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints, which we create by default during the provisioning process. However, if you are using your own DNS server, you may need to make additional changes to your DNS configuration. See [DNS for private endpoints](#dns-for-private-endpoints) section. The best is to decide on DNS strategy **before** provisioning private endpoint(s) for a production Speech resource. We also recommend preliminary testing, especially if you are using your own DNS server.
 
 Use the following articles to create private endpoint(s). The articles are using a Web app as a sample resource to enable with private endpoints. Use instead the following parameters:
 
@@ -231,7 +229,7 @@ Use the following articles to create private endpoint(s). The articles are using
 
 Get familiar with the general principles of [DNS for private endpoints in Cognitive Services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then check that your DNS configuration is working correctly (see next subsections).
 
-#### (Mandatory check). DNS resolution from the Virtual Network
+#### (Mandatory check). DNS resolution from the virtual network
 
 We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
 
@@ -319,7 +317,7 @@ And the sample request URL above needs to be converted to:
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/transcriptions
 ```
-This URL should be reachable from the Virtual Network with the private endpoint attached (provided the [correct DNS resolution](#mandatory-check-dns-resolution-from-the-virtual-network)).
+This URL should be reachable from the virtual network with the private endpoint attached (provided the [correct DNS resolution](#mandatory-check-dns-resolution-from-the-virtual-network)).
 
 So generally speaking after enabling custom domain name for a Speech resource you need to replace hostname in all request URLs with the new custom domain hostname. All other parts of the request (like the path `/speechtotext/v3.0/transcriptions` in the example above) remain the same.
 
