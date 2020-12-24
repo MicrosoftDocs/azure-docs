@@ -149,15 +149,15 @@ To verify that the module is running, do the following:
  
 1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Verify data transform - 1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Verify data transform - 2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Verify data transform -3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer.
 
