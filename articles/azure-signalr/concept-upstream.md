@@ -50,16 +50,16 @@ http://host.com/chat/api/messages/broadcast
 
 ### Key Vault secret reference in URL template settings
 
-The url of upstream is not encryption at rest. If you have any sensitive information, you can use Key Vault to save these sensitive information. Basically, you can enable managed identity of Azure SignalR Service and then grant a read permission on a Key Vault instance and use Key Vault reference instead of plaintext in Upstream URL Pattern.
+The URL of upstream is not encryption at rest. If you have any sensitive information, it's suggested to use Key Vault to save them where access control has better insurance. Basically, you can enable the managed identity of Azure SignalR Service and then grant read permission on a Key Vault instance and use Key Vault reference instead of plaintext in Upstream URL Pattern.
 
-1. Add a system-assigned identity or user-assigned identity.
+1. Add a system-assigned identity or user-assigned identity. See [How to add managed identity in Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
 
-2. Grant a secret read permission for the managed identity in the Access policies in the Key vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 3. Replace your sensitive text with the syntax `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` in the Upstream URL Pattern.
 
 > [!NOTE]
-> The secret content only re-read when you change the Upstream settings or change the managed identity. Make sure you have granted secret read permission to the managed identity before using the Key Vault secret reference.
+> The secret content only rereads when you change the Upstream settings or change the managed identity. Make sure you have granted secret read permission to the managed identity before using the Key Vault secret reference.
 
 ### Rule settings
 
@@ -123,7 +123,7 @@ To create upstream settings by using an [Azure Resource Manager template](../azu
 
 ## Serverless protocols
 
-Azure SignalR Service sends messages to endpoints that follow the following protocols. You can use [SignalR Service trigger binding](../azure-functions/functions-bindings-signalr-service-trigger.md) with Function App, it handles these protocols for you.
+Azure SignalR Service sends messages to endpoints that follow the following protocols. You can use [SignalR Service trigger binding](../azure-functions/functions-bindings-signalr-service-trigger.md) with Function App, which handles these protocols for you.
 
 ### Method
 

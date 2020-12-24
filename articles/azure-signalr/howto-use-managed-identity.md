@@ -77,7 +77,7 @@ We provide libraries and code samples that show how to handle token validation. 
 
 #### Authentication in Function App
 
-Validate access token in Function App is easy and no code works.
+Setting access token validation in Function App is easy and efficient without code works.
 
 1. In the **Authentication / Authorization** page, switch **App Service Authentication** to **On**.
 
@@ -88,19 +88,19 @@ Validate access token in Function App is easy and no code works.
 4. In the new page. Select **Express** and **Create New AD App** and then click **OK**
     :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::
 
-5. Add a system-assigned identity or user-assigned identity.
+5. Navigate to SignalR Service and follow [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 
 6. Get into **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 
-After these settings, the Function App will reject requests without access token in the header and SignalR Service will also send requests with access token.
+After these settings, the Function App will reject requests without an access token in the header.
 
 ## Use a managed identity for Key Vault reference
 
 SignalR Service can access Key Vault to get secret using the managed identity.
 
-1. Add a system-assigned identity or user-assigned identity.
+1. Add a system-assigned identity or user-assigned identity for Azure SignalR Service.
 
-2. Grant a secret read permission for the managed identity in the Access policies in the Key vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 Currently, this feature can be used in the following scenarios:
 
