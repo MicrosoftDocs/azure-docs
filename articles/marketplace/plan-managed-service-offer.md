@@ -91,20 +91,19 @@ You can use HTML tags to format your description. For information about HTML for
 
 **Support URLs** (optional): if you have support websites for Azure Global Customers and/or Azure Government customers, provide those URLs.
 
-**Marketplace media – logos**: provide a PNG file for the large-size logo of your offer. Partner Center will use it to create wide, medium, and small logos. You can optionally replace these logos with a different image later.
+**Marketplace media – logos**: provide a PNG file for the large-size logo of your offer. Partner Center will use it to create medium and small logos. You can optionally replace these logos with a different image later.
 
 * The large logo (from 216 x 216 to 350 x 350 px) appears on your offer listing on Azure Marketplace.
-* The wide logo (255 x 115 px) is displayed on the Azure portal.
 * The medium logo (90 x 90 px) is shown when a new resource is created.
 * The small logo (48 x 48 px) is used on the Azure Marketplace search results.
 
 Follow these guidelines for your logos:
 
-*	Make sure the image isn't stretched.
-*	The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
-*	The Azure portal colors are white and black. Don't use these as the background of your logo. We recommend simple primary colors that make your logo prominent.
-*	If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
-*	The look and feel of your logo should be flat. Avoid gradients. Don't place text on the logo, not even your company or brand name.
+* Make sure the image isn't stretched.
+* The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
+* The Azure portal colors are white and black. Don't use these as the background of your logo. We recommend simple primary colors that make your logo prominent.
+* If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
+* The look and feel of your logo should be flat. Avoid gradients. Don't place text on the logo, not even your company or brand name.
 
 **Marketplace media – screenshots** (optional): Add up to five images that demonstrate how your offer works. All images must be 1280 x 720 pixels in size and in .PNG format.
 
