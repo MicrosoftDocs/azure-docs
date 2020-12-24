@@ -93,7 +93,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     `rsync <source file path> < destination file path>`
 
-    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
+    For more information about the `rsync` command, go to [`Rsync` documentation](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
