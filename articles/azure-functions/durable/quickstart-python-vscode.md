@@ -75,14 +75,14 @@ Python Azure Functions require version 2.x of [Azure Functions extension bundles
 
 When you created the project, the Azure Functions VS Code extension automatically created a virtual environment with your selected Python version. You will activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
 
-1. Open `requirements.txt` in the editor and change its content to the following:
+1. Open *requirements.txt* in the editor and change its content to the following:
 
     ```
     azure-functions
     azure-functions-durable>=1.0.0b12
     ```
 
-1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl-Shift-`</kbd>).
+1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl+Shift+`</kbd>).
 
 1. In the integrated terminal, activate the virtual environment in the current folder:
 
@@ -214,7 +214,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, press <kbd>Shift+F5</kbd> in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
