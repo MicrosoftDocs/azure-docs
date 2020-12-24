@@ -62,7 +62,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
    ![Configure module to use GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-   In the right pane, you see the IoT Edge device associated with your Azure Stack Edge Pro device. This corresponds to the IoT Edge device you created <!-- NO LONGER TRUE; specific enough without a step reference? - in the previous step--> when creating the IoT Hub resource.
+   In the right pane, you see the IoT Edge device associated with your Azure Stack Edge Pro device - that. This device corresponds to the IoT Edge device you created <!-- NO LONGER TRUE; specific enough without a step reference? - in the previous step--> when creating the IoT Hub resource.
  
 8. Select this IoT Edge device.
 
@@ -90,7 +90,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
     1. To have the current module use one GPU on this device, use the NVIDIA_VISIBLE_DEVICES. 
 
-    2. Set the value to 0 or 1. This ensures that atleast one GPU is used by the device for this module. When you set the value to 0, 1, that implies that both the GPUs on your device are being used by this module.
+    2. Set the value to 0 or 1. A value of 0 or 1 ensures that at least one GPU is used by the device for this module. When you set the value to 0, 1, that implies that both the GPUs on your device are being used by this module.
 
        ![Configure module to use GPU 11](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-7.png)
 

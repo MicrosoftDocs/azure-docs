@@ -89,7 +89,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
         ![Add an Edge share](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
+    If you created a local NFS share, use the following remote sync (`rsync`) command option to copy files onto the share:
 
     `rsync <source file path> < destination file path>`
 
