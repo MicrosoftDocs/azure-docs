@@ -58,7 +58,7 @@ A requirements.txt file is also created in the root folder. It specifies the Pyt
 
 ## Update Azure Functions extension bundles version
 
-Python Azure Functions require version 2.x of [Azure Functions extension bundles](../functions-bindings-register#access-extensions-in-non-net-languages). Extension bundles are configured in *host.json*.
+Python Azure Functions require version 2.x of [Azure Functions extension bundles](../functions-bindings-register.md#access-extensions-in-non-net-languages). Extension bundles are configured in *host.json*.
 
 Open *host.json* in the project. Update the extension bundle `version` to `[2.*, 3.0.0)`. This specifies a version range that is greater than or equal to 2.0, and less than 3.0.
 
