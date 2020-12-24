@@ -5,13 +5,6 @@
   items:
   - name: Solution architecture
     href: architecture.md
-  - name: Security Module for Azure RTOS
-    href: iot-security-azure-rtos.md
-  - name: Edge security module
-    href: security-edge-architecture.md
-    items:
-    - name: Security agents
-      href: overview-security-agents.md
   - name: What's New
     href: overview-release-notes.md
 - name: Quickstarts
@@ -54,11 +47,16 @@
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS
+      href: iot-security-azure-rtos.md
       items: 
         - name: Understand the Security Module for Azure RTOS
           href: concept-rtos-security-module.md
         - name: Security Module for Azure RTOS alerts and recommendations 
           href: concept-rtos-security-alerts-recommendations.md
+    - name: Edge security module
+      href: security-edge-architecture.md
+    - name: Security agents
+      href: overview-security-agents.md
     - name: Security agent authentication
       href: concept-security-agent-authentication-methods.md
     - name: Security module
@@ -101,8 +99,6 @@
         href: how-to-work with-the-sensor-console-dashboard.md
     - name: Prepare your on-premises management console
       items:
-      - name: Deploy the on-premises management console
-        href: how-to-deploy-management-console-appliance.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
@@ -146,7 +142,7 @@
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information
-        href: how-to-forward-alert-information-to-partners.md=
+        href: how-to-forward-alert-information-to-partners.md
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Work with alerts on the on-premises management console

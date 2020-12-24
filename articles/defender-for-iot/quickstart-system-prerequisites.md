@@ -28,9 +28,5 @@ For more information, see [IoT Hub supported regions](https://azure.microsoft.co
 
 ## See also
 
-<<<<<<< HEAD
-- [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)
-=======
-- [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
+- [Identify required appliances](how-to-identify-required-appliances.md)
 - [About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
->>>>>>> a3dba95db7a7bd1af299485bb0b072ccadfa11da
