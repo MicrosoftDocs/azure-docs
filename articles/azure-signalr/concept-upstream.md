@@ -70,7 +70,7 @@ You can set rules for *hub rules*, *category rules*, and *event rules* separatel
 
 > [!NOTE]
 > If you're using Azure Functions and [SignalR trigger](../azure-functions/functions-bindings-signalr-service-trigger.md), SignalR trigger will expose a single endpoint in the following format: `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>`.
-> You can just configure **URL template settings** to this url and keep **Rule settings** default. See [SignalR Service integration](../azure-functions/functions-bindings-signalr-service-trigger.md#signalR-service-integration) for details about how to find `<Function_App_URL>` and `<API_KEY>`.
+> You can just configure **URL template settings** to this url and keep **Rule settings** default. See [SignalR Service integration](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) for details about how to find `<Function_App_URL>` and `<API_KEY>`.
 
 ### Authentication settings
 

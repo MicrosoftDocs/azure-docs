@@ -86,7 +86,7 @@ Validate access token in Function App is easy and no code works.
 3. In the Authentication Provider, click into **Azure Active Directory**
 
 4. In the new page. Select **Express** and **Create New AD App** and then click **OK**
-    :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="function-aad":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::
 
 5. Add a system-assigned identity or user-assigned identity.
 

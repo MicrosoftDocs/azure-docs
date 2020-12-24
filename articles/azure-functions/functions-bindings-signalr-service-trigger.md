@@ -229,7 +229,7 @@ For the parameter binding, the order matters. If you are using `ParameterNames`,
 
 SignalR Service needs a URL to access Function App when you're using SignalR Service trigger binding. The URL should be configured in **Upstream Settings** in SignalR Service side. 
 
-:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="upstream-portal":::
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Upstream Portal":::
 
 When using SignalR Service trigger, the URL can be simple and formatted as following:
 
