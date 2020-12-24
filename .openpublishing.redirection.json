@@ -16361,12 +16361,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-j-series-virtual-machine-image.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-virtual-machine-image",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-j-series-virtual-machine-image.md",
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-virtual-machine-image.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-virtual-machine-image",
       "redirect_document_id": false
     },
