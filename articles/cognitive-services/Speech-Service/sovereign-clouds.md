@@ -16,10 +16,10 @@ ms.author: alexeyo
 
 ## Azure Government (United States)
 
-Available to US government entities and their partners only. See more information about Azure Government [here.](/azure-government/documentation-government-welcome)
+Available to US government entities and their partners only. See more information about Azure Government [here.](../../azure-government/documentation-government-welcome.md)
 
 - **Azure portal:**
-  - `https://portal.azure.us/`
+  - [https://portal.azure.us/](https://portal.azure.us/)
 - **Regions:**
   - US Gov Arizona
   - US Gov Virginia
@@ -88,11 +88,11 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 
 ## Azure China
 
-Available to organizations with a business presence in China. See more information about Azure China [here.](/china/overview-operations)
+Available to organizations with a business presence in China. See more information about Azure China [here.](/azure/china/overview-operations) 
 
 
 - **Azure portal:**
-  - `https://portal.azure.cn/`
+  - [https://portal.azure.cn/](https://portal.azure.cn/)
 - **Regions:**
   - China East 2
 - **Available pricing tiers:**
