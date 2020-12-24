@@ -44,11 +44,11 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
     ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. In **Enable IoT Edge service** tile, select **Add**.
+2. In **Enable IoT Edge service**, select **Add**.
 
     ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. In **Create IoT Edge service**, enter the settings for your IoT Hub resource:
+3. In **Create IoT Edge service**, enter settings for your IoT Hub resource:
 
    |Field   |Value    |
    |--------|---------|
