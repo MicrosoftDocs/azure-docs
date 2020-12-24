@@ -13,6 +13,9 @@ ms.topic: how-to
 
 ## Frequently asked questions
 
+### I am not able to list or get secrets/keys/certificate. I am seeing "something went wrong.." Error.
+If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+
 ### How can I identify how and when key vaults are accessed?
 
 After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do monitoring by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](./logging.md).

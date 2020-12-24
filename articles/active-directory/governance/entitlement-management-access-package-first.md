@@ -115,6 +115,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 11. In the **Role** drop-down list, select **Member**.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
     >The role-assignable groups added to an access package will be indicated using the Sub Type **Assignable to roles**. Refer to [Create a role-assignable group](../roles/groups-create-eligible.md) in Azure Active Directory for more details on groups assignable to Azure AD roles. If you don't see a role-assignable group that you want to add or you are unable to add it, make sure you have the required Azure AD role and entitlement management role to perform this operation. You might need to ask someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 

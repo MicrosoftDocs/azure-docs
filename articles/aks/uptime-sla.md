@@ -20,16 +20,8 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## Region availability
 
-Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-## Limitations
-
-Private clusters are only supported in the following regions:
- *  East US
- *  West US
- *  West US2
- *  North Central US
- *  West Central US
+* Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* Uptime SLA is available for [private AKS clusters][private-clusters] in all regions where AKS is supported.
 
 ## SLA terms and conditions
 
@@ -140,3 +132,4 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

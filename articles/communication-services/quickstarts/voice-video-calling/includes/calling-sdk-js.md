@@ -47,7 +47,7 @@ To access the `DeviceManager` a callAgent instance must first be created. You ca
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -85,7 +85,9 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 To place a video call, you have to enumerate local cameras using the deviceManager `getCameraList` API.
 Once you select the desired camera, use it to construct a `LocalVideoStream` instance and pass it within `videoOptions`
 as an item within the `localVideoStream` array to the `call` method.
-Once your call connects it'll automatically start sending a video stream from the selected camera to the other participant(s)
+Once your call connects it'll automatically start sending a video stream from the selected camera to the other participant(s).
+
+This also applies to the Call.accept() video options and CallAgent.join() video options.
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -95,14 +97,42 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
+### Receiving an incoming call
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+	    addedCall.accept();
+	}
+    });
+})
+```
+
 ### Join a group call
 To start a new group call or join an ongoing group call, use the 'join' method
 and pass an object with a `groupId` property. The value has to be a GUID.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callAgent.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### Join a Teams Meeting
+To join a Teams meeting, use 'join' method and pass a meeting link or a meeting's coordinates
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+	threadId: <thread id>,
+	organizerId: <organizer id>,
+	tenantId: <tenant id>,
+	messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## Call Management
@@ -159,6 +189,11 @@ const callEndReason = call.callEndReason;
 * To learn if the current call is an incoming call, inspect the `isIncoming` property, it returns `Boolean`.
 ```js
 const isIncoming = call.isIncoming;
+```
+
+* To check if the call is being recorded, inspect the `isRecordingActive` property, it returns `Boolean`.
+```js
+const isResordingActive = call.isRecordingActive;
 ```
 
 *  To check if the current microphone is muted, inspect the `muted` property, it returns `Boolean`.

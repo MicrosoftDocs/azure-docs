@@ -1418,7 +1418,7 @@ Jump to a resource provider namespace:
 > | networkinterfaces | Yes | Yes |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Yes | Yes |
-> | networkwatchers | Yes | No |
+> | networkwatchers | No | No |
 > | networkwatchers / connectionmonitors | Yes | No |
 > | networkwatchers / flowlogs | Yes | No |
 > | networkwatchers / pingmeshes | Yes | No |
