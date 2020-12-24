@@ -103,6 +103,9 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government clouds
 
+Security Center's deployments on government clouds strive for feature parity with our commercial cloud deployments. Some features have external dependencies that mean this isn't always possible. For example, our vulnerability assessment solutions are powered by Qualys, the multi-cloud support depends on Azure Arc, Amazon Web Services, and Google Cloud Platform. Other features, such as adaptive networking hardening, which applies to internet-facing VMs, don’t make sense in the government  environments. Lastly, some of the features below (such as Azure Defender for DNS) are currently in preview and features usually don’t reach parity before they're offered in general availability.
+
+
 | Service / Feature | US Gov | China Gov |
 |------|:----:|:----:|
 |[Just-in-time VM access](security-center-just-in-time.md) (1)|✔|✔|
