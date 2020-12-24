@@ -62,7 +62,7 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
-1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
+1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
     - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
     - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
