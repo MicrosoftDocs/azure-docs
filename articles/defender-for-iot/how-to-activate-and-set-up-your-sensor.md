@@ -106,14 +106,14 @@ To update sensor network configuration parameters:
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
 1. 
-## Uplaod a certificate
+## Upload a certificate
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor console. After logging in to the console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
 
 Two levels of security are available:
 
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-- Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
+- Allow validation between the management console and connected sensors. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
 
 The following types of certificates are supported:
 

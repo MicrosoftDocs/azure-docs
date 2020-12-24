@@ -13,7 +13,7 @@ ms.service: azure
 
 This article provides an overview of the sensor deployment process. Sensors must be onboarded to the Defender for IoT portal. This process requires acquiring a preconfigured sensor or acquiring a certified sensor appliance and installing the sensor software yourself.
 
-If you are working with a certified sensor appliance, reviewreview the [Defender for IoT hardware specifications guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) before you begin.
+If you are working with a certified sensor appliance, **reviewreview the [Defender for IoT hardware specifications guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) before you begin.**
 
 > [!NOTE]
 > The Defender for IoT on-premises management console does not need to be onboarded.
@@ -142,7 +142,7 @@ To upload the activation file:
    - Default gateway
    - Subnet mask
    - Host name
- 
+
    You may want to update this information before activating the sensor because:
    - You need to change the preconfigured parameters defined  
    - You want to reconfigure network parameters post installation
@@ -153,10 +153,11 @@ To upload the activation file:
    :::image type="content" source="media/updates/network-config-v2.png" alt-text="Screenshot of Edit Network Configuration view":::
 
 8. The parameters defined during installation are displayed. An option is also available define proxy. Update as required and select **Save**.
- 
- 
+
 ## Next steps
 
 In this article, you learned how to deploy and onboard sensors. To learn more about getting started, see the following article:
 
 - [Getting started with Defender for IoT](getting-started.md)
+
+

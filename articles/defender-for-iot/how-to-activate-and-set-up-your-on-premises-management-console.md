@@ -50,7 +50,7 @@ Following management console installation, a local self-signed certificate is ge
 Two levels of security are available:
 
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-- Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
+- Allow validation between the management console and connected sensors. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
 
 The following types of certificates are supported:
 
@@ -70,8 +70,9 @@ You may need to refresh your screen after uploading the CA-signed certificate.
 To disable validation between the management console and connected sensors:
 
 1. Select **Next**.
+1. Disable  the **Enable system-wide validation...** toggle.
 
-1.Turn-off  **Enable system-wide validation...**.  
+
 
 For information about uploading a new certificate, supported certificate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
