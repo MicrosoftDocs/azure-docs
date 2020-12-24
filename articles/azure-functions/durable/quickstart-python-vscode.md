@@ -60,16 +60,16 @@ A requirements.txt file is also created in the root folder. It specifies the Pyt
 
 Python Azure Functions require version 2.x of [Azure Functions extension bundles](../functions-bindings-register.md#access-extensions-in-non-net-languages). Extension bundles are configured in *host.json*.
 
-Open *host.json* in the project. Update the extension bundle `version` to `[2.*, 3.0.0)`. This specifies a version range that is greater than or equal to 2.0, and less than 3.0.
+1. Open *host.json* in the project. Update the extension bundle `version` to `[2.*, 3.0.0)`. This specifies a version range that is greater than or equal to 2.0, and less than 3.0.
 
-```json
-"extensionBundle": {
-  "id": "Microsoft.Azure.Functions.ExtensionBundle",
-  "version": "[2.*, 3.0.0)"
-}
-```
+    ```json
+    "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+    }
+    ```
 
-VS Code must be reloaded before the updated extension bundle version is reflected. In the command palette, run search for the *Developer: Reload Window* command and run it.
+1. VS Code must be reloaded before the updated extension bundle version is reflected. In the command palette, run search for the *Developer: Reload Window* command and run it.
 
 ## Install azure-functions-durable from PyPI
 
