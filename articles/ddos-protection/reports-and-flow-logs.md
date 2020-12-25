@@ -68,39 +68,7 @@ Attack mitigation flow logs allow you to review the dropped traffic, forwarded t
 
 This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) creates an Azure Policy definition to enable diagnostic logging.
 
-### Azure Sentinel data connector
-
-You can connect attack mitigation flow logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
-
-![Azure Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
-
-### Azure DDoS Protection Workbook
-
-You can use this Azure Resource Manager (ARM) template to deploy an attack analytics workbook. This workbook always you to visualize attack data across several filterable panels to easily understand what’s at stake. When deploying this ARM Template, you'll be required to fill in the following:
-
-* Workspace Name
-* Workspace ResourceGroup
-* Workspace Subscription ID
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
-
-The flow logs will have the following fields: 
-- Source IP
-- Destination IP
-- Source Port 
-- Destination port 
-- Protocol type 
-- Action taken during mitigation
-
-![DDoS Protection Workbook](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
-
-Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
-
 ## Log schemas
-
-### Example log: DDoSMitigationReports
-
-
 
 The following table lists the field names and descriptions:
 
@@ -109,7 +77,7 @@ The following table lists the field names and descriptions:
 | Field name | Description |
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the flow log was created. |
-| **ResourceId** | The resource ID of the public IP address. |
+| **ResourceId** | The resource ID of your public IP address. |
 | **Category** | For flow logs, this will be `DDoSMitigationFlowLogs`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
@@ -128,7 +96,7 @@ The following table lists the field names and descriptions:
 | Field name | Description |
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the flow log was created. |
-| **ResourceId** | The resource ID of the public IP address. |
+| **ResourceId** | The resource ID of your public IP address. |
 | **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
@@ -144,7 +112,7 @@ The following table lists the field names and descriptions:
 | Field name | Description |
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the flow log was created. |
-| **ResourceId** | The resource ID of the public IP address. |
+| **ResourceId** | The resource ID of your public IP address. |
 | **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
@@ -157,12 +125,33 @@ The following table lists the field names and descriptions:
 | **IPAddress** | Your public IP address. |
 | **AttackVectors** |  Breakdown of attack types. Possible values include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
 | **TrafficOverview** |  Possible keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, Total UDP packets dropped`, Total Other packets`, `Total Other packets dropped`. |
-| **Protocols** | Possible values include: </br> |
+| **Protocols** | Possible values include `TCP`, `UDP`, `Other`. |
 | **DropReasons** | Possible keys include `Invalid TCP SYN`, `Invalid TCP`, `Invalid UDP`, `UDP reflection`, `TCP destination based rate limit`, `TCP source based rate limit`, `UDP destination based rate limit`, `UDP source based rate limit`.  |
 | **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
 | **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
 | **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
 | **SourceContinents** | Breakdown of the source continents of incoming traffic. |
+---
+
+### Azure Sentinel data connector
+
+You can connect attack mitigation flow logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
+
+![Azure Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
+
+### Azure DDoS Protection Workbook
+
+You can use this Azure Resource Manager (ARM) template to deploy an attack analytics workbook. This workbook always you to visualize attack data across several filterable panels to easily understand what’s at stake. When deploying this ARM Template, you'll be required to fill in the following:
+
+* Workspace Name
+* Workspace ResourceGroup
+* Workspace Subscription ID
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+
+![DDoS Protection Workbook](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
+
+Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
 ## Next steps
 
