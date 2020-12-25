@@ -25,7 +25,7 @@ The peek operation on a non-partitioned entity always returns the oldest message
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 >[!NOTE]
-> The peek operation returns the oldest message from the partion based on its SequenceNumber. For partioned entities, the sequence number is issued relative to the partition. For more information, see [Message sequencing and timestamps](../service-bus-messaging/message-sequencing.md).
+> The peek operation returns the oldest message from the partition based on its Sequence Number. For partitioned entities, the sequence number is issued relative to the partition. For more information, see [Message sequencing and timestamps](../service-bus-messaging/message-sequencing.md).
 
 ## Enable partitioning
 
