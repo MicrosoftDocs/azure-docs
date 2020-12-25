@@ -211,9 +211,9 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ## Enable private endpoints
 
-We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints, which we create by default during the provisioning process. However, if you are using your own DNS server, you may need to make additional changes to your DNS configuration. See [DNS for private endpoints](#dns-for-private-endpoints) section. The best is to decide on DNS strategy **before** provisioning private endpoint(s) for a production Speech resource. We also recommend preliminary testing, especially if you are using your own DNS server.
+We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints, which we create by default during the provisioning process. However, if you are using your own DNS server, you may also need to change your DNS configuration, as shown in [DNS for private endpoints](#dns-for-private-endpoints). Decide on DNS strategy **before** provisioning private endpoint(s) for a production Speech resource, and test your DNS changes, especially if you use your own DNS server.
 
-Use the following articles to create private endpoint(s). The articles are using a Web app as a sample resource to enable with private endpoints. Use instead the following parameters:
+Use one of the following articles to create private endpoint(s). The articles use a Web app as a sample resource to enable with private endpoints. You will use these parameters instead of those in the article:
 
 | Setting             | Value                                    |
 |---------------------|------------------------------------------|
@@ -225,15 +225,17 @@ Use the following articles to create private endpoint(s). The articles are using
 - [Create a Private Endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [Create a Private Endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
 
-### DNS for private endpoints
+**DNS for private endpoints:** Review the general principles of [DNS for private endpoints in Cognitive Services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then confirm that your DNS configuration is working correctly by performing these checks:
 
-Get familiar with the general principles of [DNS for private endpoints in Cognitive Services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then check that your DNS configuration is working correctly (see next subsections).
+### Resolve DNS from the virtual network
 
-#### (Mandatory check). DNS resolution from the virtual network
+This check is **required**.
 
-We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
+Follow these steps to test the custom DNS entry from your virtual network.
 
-Log on to a virtual machine located in the virtual network to which you have attached your private endpoint. Open Windows Command Prompt or Bash shell, run `nslookup` and confirm it successfully resolves your resource custom domain name:
+1. Log in to a virtual machine located in the virtual network to which you have attached your private endpoint. 
+1. Open Windows Command Prompt or Bash shell, run `nslookup` and confirm it successfully resolves your resource custom domain name.
+
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -244,15 +246,16 @@ Name:    my-private-link-speech.privatelink.cognitiveservices.azure.com
 Address:  172.28.0.10
 Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
-Check that the IP address resolved corresponds to the address of your private endpoint.
 
-#### (Optional check). DNS resolution from other networks
+3. Confirm that the IP address matches the IP address of your private endpoint.
 
-This check is necessary if you plan to use your private endpoint enabled Speech resource in "hybrid" mode, where you have enabled either *All networks* or *Selected Networks and Private Endpoints* access option in the *Networking* section of your resource. If you plan to access the resource using only a private endpoint, you can skip this section.
+### Resolve DNS from other networks
 
-We use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name for this section.
+Only perform this check if you plan to use your private endpoint enabled Speech resource in "hybrid" mode, where you have enabled either **All networks** or **Selected Networks and Private Endpoints** access option in the **Networking** section of your resource. If you plan to access the resource using only a private endpoint, you can skip this section.
 
-On any computer attached to a network from which you allow access to the resource, open Windows Command Prompt or Bash shell, run the `nslookup` command and confirm it successfully resolves your resource custom domain name:
+1. Log in to a computer attached to a network allowed to access the resource.
+2. Open Windows Command Prompt or Bash shell, run `nslookup` and confirm it successfully resolves your resource custom domain name.
+
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -266,7 +269,13 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-Note that the resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
+3. Confirm that the IP address matches the IP address of your private endpoint.
+
+> [!NOTE]
+> The resolved IP address points to a virtual network proxy endpoint,
+> which dispatches the network traffic to the private endpoint for the Cognitive Services resource. 
+> The behavior will be different for a resource with a custom domain name but *without* private endpoints. 
+> See [this section](#dns-configuration) for details.
 
 ## Adjust existing applications and solutions
 
