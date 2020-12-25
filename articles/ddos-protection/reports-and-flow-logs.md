@@ -96,21 +96,73 @@ The flow logs will have the following fields:
 
 Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
-## Sample log outputs
+## Log schemas
 
-The following screenshots are example log outputs:
+### Example log: DDoSMitigationReports
 
-### DDoSMitigationFlowLogs
 
-![DDoS Protection DDoSMitigationFlowLogs](./media/ddos-attack-telemetry/ddos-mitigation-flow-logs.png)
 
-### DDoSProtectionNotifications
+The following table lists the field names and descriptions:
 
-![DDoS Protection DDoSProtectionNotifications](./media/ddos-attack-telemetry/ddos-protection-notifications.png)
+# [DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
 
-### DDoSMitigationReports
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the flow log was created. |
+| **ResourceId** | The resource ID of the public IP address. |
+| **Category** | For flow logs, this will be `DDoSMitigationFlowLogs`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
+| **Message** |  |
+| **SourcePublicIpAddress** | The public IP address of the client generating the attack traffic to your public IP address. |
+| **SourcePort** | The port number of the client generating the attack traffic to your public IP address. |
+| **DestPublicIpAddress** | Your public IP address. |
+| **DestPort** | The port number of your public IP address. |
+| **Protocol** | Possible values include `tcp`, `udp` or `other`.|
 
-![DDoS Protection DDoSMitigationReports](./media/ddos-attack-telemetry/ddos-mitigation-reports.png)
+# [DDoSProtectionNotifications](#tab/DDoSProtectionNotifications)
+
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the flow log was created. |
+| **ResourceId** | The resource ID of the public IP address. |
+| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
+| **Message** | Details of the attack. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. |
+| **PublicIpAddress** | Your public IP address. |
+
+# [DDoSMitigationReports](#tab/DDoSMitigationReports)
+
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the flow log was created. |
+| **ResourceId** | The resource ID of the public IP address. |
+| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For mitigation reports, this will be `DDoSMitigationReports`. |
+| **ReportType** | Possible values include `Incremental`, `PostMitigation`.|
+| **MitigationPeriodStart** | The date and time in UTC when the mitigation started.  |
+| **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
+| **IPAddress** | Your public IP address. |
+| **AttackVectors** |  Breakdown of attack types. Possible values include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
+| **TrafficOverview** |  Possible keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, Total UDP packets dropped`, Total Other packets`, `Total Other packets dropped`. |
+| **Protocols** | Possible values include: </br> |
+| **DropReasons** | Possible keys include `Invalid TCP SYN`, `Invalid TCP`, `Invalid UDP`, `UDP reflection`, `TCP destination based rate limit`, `TCP source based rate limit`, `UDP destination based rate limit`, `UDP source based rate limit`.  |
+| **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
+| **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
+| **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
+| **SourceContinents** | Breakdown of the source continents of incoming traffic. |
 
 ## Next steps
 
