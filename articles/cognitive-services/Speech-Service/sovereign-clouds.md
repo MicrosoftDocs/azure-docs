@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/24/2020
+ms.date: 12/26/2020
 ms.author: alexeyo
 ---
 
@@ -16,7 +16,7 @@ ms.author: alexeyo
 
 ## Azure Government (United States)
 
-Available to US government entities and their partners only. See more information about Azure Government [here.](../../azure-government/documentation-government-welcome.md)
+Available to US government entities and their partners only. See more information about Azure Government [here](../../azure-government/documentation-government-welcome.md) and [here.](../../azure-government/compare-azure-government-global-azure.md)
 
 - **Azure portal:**
   - [https://portal.azure.us/](https://portal.azure.us/)
@@ -48,13 +48,17 @@ Available to US government entities and their partners only. See more informatio
 
 This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), and [Text-to-speech REST API](rest-text-to-speech.md).
 
-#### Access token
+#### Speech Services REST API
 
-The `issueToken` endpoints in Azure Government have the following format:
+Speech Services REST API endpoints in Azure Government have the following format:
 
-```http
-https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken
-```
+|  REST API type / operation | Endpoint format |
+|--|--|
+| Access token | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken`
+| [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
+| [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
+| [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
+
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
 |                     | Region identifier |
@@ -64,7 +68,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For Speech SDK in sovereign clouds you need to use "from host" initialization of `SpeechConfig` or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" initialization and `--endpoint` Speech CLI option).
+For Speech SDK in sovereign clouds you need to use "from host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 ```csharp
@@ -120,13 +124,17 @@ Available to organizations with a business presence in China. See more informati
 
 This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), and [Text-to-speech REST API](rest-text-to-speech.md).
 
-#### Access token
+#### Speech Services REST API
 
-The `issueToken` endpoints in Azure China have the following format:
+Speech Services REST API endpoints in Azure China have the following format:
 
-```http
-https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken
-```
+|  REST API type / operation | Endpoint format |
+|--|--|
+| Access token | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken`
+| [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
+| [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
+| [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
+
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
 |                     | Region identifier |
@@ -135,7 +143,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For Speech SDK in sovereign clouds you need to use "from host" initialization of `SpeechConfig` or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" initialization and `--endpoint` Speech CLI option).
+For Speech SDK in sovereign clouds you need to use "from host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 ```csharp
