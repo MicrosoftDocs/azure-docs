@@ -28,6 +28,7 @@ Available to US government entities and their partners only. See more informatio
 - **Supported features:**
   - Speech-to-text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
+      - [Speech Studio](https://speech.azure.us/)
   - Text-to-speech
   - Speech translator
 - **Unsupported features:**
@@ -104,6 +105,7 @@ Available to organizations with a business presence in China. See more informati
 - **Supported features:**
   - Speech-to-text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
+      - [Speech Studio](https://speech.azure.cn/)
   - Text-to-speech
   - Speech translator
 - **Unsupported features:**
