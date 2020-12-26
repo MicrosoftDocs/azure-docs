@@ -131,7 +131,10 @@ The following table lists the field names and descriptions:
 | **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
 | **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
 | **SourceContinents** | Breakdown of the source continents of incoming traffic. |
----
+
+
+
+
 
 ### Azure Sentinel data connector
 
