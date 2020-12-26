@@ -5,9 +5,7 @@
   items:
   - name: Solution architecture
     href: architecture.md
-  - name: What's New
-    href: overview-release-notes.md
-- name: Quickstarts
+  - name: Quickstarts
   expanded: true
   items:
   - name: Agentless Solution for Organizations

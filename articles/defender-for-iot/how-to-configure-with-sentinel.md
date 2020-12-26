@@ -10,16 +10,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 12/26/2020
 ms.author: shhazam
 ---
 
-# Connect your data from Defender for IoT to Azure Sentinel (preview)
+# Connect your data from Defender for IoT to Azure Sentinel 
 
-> [!IMPORTANT]
-> The Defender for IoT data connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
+Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel.
 
 This integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enables automated response and prevention using built-in OT-optimized playbooks. 
 
