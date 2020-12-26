@@ -33,14 +33,22 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: ASP.NET Core
-            url: quickstart.md
-          - text: Node.js
-            url: quickstart-nodejs.md
-          - text: Swift (iOS)
-            url: ios-quickstart.md
+        - text: Use C# (ASP.NET Core)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Node.js
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Java (Android)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-java-android
+        - text: Use Kotlin (Android)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
+        - text: Use Swift (iOS)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
+          - text: Android
+            url: tutorial-android.md
+          - text: iOS
+            url: tutorial-ios.md
           - text: Python
             url: tutorial-python.md
           - text: Use multiple Immersive Reader resources
@@ -62,7 +70,22 @@ landingContent:
             url: how-to-customize-launch-button.md
           - text: Cache the authentication token
             url: how-to-cache-token.md
+          - text: Configure Read Aloud
+            url: how-to-configure-read-aloud.md
+          - text: Configure translation
+            url: how-to-configure-translation.md
+          - text: Store user preferences
+            url: how-to-store-user-preferences.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
             url: reference.md
+          - text: Release notes
+            url: release-notes.md
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context

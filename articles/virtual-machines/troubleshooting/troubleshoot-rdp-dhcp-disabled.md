@@ -36,7 +36,9 @@ You cannot make an RDP connection a VM in Azure because the DHCP Client service 
 
 For Resource Manager VMs, you can use Serial Access Console feature to query for the event logs 7022 using the following command:
 
-    wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```console
+wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```
 
 For Classic VMs, you will need to work in OFFLINE mode and collect the logs manually.
 
@@ -59,14 +61,21 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 ). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
+
 3. If the DHCP is stopped, try to start the service
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
 
 4. Query the service again to make sure that the service is started successfully.
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
 
     Try to connect to the VM and see if the problem is resolved.
 5. If the service does not start, use the following appropriate solution, based on the error message that you received:
@@ -153,30 +162,45 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 1. Because this problem occurs if the startup account of this service was changed, revert the account to its default status:
 
-        sc config DHCP obj= 'NT Authority\Localservice'
+    ```console
+    sc config DHCP obj= 'NT Authority\Localservice'
+    ```
+
 2. Start the service:
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 3. Try to connect to the VM by using Remote Desktop.
 
 #### DHCP Client service crashes or hangs
 
 1. If the service status is stuck in the **Starting** or **Stopping** state, try to stop the service:
 
-        sc stop DHCP
+    ```console
+    sc stop DHCP
+    ```
+
 2. Isolate the service on its own ‘svchost’ container:
 
-        sc config DHCP type= own
+    ```console
+    sc config DHCP type= own
+    ```
+
 3. Start the service:
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 4. If the service still does not start, [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Repair the VM offline
 
 #### Attach the OS disk to a recovery VM
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk.
 3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. This script assumes that the drive letter that's assigned to the attached OS disk is **F**. Replace the letter as appropriate with the value in your VM.
 
@@ -194,7 +218,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the problem is resolved.
+4. [Detach the OS disk and recreate the VM](./troubleshoot-recovery-disks-portal-windows.md). Then check whether the problem is resolved.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -21,7 +21,7 @@ The account you sign in with must belong to a model database role with at least 
 
 Connecting to a server in Excel is supported by using Get Data in Excel 2016 and later. Connecting by using the Import Table Wizard in Power Pivot is not supported. 
 
-1. In Excel, on the **Data** ribbon, click **Get External Data** > **From Other Sources** > **From Analysis Services**.
+1. In Excel, on the **Data** ribbon, click **Get Data** > **From Database** > **From Analysis Services**.
 
 2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. For example, asazure://westcentralus.asazure.windows.net/advworks. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
 
@@ -37,7 +37,5 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016 and
 
 ## See also
 
-[Client libraries](analysis-services-data-providers.md)   
-[Manage your server](analysis-services-manage.md)     
-
-
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
+[Manage your server](analysis-services-manage.md)

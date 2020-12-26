@@ -1,13 +1,14 @@
 ---
 title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to install and use the spatial io module so that I can integrate spatial data with the Azure Maps web sdk.
 ---
 
@@ -15,20 +16,26 @@ manager: philmea
 
 The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
-- [Read and write data to common spatial files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
-- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.](spatial-io-add-ogc-map-layer.md).
+- [Read and write common spatial data files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, GeoJSON and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
+- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map](spatial-io-add-ogc-map-layer.md).
 - [Query data in a Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
-- [Overlay complex data sets that contain style information and have them render automatically](spatial-io-add-simple-data-layer.md).
+- [Overlay complex data sets that contain style information and have them render automatically using minimal code](spatial-io-add-simple-data-layer.md).
 - [Leverage high-speed XML and delimited file reader and writer classes](spatial-io-core-operations.md).
 
 In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
+
+This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
+
+</br>
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if referencing it from another domain. The spatial IO module does take steps to minimize risk, however the safest approach is too not allow any danagerous data into your application to begin with. 
 
 ## Prerequisites
 
-Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](./quick-demo-map-app.md#create-an-azure-maps-account) and [get the primary subscription key for your account](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 ## Installing the Spatial IO module
 
@@ -56,7 +63,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
 1. Create a new HTML file.
 
-2. Load the Azure Maps Web SDK and initialize the map control. See the [Azure Maps map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) guide for the details. Once you're done with this step, your HTML file should look like this:
+2. Load the Azure Maps Web SDK and initialize the map control. See the [Azure Maps map control](./how-to-use-map-control.md) guide for the details. Once you're done with this step, your HTML file should look like this:
 
     ```html
     <!DOCTYPE html>
@@ -244,4 +251,4 @@ The feature we demonstrated here is only one of the many features available in t
 Refer to the Azure Maps Spatial IO documentation:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Spatial IO package](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Azure Maps Spatial IO package](/javascript/api/azure-maps-spatial-io/)

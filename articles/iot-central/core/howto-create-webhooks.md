@@ -3,8 +3,8 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/02/2019
-ms.topic: conceptual
+ms.date: 04/03/2020
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
@@ -40,6 +40,78 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
 
 ```json
 {
+    "timestamp": "2020-04-06T00:20:15.06Z",
+    "action": {
+        "id": "<id>",
+        "type": "WebhookAction",
+        "rules": [
+            "<rule_id>"
+        ],
+        "displayName": "Webhook 1",
+        "url": "<callback_url>"
+    },
+    "application": {
+        "id": "<application_id>",
+        "displayName": "Contoso",
+        "subdomain": "contoso",
+        "host": "contoso.azureiotcentral.com"
+    },
+    "device": {
+        "id": "<device_id>",
+        "etag": "<etag>",
+        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "instanceOf": "<device_template_id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true,
+        "cloudProperties": {
+            "City": {
+                "value": "Seattle"
+            }
+        },
+        "properties": {
+            "deviceinfo": {
+                "firmwareVersion": {
+                    "value": "1.0.0"
+                }
+            }
+        },
+        "telemetry": {
+            "<interface_instance_name>": {
+                "humidity": {
+                    "value": 47.33228889360127
+                }
+            }
+        }
+    },
+    "rule": {
+        "id": "<rule_id>",
+        "displayName": "Humidity monitor"
+    }
+}
+```
+If the rule monitors aggregated telemetry over a period of time, the payload will contain a different telemetry section.
+
+```json
+{
+    "telemetry": {
+        "<interface_instance_name>": {
+            "Humidity": {
+                "avg": 39.5
+            }
+        }
+    }
+}
+```
+
+## Data format change notice
+
+If you have one or more webhooks created and saved before **3 April 2020**, you will need to delete the webhook and create a new webhook. This is because older webhooks use an older payload format that will be deprecated in the future.
+
+### Webhook payload (format deprecated as of 3 April 2020)
+
+```json
+{
     "id": "<id>",
     "displayName": "Webhook 1",
     "timestamp": "2019-10-24T18:27:13.538Z",
@@ -66,7 +138,7 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
     }],
     "application": {
         "id": "<id>",
-        "displayName": "x - Store Analytics Checkout---PnP",
+        "displayName": "x - Store Analytics Checkout",
         "subdomain": "<subdomain>",
         "host": "<host>"
     }

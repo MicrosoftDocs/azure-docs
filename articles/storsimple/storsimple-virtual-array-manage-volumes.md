@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
@@ -39,7 +39,7 @@ Refer to the following table for maximum provisioned capacity for each volume ty
 | Minimum size of a tiered volume                            | 500 GB        |
 | Maximum size of a tiered volume                            | 5 TB          |
 | Minimum size of a locally pinned volume                    | 50 GB         |
-| Maximum size of a locally pinned volume                    | 500 GB        |
+| Maximum size of a locally pinned volume                    | 200 GB        |
 
 ## The Volumes blade
 The **Volumes** menu on your StorSimple service summary blade displays the list of storage volumes on a given StorSimple array and allows you to manage them.
@@ -68,7 +68,7 @@ Use the instructions in this tutorial to perform the following tasks:
 
 1. From the StorSimple service summary blade, click **+ Add volume** from the command bar. This opens up the **Add volume** blade.
    
-    ![Add volume](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
+    ![Screenshot shows the Add volume button and the Add volume pane.](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
 2. In the **Add volume** blade, do the following:
    
    * In the **Volume name** field, enter a unique name for your volume. The name must be a string that contains 3 to 127 characters.
@@ -77,7 +77,7 @@ Use the instructions in this tutorial to perform the following tasks:
    * * Click **Connected hosts**, select an access control record (ACR) corresponding to the iSCSI initiator that you want to connect to this volume, and then click **Select**.
 3. To add a new connected host, click **Add new**, enter a name for the host and its iSCSI Qualified Name (IQN), and then click **Add**.
    
-    ![Add volume](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
+    ![Screenshot shows the Connected hosts pane where you can Add new.](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. When you've finished configuring your volume, click **Create**. A volume will be created with the specified settings and you will see a notification on the successful creation of the same. By default backup will be enabled for the volume.
 5. To confirm that the volume was successfully created, go to the **Volumes** blade. You should see the volume listed.
    

@@ -11,9 +11,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ---
-# Score Model module
+# Score Model
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to generate predictions using a trained classification or regression model.
 
@@ -31,9 +31,9 @@ Use this module to generate predictions using a trained classification or regres
 
 After you have generated a set of scores using [Score Model](./score-model.md):
 
-+ To generate a set of metrics used for evaluating the model’s accuracy (performance).  you can connect the scored dataset to [Evaluate Model](./evaluate-model.md), 
++ To generate a set of metrics used for evaluating the model's accuracy (performance), you can connect the scored dataset to [Evaluate Model](./evaluate-model.md), 
 + Right-click the module and select **Visualize** to see a sample of the results.
-+ Save the results to a dataset.
+<!-- + To Save the results to a dataset. -->
 
 The score, or predicted value, can be in many different formats, depending on the model and your input data:
 
@@ -43,8 +43,8 @@ The score, or predicted value, can be in many different formats, depending on th
 
 ## Publish scores as a web service
 
-A common use of scoring is to return the output as part of a predictive web service. For more information, see this tutorial on how to create a web service based on a pipeline in Azure Machine Learning:
+A common use of scoring is to return the output as part of a predictive web service. For more information, see [this tutorial](../tutorial-designer-automobile-price-deploy.md) on how to deploy a real-time endpoint based on a pipeline in Azure Machine Learning designer.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

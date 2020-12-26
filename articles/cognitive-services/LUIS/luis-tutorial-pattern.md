@@ -1,22 +1,16 @@
 ---
 title: "Tutorial: Patterns - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 07/06/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
 # Tutorial: Add common pattern template utterance formats to improve predictions
 
-In this tutorial, use patterns to increase intent and entity prediction, which allows you to provide fewer example utterances. The pattern is template utterance assigned to an intent, containing syntax to identify entities and ignorable text.
+In this tutorial, use patterns to increase intent and entity prediction, which allows you to provide fewer example utterances. The pattern is a template utterance assigned to an intent, which contains syntax to identify entities and ignorable text.
 
 **In this tutorial, you learn how to:**
 
@@ -37,19 +31,20 @@ There are two types of utterances stored in the LUIS app:
 
 Adding template utterances as a pattern allows you to provide fewer example utterances overall to an intent.
 
-A pattern is applied as a combination of expression matching and machine learning.  The template utterance, along with the example utterances, give LUIS a better understanding of what utterances fit the intent.
+A pattern is applied as a combination of text matching and machine learning.  The template utterance in the pattern, along with the example utterances in the intent, give LUIS a better understanding of what utterances fit the intent.
 
 ## Import example app and clone to new version
 
 Use the following steps:
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
-1. Import the JSON into a new app into the [preview LUIS portal](https://preview.luis.ai).
-
-1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Import the JSON into a new app into the [LUIS portal](https://www.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step, name the app, `Patterns tutorial`.
 
 ## Create new intents and their utterances
+
+The two intents find the manager or the manager's direct reports, based on the utterance text. The difficulty is that the two intents _mean_ different things but most of the words are the same. Only the word order is different. In order for the intent to be predicted correctly, it would have to have many examples.
 
 1. Select **Build** from the navigation bar.
 
@@ -68,8 +63,6 @@ Use the following steps:
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Don't worry if the keyPhrase entity is labeled in the utterances of the intent instead of the employee entity. Both are correctly predicted in the Test pane and at the endpoint.
 
 1. Select **Intents** in the left navigation.
 
@@ -101,7 +94,7 @@ Use the following steps:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is the utterance `query`.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -110,50 +103,50 @@ Use the following steps:
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -172,9 +165,9 @@ Use the following steps:
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -191,36 +184,32 @@ Use the following steps:
     }
     ```
 
-Did this query succeed? For this training cycle it did succeed. The scores of the two top intents are close but the highest intent isn't significantly high (over 60%) and isn't far enough above the next intent's score.
+The correct top intent was predicted, `OrgChart-Manager`, but the score is not above 70% and isn't far enough above the next highest intent. Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
 
-Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned.
-
-Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
-
-Leave this second browser window open. You use it again later in the tutorial.
+Leave this second browser window open. You will use it again later in the tutorial.
 
 ## Template utterances
-Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
+Because of the nature of the Human Resource subject domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
 |Utterances|
 |--|
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples.
+These utterances are too close to determine the contextual uniqueness of each without providing _many_ utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without the need of supplying many more utterance examples.
 
 Template utterance examples for this intent include:
 
 |Template utterances examples|syntax meaning|
 |--|--|
-|`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
-|`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
 
-The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The `{EmployeeListEntity}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or [punctuation](luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
 
-In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. This means the entities have to have enough examples in example utterances with a high degree of prediction before patterns with entities are successful. However, the template doesn't help predict entities, only intents.
+In order for a pattern to be matched to an utterance, _first_ the entities within the utterance have to match the entities in the template utterance. This means the entities have to have enough examples in example utterances with a high degree of prediction before patterns with entities are successful. However, the template doesn't help predict entities, only intents.
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
@@ -234,33 +223,35 @@ In order for a pattern to be matched to an utterance, the entities within the ut
 
     |Template utterances|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
+
+    These template utterances include the **EmployeeListEntity** entity with the curly bracket notation.
 
 1. While still on the Patterns page, select the **OrgChart-Reports** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### Query endpoint when patterns are used
 
-Now that the patterns are added to the app, train, publish and query the app at the prediction runtime endpoint.
+Now that the patterns are added to the app, train, publish, and query the app at the prediction runtime endpoint.
 
 1. Select **Train**. After training is complete, select **Publish** and select the **Production** slot then select **Done**.
 
 1. After publishing is complete, switch browser tabs back to the endpoint URL tab.
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is the `query`.
+1. Go to the end of the URL in the address bar and verify your query is still `Who is the boss of Jill Jones?` then submit the URL for a new prediction.
 
     ```json
     {
@@ -269,50 +260,50 @@ Now that the patterns are added to the app, train, publish and query the app at 
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -331,9 +322,9 @@ Now that the patterns are added to the app, train, publish and query the app at 
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -350,7 +341,7 @@ Now that the patterns are added to the app, train, publish and query the app at 
     }
     ```
 
-The intent prediction is now significantly more confident and the next highest intent's score is significantly lower. These two intents won't flip-flop when training.
+The intent prediction is now significantly more confident and the next highest intent's score is very low. These two intents won't flip-flop when training.
 
 ### Working with optional text and prebuilt entities
 
@@ -371,8 +362,8 @@ Example template utterances that allow for this optional information:
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 The use of the optional syntax of square brackets, `[]`, makes this optional text easy to add to the template utterance and can be nested up to a second level, `[[]]`, and include entities or text.
@@ -382,17 +373,10 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 **Question: Why isn't prebuilt number part of the template utterance if March 3 is predicted both as number `3` and date `March 3`?** The template utterance contextually is using a date, either literally as in `March 3` or abstracted as `in a month`. A date can contain a number but a number may not necessarily be seen as a date. Always use the entity that best represents the type you want returned in the prediction JSON results.
 
-**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
+**Question: What about poorly phrased utterances such as `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
 
-**Remember: entities are found first, then the pattern is matched.**
-
-### Edit the existing pattern template utterance
-
-1. In the preview LUIS portal, select **Build** in the top menu then select **Patterns** in the left menu.
-
-1. Search for the existing template utterance, `Who is {Employee}['s] manager[?]`, and select the ellipsis (***...***) to the right, then select **Edit** from the pop-up menu.
-
-1. Change the template utterance to: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
+> [!CAUTION]
+> **Remember: entities are found first, then the pattern is matched.**
 
 ### Add new pattern template utterances
 
@@ -400,9 +384,9 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
     |Intent|Example utterances with optional text and prebuilt entities|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Select **Train** in the navigation bar to train the app.
 
@@ -410,7 +394,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 4. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high.
 
-    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results. Each utterance should have the **OrgChart-Manager** intent and should extract the values for the entities of Employee and datetimeV2.
+    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results. Each utterance should have the **OrgChart-Manager** intent and should extract the values for the `EmployeeListEntity` and `datetimeV2` entities.
 
     |Utterance|
     |--|
@@ -424,26 +408,29 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 All of these utterances found the entities inside, therefore they match the same pattern, and have a high prediction score. You added a few patterns that will match many variations of utterances. You didn't need to add any example utterances in the intent to have the template utterance work in the pattern.
 
 This use of patterns provided:
-* higher prediction scores
-* with the same example utterances in the intent
-* with just a few welll-constructed template utterances in the pattern
+* Higher prediction scores
+* With the same example utterances in the intent
+* With just a few well-constructed template utterances in the pattern
 
 ### Use the OR operator and groups
 
 Several of the previous template utterances are very close. Use the **group** `()` and **OR** `|` syntax to reduce the template utterances.
 
-The following 2 patterns can combine into a single pattern using the group `()` and OR `|` syntax.
+The following two patterns can combine into a single pattern using the group `()` and OR `|` syntax.
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 The new template utterance will be:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them.
+
+> [!NOTE]
+> When using the _OR_ symbol , `|` (pipe), make sure to separate the pipe symbol with a space before and after it in the example template.
 
 1. On the **Patterns** page, select the **OrgChart-Manager** filter. Narrow the list by searching for `manager`.
 
@@ -451,7 +438,7 @@ This uses a **group** around the required verb tense and the optional `in` and `
 
 1. Change the template utterance to:
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Select **Train** in the navigation bar to train the app.
 
@@ -468,7 +455,7 @@ This uses a **group** around the required verb tense and the optional `in` and `
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-By using more pattern syntax, you could reduce the number of template utterances you have to maintain in your app, while still having a high prediction score.
+By using more pattern syntax, you reduce the number of template utterances you have to maintain in your app, while still having a high prediction score.
 
 ### Use the utterance beginning and ending anchors
 
@@ -476,33 +463,7 @@ The pattern syntax provides beginning and ending utterance anchor syntax of a ca
 
 ## Using Pattern.any entity
 
-The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance.
-
-This Human Resources app helps employees find company forms.
-
-|Utterance|
-|--|
-|Where is **HRF-123456**?|
-|Who authored **HRF-123234**?|
-|**HRF-456098** is published in French?|
-
-However, each form has both a formatted name, used in the preceding table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`.
-
-Utterances with the friendly form name look like:
-
-|Utterance|
-|--|
-|Where is **Request relocation from employee new to the company 2018 version 5**?|
-|Who authored **"Request relocation from employee new to the company 2018 version 5"**?|
-|**Request relocation from employee new to the company 2018 version 5** is published in French?|
-
-The varying length includes words that may confuse LUIS about where the entity ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
-
-|Template utterance example|
-|--|
-|Where is {FormName}[?]|
-|Who authored {FormName}[?]|
-|{FormName} is published in French[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### Add example utterances with Pattern.any
 
@@ -510,7 +471,7 @@ The varying length includes words that may confuse LUIS about where the entity e
 
 1. Select **FindForm** from the intents list.
 
-1. Add some example utterances:
+1. Add some example utterances. The text that should be predicted as a Pattern.any is in **bold text**. The form name is difficult to determine from the other words around it in the utterance. The Pattern.any will help by marking the boundaries of the entity.
 
     |Example utterance|Form name|
     |--|--|

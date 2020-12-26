@@ -1,5 +1,5 @@
 ---
-title: Provision simulated X.509 device to Azure IoT Hub using Python
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using Python
 description: Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
@@ -19,7 +19,7 @@ In this quickstart, you create a simulated X.509 device on a Windows computer. Y
 
 ## Prerequisites
 
-- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
@@ -82,6 +82,7 @@ This article demonstrates individual enrollments.
 
 3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
     
+    ```output
     Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
@@ -90,7 +91,8 @@ This article demonstrates individual enrollments.
     
         -----END CERTIFICATE-----
         
-    Make sure to include both of those lines as well. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

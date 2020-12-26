@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services live event error codes | Microsoft Docs
 description: This article lists live event error codes.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,19 +11,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
+ms.topic: error-reference
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Media Services Live Event error codes
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 The tables in this section list the [Live Event](live-events-outputs-concept.md) error codes.
 
 ## LiveEventConnectionRejected
 
-When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-grid/) events for a live event, you may see one of the following errors from the [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected)  event.
+When you subscribe to the [Event Grid](../../event-grid/index.yml) events for a live event, you may see one of the following errors from the [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected)  event.
 
 | Result code | Description |
 | ----------- | ----------- |
@@ -37,6 +39,7 @@ When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-gr
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with framerates exceeded the maximum allowed 30fps for encoding live events/channels.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder in order to give it a chance to retry with correct data. |
 
 ## LiveEventEncoderDisconnected
 

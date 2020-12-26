@@ -12,9 +12,6 @@
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
-### Supported regions
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
-
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
@@ -27,9 +24,9 @@ On Windows, the following command will either install or update your existing in
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for your particular Linux version.
+On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](/cli/azure/install-azure-cli) for your particular Linux version.
 
-To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
+To create an incremental snapshot, use [az snapshot create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
 
 The following example creates an incremental snapshot, replace `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`, and `<exampleLocation>` with your own values, then run the example:
 

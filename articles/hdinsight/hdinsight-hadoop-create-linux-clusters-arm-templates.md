@@ -5,27 +5,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/18/2019
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurecli
+ms.date: 04/07/2020
 ---
 
 # Create Apache Hadoop clusters in HDInsight by using Resource Manager templates
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this article, you learn several ways to create Azure HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+In this article, you learn several ways to create Azure HDInsight clusters using [Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page. See also, [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Prerequisites
-
-* An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell and/or Azure CLI.
-
-### Resource Manager templates
+## Resource Manager templates
 
 A Resource Manager template makes it easy to create the following resources for your application in a single, coordinated operation:
+
 * HDInsight clusters and their dependent resources (such as the default storage account).
 * Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 
@@ -50,11 +46,11 @@ You can deploy a Resource Manager template using the Azure portal. For more info
 
 ## Deploy using PowerShell
 
-You can deploy a Resource Manager template using Azure PowerShell. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
+You can deploy a Resource Manager template using Azure PowerShell. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## Deploy using Azure CLI
 
-You can deploy a Resource Manager template using Azure CLI. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+You can deploy a Resource Manager template using Azure CLI. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## Deploy using the REST API
 
@@ -77,6 +73,6 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For more HDInsight related templates, see [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * For an example of deploying resources through the .NET client library, see [Deploy resources by using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service/deploy-complex-application-predictably.md).
-* For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md).
+* For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../devtest-labs/devtest-lab-overview.md).
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/templates/template-syntax.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/templates/template-functions.md).

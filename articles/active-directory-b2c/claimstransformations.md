@@ -117,7 +117,7 @@ If input claim and the output claim are the same type (string, or boolean), you 
 
 For example, you may store the last version of your terms of services that the user accepted. When you update the terms of services, you can ask the user to accept the new version. In the following example, the **HasTOSVersionChanged** claims transformation compares the value of the **TOSVersion** claim with the value of the **LastTOSAcceptedVersion** claim and then returns the boolean **TOSVersionChanged** claim.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="TOSVersionChanged">
@@ -159,6 +159,7 @@ For examples of claims transformations, see the following reference pages:
 - [Date](date-transformations.md)
 - [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
+- [Phone number](phone-number-claims-transformations.md)
 - [General](general-transformations.md)
 - [Social account](social-transformations.md)
 - [String](string-transformations.md)

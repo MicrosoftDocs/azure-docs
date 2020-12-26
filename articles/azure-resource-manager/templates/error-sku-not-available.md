@@ -6,7 +6,7 @@ ms.date: 02/18/2020
 ---
 # Resolve errors for SKU not available
 
-This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
+This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](../../azure-portal/supportability/sku-series-unavailable.md) to Azure Support.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -73,7 +73,6 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ...
 ```
 
-
 ## Solution 3 - Azure portal
 
 To determine which SKUs are available in a region, use the [portal](https://portal.azure.com). Sign in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You don't need to complete the deployment.
@@ -119,4 +118,3 @@ It returns available SKUs and regions in the following format:
   ]
 }
 ```
-

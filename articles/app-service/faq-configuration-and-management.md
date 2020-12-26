@@ -31,14 +31,14 @@ For answers to common questions about using a custom domain name with your Azure
 To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](manage-custom-dns-buy-domain.md).
 
 
-## How do I upload and configure an existing SSL certificate for my web app?
+## How do I upload and configure an existing TLS/SSL certificate for my web app?
 
-To learn how to upload and set up an existing custom SSL certificate, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to upload and set up an existing custom TLS/SSL certificate, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
-## How do I purchase and configure a new SSL certificate in Azure for my web app?
+## How do I purchase and configure a new TLS/SSL certificate in Azure for my web app?
 
-To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to purchase and set up a TLS/SSL certificate for your App Service web app, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I move Application Insights resources?
@@ -61,7 +61,9 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-For the App services that run on Windows, see the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values. For the App services that run on Linux, set the [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) as the time zone value. Here is an example of TZ database name: America/Adak.
+For the App services that run on Windows, see the output from the Windows `tzutil /L` command. Use the value from the second line of each entry. For example: "Tonga Standard Time". Some of these values are also listed in the **Timezone** column in [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones).
+
+For the App services that run on Linux, set a value from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example: "America/Adak".
 
 ## Why do my continuous WebJobs sometimes fail?
 
@@ -80,7 +82,7 @@ To learn how to get the outbound IP address if your website is hosted in an App 
 
 ## How do I get a reserved or dedicated inbound IP address for my web app?
 
-To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based SSL certificate.
+To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based TLS/SSL certificate.
 
 Note that to use a dedicated or reserved IP address for inbound calls, your App Service plan must be in a Basic or higher service plan.
 
@@ -121,7 +123,7 @@ For more information about using deployment slots, see [Set up a staging environ
 
 To review WebJob logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the WebJob.
 3. Select the **Toggle Output** button.
 4. To download the output file, select the **Download** link.
@@ -143,7 +145,7 @@ The exception was caused by an issue with the Hybrid Connection Manager that has
 
 ## How do I add a URL rewrite rule?
 
-To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write).
 
 ## How do I control inbound traffic to App Service?
 
@@ -183,7 +185,7 @@ You have two options for capturing an F12 trace:
 3. Right-click in the message area of the pane, and then select **Copy all**.
 4. Paste the copied text in a file, and then save the file.
 
-To view an HAR file, you can use the [HAR viewer](https://www.softwareishard.com/har/viewer/).
+To view an HAR file, you can use the [HAR viewer](http://www.softwareishard.com/har/viewer/).
 
 ## Why do I get an error when I try to connect an App Service web app to a virtual network that is connected to ExpressRoute?
 
@@ -218,7 +220,7 @@ To resolve this, make sure that none of the following conditions are true:
 * A bad Network Security Group prevents the network connectivity requirements of an App Service Environment.
 * Forced tunneling is turned on.
 
-For more information, see [Frequent issues when deploying (creating) a new Azure App Service Environment](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+For more information, see [Frequent issues when deploying (creating) a new Azure App Service Environment](/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase).
 
 ## Why can't I delete my App Service plan?
 
@@ -282,7 +284,7 @@ When you create a new website by using Web Apps in Azure, a default *sitename*.a
 
 ## How do I determine which version of .NET version is installed in App Service?
 
-The quickest way to find the version of Microsoft .NET that's installed in App Service is by using the Kudu console. You can access the Kudu console from the portal or by using the URL of your App Service app. For detailed instructions, see [Determine the installed .NET version in App Service](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+The quickest way to find the version of Microsoft .NET that's installed in App Service is by using the Kudu console. You can access the Kudu console from the portal or by using the URL of your App Service app. For detailed instructions, see [Determine the installed .NET version in App Service](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services).
 
 ## Why isn't Autoscale working as expected?
 

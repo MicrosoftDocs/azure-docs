@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
+ms.custom: mqtt
 ---
 
 # Send cloud-to-device messages with IoT Hub (iOS)
@@ -96,7 +97,7 @@ Along with installing the pods required for your project, the installation comma
 
 6. Run the project in the device emulator with the **Build and run** button or the key combo **command + r**.
 
-   ![Run the project](media/iot-hub-ios-swift-c2d/run-sample.png)
+   ![Screenshot shows the Build and run button in the device emulator.](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## Get the IoT hub connection string
 
@@ -148,7 +149,7 @@ Along with installing the pods required for your project, the installation comma
 
 7. Run the project in the device emulator with the **Build and run** button or the key combo **Command + r**.
 
-   ![Run the project](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![Screenshot shows the Build and run button.](media/iot-hub-ios-swift-c2d/run-app.png)
 
 ## Send a cloud-to-device message
 

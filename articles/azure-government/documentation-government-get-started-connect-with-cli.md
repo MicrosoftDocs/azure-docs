@@ -4,16 +4,14 @@ description: This quickstart shows you how to connect to Azure Government and re
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
-manager: femila
 
 ms.service: azure-government
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/09/2018 
-ms.author: juliako
+ms.date: 08/09/2018  
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using CLI so I can start developing against Azure Government's secure isolated datacenters.
 ---
@@ -35,7 +33,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install Azure CLI 
 
-Install the Azure CLI locally by following the instructions in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2). 
+Install the Azure CLI locally by following the instructions in [Install the Azure CLI](/cli/azure/install-az-cli2). 
 
 In Azure Government, there is no equivalent to **Azure Cloud Shell** that you can find in the Azure portal. 
 
@@ -80,4 +78,4 @@ az account list-locations
 This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](../index.yml).

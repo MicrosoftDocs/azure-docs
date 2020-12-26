@@ -9,27 +9,33 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/06/2020
+ms.date: 09/10/2020
 ---
 
 # Move your Azure Cognitive Search service to another Azure region
 
-Occasionally, customers inquire about moving an existing search service to another region. Currently, there are no built-in mechanisms or tooling to help you with that task. It remains a manual process, outlined below in this article.
+Occasionally, customers ask about moving a search service to another region. Currently, there is no built-in mechanism or tooling to help with that task, but this article can help you understand the manual steps for achieving the same outcome.
 
 > [!NOTE]
 > In the Azure portal, all services have an **Export template** command. In the case of Azure Cognitive Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
 
-## Steps for moving a service
+## Prerequisites
 
-If you need to move a search service to different region, your approach should look similar to the steps below:
++ Ensure that the services and features that your account uses are supported in the target region.
 
-1. Identify related services to understand the full impact of relocating a service. You might be using Azure Storage for logging, knowledge store, or as an external data source. You might be using Cognitive Services for AI enrichment. Accessing services in other regions is common, but comes with additional bandwidth charges. Cognitive Services and Azure Cognitive Search are required to be in the same region if you are using AI enrichment.
++ For preview features, ensure that your subscription is approved for the target region.
 
-1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive any reports you might need for a historical record.
+## Prepare and move
 
-1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services that you might want to create in the same region. Check for feature parity. Some preview features have restricted availability.
+1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure Cognitive Search.
 
-1. Create a service in the new region and republish from source code any existing indexes, indexers, data sources, skillsets, knowledge stores, and synonym maps. Service names must be unique so you cannot reuse the existing name.
+   Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Cognitive Services is a dependency in AI enrichment. Both Cognitive Services and your search service are required to be in the same region if you are using AI enrichment.
+
+1. Create an inventory of all objects on the service so that you know what to move: indexes, synonym maps, indexers, data sources, skillsets. If you enabled logging, create and archive any reports you might need for a historical record.
+
+1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services in the new region. The majority of features are available in all regions, but some preview features have restricted availability.
+
+1. Create a service in the new region and republish from source code any existing indexes, synonym maps, indexers, data sources, and skillsets. Remember that service names must be unique so you cannot reuse the existing name. Check each skillset to see if connections to Cognitive Services are still valid in terms of the same-region requirement. Also, if knowledge stores are created, check the connection strings for Azure Storage if you are using a different service.
 
 1. Reload indexes and knowledge stores, if applicable. You'll either use application code to push JSON data into an index, or rerun indexers to pull documents in from external sources. 
 
@@ -37,10 +43,15 @@ If you need to move a search service to different region, your approach should l
 
 1. Update client applications and test suites to use the new service name and API keys, and test all applications.
 
-1. Delete the old service once the new service is fully tested and operational.
+## Discard or clean up
+
+Delete the old service once the new service is fully tested and operational. Deleting the service automatically deletes all content associated with the service.
 
 ## Next steps
 
+The following links can help you locate more information when completing the steps outlined above.
+
++ [Azure Cognitive Search pricing and regions](https://azure.microsoft.com/pricing/details/search/)
 + [Choose a tier](search-sku-tier.md)
 + [Create a search service](search-create-service-portal.md)
 + [Load search documents](search-what-is-data-import.md)
@@ -62,11 +73,11 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [incremental enrichment](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual), and [private endpoint](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
+- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](./knowledge-store-concept-intro.md), [incremental enrichment](./cognitive-search-incremental-indexing-conceptual.md), and [private endpoint](./service-create-private-endpoint.md).
 
 ## Assessment and planning
 
-When you move your search service to the new region, you will need to [move your data to the new storage service](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
+When you move your search service to the new region, you will need to [move your data to the new storage service](../storage/common/storage-account-move.md?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
 
 ## Moving your search service's resources
 
@@ -160,7 +171,7 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
 
 To verify the move, open the new resource group and your services will be listed with the new region.
 
-To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
+To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](../storage/common/storage-account-move.md?tabs=azure-portal#move-data-to-the-new-storage-account).
 
 ## Clean up resources in your original region
 
@@ -168,8 +179,8 @@ To commit the changes and complete the move of your service account, delete the 
 
 ## Next steps
 
-[Create an index](https://docs.microsoft.com/azure/search/search-get-started-portal)
+[Create an index](./search-get-started-portal.md)
 
-[Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+[Create a skillset](./cognitive-search-quickstart-blob.md)
 
-[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal) -->
+[Create a knowledge store](./knowledge-store-create-portal.md) -->

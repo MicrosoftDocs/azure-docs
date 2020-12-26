@@ -1,14 +1,10 @@
 ---
 title: 'Quickstart: Send custom events to Azure Function - Event Grid'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.' 
-services: event-grid 
-keywords: 
-author: banisadr
-ms.author: babanisa
-ms.date: 11/15/2019
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
 ---
+
 # Quickstart: Route custom events to an Azure Function with Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Functions is one of the supported event handlers. In this article, you use the Azure portal to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an Azure Function.
@@ -16,14 +12,17 @@ Azure Event Grid is an eventing service for the cloud. Azure Functions is one of
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create Azure Function
+Before subscribing to the custom topic, create a function to handle the events. 
 
-Before subscribing to the custom topic, let's create a function to handle the events. In the Azure portal, click 'Create a resource' and type 'function' then choose 'Function App' and click create. Select 'Create new' under resource group and give it a name. You'll use this for the rest of the tutorial. Give the Function App a name, leave the 'Publish' toggle on 'Code', select any runtime and region, then hit create.
+1. Create a function app using instructions from [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Create a function using the **Event Grid Trigger**. Select If this is your first time using this trigger, you may have to click 'Install' to install the extension.
+    1. On the **Function App** page, select **Functions** on the left menu, search for **Event Grid** in templates, and then select **Azure Event Grid trigger**. 
 
-Once your Function App is ready, navigate to it and click '+ New Function'. Select 'In-portal' for development environment and hit continue. Under create a function, choose 'More templates' to view more templates and then search for 'Azure Event Grid Trigger' and select it. If this is your first time using this trigger, you may have to click 'Install' to install the extension.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger":::
+3. On the **New Function** page, enter a name for the function, and select **Create Function**.
 
-![Function Event Grid Trigger](./media/custom-event-to-function/grid-trigger.png)
-
-Once you've installed the extension, click continue, give your function a name, and then hit create.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="New Function page":::
+4. Use the **Code + Test** page to see the existing code for the function and update it. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -80,8 +79,12 @@ You subscribe to an event grid topic to tell Event Grid which events you want to
     5. For the function endpoint, select the Azure Subscription and Resource Group your Function App is in and then select the Function App and function you created earlier. Select **Confirm Selection**.
 
        ![Provide endpoint URL](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. Back on the **Create Event Subscription** page, select **Create**.
+    6. This step is optional, but recommended for production scenarios. On the **Create Event Subscription** page, switch to the **Advanced Features** tab, and set values for **Max events per batch** and **Preferred batch size in kilobytes**. 
+    
+        Batching can give you high-throughput. For **Max events per batch**, set maximum number of events that a subscription will include in a batch. Preferred batch size sets the preferred upper bound of batch size in kilo bytes, but can be exceeded if a single event is larger than this threshold.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Enable batching":::
+    6. On the **Create Event Subscription** page, select **Create**.
 
 ## Send an event to your topic
 
@@ -118,7 +121,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure PowerShell
 The second example uses PowerShell to perform similar steps.
 
-1. In the Azure portal, select **Cloud Shell** (alternatively go to https://shell.azure.com/). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
+1. In the Azure portal, select **Cloud Shell** (alternatively go to `https://shell.azure.com/`). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell

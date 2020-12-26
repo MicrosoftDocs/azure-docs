@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -32,7 +32,7 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 
 When the Azure Backup service initiates a backup, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
-By default, Azure Backup takes a file system consistent backup for Linux VM but it can be configured to take [application consistent backup using pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). 
+By default, Azure Backup takes a file system consistent backup for Linux VM but it can be configured to take [application consistent backup using pre-script and post-script framework](../../backup/backup-azure-linux-app-consistent.md). 
 Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
@@ -44,7 +44,7 @@ Create a scheduled daily backup to a Recovery Services Vault:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
-4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
+4. On the VM blade, in the **Operations** section, click **Backup**. The **Enable backup** blade opens.
 5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
 6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
 7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
@@ -62,20 +62,21 @@ If you accidentally delete or make changes to a file, you can use File Recovery 
 
 In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
  
 1. On your local computer, open a browser and type in the public IP address of your VM to see the default nginx web page.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
+	![Screenshot that shows the default nginx web page.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. SSH into your VM.
 
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Delete /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -84,7 +85,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 4. On your local computer, refresh the browser by hitting CTRL + F5 to see that default nginx page is gone.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-broken.png)
+	![Screenshot that shows the default nginx page is gone.](./media/tutorial-backup-vms/nginx-broken.png)
 	
 1. On your local computer, sign in to the [Azure portal](https://portal.azure.com/).
 6. In the menu on the left, select **Virtual machines**. 
@@ -120,7 +121,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 12. The output from the script gives you the path for the mount point. The output looks similar to this:
 
-    ```bash
+    ```output
 	Microsoft Azure VM Backup - File Recovery
 	______________________________________________
                           
@@ -169,4 +170,3 @@ Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
 > [Govern virtual machines](tutorial-govern-resources.md)
-

@@ -1,6 +1,6 @@
-﻿---
+---
 title: Microsoft Azure Storage Explorer release notes
-description: Release notes for Microsoft Azure Storage Explorer
+description: Read the release notes for the latest version of Microsoft Azure Storage Explorer. The release notes for previous versions are also shown.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -81,7 +81,7 @@ To download previous versions of Storage Explorer, you can visit the [Releases p
 * Managed Disk features are not supported in Azure Stack.
 * If a Disk upload or paste fails and a new Disk was created prior to the failure, Storage Explorer will not delete the Disk for you.
 * Depending on when you cancel a Disk upload or paste, it is possible to leave the new Disk in a corrupted state. If this happens, you either need to delete the new Disk, or manually call the Disk APIs to replace the contents of the Disk such that it is no longer corrupted.
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
@@ -103,7 +103,7 @@ To download previous versions of Storage Explorer, you can visit the [Releases p
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 ## Previous releases
 
@@ -163,15 +163,16 @@ To download previous versions of Storage Explorer, you can visit the [Releases p
   * Auto refresh #1526
   * Enable AzCopy
   * AzCopy SAS duration
-If there are other setttings you would like to see added, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) describing the setting you want to see.
+If there are other settings you would like to see added, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) describing the setting you want to see.
 * Storage Explorer now supports Managed Disks. You can:
-  * Upload an on-prem VHD to a new Disk
+  * Upload an on-premises VHD to a new Disk
   * Download a Disk
   * Copy and paste disks across resource groups and regions
   * Delete Disks
   * Create a Snapshot of a Disk
+
 The uploading, downloading, and cross-region copying of disks are powered by AzCopy v10.
-* Storage Explorer can now be installed via the Snap store on Linux. When you install via the Snap store, all dependencies are installed for you, including .NET Core! Currently we have verified that Storage Explorer runs well on Ubuntu and CentOS. If you encounter issues installing from the Snap store on other Linux distros, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). To learn more about installing from the Snap store, see our [getting started guide](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
+* Storage Explorer can now be installed via the Snap store on Linux. When you install via the Snap store, all dependencies are installed for you, including .NET Core! Currently we have verified that Storage Explorer runs well on Ubuntu and CentOS. If you encounter issues installing from the Snap store on other Linux distros, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). To learn more about installing from the Snap store, see our [getting started guide](./vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux). #68
 * Two major changes have been made to attach with Azure Active Directory (Azure AD) which are intended to make the feature more useful for ADLS Gen2 users:
   * You now select the tenant that the resource you are attaching is in. This means that you no longer need to have RBAC access to the resource's subscription.
   * If you are attaching an ADLS Gen2 Blob Container, you can now attach to a specific path in the container.
@@ -179,13 +180,13 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 * When adding via OID to an ADLS Gen2 ACL, Storage Explorer will now validate that the OID belongs to a valid entity in your tenant. #1603
 * The keyboard shortcuts for navigating between tabs now use more standard key combinations. #1018
 * Middle clicking on a tab will now close it. #1348
-* If an AzCopy transfer contains skips and no failures, Storage Explorer will now show a warning icon to highlight that skips occured. #1490
+* If an AzCopy transfer contains skips and no failures, Storage Explorer will now show a warning icon to highlight that skips occurred. #1490
 * The integrated AzCopy has been updated to version 10.2.1. Additionally, you can now view the version of AzCopy installed in the About dialog. #1343
 
 ### Fixes
 * Many users have run into various "cannot read version of undefined" or "cannot read connection of undefined" errors when working with attached Storage Accounts. Although we are still continuing to investigate the root cause of this issue, in 1.10.0 we have improved the error handling around loading attached Storage Accounts. #1626, #985, and #1532
 * It was possible for the explorer tree (left-hand side) to get into a state where focus would jump to the top node repeatedly. This has been fixed. #1596
-* When managing a blob's snapshots, screenreaders would not read the timestamp associated with the snapshot. This has been fixed. #1202
+* When managing a blob's snapshots, screen readers would not read the timestamp associated with the snapshot. This has been fixed. #1202
 * Proxy setting on macOS were not being set in time for the authentication process to use them. This has been fixed. #1567
 * If a Storage Account in a sovereign cloud was attached using name and key, AzCopy would not work. This has been fixed. #1544
 * When attaching via a connection string, Storage Explorer will now remove trailing spaces. #1387
@@ -197,7 +198,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 * Depending on when you cancel a Disk upload or paste, it is possible to leave the new Disk in a corrupted state. If this happens, you either need to delete the new Disk, or manually call the Disk APIs to replace the contents of the Disk such that it is no longer corrupted.
 * Depending on when you cancel a Disk upload or paste, it is possible to leave the new Disk in a corrupted state. If this happens, you either need to delete the new Disk, or manually call the Disk APIs to replace the contents of the Disk such that it is no longer corrupted.
 * When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
@@ -219,7 +220,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 
 ## Version 1.10.0
@@ -236,16 +237,16 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
     * Enable AzCopy
     * AzCopy SAS duration
 
-    If there are other setttings you would like to see added, please [open an issue on GitHub describing the setting you want to see](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
+    If there are other settings you would like to see added, please [open an issue on GitHub describing the setting you want to see](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
 * Storage Explorer now supports Managed Disks. You can:
-    * Upload an on-prem VHD to a new Disk
+    * Upload an on-premises VHD to a new Disk
     * Download a Disk
     * Copy and paste disks across resource groups and regions
     * Delete Disks
     * Create a Snapshot of a Disk
 
     The uploading, downloading, and cross-region copying of disks are powered by AzCopy v10.
-* Storage Explorer can now be installed via the Snap store on Linux. When you install via the Snap store, all dependencies are installed for you, including .NET Core! Currently we have verified that Storage Explorer runs well on Ubuntu and CentOS. If you encounter issues installing from the Snap store on other Linux distros, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). To learn more about installing from the Snap store, see our [getting started guide](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Storage Explorer can now be installed via the Snap store on Linux. When you install via the Snap store, all dependencies are installed for you, including .NET Core! Currently we have verified that Storage Explorer runs well on Ubuntu and CentOS. If you encounter issues installing from the Snap store on other Linux distros, please [open an issue on GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). To learn more about installing from the Snap store, see our [getting started guide](./vs-azure-tools-storage-manage-with-storage-explorer.md). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
 * Two major changes have been made to attach with Azure Active Directory (Azure AD) which are intended to make the feature more useful for ADLS Gen2 users:
         * You now select the tenant that the resource you are attaching is in. This means that you no longer need to have RBAC access to the resource's subscription.
         * If you are attaching an ADLS Gen2 Blob Container, you can now attach to a specific path in the container.
@@ -253,14 +254,14 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 * When adding via OID to an ADLS Gen2 ACL, Storage Explorer will now validate that the OID belongs to a valid entity in your tenant. [#1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
 * The keyboard shortcuts for navigating between tabs now use more standard key combinations. [#1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
 * Middle clicking on a tab will now close it. [#1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
-* If an AzCopy transfer contains skips and no failures, Storage Explorer will now show a warning icon to highlight that skips occured. [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* If an AzCopy transfer contains skips and no failures, Storage Explorer will now show a warning icon to highlight that skips occurred. [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
 * The integrated AzCopy has been updated to version 10.2.1. Additionally, you can now view the version of AzCopy installed in the About dialog. [#1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
 
 ### Fixes
 
 * Many users have run into various "cannot read version of undefined" or "cannot read connection of undefined" errors when working with attached Storage Accounts. Although we are still continuing to investigate the root cause of this issue, in 1.10.0 we have improved the error handling around loading attached Storage Accounts. [#1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626), [#985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985), and [#1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
 * It was possible for the explorer tree (left-hand side) to get into a state where focus would jump to the top node repeatedly. This has been fixed. [#1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
-* When managing a blob's snapshots, screenreaders would not read the timestamp associated with the snapshot. This has been fixed. [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* When managing a blob's snapshots, screen readers would not read the timestamp associated with the snapshot. This has been fixed. [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
 * Proxy setting on macOS were not being set in time for the authentication process to use them. This has been fixed. [#1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
 * If a Storage Account in a sovereign cloud was attached using name and key, AzCopy would not work. This has been fixed. [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
 * When attaching via a connection string, Storage Explorer will now remove trailing spaces. [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
@@ -272,9 +273,9 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 * If a Disk upload or paste fails and a new Disk was created prior to the failure, Storage Explorer will not delete the Disk for you.
 * Depending on when you cancel a Disk upload or paste, it is possible to leave the new Disk in a corrupted state. If this happens, you either need to delete the new Disk, or manually call the Disk APIs to replace the contents of the Disk such that it is no longer corrupted.
 * When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
-* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
@@ -294,7 +295,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 ## Version 1.9.0
 7/1/2019
@@ -330,7 +331,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 ### Known Issues
 
 * When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
@@ -352,7 +353,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 ## Version 1.8.1
 5/13/2019
@@ -387,7 +388,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 ### Known Issues
 
 * When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
@@ -409,7 +410,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 ## Version 1.8.0
 5/1/2019
@@ -439,7 +440,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 ### Known Issues
 
 * When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
@@ -461,7 +462,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) for more information.
 
 ## Version 1.7.0
 3/5/2019
@@ -495,7 +496,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 
 ### Known Issues
 
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
@@ -555,7 +556,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
         
 ### New
 
-* You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
+* You can now use Storage Explorer to access your Blob data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
   * Create and delete containers
   * Manage container properties and permissions (left-hand side)
@@ -563,7 +564,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
   * Create new folders
   * Upload, download, rename, and delete files and folders
   * Manage file and folder properties and permissions (right-hand side).
-	
+
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
 
@@ -624,7 +625,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
         
 ### New
 
-* You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
+* You can now use Storage Explorer to access your Blob data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
   * Create and delete containers
   * Manage container properties and permissions (left-hand side)
@@ -679,7 +680,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 
 ### New
 
-* You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
+* You can now use Storage Explorer to access your Blob data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
   * Create and delete containers
   * Manage container properties and permissions (left-hand side)
@@ -1140,7 +1141,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 ### New
 * Storage Explorer now supports the use of Azurite. Note: the connection to Azurite is hardcoded to the default development endpoints.
-* Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+* Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](./storage/blobs/storage-blob-storage-tiers.md).
 * A start time is no longer required when generating a SAS.
 
 ### Fixes
@@ -1198,9 +1199,9 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Azure Stack accounts backed by AAD, Storage Explorer will now retrieve Azure Stack subscriptions when 'Target Azure Stack' is enabled. You no longer need to create a custom login environment.
 * Several shortcuts were added to enable faster navigation. These include toggling various panels and moving between editors. See the View menu for more details.
 * Storage Explorer feedback now lives on GitHub. You can reach our issues page by clicking the Feedback button in the bottom left or by going to [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Feel free to make suggestions, report issues, ask questions, or leave any other form of feedback.
-* If you are running into SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore SSL certificate errors.
+* If you are running into TLS/SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore TLS/SSL certificate errors.
 * There is now a 'Download' option in the context menu for blob and file items.
-* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
+* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](./vs-azure-tools-storage-explorer-accessibility.md) for more information.
 * Storage Explorer now uses Electron 1.8.3
 
 ### Breaking Changes
@@ -1623,7 +1624,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * You can now sign-in to Azure Active Directory (AAD) based Azure Stack accounts.
 * You can now upload archive files over 32MB to Premium storage accounts
 * Improved accessibility support
-* You can now add trusted Base-64 encoded X.509 SSL certificates by going to Edit -&gt; SSL Certificates -&gt; Import Certificates
+* You can now add trusted Base-64 encoded X.509 TLS/SSL certificates by going to Edit -&gt; SSL Certificates -&gt; Import Certificates
 
 #### Fixes
 

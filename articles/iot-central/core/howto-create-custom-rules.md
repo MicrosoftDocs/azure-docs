@@ -4,18 +4,16 @@ description: As a solution developer, configure an IoT Central application to se
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 manager: philmea
 ---
 
 # Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid
 
-
-
-This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the built-in rules and actions.
 
@@ -226,10 +224,10 @@ After a few minutes, the **To** email address receives an email with the followi
 ```txt
 The following device(s) have stopped sending telemetry:
 
-Device ID	Time
-test-device-1	2019-05-02T14:23:39.527Z
-test-device-2	2019-05-02T14:23:50.717Z
-test-device-3	2019-05-02T14:24:28.919Z
+Device ID    Time
+test-device-1    2019-05-02T14:23:39.527Z
+test-device-2    2019-05-02T14:23:50.717Z
+test-device-3    2019-05-02T14:24:28.919Z
 ```
 
 ## Add Stream Analytics query

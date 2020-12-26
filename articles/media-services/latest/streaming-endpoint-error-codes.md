@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services packaging and origin errors | Microsoft Docs
 description: This topic describes errors that you may receive from the Azure Media Services Streaming Endpoint (Orgin) service.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,13 +11,13 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 05/07/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 
-# Streaming Endpoint (Origin) errors 
+# Streaming Endpoint (Origin) errors
 
 This topic describes errors that you may receive from the Azure Media Services [Streaming Endpoint service](streaming-endpoint-concept.md).
 
@@ -197,9 +197,9 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-- [Encoding error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Encoding error codes](/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services concepts](concepts-overview.md)
-- [Quotas and Limitations](limits-quotas-constraints.md)
+- [Quotas and limits](limits-quotas-constraints.md)
 
 ## Next steps
 

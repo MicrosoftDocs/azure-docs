@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 10/28/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -18,10 +18,11 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
-* verificationKeys
 
 ## Microsoft.BotService
 
@@ -30,8 +31,12 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.Compute
 
 * disks
+* galleries
+* galleries/images
+* galleries/images/versions
 * images
 * snapshots
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
 
 ## Microsoft.ContainerInstance
@@ -49,19 +54,30 @@ For some resource types, you need to contact support to have the 800 instance li
 * registries/tasks
 * registries/webhooks
 
+## Microsoft.D365CustomerInsights
+
+* instances
+
 ## Microsoft.DBforMariaDB
 
 * servers
 
 ## Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## Microsoft.DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * servers
 * serversv2
+
+## Microsoft.DevTestLab
+
+* labs/virtualMachines - By default, limited to 800 instances. 
+* schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
@@ -85,7 +101,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * softwareUpdateProfile
 * softwareUpdates
 
-## Microsoft.Insights
+## microsoft.insights
 
 * metricalerts
 
@@ -93,6 +109,10 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * integrationAccounts
 * workflows
+
+## Microsoft.Media
+
+* mediaservices/liveEvents
 
 ## Microsoft.NetApp
 
@@ -149,6 +169,10 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.PowerBIDedicated
+
+* capacities - By default, limited to 800 instances. That limit can be increased by contacting support.
+
 ## Microsoft.Relay
 
 * namespaces
@@ -161,18 +185,21 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * namespaces
 
-## Microsoft.ServiceFabricMesh
+## Microsoft.Singularity
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## Microsoft.Storage
 
 * storageAccounts
+
+## Microsoft.Sql
+
+* servers/databases
 
 ## Microsoft.Web
 

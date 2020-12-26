@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
@@ -17,12 +17,12 @@ ms.author: memildin
 ---
 
 # Manage user data found in an Azure Security Center investigation
-This article provides information on how to manage the user data found in Azure Security Center's investigation feature. Investigation data is stored in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) and exposed in Security Center. Managing user data includes the ability to delete or export data.
+This article provides information on how to manage the user data found in Azure Security Center's investigation feature. Investigation data is stored in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) and exposed in Security Center. Managing user data includes the ability to delete or export data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Searching for and identifying personal data
-In the Azure portal, you can use Security Center's [investigation feature](../security-center/security-center-investigation.md) to search for personal data. The investigation feature is available under **Security Alerts**.
+In the Azure portal, you can use Security Center's investigation feature to search for personal data. The investigation feature is available under **Security Alerts**.
 
 The investigation feature shows all entities, user information, and data under the **Entities** tab.
 

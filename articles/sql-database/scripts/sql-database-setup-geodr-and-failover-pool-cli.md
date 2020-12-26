@@ -1,10 +1,10 @@
-﻿---
-title: CLI example-active geo-replication-pooled Azure SQL database 
+---
+title: "Az CLI: Configure active geo-replication for an elastic pool" 
 description: Azure CLI example script to set up active geo-replication for a pooled database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
@@ -20,9 +20,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -39,21 +39,21 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $primaryresourcegroup
-az group delete --name $secondaryresourcegroupname
+az group delete --name $resource
+az group delete --name $secondaryResource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| Command | Description |
 |---|---|
-| [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Creates an elastic pool. |
-| [az sql db replica](/cli/azure/sql/db/replica) | Creates a secondary database for an existing database and starts data replication. |
+| [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands |
+| [az sql db replica](/cli/azure/sql/db/replica) | Database replication commands. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

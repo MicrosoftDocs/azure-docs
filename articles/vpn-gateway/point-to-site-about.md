@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -18,9 +18,9 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (OSX versions 10.13 and above).
+* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (OSX versions 10.13 and above).
 
-* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
+* Secure Socket Tunneling Protocol (SSTP), a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
@@ -64,7 +64,7 @@ The RADIUS server can also integrate with AD certificate services. This lets you
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
 
-![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
+![Diagram that shows a point-to-site VPN with an on-premises site.](./media/point-to-site-about/p2s.png)
 
 ## What are the client configuration requirements?
 
@@ -98,41 +98,41 @@ The zip file also provides the values of some of the important settings on the A
 
 **IKEv2**
 
-|**Cipher** | **Integrity** | **PRF** | **DH Group** |
-|---		| ---			| ---		| --- 	|
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_24 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_14 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_ECP384 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_ECP256 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_24 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_14 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_ECP384 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_ECP256 |
-|AES256     |   SHA384		| SHA384	| GROUP_24 |
-|AES256     |   SHA384		| SHA384	| GROUP_14 |
-|AES256     |   SHA384		| SHA384	| GROUP_ECP384 |
-|AES256     |   SHA384		| SHA384	| GROUP_ECP256 |
-|AES256     |   SHA256		| SHA256	| GROUP_24 |
-|AES256     |   SHA256		| SHA256	| GROUP_14 |
-|AES256     |   SHA256		| SHA256	| GROUP_ECP384 |
-|AES256     |   SHA256		| SHA256	| GROUP_ECP256 |
-|AES256     |   SHA256		| SHA256	| GROUP_2 |
+| **Cipher** | **Integrity** | **PRF** | **DH Group** |
+|--|--|--|--|
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP256 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA384 | SHA384 | GROUP_24 |
+| AES256 | SHA384 | SHA384 | GROUP_14 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP384 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_2 |
 
 **IPsec**
 
-|**Cipher** | **Integrity** | **PFS Group** |
-|---		| ---			| ---		|
-|GCM_AES256	| GCM_AES256 | GROUP_NONE |
-|GCM_AES256	| GCM_AES256 | GROUP_24 |
-|GCM_AES256	| GCM_AES256 | GROUP_14 |
-|GCM_AES256	| GCM_AES256 | GROUP_ECP384 |
-|GCM_AES256	| GCM_AES256 | GROUP_ECP256 |
-| AES256	| SHA256 | GROUP_NONE |
-| AES256	| SHA256 | GROUP_24 |
-| AES256	| SHA256 | GROUP_14 |
-| AES256	| SHA256 | GROUP_ECP384 |
-| AES256	| SHA256 | GROUP_ECP256 |
-| AES256	| SHA1 | GROUP_NONE |
+| **Cipher** | **Integrity** | **PFS Group** |
+|--|--|--|
+| GCM_AES256 | GCM_AES256 | GROUP_NONE |
+| GCM_AES256 | GCM_AES256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256 | SHA256 | GROUP_NONE |
+| AES256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA1 | GROUP_NONE |
 
 ## <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
 **TLS**

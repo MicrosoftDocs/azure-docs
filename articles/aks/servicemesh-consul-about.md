@@ -88,6 +88,7 @@ The following documentation describes how you can install Consul on Azure Kubern
 
 You can also further explore Consul features and architecture:
 
+- [Consul Getting Started Tutorials][consul-getting-started]
 - [Consul Features][consul-features]
 - [Consul Architecture][consul-architecture]
 - [Consul - How Connect Works][consul-how-connect-works]
@@ -99,6 +100,7 @@ You can also further explore Consul features and architecture:
 [consul-sidecar]: https://www.consul.io/docs/connect/proxies.html
 [consul-how-connect-works]: https://www.consul.io/docs/connect/connect-internals.html
 [consul-principles]: https://www.consul.io/
+[consul-getting-started]:https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 
 [envoy-proxy]: https://www.envoyproxy.io/
 [grafana]: https://grafana.com/

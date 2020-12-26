@@ -2,13 +2,15 @@
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 12/21/2020
 ---
 # Set name and type for child resources
 
-Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). The extension resource is a child of the virtual machine.
+Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/virtualmachines). The extension resource is a child of the virtual machine.
 
-In a Resource Manger template, you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
+Each parent resource accepts only certain resource types as child resources. The resource type for the child resource includes the resource type for the parent resource. For example, **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource.
+
+In an Azure Resource Manager template (ARM template), you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
 
 ```json
 "resources": [
@@ -20,6 +22,8 @@ In a Resource Manger template, you can specify the child resource either within 
   }
 ]
 ```
+
+Child resources can only be defined five levels deep.
 
 The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
 
@@ -126,6 +130,6 @@ The following example shows a virtual network and subnet that are both defined a
 
 ## Next steps
 
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
+* To learn about creating ARM templates, see [Authoring templates](template-syntax.md).
 
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).

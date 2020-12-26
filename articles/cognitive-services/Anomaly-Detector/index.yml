@@ -47,9 +47,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#
-          url: quickstarts/detect-data-anomalies-csharp-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Using JavaScript
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Using Python
-          url: quickstarts/detect-data-anomalies-python-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
     - linkListType: tutorial
       links:
         - text: Visualize anomalies using batch detection and Power BI
@@ -84,6 +86,8 @@ landingContent:
           url: anomaly-detector-container-configuration.md
         - text: Deploy a container instance to Azure
           url: how-to/deploy-anomaly-detection-on-container-instances.md
+        - text: Deploy to IoT Edge
+          url: how-to/deploy-anomaly-detection-on-iot-edge.md
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support
@@ -97,6 +101,13 @@ landingContent:
           url: https://aka.ms/adadvisorsjoin
         - text: Featured user-generated content
           url: user-generated-content.md
+  
+- title: Help and feedback
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 
 - title: Reference
   linkLists:
@@ -113,6 +124,6 @@ landingContent:
         - text: Node.js SDK
           url: https://go.microsoft.com/fwlink/?linkid=2090788
         - text: Azure PowerShell
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          url: /powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
           url: /cli/azure/cognitiveservices#az-cognitiveservices-list

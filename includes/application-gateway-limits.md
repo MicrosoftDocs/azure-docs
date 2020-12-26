@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
 ---
-| Resource | Default/maximum limit | Note |
+| Resource | Limit | Note |
 | --- | --- | --- |
 | Azure Application Gateway |1,000 per subscription | |
 | Front-end IP configurations |2 |1 public and 1 private |
@@ -33,6 +33,6 @@ ms.author: victorh
 | Maximum file upload size WAF |V1 Medium WAF gateways, 100 MB<br>V1 Large WAF gateways, 500 MB<br>V2 WAF, 750 MB| |
 | WAF body size limit, without files|128 KB||
 | Maximum WAF custom rules|100||
-| Maximum WAF exclusions|100||
+| Maximum WAF exclusions per Application Gateway|40||
 
-<sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.
+<sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.

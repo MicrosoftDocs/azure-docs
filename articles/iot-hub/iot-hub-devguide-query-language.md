@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -228,7 +229,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 ### Limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
@@ -476,7 +477,7 @@ In routes conditions, the following type checking and casting functions are supp
 | AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |

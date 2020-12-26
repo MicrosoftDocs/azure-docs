@@ -1,6 +1,6 @@
 ---
 title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about session management mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
-| IoT Device | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
+| **IoT Device** | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
@@ -155,7 +155,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [httpCookies Element (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **References**              | [httpCookies Element (ASP.NET Settings Schema)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [HttpCookie.Secure Property](/dotnet/api/system.web.httpcookie.secure) |
 | **Steps** | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. The requirement can be enforced in the web.config file by setting the requireSSL attribute to true. It is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
 
 ### Example
@@ -217,8 +217,8 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
+| **References**              | [FormsAuthentication.RequireSSL Property](/dotnet/api/system.web.security.formsauthentication.requiressl) |
+| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether Transport Layer Security (TLS), previously known as SSL (Secure Sockets Layer), is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.
@@ -234,7 +234,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
 | **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
 
 ### Example
@@ -355,7 +355,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **References**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Steps** | CSRF attacks in WebForm based applications can be mitigated by setting ViewStateUserKey to a random string that varies for each user - user ID or, better yet, session ID. For a number of technical and social reasons, session ID is a much better fit because a session ID is unpredictable, times out, and varies on a per-user basis.|
 
 ### Example
@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **References**              | [HttpSessionState.Timeout Property](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during an interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
@@ -395,7 +395,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
