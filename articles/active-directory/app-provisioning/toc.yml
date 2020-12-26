@@ -71,8 +71,10 @@
         href: application-provisioning-when-will-provisioning-finish.md
       - name: Provisioning logs
         href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
-    - name: Build a SCIM endpoint and configure provisioning
+    - name: Develop a SCIM endpoint and configure provisioning
       href: use-scim-to-provision-users-and-groups.md
+    - name: Build, deploy, test, and integrate a SCIM endpoint and test
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Automate configuration using MS Graph
       href: application-provisioning-configure-api.md
   - name: Reference
