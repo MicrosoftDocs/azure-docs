@@ -14,7 +14,7 @@ ms.date: 12/11/2020
 
 # Tutorial: Power BI integration - Create the predictive model by using automated machine learning (part 1 of 2)
 
-In the first part of this tutorial, you train and deploy a predictive machine learning model. You use automated machine learning (ML) in the Azure Machine Learning studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
+In the first part of this tutorial, you'll train and deploy a predictive machine learning model. You'll use automated machine learning (ML) in the Azure Machine Learning studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -25,27 +25,25 @@ In this tutorial, you:
 > * Deploy the best model to a real-time scoring endpoint.
 
 
-There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated ML in the studio."  This option shows a no-code authoring experience that fully automates the data preparation and model training. 
+There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated ML in the studio."  This option uses a no-code authoring experience to fully automate the data preparation and model training. 
 
 But you could instead use one of the other options:
 
-* [Option A: Train and deploy models by using Jupyter notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter notebooks hosted in Azure Machine Learning studio.
+* [Option A: Train and deploy models by using Jupyter notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter notebooks that are hosted in Azure Machine Learning studio.
 * [Option B: Train and deploy models by using the Azure Machine Learning designer](tutorial-power-bi-designer-model.md). This low-code authoring experience uses a drag-and-drop user interface.
 
 ## Prerequisites
 
-- An Azure subscription. A [free trial](https://aka.ms/AMLFree) is available. 
+- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://aka.ms/AMLFree). 
 - An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
 
 ## Create a compute cluster
 
-Automated ML trains many different machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
+Automated ML trains many machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
 
-1. In the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Compute**. 
-1. Select the **Compute clusters** tab. 
-1. Select **New**:
+To begin, in the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Compute**. Open the **Compute clusters** tab. Then select **New**:
 
-    :::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster.":::
+:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster.":::
 
 In the **Create compute cluster** window:
 
@@ -105,7 +103,7 @@ Your completed form should look like this:
 
 :::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated ML.":::
 
-Finally, select the machine learning task to perform, which is **Regression**:
+Finally, select a machine learning task. In this case, the task is **Regression**:
 
 :::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot showing how to configure a task.":::
 
@@ -116,7 +114,7 @@ Select **Finish**.
 
 ## Deploy the best model
 
-When the automated ML finishes, you can see all the machine learning models that have been tried by selecting the **Models** tab. The models are ordered by performance; the best-performing model is shown first. When you select the best model, the **Deploy** button is enabled:
+When automated ML finishes, you can see all the machine learning models that have been tried by selecting the **Models** tab. The models are ordered by performance; the best-performing model is shown first. After you select the best model, the **Deploy** button is enabled:
 
 :::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot showing the list of models.":::
 
