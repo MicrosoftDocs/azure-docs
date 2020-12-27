@@ -480,7 +480,7 @@ To install the software:
     | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
 
-7. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **Support** user.
+7. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
 
 8. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
 
@@ -564,7 +564,7 @@ To install:
     | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
-7. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **support** user.
+7. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
 
 8. Save the appliance's ID and passwords. You'll need these credentials to access the platform for the first time.
 
@@ -694,7 +694,7 @@ To install:
 
    - **Support**: The administrative user for user management.
 
-   - **Defender for IoT**: The equivalent of root for accessing the appliance.
+   - **CyberX**: The equivalent of root for accessing the appliance.
 
 7. The appliance restarts.
 
@@ -836,7 +836,7 @@ To install the software:
 
   - **Support**: The administrative user for user management.
 
-  - **Defender for IoT**: The equivalent of root for accessing the appliance.
+  - **CyberX**: The equivalent of root for accessing the appliance.
 
 5. The appliance restarts.
 
@@ -848,7 +848,7 @@ To install the software:
 
 To validate the installation of a physical appliance, you need to perform a number of tests. The same validation process applies to all the appliance types.
 
-Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **Defender for IoT**.
+Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **CyberX**.
 
 Post-installation validation must include the following tests:
 
@@ -1058,7 +1058,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 To enable tunneling:
 
-1. Sign in to the on-premises management console's CLI with Defender for IoT or **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
 
 2. Enter `sudo cyberx-management-tunnel-enable`.
 

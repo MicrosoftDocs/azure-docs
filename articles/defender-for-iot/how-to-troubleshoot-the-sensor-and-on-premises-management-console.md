@@ -19,6 +19,24 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 **System Notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
 ## Sensor troubleshooting tools
+### Initial sign in password failure
+
+When signing in to an preconfigured Arrow sensor you will need to perform the follwoing password recovery ti sign in for the first time.
+
+To recover the sensor's password:
+
+1. In the Defender for IoT sign in screen, select  the **Password Recovery** option to open the **Password Recovery** screen where you will be prompted to select the user, subscription, and be given a unique identifier. Non-activated devices will accept activation from any subscription but will then remain connected to that subscription unless it is reformatted. 
+
+1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
+
+1. Enter the unique identifier you received on the **Password Recovery** screen and select **Recover**. The activation file is downloaded.
+
+> Note
+> Do not alter the activation file, as it is a signed file and will not work if tampered with.
+
+1. On the **Password Recovery** screen, upload the activation file and select **Next**.
+
+1. You will then be given your username and system-generated password for your management console. 
 ### Investigate a lack of traffic
 
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users.

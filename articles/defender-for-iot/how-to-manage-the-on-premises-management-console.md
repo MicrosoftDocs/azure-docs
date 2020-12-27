@@ -298,7 +298,7 @@ To reset your password:
 1. You will now be given your username and a new system-generated password.
 
 >Note
->Tee sensor is linked to the subscription it was originally connected to and the password can not be recovered without knowing which subscription it was attached to.
+>The sensor is linked to the subscription it was originally connected to. The password can only be recovered using the same subscription it is attached to.
 ## See also
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
