@@ -113,12 +113,6 @@ To update sensor network configuration parameters:
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
 
-### Password Recovery for pre-configured Arrow sensors
-
-EALAZAR'S Stuff.
-
-
-
 ### Subsequent logins
 
 After first-time activation, the Azure Defender for IoT sensor console opens after sign-in without requiring an activation file. You only need your sign-in credentials.

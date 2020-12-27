@@ -19,6 +19,7 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 **System Notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
 ## Sensor troubleshooting tools
+
 ### Investigate a lack of traffic
 
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users.
@@ -155,7 +156,7 @@ To tweak the quality of service:
 
 2. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
 
-## Troubleshooting tools for the on-premises management console
+## On-premises management console troubleshooting tools
 
 ### Expected alerts are not shown
 

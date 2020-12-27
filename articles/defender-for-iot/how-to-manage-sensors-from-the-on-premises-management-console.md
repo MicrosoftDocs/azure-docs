@@ -129,7 +129,7 @@ The **Site Manager** window displays disconnection information if sensors discon
 
 - "Times drift detected. The on-premises management console has been disconnected from sensor."
 
-- "Sensor not communicating with on-premises management console. Check network connectivity."
+- "Sensor not communicating with on-premises management console. Check network connectivity or certificate validation."
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Screenshot of the zone 1 view.":::
 

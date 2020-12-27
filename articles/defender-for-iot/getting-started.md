@@ -21,7 +21,7 @@ This article provides an overview of the steps you’ll take to set up Defender 
 
 - Register your subscription and sensors on the Azure Defender for IoT portal.
 - Install the sensor and on-premises management console software.
-- Perform initial activation on the sensor and management console.
+- Perform initial activation of the sensor and management console.
 
 ## Permission Requirements
 
@@ -44,9 +44,11 @@ The following permissions are required to work on the Azure portal:
 ## 1. Identify the solution infrastructure
 
 **Clarify your network setup needs**
+
 Research your network architecture, monitored bandwidth, and other network details. For more information, see [About Azure Defender for IoT network setup](how-to-set-up-your-network.md).
 
 **Clarify which sensors and management console appliances are required to handle the network load**
+
 Azure Defender for IoT supports both physical and virtual deployments.  For the physical deployments, you can purchase various certified appliances. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
 
 It is recommended to calculate the approximate number of devices that will be monitored.  Later, when you register your Azure subscription to the portal, you will be asked to enter this number. Numbers can be added in intervals of 1000 s. The numbers of devices monitored are referred to as committed devices.
