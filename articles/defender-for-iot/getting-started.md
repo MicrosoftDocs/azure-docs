@@ -33,13 +33,14 @@ Administrative user permissions are required to activate the sensor and manageme
 
 **Azure Defender for IoT Portal Permission Requirements**
 
-The following permissions are required to work on the Azure portal:
+The following permissions describe user access on the Azure Defender for IoT portal.
 
 | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
 | View all Defender for IoT screens and data | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor  |  |  ✓ | ✓ | ✓ |
 | Update pricing  |  |  ✓ | ✓ | ✓ |
+| Recover password  | ✓  |  ✓ | ✓ | ✓ |
 
 ## 1. Identify the solution infrastructure
 
@@ -86,21 +87,20 @@ To install and set up:
 
 ## 4. Onboard a sensor
 
-Onboard your sensor with Azure Defender for IoT.
+Onboarding is carried out by registering the sensor with Azure with Azure Defender for IoT and downloading a sensor activation file.
 
-To onboard:
-
-1. Select Onboard Sensor the Getting Started page.
+When onboarding, you will:
 1. Define a sensor name and associate it with a subscription.
-1. Define a sensor management mode. The management mode determines where device, alert, and other information detected by the sensor is displayed.
+1. Choose a sensor management mode:
 
-    **Cloud connected mode:** Information detected by the sensor is displayed in the sensor console. In addition, alert information is delivered through an IoT Hub and can be shared with other Azure services, for example Azure Sentinel.
+    **Cloud connected sensors:**
+    Information detected by the sensor is displayed in the sensor console. In addition, alert information is delivered through an IoT Hub and can be shared with other Azure services, for example Azure Sentinel.
 
-    **Locally connected mode:** Information detected by the sensor is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
-1. Associate the sensor to an IoT Hub and define a related Site Name and Zone.  
-1. Select **Register**.
-1. Use the **Sites and Sensors** page to view information about your onboarded sensors, for example if they are cloud connected or locally managed.
+    **Locally managed sensors:** Information detected by sensors is displayed in the sensor console. If you are working in an air-gapped network and want a unified view of all information detected by multiple Locally managed sensors, work with the on-premises management console. 
 
+1. Download  a sensor activation file.
+
+For more information, see [Onboard and manage sensors in the Defender for IoT portal](how-to-manage-sensors-on-the-cloud.md)
 ## 5. Install and set up the sensor
 
 Download the ISO package from the Azure Defender for IoT portal, install the software and set up the sensor.
@@ -120,7 +120,7 @@ Connect sensors the management console to ensure that:
 - Sensors send alert and device inventory information to the on-premises management console.
 
 - The on-premises management console can perform sensor backups, manage alerts detected by sensors, investigate sensor disconnections, and carry out other activity on connected sensors.
-- It is recommended to connect multiple sensors to the same zone. This allows device information to be integrated into one unique device entity. Information collected about devices from multiple sensors is merged together at the zone level. Connecting multiple sensors to the same zone allows easier management and monitoring of a multiple sensor deployment.
+- It is recommended to group multiple sensors monitoring the same networks in one zone. By doing this, information collected by multiple sensors will be coalesced.
 
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console)
 ## 7. Populate Azure Sentinel with alert information(optional)

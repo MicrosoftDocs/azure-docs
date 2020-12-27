@@ -13,7 +13,7 @@ ms.service: azure
 
 ## Onboard sensors
 
- Onboarding is carried out by registering the sensor with Azure with Azure Defender for IoT and downloading a sensor activation file.
+ Onboarding is carried out by registering the sensor with Azure Defender for IoT and downloading a sensor activation file.
 
 **Register the sensor**
 
@@ -37,7 +37,7 @@ To register:
 
 **Download the sensor activation file**
 
-The sensor activation file contains instructions regarding the management mode of the sensor. A unique activation file is needed for each sensor that is deployed. The activation file generated and downloaded for this sensor is required by the user signing in to the sensor for the first time. This user must upload the file to the sensor in order to activate it.
+The sensor activation file contains instructions regarding the management mode of the sensor. A unique activation file is needed for each sensor that is deployed. The activation file downloaded for this sensor is required by the user signing in to the sensor for the first time. This user must upload the activation file to the sensor.
 
 To download an activation file:
 
@@ -46,7 +46,7 @@ To download an activation file:
 
 ## View onboarded sensors
 
-View sensors you have onboarded to Azure Defender for IoT. Review basic information about the onboarded sensor.
+Review basic information about the onboarded sensor.
 
 To open the Sites and Sensors page:
 
@@ -71,26 +71,25 @@ Export onboarded sensor information. Select the Export icon in the top of the **
 
 Use the Sites and Sensors editing tools to add and edit the site name, zone and tags.
 
-**Delete a senor**  
+**Delete a sensor**  
 If you delete a cloud connected sensor, information will not be sent to the IoT Hub. Delete locally connected sensors when you are no longer working with them.
 To delete:
 1. Select **...** for the sensor you want to delete. 
 1. Confirm the deletion.
 
-
 **Update sensor management mode**
 
-You may want to update the mode that your sensor is managed. When you do this, you need to remove the current sensor from the sensor management page and upload a new activation file.
+You may want to update the mode that your sensor is managed, for example:
 
-- **Work in the Cloud Connected mode instead of Locally Connected mode**: Update the activation file for your locally connected sensor with an activation file for a **Cloud Connected** sensor. After reactivation, sensor detections are displayed in both the sensor and Defender for IoT portal. After the reactivation file is successfully uploaded newly detected alert information is sent to Azure.
+- **Work in the Cloud Connected mode instead of Locally managed mode**: To do this, update the activation file for your locally connected sensor with an activation file for a **Cloud Connected** sensor. After reactivation, sensor detections are displayed in both the sensor and Defender for IoT portal. After the reactivation file is successfully uploaded newly detected alert information is sent to Azure.
 
-- **Work in the Locally Connected mode instead of Cloud Connected mode**: Update the activation file for a **Cloud Connected** sensor with an activation file for a **Locally Connected** sensor. After reactivation, sensor detection information is only displayed in the sensor.
+- **Work in the Locally Connected mode instead of Cloud Connected mode**: To do this, update the activation file for a **Cloud Connected** sensor with an activation file for a **Locally managed** sensor. After reactivation, sensor detection information is only displayed in the sensor.
 
-- **Associate the sensor to a new IoT Hub**: You may want to associate your sensor with a new IoT Hub. To do this, re-register then sensor and upload a new activation file.
+- **Associate the sensor to a new IoT Hub**:  To do this, re-register then sensor and upload a new activation file.
 
 To reactivate the sensor:
 
-1. Navigate to the Defender for IoT, **Sensor Management** page.
+1. Navigate to the Defender for IoT, **Sites and Senors** page.
 
 2. Select the sensor for which you want to upload a new activation file.
 

@@ -11,13 +11,9 @@ ms.service: azure
 
 # Basic concepts 
 
-## Rapid non-invasive deployment
+## Rapid non-invasive deployment and passive monitoring
 
-The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring. It has zero impact on OT networks since it isn’t placed in the data path and doesn’t actively scan OT device. To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component that uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as desired.
-
-## Passive monitoring
-
- Use Deep Packet Inspection (DPI) to dissect traffic from both serial and ethernet control network equipment.
+Defender for IoT sensors connect to a SPAN port or network TAP and immediately begin collecting ICS network traffic via passive (agentless) monitoring. Deep Packet Inspection (DPI) is used to dissect traffic from both serial and ethernet control network equipment. Defender for IoT has zero impact on OT networks as it is not placed in the data path and does not actively scan OT device. To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component that uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as desired.
 
 ## Embedded knowledge ##
 
