@@ -46,7 +46,6 @@ A locally connected or cloud connected activation file was generated and downloa
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT portal, Onboard sensor":::
 
-- Upload an SSL and TLS certificate.
 ### About certificates
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor console. After signing in to the console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate.

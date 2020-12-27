@@ -174,7 +174,7 @@ To tweak the quality of service:
 
 2. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
 
-## Troubleshooting tools for the on-premises management console
+## On-premises management console troubleshooting tools
 
 ### Expected alerts are not shown
 
