@@ -4,7 +4,7 @@ description: Get started with understanding, configuring, deploying and using Az
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
-ms.author: mlottner
+ms.date: 12/27/2019
+ms.author: shhazam
 ---
 
 # Get started with Azure Defender for IoT device security agents

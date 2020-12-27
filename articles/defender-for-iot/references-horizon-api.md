@@ -30,9 +30,9 @@ Abstract for all plugins. This consists of two methods:
 
 ## `std::shared_ptr<horizon::protocol::BaseParser> create_parser()`
 
-The first function that is called for your plugin creates an instance of the parser for Horizon to recognize it and register it.
+The first function that is called for your plugin creates an instance of the parser for Horizon to recognize it and register it.
 
-### Parameters 
+### Parameters 
 
 None
 
@@ -42,11 +42,11 @@ shared_ptr to your parser instance.
 
 ## `std::vector<uint64_t> horizon::protocol::BaseParser::processDissectAs(const std::map<std::string, std::vector<std::string>> &) const`
 
-This function will get called for each plugin registered above. 
+This function will get called for each plugin registered above. 
 
 In most cases this will be empty. Throw an exception for Horizon to know something bad happened.
 
-### Parameters 
+### Parameters 
 
 - A map containing the structure of dissect_as, as defined in the config.json of another plugin which wants to register over you.
 
@@ -73,13 +73,13 @@ The result of the processing. This can be either Success/Malformed/Sanity.
 
 ## `horizon::protocol::SanityFailureResult: public horizon::protocol::ParserResult`
 
-Marks the processing as sanitation failure, meaning the packet isn't recognized by the current protocol, and Horizon should pass it to other parser, if any registered on same filters.
+Marks the processing as sanitation failure, meaning the packet isn't recognized by the current protocol, and Horizon should pass it to other parser, if any registered on same filters.
 
 ## `horizon::protocol::SanityFailureResult::SanityFailureResult(uint64_t)`
 
 Constructor
 
-### Parameters 
+### Parameters 
 
 - Defines the error code used by the Horizon for logging, as defined in the config.json.
 
@@ -91,7 +91,7 @@ Malformed result, indicated we already recognized the packet as our protocol, bu
 
 Constructor
 
-### Parameters  
+### Parameters  
 
 - Error code, as defined in config.json.
 
@@ -107,7 +107,7 @@ Constructor. Created a basic successful result. This means we don't know the dir
 
 Constructor
 
-### Parameters 
+### Parameters 
 
 - The direction of packet, if identified. Values can be REQUEST, RESPONSE
 
@@ -124,15 +124,15 @@ Constructor
 
 Constructor
 
-### Parameters 
+### Parameters 
 
--  Warnings. These events won’t be failed, but Horizon will be notified.
+-  Warnings. These events won’t be failed, but Horizon will be notified.
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
 Converts a string-based reference to a field name (e.g. function_code) to HorizonID
 
-### Parameters 
+### Parameters 
 
 - String to convert
 
@@ -160,7 +160,7 @@ A reference to the manager
 
 Creates a new numeric field of 64 bits on the layer with the requested ID.
 
-### Parameters 
+### Parameters 
 
 - The layer you created earlier
 - HorizonID created by the HORIZON_FIELD macro
@@ -170,7 +170,7 @@ Creates a new numeric field of 64 bits on the layer with the requested ID.
 
 Creates a new string field of on the layer with the requested ID. The memory will be moved, so be careful. You won't be able to use this value again.
 
-### Parameters  
+### Parameters  
 
 - The layer you created earlier
 - HorizonID created by the HORIZON_FIELD macro
@@ -233,7 +233,7 @@ Checks that the buffer contains at least X bytes.
 
 ### Parameters
 
-Number of bytes should exist 
+Number of bytes should exist 
 
 ### Return value
 
@@ -275,7 +275,7 @@ The value read from the buffer.
 
 Reads into pre-allocated memory, of a specified size, will actually copy the data into your memory region.
 
-### Parameters 
+### Parameters 
 
 - The memory region to copy the data into
 - Size of the memory region, this parameter also defined how many bytes will be copied
@@ -284,7 +284,7 @@ Reads into pre-allocated memory, of a specified size, will actually copy the dat
 
 Reads into a string from the buffer
 
-### Parameters 
+### Parameters 
 
 - The number of bytes that should be read.
 

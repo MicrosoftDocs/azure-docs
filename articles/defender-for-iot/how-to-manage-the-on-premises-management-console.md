@@ -17,9 +17,9 @@ On-premises management console onboarding is carried out from the Azure portal.
 
 ## Upload an activation file
 
-After you first-time log in, an activation file for the on-premises management console was downloaded. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
+After you first sign in, an activation file for the on-premises management console was downloaded. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
 
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
 To upload an activation file:
 
@@ -34,7 +34,7 @@ To upload an activation file:
 
 ## Manage certificates
 
-Following on-premises management console installation, a local self-signed certificate is generated and used to access the management console web application. When logging in to the management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. For more information about first time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
+Following on-premises management console installation, a local self-signed certificate is generated and used to access the management console web application. When logging in to the management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. For more information about first-time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
 
@@ -46,7 +46,7 @@ Azure Defender for IoT uses SSL and TLS certificates to:
 
 1. Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**
 
- Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
+ Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory is not validated.
 
 ### Update certificates
 
@@ -59,7 +59,7 @@ To update a certificate:
 1. Delete or edit the certificate and add a new one.
     - Add a certificate name.
     - Upload a CRT file and key file and enter a passphrase.
-    - Upload a PEM file if required.
+    - Upload a PEM file if necessary.
 
 To change the validation setting:
 
@@ -85,17 +85,17 @@ Certificate CRT
 - Signature Hash Algorithm = SHA256
 - Valid from = Valid past date
 - Valid To = Valid future date
-- Public Key = RSA 2048bits (Minimum) or 4096bits
+- Public Key = RSA 2048 bits (Minimum) or 4096 bits
 - CRL Distribution Point = URL to .crl file
-- Subject CN = URL, can be a wildcard certificate e.g. example.contoso.com or  *.contoso.com**
-- Subject (C)ountry = defined, e.g. US
-- Subject (OU) Org Unit = defined, e.g. Contoso Labs
-- Subject (O)rganization = defined, e.g. Contoso Inc.
+- Subject CN = URL, can be a wildcard certificate for example, www.contoso.com or  *.contoso.com**
+- Subject (C)ountry = defined, for example, US.
+- Subject (OU) Org Unit = defined, for example, Contoso Labs
+- Subject (O)rganization = defined, for example, Contoso Inc.
 
 Key File
 
 - The key file generated when you created CSR
-- RSA 2048bits (Minimum) or 4096bits
+- RSA 2048 bits (Minimum) or 4096 bits
 
 Certificate Chain
 
@@ -105,7 +105,7 @@ Certificate Chain
 
 Passphrase
 
-- 1 key supported
+- One key supported
 - Setup when importing the certificate
 
 Certificates with other parameters may work but cannot be supported by Microsoft.
@@ -115,7 +115,7 @@ Certificates with other parameters may work but cannot be supported by Microsoft
 
 The name is from Privacy Enhanced Mail (PEM), an historic method for secure email but the container format it used lives on, and is a base64 translation of the x509 ASN.1 keys.  
 
-Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files, etc, ssl, and certs), or may include an entire certificate chain including public key, private key, and root certificates.  
+Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files, ETC, SSL, and certs), or may include an entire certificate chain including public key, private key, and root certificates.  
 
 It may also encode a CSR as the PKCS10 format can be translated into PEM.
 
@@ -132,7 +132,7 @@ Use the *cyberx-xsense-certificate-import* CLI command to import certificates. T
 
 The command supports the following input flags:
 
--h  Show the command line help syntax
+-h  Show the command-line help syntax
 
 --crt  Path to certificate file (CRT extension)
 
@@ -226,7 +226,7 @@ In the networking area, select **VLAN** and add names to the VLAN IDs discovered
 
 ## Define a proxy to sensors
 
-Enhance system security by preventing user sign-in directly to the sensor. Instead leverage proxy tunneling to let users access the sensor directly from the on-premises management console with a single firewall rule. This narrows the possibility of unauthorized access to the network environment beyond the sensor.
+Enhance system security by preventing user sign-in directly to the sensor. Instead use proxy tunneling to let users access the sensor directly from the on-premises management console with a single firewall rule. This enhancement narrows the possibility of unauthorized access to the network environment beyond the sensor.
 
 Use a proxy in environments where there is no direct connectivity to sensors.
 
@@ -284,7 +284,7 @@ To change the name:
 
 ## Password recovery
 
-Password recovery for your on-premises management console is tied to the subscription the device is attached to. You can not recover a password if you do not know which subscription a device is attached to.
+Password recovery for your on-premises management console is tied to the subscription the device is attached to. You cannot recover a password if you do not know which subscription a device is attached to.
 
 To reset your password:
 
