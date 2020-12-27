@@ -21,11 +21,11 @@ Activation and setup of the on-premises management console ensures that:
 
 - You have installed an SSL certificate
 
-To log in to the management console:
+## First-time sign in
 
-1. Open a web browser and enter the IP address for the on-premises management console that you received during the system installation.
+To sign in to the management console:
 
-1. Enter the username and password that your administrator sent to you, and then select **LOGIN**.
+1. Open a web browser and enter the IP address and password you received with your installation for the on-premises management console that you received during the system installation. if you forgot your password then select **Recover Password** and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery).
 
 ## Upload an activation file
 
@@ -54,7 +54,7 @@ Two levels of security are available:
 
 The following types of certificates are supported:
 
-- Private / Enterprise Key Infrastructure (Private PKI)
+- Private and Enterprise Key Infrastructure (Private PKI)
 - Public Key Infrastructure (Public PKI)
 - Locally generated on the appliance (locally self-signed). **It is recommended not to use a self-signed certificate.**
 The certificate is INSECURE and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  This option should never be used for production networks.

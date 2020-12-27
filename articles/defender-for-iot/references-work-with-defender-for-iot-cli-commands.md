@@ -261,7 +261,7 @@ The following table describes the commands available to perform various system a
 
 ## Deploy SSL and TLS certificates to appliances
 
-You can import SSL and TLS enterprise certificates by entering the following command into the CLI.
+Enter the following command to import SSL and TLS enterprise certificates into the CLI:
 
 ```azurecli-interactive
 cyberx-xsense-certificate-import
@@ -287,4 +287,3 @@ When using the tool;
 ## See also
 
 [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
-

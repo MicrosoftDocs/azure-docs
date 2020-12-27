@@ -1,6 +1,6 @@
 ---
-title: Create and manage console and cloud users 
-description: Create and manage users of sensors, on-premises management consoles, and cloud users. Users can be assigned the role of administrator, security analyst, or read-only user.
+title: Create and manage users
+description: Create and manage users of sensors and on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# About Defender for IoT console and cloud users
+# About Defender for IoT console users
 
 This article describes how to create and manage sensor and on-premises management console users. User roles include administrators, security analysts, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
 
@@ -17,7 +17,7 @@ Features are also available to track user activity and enable Active Directory s
 
 By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. These users can sign in and create additional user roles.
 
-### Role-based permissions
+## Role-based permissions
 The following user roles are available:
 
 - **Read only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed under **Navigation**.
@@ -77,7 +77,7 @@ This section describes permissions available to sensor administrators, security 
 | Manage certificates |  |  | ✓ |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
-### Define users
+## Define users
 
 This section describes how to define users. Cyberx, support, and administrator users can add, remove, and update other user definitions.
 
@@ -99,7 +99,7 @@ To define a user:
 
 :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/manage-user-views.png" alt-text="Manage your users.":::
 
-### User session timeout
+## User session timeout
 
 If users are not active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
 
@@ -135,7 +135,7 @@ To disable the feature, change `infinity_session_expiration = true` to `infinity
 To update sign-out counting periods, adjust the `= <number>` value to the required time.
 
 
-### Track user activity 
+## Track user activity 
 
 You can track user activity in the Event Timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
 
@@ -146,7 +146,7 @@ To view user activity:
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
-### Integrate with Active Directory servers 
+## Integrate with Active Directory servers 
 
 Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Defender for IoT consoles by using their Active Directory credentials.
 
@@ -192,28 +192,6 @@ To configure Active Directory:
 5. Select **Save**.
 
 6. To add a trusted server, select **Add Server** and configure another server.
-
-## Cloud users
-
-You can assign cloud users the following roles, security reader, security administrator, subscription contributor, and subscription owner. 
-
-### Role-based permissions
-
-The following user roles are available:
-
-- **Security reader**:  Can view all screens and entities, such as, inventory, recommendations, and alerts.
-
-- **Security Administrator**, **Subscription Contributor**, **Subscription Owner** : Have full permission within Defender for IoT.
-
-### Role-based permissions to sensor tools
-
-This section describes permissions available to security reader, security administrator, subscription contributor, and subscription owner.  
-
-| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
-|--|--|--|--|--|
-| View all AD-IoT screens and data | ✓ | ✓ | ✓ | ✓ |
-| Onboard a sensor  |  |  ✓ | ✓ | ✓ |
-| Update pricing  |  |  ✓ | ✓ | ✓ |
 
 ## See also
 

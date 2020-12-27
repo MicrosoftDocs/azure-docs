@@ -38,7 +38,7 @@ Azure Defender for IoT includes the following components:
 - Azure Defender for IoT sensor VM or appliance
 - On-premises management console for local site management
 
-:::image type="content" source="./media/architecture/defender-iot-security-architecture.png" alt-text="Defender for IoT architecture":::
+:::image type="content" source="./media/architecture/defender-iot-security-architecture-v2.png" alt-text="The architecture for Defender for IoT.":::
 
 ### Azure Defender for IoT sensors
 

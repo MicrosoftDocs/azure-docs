@@ -21,7 +21,7 @@ After completing Defender for IoT sensor deployment, the onboarding and network 
 
 - Start working with your sensor.
 
-Your sensor was onboarded to the Defender for IoT  Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor, otherwise known as the sensor management mode.
+Your sensor was onboarded to the Defender for IoT Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor, otherwise known as the sensor management mode.
 
 | Mode type | Description |
 |--|--|
@@ -38,7 +38,7 @@ If you are logging in for the first time, you need to:
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT portal, Onboard sensor":::
 
-- Upload an SSL/TLS certificate.
+- Upload an SSL and TLS certificate.
 
 ## Before you begin
 
