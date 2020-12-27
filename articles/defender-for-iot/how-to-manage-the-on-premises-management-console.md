@@ -17,7 +17,7 @@ On-premises management console onboarding is carried out from the Azure portal.
 
 ## Upload an activation file
 
-After you first-time log in, an activation file for the  on-premises management console was downloaded. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
+After you first-time log in, an activation file for the on-premises management console was downloaded. This file contains the aggregate committed devices defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
 
 After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
 
@@ -34,13 +34,13 @@ To upload an activation file:
 
 ## Manage certificates
 
-Following on-premises management console installation, a local self-signed certificate is generated and used to access the management console web application. When logging in to the management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
+Following on-premises management console installation, a local self-signed certificate is generated and used to access the management console web application. When logging in to the management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. For more information about first time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
 
 ### About certificates
 
-Azure Defender for IoT uses SSL/TLS certificates to:
+Azure Defender for IoT uses SSL and TLS certificates to:
 
 1. Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
 
@@ -72,8 +72,8 @@ If the option is enabled and validation fails, communication between the managem
 
 The following certificates are supported:
 
-- Private / Enterprise Key Infrastructure (Private PKI)
-- Public Key Infrastructure (Public PKI)
+- Private and Enterprise Key Infrastructure (Private PKI) 
+- Public Key Infrastructure (Public PKI) 
 - Locally generated on the appliance (locally self-signed). **Using self-signed certificates is not recommended.** This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated, and the security of your system cannot be maintained. Self-signed certificates should never be used for production networks.  
 
 The following parameters are supported. 
@@ -115,7 +115,7 @@ Certificates with other parameters may work but cannot be supported by Microsoft
 
 The name is from Privacy Enhanced Mail (PEM), an historic method for secure email but the container format it used lives on, and is a base64 translation of the x509 ASN.1 keys.  
 
-Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files /etc/ssl/certs), or may include an entire certificate chain including public key, private key, and root certificates.  
+Defined in RFCs 1421 to 1424: a container format that may include just the public certificate (such as with Apache installs, and CA certificate files, etc, ssl, and certs), or may include an entire certificate chain including public key, private key, and root certificates.  
 
 It may also encode a CSR as the PKCS10 format can be translated into PEM.
 
@@ -282,6 +282,23 @@ To change the name:
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Screenshot that shows the changed name of the console.":::
 
+## Password recovery
+
+Password recovery for your on-premises management console is tied to the subscription the device is attached to. You can not recover a password if you do not know which subscription a device is attached to.
+
+To reset your password:
+
+1. Navigate to the on-premises management console sign in page.
+1. Select **Password Recovery**.
+1. Copy the unique identifier.
+1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
+1. Enter the unique identifier and select **Recover**. The activation file is downloaded.
+1. Go to the **Password Recovery** page and upload the activation file.
+1. Select **Next**.
+1. You will now be given your username and a new system-generated password.
+
+>Note
+>Tee sensor is linked to the subscription it was originally connected to and the password can not be recovered without knowing which subscription it was attached to.
 ## See also
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

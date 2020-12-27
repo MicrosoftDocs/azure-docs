@@ -1,6 +1,6 @@
 ---
-title: Create and manage console and cloud users 
-description: Create and manage users of sensors, on-premises management consoles, and cloud users. Users can be assigned the role of administrator, security analyst, or read-only user.
+title: Create and manage users
+description: Create and manage users of sensors and on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -17,7 +17,7 @@ Features are also available to track user activity and enable Active Directory s
 
 By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an Admin user and then create additional users for Security Analysts and Read only users.
 
-### Role-based permissions
+## Role-based permissions
 The following user roles are available:
 
 - **Read only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed under **Navigation**.
@@ -77,7 +77,7 @@ This section describes permissions available to sensor administrators, security 
 | Manage certificates |  |  | ✓ |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
-### Define users
+## Define users
 
 This section describes how to define users. Cyberx, support, and administrator users can add, remove, and update other user definitions.
 
@@ -99,7 +99,7 @@ To define a user:
 
 :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/manage-user-views.png" alt-text="Manage your users.":::
 
-### User session timeout
+## User session timeout
 
 If users are not active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
 
@@ -135,7 +135,7 @@ To disable the feature, change `infinity_session_expiration = true` to `infinity
 To update sign-out counting periods, adjust the `= <number>` value to the required time.
 
 
-### Track user activity 
+## Track user activity 
 
 You can track user activity in the Event Timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
 
@@ -146,7 +146,7 @@ To view user activity:
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
-### Integrate with Active Directory servers 
+## Integrate with Active Directory servers 
 
 Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Defender for IoT consoles by using their Active Directory credentials.
 

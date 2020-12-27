@@ -345,7 +345,7 @@ To install:
    | **default gateway IP address:** | - |
    | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
-10. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **Support** user.  
+10. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
 
 11. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
 
