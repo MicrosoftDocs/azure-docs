@@ -56,7 +56,7 @@ landingContent:
           - text: Control what Traffic is Detected
             url:  how-to-control-what-traffic-is-monitored.md
           - text: Connnect to Azure Sentinel
-            url:  how-to-control-what-traffic-is-monitored.md
+            url:  how-to-configure-with-sentinel.md
 
          
   - title: Azure Defender for IoT - Agent-based solution
