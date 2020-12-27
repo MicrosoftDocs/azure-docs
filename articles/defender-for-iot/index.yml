@@ -40,9 +40,7 @@ landingContent:
           url: how-to-identify-required-appliances.md
         - text: Install software
           url: how-to-install-software.md
-        - text: Onboard sensors
-          url:  how-to-onboard-sensors.md
-
+        
   - title:  Monitor your Network - Agentless solution   
     linkLists:
       - linkListType: how-to-guide
@@ -56,6 +54,8 @@ landingContent:
           - text: Generate Reports
             url: how-to-generate-reports.md
           - text: Control what Traffic is Detected
+            url:  how-to-control-what-traffic-is-monitored.md
+          - text: Connnect to Azure Sentinel
             url:  how-to-control-what-traffic-is-monitored.md
 
          
