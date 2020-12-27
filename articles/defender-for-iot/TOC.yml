@@ -88,11 +88,9 @@
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
-        href: how-to-onboard-sensors.md
+        href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         href: how-to-activate-and-set-up-your-sensor.md
-      - name: Work with the sensor console dashboard
-        href: how-to-work with-the-sensor-console-dashboard.md
     - name: Prepare your on-premises management console
       items:
       - name: Activate and set up your on-premises management console
