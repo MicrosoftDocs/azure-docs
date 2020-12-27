@@ -44,7 +44,7 @@ has been created to resolve this challenge.
 
 CompositeResource automates the process of creating a new module from your configuration.
 You start by
-[dot sourcing](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/)
+[dot sourcing](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/)
 the configuration script on your workstation (or build server)
 so it is loaded in memory.
 Next, rather than running the configuration to generate a MOF file,
@@ -61,16 +61,16 @@ and publish it to your own
 Once you have create a composite resource module containing your configuration
 (or multiple configurations),
 you can use them in the
-[Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources)
+[Composable Authoring Experience](./compose-configurationwithcompositeresources.md)
 in Azure,
 or add them to 
 [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
+[on-premises](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
+or [in Azure](./automation-dsc-onboarding.md#enable-azure-vms)
 to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)

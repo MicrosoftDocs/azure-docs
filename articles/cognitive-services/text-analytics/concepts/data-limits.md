@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -27,26 +27,27 @@ Use this article to find the limits for the size, and rates that you can send da
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB |
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to Text Analytics for health. |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
+| Maximum size of entire request | 1 MB. Also applies to Text Analytics for health. |
 
-The maximum number of documents you can send in a single request will depend on the API version and feature you're using.
+The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The `/analyze` endpoint will reject the entire request if any document exceeds the max size (125K characters)
 
 #### [Version 3](#tab/version-3)
 
-> [!NOTE]
-> If your v3 API request exceeds these limits, but is within the v2 limits, a warning will be returned in the API response. Starting 7/15/2020, a 400 error code will be returned instead. 
-
-The following limits have changed in v3 of the API. Exceeding the limits below will generate a warning in the API response.
+The following limits are for the current v3 API. Exceeding the limits below will generate an HTTP 400 error code.
 
 
 | Feature | Max Documents Per Request | 
 |----------|-----------|
 | Language Detection | 1000 |
 | Sentiment Analysis | 10 |
+| Opinion Mining | 10 |
 | Key Phrase Extraction | 10 |
 | Named Entity Recognition | 5 |
 | Entity Linking | 5 |
+| Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
+| Analyze endpoint | 25 for all operations. |
 
 #### [Version 2](#tab/version-2)
 
@@ -62,7 +63,7 @@ The following limits have changed in v3 of the API. Exceeding the limits below w
 
 ## Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API.
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
@@ -73,7 +74,7 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.  
+Requests rates are measured for each Text Analytics feature separately. You can send the maximum number of requests for your pricing tier to each feature, at the same time. For example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
 
 
 ## See also

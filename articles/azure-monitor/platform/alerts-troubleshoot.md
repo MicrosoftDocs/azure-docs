@@ -55,7 +55,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
     Also, check:
 
    - the spam settings of your email client (like Outlook, Gmail)
-      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Office 365, G-suite)
+      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
       - the settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**
@@ -235,13 +235,13 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you receive a permission error?**  
 
-    You should either have the [Monitoring Contributor built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor), or the specific permissions related to action rules and alerts.
+    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to action rules and alerts.
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
 
 
 ## Next steps
-- If using a log alert, also see [Troubleshooting Log Alerts](alert-log-troubleshoot.md).
+- If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).
 - Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with guidance above 

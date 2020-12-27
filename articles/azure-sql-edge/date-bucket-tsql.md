@@ -1,6 +1,6 @@
 ---
-title: Date_Bucket (Transact-SQL) - Azure SQL Edge (Preview)
-description: Learn about using Date_Bucket in Azure SQL Edge (Preview)
+title: Date_Bucket (Transact-SQL) - Azure SQL Edge
+description: Learn about using Date_Bucket in Azure SQL Edge
 keywords: Date_Bucket, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,23 +8,21 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
+ms.date: 09/03/2020
 ---
 
 # Date_Bucket (Transact-SQL)
 
-This function returns the datetime value corresponding to the start of each datetime bucket, from the default origin value of `1900-01-01 00:00:00.000`.
+This function returns the datetime value corresponding to the start of each datetime bucket, from the timestamp defined by the `origin` parameter or the default origin value of `1900-01-01 00:00:00.000` if the origin parameter is not specified. 
 
 See [Date and Time Data Types and Functions &#40;Transact-SQL&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) for an overview of all Transact-SQL date and time data types and functions.
 
 [Transact-SQL Syntax Conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET` uses a default origin date value of `1900-01-01 00:00:00.000` i.e. 12:00 AM on Monday, January 1 1900.
-
 ## Syntax
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## Arguments
@@ -39,7 +37,10 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 |*datePart*|Abbreviations|  
 |---|---|
 |**day**|**dd**, **d**|  
-|**week**|**wk**, **ww**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
 |**minute**|**mi**, **n**|  
 |**second**|**ss**, **s**|  
@@ -61,6 +62,21 @@ An expression that can resolve to one of the following values:
 + **time**
 
 For *date*, `DATE_BUCKET` will accept a column expression, expression, or user-defined variable if they resolve to any of the data types mentioned above.
+
+**Origin** 
+
+An optional expression that can resolve to one of the following values:
+
++ **date**
++ **datetime**
++ **datetimeoffset**
++ **datetime2**
++ **smalldatetime**
++ **time**
+
+The data type for `Origin` should match the data type of the `Date` parameter. 
+
+`DATE_BUCKET` uses a default origin date value of `1900-01-01 00:00:00.000` i.e. 12:00 AM on Monday, January 1 1900, if no Origin value is specified for the function.
 
 ## Return Type
 
@@ -87,11 +103,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-The output for the expression below, which is 6275 weeks from the origin time.
+The output for the expression below is `2020-04-06 00:00:00.0000000`, which is 6275 weeks from the default origin time `1900-01-01 00:00:00.000`.
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+The output for the expression below is `2020-06-09 00:00:00.0000000` , which is 75 weeks from the specified origin time `2019-01-01 00:00:00`.
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## datepart Argument
@@ -121,6 +145,10 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## origin Argument  
+
+The data type of the `origin` and `date` arguments in must be the same. If different data types are used, an error will be generated.
 
 ## Remarks
 
@@ -264,6 +292,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### C. Using a non default origin value
+
+This example uses a non default orgin value to generate the date buckets. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## See also
 

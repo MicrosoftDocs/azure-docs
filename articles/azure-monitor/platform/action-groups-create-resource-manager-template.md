@@ -11,19 +11,19 @@ ms.subservice: alerts
 ---
 
 # Create an action group with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
+This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are:
 
 1. Create a template as a JSON file that describes how to create the action group.
 
-2. Deploy the template by using [any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
-
-First, we describe how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second, we describe how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
+2. Deploy the template by using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Resource Manager templates for an action group
 
 To create an action group using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
+
+First template, describes how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second template, describes how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
 
 ```json
 {
@@ -159,7 +159,7 @@ To create an action group using a Resource Manager template, you create a resour
 
 
 ## Next steps
-* Learn more about [action groups](../../azure-monitor/platform/action-groups.md).
+* Learn more about [action groups](./action-groups.md).
 * Learn more about [alerts](alerts-overview.md).
-* Learn how to add [alerts by using a Resource Manager template](../../azure-monitor/platform/alerts-activity-log.md).
+* Learn how to add [alerts by using a Resource Manager template](./alerts-activity-log.md).
 

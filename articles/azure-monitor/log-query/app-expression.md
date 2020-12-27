@@ -69,5 +69,6 @@ union
 ## Next steps
 
 - See the [workspace expression](workspace-expression.md) to refer to a Log Analytics workspace.
-- Read about how [Azure Monitor data](../../azure-monitor/log-query/log-query-overview.md) is stored.
+- Read about how [Azure Monitor data](./log-query-overview.md) is stored.
 - Access full documentation for the [Kusto query language](/azure/kusto/query/).
+

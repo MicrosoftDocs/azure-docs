@@ -7,8 +7,9 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
+ms.custom: contperf-fy21q1
 ---
-# Data storage optimization
+# Data storage optimization for Apache Spark
 
 This article discusses strategies to optimize data storage for efficient Apache Spark job execution on Azure HDInsight.
 

@@ -6,7 +6,7 @@ author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
 
 ---
@@ -30,8 +30,8 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 Cache behavior |  Description              
 ---------------|----------------
 Bypass cache | When this option is selected and the rule matches, the content is not cached.
-Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action.
-Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action.
+Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
+Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
 
 #### Additional fields
 

@@ -6,6 +6,7 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
+ms.custom: devx-track-js
 ---
 
 # Azure Media Player full setup #
@@ -18,11 +19,14 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 With Azure Media Player, you can access the scripts from the CDN hosted version. It's often recommended now to put JavaScript before the end body tag `<body>` instead of the `<head>`, but Azure Media Player includes an 'HTML5 Shiv', which needs to be in the head for older IE versions to respect the video tag as a valid element.
 
 > [!NOTE]
-> If you're already using an HTML5 shiv like [Modernizr](http://modernizr.com/) you can include the Azure Media Player JavaScript anywhere. However make sure your version of Modernizr includes the shiv for video.
+> If you're already using an HTML5 shiv like [Modernizr](https://modernizr.com/) you can include the Azure Media Player JavaScript anywhere. However make sure your version of Modernizr includes the shiv for video.
 
 ### CDN Version ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
 > You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).

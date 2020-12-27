@@ -10,4 +10,4 @@
  ms.custom: include file
 ---
 
-[Azure role-based access control (RBAC)](../articles/role-based-access-control/overview.md) is the authorization system you use to manage access to Azure resources. To determine what resources users, groups, service principals, or managed identities have access to, you list their role assignments.
+[Azure role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md) is the authorization system you use to manage access to Azure resources. To determine what resources users, groups, service principals, or managed identities have access to, you list their role assignments.

@@ -3,7 +3,7 @@ title: Moving data to Avere vFXT for Azure
 description: How to add data to a new storage volume for use with the Avere vFXT for Azure 
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ---

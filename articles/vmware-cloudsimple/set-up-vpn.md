@@ -58,7 +58,7 @@ Example below shows importing connection using **Viscosity Client**.
 
 4. Select the OpenVPN configuration file (.ovpn) for the protocol you want to use and click **Open**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Screenshot that highlights the OpenVPN configuration files you can select.](media/import-p2s-vpn-config-choose-ovpn.png)
 
 The connection now appears in the Viscosity menu.
 
@@ -66,7 +66,7 @@ The connection now appears in the Viscosity menu.
 
 To connect to VPN using the Viscosity OpenVPN client, select the connection from the menu. The menu icon updates to indicate that the connection is established.
 
-![VPN](media/vis03.png)
+![Screenshot that shows the CloudSimple VPN connectivity status.](media/vis03.png)
 
 ### Connecting to Multiple Private Clouds
 

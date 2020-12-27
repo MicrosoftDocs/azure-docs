@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ON24 Virtual Environment SAML Connection.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d4028fb5-b2ad-4c5d-b123-7b675c509d64
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with ON24 Virtual Environment SAML Connection
 
@@ -27,7 +21,7 @@ Integrating ON24 Virtual Environment SAML Connection with Azure AD provides you 
 * You can enable your users to be automatically signed-in to ON24 Virtual Environment SAML Connection (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -147,7 +141,7 @@ To configure Azure AD single sign-on with ON24 Virtual Environment SAML Connecti
 
 5.  If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-    ![ON24 Virtual Environment SAML Connection Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot that shows the "Set additional U R Ls" section with the "Sign on U R L" text box highlighted.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://vshow.on24.com/vshow/<INSTANCENAME>`
@@ -232,13 +226,12 @@ In this section, you create a user called Britta Simon in ON24 Virtual Environme
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ON24 Virtual Environment SAML Connection tile in the Access Panel, you should be automatically signed in to the ON24 Virtual Environment SAML Connection for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the ON24 Virtual Environment SAML Connection tile in the Access Panel, you should be automatically signed in to the ON24 Virtual Environment SAML Connection for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

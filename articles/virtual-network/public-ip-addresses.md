@@ -34,6 +34,8 @@ Public IP addresses are created with an IPv4 or IPv6 address.
 
 ## SKU
 
+To learn about SKU upgrade, refer to [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
+
 Public IP addresses are created with one of the following SKUs:
 
 >[!IMPORTANT]
@@ -47,7 +49,7 @@ Standard SKU public IP addresses:
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Secure by default and closed to inbound traffic. Allow list inbound traffic with a [network security group](security-overview.md#network-security-groups).
 - Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Standard load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Can be zone-redundant or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Can be zone-redundant (advertized from all 3 zones) or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where 3 availability zones](https://docs.microsoft.com/azure/availability-zones/az-region) are live.** IPs created before zones are live will not be zone redundant.
  
 > [!NOTE]
 > Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
@@ -160,6 +162,13 @@ You can associate a public IP address with an Azure [Application Gateway](../app
 * Assign a **dynamic** basic public IP to an application gateway V1 front-end configuration. 
 * Assign a **static** standard SKU address to a V2 front-end configuration.
 
+## Azure Firewall
+
+[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) allows you to create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
+
+You can only associate **static** standard public IP addresses with a firewall. This allows outside firewalls to identify traffic originating from your virtual network. 
+
+
 ## At-a-glance
 
 The following table shows the property through which a public IP can be associated to a top-level resource and the possible allocation methods.
@@ -170,6 +179,7 @@ The following table shows the property through which a public IP can be associat
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
 | VPN gateway |Gateway IP configuration |Yes |No |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
+| Azure Firewall | Front-end configuration | No | Yes|
 
 ## Limits
 

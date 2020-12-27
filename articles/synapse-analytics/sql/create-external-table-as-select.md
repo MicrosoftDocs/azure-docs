@@ -1,19 +1,19 @@
 ---
-title: Store query results to storage
-description: In this article, you'll learn how to store query results to storage using SQL on-demand (preview).
+title: Store query results from serverless SQL pool
+description: In this article, you'll learn how to store query results to storage using serverless SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Store query results to storage using SQL on-demand (preview) using Azure Synapse Analytics
+# Store query results to storage using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to store query results to storage using SQL On-demand (preview).
+In this article, you'll learn how to store query results to storage using serverless SQL pool.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 GO
 
 CREATE EXTERNAL DATA SOURCE [MyDataSource] WITH (
-    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL [SasTokenWrite]
+    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL = [SasTokenWrite]
 );
 GO
 
@@ -59,7 +59,7 @@ FROM
     OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'sqlondemanddemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0'
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),

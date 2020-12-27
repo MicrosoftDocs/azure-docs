@@ -1,15 +1,15 @@
 ---
 title: Azure Blueprints functions
 description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
-ms.date: 05/22/2020
+ms.date: 08/27/2020
 ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
 
 Azure Blueprints provides functions making a blueprint definition more dynamic. These functions are
-for use with blueprint definitions and blueprint artifacts. A Resource Manager Template artifact
-supports the full use of Resource Manager functions in addition to getting a dynamic value through a
-blueprint parameter.
+for use with blueprint definitions and blueprint artifacts. An Azure Resource Manager Template (ARM
+template) artifact supports the full use of Resource Manager functions in addition to getting a
+dynamic value through a blueprint parameter.
 
 The following functions are supported:
 
@@ -27,9 +27,9 @@ The following functions are supported:
 Returns an object of properties populated with that blueprint artifacts outputs.
 
 > [!NOTE]
-> The `artifacts()` function can't be used from inside a Resource Manager Template. The function can
-> only be used in the blueprint definition JSON or in the artifact JSON when managing the blueprint
-> with Azure PowerShell or REST API as part of
+> The `artifacts()` function can't be used from inside an ARM Template. The function can only be
+> used in the blueprint definition JSON or in the artifact JSON when managing the blueprint with
+> Azure PowerShell or REST API as part of
 > [Blueprints-as-code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### Parameters
@@ -61,10 +61,10 @@ artifact being referenced. All types follow the format:
 }
 ```
 
-#### Resource Manager template artifact
+#### ARM template artifact
 
-The **outputs** properties of the returned object are defined within the Resource Manager template
-and returned by the deployment.
+The **outputs** properties of the returned object are defined within the ARM template and returned
+by the deployment.
 
 #### Role assignment artifact
 
@@ -80,8 +80,8 @@ and returned by the deployment.
 
 ### Example
 
-A Resource Manager template artifact with the ID _myTemplateArtifact_ containing the following
-sample output property:
+An ARM template artifact with the ID _myTemplateArtifact_ containing the following sample output
+property:
 
 ```json
 {
@@ -137,8 +137,8 @@ A string of concatenated values.
 
 ### Remarks
 
-The Azure Blueprint function differs from the Azure Resource Manager template function in that it
-only works with strings.
+The Azure Blueprint function differs from the ARM template function in that it only works with
+strings.
 
 ### Example
 
@@ -163,8 +163,8 @@ The value of the specified blueprint or blueprint artifact parameter.
 
 ### Remarks
 
-The Azure Blueprint function differs from the Azure Resource Manager template function in that it
-only works with blueprint parameters.
+The Azure Blueprint function differs from the ARM template function in that it only works with
+blueprint parameters.
 
 ### Example
 
@@ -180,7 +180,7 @@ Define parameter _principalIds_ in the blueprint definition:
                 "type": "array",
                 "metadata": {
                     "displayName": "Principal IDs",
-                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the RBAC assignment.",
+                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the Azure role assignment.",
                     "strongType": "PrincipalId"
                 }
             }
@@ -224,9 +224,9 @@ The returned object is in the following format:
 
 ### Remarks
 
-The Azure Blueprint function differs from the Azure Resource Manager template function. The
-`resourceGroup()` function can't be used in a subscription level artifact or the blueprint
-definition. It can only be used in blueprint artifacts that are part of a resource group artifact.
+The Azure Blueprint function differs from the ARM template function. The `resourceGroup()` function
+can't be used in a subscription level artifact or the blueprint definition. It can only be used in
+blueprint artifacts that are part of a resource group artifact.
 
 A common use of the `resourceGroup()` function is to create resources in the same location as the
 resource group artifact.
@@ -402,4 +402,5 @@ as parameter _resourceName_ to the template artifact.
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

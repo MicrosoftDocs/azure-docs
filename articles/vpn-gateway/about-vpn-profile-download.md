@@ -1,12 +1,12 @@
 ---
 title: 'Azure VPN Gateway: About P2S VPN client profiles'
-description: This helps you work with the client profile file
+description: Use this article to find the information you need for a VPN client profile.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
 
 ---

@@ -4,11 +4,11 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 01/22/2019
+ms.topic: how-to
+ms.date: 07/23/2020
 ---
 
-# Use Azure Active Directory for authenticating with MySQL
+# Use Azure Active Directory for authentication with MySQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
@@ -17,7 +17,7 @@ This article will walk you through the steps how to configure Azure Active Direc
 
 ## Setting the Azure AD Admin user
 
-Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create and Azure AD Admin user, please follow the following steps
+Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create an Azure AD Admin user, please follow the following steps
 
 1. In the Azure portal, select the instance of Azure Database for MySQL that you want to enable for Azure AD.
 2. Under Settings, select Active Directory Admin:
@@ -118,6 +118,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Important considerations when connecting:
+
+* `user@tenant.onmicrosoft.com` is the name of the Azure AD user or group you are trying to connect as
+* Always append the server name after the Azure AD user/group name (e.g. `@mydb`)
+* Make sure to use the exact way the Azure AD user or group name is spelled
+* Azure AD user and group names are case sensitive
+* When connecting as a group, use only the group name (e.g. `GroupName@mydb`)
+* If the name contains spaces, use `\` before each space to escape it
 
 Note the “enable-cleartext-plugin” setting – you need to use a similar configuration with other clients to make sure the token gets sent to the server without being hashed.
 

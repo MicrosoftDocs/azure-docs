@@ -5,12 +5,10 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2017
+ms.date: 10/09/2020
 ---
 # How to configure data persistence for a Premium Azure Cache for Redis
-Azure Cache for Redis has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Cache for Redis instance.
-
-For information on other premium cache features, see [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
+In this article, you will learn how to configure persistence in a premium Azure Cache for Redis instance through the Azure portal. Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. 
 
 ## What is data persistence?
 [Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
@@ -24,58 +22,66 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 > [!NOTE]
 > 
-> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once a premium pricing tier is selected, click **Redis persistence**.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
+   
+2. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-![Redis persistence][redis-cache-persistence]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
-The steps in the next section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
+3. On the **New Redis Cache** page, configure the settings for your new premium cache.
+   
+   | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
+   | **Subscription** | Drop-down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
+   | **Resource group** | Drop-down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
+   | **Location** | Drop-down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+   | **Cache type** | Drop-down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-## Enable Redis persistence
+4. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
 
-Redis persistence is enabled on the **Data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Data persistence** blade is accessed from the **Resource menu** for your cache.
+5. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
 
-![Redis settings][redis-cache-settings]
+6. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
 
+7. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. For data persistence, you can choose either **RDB** or **AOF** persistence. 
 
-## Configure RDB persistence
+8. To enable RDB persistence, click **RDB** and configure the settings. 
+   
+   | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Backup Frequency** | Drop-down and select a backup interval, choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated. | 
+   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
+   | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
-To enable RDB persistence, click **RDB**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
+    The first backup is initiated once the backup frequency interval elapses.
 
-![Redis RDB persistence][redis-cache-rdb-persistence]
+9. To enable AOF persistence, click **AOF** and configure the settings. 
+   
+   | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
+   | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
+   | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
+   | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
-To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
+    When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
 
-Click **Storage Account** to select the storage account to use, and choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
+10. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 
-> [!IMPORTANT]
-> If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
-> 
-> 
+11. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
 
-Click **OK** to save the persistence configuration.
+12. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
 
-The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
+13. After the green Validation passed message appears, select **Create**.
 
-## Configure AOF persistence
-
-To enable AOF persistence, click **AOF**. To disable AOF persistence on a previously enabled premium cache, click **Disabled**.
-
-![Redis AOF persistence][redis-cache-aof-persistence]
-
-To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account. For each configured storage account, choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. 
-
-> [!IMPORTANT]
-> If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
-> 
-> 
-
-When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
+It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. 
 
 ## Persistence FAQ
 The following list contains answers to commonly asked questions about Azure Cache for Redis persistence.
@@ -84,6 +90,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### RDB persistence
@@ -124,6 +131,9 @@ For both RDB and AOF persistence:
 * If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
+### Can I use the same storage account for persistence across two different caches?
+Yes, you can use the same storage account for persistence across two different caches
+
 ### Can I change the RDB backup frequency after I create the cache?
 Yes, you can change the backup frequency for RDB persistence on the **Data persistence** blade. For instructions, see Configure Redis persistence.
 
@@ -144,7 +154,7 @@ AOF persistence affects throughput by about 15% – 20% when the cache is below 
 
 ### How can I remove the second storage account?
 
-You can remove the AOF persistence secondary storage account by setting the second storage account to be the same as the first storage account. For instructions, see [Configure AOF persistence](#configure-aof-persistence).
+You can remove the AOF persistence secondary storage account by setting the second storage account to be the same as the first storage account. For existing caches, the **Data persistence** blade is accessed from the **Resource menu** for your cache. To disable AOF persistence, click **Disabled**.
 
 ### What is a rewrite and how does it affect my cache?
 
@@ -173,9 +183,9 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

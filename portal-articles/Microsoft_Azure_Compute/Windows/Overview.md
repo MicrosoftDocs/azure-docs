@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual machines overview | Microsoft Docs
-description: Help content for Windows Virtual machines overview within Azure portal
+title: Windows virtual machines overview | Microsoft Docs
+description: Help content for Windows virtual machines overview within Azure portal
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -19,9 +19,9 @@ Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualiz
 
 Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure CLI](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure Portal](../../articles/virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure PowerShell](../../articles/virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure CLI](../../articles/virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Step-by-Step Tutorials
 

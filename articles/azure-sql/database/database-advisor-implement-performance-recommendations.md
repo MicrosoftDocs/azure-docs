@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
 ---
 # Database Advisor performance recommendations for Azure SQL Database
@@ -37,7 +37,7 @@ Performance recommendation options available in Azure SQL Database are:
 | **Create index recommendations** - Recommends creation of indexes that may improve performance of your workload. | Yes | No |
 | **Drop index recommendations** - Recommends removal of redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints. Dropping unused indexes is not supported for Premium and Business Critical service tiers. | Yes | No |
 | **Parameterize queries recommendations (preview)** - Recommends forced parameterization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
-| **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
+| **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
 
 ![Performance recommendations for Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -51,7 +51,7 @@ Azure SQL Database continuously monitors the queries that are running and identi
 
 Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low.
 
-Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the [sys.indexes view](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Auto-created indexes don't block ALTER/RENAME commands.
+Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the [sys.indexes view](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Auto-created indexes don't block ALTER/RENAME commands.
 
 If you try to drop the column that has an auto-created index over it, the command passes. The auto-created index is dropped with the command as well. Regular indexes block the ALTER/RENAME command on columns that are indexed.
 
@@ -91,11 +91,11 @@ After you apply this recommendation, it enables forced parameterization within m
 > [!IMPORTANT]
 > Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](intelligent-insights-overview.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 
-**Fix schema issues** recommendations appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
+**Fix schema issues** recommendations appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
 "Schema issues" are a class of syntax errors. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa.
 
-The "Fix schema issue" recommendation appears when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
+The "Fix schema issue" recommendation appears when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your database. The following table shows the errors that are related to schema issues:
 
 | SQL error code | Message |
 | --- | --- |
@@ -108,7 +108,7 @@ The "Fix schema issue" recommendation appears when Azure SQL Database notices an
 
 ## Custom applications
 
-Developers might consider developing custom applications using performance recommendations for Azure SQL Database. All recommendations listed in the portal for a database can be accessed through [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Developers might consider developing custom applications using performance recommendations for Azure SQL Database. All recommendations listed in the portal for a database can be accessed through [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure SQL Edge (Preview) documentation
+title: Azure SQL Edge documentation
 summary: Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments.
 
 metadata:
-  title: Azure SQL Edge (Preview) documentation
-  meta.description: Learn how to use Azure SQL Edge (Preview).
+  title: Azure SQL Edge documentation
+  meta.description: Learn how to use Azure SQL Edge.
   services: sql-edge
   ms.service: sql-edge
   ms.topic: landing-page
@@ -28,8 +28,14 @@ landingContent:
             url: overview.md
       - linkListType: deploy
         links:
-          - text: Deploy SQL Edge
+          - text: Deploy SQL Edge using the portal
             url: deploy-portal.md
+          - text: Deploy SQL Edge with Docker
+            url: disconnected-deployment.md
+      - linkListType: tutorial  
+        links:
+          - text: Deploy in Kubernetes
+            url: deploy-kubernetes.md             
 
   # Card 
   - title: Sync data
@@ -40,7 +46,7 @@ landingContent:
             url: tutorial-sync-data-factory.md
           - text: Sync SQL Edge data with SQL Database
             url: tutorial-sync-data-sync.md
-
+        
   # Card 
   - title: Data streaming
     linkLists:
@@ -50,6 +56,8 @@ landingContent:
             url: stream-data.md
           - text: Streaming catalog views
             url: streaming-catalog-views.md
+          - text: Create and Manage streaming jobs
+            url: create-stream-analytics-job.md
 
   # Card 
   - title: Machine learning
@@ -63,4 +71,25 @@ landingContent:
           - text: Deploy ONNX on SQL Edge
             url: deploy-onnx.md
 
-
+  # Card 
+  - title: Time series data processing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Imputing missing values
+            url: imputing-missing-values.md
+          - text: Data retention policy 
+            url: data-retention-overview.md
+          - text: Date_Bucket (Transact-SQL)
+            url: date-bucket-tsql.md
+  
+   # Card 
+  - title: Configure SQL Edge
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Configure SQL Edge
+            url: configure.md
+          - text: Configure replication 
+            url: configure-replication.md
+    

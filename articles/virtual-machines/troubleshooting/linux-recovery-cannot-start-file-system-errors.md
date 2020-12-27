@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Linux VM starting issues due to file system errors | Microsoft Docs
-description: Explains why Linux VM cannot start and how to solve the problem.
+description: Learn how to troubleshoot Linux VM starting issues due to file system errors
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -72,7 +72,7 @@ Linux has several file system checkers available. The most common for the distri
 
 ## Resolution
 
-To resolve this problem, boot the VM into emergency mode by using the [serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) and use that tool to repair the file system. If the serial console is not enabled on your VM or doesn't work, see the [Repair the VM offline](#repair-the-vm-offline) section of this article.
+To resolve this problem, boot the VM into emergency mode by using the [serial console](./serial-console-linux.md) and use that tool to repair the file system. If the serial console is not enabled on your VM or doesn't work, see the [Repair the VM offline](#repair-the-vm-offline) section of this article.
 
 ## Use the serial console
 
@@ -80,8 +80,8 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
    > [!Note]
    > For more information about using serial console for Linux, see:
-   > * [Use serial console to access GRUB and single user mode](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Use serial console for SysRq and NMI calls](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md)
+   > * [Use serial console for SysRq and NMI calls](./serial-console-nmi-sysrq.md)
 
 2. Select the Power icon button, and then select Restart VM. (If the serial console is not enabled or not connected successfully, you won't see the button.)
 
@@ -131,7 +131,7 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
 ## Repair the VM offline
 
-1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or you can automate setting up the recovery VM using the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](./troubleshoot-recovery-disks-linux.md) or you can automate setting up the recovery VM using the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Locate the drive label of the system disk that you attached. In this case, we assume that the label of the system disk that you attached is /dev/sdc1. Replace it with the appropriate value for your VM.
 
@@ -175,6 +175,5 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
 ## Next steps
 
-* [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Use the portal to attach a data disk to a Linux VM](../linux/attach-disk-portal.md)

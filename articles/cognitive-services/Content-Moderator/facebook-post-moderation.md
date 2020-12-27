@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
@@ -18,6 +18,9 @@ ms.author: pafarley
 
 In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds. See the [Build 2017 demo video](https://channel9.msdn.com/Events/Build/2017/T6033) for a working example of this scenario.
 
+> [!IMPORTANT]
+> In 2018, Facebook implemented a more strict vetting policy for Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
+
 This tutorial shows you how to:
 
 > [!div class="checklist"]
@@ -25,18 +28,15 @@ This tutorial shows you how to:
 > * Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 > * Link a Facebook page to Content Moderator using a Facebook application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 This diagram illustrates each component of this scenario:
 
 ![Diagram of Content Moderator receiving information from Facebook through "FBListener" and sending information through "CMListener"](images/tutorial-facebook-moderation.png)
 
-> [!IMPORTANT]
-> In 2018, Facebook implemented a more strict vetting policy for Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
-
 ## Prerequisites
 
-- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Content Moderator service and get your key.
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](../cognitive-services-apis-create-account.md) to subscribe to the Content Moderator service and get your key.
 - A [Facebook account](https://www.facebook.com/).
 
 ## Create a review team
@@ -61,14 +61,14 @@ Test your workflow using the **Execute Workflow** button.
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
 
-1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
+1. Create an Azure Function App as shown on the [Azure Functions](../../azure-functions/functions-create-function-app-portal.md) page.
 1. Go to the newly created Function App.
 1. Within the App, go to the **Platform features** tab and select **Configuration**. In the **Application settings** section of the next page, select **New application setting** to add the following key/value pairs:
     
     | App Setting name | value   | 
     | -------------------- |-------------|
     | `cm:TeamId`   | Your Content Moderator TeamId  | 
-    | `cm:SubscriptionKey` | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) |
+    | `cm:SubscriptionKey` | Your Content Moderator subscription key - See [Credentials](./review-tool-user-guide/configure.md#credentials) |
     | `cm:Region` | Your Content Moderator region name, without the spaces. You can find this name in the **Location** field of the **Overview** tab of your Azure resource.|
     | `cm:ImageWorkflow` | Name of the workflow to run on Images |
     | `cm:TextWorkflow` | Name of the workflow to run on Text |

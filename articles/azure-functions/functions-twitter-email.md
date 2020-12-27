@@ -7,7 +7,7 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restrictions in logic apps. 
 > If you have a Gmail consumer account, you can use the Gmail connector with only specific Google-approved apps and services, 
-> or you can [create a Google client app to use for authentication in your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> or you can [create a Google client app to use for authentication in your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
 > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
@@ -181,7 +181,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
 2. In **Choose an action**, type **Text Analytics**, and then click the **Detect sentiment** action.
     
-    ![New Step, and then Add an action](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Screenshot that shows the "Choose an action" section with "Text Analytics" in the search box, and the "Detect sentiment" action selected. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Type a connection name such as `MyCognitiveServicesConnection`, paste the key for your Cognitive Services API and the Cognitive Services endpoint you set aside in a text editor, and click **Create**.
 
@@ -201,7 +201,7 @@ Now that sentiment detection is configured, you can add a connection to your fun
   
 4. Select the function app you created earlier.
 
-    ![Select function](media/functions-twitter-email/15-select-function.png)
+    ![Screenshot that shows the "Choose an action" section with a function app selected.](media/functions-twitter-email/15-select-function.png)
 
 5. Select the function you created for this tutorial.
 
@@ -227,7 +227,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 3. In **IF TRUE**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/20-add-outlook.png)
+    ![Screenshot that shows the "IF TRUE" section with "outlook.com" entered in the search box, and the "Send an email" action selected.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Office 365 Outlook
@@ -303,4 +303,3 @@ Advance to the next tutorial to learn how to create a serverless API for your fu
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
 
 To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-

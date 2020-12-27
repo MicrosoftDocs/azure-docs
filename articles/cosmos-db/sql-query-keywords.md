@@ -3,12 +3,14 @@ title: SQL keywords for Azure Cosmos DB
 description: Learn about SQL keywords for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
 
 ---
 # Keywords in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 
@@ -30,9 +32,6 @@ You can also use the `BETWEEN` keyword in the `SELECT` clause, as in the followi
 ```
 
 In SQL API, unlike ANSI SQL, you can express range queries against properties of mixed types. For example, `grade` might be a number like `5` in some items and a string  like `grade4` in others. In these cases, as in JavaScript, the comparison between the two different types results in `Undefined`, so the item is skipped.
-
-> [!TIP]
-> For faster query execution times, create an indexing policy that uses a range index type against any numeric properties or paths that the `BETWEEN` clause filters.
 
 ## DISTINCT
 
@@ -71,7 +70,7 @@ The results are:
 ]
 ```
 
-DISTINCT can also be used in the projection within a subquery:
+`DISTINCT` can also be used in the projection within a subquery:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

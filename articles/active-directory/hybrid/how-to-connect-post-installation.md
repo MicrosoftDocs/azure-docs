@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -26,7 +26,7 @@ Use the operational procedures in this article to customize Azure Active Directo
 By default, only the user who did the installation and local admins are able to manage the installed sync engine. For additional people to be able to access and manage the sync engine, locate the group named ADSyncAdmins on the local server and add them to this group.
 
 ## Assign licenses to Azure AD Premium and Enterprise Mobility Suite users
-Now that your users have been synchronized to the cloud, you need to assign them a license so they can get going with cloud apps such as Office 365.
+Now that your users have been synchronized to the cloud, you need to assign them a license so they can get going with cloud apps such as Microsoft 365.
 
 ### To assign an Azure AD Premium or Enterprise Mobility Suite License
 

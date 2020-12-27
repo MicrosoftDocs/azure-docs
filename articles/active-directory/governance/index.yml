@@ -4,7 +4,7 @@ title: Azure Active Directory Identity Governance documentation
 summary: Azure Active Directory (Azure AD) Identity Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
 
 metadata: 
-  author: msaburnley
+  author: ajburnle
   description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
   manager: daveba
   ms.author: ajburnle

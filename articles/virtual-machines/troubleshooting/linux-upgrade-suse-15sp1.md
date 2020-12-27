@@ -3,7 +3,7 @@ title: Upgrade an Azure VM with SUSE Linux Enterprise Server to SUSE 15 SP1 | Mi
 description: This article provides general steps about how to use SUSE Distribution Migration System to upgrade SUSE Linux Enterprise server to SUSE 15 SP1 for an Azure virtual machine.
 services: virtual-machines-linux
 documentationcenter: ''
-author: genlin
+author: amkarmak
 manager: dcscontentpm
 editor: ''
 tags: virtual-machines
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
-ms.author: genli
+ms.author: arremana
 
 ---
 
@@ -62,11 +62,11 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 
 6. Go to the [Azure portal](https://portal.azure.com), select the VM, and then select **Serial console**. You will see that the system stops at "reboot: Restarting system". This process should take about 15-45 minutes. For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen. In this case, wait for 45 minutes. If it still doesn't progress further, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
 
-     ![The screenshot about the messages in the serial console](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![The screenshot about the messages in the serial console.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. After the system is restarted with new kernel, you will see the following message.
 
-     ![The screenshot about the messages in the serial console](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![The screenshot about the messages in the serial console after the system is restarted with the new kernel.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Verify the kernel and OS version to check whether the system is upgraded successfully.
 
     ```

@@ -1,6 +1,6 @@
 ---
-title: Create a metric alert with a Resource Manager template
-description: Learn how to use a Resource Manager template to create a metric alert.
+title: Resource Manager template samples for metric alerts
+description: This article provides sample Resource Manager templates used to create metric alerts in Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
@@ -14,10 +14,10 @@ This article provides samples of using [Azure Resource Manager templates](../../
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -337,7 +337,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-	"ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -421,7 +421,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
-			    "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -474,7 +474,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-	"ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -496,7 +496,7 @@ The following constraints apply when using dimensions in an alert rule that cont
 - You can only select one value per dimension within each criterion.
 - You cannot use "\*" as a dimension value.
 - When metrics that are configured in different criteria support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics in the relevant criteria.
-	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
+    - In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 ### Template file
 
@@ -805,7 +805,7 @@ For example, a few of the potential time series that are monitored by this alert
         }
     },
     "variables": { 
-		"criteria": "[array(parameters('criterion'))]"
+        "criteria": "[array(parameters('criterion'))]"
      },
     "resources": [
         {
@@ -869,7 +869,7 @@ For example, a few of the potential time series that are monitored by this alert
                             "values": ["*"]
                         },
                         {
-			    "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -1088,7 +1088,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../platform/metrics-custom-overview.md).
 
 When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
@@ -1253,7 +1253,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
                         {
                             "name" : "1st criterion",
                             "metricName": "[parameters('metricName')]",
-							"metricNamespace": "[parameters('metricNamespace')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
                             "dimensions":[],
                             "operator": "[parameters('operator')]",
                             "threshold" : "[parameters('threshold')]",
@@ -1297,7 +1297,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
         "metricName": {
             "value": "The custom metric name"
         },
-		"metricNamespace": {
+        "metricNamespace": {
             "value": "Azure.ApplicationInsights"
         },
         "operator": {
@@ -1319,7 +1319,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Multiple resources
@@ -3121,12 +3121,12 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 
 ## Availability test with metric alert
-[Application Insights availability tests](../../azure-monitor/app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
+[Application Insights availability tests](../app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
 
 > [!NOTE]
 > `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"
 
-### Parameter file
+### Template file
 
 ```json
 {
@@ -3228,8 +3228,6 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 }
 ```
 
-
-
 ### Parameter file
 
 ```json
@@ -3248,15 +3246,57 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+Additional configuration of the content-match `pingText` parameter is controlled in the `Configuration/Webtest` portion of the template file. Specifically the section below:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### Test locations
+
+|Id                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | West Europe      |
+| `us-ca-sjc-azr`    | West US          |
+| `emea-ru-msa-edge` | UK South         |
+| `emea-se-sto-edge` | UK West          |
+| `apac-sg-sin-azr`  | Southeast Asia   |
+| `us-tx-sn1-azr`    | South Central US |
+| `us-il-ch1-azr`    | North Central US |
+| `emea-gb-db3-azr`  | North Europe     |
+| `apac-jp-kaw-edge` | Japan East       |
+| `emea-fr-pra-edge` | France Central   |
+| `emea-ch-zrh-edge` | France South     |
+| `us-va-ash-azr`    | East US          |
+| `apac-hk-hkn-azr`  | East Asia        |
+| `us-fl-mia-edge`   | Central US       |
+| `latam-br-gru-edge`| Brazil South      |
+| `emea-au-syd-edge` | Australia East   |
+
+### US Government test locations
+
+|Id                    | Region           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## Next steps
 
 - [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 - [Learn more about alerts](../platform/alerts-overview.md).
 - [Get a sample to create an action group with Resource Manager template](resource-manager-action-groups.md)
+

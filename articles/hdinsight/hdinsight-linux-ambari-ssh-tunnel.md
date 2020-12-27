@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ---
@@ -59,16 +59,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 This command creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
 
-    |Option |Description |
-    |---|---|
-    |D 9876|The local port that routes traffic through the tunnel.|
-    |C|Compress all data, because web traffic is mostly text.|
-    |2|Force SSH to try protocol version 2 only.|
-    |q|Quiet mode.|
-    |T|Disable pseudo-tty allocation, since you're just forwarding a port.|
-    |n|Prevent reading of STDIN, since you're just forwarding a port.|
-    |N|Do not execute a remote command, since you're just forwarding a port.|
-    |f|Run in the background.|
+|Option |Description |
+|---|---|
+|D 9876|The local port that routes traffic through the tunnel.|
+|C|Compress all data, because web traffic is mostly text.|
+|2|Force SSH to try protocol version 2 only.|
+|q|Quiet mode.|
+|T|Disable pseudo-tty allocation, since you're just forwarding a port.|
+|n|Prevent reading of STDIN, since you're just forwarding a port.|
+|N|Do not execute a remote command, since you're just forwarding a port.|
+|f|Run in the background.|
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
 

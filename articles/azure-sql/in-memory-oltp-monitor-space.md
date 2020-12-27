@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: genemi
+ms.topic: how-to
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage in Azure SQL Database and Azure SQL Managed Instance
@@ -19,7 +19,7 @@ When using [In-Memory OLTP](in-memory-oltp-overview.md), data in memory-optimize
 
 ## Determine whether data fits within the In-Memory OLTP storage cap
 
-Determine the storage caps of the different service tiers.Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
+Determine the storage caps of the different service tiers. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
 
 - [DTU-based resource limits - single database](database/resource-limits-dtu-single-databases.md)
 - [DTU-based resource limits - elastic pools](database/resource-limits-dtu-elastic-pools.md)
@@ -59,7 +59,7 @@ To resolve this error, either:
 - Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 > [!NOTE]
-> In rare cases, errors 41823 and 41840 can be transient, meaning there is enough available In-Memory OLTP storage, and retrying the operation succeeds. We therefore recommend to both monitor the overall available In-Memory OLTP storage and to retry when first encountering error 41823 or 41840. For more information about retry logic, see [Conflict Detection and Retry Logic with In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> In rare cases, errors 41823 and 41840 can be transient, meaning there is enough available In-Memory OLTP storage, and retrying the operation succeeds. We therefore recommend to both monitor the overall available In-Memory OLTP storage and to retry when first encountering error 41823 or 41840. For more information about retry logic, see [Conflict Detection and Retry Logic with In-Memory OLTP](/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## Next steps
 

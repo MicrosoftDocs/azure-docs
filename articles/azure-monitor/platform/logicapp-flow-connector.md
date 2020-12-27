@@ -10,8 +10,8 @@ ms.date: 03/13/2020
 
 ---
 
-# Azure Monitor Logs connector for Logic Apps and Flow
-[Azure Logic Apps](/azure/logic-apps/) and [Power Automate](https://ms.flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
+# Azure Monitor Logs connector for Logic Apps and Power Automate
+[Azure Logic Apps](../../logic-apps/index.yml) and [Power Automate](https://flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
 For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
@@ -28,16 +28,16 @@ Depending on the size of your data and the query you use, the connector may hit 
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.
 
 > [!NOTE]
-> The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](https://docs.microsoft.com/connectors/azureloganalytics/) and the [Azure Application Insights connector](https://docs.microsoft.com/connectors/applicationinsights/). This connector provides the same functionality as the others and is the preferred method for running a query against a Log Analytics workspace or an Application Insights application.
+> The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](/connectors/azureloganalytics/) and the [Azure Application Insights connector](/connectors/applicationinsights/). This connector provides the same functionality as the others and is the preferred method for running a query against a Log Analytics workspace or an Application Insights application.
 
 
 | Action | Description |
 |:---|:---|
-| [Run query and and list results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each activity](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Run query and and visualize results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
+| [Run query and and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each activity](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Run query and and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
 
 ## Walkthroughs
-The following tutorials illustrate the use of the Azure Monitor connectors in Azure Logic Apps. You can perform these same example with Power Automate, the only difference being how to you create the initial workflow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
+The following tutorials illustrate the use of the Azure Monitor connectors in Azure Logic Apps. You can perform these same example with Power Automate, the only difference being how to you create the initial workflow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](/power-automate/get-started-logic-template) to get started.
 
 
 ### Create a Logic App
@@ -64,7 +64,7 @@ Click **+ New step** to add an action that runs after the recurrence action. Und
 
 Click **Azure Log Analytics – Run query and visualize results**.
 
-![Run query and visualize results action](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Screenshot of a new action being added to a step in the Logic App Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### Add Azure Monitor Logs action
@@ -83,7 +83,7 @@ Event
 
 Select *Set in query* for the **Time Range** and **HTML Table** for the **Chart Type**.
    
-![Run query and visualize results action](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 The mail will be sent by the account associated with the current connection. You can specify another account by clicking on **Change connection**.
 
@@ -121,6 +121,5 @@ When the logic app completes, check the mail of the recipient that you specified
 ## Next steps
 
 - Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
-- Learn more about [Logic Apps](/azure/logic-apps/)
-- Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
-
+- Learn more about [Logic Apps](../../logic-apps/index.yml)
+- Learn more about [Power Automate](https://flow.microsoft.com).

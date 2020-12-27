@@ -1,20 +1,22 @@
 ---
-title: Azure Speaker Recognition service
+title: Speaker Recognition overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Speaker Recognition provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker Recognition is used to answer the question “who is speaking?”.
+description: Speaker Recognition provides algorithms that verify and identify speakers by their unique voice characteristics using voice biometry. Speaker Recognition is used to answer the question “who is speaking?”. This article is an overview of the benefits and capabilities of the Speaker Recognition service.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
+ms.custom: cog-serv-seo-aug-2020
+keywords: speaker recognition, voice biometry
 ---
 
-# What is the Azure Speaker Recognition service?
+# What is Speaker Recognition (Preview)?
 
-The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker Recognition is used to answer the question “who is speaking?”. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles, to see if it matches any profile in the group (speaker identification). In contrast, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) groups segments of audio by speaker in a batch operation.
+The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics using voice biometry. Speaker Recognition is used to answer the question “who is speaking?”. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles, to see if it matches any profile in the group (speaker identification). In contrast, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) groups segments of audio by speaker in a batch operation.
 
 ## Speaker Verification
 
@@ -22,7 +24,7 @@ Speaker Verification streamlines the process of verifying an enrolled speaker id
 
 ### How does Speaker Verification work?
 
-![How does speaker verification work](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Speaker Verification flowchart.":::
 
 Speaker verification can be either text-dependent or text-independent. **Text-dependent** verification means speakers need to choose the same passphrase to use during both enrollment and verification phases. **Text-independent** verification means speakers can speak in everyday language in the enrollment and verification phrases.
 
@@ -51,7 +53,22 @@ You control how long data should be retained. You can create, update, and delete
 
 As with all of the Cognitive Services resources, developers who use the Speaker Recognition service must be aware of Microsoft's policies on customer data. You should ensure that you have received the appropriate permissions from the users for Speaker Recognition. For more information, see the [Cognitive Services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
 
+## Common questions and solutions
+
+| Question | Solution |
+|---------|----------|
+| What scenarios can Speaker Recognition be used for? | Call center customer verification, voice-based patient check-in, meeting transcription, multi-user device personalization|
+| What is the difference between Identification and Verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, or **enrolled** voice.|
+| What's the difference between text-dependent and text-independent verification? | Text-dependent verification requires a specific pass-phrase for both enrollment and recognition. Text-independent verification requires a longer voice sample for enrollment, but anything can be spoken, including during recognition.|
+| What languages are supported? | English, French, Spanish, Chinese, German, Italian, Japanese and Portuguese |
+| What Azure regions are supported? | Speaker Recognition is a preview service, and currently only available in the West US region.|
+| What audio formats are supported? | Mono 16 bit, 16kHz PCM-encoded WAV |
+| **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the API decides whether to “Accept” or “Reject” simply based on a default threshold of 0.5. Advanced users are advised to override the default decision and fine tune the result based on your own scenario. |
+| Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
+| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Recognition audio samples are not retained or stored. |
+
 ## Next steps
 
 > [!div class="nextstepaction"]
+> * Complete the Speaker Recognition [basics article](./get-started-speaker-recognition.md) for a run-through of common design patterns you can use in your applications.
 > * See the [video tutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) for text-independent speaker verification.
