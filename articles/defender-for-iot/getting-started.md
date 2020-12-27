@@ -33,7 +33,7 @@ Administrative user permissions are required to activate the sensor and manageme
 
 **Azure Defender for IoT Portal Permission Requirements**
 
-The following permissions describe user access on the Azure Defender for IoT portal.
+The following describes user access permissions to Azure Defender for IoT portal tools.
 
 | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
