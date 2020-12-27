@@ -25,7 +25,7 @@ In this tutorial, you:
 > * Deploy the best model to a real-time scoring endpoint.
 
 
-There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated ML in the studio."  This option uses a no-code authoring experience to fully automate the data preparation and model training. 
+There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated ML in the studio."  This option is a no-code authoring experience. It fully automates data preparation and model training. 
 
 But you could instead use one of the other options:
 
