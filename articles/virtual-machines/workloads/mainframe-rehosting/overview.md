@@ -85,7 +85,7 @@ With Azure IaaS such as a VM, specific system functions provide failover support
 
 ### Scalability
 
-Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../linux/sizes.md) and [Windows](../../windows/sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
+Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../sizes.md) and [Windows](../../sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
 [scale](/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
 
 ### Storage

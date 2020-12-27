@@ -11,6 +11,7 @@ ms.date: 07/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Configure Transport Layer Security (TLS) for a client application
@@ -39,13 +40,13 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name "sample-container" -Context $ctx
 ```
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 The following sample shows how to enable TLS 1.2 in a .NET client using version 12 of the Azure Storage client library:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Networking.cs" id="Snippet_ConfigureTls12":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 The following sample shows how to enable TLS 1.2 in a .NET client using version 11 of the Azure Storage client library:
 

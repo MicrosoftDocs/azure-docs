@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
@@ -23,7 +23,7 @@ Use this article to find the entity categories that can be returned by [Named En
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal](#tab/personal)
+#### [PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 

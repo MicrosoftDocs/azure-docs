@@ -3,20 +3,22 @@ title: Encode custom transform using Media Services v3 REST - Azure | Microsoft 
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: how-to
 ms.custom: 
-ms.date: 05/14/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # How to encode with a custom transform - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-tutorial-with-rest.md#create-a-transform) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 

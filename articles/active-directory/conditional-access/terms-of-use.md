@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 12/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory terms of use
 
-Azure AD terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with terms of use.
+Azure AD terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with terms of use (ToU).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -38,16 +38,16 @@ Azure AD terms of use has the following capabilities:
 - Require employees or guests to accept your terms of use before getting access.
 - Require employees or guests to accept your terms of use on every device before getting access.
 - Require employees or guests to accept your terms of use on a recurring schedule.
-- Require employees or guests to accept your terms of use prior to registering security information in Azure Multi-Factor Authentication (MFA).
+- Require employees or guests to accept your terms of use prior to registering security information in Azure AD Multi-Factor Authentication (MFA).
 - Require employees to accept your terms of use prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present general terms of use for all users in your organization.
-- Present specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
+- Present specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
 - Present specific terms of use when accessing high business impact applications, like Salesforce.
 - Present terms of use in different languages.
 - List who has or hasn't accepted to your terms of use.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use activity for compliance and audit.
-- Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
+- Create and manage terms of use using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
 
 ## Prerequisites
 
@@ -71,11 +71,11 @@ Once you have finalized your terms of use document, use the following procedure 
 1. Sign in to Azure as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Conditional Access - Terms of use blade](./media/terms-of-use/tou-blade.png)
+    ![Conditional Access - Terms of use blade](./media/terms-of-use/tou-blade.png)
 
 1. Click **New terms**.
 
-   ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
+    ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
 
 1. In the **Name** box, enter a name for the terms of use that will be used in the Azure portal.
 1. In the **Display name** box, enter a title that users see when they sign in.
@@ -85,7 +85,7 @@ Once you have finalized your terms of use document, use the following procedure 
 1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. Users may be required to install additional applications if this option is enabled. For more information, see [Per-device terms of use](#per-device-terms-of-use).
 1. If you want to expire terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
-   ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
+    ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
 
 1. Use the **Expire starting on** and **Frequency** settings to specify the schedule for terms of use expirations. The following table shows the result for a couple of example settings:
 
@@ -101,23 +101,23 @@ Once you have finalized your terms of use document, use the following procedure 
    | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
    | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
 
-1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
+1. Use the **Duration before reacceptance requires (days)** setting to specify the number of days before the user must reaccept the terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
 
    | User | First accept date | First expire date | Second expire date | Third expire date |
    | --- | --- | --- | --- | --- |
    | Alice | Jan 1 | Jan 31 | Mar 2 | Apr 1 |
    | Bob | Jan 15 | Feb 14 | Mar 16 | Apr 15 |
 
-   It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
+   It is possible to use the **Expire consents** and **Duration before reacceptance requires (days)** settings together, but typically you use one or the other.
 
 1. Under **Conditional Access**, use the **Enforce with Conditional Access policy template** list to select the template to enforce the terms of use.
 
-   ![Conditional Access drop-down list to select a policy template](./media/terms-of-use/conditional-access-templates.png)
+    ![Conditional Access drop-down list to select a policy template](./media/terms-of-use/conditional-access-templates.png)
 
    | Template | Description |
    | --- | --- |
-   | **Access to cloud apps for all guests** | A Conditional Access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
-   | **Access to cloud apps for all users** | A Conditional Access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
+   | **Access to cloud apps for all guests** | A Conditional Access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign out and sign in. |
+   | **Access to cloud apps for all users** | A Conditional Access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign out and sign in. |
    | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
    | **Create Conditional Access policy later** | This terms of use will appear in the grant control list when creating a Conditional Access policy. |
 
@@ -128,7 +128,7 @@ Once you have finalized your terms of use document, use the following procedure 
 
 1. Click **Create**.
 
-   If you selected a custom Conditional Access template, then a new screen appears that allows you to create the custom Conditional Access policy.
+    If you selected a custom Conditional Access template, then a new screen appears that allows you to create the custom Conditional Access policy.
 
    ![New Conditional Access pane if you chose the custom Conditional Access policy template](./media/terms-of-use/custom-policy.png)
 
@@ -142,15 +142,15 @@ The Terms of use blade shows a count of the users who have accepted and declined
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Terms of use blade listing the number of user show have accepted and declined](./media/terms-of-use/view-tou.png)
+    ![Terms of use blade listing the number of user show have accepted and declined](./media/terms-of-use/view-tou.png)
 
 1. For a terms of use, click the numbers under **Accepted** or **Declined** to view the current state for users.
 
-   ![Terms of use consents pane listing the users that have accepted](./media/terms-of-use/accepted-tou.png)
+    ![Terms of use consents pane listing the users that have accepted](./media/terms-of-use/accepted-tou.png)
 
 1. To view the history for an individual user, click the ellipsis (**...**) and then **View History**.
 
-   ![View History context menu for a user](./media/terms-of-use/view-history-menu.png)
+    ![View History context menu for a user](./media/terms-of-use/view-history-menu.png)
 
    In the view history pane, you see a history of all the accepts, declines, and expirations.
 
@@ -166,11 +166,11 @@ To get started with Azure AD audit logs, use the following procedure:
 1. Select a terms of use.
 1. Click **View audit logs**.
 
-   ![Terms of use blade with the View audit logs option highlighted](./media/terms-of-use/audit-tou.png)
+    ![Terms of use blade with the View audit logs option highlighted](./media/terms-of-use/audit-tou.png)
 
 1. On the Azure AD audit logs screen, you can filter the information using the provided lists to target specific audit log information.
 
-   You can also click **Download** to download the information in a .csv file for use locally.
+    You can also click **Download** to download the information in a .csv file for use locally.
 
    ![Azure AD audit logs screen listing date, target policy, initiated by, and activity](./media/terms-of-use/audit-logs-tou.png)
 
@@ -201,11 +201,11 @@ Users can review and see the terms of use that they have accepted by using the f
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the upper right corner, click your name and select **Profile**.
 
-   ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
+    ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
 
 1. On your Profile page, click **Review terms of use**.
 
-   ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
+    ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
 
 1. From there, you can review the terms of use you have accepted.
 
@@ -216,15 +216,55 @@ You can edit some details of terms of use, but you can't modify an existing docu
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 1. Select the terms of use you want to edit.
 1. Click **Edit terms**.
-1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
+1. In the Edit terms of use pane, you can change the following:
+    - **Name** – this is the internal name of the ToU that is not shared with end users
+    - **Display name** – this is the name that end users can see when viewing the ToU
+    - **Require users to expand the terms of use** – Setting this to **On** will force the end use to expand the terms of use document before accepting it.
+    - (Preview) You can **update an existing terms of use** document
+    - You can add a language to an existing ToU
 
    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new terms of use.
 
-   ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-tou.png)
+    ![Edit showing different language options ](./media/terms-of-use/edit-terms-use.png)
 
-1. Click **Save** to save your changes.
+1. Once you are done, click **Save** to save your changes.
 
-   Once you save your changes, users will not have to reaccept these edits.
+## Update the version or pdf of an existing terms of use
+
+1.	Sign in to Azure and navigate to [Terms of use](https://aka.ms/catou)
+2.	Select the terms of use you want to edit.
+3.	Click **Edit terms**.
+4.	For the language that you would like to update a new version, click **Update** under the action column
+
+    ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
+
+5.	In the pane on the right, upload the pdf for the new version
+6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
+
+    ![Edit terms of use re-accept option highlighted](./media/terms-of-use/re-accept.png)
+
+7.	Once you have uploaded your new pdf and decided on reaccept, click Add at the bottom of the pane.
+8.	You will now see the most recent version under the Document column.
+
+## View previous versions of a terms of use
+
+1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
+2.	Select the terms of use for which you want to view a version history.
+3.	Click on **Languages and version history**
+4.	Click on **See previous versions.**
+
+    ![document details including language versions](./media/terms-of-use/document-details.png)
+
+5.	You can click on the name of the document to download that version
+
+## See who has accepted each version
+
+1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
+2.	To see who has currently accepted the ToU click on the number under the **Accepted** column for the ToU you want.
+3.	By default, the next page will show you the current state of each users acceptance to the ToU
+4.	If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
+5.	Alternatively, you can select a specific version from the **Version**  drop down to see who has accepted that specific version.
+
 
 ## Add a terms of use language
 
@@ -232,14 +272,14 @@ The following procedure describes how to add a terms of use language.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 1. Select the terms of use you want to edit.
-1. In the details pane, click the **Languages** tab.
-
-   ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/languages-tou.png)
-
-1. Click **Add language**.
+1. Click **Edit Terms**
+1. Click **Add language** at the bottom of the page.
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
-   ![Add terms of use language pane with options to upload localized PDFs](./media/terms-of-use/language-add-tou.png)
+    ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/select-language.png)
+
+1. Click **Add language**.
+1. Click **Save**
 
 1. Click **Add** to add the language.
 
@@ -261,7 +301,7 @@ Per-device terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune Enrollment app is not supported.
+- The Intune Enrollment app is not supported. Ensure that it is excluded from any Conditional Access policy requiring Terms of Use.
 - Azure AD B2B users are not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
@@ -297,7 +337,7 @@ You can delete old terms of use using the following procedure.
 1. Click **Delete terms**.
 1. In the message that appears asking if you want to continue, click **Yes**.
 
-   ![Message asking for confirmation to delete terms of use](./media/terms-of-use/delete-tou.png)
+    ![Message asking for confirmation to delete terms of use](./media/terms-of-use/delete-tou.png)
 
    You should no longer see your terms of use.
 
@@ -315,7 +355,7 @@ Conditional Access policies take effect immediately. When this happens, the admi
 > - a Conditional Access policy is enabled on a terms of use
 > - or a second terms of use is created
 
-## B2B guests (Preview)
+## B2B guests
 
 Most organizations have a process in place for their employees to consent to their organization's terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using Conditional Access and terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the terms of use. This support is currently in preview.
 
@@ -323,7 +363,7 @@ Terms of use will only be displayed when the user has a guest account in Azure A
 
 ![Users and groups pane - Include tab with All guest users option checked](./media/terms-of-use/b2b-guests.png)
 
-## Support for cloud apps (Preview)
+## Support for cloud apps
 
 Terms of use can be used for different cloud apps, such as Azure Information Protection and Microsoft Intune. This support is currently in preview.
 
@@ -360,7 +400,7 @@ A: No, if an administrator edits the details for a terms of use (name, display n
 A: Currently, you can't update an existing terms of use document. To change a terms of use document, you will have to create a new terms of use instance.
 
 **Q: If hyperlinks are in the terms of use PDF document, will end users be able to click them?**<br />
-A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported.
+A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported. Also, hyperlinks in terms of use PDFs do not work when accessed from the Azure AD MyApps/MyAccount portal.
 
 **Q: Can a terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.
@@ -384,9 +424,8 @@ A: You can [review previously accepted terms of use](#how-users-can-review-their
 A: If you have configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign in.
+A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)

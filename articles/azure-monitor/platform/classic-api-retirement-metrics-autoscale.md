@@ -17,7 +17,7 @@ The same operations have been supported through a set of Azure Resource Manager 
 
 If you are managing autoscale via the Azure portal, the [new Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI, or Resource Manager templates, no action is necessary.  
 
-If you are consuming metrics via the Azure portal or via various [monitoring partner services](../../azure-monitor/platform/partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
+If you are consuming metrics via the Azure portal or via various [monitoring partner services](./partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
 
 ## Who is affected
 
@@ -49,7 +49,7 @@ If you're unsure whether your code or custom tools are calling the classic APIs,
 
 All the existing capabilities for autoscale and metrics will continue to work via the new APIs.  
 
-Migrating over to newer APIs come with Resource Manager based capabilities, such as support for consistent Role-Based Access Control (RBAC) across all your monitoring services. You also gain additional functionality for metrics: 
+Migrating over to newer APIs come with Resource Manager based capabilities, such as support for consistent Azure role-based access control (Azure RBAC) across all your monitoring services. You also gain additional functionality for metrics: 
 
 - support for dimensions
 - consistent 1-minute metric granularity across all services 
@@ -87,3 +87,4 @@ If you have any questions, contact us at MonitorClassicAPIhelp@microsoft.com.
 
 - [Newer REST APIs for Azure Monitor](/rest/api/monitor/) 
 - [Newer Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

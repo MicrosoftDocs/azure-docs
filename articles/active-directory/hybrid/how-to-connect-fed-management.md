@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
-keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
+keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,7 +26,7 @@ This article describes how to manage and customize Active Directory Federation S
 | Topic | What it covers |
 |:--- |:--- |
 | **Manage AD FS** | |
-| [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
+| [Repair the trust](#repairthetrust) |How to repair the federation trust with Microsoft 365. |
 | [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
@@ -47,11 +47,11 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
    ![Repair AAD and ADFS Trust](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD, and click **Next**.
-   ![Connect to Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Screenshot that shows the "Connect to Azure AD" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
 
-   ![Remote access credentials](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![Screenshot that shows the "Remote access credentials" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     After you click **Next**, Azure AD Connect checks for certificate health and shows any issues.
 
@@ -59,7 +59,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
     The **Ready to configure** page shows the list of actions that will be performed to repair the trust.
 
-    ![Ready to configure](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![Screenshot that shows the "Ready to configure" page with a list of actions.](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. Click **Install** to repair the trust.
 
@@ -80,7 +80,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
     To rectify the configuration in case of missing KB, install the required [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
-> For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="addadfsserver"></a>Add an AD FS server 
 
@@ -93,7 +93,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
 2. On the **Connect to Azure AD** page, enter your global administrator credentials for Azure AD, and click **Next**.
 
-   ![Connect to Azure AD](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Screenshot that shows the "Connect to Azure AD" page with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Provide the domain administrator credentials.
 
@@ -101,9 +101,9 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
 4. Azure AD Connect asks for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
 
-   ![Certificate password](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Screenshot that shows the "Specify SSL certificate" page with the "Certificate password" window open.](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Screenshot that shows the "Specify SSL certificate" page after a password for the PFX file is entered.](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
 
@@ -111,9 +111,9 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
 6. Click **Next**, and go through the final **Configure** page. After Azure AD Connect has finished adding the servers to the AD FS farm, you will be given the option to verify the connectivity.
 
-   ![Ready to configure](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   ![Screenshot that shows the "Ready to configure" page with a list of actions to be completed after clicking "Install".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Installation complete](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Screenshot that shows the "Installation complete" page with a "The Intranet configuration was successfully verified" message displayed. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="addwapserver"></a>Add an AD FS WAP server 
 
@@ -126,7 +126,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
 2. Provide the Azure global administrator credentials.
 
-   ![Connect to Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Screenshot that shows the "Connect to Azure AD" page with an example username and password entered.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Azure AD Connect.
    ![Certificate password](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -143,7 +143,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
 6. On the **Ready to configure** page, the wizard shows the list of actions that will be performed.
 
-   ![Ready to configure](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Screenshot that shows the "Ready to configure" page with a list of actions to be performed.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. Click **Install** to finish the configuration. After the configuration is complete, the wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
 
@@ -169,7 +169,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    ![Azure AD domain](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more details.
+    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md) for more details.
 
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 
@@ -202,7 +202,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modclaims"></a>Modify AD FS claim rules 
-AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 The following sections describe how you can write custom rules for some scenarios that relate to Azure AD and AD FS federation.
 

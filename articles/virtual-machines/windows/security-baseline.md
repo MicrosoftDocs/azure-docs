@@ -1,18 +1,18 @@
 ---
-title: Windows Virtual Machines security baseline for Azure Security Benchmark
+title: Azure security baseline for Linux Virtual Machines Windows Virtual Machines
 description: The Windows Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
-# Windows Virtual Machines security baseline for Azure Security Benchmark
+# Azure security baseline for Windows Virtual Machines
 
 The Azure Security Baseline for Windows Virtual Machines contains recommendations that will help you improve the security posture of your deployment.
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](../../security/ben
 
 Alternatively, if you have a specific use case for a centralized firewall, Azure Firewall can also be used to meet those requirements.
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -74,11 +74,11 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,7 +144,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -178,7 +178,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -250,7 +250,7 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -272,7 +272,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -450,13 +450,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -506,7 +506,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -554,13 +554,13 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Using role-based access control (RBAC), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the Azure portal, using the Azure CLI, orAzure PowerShell.
+**Guidance**: Using Azure role-based access control (Azure RBAC), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the Azure portal, using the Azure CLI, orAzure PowerShell.
 
-* [Role-based access control (RBAC) for Azure resources](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
-* [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -578,7 +578,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Virtual disks on Windows Virtual Machines (VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure managed disks](./disk-encryption.md)
+* [Server side encryption of Azure-managed disks](../disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](./disk-encryption-overview.md)
 
@@ -608,7 +608,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure Virtual Machines. Use Azure Security recommended or third-party solution for performing vulnerability assessments for your virtual machines.
 
-* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -618,9 +618,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -630,9 +630,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -690,7 +690,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -748,7 +748,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md)
 
@@ -773,7 +773,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -815,13 +815,13 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Azure Firewall overview](../../firewall/overview.md)
 
 * [Web Application Firewall overview](../../web-application-firewall/overview.md)
 
-* [Network security overview](../../virtual-network/security-overview.md)
+* [Network security overview](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 
@@ -839,7 +839,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources. Also, Azure resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your company.
+**Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources. Also, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your company.
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -899,7 +899,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: Use Azure DevOps/Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, such as your code, builds, and work tracking, you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, such as your code, builds, and work tracking, you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 * [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -911,11 +911,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: If using custom images (e.g. Virtual Hard Disk), use Azure role-based access controls to ensure only authorized users may access the images.
+**Guidance**: If using custom images (e.g. Virtual Hard Disk), use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images.
 
-* [Understand RBAC in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [How to configure RBAC in Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -967,11 +967,13 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
-* [How to integrate with Azure Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [How to integrate with Azure-Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../../key-vault/general/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1085,11 +1087,11 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: When you back up Azure managed disks with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
+**Guidance**: When you back up Azure-managed disks with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
 * [Soft delete for VMs](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault soft-delete overview](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring**: Yes
 

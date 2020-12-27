@@ -1,12 +1,12 @@
 ---
-title: Configure local Role Based Access Control (RBAC) for Azure API for FHIR
+title: Configure local role-based access control (local RBAC) for Azure API for FHIR
 description: This article describes how to configure the Azure API for FHIR to use an external Azure AD tenant for data plane
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 03/15/2020
-ms.author: mihansen
+ms.author: matjazl
 ---
 # Configure local RBAC for FHIR 
 
@@ -17,7 +17,7 @@ This article explains how to configure the Azure API for FHIR to use an external
 
 ## Add service principal
 
-Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
+Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the local RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
 
 Using the `Az` PowerShell module:
 
@@ -41,7 +41,7 @@ az ad sp create --id 3274406e-4e0a-4852-ba4f-d7226630abb7
 
 You can configure the Azure API for FHIR to use an external or secondary Azure Active Directory tenant in the **Authentication** blade:
 
-![Local RBAC Assignments](media/rbac/local-rbac-guids.png).
+![Local RBAC assignments](media/rbac/local-rbac-guids.png).
 
 In the authority box, enter a valid Azure Active Directory tenant. Once the tenant has been validated, the **Allowed object IDs** box should be activated and you can enter a list of identity object IDs. These IDs can be the identity object IDs of:
 
@@ -63,4 +63,3 @@ In this article, you learned how to assign FHIR data plane access using an exter
  
 >[!div class="nextstepaction"]
 >[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
-

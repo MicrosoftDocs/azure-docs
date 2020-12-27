@@ -16,8 +16,8 @@ ms.date: 06/24/2020
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](/rest/api/searchmanagement/)
+> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -28,9 +28,9 @@ Azure Cognitive Search is a fully managed, cloud-based search service used for b
 * Manage access using the **Keys** page to the left.
 * Adjust capacity using the **Scale** page to the left.
 
-The same tasks performed in the portal can also be handled programmatically through the [Management APIs](https://docs.microsoft.com/rest/api/searchmanagement/) and [Az.Search PowerShell module](search-manage-powershell.md). Administrative tasks are fully represented across portal and programmatic interfaces. There is no specific administrative task that is available in only one modality.
+The same tasks performed in the portal can also be handled programmatically through the [Management APIs](/rest/api/searchmanagement/) and [Az.Search PowerShell module](search-manage-powershell.md). Administrative tasks are fully represented across portal and programmatic interfaces. There is no specific administrative task that is available in only one modality.
 
-Azure Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored with a search service is content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Azure Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored with a search service is content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). 
 
 ## Fixed service properties
 
@@ -51,9 +51,9 @@ Regarding access to the endpoint, anyone with access to the service URL and an a
 * Read-only access to the service is query rights, typically granted to a client application by giving it the URL and a query api-key.
 * Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, and schedules.Read-write access is granted by giving the URL, an admin API key.
 
-Rights to the service provisioning apparatus is granted through role assignments. [Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
+Rights to the service provisioning apparatus is granted through role assignments. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In the context of Azure Cognitive Search, [RBAC role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+In the context of Azure Cognitive Search, [Azure role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Create or delete a service
 * Scale the service
@@ -68,12 +68,12 @@ In the context of Azure Cognitive Search, [RBAC role assignments](search-securit
 
 At the Basic tier and above, Microsoft monitors all Azure Cognitive Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
-Azure Cognitive Search leverages [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) to collect and store indexing and query activity. A search service by itself stores just its content (indexes, indexer definitions, data source definitions, skillset definitions, synonym maps). Caching and logged information is stored off-service, often in an Azure Storage account. For more information about logging indexing and query workloads, see [Collect and analyze log data](search-monitor-logs.md).
+Azure Cognitive Search leverages [Azure Monitor](../azure-monitor/index.yml) to collect and store indexing and query activity. A search service by itself stores just its content (indexes, indexer definitions, data source definitions, skillset definitions, synonym maps). Caching and logged information is stored off-service, often in an Azure Storage account. For more information about logging indexing and query workloads, see [Collect and analyze log data](search-monitor-logs.md).
 
 In terms of general information about your service, using just the facilities built into Azure Cognitive Search itself, you can obtain information in the following ways:
 
 * Using the service **Overview** page, through notifications, properties, and status messages.
-* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services). There is no new information or operations provided at the programmatic layer. The interfaces exist so that you can write scripts.
+* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](/rest/api/searchmanagement/) to [get service properties](/rest/api/searchmanagement/services). There is no new information or operations provided at the programmatic layer. The interfaces exist so that you can write scripts.
 
 ## Monitor resource usage
 
@@ -81,8 +81,8 @@ In the dashboard, resource monitoring is limited to the information shown in the
 
 Using the search service REST API, you can get a count on documents and indexes programmatically: 
 
-* [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Count Documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Get Index Statistics](/rest/api/searchservice/Get-Index-Statistics)
+* [Count Documents](/rest/api/searchservice/count-documents)
 
 ## Disaster recovery and service outages
 
@@ -118,7 +118,7 @@ Although query throughput goes up as you add replicas, it does not precisely dou
 
 It's more common to add replicas, but when storage is constrained, you can add partitions to get more capacity. The tier at which you provisioned the service determines whether partitions can be added. The Basic tier is locked at one partition. Standard tiers and above support additional partitions.
 
-Partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
+Partitions are added in divisors of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
 
@@ -130,7 +130,7 @@ In contrast with removing replicas, which requires no extra effort on your part,
 
 There is no detection method that tells you which index shards are stored on specific partitions. Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have. If you want to revert to one partition, all 12 shards will need to fit.
 
-To help with future planning, you might want to check storage (using [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) to see how much you actually used. 
+To help with future planning, you might want to check storage (using [Get Index Statistics](/rest/api/searchservice/Get-Index-Statistics)) to see how much you actually used. 
 
 ## Next steps
 

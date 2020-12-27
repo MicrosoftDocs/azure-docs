@@ -19,7 +19,7 @@ You can easily scale out databases in Azure SQL Database using the **Elastic Dat
 * [Elastic Database split-merge tool](elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](elastic-scale-configure-deploy-split-and-merge.md).
 * [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of databases in Azure SQL Database. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
-* [Elastic transactions](elastic-transactions-overview.md): This feature allows you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Elastic transactions](elastic-transactions-overview.md): This feature allows you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](/dotnet/api/system.transactions).
 
 The following graphic shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
 
@@ -98,4 +98,3 @@ To see the specifics of the elastic pool, see [Price and performance considerati
 [2]:./media/elastic-scale-introduction/h_versus_vert.png
 [3]:./media/elastic-scale-introduction/overview.png
 [4]:./media/elastic-scale-introduction/single_v_multi_tenant.png
-

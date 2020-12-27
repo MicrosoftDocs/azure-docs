@@ -20,7 +20,7 @@ Want to share your great charts examples with the world? Contribute to this page
 
 This chart shows if CPU for an App Service was within the acceptable range and breaks it down by instance to determine whether the load was properly distributed. You can see from the chart that the app was running on a single server instance before 6 AM, and then scaled up by adding another instance.
 
-![Line chart of average cpu percentage by server instance](./media/metric-chart-samples/cpu-by-instance.png)
+![Line chart of average cpu percentage by server instance](./media/metrics-charts/cpu-by-instance.png)
 
 ### How to configure this chart?
 
@@ -30,17 +30,17 @@ Select your App Service resource and find the **CPU Percentage** metric. Then cl
 
 View your application's availability by region to identify which geographic locations are having problems. This chart shows the Application Insights availability metric. You can see that the monitored application has no problem with availability from the East US datacenter, but it is experiencing a partial availability problem from West US, and East Asia.
 
-![Chart of average availability by locations](./media/metric-chart-samples/availability-run-location.png)
+![Chart of average availability by locations](./media/metrics-charts/availability-by-location.png)
 
 ### How to configure this chart?
 
 You first need to turn on [Application Insights availability](../app/monitor-web-app-availability.md) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
 
-## Volume of storage account transactions by API name
+## Volume of failed storage account transactions by API name
 
-Your storage account resource is experiencing an excess volume of transactions. You can use the transactions metric to identify which API is responsible for the excess load. Notice that the following chart is configured with the same dimension (API name) in filtering and splitting to narrow down the view  to only the API calls of the interest:
+Your storage account resource is experiencing an excess volume of failed transactions. You can use the transactions metric to identify which API is responsible for the excess failure. Notice that the following chart is configured with the same dimension (API name) in splitting and filtered by failed response type:
 
-![Bar graph of API transactions](./media/metric-chart-samples/transactions-by-api.png)
+![Bar graph of API transactions](./media/metrics-charts/split-and-filter-example.png)
 
 ### How to configure this chart?
 
@@ -48,5 +48,6 @@ In the metric picker, select your storage account and the **Transactions** metri
 
 ## Next steps
 
-* Learn about Azure Monitor [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+* Learn about Azure Monitor [Workbooks](./workbooks-overview.md)
 * Learn more about [Metric Explorer](metrics-charts.md)
+

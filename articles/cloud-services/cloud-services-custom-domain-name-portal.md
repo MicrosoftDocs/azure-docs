@@ -58,7 +58,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/), and then use the following command:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -93,7 +93,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/), and then use the following command:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -116,7 +116,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 
 > [!WARNING]
-> IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+> IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) to ensure that your IP address does not change.
 > 
 > 
 
@@ -135,6 +135,3 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-

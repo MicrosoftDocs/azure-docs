@@ -26,4 +26,4 @@ The Shared Image Gallery lets you share your images with others. Choose which im
 
 Create an image version from a [VM](../virtual-machines/image-version-vm-cli.md), or a [managed image](../virtual-machines/image-version-managed-image-cli.md).
 
-For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../virtual-machines/troubleshooting-shared-images.md).

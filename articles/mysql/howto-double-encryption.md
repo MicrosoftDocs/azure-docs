@@ -1,8 +1,8 @@
 ---
 title: Infrastructure double encryption - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage Infrastructure double encryption for your Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
@@ -24,19 +24,19 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 2. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
 
-   ![Azure Database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 
-    ![Azure Database for MySQL selections](./media/howto-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Azure Database for MySQL selections":::
 
 4. Select **Review + create** to provision the server.
 
-    ![Azure Database for MySQL summary](./media/howto-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Azure Database for MySQL summary":::
 
 5. Once the server is created you can validate the infrastructure double encryption by checking the status in the **Data encryption** server blade.
 
-    ![Azure Database for MySQL validation](./media/howto-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Azure Database for MySQL validation":::
 
 ## Create an Azure Database for MySQL server with Infrastructure Double encryption - CLI
 

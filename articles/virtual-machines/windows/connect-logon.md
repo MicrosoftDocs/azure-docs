@@ -4,9 +4,10 @@ description: Learn how to connect and sign on to a Windows VM using the Azure po
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/26/2018
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to connect and sign on to an Azure virtual machine running Windows

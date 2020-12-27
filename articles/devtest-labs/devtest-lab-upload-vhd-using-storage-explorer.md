@@ -10,7 +10,7 @@ ms.date: 06/26/2020
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/linux/managed-disks-overview.md)
+This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/managed-disks-overview.md)
 
 ## Step-by-step instructions
 
@@ -86,13 +86,13 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 	1. In the Storage Explorer right pane, you should see a listing of the blobs in the **uploads** blob container of the lab's storage account. On the blob editor toolbar, select **Upload** 
 		
-		![Upload button][6]
+		![Screenshot that shows the Storage Explorer right pane with the "Upload" button selected.][6]
 	
 	1. From the **Upload** drop-down menu, select **Upload files...**.
 	
 	1. On the **Upload files** dialog, select the ellipsis.
 		
-		![Select file][8]  
+		![Screenshot that shows the "Upload files" dialog with the ellipsis selected.][8]  
 
 	1. On the **Select files to upload** dialog, browse to the desired VHD file, select it, and then select **Open**.
 	

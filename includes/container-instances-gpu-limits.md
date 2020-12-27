@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: danlep
 ---
-### Resource availability
+### Maximum resources per SKU
 
 | OS | GPU SKU | GPU count | Max CPU | Max Memory (GB) | Storage (GB) |
 | --- | --- | --- | --- | --- | --- |

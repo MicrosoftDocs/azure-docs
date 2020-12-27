@@ -40,7 +40,8 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
-![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Install the SDK in your app
 
@@ -149,13 +150,14 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## Next steps
-* [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
+* [Diagnostic Search](./diagnostic-search.md)
+* [Explore metrics](../platform/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+

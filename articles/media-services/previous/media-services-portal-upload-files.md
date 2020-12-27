@@ -17,7 +17,9 @@ ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Upload files to a Media Services account in the Azure portal 
+# Upload files to a Media Services account in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)

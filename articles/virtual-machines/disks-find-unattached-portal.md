@@ -22,7 +22,7 @@ If you have unattached managed disks and no longer need the data on them, the fo
 
     On the **Disks** blade, you are presented with a list of all your disks. Any disk that has "**-**" in the **Owner** column is an unattached disk.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Select the unattached disk you'd like to delete, this opens the disk's blade.
 1. On the disk's blade, you can confirm the disk state is unattached, then select **Delete**.

@@ -23,7 +23,7 @@ This section shows how a student can connect to a classroom lab VM from a Chrome
     ![Connect to VM](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. When prompted, enter your password.
-    ![Connect to VM](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Screenshot that shows the Logon screen where you enter your username and password.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. Select **Continue** if you receive the following warning. 

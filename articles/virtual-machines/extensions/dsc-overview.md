@@ -10,11 +10,13 @@ tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
-ms.author: magoedte
+ms.author: magoedte 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 

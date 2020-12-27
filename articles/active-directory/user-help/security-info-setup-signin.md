@@ -18,7 +18,7 @@ ms.author: curtand
 
 You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
-You'll only see this prompt if you haven't set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
+You'll only see this prompt if you haven't set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](./security-info-setup-auth-app.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

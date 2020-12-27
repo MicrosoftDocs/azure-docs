@@ -2,8 +2,6 @@
 title: Azure Monitor Application Insights workspace-based resource schema
 description: Learn about the new table structure and schema for Azure Monitor Application Insights workspace-based resources.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
 
 ---
@@ -462,5 +460,6 @@ Legacy table: traces
 
 ## Next steps
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
+* [Explore metrics](../platform/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
+

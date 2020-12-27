@@ -4,8 +4,8 @@ description: API to retrieve a summarized list of offers under a publisher names
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
 ---
 

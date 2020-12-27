@@ -17,11 +17,11 @@ This topic describes how to perform administration tasks such as [rebooting](#re
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
 
-![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+![Screenshot that highlights the Reboot menu option.](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Select the nodes to reboot and click **Reboot**.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)
+![Screenshot that shows which nodes you can reboot.](./media/cache-administration/redis-cache-reboot.png)
 
 If you have a premium cache with clustering enabled, you can select which shards of the cache to reboot.
 
@@ -94,5 +94,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ## Next steps
-* Explore more [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) features.
+Learn more about Azure Cache for Redis features.
+
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 

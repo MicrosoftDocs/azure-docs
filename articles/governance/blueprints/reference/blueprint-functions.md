@@ -1,7 +1,7 @@
 ---
 title: Azure Blueprints functions
 description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
-ms.date: 05/22/2020
+ms.date: 08/27/2020
 ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
@@ -180,7 +180,7 @@ Define parameter _principalIds_ in the blueprint definition:
                 "type": "array",
                 "metadata": {
                     "displayName": "Principal IDs",
-                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the RBAC assignment.",
+                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the Azure role assignment.",
                     "strongType": "PrincipalId"
                 }
             }
@@ -402,4 +402,5 @@ as parameter _resourceName_ to the template artifact.
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

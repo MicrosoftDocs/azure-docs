@@ -5,20 +5,22 @@ titleSuffix: Azure Media Services
 description: Learn about what assets are and how they're used by Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Assets in Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Azure Media Services, an [Asset](/rest/api/media/assets) is a core concept. It is where you input media (for example, through upload or live ingest), output media (from a job output), and publish media from (for streaming). 
 
@@ -40,7 +42,7 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 ## Next steps
 
-[Manage assets in Media Services](manage-asset-concept.md)
+[Media Services Overview](media-services-overview.md)
 
 ## See also
 

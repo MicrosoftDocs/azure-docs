@@ -54,7 +54,7 @@ Companies that want to partner with Microsoft must join the Microsoft Partner Ne
 
 If you're not a member of the Microsoft Partner Network, you can [join here](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Make a note of your MPN ID as you'll need to enter it during the account activation process.
 
-To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
+To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
 ## Move Dynamics 365 and PowerApps offers to Partner Center
 
@@ -76,7 +76,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
     * Certification or recertification requires that your app supports the latest version of our Business Applications Platform.
     * Once your app has been approved, you'll receive an email to return to the offer and select "go live" to enable the offer to go live on Microsoft AppSource.
 
-## Additional Resources
+## Additional resources
 
 Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 

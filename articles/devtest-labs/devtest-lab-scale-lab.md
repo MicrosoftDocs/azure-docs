@@ -15,7 +15,7 @@ You can use each Azure resource until you reach its quota. Each subscription has
 
 For example, each subscription has a default quota of 20 cores. So, if you are creating VMs in your lab with four cores each, then you can only create five VMs.
 
-[Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) lists some of the most common quotas for Azure resources. The resources most commonly used in a lab, and for which you might encounter quotas, include VM cores, public IP addresses, network interface, managed disks, RBAC role assignment, and ExpressRoute circuits.
+[Azure Subscription and Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md) lists some of the most common quotas for Azure resources. The resources most commonly used in a lab, and for which you might encounter quotas, include VM cores, public IP addresses, network interface, managed disks, Azure role assignment, and ExpressRoute circuits.
 
 ## View your usage and quotas
 These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota you have used.
@@ -32,7 +32,7 @@ These steps show you how to view the current quotas in your subscription for spe
    ![Quotas and usage](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## Requesting more resources in your subscription
-If you reach a quota cap, the default limit of a resource in a subscription can be increased up to a maximum limit, as described in [Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+If you reach a quota cap, the default limit of a resource in a subscription can be increased up to a maximum limit, as described in [Azure Subscription and Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 These steps show you how to request a quota increase through the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 

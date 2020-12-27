@@ -3,9 +3,9 @@ title: Deploy Azure dedicated hosts using the Azure PowerShell
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/01/2019
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
 
@@ -14,7 +14,7 @@ ms.reviewer: zivr
 
 # Deploy VMs to dedicated hosts using the Azure PowerShell
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure PowerShell version 2.8.0 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. 
 
@@ -46,6 +46,10 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
 
 ## Create a host
 
@@ -162,6 +166,27 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## Create a scale set 
+
+When you deploy a scale set, you specify the host group.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
+
+
+
 ## Add an existing VM 
 
 You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
@@ -241,4 +266,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
-- You can also deploy dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- You can also deploy dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).

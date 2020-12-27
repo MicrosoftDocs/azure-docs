@@ -1,11 +1,10 @@
 ---
 title: Run U-SQL jobs locally - Azure Data Lake U-SQL SDK
 description: Learn how to run and test U-SQL jobs locally using the command line and programming interfaces on your local workstation.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ---

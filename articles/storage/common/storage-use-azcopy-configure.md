@@ -1,10 +1,10 @@
 ---
 title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
-description: Configure, optimize, and troubleshoot AzCopy.
+description: Configure, optimize, and troubleshoot AzCopy with Azure Storage. Change the location of or remove the plan and log files. Change the default log level.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -58,7 +58,7 @@ This section helps you perform these optimization tasks:
 
 ### Run benchmark tests
 
-You can run a performance benchmark test on specific blob containers or file shares to view general performance statistics and to identity performance bottlenecks. 
+You can run a performance benchmark test on specific blob containers or file shares to view general performance statistics and to identity performance bottlenecks. You can run the test by uploading or downloading generated test data. 
 
 Use the following command to run a performance benchmark test.
 
@@ -72,9 +72,7 @@ Use the following command to run a performance benchmark test.
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
-For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
-
-To view detailed help guidance for this command, type `azcopy benchmark -h` and then press the ENTER key.
+If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md). 
 
 ### Optimize throughput
 
@@ -84,7 +82,7 @@ You can use the `cap-mbps` flag in your commands to place a ceiling on the throu
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
+Throughput can decrease when transferring small files. You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
 
 If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. 
 

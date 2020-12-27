@@ -5,7 +5,7 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
@@ -60,20 +60,18 @@ In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and se
 
 ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Make sure that **Microsoft Azure App Service** is selected and click **Publish**.
+Select **Azure** as your target, click next, and make sure that **Azure App Service (Windows)** is selected and click next again.
 
 ![Publish from project overview page](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-Publishing opens the **Create App Service** dialog, which helps you create all the Azure resources you need to run your ASP.NET app in Azure.
-
 ### Sign in to Azure
 
-In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
+In the **Publish** dialog, click **Add an account** from the account manager drop down, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
+
+![Sign in to Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > If you're already signed in, don't select **Create** yet.
-
-![Sign in to Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### Configure the web app name
 
@@ -107,15 +105,20 @@ You can keep the generated web app name, or change it to another unique name (va
    |**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. The **Publish** dialog shows the resources you've configured. Click **Finish**.
+
+   ![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### Create a server
 
 Before creating a database, you need a [logical SQL server](../azure-sql/database/logical-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
-1. Click **Create a SQL Database**.
+1. Click **Configure** next to SQL Server Database under **Connected Services**.
 
    ![Create a SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. In the **Configure SQL Database** dialog, click **New** next to **SQL Server**.
+2. In the **Azure SQL Database** dialog, click **New** next to **Database Server**.
 
    A unique server name is generated. This name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. You can change the server name, but for this tutorial, keep the generated value.
 
@@ -123,28 +126,31 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
    Remember this username and password. You need them to manage the server later.
 
+   ![Create server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > Even though your password in the connection strings is masked (in Visual Studio and also in App Service), the fact that it's maintained somewhere adds to the attack surface of your app. App Service can use [managed service identities](overview-managed-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration at all. For more information, see [Next steps](#next-steps).
-
-   ![Create server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. Click **OK**. Don't close the **Configure SQL Database** dialog yet.
 
 ### Create a database in Azure SQL Database
 
-1. In the **Configure SQL Database** dialog:
+1. In the **Azure SQL Database** dialog:
 
    * Keep the default generated **Database Name**.
-   * In **Connection String Name**, type *MyDbConnection*. This name must match the connection string that is referenced in *Models/MyDatabaseContext.cs*.
-   * Select **OK**.
+   * Select **Create**.
 
     ![Configure database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. The **Create App Service** dialog shows the resources you've configured. Click **Create**.
+2. In the **Database connection String Name**, type _MyDbConnection_. This name must match the connection string that is referenced in _Models/MyDatabaseContext.cs_.
 
-   ![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. Enter the Admin username and password you used in [Create a server](#create-a-server) step 3 into the Database username and password respectively.
 
-Once the wizard finishes creating the Azure resources, it  publishes your ASP.NET app to Azure. Your default browser is launched with the URL to the deployed app.
+    ![Configure database connection string](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. Select **Finish**.
+
+Once the wizard finishes creating the Azure resources, click **Publish** to deploy your ASP.NET app to Azure. Your default browser is launched with the URL to the deployed app.
 
 Add a few to-do items.
 
@@ -194,7 +200,7 @@ Expand your connection > **Databases** > **&lt;your database>** > **Tables**. Ri
 
 You can use the familiar tools in Visual Studio to update your database and app in Azure. In this step, you use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
 
-For more information about using Entity Framework Code First Migrations, see [Getting Started with Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+For more information about using Entity Framework Code First Migrations, see [Getting Started with Entity Framework 6 Code First using MVC 5](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### Update your data model
 
@@ -414,4 +420,4 @@ More resources:
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -23,7 +23,7 @@ You can use this example to monitor the MXChip IoT DevKit WiFi information and s
 
 ## What you need
 
-- Set up your development environment by following the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Set up your development environment by following the [Getting Started Guide](./iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 - From your GitBash terminal window (or other Git command-line interface), type the following commands:
 
@@ -110,7 +110,4 @@ You have learned how to:
 - Connect an MXChip IoT DevKit device to your Azure IoT Remote Monitoring solution accelerator.
 - Use the Azure IoT device twins function to sense and control the color of the DevKit's RGB LED.
 
-Here are the suggested next steps:
-
-* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)
+Here is the suggested next step: [Azure IoT Remote Monitoring solution accelerator overview](/azure/iot-suite/)

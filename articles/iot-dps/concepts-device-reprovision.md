@@ -27,7 +27,7 @@ Reprovisioning support within the Device Provisioning Service addresses these ne
 
 Device state data is composed of the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and device capabilities. This data is stored in the Device Provisioning Service instance and the IoT hub that a device is assigned to.
 
-![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagram that shows how provisioning works with the Device Provisioning Service.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 When a device is initially provisioned with a Device Provisioning Service instance, the following steps are done:
 
@@ -47,13 +47,13 @@ Depending on the scenario, a device usually sends a request to a provisioning se
 
 * **Re-provision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
-    ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagram that shows that a policy takes action when devices associated with the enrollment entry submit a new request.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
     This policy is often used for a factory reset without changing IoT hubs.
 
-    ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagram that shows how a policy takes action when devices associated with the enrollment entry submit a new provisioning request.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 

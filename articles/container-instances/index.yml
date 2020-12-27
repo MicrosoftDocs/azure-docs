@@ -36,6 +36,8 @@ landingContent:
             url: container-instances-quickstart-portal.md
           - text: Deploy container instance - ARM template
             url: container-instances-quickstart-template.md
+          - text: Deploy container instance - Docker CLI
+            url: quickstart-docker-cli.md
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
@@ -48,6 +50,8 @@ landingContent:
             url : container-instances-multi-container-yaml.md
           - text: Deploy container group - ARM template
             url: container-instances-multi-container-group.md 
+          - text: Deploy container group - Docker Compose
+            url: tutorial-docker-compose.md   
   - title: Deployment scenarios
     linkLists:
       - linkListType: how-to-guide

@@ -2,12 +2,12 @@
 title: Find identity object IDs for authentication - Azure API for FHIR
 description: This article explains how to locate the identity object IDs needed to configure authentication for Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Find identity object IDs for authentication configuration
@@ -16,16 +16,16 @@ In this article, you'll learn how to find identity object IDs needed when config
 
 ## Find user object ID
 
-If you have a user with user name `myuser@consoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
+If you have a user with user name `myuser@contoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## Find service principal object ID

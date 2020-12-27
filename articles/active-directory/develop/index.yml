@@ -5,9 +5,9 @@ summary: The Microsoft identity platform is an authentication service, open-sour
 
 metadata:
    ms.topic: landing-page
-   ms.date: 07/13/2020
-   author: CelesteDG
-   ms.author: celested
+   ms.date: 10/07/2020
+   author: mmacy
+   ms.author: marsma
    ms.service: active-directory
    ms.subservice: develop
    ms.workload: identity
@@ -64,8 +64,8 @@ landingContent:
             url: quickstart-v2-aspnet-webapp.md
           - text: ASP.NET Core
             url: quickstart-v2-aspnet-core-webapp.md
-          - text: Python
-            url: quickstart-v2-python-webapp.md
+          - text: Blazor Server
+            url: tutorial-blazor-server.md
   - title: Mobile / native app
     linkLists:
       - linkListType: get-started
@@ -84,7 +84,7 @@ landingContent:
           - text: ASP.NET
             url: quickstart-v2-dotnet-native-aspnet.md
           - text: ASP.NET Core
-            url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+            url: quickstart-v2-aspnet-core-web-api.md
   - title: Microsoft Graph
     linkLists:
       - linkListType: get-started
@@ -92,7 +92,7 @@ landingContent:
           - text: Use the Microsoft Graph API
             url: microsoft-graph-intro.md
           - text: Microsoft Graph auth overview
-            url: https://docs.microsoft.com/graph/auth/
+            url: /graph/auth/
   - title: Protocols
     linkLists:
       - linkListType: overview
@@ -118,3 +118,13 @@ landingContent:
             url: ../managed-identities-azure-resources/overview.md
           - text: Managed identities and Azure VMs
             url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
+  - title: New in docs
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: "What's new in docs?" # 9/26/2020
+            url: whats-new-docs.md
+          - text: "Microsoft Identity Web library overview" # 10/07/2020
+            url: microsoft-identity-web.md
+          - text: "Tutorial: Blazor Server" # 9/26/2020
+            url: tutorial-blazor-server.md

@@ -57,7 +57,7 @@ When deploying a secure HDInsight cluster, there are some best practices that sh
 When hierarchical name space in not enabled:
 
 * There are no inherited permissions.
-* Only filesystem permission that works is **Storage Data XXXX** RBAC role, to be assigned to the user directly in Azure portal.
+* Only filesystem permission that works is **Storage Data XXXX** Azure role, to be assigned to the user directly in Azure portal.
 
 ### Default HDFS permissions
 

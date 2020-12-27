@@ -1,7 +1,7 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample
 description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
 ---
 # CIS Microsoft Azure Foundations Benchmark blueprint sample
@@ -56,8 +56,8 @@ sample as a starter.
 1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the
    page.
 
-1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have
-   parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
+1. Review the list of artifacts that are included in the blueprint sample. Many of the artifacts
+   have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
    blueprint sample.
 
 ### Publish the sample copy

@@ -1,8 +1,10 @@
 ---
 title: Entity types - LUIS
 description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/06/2020
 ---
 
 # Extract data with entities
@@ -73,6 +75,12 @@ To build the machine learned entities effectively:
 * If you have a machine learned entity with subentities, make sure that the different orders and variants of the entity and subentities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
 * You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model doesn't generalize well, and is a common problem in machine learning models. This implies the app would not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept instead of just the examples shown.
 
+## Effective prebuilt entities
+
+To build effective entities that extract common data, such as those provided by the [prebuilt entities](luis-reference-prebuilt-entities.md), we recommend the following process.
+
+Improve the extraction of data by bringing your own data to an entity as a feature. That way all the additional labels from your data will learn the context of where person names exist in your application.
+
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
 <a name="patternany-entity"></a>
@@ -129,9 +137,16 @@ A Pattern.any is only available in a [Pattern](luis-concept-patterns.md).
 
 If you need more than the [limit](luis-limits.md#model-limits), contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
 
-## Entity prediction status
+## Entity prediction status and errors
 
-The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance. This different score is based on the current trained model. Use this information to resolve training errors using one or more of the following:
+The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance. This different score is based on the current trained model. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance.":::
+
+The erroring text is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
+
+Use this information to resolve entity errors using one or more of the following:
+* The highlighted text is mislabeled. To fix, review, correct, and retrain. 
 * Create a [feature](luis-concept-feature.md) for the entity to help identify the entity's concept
 * Add more [example utterances](luis-concept-utterance.md) and label with the entity
 * [Review active learning suggestions](luis-concept-review-endpoint-utterances.md) for any utterances received at the prediction endpoint that can help identify the entity's concept.

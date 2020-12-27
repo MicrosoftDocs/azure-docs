@@ -25,7 +25,7 @@ You can enable Azure Monitor for containers for a new deployment or for one or m
 - The Azure portal
 - Azure PowerShell
 - The Azure CLI
-- [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform and AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ Before you start, make sure that you've met the following requirements:
    You can create a workspace when you enable monitoring for your new AKS cluster, or you can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
    
    If you choose to create the workspace yourself, you can create it through: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [The Azure portal](../learn/quick-create-workspace.md) 
    

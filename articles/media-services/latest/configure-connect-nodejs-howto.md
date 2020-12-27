@@ -3,7 +3,7 @@ title: Connect to Azure Media Services v3 API - Node.js
 description: This article demonstrates how to connect to Media Services v3 API with Node.js.  
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,12 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/25/2019
-ms.author: juliako
-
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-js
 ---
 # Connect to Media Services v3 API - Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign in method.
 
@@ -33,6 +35,8 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 1. Create a package.json file using your favorite editor.
 1. Open the file and paste the following code:
 
+   Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
+
 ```json
 {
   "name": "media-services-node-sample",
@@ -40,7 +44,7 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
   "description": "",
   "main": "./index.js",
   "dependencies": {
-    "azure-arm-mediaservices": "^4.1.0",
+    "azure-arm-mediaservices": "^8.0.0",
     "azure-storage": "^2.8.0",
     "ms-rest": "^2.3.3",
     "ms-rest-azure": "^2.5.5"

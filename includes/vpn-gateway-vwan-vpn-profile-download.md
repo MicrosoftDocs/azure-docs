@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/13/2020
+ ms.date: 07/31/2020
  ms.author: cherylmc
  ms.custom: include file
 
@@ -27,7 +27,7 @@ Extract the zip file. The file contains the following folders:
 
 * AzureVPN
 * Generic
-* OpenVPN (If you have enabled the OpenVPN and Azure AD authentication settings on the gateway). For VPN Gateway, see [Create a tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). For Virtual WAN, see [Create a tenant - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (If you have enabled the OpenVPN with **Azure certificate** or **RADIUS authentication** settings on the gateway). For VPN Gateway, see [Create a tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). For Virtual WAN, see [Create a tenant - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
 ## 3. Retrieve information
 

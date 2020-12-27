@@ -8,8 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -89,9 +91,9 @@ This step is optional. If you're interested to learn how the code creates the da
 
     ```javascript
     function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
-    	client.execute(query, next);
-    	console.log("created keyspace");    
+        var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
+        client.execute(query, next);
+        console.log("created keyspace");    
   }
     ```
 
@@ -99,9 +101,9 @@ This step is optional. If you're interested to learn how the code creates the da
 
    ```javascript
    function createTable(next) {
-   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
-    	client.execute(query, next);
-    	console.log("created table");
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+        client.execute(query, next);
+        console.log("created table");
    },
    ```
 
@@ -141,7 +143,7 @@ This step is optional. If you're interested to learn how the code creates the da
             });
         },
     ```  
-    
+
 * Query to get a key-value.
 
     ```javascript
@@ -181,7 +183,7 @@ Now go back to the Azure portal to get your connection string information and co
     Line 2 should now look similar to 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copy the PASSWORD value from the portal and paste it over `<FillMEIN>` on line 3.
 
     Line 3 should now look similar to
@@ -189,12 +191,12 @@ Now go back to the Azure portal to get your connection string information and co
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Save the `config.js` file.
-    
+
 ## Use the X509 certificate
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
 
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Open `uprofile.js` and change the `path\to\cert` to point to your new certificate.
 
@@ -205,11 +207,11 @@ Now go back to the Azure portal to get your connection string information and co
 > 
 > Double-click on the .crt file to open it into the certificate display. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="View and verify the output":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Screenshot that shows the Certificate window.":::
 >
 > Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="View and verify the output":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Screenshot that shows the Base-64 encoded X.509 (.CER) option.":::
 >
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.

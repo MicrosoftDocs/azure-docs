@@ -79,11 +79,11 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 
 1. In the **Accounts** screen of the Microsoft Authenticator app, tap the account you want to recover to open the full screen view of the account.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Microsoft Authenticator app, showing the available account tiles" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Screenshot that shows the Microsoft Authenticator app with the available account tiles." border="true":::
 
 1. Tap the tile for the account you're recovering and then tap the option to sign in to recover. Enter your password and then confirm your email address or phone number as additional verification.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Authenticator presents a one-time password as a verification code" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot that shows the Microsoft Authenticator one-time password code." border="true":::
 
 ### To provide more verification for work or school accounts
 
@@ -96,7 +96,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
     :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticator presents a one-time password as a verification code" border="true":::
 
 >[!NOTE]
->For more info about QR codes and how to get one, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), based on whether your admin has turned on security info.
+>For more info about QR codes and how to get one, see [Get started with the Microsoft Authenticator app](./user-help-auth-app-download-install.md) or [Set up security info to use an authenticator app](./security-info-setup-auth-app.md), based on whether your admin has turned on security info.
 >
 >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
@@ -126,4 +126,4 @@ Now that you've backed up and recovered your account credentials to your new dev
 
 - [Microsoft Authenticator app FAQ](user-help-auth-app-faq.md)
 
-- [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)
+- [Multi-factor Authentication](/azure/multi-factor-authentication/)

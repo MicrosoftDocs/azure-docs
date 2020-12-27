@@ -17,19 +17,11 @@ ms.author: mbaldwin
 
 Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-In this quickstart, you create a key vault with the [Azure CLI](/cli/azure/). The Azure CLI is used to create and manage Azure resources using commands or scripts.  If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-To sign in to Azure using the CLI you can type:
-
-```azurecli
-az login
-```
-
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+ - This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -39,7 +31,7 @@ A resource group is a logical container into which Azure resources are deployed 
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
-## Create a Key Vault
+## Create a key vault
 
 Create a Key Vault in the resource group from the previous step. You will need to provide some information:
 
@@ -55,10 +47,10 @@ Create a Key Vault in the resource group from the previous step. You will need t
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "EastUS"
 ```
 
-The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
+The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
 - **Vault Name**: The name you provided to the --name parameter above.
-- **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
@@ -66,7 +58,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
+When no longer needed, you can use the Azure CLI [az group delete](/cli/azure/group) command to remove the resource group and all related resources:
 
 ```azurecli
 az group delete --name myResourceGroup

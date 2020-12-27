@@ -1,6 +1,6 @@
 ---
 title: View service health notifications by using the Azure portal
-description: Service health notifications allow you to view service health messages published by Microsoft Azure.
+description: View your service health notifications in the Azure portal. Service health notifications are published by the Azure infrastructure into the Azure activity log.
 ms.topic: conceptual
 ms.date: 6/27/2019
 ---

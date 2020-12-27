@@ -15,10 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
+ms.custom: devx-track-csharp
 
 ---
 
-# Offline PlayReady Streaming for Windows 10  
+# Offline PlayReady Streaming for Windows 10
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 3](../latest/offline-plaready-streaming-for-windows-10.md)

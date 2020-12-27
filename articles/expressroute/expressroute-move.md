@@ -1,13 +1,13 @@
 ---
 title: 'ExpressRoute: Move circuits from classic to Azure Resource Manager'
-description: Overview of bridging the classic and the Resource Manager deployment models.
+description: Learn about what it means to move an Azure ExpressRoute circuit from the classic to the Azure Resource Manager deployment model.
 services: expressroute
-author: ganesr
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: ganesr
+ms.author: duau
 
 ---
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
@@ -81,7 +81,7 @@ This section describes what's supported for ExpressRoute circuits:
 This section describes what's not supported for ExpressRoute circuits:
 
 * Managing the life cycle of an ExpressRoute circuit from the classic deployment model.
-* Role-Based Access Control (RBAC) support for the classic deployment model. You cannot perform RBAC controls to a circuit in the classic deployment model. Any administrator/coadministrator of the subscription can link or unlink virtual networks to the circuit.
+* Azure role-based access control (Azure RBAC) support for the classic deployment model. You cannot perform Azure RBAC controls to a circuit in the classic deployment model. Any administrator/coadministrator of the subscription can link or unlink virtual networks to the circuit.
 
 ## Configuration
 Follow the instructions that are described in [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).

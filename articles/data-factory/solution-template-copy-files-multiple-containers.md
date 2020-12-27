@@ -13,29 +13,31 @@ ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ---
 
-# Copy files from multiple containers with Azure Data Factory
+# Copy multiple folders with Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you can use it to migrate your data lake from AWS S3 to Azure Data Lake Store. Or, you could use the template to replicate everything from one Azure Blob storage account to another.
+This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 
 > [!NOTE]
 > If you want to copy files from a single container, it's more efficient to use the [Copy Data Tool](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
 
 ## About this solution template
 
-This template enumerates the containers from your source storage store. It then copies those containers to the destination store.
+This template enumerates the folders from a given parent folder on your source storage store. It then copies each of the folders to the destination store.
 
 The template contains three activities:
-- **GetMetadata** scans your source storage store and gets the container list.
-- **ForEach** gets the container list from the **GetMetadata** activity and then iterates over the list and passes each container to the Copy activity.
-- **Copy** copies each container from the source storage store to the destination store.
+- **GetMetadata** scans your source storage store and gets the subfolder list from a given parent folder.
+- **ForEach** gets the subfolder list from the **GetMetadata** activity and then iterates over the list and passes each folder to the Copy activity.
+- **Copy** copies each folder from the source storage store to the destination store.
 
 The template defines the following parameters:
-- *SourceFileFolder* is the folder path of your data source store, where you can get a list of the containers. The path is the root directory, which contains multiple container folders. The default value of this parameter is `sourcefolder`.
-- *SourceFileDirectory* is the subfolder path under the root directory of your data source store. The default value of this parameter is `subfolder`.
-- *DestinationFileFolder* is the folder path where the files will be copied to in your destination store. The default value of this parameter is `destinationfolder`.
-- *DestinationFileDirectory* is the subfolder path where the files will be copied to in your destination store. The default value of this parameter is `subfolder`.
+- *SourceFileFolder* is part the parent folder path of your data source store: *SourceFileFolder/SourceFileDirectory*, where you can get a list of the subfolders. 
+- *SourceFileDirectory* is part the parent folder path of your data source store: *SourceFileFolder/SourceFileDirectory*, where you can get a list of the subfolders. 
+- *DestinationFileFolder* is part the parent folder path: *DestinationFileFolder/DestinationFileDirectory* where the files will be copied to your destination store. 
+- *DestinationFileDirectory* is part the parent folder path: *DestinationFileFolder/DestinationFileDirectory* where the files will be copied to your destination store. 
+
+If you want to copy multiple containers under root folders between storage stores, you can input all four parameters as */*. By doing so, you will replicate everything between storage stores.
 
 ## How to use this solution template
 

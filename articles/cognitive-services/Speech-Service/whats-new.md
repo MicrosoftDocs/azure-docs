@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
 ---
 
@@ -18,40 +18,38 @@ Welcome! This page covers what's new in Speech service docs. Check back every mo
 
 ### Service updates
 
-If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, or Speech CLI, see:
+If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, Speech CLI, or Speech containers see:
 * [Speech SDK release notes](releasenotes.md).
 * [Speech Devices SDK release notes](devices-sdk-release-notes.md)
+* [Cognitive Services container release notes](../containers/container-image-tags.md)
 
 ## May 2020
 
 ### New articles
 
-* [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md)
+* [Improve a model for Custom Speech](./how-to-custom-speech-evaluate-data.md)
 
 ### Updated articles
 
 * [About the Speech SDK audio input stream API](how-to-use-audio-input-streams.md) - Updated allowed samples per second.
 * [Automatic language detection for speech-to-text](how-to-automatic-language-detection.md) - Added Objective-C instructions to documentation.
-* [Choose a speech recognition mode](how-to-choose-recognition-mode.md) - Added JavaScript instructions to documentation.
+* [Choose a speech recognition mode](./get-started-speech-to-text.md) - Added JavaScript instructions to documentation.
 * [Configure RHEL/CentOS 7 for Speech SDK](how-to-configure-rhel-centos-7.md) - Improved setup instructions.
-* [Phrase Lists for speech-to-text](how-to-phrase-lists.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) - Updated with support for public neural voices, and associated parameters.
-* [Quickstart: Recognize speech from an audio file](quickstarts/speech-to-text-from-file.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Recognize speech from a microphone](quickstarts/speech-to-text-from-microphone.md ) - Added Go and JavaScript instructions to documentation.
-* [Quickstart: Recognize speech stored in blob storage](quickstarts/from-blob.md) - Added JavaScript instructions to documentation.
+* [Phrase Lists for speech-to-text](./get-started-speech-to-text.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)](./long-audio-api.md) - Updated with support for public neural voices, and associated parameters.
+* [Quickstart: Recognize speech from an audio file](./get-started-speech-to-text.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Recognize speech from a microphone](./get-started-speech-to-text.md) - Added Go and JavaScript instructions to documentation.
+* [Quickstart: Recognize speech stored in blob storage](./batch-transcription.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Quickstart: Setup development environment](quickstarts/setup-platform.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Synthesize speech to a speaker](quickstarts/text-to-speech.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech-to-speech](quickstarts/translate-speech-to-speech.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech to multiple languages](quickstarts/translate-speech-to-text-multiple-languages.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech-to-text](quickstarts/translate-speech-to-text.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Synthesize speech into an audio file](./get-started-text-to-speech.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Synthesize speech to a speaker](./get-started-text-to-speech.md) - Added JavaScript instructions to documentation.
 * [What is a keyword?](custom-keyword-overview.md) - Updated get started content and links.
 * [Specify source language for speech-to-text](how-to-specify-source-language.md) - Added JavaScript and Objective-C instructions to documentation.
 
 ### GitHub issues opened in May
 
-These issues were opened in June. This table lists the user that opened the issue, when it was opened, and it's status.  
+These issues were opened in May. This table lists the user that opened the issue, when it was opened, and it's status.  
 
 This table is updated monthly and only reflects issues opened in May.  
 
@@ -72,7 +70,7 @@ This table is updated monthly and only reflects issues opened in May.
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Running Speech service containers fail|2020-05-13|Open|Issue|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Example for Pronunciation file|2020-05-11|Open|Issue|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java sample is incorrect.|2020-05-10|Open|Issue|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronounciation Score|2020-05-08|Closed|Issue|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronunciation Score|2020-05-08|Closed|Issue|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML file template|2020-05-07|Closed|Issue|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# Sample Code does not prompt user to speak.|2020-05-06|Closed|Issue|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS from v1.3 to v1.4|2020-05-05|Closed|Pull Request|

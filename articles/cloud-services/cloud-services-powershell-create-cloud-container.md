@@ -22,7 +22,7 @@ This article explains how to quickly create a Cloud Services container using Azu
 3. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-4.0.0) to sign in.
 
    > [!NOTE]
-   > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azure/overview).
+   > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azure/).
    >
    >
 4. Use the **New-AzureService** cmdlet to create an empty Azure cloud service container.

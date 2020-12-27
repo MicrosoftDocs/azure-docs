@@ -1,5 +1,5 @@
 ---
-title: Create a Log Analytics workspace in the Azure Portal | Microsoft Docs
+title: Create a Log Analytics workspace in the Azure portal | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
 ms.subservice: logs
 ms.topic: conceptual
@@ -19,8 +19,8 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-*  [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md) 
-*  [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md)
+*  [Collect data from Azure virtual machines](./quick-collect-azurevm.md) 
+*  [Collect data from hybrid Linux computer](./quick-collect-linux-computer.md)
 *  [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -58,7 +58,5 @@ When you create a workspace that was deleted in the last 14 days and in [soft-de
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights. 
 
-* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
-* [Add System Center Operations Manager as a data source](../platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace. 
-* Connect [Configuration Manager](../platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
-* Review the [monitoring solutions](../insights/solutions.md) available and how to add or remove a solution from your workspace.
+* See [Monitor health of Log Analytics workspace in Azure Monitor](../platform/monitor-workspace.md) create alert rules to monitor the health of your workspace. 
+* See [Collect Azure service logs and metrics for use in Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) to enable data collection from Azure resources with Azure Diagnostics or Azure storage.

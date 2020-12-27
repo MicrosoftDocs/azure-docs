@@ -53,7 +53,7 @@ Review these steps to make sure all the usual configurations are as expected to 
     
        ![Virtual network and DNS configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to see if data is flowing.
+1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
 
     a. On the private endpoint resource, select **Monitor**.
      - Select **Data In** or **Data Out**. 
@@ -90,7 +90,7 @@ Review these steps to make sure all the usual configurations are as expected to 
        - Check to see that the private DNS zone record exists. If it doesn't exist, create it.
      - If you use custom DNS:
        - Review your custom DNS settings, and validate that the DNS configuration is correct.
-       For guidance, see [Private endpoint overview: DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       For guidance, see [Private endpoint overview: DNS configuration](./private-endpoint-overview.md#dns-configuration).
 
     b. If connectivity is failing because of network security groups (NSGs) or user-defined routes:
      - Review the NSG outbound rules, and create the appropriate outbound rules to allow traffic.
@@ -104,5 +104,5 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 ## Next steps
 
- * [Create a private endpoint on the updated subnet (Azure portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Create a private endpoint on the updated subnet (Azure portal)](./create-private-endpoint-portal.md)
  * [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)

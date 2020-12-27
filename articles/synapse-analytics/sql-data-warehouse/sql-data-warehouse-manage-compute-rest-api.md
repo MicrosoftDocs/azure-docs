@@ -1,6 +1,6 @@
 ---
 title: Pause, resume, scale with REST APIs
-description: Manage compute power in Azure Synapse Analytics data warehouse through REST APIs.
+description: Manage compute power for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics through REST APIs.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# REST APIs for Azure Synapse Analytics data warehouse
+# REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-REST APIs for managing compute in Azure Synapse Analytics data warehouse.
+REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
 ## Scale compute
 
@@ -59,7 +59,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## Get maintenance schedule
 
-Check the maintenance schedule that has been set for a data warehouse.
+Check the maintenance schedule that has been set for a dedicated SQL pool (formerly SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -68,7 +68,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## Set maintenance schedule
 
-To set and update a maintenance schedule on an existing data warehouse.
+To set and update a maintenance schedule on an existing dedicated SQL pool (formerly SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

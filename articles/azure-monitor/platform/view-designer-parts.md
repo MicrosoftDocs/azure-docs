@@ -40,7 +40,7 @@ The next sections describe the tile types and their properties in detail.
 ## List of queries part
 The list of queries part displays a list of log queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
 
-![List of queries view](media/view-designer-parts/view-list-queries.png)
+![Screenshot of the list of queries visualization part in the Azure Monitor View Designer.](media/view-designer-parts/view-list-queries.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -56,7 +56,7 @@ The list of queries part displays a list of log queries. You can select each que
 ## Number and list part
 The header displays a single number that shows a count of records from a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![List of queries view](media/view-designer-parts/view-number-list.png)
+![Screenshot of the number and list visualization parts in the Azure Monitor View Designer.](media/view-designer-parts/view-number-list.png)
 
 | Setting | Description |
 |:--- |:--- |

@@ -1,7 +1,7 @@
 ---
 title: Linux performance tools
 titleSuffix: Azure Kubernetes Service
-description: Learn how to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS)
+description: Learn how to use Linux performance tools to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS).
 services: container-service
 author: alexeldeib
 

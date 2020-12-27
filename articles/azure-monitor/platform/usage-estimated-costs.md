@@ -15,7 +15,7 @@ ms.subservice: ""
 > [!NOTE]
 > This article, describes how to view usage and estimated costs across multiple Azure monitoring features. Related articles for specific components of Azure Monitor include:
 > - [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
-> - [Manage usage and costs for Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
+> - [Manage usage and costs for Application Insights](../app/pricing.md) describes how to analyze data usage in Application Insights.
 
 ## Azure Monitor pricing model
 
@@ -92,3 +92,4 @@ Depending on the number of nodes of the suite that your organization purchased, 
 > [!WARNING]
 > If your organization has current Microsoft Operations Management Suite E1 and E2, it is usually best to keep your Log Analytics workspaces in the "Per-node (OMS)" pricing tier, and your Application Insights resources in the "Enterprise" pricing tier. 
 >
+

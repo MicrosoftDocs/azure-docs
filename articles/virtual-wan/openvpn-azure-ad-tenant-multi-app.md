@@ -1,12 +1,12 @@
 ---
 title: 'Virtual WAN: Azure AD tenant for different user groups: Azure AD authentication'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
+description: Set up an Azure AD tenant for P2S OpenVPN authentication, and create and register multiple apps in Azure AD to allow different access for different users and groups.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---
@@ -49,13 +49,13 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 2. Select the hub that you want to associate the vpn server configuration to and click the ellipsis (...).
 
-    ![new site](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
+    ![Screenshot shows Edit virtual hub selected from the menu.](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
 3. Click **Edit virtual hub**.
 
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
-    ![new site](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![Screenshot shows the Edit virtual hub dialog box where you can select your Gateway scale unit.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 
@@ -97,51 +97,51 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 1. On the page, select **Import**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![Screenshot shows Import selected from the plus menu.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
 2. Browse to the profile xml file and select it. With the file selected, select **Open**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![Screenshot shows an Open dialog box where you can select a file.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. Specify the name of the profile and select **Save**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![Screenshot shows the Connection Name added and the Save button selected.](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. Select **Connect** to connect to the VPN.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![Screenshot shows the Connect button for the for the connection you just created.](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. Once connected, the icon will turn green and say **Connected**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![Screenshot shows the connection in a Connected status with the option to disconnect.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="delete"></a>To delete a client profile
 
 1. Select the ellipsis (...) next to the client profile that you want to delete. Then, select **Remove**.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![Screenshot shows Remove selected from the menu.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Select **Remove** to delete.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![Screenshot shows a confirmation dialog box with the option to Remove or Cancel.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="diagnose"></a>To diagnose connection issues
 
 1. To diagnose connection issues, you can use the **Diagnose** tool. Select the ellipsis (...) next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![Screenshot shows Diagnose selected from the menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. On the **Connection Properties** page, select **Run Diagnosis**.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![Screenshot shows the Run Diagnosis button for a connection.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Sign in with your credentials.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![Screenshot shows the Sign in dialog box for this action.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. View the diagnosis results.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![Screenshot shows the results of the diagnosis.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
 ## <a name="viewwan"></a>10. View your virtual WAN
 

@@ -5,10 +5,12 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
+ms.custom: devx-track-js
+
 ---
 
 # Deploy JavaScript app to read data from FHIR service
@@ -30,7 +32,7 @@ Before starting this set of tutorials, you will need the following items:
 ## Deploy Azure API for FHIR
 The first step in the tutorial is to get your Azure API for FHIR setup correctly.
 
-1. Deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md)
+1. If you haven't already, deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md).
 1. Once you have your Azure API for FHIR deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your Azure API for FHIR and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *

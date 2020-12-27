@@ -1,6 +1,6 @@
 ---
 title: Node.js application using Socket.io - Azure
-description: Learn how to use socket.io in a node.js application hosted on Azure.
+description: Use this tutorial to learn how to host a socket.IO-based chat application on Azure. Socket.IO provides real-time communication for a node.js server and clients.
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-
+ms.custom: devx-track-js
 ---
 
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service
@@ -188,9 +188,9 @@ messages between different clients using Socket.IO.
 ## Next steps
 In this tutorial you learned how to create a basic chat application hosted in an Azure Cloud Service. To learn how to host this application in an Azure Website, see [Build a Node.js Chat Application with Socket.IO on an Azure Web Site][chatwebsite].
 
-For more information, see also the [Node.js Developer Center](https://docs.microsoft.com/azure/developer/javascript/).
+For more information, see also the [Node.js Developer Center](/azure/developer/javascript/).
 
-[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+[chatwebsite]: ./cloud-services-nodejs-develop-deploy-app.md
 
 [Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -210,8 +210,3 @@ For more information, see also the [Node.js Developer Center](https://docs.micro
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
-
-
-
-

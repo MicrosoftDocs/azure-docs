@@ -1,6 +1,6 @@
 ---
 title: Set up availability alerts with Azure Application Insights | Microsoft Docs
-description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
+description: Learn how to set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -11,7 +11,7 @@ ms.reviewer: sdash
 
 # Availability alerts
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+[Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
 
 ## Enable alerts
 
@@ -24,11 +24,11 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 1. After saving the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
 
-   ![Edit after save](./media/availability-alerts/edit-alert.png)
+   ![Screenshot shows Edit alert selected from the menu.](./media/availability-alerts/edit-alert.png)
 
 2. Set the desired severity level, rule description and most importantly - the action group that has the notification preferences you would like to use for this alert rule.
 
-   ![Edit after save](./media/availability-alerts/set-action-group.png)
+   ![Screenshot shows the Rules management page where you can edit the rule.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Availability alerts created through this experience are state-based. This means that when the alert criteria is met a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated this won't generate a new alert. So if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
@@ -61,7 +61,7 @@ Using the [new unified alerts](../platform/alerts-overview.md), you can alert on
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 
@@ -71,3 +71,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Multi-step web tests](availability-multistep.md)
 * [Url ping web tests](monitor-web-app-availability.md)
+

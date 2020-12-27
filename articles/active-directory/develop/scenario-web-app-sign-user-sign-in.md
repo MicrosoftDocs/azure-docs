@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
 ---
 
@@ -431,5 +431,5 @@ If you want to learn more about sign-out, read the protocol documentation that's
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-sign-user-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-app-sign-user-production.md).

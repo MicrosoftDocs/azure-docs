@@ -6,6 +6,7 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ---
 
 # Get started with TmaxSoft OpenFrame on Azure
