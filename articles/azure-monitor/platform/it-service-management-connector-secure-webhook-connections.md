@@ -66,7 +66,7 @@ Secure Export supports connections with the following ITSM tools:
 Follow these steps to register the application with Azure AD:
 
 1. Follow the steps in [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
-2. In Azure AD, select **Expose application**.
+2. In Azure AD, select **Expose an API**. Review the list of complete steps at [Configure an application to expose a web API](../../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 3. Select **Set** for **Application ID URI**.
 
    [![Screenshot of the option for setting the U R I of the application I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
