@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
 
-  - title: About Azure Defender for IoT
+  - title: Getting Started Azure Defender for IoT
     linkLists:
       - linkListType: overview
         links:
@@ -27,28 +27,21 @@ landingContent:
             url: overview.md
           - text: Solution Architecture
             url: architecture.md
-          - text: Get started with Azure Defender for IoT
-            url: getting-started.md 
-      - linkListType: whats-new
-        links:
-          - text: Release Notes
-            url: overview-release-notes.md       
-                 
-                   
-                   
+          - text: Setup Overview
+            url: getting-started.md        
+           
   - title: Set up and Onboard - Agentless solution  
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Identify required appliances
-            url: how-to-identify-required-appliances.md
-          - text: Install software
-            url: how-to-install-software.md
-          - text: Set up your network
-            url: how-to-set-up-your-network.md
-          - text: Onboard sensors
-            url:  how-to-onboard-sensors.md
-
+        - text: Set up your network
+          url: how-to-set-up-your-network.md
+        - text: Identify required appliances
+          url: how-to-identify-required-appliances.md
+        - text: Install software
+          url: how-to-install-software.md
+        - text: Onboard sensors
+          url:  how-to-onboard-sensors.md
 
   - title:  Monitor your Network - Agentless solution   
     linkLists:

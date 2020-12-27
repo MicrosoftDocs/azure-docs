@@ -15,7 +15,7 @@ This article describes how to create and manage sensor and on-premises managemen
 
 Features are also available to track user activity and enable Active Directory sign-in.
 
-By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. These users can sign in and create additional user roles.
+By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an Admin user and then create additional users for Security Analysts and Read only users.
 
 ## Role-based permissions
 The following user roles are available:
@@ -195,4 +195,6 @@ To configure Active Directory:
 
 ## See also
 
+[Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
 [Track sensor activity](how-to-track-sensor-activity.md)

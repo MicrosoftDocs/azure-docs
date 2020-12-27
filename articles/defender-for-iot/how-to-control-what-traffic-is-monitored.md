@@ -11,7 +11,7 @@ ms.service: azure
 
 # Control what traffic is monitored
 
-Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and behavior. Several tools are available to control the type of traffic that each sensor detects. 
+Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and behavior. Several tools are available to control the type of traffic that each sensor detects.
 
 ## Learning and Smart IT Learning modes
 

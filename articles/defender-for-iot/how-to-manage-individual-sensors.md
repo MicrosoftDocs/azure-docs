@@ -95,7 +95,7 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
 1. Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
 
-1. Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**
+1. Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**
 
  Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
 
@@ -127,8 +127,7 @@ The following certificates are supported:
 - Public Key Infrastructure (Public PKI) 
 - Locally generated on the appliance (locally self-signed). **Using self-signed certificates is not recommended.** This connection is *insecure* and should be used for test environments only. The owner of the certificate cannot be validated, and the security of your system cannot be maintained. Self-signed certificates should never be used for production networks.  
 
-The following parameters are supported: Certificates with other parameters may work but cannot be supported by Microsoft.
-
+The following parameters are supported. 
 Certificate CRT
 
 - The primary certificate file for your domain name
@@ -159,6 +158,8 @@ Passphrase
 - 1 key supported
 - Setup when importing the certificate
 
+Certificates with other parameters may work but cannot be supported by Microsoft.
+
 #### Encryption key artifacts
 
 **.pem – Certificate Container File**
@@ -175,7 +176,7 @@ A .pem (or rarely .der) formatted file with a different extension. It is recog
 
 **.key – Private Key File**
 
-*A PEM formatted file containing just the private-key of a specific certificate and is merely a conventional name and not a standardized one.* 
+A KEY file is the same "format" as a PEM file, but it has a different extension.
 ##### Use CLI commands to deploy certificates
 
 Use the *cyberx-xsense-certificate-import* CLI command to import certificates. To use this tool, certificate files need to be uploaded to the device (using tools such as winscp or wget).
@@ -198,7 +199,8 @@ When using the CLI command:
 
 - Verify the certificate files are readable on the appliance.
 
-**- Confirm with your IT team that the appliance domain (as it appears in the certificate) with your DNS server and  corresponding IP. **TBD****
+- Verify that the domain name and IP in the certificate match the configuration planned by the IT department.
+
 
 ## Connect a sensor to the management console
 

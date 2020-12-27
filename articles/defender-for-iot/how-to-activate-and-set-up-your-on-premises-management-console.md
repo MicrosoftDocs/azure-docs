@@ -4,7 +4,7 @@ description: Management console activation and setup ensures that sensors are re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/20/2020
+ms.date: 12/24/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -43,6 +43,8 @@ To upload an activation file:
 1. Select **Choose a File** and select the file that you saved.
 
 After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+
+If you purchased a pre-configured appliance. TBD?For management console as well? 
 ## Set up a certificate
 
 Following management console installation, a local self-signed certificate is generated and used to access the management console. After logging in to the management console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
@@ -50,7 +52,7 @@ Following management console installation, a local self-signed certificate is ge
 Two levels of security are available:
 
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-- Allow validation between the management console and connected sensors using a  Certificate Revocation List. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
+- Allow validation between the management console and connected sensors. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
 
 The following types of certificates are supported:
 
@@ -70,8 +72,9 @@ You may need to refresh your screen after uploading the CA-signed certificate.
 To disable validation between the management console and connected sensors:
 
 1. Select **Next**.
+1. Disable  the **Enable system-wide validation...** toggle.
 
-1.Turn-off  **Enable system-wide validation...**.  
+
 
 For information about uploading a new certificate, supported certificate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
