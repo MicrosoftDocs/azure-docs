@@ -5,7 +5,7 @@
   items:
   - name: Solution architecture
     href: architecture.md
-  - name: Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: Agentless Solution for Organizations

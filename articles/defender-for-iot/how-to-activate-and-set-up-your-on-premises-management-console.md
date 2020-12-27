@@ -44,8 +44,6 @@ To upload an activation file:
 
 After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
 
-## Perform Password Recovery
-
 If you purchased a pre-configured appliance. TBD?For management console as well? 
 ## Set up a certificate
 
