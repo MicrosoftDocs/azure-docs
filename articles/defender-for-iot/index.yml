@@ -55,7 +55,7 @@ landingContent:
             url: how-to-generate-reports.md
           - text: Control what Traffic is Detected
             url:  how-to-control-what-traffic-is-monitored.md
-          - text: Connnect to Azure Sentinel
+          - text: Connect to Azure Sentinel
             url:  how-to-configure-with-sentinel.md
 
          
