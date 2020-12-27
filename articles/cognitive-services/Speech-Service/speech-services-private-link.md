@@ -378,13 +378,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 
 #### Speech resource with custom domain name and private endpoint. Usage with Speech SDK
 
-Using Speech SDK with custom domain name and private endpoint enabled Speech resources requires the review and likely changes of your application code. We are working on more seamless support of private endpoint scenario.
+Using Speech SDK with custom domain name and private endpoint enabled Speech resources requires the review and likely changes of your application code.
 
 We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
 ##### General principle
 
-Usually in SDK scenarios (as well as in the Text-to-speech REST API scenarios) Speech resources use the special regional endpoints for different service offerings. The DNS name format for these endpoints is: </p>`{region}.{speech service offering}.speech.microsoft.com`
+Usually in SDK scenarios (as well as in the Text-to-speech REST API scenarios) Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is: </p>`{region}.{speech service offering}.speech.microsoft.com`
 
 Example: </p>`westeurope.stt.speech.microsoft.com`
 
@@ -399,58 +399,66 @@ All possible values for the region (first element of the DNS name) are listed [h
 | `tts`          | [Text-to-speech](text-to-speech.md)                         |
 | `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
 
-Thus the example above (`westeurope.stt.speech.microsoft.com`) stands for Speech-to-text endpoint in West Europe.
+So the example above (`westeurope.stt.speech.microsoft.com`) stands for Speech-to-text endpoint in West Europe.
 
-Private endpoint enabled endpoints communicate with Speech Services via a special proxy and because of that **the endpoint connection URLs need to be changed**. The following principle is applied: a "standard" endpoint URL follows the pattern of <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
+Private endpoint enabled endpoints communicate with Speech Services via a special proxy and because of that **you must change the endpoint connection URLs**. 
 
-It should be changed to: <p/>`{your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}`
+A "standard" endpoint URL looks like: <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
 
-**Example 1.** Application is communicating using the following URL (speech recognition using base model for US English in West Europe): 
+A private endpoint URL looks like: <p/>`{your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}`
+
+**Example 1.** Application is communicating using the following URL (speech recognition using base model for US English in West Europe):
+
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-To use it in the private endpoint enabled scenario when custom domain name of the Speech resource is `my-private-link-speech.cognitiveservices.azure.com` this URL needs to be modified like this:
+To use it in the private endpoint enabled scenario when custom domain name of the Speech resource is `my-private-link-speech.cognitiveservices.azure.com` you must modify the URL like this:
+
 ```
 wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-Let's look closer:
-- Hostname `westeurope.stt.speech.microsoft.com` is replaced by the custom domain hostname `my-private-link-speech.cognitiveservices.azure.com`
-- Second element of the original DNS name (`stt`) becomes the first element of the URL path and precedes the original path, that is the original URL `/speech/recognition/conversation/cognitiveservices/v1?language=en-US` becomes `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US`
- 
-**Example 2.** Application is communicating using the following URL (speech synthesizing using custom voice model in West Europe): 
+Notice the details:
+
+- Hostname `westeurope.stt.speech.microsoft.com` is replaced by the custom domain hostname `my-private-link-speech.cognitiveservices.azure.com`.
+- Second element of the original DNS name (`stt`) becomes the first element of the URL path and precedes the original path. So the original URL `/speech/recognition/conversation/cognitiveservices/v1?language=en-US` becomes `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+
+**Example 2.** Application uses the following URL to synthesize speech in West Europe using a custom voice model):
 ```http
 https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
-To use it in the private endpoint enabled scenario when custom domain name of the Speech resource is `my-private-link-speech.cognitiveservices.azure.com` this URL needs to be modified like this: 
+
+Following is an equivalent URL that uses a private endpoint enabled where the custom domain name of the Speech resource is `my-private-link-speech.cognitiveservices.azure.com`:
+
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
-The same principle as in Example 1 is applied, but the key element this time is `voice`.
+The DNS element for custom voice migrates from DNS URL into the path as the first element.
 
-##### Modifying applications
+##### Modify applications
 
-To apply the principle described in the previous section to your application code, do two things:
+Follow these steps to modify your code:
 
-- Determine endpoint URL your application is using
-- Modify your endpoint URL as described in the previous section and create your `SpeechConfig` class instance using this modified URL explicitly
+**1. Determine application endpoint URL**
 
-###### Determine application endpoint URL
+- [Enable logging for your application](how-to-use-logging.md) and run it to log activity.
+- In the log file, search for `SPEECH-ConnectionUrl`. In matching lines, the `value` parameter contains the full URL your application used to reach the Speech service.
 
-- [Enable logging for your application](how-to-use-logging.md) and run it to generate the log
-- In the log file search for `SPEECH-ConnectionUrl`. The string will contain `value` parameter, which in turn will contain the full URL your application was using
+Example:
 
-Example of a log file line with the endpoint URL:
 ```
 (114917): 41ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000028FE4809D78; name='SPEECH-ConnectionUrl'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?traffictype=spx&language=en-US'
 ```
-Thus the URL used by the application in this example is:
+
+So the URL used by the application in this example is:
+
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### Create `SpeechConfig` instance using full endpoint URL
+
+**2. Create `SpeechConfig` instance using full endpoint URL**
 
 Modify the endpoint you determined in the previous section as described in [General principle](#general-principle) above.
 
@@ -466,7 +474,8 @@ To make it work, modify how you instantiate `SpeechConfig` class and use "from e
 ```
 wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-Then we need to instantiate `SpeechConfig` class like this:
+
+Next, create a `SpeechConfig` instance:
 ```csharp
 var config = SpeechConfig.FromEndpoint(endPoint, subscriptionKey);
 ```
@@ -483,8 +492,9 @@ speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=subscript
 ```objectivec
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:subscriptionKey];
 ```
+
 > [!TIP]
-> The query parameters specified in the endpoint URI are not changed, even if they are set by any other APIs. For example, if the recognition language is defined in the URI as query parameter "language=en-US", and is also set to "ru-RU" via the correspondent property, the language setting in the URI takes precedence, and the effective language is "en-US". Only the parameters that are not specified in the endpoint URI can be set by other APIs.
+> The query parameters specified in the endpoint URI are not changed, even if they are set by any other APIs. For example, if the recognition language is defined in the URI as query parameter "language=en-US", and is also set to "ru-RU" via the correspondent property, the language setting in the URI is used, and the effective language is "en-US". Only parameters that are not specified in the endpoint URI can be set by other APIs.
 
 After this modification your application should work with the private enabled Speech resources. We are working on more seamless support of private endpoint scenario.
 
@@ -549,30 +559,29 @@ your application will terminate with the Authentication error (401).
 
 ##### Modifying applications
 
-To enable your application for the scenario of Speech resource with custom domain name without private endpoints, do the following:
-- Request Authorization Token via Cognitive Services REST API
-- Instantiate `SpeechConfig` class using "from authorization token" / "with authorization token" method 
+To let your application use a Speech resource with a custom domain name and without private endpoints, follow these steps:
 
-###### Request Authorization Token
+**1. Request Authorization Token from the Cognitive Services REST API**
 
-See [this article](../authentication.md#authenticate-with-an-authentication-token) on how to get the token via the Cognitive Services REST API. 
+[This article](../authentication.md#authenticate-with-an-authentication-token) shows how to get the token using the Cognitive Services REST API.
 
 Use your custom domain name in the endpoint URL, that is in our example this URL is:
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 ```
 > [!TIP]
-> You may find this URL in *Keys and Endpoint* (*Resource management* group) section of your Speech resource in Azure portal.
+> You can find this URL in Azure portal. On your Speech resource page, under the under the **Resource management** group, select **Keys and Endpoint**.
 
-###### Create `SpeechConfig` instance using authorization token
+**2. Craete a `SpeechConfig` instance using "from authorization token" / "with authorization token" method.**
 
-Instantiate a `SpeechConfig` class using the authorization token you obtained in the previous section. Suppose we have the following variables defined:
+Create a `SpeechConfig` instance using the authorization token you obtained in the previous section. Suppose we have the following variables defined:
 
-- `token` containing the authorization token obtained in the previous section
-- `azureRegion` containing the name of the Speech resource [region](regions.md) (example: `westeurope`)
-- `outError` (only for [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) case)
+- `token`: the authorization token obtained in the previous section
+- `azureRegion`: the name of the Speech resource [region](regions.md) (example: `westeurope`)
+- `outError`: (only for [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) case)
 
-Then we need to instantiate `SpeechConfig` class like this:
+Next, create a `SpeechConfig` instance:
+
 ```csharp
 var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
 ```
@@ -590,9 +599,13 @@ speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
 ```
 > [!NOTE]
-> The caller needs to ensure that the authorization token is valid. Before the authorization token expires, the caller needs to refresh it by calling this setter with a new valid token. As configuration values are copied when creating a new recognizer / synthesizer, the new token value will not apply to recognizers that have already been created. For recognizers / synthesizers that have been created before, Set the authorization token of the corresponding recognizer / synthesizer to refresh the token. Otherwise, the recognizers / synthesizers will encounter errors during recognition / synthesis.
+> The caller needs to ensure that the authorization token is valid.
+> Before the authorization token expires, the caller needs to refresh it by calling this setter with a new valid token.
+> As configuration values are copied when creating a new recognizer or synthesizer, the new token value will not apply to recognizers that have already been created.
+> For these, set the authorization token of the corresponding recognizer or synthesizer to refresh the token.
+> If you don't refresh the token, the the recognizer or synthesizer will encounter errors while operating.
 
-After this modification your application should work with custom domain name enabled Speech resources without private endpoints. We are working on more seamless support of custom domain / private endpoint scenario.
+After this modification your application should work with Speech resources that use a custom domain name without private endpoints.
 
 ## Pricing
 
@@ -600,7 +613,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Next steps
 
-* Learn more about [Azure Private Link](../../private-link/private-link-overview.md)
-* Learn more about [Speech SDK](speech-sdk.md)
-* Learn more about [Speech-to-text REST API](rest-speech-to-text.md)
-* Learn more about [Text-to-speech REST API](rest-text-to-speech.md)
+* [Azure Private Link](../../private-link/private-link-overview.md)
+* [Speech SDK](speech-sdk.md)
+* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Text-to-speech REST API](rest-text-to-speech.md)
