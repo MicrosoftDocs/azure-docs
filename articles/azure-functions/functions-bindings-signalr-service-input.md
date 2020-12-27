@@ -241,11 +241,11 @@ Example function.json:
 Here's the Python code:
 
 ```python
-def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+def main(req: func.HttpRequest, connectionInfo: str) -> func.HttpResponse:
     # connectionInfo contains an access key token with a name identifier
     # claim set to the authenticated user
     return func.HttpResponse(
-        connectionInfoJson,
+        connectionInfo,
         status_code=200,
         headers={
             'Content-type': 'application/json'
@@ -276,4 +276,5 @@ public SignalRConnectionInfo negotiate(
 
 ## Next steps
 
+- [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
 - [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md) 

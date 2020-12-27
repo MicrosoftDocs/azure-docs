@@ -2064,7 +2064,7 @@
       - name: Foodee
         href: foodee-provisioning-tutorial.md
       - name: G Suite
-        href: google-apps-provisioning-tutorial.md
+        href: g-suite-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE
