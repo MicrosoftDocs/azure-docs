@@ -132,5 +132,3 @@ Send alert information to Azure Sentinel by configuring Azure Sentinel. See [Con
 - [Welcome to Azure Defender for IoT](overview.md)
 
 - [Azure Defender for IoT architecture](architecture.md)
-
-- [About Defender for IoT console and cloud users](how-to-create-and-manage-users.md)
