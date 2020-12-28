@@ -184,6 +184,8 @@
       href: monitor-data-connector-health.md
   - name: Enable User and Entity Behavior Analytics
     href: enable-entity-behavior-analytics.md
+  - name: Map data fields to entities
+    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces

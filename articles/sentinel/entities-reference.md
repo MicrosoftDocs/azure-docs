@@ -54,27 +54,27 @@ ms.author: yelevin
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘account’ |
-| Name | String | The name of the account. This field should hold only the name without any domain added to it, i.e. administrator |
+| Name | String | The name of the account. This field should hold only the name without any domain added to it. |
 | NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Middleeast, NT AUTHORITY |
 | DnsDomain | String | The fully qualified domain DNS name. Examples: middleeast.corp.microsoft.com |
-| UPNSuffix | String | The user principal name suffix for the account, in some cases it is also the domain name. Examples: microsoft.com |
-| Host | Entity | The host which contains the account in case it is a local account |
-| Sid | String | The account security identifier, e.g. S-1-5-18 |
-| AadTenantId | Guid? | The AAD tenant id, if known |
-| AadUserId | Guid? | The AAD account object id, if known |
-| PUID | Guid? | The AAD Passport User ID, if known |
-| IsDomainJoined | Bool? | Determines whether this is a domain account |
-| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by active directory |
+| UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: microsoft.com |
+| Host | Entity | The host which contains the account, if it's a local account. |
+| Sid | String | The account security identifier, such as S-1-5-18 |
+| AadTenantId | Guid? | The Azure AD tenant ID, if known. |
+| AadUserId | Guid? | The Azure AD account object ID, if known. |
+| PUID | Guid? | The Azure AD Passport User ID, if known. |
+| IsDomainJoined | Bool? | Determines whether this is a domain account. |
+| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 |
 
 Strong identifiers of an account entity:
 
 - UPNSuffix, Name
 - AadUserId
-- Sid (in case it is not a builtin account Sid)
+- Sid (except when not a builtin account SID)
 - Host, Sid
-- Host, NTDomain, Name (in case NTDomain is a builtin domain, i.e. Workgroup)
-- NTDomain, Name (in case NTDomain differ from Host, if Host exists)
+- Host, NTDomain, Name (if NTDomain is a builtin domain, i.e. Workgroup)
+- NTDomain, Name (if NTDomain differs from Host, if Host exists)
 - DnsDomain, Name
 - PUID
 - ObjectGuid
@@ -90,14 +90,14 @@ Weak identifiers of an account entity:
 | Type | String | ‘host’ |
 | DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known |
 | NTDomain | String | The NT domain that this host belongs to. |
-| HostName | String | The hostname without the domain suffix |
-| NetBiosName | String | The host name (pre-windows2000) |
-| IoTDevice | IoTDevice (Entity) | The IoT Device entity (if this host represents an IoT Device) |
-| AzureID | String | The azure resource id of the VM, if known |
-| OMSAgentID | String | The OMS agent id, if the host has OMS agent installed |
+| HostName | String | The hostname without the domain suffix. |
+| NetBiosName | String | The host name (pre-windows2000). |
+| IoTDevice | IoTDevice (Entity) | The IoT Device entity (if this host represents an IoT Device). |
+| AzureID | String | The Azure resource ID of the VM, if known. |
+| OMSAgentID | String | The OMS agent ID, if the host has OMS agent installed. |
 | OSFamily | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS |
-| OSVersion | String | A free text representation of the operating system.<br>This field is meant to hold specific versions the are more fine grained than OSFamily or future values not supported by OSFamily enumeration |
-| IsDomainJoined | Bool | Determines whether this host belongs to a domain |
+| OSVersion | String | A free-text representation of the operating system.<br>This field is meant to hold specific versions the are more fine-grained than OSFamily, or future values not supported by OSFamily enumeration. |
+| IsDomainJoined | Bool | Determines whether this host belongs to a domain. |
 |
 
 Strong identifiers of a host entity:
@@ -121,7 +121,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in Ipv4 or Ipv6) |
-| Location | GeoLocation | The geo-location context attached to the IP entity, see structure below |
+| Location | GeoLocation | The geo-location context attached to the IP entity. See structure below. |
 |
 
 Strong identifiers of an IP entity:
@@ -132,10 +132,10 @@ Strong identifiers of an IP entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘malware’ |
-| Name | String | The malware name by the vendor, e.g. Win32/Toga!rfn |
-| Category | String | The malware category by the vendor, e.g. Trojan |
-| Files | List<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the File entity for additional details on structure. |
-| Processes | List<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the Process entity for additional details on structure. |
+| Name | String | The malware name by the vendor, such as Win32/Toga!rfn. |
+| Category | String | The malware category by the vendor, e.g. Trojan. |
+| Files | List\<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the File entity for additional details on structure. |
+| Processes | List\<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the Process entity for additional details on structure. |
 |
 
 Strong identifiers of a malware entity:
@@ -147,10 +147,10 @@ Strong identifiers of a malware entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘file’ |
-| Directory | String | The full path to the file |
-| Name | String | The file name without path (some alerts might not include path) |
-| Host | Host (Entity) | The host on which the file was stored |
-| FileHashes | List&lt;FileHash (Entity)&gt; | The file hashes associated with this file |
+| Directory | String | The full path to the file. |
+| Name | String | The file name without the path (some alerts might not include path). |
+| Host | Host (Entity) | The host on which the file was stored. |
+| FileHashes | List&lt;FileHash (Entity)&gt; | The file hashes associated with this file. |
 |
 
 ## Process
@@ -159,14 +159,14 @@ Strong identifiers of a malware entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘process’ |
 | ProcessId | String | The process ID |
-| CommandLine | String | The command line used to create the process |
+| CommandLine | String | The command line used to create the process. |
 | ElevationToken | Enum? | The elevation token associated with the process.<br>Possible value is one for the following:<li>TokenElevationTypeDefault<li>TokenElevationTypeFull<li>TokenElevationTypeLimited |
-| CreationTimeUtc | DateTime? | The time when the process started to run |
+| CreationTimeUtc | DateTime? | The time when the process started to run. |
 | ImageFile | File (Entity) | Can contain the File entity inline or as reference.<br>See the File entity for additional details on structure. |
 | Account | Account (Entity) | The account running the processes.<br>Can contain the Account entity inline or as reference.<br>See the Account entity for additional details on structure. |
 | ParentProcess | Process (Entity) | The parent process entity. <br>Can contain partial data, i.e. only the PID |
-| Host | Host (Entity) | The host on which the process was running |
-| LogonSession | HostLogonSession (Entity) | The session in which the process was running |
+| Host | Host (Entity) | The host on which the process was running. |
+| LogonSession | HostLogonSession (Entity) | The session in which the process was running. |
 |
 
 Strong identifiers of a process entity:
@@ -192,7 +192,7 @@ Strong identifiers of a file entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘cloud-application’ |
-| AppId | int | The technical identifier of the application. This should be one of the values defined int the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md). The value for AppId field is optional. |
+| AppId | int | The technical identifier of the application. This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md). The value for AppId field is optional. |
 | Name | String | The name of the related cloud application. The value of application name is optional. |
 | InstanceName | String | The user defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
 |
@@ -210,10 +210,10 @@ Strong identifiers of a cloud application entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | enum | ‘dns’ |
-| DomainName | String | The name of the DNS record associated with the alert |
+| DomainName | String | The name of the DNS record associated with the alert. |
 | IpAddress | List&lt;IP (Entity)&gt; | Entities of type ‘ip’ for the resolved IP address. |
-| DnsServerIp | IP (Entity) | An entity of type ‘ip’ for the Dns server resolving the request |
-| HostIpAddress | IP (Entity) | An entity of type ‘ip’ for the Dns request client |
+| DnsServerIp | IP (Entity) | An entity of type ‘ip’ for the Dns server resolving the request. |
+| HostIpAddress | IP (Entity) | An entity of type ‘ip’ for the Dns request client. |
 |
 
 Strong identifiers of a DNS entity:
@@ -258,7 +258,7 @@ Strong identifiers of a file hash entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘registry-key’ |
 | Hive | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
-| Key | String | The registry key path |
+| Key | String | The registry key path. |
 |
 
 Strong identifiers of a registry key entity:
@@ -271,10 +271,10 @@ Strong identifiers of a registry key entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘registry-value’ |
-| Key | RegistryKey (Entity) | The registry key entity |
-| Name | String | The registry value name |
-| Value | string | String formatted representation of the value data |
-| ValueType | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration |
+| Key | RegistryKey (Entity) | The registry key entity. |
+| Name | String | The registry value name. |
+| Value | string | String formatted representation of the value data. |
+| ValueType | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
 |
 
 Strong identifiers of a registry value entity:
@@ -290,9 +290,9 @@ Weak identifiers of a registry value entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'security-group' |
-| DistinguishedName | String | The group distinguished name |
-| SID | String | The SID attribute is a single-value attribute that specifies the security identifier (SID) of the group |
-| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by active directory |
+| DistinguishedName | String | The group distinguished name. |
+| SID | String | The SID attribute is a single-value attribute that specifies the security identifier (SID) of the group. |
+| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 |
 
 Strong identifiers of a security group entity:
@@ -305,25 +305,25 @@ Strong identifiers of a security group entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
-| Url | Uri | A full URL the entity points to |
+| Url | Uri | A full URL the entity points to. |
 |
 
 Strong identifiers of an URL entity:
-- Url (in case of absolute URL)
+- Url (when an absolute URL)
 
 Weak identifiers of an URL entity:
-- Url (in case of relative URL)
+- Url (when a relative URL)
 
 ## Mailbox
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'mailbox' |
-| MailboxPrimaryAddress | String | The mailbox's primary address |
-| DisplayName | String | The mailbox's display name |
-| Upn | String | The mailbox's UPN |
-| RiskLevel | RiskLevel? | The risk level of this mailbox like Low, Medium, High |
-| ExternalDirectoryObjectId | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in account entity but this property is specific to mailbox object on office side |
+| MailboxPrimaryAddress | String | The mailbox's primary address. |
+| DisplayName | String | The mailbox's display name. |
+| Upn | String | The mailbox's UPN. |
+| RiskLevel | RiskLevel? | The risk level of this mailbox - Low, Medium, High. |
+| ExternalDirectoryObjectId | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
 |
 
 Strong identifiers of a mailbox entity:
@@ -336,15 +336,15 @@ Strong identifiers of a mailbox entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'mail-cluster' |
-| NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster |
-| CountByDeliveryStatus | IDictionary&lt;String,int&gt; | Count of mail messages by DeliveryStatus string representation |
-| CountByThreatType | IDictionary&lt;String,int&gt; | Count of mail messages by ThreatType string representation |
-| Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster |
-| Query | String | The query that was used to identify the messages of the mail cluster |
-| QueryTime | DateTime? | The query time |
-| MailCount | int? | The number of mail messages that are part of the mail cluster |
-| IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster |
-| Source | String | The source of the mail cluster (default is 'O365 ATP') |
+| NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster. |
+| CountByDeliveryStatus | IDictionary&lt;String,int&gt; | Count of mail messages by DeliveryStatus string representation. |
+| CountByThreatType | IDictionary&lt;String,int&gt; | Count of mail messages by ThreatType string representation. |
+| Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster. |
+| Query | String | The query that was used to identify the messages of the mail cluster. |
+| QueryTime | DateTime? | The query time. |
+| MailCount | int? | The number of mail messages that are part of the mail cluster. |
+| IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster. |
+| Source | String | The source of the mail cluster (default is 'O365 ATP'). |
 |
 
 Strong identifiers of a mail cluster entity:
@@ -357,19 +357,19 @@ Strong identifiers of a mail cluster entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'mail-message' |
-| Files | IList&lt;File&gt; | The File entities of this mail message's attachments |
-| Recipient | String | The recipient of this mail message. Note that in case of multiple recipients the mail message is forked and each copy has one recipient |
-| Urls | IList&lt;String&gt; | The Urls contained in this mail message |
-| Threats | IList&lt;String&gt; | The threats of this mail message |
-| Sender | String | The sender's email address |
-| SenderIP | String | The sender's IP address |
-| ReceivedDate | DateTime | The received date of this message |
-| NetworkMessageId | Guid? | The network message id of this mail message |
-| InternetMessageId | String | The internet message id of this mail message |
-| Subject | String | The subject of this mail message |
-| AntispamDirection | AntispamMailDirection? | The directionality of this mail message |
-| DeliveryAction | DeliveryAction? | The delivery action of this mail message like Delivered, Blocked, Replaced etc |
-| DeliveryLocation | DeliveryLocation? | The delivery location  of this mail message like Inbox, JunkFolder etc |
+| Files | IList&lt;File&gt; | The File entities of this mail message's attachments. |
+| Recipient | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
+| Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
+| Threats | IList&lt;String&gt; | The threats contained in this mail message. |
+| Sender | String | The sender's email address. |
+| SenderIP | String | The sender's IP address. |
+| ReceivedDate | DateTime | The received date of this message. |
+| NetworkMessageId | Guid? | The network message ID of this mail message. |
+| InternetMessageId | String | The internet message ID of this mail message. |
+| Subject | String | The subject of this mail message. |
+| AntispamDirection | AntispamMailDirection? | The directionality of this mail message. |
+| DeliveryAction | DeliveryAction? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
+| DeliveryLocation | DeliveryLocation? | The delivery location of this mail message - Inbox, JunkFolder, and others |
 |
 
 Strong identifiers of a mail message entity:
@@ -382,15 +382,15 @@ Strong identifiers of a mail message entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'SubmissionMail' |
-| SubmissionId | Guid? | The Submission Id |
+| SubmissionId | Guid? | The Submission ID. |
 | SubmissionDate | DateTime? | Reported Date time for this submission. |
-| Submitter | string | The submitter email address |
-| NetworkMessageId | Guid? | The network message id of email to which submission belongs. |
+| Submitter | string | The submitter email address. |
+| NetworkMessageId | Guid? | The network message ID of email to which submission belongs. |
 | Timestamp | DateTime? | The Time stamp when the message is received (Mail). |
 | Recipient | string | The recipient of the mail. |
-| Sender | string | The sender of the mail |
-| SenderIp | string | The sender's IP |
-| Subject | string | The subject of submission mail |
+| Sender | string | The sender of the mail. |
+| SenderIp | string | The sender's IP. |
+| Subject | string | The subject of submission mail. |
 | ReportType | string | The submission type for the given instance. This maps to Junk, Phish, Malware or NotJunk. |
 |
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/22/2020
+ms.date: 12/29/2020
 ms.author: yelevin
 ---
 # Classify and analyze data using entities in Azure Sentinel
