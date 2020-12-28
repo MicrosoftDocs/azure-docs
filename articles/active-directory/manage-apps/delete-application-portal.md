@@ -48,6 +48,6 @@ When your done with this quickstart series, consider deleting the app to clean u
 
 ## Next steps
 
-You have completed the quickstart series! As a next step, read about best practices in app management.
+You have completed the quickstart series! Next, learn about Single Sign-On (SSO), see [What is SSO?](what-is-single-sign-on.md) or read about best practices in app management.
 > [!div class="nextstepaction"]
 > [Application management best practices](application-management-fundamentals.md)
