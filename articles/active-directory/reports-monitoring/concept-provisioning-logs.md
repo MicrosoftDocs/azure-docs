@@ -40,6 +40,7 @@ This topic gives you an overview of the provisioning report.
 ### Who can access the data?
 * Application owners can view logs for applications they own
 * Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Administrator roles
+* Users in a custom role with the [provisioningLogs permission](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Global Administrators
 
 
