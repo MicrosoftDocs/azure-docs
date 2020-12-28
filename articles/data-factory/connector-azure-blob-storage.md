@@ -428,6 +428,8 @@ The following properties are supported for Azure Blob storage under `storeSettin
     }
 ]
 ```
+[!NOTE]
+> The $logs container; which is automatically created when Storage Analytics is enabled for a storage account is not displayed when a container listing operation is performed via Data Factory UI. The file path must be provided directly for Data Factory to consume files from the $logs container.
 
 ### Blob storage as a sink type
 
