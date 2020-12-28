@@ -70,25 +70,25 @@ Click on data connectors, look for Syslog and select the Syslog connector from M
 
 Now select the option to install the agent on an Azure Linux Virtual Machine:
 
-![Image of Connectors](https://wikiazure.com/wp-content/uploads/2020/10/05-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of Agent installation process](https://wikiazure.com/wp-content/uploads/2020/10/05-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Then select the Ubuntu virtual machine:
 
-![Image of Connectors](https://wikiazure.com/wp-content/uploads/2020/10/06-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of Agent installation process](https://wikiazure.com/wp-content/uploads/2020/10/06-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Now connect your VM:
 
 
-![Image of Connector](https://wikiazure.com/wp-content/uploads/2020/10/07-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of Connection to the VM](https://wikiazure.com/wp-content/uploads/2020/10/07-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 
 Once you have connected your VM, now go to the advanced settings and click on the “data” option then go to Syslog and then look for the logs you want to add, you need to type the log file name as shown below:
 
-![Image of Connector](https://wikiazure.com/wp-content/uploads/2020/10/08-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of options in advanced settings](https://wikiazure.com/wp-content/uploads/2020/10/08-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Once you have provided the syslogs that will be collected click on save:
 
-![Image of Connector](https://wikiazure.com/wp-content/uploads/2020/10/09-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of syslog connector](https://wikiazure.com/wp-content/uploads/2020/10/09-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 You should see a notification like below:
 
@@ -98,11 +98,11 @@ You should see a notification like below:
 ## Integrate Common Event Format(CEF) connector
 Now go back to the Azure sentinel data connectors and look for the common event format(CEF) and click on “open connector page” as shown below:
 
-![Image of successful configuration](https://wikiazure.com/wp-content/uploads/2020/10/011-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of CEF connector](https://wikiazure.com/wp-content/uploads/2020/10/011-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Now let’s proceed to install the CEF agent on the Linux virtual machine, you should be able to see the command that will help you with the installation of the CEF collector:
 
-![Image of successful configuration](https://wikiazure.com/wp-content/uploads/2020/10/012-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of the installation of the CEF agent](https://wikiazure.com/wp-content/uploads/2020/10/012-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Run the command to install and apply the CEF collector:
 
@@ -120,7 +120,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 Run the command that Azure provides to validate connectivity, after a couple of seconds you should be able to see that the configuration is valid:
 
-![Image of CEF collector installation](https://wikiazure.com/wp-content/uploads/2020/10/016-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of bash](https://wikiazure.com/wp-content/uploads/2020/10/016-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Note: To TCP dump manually execute the following command – ‘tcpdump -A -ni any port 514 -vv’ on the Ubuntu VM
 
@@ -135,7 +135,7 @@ Azure Sentinel will initially show you a dashboard including the potential malic
 ## Custom queries on Azure Sentinel
 You can also create custom log queries to help you to fully leverage the value of the data collected. Now click on “Logs”
 
-![Image of CEF collector installation](https://wikiazure.com/wp-content/uploads/2020/10/020-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of custom queries](https://wikiazure.com/wp-content/uploads/2020/10/020-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Once you are on the Query page, we will create custom queries, you can check the queries from this Github repo:
 
@@ -143,7 +143,7 @@ https://github.com/daveRendon/kemp/tree/master/azure-sentinel/scripts
 
 **Note: you must enable the checkbox on the LoadMaster as shown below
 
-![Image of CEF collector installation](https://wikiazure.com/wp-content/uploads/2020/10/021-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of Kemp LoadMaster configruation](https://wikiazure.com/wp-content/uploads/2020/10/021-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Here's a quick example of a query using ESP CEF logs:
 
@@ -172,7 +172,7 @@ CommonSecurityLog
 | project format_datetime(TimeGenerated, "yyyy-MM-dd HH:mm:ss"), DeviceVendor, DeviceProduct, DeviceEventClassID, LogSeverity, Message, Event, VSIP, VSPort, SourceIP, SourcePort, DestinationIP, DestinationPort, AwaitingRemoteAddress, User, UserAgent, Resource, RequestMethod, RequestURL, DTCode
 ```
 
-Use the query above and run it, you should be able to see the ESP(Edge Security Pack)  logs and additional fields:
+Use the query above and run it, you should be able to see the ESP(Edge Security Pack) logs and additional fields:
 
 - Time Generated
 - Virtual Service IP
@@ -180,11 +180,11 @@ Use the query above and run it, you should be able to see the ESP(Edge Security 
 - Source IP
 - Port, etc
 
-![Image of CEF collector installation](https://wikiazure.com/wp-content/uploads/2020/10/022-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of ESP logs](https://wikiazure.com/wp-content/uploads/2020/10/022-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 Once you have your queries in place you can also pin the results to a dashboard and create your custom dashboard as shown below:
 
-![Image of CEF collector installation](https://wikiazure.com/wp-content/uploads/2020/10/023-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
+![Image of Azure dashboard with ESP logs](https://wikiazure.com/wp-content/uploads/2020/10/023-Connect-Kemp-LoadMaster-data-to-Azure-Sentinel.jpg)
 
 
 ## Next steps
