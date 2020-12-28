@@ -29,16 +29,13 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 
-## Data upload caveats
-
-
-### For import order
+## Import order caveats
 
 Data Box caveats for an import order include:
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## For export order
+## Export order caveats
 
 Data Box caveats for an export order include:
 
