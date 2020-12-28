@@ -32,7 +32,7 @@ To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encry
 
 The Azure SQL logical server and the attestation provider must belong to the same Azure Active Directory tenant. Cross-tenant interactions aren't supported. 
 
-The Azure SQL logical server must have an Azure AD identity assigned to it. The administrator of the attestation provider will use the identity to grant the server access to the attestation provider. For instructions on how to create a server with an identity or assign an identity to an existing server using PowerShell and Azure CLI, see [Assign an Azure AD identity to your server](transparent-data-encryption-byok-configure.md#assign-an-azure-ad-identity-to-your-server).
+The Azure SQL logical server must have an Azure AD identity assigned to it. The administrator of the attestation provider will use the identity to grant the server access to the attestation provider. For instructions on how to create a server with an identity or assign an identity to an existing server using PowerShell and Azure CLI, see [Assign an Azure AD identity to your server](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
 
 ## Create and configure an attestation provider
 

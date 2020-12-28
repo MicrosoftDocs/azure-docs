@@ -62,7 +62,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 See [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
-The required minimum version of SSMS is 18.7.2.
+The required minimum version of SSMS is 18.8.
 
 
 ## Step 1: Create a server and a DC-series database
@@ -115,7 +115,7 @@ The required minimum version of SSMS is 18.7.2.
 6. Retrieve an object ID of the identity assigned to your server. Save the resulting object ID. You'll need the ID in a later section.
 
   > [!NOTE]
-  > It might take a few seconds for the newly assigned managed system identity to propagate in Azure Active Directory. If the below script return an empty result, retry them.
+  > It might take a few seconds for the newly assigned managed system identity to propagate in Azure Active Directory. If the below script return an empty result, retry it.
 
   ```PowerShell
   $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
@@ -143,10 +143,10 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   version= 1.0;
   authorizationrules 
   {
-       [ type=="$is-debuggable", value==false ]
-        && [ type=="$product-id", value==4639 ]
-        && [ type=="$svn", value>= 0 ]
-        && [ type=="$sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==4639 ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
     => permit();
   };
   ```
@@ -209,7 +209,6 @@ In this step, you'll create a table and populate it with some data that you'll l
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
     5. Click **Connect**.
-    6. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
 
 2. Create a new table, named **Employees**.
 
@@ -288,9 +287,11 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
     5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
-    6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider).
+    6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider). See the below screenshot.
     7. Select **Connect**.
     8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
+
+        ![Allow enclave computations](media/connect-to-server-configure-attestation.png)
 
 1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 
