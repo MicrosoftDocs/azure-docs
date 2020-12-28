@@ -44,7 +44,7 @@ To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/ext/hard
 ```azurecli-interactive
 az dedicated-hsm create --resource-group myRG  --name "hsm1" -location "westus" --network-profile-network-interfaces \
    private-ip-address="1.0.0.1" --subnet id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/hsm/subnets/hsm" \
-   --stamp-id "stamp1" --sku name="SafeNet Luna Network HSM A790" --tags resourceType="hsm" Environment="test" --zones "AZ 1"
+   --stamp-id "stamp1" --sku name="SafeNet Luna Network HSM A790" --tags resourceType="hsm" Environment="test" --zones "AZ1"
 ```
 
 The deployment takes approximately 25 to 30 minutes to complete.
@@ -62,7 +62,7 @@ az dedicated-hsm show --resource-group myRG --name hsm1
 Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update a dedicated HSM. The following example updates the `hsm1` dedicated HSM in the `myRG` resource group, and its tags:
 
 ```azurecli-interactive
-az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod"
+az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod" Slice="A"
 ```
 
 ## List dedicated HSMs
