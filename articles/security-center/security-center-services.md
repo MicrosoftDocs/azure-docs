@@ -103,12 +103,6 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government clouds
 
-We strive for feature parity between our government clouds and our commercial cloud. When there are gaps, it's usually for one of these reasons:
-
-- **Preview feature** - Features typically  don’t reach parity before they're offered in general availability.
-- **Irrelevant to gov cloud** - Some features, such as adaptive network hardening, aren't relevant to a gov cloud.
-
-
 | Service / Feature | US Gov | China Gov |
 |------|:----:|:----:|
 |[Just-in-time VM access](security-center-just-in-time.md) (1)|✔|✔|

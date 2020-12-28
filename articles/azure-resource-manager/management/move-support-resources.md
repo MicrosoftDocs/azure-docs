@@ -1907,9 +1907,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Yes | Yes |
-> | workspaces / bigdatapools | Yes | Yes |
-> | workspaces / sqlpools | Yes | Yes |
+> | workspaces | No | No |
+> | workspaces / bigdatapools | No | No |
+> | workspaces / sqlpools | No | No |
 
 ## Microsoft.TimeSeriesInsights
 

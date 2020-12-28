@@ -38,7 +38,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
+The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See Ruby Pg reference documentation for more information on these classes and methods.
 
 Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
