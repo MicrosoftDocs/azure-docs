@@ -98,7 +98,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
    There are work item types that can use templates that are defined by the ITSM tool.
    By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
-   You can define in which template you would like to use as a part of the definition of the action group.
+   You can define which template you would like to use as a part of the definition of the action group.
 
 Use the following procedure to create action groups:
 
@@ -121,7 +121,7 @@ Use the following procedure to create action groups:
 
 8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#template-definitions) in the **Template** list and enter the fixed values in the template fields.
 
-9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. There will be one work item per configuration item. It will be updated according to the alerts that will be created.
+9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. Meaning there will be one work item per configuration item.
 
     * In a case you select in the work item dropdown "Incident" or "Alert": If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
 
@@ -260,6 +260,4 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Next steps
 
-* [ITSM Connector Overview](./itsmc-overview.md)
-* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
 * [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
