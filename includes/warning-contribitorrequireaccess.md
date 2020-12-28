@@ -6,9 +6,9 @@ ms.service: iot-central
 author: TheJasonAndrew
 ms.author: v-anjaso
 ms.date: 12/28/2020
-ms.topic: sample
+ms.topic: include
 manager: dominicbetts
 ---
 
->Warning:
+> [!WARNING]
 > You'll need Contributor access to your Azure Subscription to create an IoT Central app. While there may be alternative access levels to create an app, having Contributor level access to the Subscription is the recommend path.
