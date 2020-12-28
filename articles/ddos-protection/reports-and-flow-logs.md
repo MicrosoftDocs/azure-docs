@@ -21,8 +21,7 @@ Azure DDoS Protection standard provides detailed attack insights and visualizati
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * View and configure DDoS attack mitigation reports
-> * View and configure DDoS attack mitigation flow logs
+> * View and configure DDoS attack mitigation reports and flow logs, including DDoS Protection notifications, DDoS mitigation flow logs and DDoS mitigation reports. 
 
 ## Prerequisites
 
@@ -61,6 +60,22 @@ This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azur
 
 The following table lists the field names and descriptions:
 
+# [DDoSProtectionNotifications](#tab/DDoSProtectionNotifications)
+
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the notification was created. |
+| **ResourceId** | The resource ID of your public IP address. |
+| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
+| **Message** | Details of the attack. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. |
+| **PublicIpAddress** | Your public IP address. |
+
 # [DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
 
 | Field name | Description |
@@ -79,22 +94,6 @@ The following table lists the field names and descriptions:
 | **DestPublicIpAddress** | Your public IP address. |
 | **DestPort** | The port number of your public IP address. |
 | **Protocol** | Possible values include `tcp`, `udp` or `other`.|
-
-# [DDoSProtectionNotifications](#tab/DDoSProtectionNotifications)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the notification was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
-| **Message** | Details of the attack. |
-| **Type** | Type of notification. Possible values include `MitigationStarted`. |
-| **PublicIpAddress** | Your public IP address. |
 
 # [DDoSMitigationReports](#tab/DDoSMitigationReports)
 
