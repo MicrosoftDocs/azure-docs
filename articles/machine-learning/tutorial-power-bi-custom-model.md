@@ -14,7 +14,7 @@ ms.date: 12/11/2020
 
 # Tutorial: Power BI integration - Create the predictive model by using a Jupyter notebook (part 1 of 2)
 
-In the first part of this tutorial, you'll train and deploy a predictive machine learning model by using code in a Jupyter notebook. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter notebook. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -56,7 +56,7 @@ Next, to run code cells, create a compute instance and attach it to your noteboo
 
 On the **Create compute instance** page:
 
-1. Choose a CPU virtual machine size. For the purposes of this tutorial, you can choose a **Standard_D11_v2**, with 2 cores and 14 GB of RAM.
+1. Choose a CPU virtual machine size. For this tutorial, you can choose a **Standard_D11_v2**, with 2 cores and 14 GB of RAM.
 1. Select **Next**. 
 1. On the **Configure Settings** page, provide a valid **Compute name**. Valid characters are uppercase and lowercase letters, digits, and hyphens (-).
 1. Select **Create**.
@@ -298,4 +298,4 @@ The output should look like this JSON structure: `{'predict': [[205.59], [68.84]
 In this tutorial, you saw how to build and deploy a model so that it can be consumed by Power BI. In the next part, you'll learn how to consume this model in a Power BI report.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume the model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

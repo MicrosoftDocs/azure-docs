@@ -14,7 +14,7 @@ ms.date: 12/11/2020
 
 # Tutorial: Power BI integration - Create the predictive model by using automated machine learning (part 1 of 2)
 
-In the first part of this tutorial, you'll train and deploy a predictive machine learning model. You'll use automated machine learning (ML) in the Azure Machine Learning studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model. You use automated machine learning (ML) in the Azure Machine Learning studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -47,7 +47,7 @@ To begin, in the [Azure Machine Learning studio](https://ml.azure.com), in the m
 
 In the **Create compute cluster** window:
 
-1. Select a VM size. For the purposes of this tutorial, a **Standard_D11_v2** machine is fine.
+1. Select a VM size. For this tutorial, a **Standard_D11_v2** machine is fine.
 1. Select **Next**.
 1. Provide a valid compute name.
 1. Keep **Minimum number of nodes** at `0`.
@@ -131,4 +131,4 @@ You should see a message that states that the model was deployed successfully.
 In this tutorial, you saw how to train and deploy a machine learning model by using automated ML. In the next tutorial, you'll learn how to consume (score) this model in Power BI.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
