@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Get a token for a mobile app that calls web APIs
 
-Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using Microsoft Authentication Library (MSAL).
+Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using the Microsoft Authentication Library (MSAL).
 
 ## Define a scope
 

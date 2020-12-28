@@ -119,7 +119,7 @@
   - name: Authentication libraries
     displayName: msal, microsoft.identity.web
     items:
-    - name: Microsoft Authentication Library (MSAL)
+    - name: The Microsoft Authentication Library (MSAL)
       href: msal-overview.md
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
@@ -279,7 +279,7 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Work with Microsoft Authentication Library
+  - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
     - name: All platforms

@@ -47,7 +47,7 @@ This tutorial uses the following library:
 
 |Library|Description|
 |---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Angular Wrapper|
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|The Microsoft Authentication Library for JavaScript Angular Wrapper|
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 

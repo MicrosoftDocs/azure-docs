@@ -19,11 +19,11 @@ ms.custom: aaddev, devx-track-python
 
 Now that you've created your application, you'll learn how to configure the code with the application's coordinates.
 
-## Microsoft Authentication Libraries
+## The Microsoft Authentication Libraries
 
 The following Microsoft Authentication Libraries (MSALs) support desktop applications.
 
-  Microsoft Authentication Library | Description
+  The Microsoft Authentication Library | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supports building a desktop application in multiple platforms, such as Linux, Windows, and macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supports building a desktop application in multiple platforms.

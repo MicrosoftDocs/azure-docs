@@ -75,7 +75,7 @@ If you find a bug or problem related to our libraries, raise an issue in our Git
 For a list of libraries and their GitHub repositories, see the following:
 
 * [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) libraries and GitHub repositories
+* [The Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) libraries and GitHub repositories
 
 ## Open a support request
 

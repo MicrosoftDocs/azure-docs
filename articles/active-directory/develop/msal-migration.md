@@ -1,7 +1,7 @@
 ---
-title: Migrate to Microsoft Authentication Library (MSAL)
+title: Migrate to the Microsoft Authentication Library (MSAL)
 titleSuffix: Microsoft identity platform
-description: Learn about the differences between Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
+description: Learn about the differences between the Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to learn about the differences between the ADAL and MSAL libraries so I can migrate my applications to MSAL.
 ---
-# Migrate applications to Microsoft Authentication Library (MSAL)
+# Migrate applications to the Microsoft Authentication Library (MSAL)
 
 Many developers have built and deployed applications using the Azure Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
 
@@ -73,6 +73,6 @@ A: See the [Migration guidance](#migration-guidance) section of this article. If
 
 ## Next steps
 
-- [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+- [Update your applications to use the Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
 - [Overview of the Microsoft identity platform](v2-overview.md)
 - [Review our MSAL code samples](sample-v2-code.md)
