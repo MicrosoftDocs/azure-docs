@@ -189,6 +189,9 @@ To configure properly, you need the following resources:
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and private IP address)
 
+A DNS forwarder is a just a Virtual Machine deployed to the Virtual Network that can proxy DNS queries.  In Windows, this forwarder is just a Virtual Machine running windows with DNS Manager installed to the machine.  
+
+
 The following diagram illustrates the DNS resolution sequence from an on-premises and virtual network that uses a DNS forwarder deployed in Azure, where the resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
