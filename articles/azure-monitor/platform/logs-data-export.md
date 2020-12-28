@@ -37,7 +37,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
-  - Azure government regions
+  - Azure Government regions
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
 
