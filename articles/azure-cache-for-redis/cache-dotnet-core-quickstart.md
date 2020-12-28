@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis with .NET Core apps'
+title: 'Quickstart: Use Azure Cache for Redis in .NET Core'
 description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
 author: yegu-ms
 ms.author: yegu
@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 #Customer intent: As a .NET Core developer, new to Azure Cache for Redis, I want to create a new .NET Core app that uses Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis with a .NET Core app
+# Quickstart: Use Azure Cache for Redis in .NET Core
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
 
@@ -18,7 +18,6 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app t
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 or higher](https://www.microsoft.com/net/download/dotnet-framework-runtime), which is required by the StackEdchange.Redis client.
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -43,7 +42,7 @@ In your command window, change to the new *Redistest* project directory.
 
 ## Add Secret Manager to the project
 
-In this section, you will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+In this section, you will add the [Secret Manager tool](/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
 Open your *Redistest.csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown below, and save the file.
 
@@ -313,4 +312,4 @@ In this quickstart, you learned how to use Azure Cache for Redis from a .NET Cor
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

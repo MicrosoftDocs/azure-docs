@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Set up the Visual Studio Code extension (preview)"
 titleSuffix: Azure Machine Learning
-description: Learn how to set up the Visual Studio Code Azure Machine Learning extension.
+description: Learn how to install and run training scripts using the Azure Machine Learning Visual Studio Code extension. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
+ms.date: 11/16/2020
 #Customer intent: As a professional data scientist, I want to Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 ---
 

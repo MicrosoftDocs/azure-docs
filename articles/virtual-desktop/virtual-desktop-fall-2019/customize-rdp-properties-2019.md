@@ -14,7 +14,7 @@ manager: lizross
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
-See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.
+See [supported RDP file settings](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) for a full list of supported properties and their default values.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
@@ -43,7 +43,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
 
@@ -55,7 +55,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 

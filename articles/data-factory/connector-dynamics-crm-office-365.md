@@ -5,14 +5,13 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
+ms.date: 09/23/2020
 ---
 
 # Copy data from and to Dynamics 365 (Common Data Service) or Dynamics CRM by using Azure Data Factory
@@ -52,14 +51,14 @@ For Dynamics 365 specifically, the following application types are supported:
 
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
-This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >To copy data from Dynamics 365 Finance and Operations, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
 
 ## Prerequisites
 
-To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Common Data Service or Dynamics. Refer to [this article](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) for detailed steps.
+To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Common Data Service or Dynamics. Refer to [this article](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) for detailed steps.
 
 ## Get started
 
@@ -77,7 +76,7 @@ The following properties are supported for the Dynamics linked service.
 |:--- |:--- |:--- |
 | type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
 | deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
-| serviceUri | The service URL of your Dynamics instance. An example is https://www.crmdynamics.com. | Yes |
+| serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal" and "Office365". | Yes |
 | servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
@@ -98,7 +97,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -120,7 +119,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -150,7 +149,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -251,7 +250,7 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to "DynamicsSource", "DynamicsCrmSource", or "CommonDataServiceForAppsSource". | Yes |
-| query | FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No if `entityName` in the dataset is specified |
+| query | FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No if `entityName` in the dataset is specified |
 
 >[!NOTE]
 >The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.
@@ -327,7 +326,7 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
 
-For Dynamics 365 online, there's a limit of [two concurrent batch calls per organization](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). If that limit is exceeded, a "Server Busy" exception is thrown before the first request is ever run. Keep **writeBatchSize** at 10 or less to avoid such throttling of concurrent calls.
+For Dynamics 365 online, there's a limit of [two concurrent batch calls per organization](/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)#Run-time%20limitations). If that limit is exceeded, a "Server Busy" exception is thrown before the first request is ever run. Keep **writeBatchSize** at 10 or less to avoid such throttling of concurrent calls.
 
 The optimal combination of **writeBatchSize** and **parallelCopies** depends on the schema of your entity. Schema elements include the number of columns, row size, and number of plug-ins, workflows, or workflow activities hooked up to those calls. The default setting of **writeBatchSize** (10) &times; **parallelCopies** (10) is the recommendation according to the Dynamics service. This value works for most Dynamics entities, although it might not give the best performance. You can tune the performance by adjusting the combination in your copy activity settings.
 

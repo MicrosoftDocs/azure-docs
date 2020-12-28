@@ -3,10 +3,11 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
+ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
@@ -18,6 +19,121 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## November 2020
+
+### Azure portal experience
+
+We've fixed two bugs in the Azure portal user experience:
+
+- The Desktop application friendly name is no longer overwritten on the "Add VM" workflow.
+- The session host tab will now load if session hosts are part of scale sets.
+
+### FSLogix client, version 2009 
+
+We've released a new version of the FSLogix client with many fixes and improvements. Learn more at [our blog post](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### RDP Shortpath public preview
+
+RDP Shortpath introduces direct connectivity to your Windows Virtual Desktop session host using point-to-site and site-to-site VPNs and ExpressRoute. It also introduces the URCP transport protocol. RDP Shortpath is designed to reduce latency and network hops in order to improve user experience. Learn more at [Windows Virtual Desktop RDP Shortpath](shortpath.md).
+
+### Az.DesktopVirtualization, version 2.0.1
+
+We've released version 2.0.1 of the Windows Virtual Desktop cmdlets. This update includes cmdlets that will let you manage MSIX App Attach. You can download the new version at [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### Azure Advisor updates
+
+Azure Advisor now has a new recommendation for proximity guidance in Windows Virtual Desktop, and a new recommendation for optimizing performance in depth-first load balanced host pools. Learn more at [the Azure website](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+
+## October 2020
+
+Here's what changed in October 2020:
+
+### Improved performance
+
+- We've optimized performance by reducing connection latency in the following Azure geographies:
+    - Switzerland
+    - Canada
+
+You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
+
+### Azure Government Cloud availability
+
+The Azure Government Cloud is now generally available. Learn more at [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### Windows Virtual Desktop Azure portal updates
+
+We've made some updates to the Windows Virtual Desktop Azure portal:
+
+- Fixed a resourceID error that prevented users from opening the "Sessions" tab.
+- Streamlined the UI on the "Session hosts" tab.
+- Fixed the "Defaults," "Usability," and "Restore defaults" settings under RDP properties.
+- Made "Remove" and "Delete" functions consistent across all tabs.
+- The portal now validates app names in the "Add an app" workflow.
+- Fixed an issue where the session host export data wasn't aligned in the columns.
+- Fixed an issue where the portal couldn't retrieve user sessions.
+- Fixed an issue in session host retrieval that happened when the virtual machine was created in a different resource group.
+- Updated the "Session host" tab to list both active and disconnected sessions.
+- The "Applications" tab now has pages.
+- Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
+- Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
+
+### Client updates for October 2020
+
+We've released new versions of the clients. See these articles to learn more:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+For more information about the other clients, see [Client updates](#client-updates).
+
+## September 2020
+
+Here's what changed in September 2020:
+
+- We've optimized performance by reducing connection latency in the following Azure geographies:
+    - Germany
+    - South Africa (for validation environments only)
+
+You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
+
+- We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
+    - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
+    - Fixed an issue that caused the client to disconnect when a user who enabled media optimization for Teams tried to call or join a Teams meeting while another app had an audio stream open in exclusive mode.
+    - Fixed an issue where Teams didn't enumerate audio or video devices when media optimization for Teams was enabled.
+    - Added a "Need help with settings?" link to the desktop settings page.
+    - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
+    
+- Thanks to the tremendous help from our users, we've fixed two critical issues for the Microsoft Store Remote Desktop client. We'll continue to review feedback and fix issues as we broaden our phased release of the client to more users worldwide.
+    
+- We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
+
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
+
+## August 2020
+
+Here's what changed in August 2020:
+
+- We've improved performance to reduce connection latency in the following Azure regions: 
+
+    - United Kingdom
+    - France
+    - Norway
+    - South Korea
+
+   You can use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to get a general idea of how these changes will affect your users.
+
+- The Microsoft Store Remote Desktop Client (v10.2.1522+) is now generally available! This version of the Microsoft Store Remote Desktop Client is compatible with Windows Virtual Desktop. We've also introduced refreshed UI flows for improved user experiences. This update includes fluent design, light and dark modes, and many other exciting changes. We've also rewritten the client to use the same underlying remote desktop protocol (RDP) engine as the iOS, macOS, and Android clients. This lets us deliver new features at a faster rate across all platforms. [Download the client](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) and give it a try!
+
+- We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
+
+- Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
+
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) for a list of extension commands.
+
+- We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
+
+- The Windows Virtual Desktop US Gov portal is now in public preview. To learn more, see [our announcement](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/).
 
 ## July 2020  
 
@@ -78,14 +194,13 @@ Here's what this change does for you:
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
 
-
 ### PowerShell support
 
 We've added new AzWvd cmdlets to the Azure PowerShell Az Module with this update. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
@@ -99,9 +214,7 @@ We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Mos
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## Next steps
-
-Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## Client updates
 
 Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
 
@@ -110,3 +223,7 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Next steps
+
+Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).

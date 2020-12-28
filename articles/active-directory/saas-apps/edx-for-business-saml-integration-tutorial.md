@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
 ---
 
@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate edX for Business SAML Integratio
 * Enable your users to be automatically signed-in to edX for Business SAML Integration with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * edX for Business SAML Integration supports **SP** initiated SSO
 * edX for Business SAML Integration supports **Just In Time** user provisioning
 
-* Once you configure edX for Business SAML Integration you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure edX for Business SAML Integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding edX for Business SAML Integration from the gallery
 
@@ -50,7 +53,7 @@ To configure the integration of edX for Business SAML Integration into Azure AD,
 1. Select **edX for Business SAML Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for edX for Business SAML Integration
+## Configure and test Azure AD SSO for edX for Business SAML Integration
 
 Configure and test Azure AD SSO with edX for Business SAML Integration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in edX for Business SAML Integration.
 
@@ -136,19 +139,18 @@ In this section, a user called Britta Simon is created in edX for Business SAML 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the edX for Business SAML Integration tile in the Access Panel, you should be automatically signed in to the edX for Business SAML Integration for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the edX for Business SAML Integration tile in the Access Panel, you should be automatically signed in to the edX for Business SAML Integration for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try edX for Business SAML Integration with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect edX for Business SAML Integration with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect edX for Business SAML Integration with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

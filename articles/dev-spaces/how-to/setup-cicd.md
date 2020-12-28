@@ -12,6 +12,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 
 # Use CI/CD with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 This article guides you through setting up continuous integration/continuous deployment (CI/CD) to Azure Kubernetes Service (AKS) with Dev Spaces enabled. CI/CD to AKS allows app updates to be automatically deployed whenever committed code is pushed to your source repository. Using CI/CD in conjunction with a Dev Spaces enabled cluster is useful because it can keep a baseline of the application up-to-date for the team to work with.
 
 ![Example CI/CD diagram](../media/common/ci-cd-simple.png)

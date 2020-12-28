@@ -26,7 +26,7 @@ The following is the process for updating the VM size and operating system of th
 ### Deploy the initial Service Fabric cluster 
 If you want to follow along with the sample, deploy the initial cluster with a single primary node type, and a single scale set [Service Fabric - Initial Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-1.json). You may skip this step if you have an existing Service Fabric cluster already deployed. 
 
-1. Login to your Azure account. 
+1. Log in to your Azure account. 
 ```powershell
 # sign in to your Azure account and select your subscription
 Login-AzAccount -SubscriptionId "<your subscription ID>"
@@ -94,7 +94,7 @@ You can find a template with all of the following steps completed here: [Service
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
 ]
 ```
-4. Create a new Virtual Machine Scale Set that uses the new VM SKU, and OS SKU that you would to like to scale up to. 
+4. Create a new Virtual Machine Scale Set that uses the new VM SKU and OS SKU that you would like to scale up to. 
 
 Node Type Ref 
 ```json
@@ -119,6 +119,134 @@ OS SKU
     "version": "[parameters('vmImageVersion1')]"
 }
 ```
+
+The following snippet is an example of a new Virtual Machine Scale Set resource that is used to create a new node type for a Service Fabric cluster. You would want to ensure that you include any additional extensions that are required for your workload. 
+
+```json
+    {
+      "apiVersion": "[variables('vmssApiVersion')]",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('vmNodeType1Name')]",
+      "location": "[variables('computeLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+      ],
+      "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
+                "properties": {
+                  "type": "ServiceFabricNode",
+                  "autoUpgradeMinorVersion": true,
+                  "protectedSettings": {
+                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                  },
+                  "publisher": "Microsoft.Azure.ServiceFabric",
+                  "settings": {
+                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
+                    "dataPath": "D:\\SvcFab",
+                    "durabilityLevel": "Bronze",
+                    "enableParallelJobs": true,
+                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
+                    "certificate": {
+                      "thumbprint": "[parameters('certificateThumbprint')]",
+                      "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(variables('nicName'), '-1')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(variables('nicName'),'-',1)]",
+                      "properties": {
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID1')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID1')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "[parameters('adminPassword')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "computernamePrefix": "[variables('vmNodeType1Name')]",
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('certificateUrlValue')]"
+                  }
+                ]
+              }
+            ]
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[parameters('vmImagePublisher1')]",
+              "offer": "[parameters('vmImageOffer1')]",
+              "sku": "[parameters('vmImageSku1')]",
+              "version": "[parameters('vmImageVersion1')]"
+            },
+            "osDisk": {
+              "caching": "ReadOnly",
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      },
+      "sku": {
+        "name": "[parameters('vmNodeType1Size')]",
+        "capacity": "[parameters('nt1InstanceCount')]",
+        "tier": "Standard"
+      },
+      "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+      }
+    },
+
+```
+
 5. Add a new node type to the cluster, which references the Virtual Machine Scale Set that was created above. The **isPrimary** property on this node type should be set to true. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -334,7 +462,7 @@ Only for Silver and higher durability clusters, update the cluster resource in t
 ```
 10. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) for a template with all of these original resources removed.
 
-11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
+11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService; therefore, a node restart is needed. In this case, forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 Then validate that the Service Fabric resource in Portal shows as ready. 
 
 ```powershell

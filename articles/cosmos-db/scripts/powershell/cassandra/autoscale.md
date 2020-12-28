@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a keyspace and table with autoscale for Azure Cosmos DB - Cassandra API
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -46,6 +47,4 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
-
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/)

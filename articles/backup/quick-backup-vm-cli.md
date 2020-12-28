@@ -7,15 +7,15 @@ ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Back up a virtual machine in Azure with the CLI
+# Back up a virtual machine in Azure with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
 This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+ - This quickstart requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a Recovery Services vault
 
@@ -33,7 +33,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that's hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -113,7 +113,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 
 ## Clean up deployment
 
-When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command to leave the resource group and VM in place.
+When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group#az-group-delete) command to leave the resource group and VM in place.
 
 If you want to try a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps).
 

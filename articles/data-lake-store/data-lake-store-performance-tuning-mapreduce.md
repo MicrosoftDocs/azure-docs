@@ -2,11 +2,11 @@
 title: Azure Data Lake Storage Gen1 performance tuning - MapReduce
 description: Learn about performance tuning for MapReduce in Azure Data Lake Storage Gen1, including parameters, guidance, an example calculation, and limitations.
 
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
+ms.author: twooley
 
 ---
 # Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage Gen1
@@ -16,8 +16,8 @@ ms.author: stewu
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Using MapReduce on HDInsight**. For more information, see [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Review performance tuning guidelines for Data Lake Storage Gen1**. For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Using MapReduce on HDInsight**. For more information, see [Use MapReduce in Hadoop on HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md)
+* **Review performance tuning guidelines for Data Lake Storage Gen1**. For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](./data-lake-store-performance-tuning-guidance.md)
 
 ## Parameters
 

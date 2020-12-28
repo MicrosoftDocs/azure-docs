@@ -44,13 +44,13 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
 4. On your mobile device, approve your device so it can access your account. 
 
-    ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Screenshot that shows the "Enter your password" notification screen.](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Complete the OOBE process, including setting your privacy settings and setting up Windows Hello (if necessary).
 
     Your device is now joined to your organization's network.
 
-## To make sure you're joined
+## To make sure you're joined (new device)
 You can make sure that you're joined by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
@@ -59,7 +59,7 @@ You can make sure that you're joined by looking at your settings.
 
 2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *\<your_organization>* Azure AD**.
 
-    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Screenshot that shows the "Access work or school" window with the "Connected to (your organization) Azure AD" account selected.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## To join an already configured Windows 10 device

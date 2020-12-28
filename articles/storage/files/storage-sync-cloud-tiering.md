@@ -43,9 +43,9 @@ For agent versions 9 and newer, the minimum file size for a file to tier is base
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-With Windows Server 2019 and Azure File Sync agent version 12 and newer, cluster sizes up to 2 MB are also supported and tiering on those larger cluster sizes works the same way. Older OS or agent versions support cluster sizes up to 64 KB.
+Cluster sizes up to 64 KB are currently supported but, for larger sizes, cloud tiering does not work.
 
 All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 
@@ -80,11 +80,23 @@ When there is more than one server endpoint on a volume, the effective volume fr
 ### How does the date tiering policy work in conjunction with the volume free space tiering policy? 
 When enabling cloud tiering on a server endpoint, you set a volume free space policy. It always takes precedence over any other policies, including the date policy. Optionally, you can enable a date policy for each server endpoint on that volume. This policy manages that only files accessed (that is, read or written to) within the range of days this policy describes will be kept local. Files not accessed with the number of days specified, will be tiered. 
 
-Cloud Tiering uses the last access time to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can see the heat store using a local PowerShell cmdlet.
+Cloud Tiering uses the last access time to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can retrieve the heat store and save it into a CSV file by using a server-local PowerShell cmdlet.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]

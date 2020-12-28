@@ -1,6 +1,6 @@
 ---
-title: Incident response tutorial - Azure Security Center
-description: In this tutorial, you'll learn how to triage security alerts, determine the root cause & scope of an incident, and search security data.
+title: Alert response tutorial - Azure Security Center
+description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,111 +12,110 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/30/2020
 ms.author: memildin
 ---
 
-# Tutorial: Respond to security incidents
-Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you to malicious activity. In addition, you can integrate alerts from other security products and services into Security Center, and create custom alerts based on your own indicators or intelligence sources. Once an alert is generated, swift action is needed to investigate and remediate. In this tutorial, you will learn how to:
+# Tutorial: Triage, investigate, and respond to security alerts
+Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Security Center. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
+
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Triage security alerts
-> * Investigate further to determine the root cause and scope of a security incident
-> * Search security data to aid in investigation
+> * Investigate a security alert to determine the root cause
+> * Respond to a security alert and mitigate that root cause
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must be on Security Center's standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+To step through the features covered in this tutorial, you must have Azure Defender enabled. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Security Center](security-center-get-started.md) walks you through how to upgrade.
 
-## Scenario
-Contoso recently migrated some of their on-premises resources to Azure, including some virtual machine-based line-of-business workloads and SQL databases. Currently, Contoso's Core Computer Security Incident Response Team (CSIRT) has a problem investigating security issues because of security intelligence not being integrated with their current incident response tools. This lack of integration introduces a problem during the Detect stage (too many false positives), as well as during the Assess and Diagnose stages. As part of this migration, they decided to opt in for Security Center to help them address this problem.
-
-The first phase of this migration finished after they onboarded all resources and addressed all of the security recommendations from Security Center. Contoso CSIRT is the focal point for dealing with computer security incidents. The team consists of a group of people with responsibilities for dealing with any security incident. The team members have clearly defined duties to ensure that no area of response is left uncovered.
-
-For the purpose of this scenario, we're going to focus on the roles of the following personas that are part of Contoso CSIRT:
-
-![Incident response lifecycle](./media/tutorial-security-incident/security-center-incident-response.png)
-
-Judy is in security operations. Their responsibilities include:
-
-* Monitoring and responding to security threats around the clock.
-* Escalating to the cloud workload owner or security analyst as needed.
-
-Sam is a security analyst and their responsibilities include:
-
-* Investigating attacks.
-* Remediating alerts.
-* Working with workload owners to determine and apply mitigations.
-
-As you can see, Judy and Sam have different responsibilities, and they must work together to share Security Center information.
 
 ## Triage security alerts
-Security Center provides a unified view of all security alerts. Security alerts are ranked based on the severity and when possible related alerts are combined into a security incident. When triaging alerts and incidents, you should:
+Security Center provides a unified view of all security alerts. Security alerts are ranked based on the severity of the detected activity. 
 
-- Dismiss alerts for which no additional action is required, for example if the alert is a false positive
-- Act to remediate known attacks, for example blocking network traffic from a malicious IP address
-- Determine alerts that require further investigation
+Triage your alerts from the **Security alerts** page:
+
+:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Security alerts list page" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+
+Use this page to review the active security alerts in your environment to decide which alert to investigate first.
+
+When triaging security alerts, prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](security-center-alerts-overview.md#how-are-alerts-classified).
+
+> [!TIP]
+> You can connect Azure Security Center to most popular SIEM solutions including Azure Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 
-1. On the Security Center main menu under **DETECTION**, select **Security alerts**:
+## Investigate a security alert
 
-   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
+When you've decided which alert to investigate first:
 
-2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
+1. Select the desired alert.
+1. From the alert overview page, select the resource to investigate first.
+1. Begin your investigation from the left pane, which shows the high-level information about the security alert.
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information":::
 
-3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click on the alert that you want to investigate further to obtain more information.
+    This pane shows:
+    - Alert severity, status, and activity time
+    - Description that explains the precise activity that was detected
+    - Affected resources
+    - Kill chain intent of the activity on the MITRE ATT&CK matrix
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+1. For more detailed information that can help you investigate the suspicious activity, examine the **Alert details** tab.
 
-   The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
+1. When you've reviewed the information on this page, you may have enough to proceed with a response. If you need further details:
 
-   ![Alert](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+    - Contact the resource owner to verify whether the detected activity is a false positive.
+    - Investigate the raw logs generated by the attacked resource
 
-4. If the root cause and scope of the malicious activity is unknown, proceed to the next step to investigate further.
+## Respond to a security alert
+After investigating an alert and understanding its scope, you can respond to security alert from within Azure Security Center:
 
-## Investigate an alert or incident
-1. On the **Security alert** page, click **Start investigation** button (if you already started, the name changes to **Continue investigation**).
+1.	Open the **Take action** tab to see the recommended responses.
 
-   ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
-   The investigation map is a graphical representation of the entities that are connected to this security alert or incident. By clicking on an entity in the map, the information about that entity will show new entities, and the map expands. The entity that is selected in the map has its properties highlighted in the pane on the right side of the page. The information available on each tab will vary according to the selected entity. During the investigation process, review all relevant information to better understand the attacker's movement.
+1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
+1.	To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
+1.	To trigger a logic app with automated response steps, use the **Trigger automated response** section.
+1.	If the detected activity *isn’t* malicious, you can suppress future alerts of this kind using the **Suppress similar alerts** section.
 
-2. If you need more evidence, or must further investigate entities that were found during the investigation, proceed to the next step.
+1.	When you've completed the investigation into the alert and responded in the appropriate way, change the status to **Dismissed**.
 
-## Search data for investigation
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Setting an alert's status":::
 
-You can use search capabilities in Security Center to find more evidence of compromised systems, and more details about the entities that are part of the investigation.
+    This removes the alert from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
-To perform a search open the **Security Center** dashboard, click **Search** in the left navigation pane, select the workspace that contains the entities that you want to search, type the search query, and click the search button.
+1.	We encourage you to provide feedback about the alert to Microsoft:
+    1. Marking the alert as **Useful** or **Not useful**.
+    1. Select a reason and add a comment.
 
-## Clean up resources
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+    > [!TIP]
+    > We review your feedback to improve our algorithms and provide better security alerts.
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from standard tier to Free tier.
-5. Select **Save**.
+## End the tutorial
 
-If you wish to disable automatic provisioning:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. 
 
-1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription that you wish to disable automatic provisioning.
-3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+If you don't plan to continue, or you want to disable either of these features:
+
+1. Return to the Security Center main menu and select **Pricing and settings**.
+1. Select the relevant subscription.
+1. To downgrade, select **Azure Defender off**.
+1. To disable automatic provisioning, open the **Data Collection** page and set **Auto provisioning** to **Off**.
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps
-In this tutorial, you learned about Security Center features to be used when responding to a security incident, such as:
+In this tutorial, you learned about Security Center features to be used when responding to a security alert. For related material see:
 
-> [!div class="checklist"]
-> * Security incident which is an aggregation of related alerts for a resource
-> * Investigation map which is a graphical representation of the entities connected to a security alert or incident
-> * Search capabilities to find more evidence of compromised systems
+- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [Security alerts - a reference guide](alerts-reference.md)
+- [Introduction to Azure Defender](azure-defender.md)

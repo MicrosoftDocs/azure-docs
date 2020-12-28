@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ---
 
 # Tag support for Azure resources
@@ -16,6 +16,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
+> - [Microsoft.AgFoodPlatform](#microsoftagfoodplatform)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
@@ -31,6 +32,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -59,6 +61,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft.D365CustomerInsights](#microsoftd365customerinsights)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -149,6 +152,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.ScVmm](#microsoftscvmm)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -159,6 +163,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -229,6 +234,13 @@ Jump to a resource provider namespace:
 > | recommendations | No | No |
 > | suppressions | No | No |
 
+## Microsoft.AgFoodPlatform
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | farmBeats | Yes | Yes |
+
 ## Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
@@ -259,12 +271,15 @@ Jump to a resource provider namespace:
 > | service | Yes | Yes |
 > | validateServiceName | No | No |
 
+> [!NOTE]
+> Azure API Management only supports creating a maximum of 15 tag name/value pairs for each service.
+
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Yes | Yes |
+> | configurationStores | Yes | No |
 > | configurationStores / eventGridFilters | No | No |
 > | configurationStores / keyValues | No | No |
 
@@ -343,6 +358,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Yes | Yes |
+> | privateClouds / addons | No | No |
 > | privateClouds / authorizations | No | No |
 > | privateClouds / clusters | No | No |
 > | privateClouds / globalReachConnections | No | No |
@@ -393,6 +409,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | No | No |
 > | edgeSubscriptions | Yes | Yes |
+> | linkedSubscriptions | Yes | Yes |
 > | registrations | Yes | Yes |
 > | registrations / customerSubscriptions | No | No |
 > | registrations / products | No | No |
@@ -404,12 +421,21 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | clusters | Yes | Yes |
 
+## Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | Yes | Yes |
+
 ## Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Yes | Yes |
+> | batchAccounts / certificates | No | No |
+> | batchAccounts / pools | No | No |
 
 ## Microsoft.Billing
 
@@ -448,6 +474,7 @@ Jump to a resource provider namespace:
 > | billingAccounts / billingProfiles / pricesheet | No | No |
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | No | No |
 > | billingAccounts / billingProfiles / products | No | No |
+> | billingAccounts / billingProfiles / reservations | No | No |
 > | billingAccounts / billingProfiles / transactions | No | No |
 > | billingAccounts / billingProfiles / validateDetachPaymentMethodEligibility | No | No |
 > | billingAccounts / billingRoleAssignments | No | No |
@@ -491,6 +518,7 @@ Jump to a resource provider namespace:
 > | billingAccounts / patchOperations | No | No |
 > | billingAccounts / paymentMethods | No | No |
 > | billingAccounts / products | No | No |
+> | billingAccounts / reservations | No | No |
 > | billingAccounts / transactions | No | No |
 > | billingPeriods | No | No |
 > | billingPermissions | No | No |
@@ -572,6 +600,10 @@ Jump to a resource provider namespace:
 > | Redis / privateEndpointConnections | No | No |
 > | Redis / privateLinkResources | No | No |
 > | redisEnterprise | Yes | Yes |
+> | RedisEnterprise / privateEndpointConnectionProxies | No | No |
+> | RedisEnterprise / privateEndpointConnectionProxies / validate | No | No |
+> | RedisEnterprise / privateEndpointConnections | No | No |
+> | RedisEnterprise / privateLinkResources | No | No |
 
 ## Microsoft.Capacity
 
@@ -586,6 +618,7 @@ Jump to a resource provider namespace:
 > | catalogs | No | No |
 > | commercialReservationOrders | No | No |
 > | exchange | No | No |
+> | ownReservations | No | No |
 > | placePurchaseOrder | No | No |
 > | reservationOrders | No | No |
 > | reservationOrders / calculateRefund | No | No |
@@ -711,7 +744,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | plans | Yes | Yes |
+> | plans | Yes | No |
 > | registeredSubscriptions | No | No |
 
 ## Microsoft.CognitiveServices
@@ -739,6 +772,11 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Yes | Yes |
 > | cloudServices | Yes | Yes |
+> | cloudServices / networkInterfaces | No | No |
+> | cloudServices / publicIPAddresses | No | No |
+> | cloudServices / roleInstances | No | No |
+> | cloudServices / roleInstances / networkInterfaces | No | No |
+> | cloudServices / roles | No | No |
 > | diskAccesses | Yes | Yes |
 > | diskEncryptionSets | Yes | Yes |
 > | disks | Yes | Yes |
@@ -766,7 +804,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets | Yes | Yes |
 > | virtualMachineScaleSets / extensions | No | No |
 > | virtualMachineScaleSets / networkInterfaces | No | No |
-> | virtualMachineScaleSets / publicIPAddresses | No | No |
+> | virtualMachineScaleSets / publicIPAddresses | Yes | No |
 > | virtualMachineScaleSets / virtualMachines | No | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
@@ -914,6 +952,13 @@ Jump to a resource provider namespace:
 > | associations | No | No |
 > | resourceProviders | Yes | Yes |
 
+## Microsoft.D365CustomerInsights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | instances | Yes | Yes |
+
 ## Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -935,7 +980,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | workspaces | Yes | Yes |
 > | workspaces / dbWorkspaces | No | No |
-> | workspaces / storageEncryption | No | No |
 > | workspaces / virtualNetworkPeerings | No | No |
 
 ## Microsoft.DataCatalog
@@ -956,6 +1000,9 @@ Jump to a resource provider namespace:
 > | dataFactorySchema | No | No |
 > | factories | Yes | Yes |
 > | factories / integrationRuntimes | No | No |
+
+> [!NOTE]
+> If you have Azure-SSIS integration runtimes in your data factory, their running cost will be tagged with data factory tags. Running Azure-SSIS integration runtimes must be stopped and restarted for new data factory tags to be applied to their running cost.
 
 ## Microsoft.DataLakeAnalytics
 
@@ -1022,6 +1069,8 @@ Jump to a resource provider namespace:
 > | servers / privateLinkResources | No | No |
 > | servers / queryTexts | No | No |
 > | servers / recoverableServers | No | No |
+> | servers / start | No | No |
+> | servers / stop | No | No |
 > | servers / topQueryStatistics | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
@@ -1031,6 +1080,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | flexibleServers | Yes | Yes |
 > | servers | Yes | Yes |
 > | servers / advisors | No | No |
 > | servers / keys | No | No |
@@ -1039,7 +1089,10 @@ Jump to a resource provider namespace:
 > | servers / privateLinkResources | No | No |
 > | servers / queryTexts | No | No |
 > | servers / recoverableServers | No | No |
+> | servers / start | No | No |
+> | servers / stop | No | No |
 > | servers / topQueryStatistics | No | No |
+> | servers / upgrade | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
 
@@ -1085,6 +1138,7 @@ Jump to a resource provider namespace:
 > | applicationgroups / desktops | No | No |
 > | applicationgroups / startmenuitems | No | No |
 > | hostpools | Yes | Yes |
+> | hostpools / msixpackages | No | No |
 > | hostpools / sessionhosts | No | No |
 > | hostpools / sessionhosts / usersessions | No | No |
 > | hostpools / usersessions | No | No |
@@ -1214,6 +1268,7 @@ Jump to a resource provider namespace:
 > | namespaces / eventhubs / authorizationrules | No | No |
 > | namespaces / eventhubs / consumergroups | No | No |
 > | namespaces / networkrulesets | No | No |
+> | namespaces / privateEndpointConnections | No | No |
 
 ## Microsoft.Experimentation
 
@@ -1310,8 +1365,8 @@ Jump to a resource provider namespace:
 > | services / iomtconnectors / connections | No | No |
 > | services / iomtconnectors / mappings | No | No |
 > | services / privateEndpointConnectionProxies | No | No |
-> | services / privateEndpointConnections | Yes | Yes |
-> | services / privateLinkResources | Yes | Yes |
+> | services / privateEndpointConnections | No | No |
+> | services / privateLinkResources | No | No |
 
 ## Microsoft.HybridCompute
 
@@ -1319,7 +1374,9 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | machines | Yes | Yes |
+> | machines / assessPatches | No | No |
 > | machines / extensions | Yes | Yes |
+> | machines / installPatches | No | No |
 
 ## Microsoft.HybridData
 
@@ -1334,12 +1391,14 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | devices | Yes | Yes |
+> | networkFunctions | Yes | Yes |
+> | networkFunctionVendors | No | No |
 > | registeredSubscriptions | No | No |
 > | vendors | No | No |
-> | vendors / vendorskus | No | No |
-> | vendors / vendorskus / previewSubscriptions | No | No |
-> | virtualnetworkfunctions | Yes | Yes |
-> | virtualnetworkfunctionvendors | No | No |
+> | vendors / vendorSkus | No | No |
+> | vendors / vendorSkus / previewSubscriptions | No | No |
+> | virtualNetworkFunctions | Yes | Yes |
+> | virtualNetworkFunctionVendors | No | No |
 
 ## Microsoft.Hydra
 
@@ -1417,6 +1476,8 @@ Jump to a resource provider namespace:
 > | vaults | Yes | Yes |
 > | vaults / accessPolicies | No | No |
 > | vaults / eventGridFilters | No | No |
+> | vaults / keys | No | No |
+> | vaults / keys / versions | No | No |
 > | vaults / secrets | No | No |
 
 ## Microsoft.Kubernetes
@@ -1455,7 +1516,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Yes | Yes |
+> | labaccounts | Yes | No |
 > | users | No | No |
 
 ## Microsoft.Logic
@@ -1485,11 +1546,20 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Yes | Yes |
+> | workspaces / batchEndpoints | Yes | Yes |
+> | workspaces / batchEndpoints / deployments | Yes | Yes |
+> | workspaces / codes | No | No |
+> | workspaces / codes / versions | No | No |
 > | workspaces / computes | No | No |
+> | workspaces / datastores | No | No |
 > | workspaces / eventGridFilters | No | No |
-> | workspaces / inferenceEndpoints | Yes | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes | Yes |
+> | workspaces / jobs | No | No |
+> | workspaces / labelingJobs | No | No |
 > | workspaces / linkedServices | No | No |
+> | workspaces / models | No | No |
+> | workspaces / models / versions | No | No |
+> | workspaces / onlineEndpoints | Yes | Yes |
+> | workspaces / onlineEndpoints / deployments | Yes | Yes |
 
 ## Microsoft.Maintenance
 
@@ -1694,6 +1764,7 @@ Jump to a resource provider namespace:
 > | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | Yes |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
+> | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
@@ -1863,6 +1934,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | accounts | Yes | Yes |
+> | deletedAccounts | No | No |
 
 ## Microsoft.ProviderHub
 
@@ -1962,6 +2034,17 @@ Jump to a resource provider namespace:
 > | applications | Yes | Yes |
 > | saasresources | No | No |
 
+## Microsoft.ScVmm
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | clouds | Yes | Yes |
+> | VirtualMachines | Yes | Yes |
+> | VirtualMachineTemplates | Yes | Yes |
+> | VirtualNetworks | Yes | Yes |
+> | vmmservers | Yes | Yes |
+
 ## Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1993,6 +2076,7 @@ Jump to a resource provider namespace:
 > | discoveredSecuritySolutions | No | No |
 > | externalSecuritySolutions | No | No |
 > | InformationProtectionPolicies | No | No |
+> | iotDefenderSettings | No | No |
 > | iotSecuritySolutions | Yes | Yes |
 > | iotSecuritySolutions / analyticsModels | No | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | No | No |
@@ -2001,6 +2085,7 @@ Jump to a resource provider namespace:
 > | iotSecuritySolutions / iotAlertTypes | No | No |
 > | iotSecuritySolutions / iotRecommendations | No | No |
 > | iotSecuritySolutions / iotRecommendationTypes | No | No |
+> | iotSensors | No | No |
 > | jitNetworkAccessPolicies | No | No |
 > | jitPolicies | No | No |
 > | policies | No | No |
@@ -2019,6 +2104,7 @@ Jump to a resource provider namespace:
 > | securityStatusesSummaries | No | No |
 > | serverVulnerabilityAssessments | No | No |
 > | settings | No | No |
+> | sqlVulnerabilityAssessments | No | No |
 > | subAssessments | No | No |
 > | tasks | No | No |
 > | topologies | No | No |
@@ -2070,6 +2156,7 @@ Jump to a resource provider namespace:
 > | namespaces / disasterrecoveryconfigs | No | No |
 > | namespaces / eventgridfilters | No | No |
 > | namespaces / networkrulesets | No | No |
+> | namespaces / privateEndpointConnections | No | No |
 > | namespaces / queues | No | No |
 > | namespaces / queues / authorizationrules | No | No |
 > | namespaces / topics | No | No |
@@ -2127,6 +2214,17 @@ Jump to a resource provider namespace:
 > | SignalR | Yes | Yes |
 > | SignalR / eventGridFilters | No | No |
 
+## Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | accounts | Yes | Yes |
+> | accounts / accountQuotaPolicies | No | No |
+> | accounts / groupPolicies | No | No |
+> | accounts / jobs | No | No |
+> | accounts / storageContainers | No | No |
+
 ## Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2150,7 +2248,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Yes | Yes |
-> | managedInstances / databases | Yes (see [note below](#sqlnote)) | Yes |
+> | managedInstances / databases | No | No |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
@@ -2190,6 +2288,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | deletedAccounts | No | No |
 > | storageAccounts | Yes | Yes |
 > | storageAccounts / blobServices | No | No |
 > | storageAccounts / fileServices | No | No |
@@ -2264,6 +2363,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | clusters | Yes | Yes |
+> | clusters / privateEndpoints | No | No |
 > | streamingjobs | Yes (see note below) | Yes |
 
 > [!NOTE]
@@ -2365,8 +2465,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | plans | Yes | Yes |
+> | accounts | Yes | No |
+> | plans | Yes | No |
 > | registeredSubscriptions | No | No |
 
 ## Microsoft.Web
@@ -2401,6 +2501,8 @@ Jump to a resource provider namespace:
 > | runtimes | No | No |
 > | serverFarms | Yes | Yes |
 > | serverFarms / eventGridFilters | No | No |
+> | serverFarms / firstPartyApps | No | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No | No |
 > | sites | Yes | Yes |
 > | sites / config  | No | No |
 > | sites / eventGridFilters | No | No |

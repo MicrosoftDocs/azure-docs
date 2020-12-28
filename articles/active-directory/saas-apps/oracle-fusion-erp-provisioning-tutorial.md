@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ---
@@ -51,11 +51,11 @@ Before configuring Oracle Fusion ERP for automatic user provisioning with Azure 
 
 2. Click the Navigator on the top-left top corner. Under **Tools**, select **Security Console**.
 
-	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
+	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Screenshot of the Navigator page in the Oracle Fusion E R P admin console. Tools and Security console are highlighted." border="false":::
 
 3. Navigate to **Users**.
 	
-	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
+	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Screenshot of a panel in the Oracle Fusion E R P admin console. The Users item is highlighted." border="false":::
 
 4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
 
@@ -103,15 +103,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` in **Tenant URL**. Enter the admin user name and password retrieved earlier into the **Admin Username** and **Password** fields. Click on **Test connection** between Azure AD and Oracle Fusion ERP. 
 
-	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
+	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Screenshot of the Admin credentials section. A Test connection button and fields for a Tenant U R L, admin username, and admin password are visible." border="false":::
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
@@ -121,11 +121,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Oracle Fusion ERP**.
 
-	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
+	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Oracle Fusion E R P is visible." border="false":::
 
 9. Review the user attributes that are synchronized from Azure AD to Oracle Fusion ERP in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Oracle Fusion ERP for update operations. Select the **Save** button to commit any changes.
 
-	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
+	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and Oracle Fusion E R P attributes and the matching precedence." border="false":::
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Oracle Fusion ERP**.
 

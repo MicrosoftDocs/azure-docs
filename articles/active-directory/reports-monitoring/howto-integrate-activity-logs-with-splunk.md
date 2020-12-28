@@ -1,6 +1,6 @@
 ---
 title: Integrate Splunk using Azure Monitor | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor
+description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -29,7 +29,7 @@ In this article, you learn how to integrate Azure Active Directory (Azure AD) lo
 
 To use this feature, you need:
 
-- An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+- An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
 -  The [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
 

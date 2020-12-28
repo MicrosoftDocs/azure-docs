@@ -18,6 +18,8 @@ ms.author: juliako
 ---
 # Media Services v2 frequently asked questions
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
 
 ## General AMS FAQs

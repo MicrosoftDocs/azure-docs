@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -29,9 +29,9 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 **Q: Is on-premises Azure AD Password Protection supported in non-public clouds?**
 
-No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
+On-premises Azure AD Password Protection is supported in the public cloud and the Arlington cloud. No date has been announced for availability in other clouds.
 
-The Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in non-public clouds; such changes will be persisted but otherwise will never take effect. Registration of on-premises proxy agents or forests is unsupported when non-public cloud credentials are used, and any such registration attempts will always fail.
+The Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in non-supported clouds; such changes will be persisted but otherwise will never take effect. Registration of on-premises proxy agents or forests is unsupported in non-supported clouds, and any such registration attempts will always fail.
 
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
@@ -44,6 +44,14 @@ A password change is when a user chooses a new password after proving they have 
 A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often perform password sets, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
 
 The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](./howto-password-ban-bad-on-premises-monitor.md).
+
+**Q: Does Azure AD Password Protection validate existing passwords after being installed?**
+
+No - Azure AD Password Protection can only enforce password policy on cleartext passwords during a password change or set operation. Once a password is accepted by Active Directory, only authentication-protocol-specific hashes of that password are persisted. The clear-text password is never persisted, therefore Azure AD Password Protection cannot validate existing passwords.
+
+After initial deployment of Azure AD Password Protection, all users and accounts will eventually start using an Azure AD Password Protection-validated password as their existing passwords expire normally over time. If desired, this process can be accelerated by a one-time manual expiration of user account passwords.
+
+Accounts configured with "password never expires" will never be forced to change their password unless manual expiration is done.
 
 **Q: Why are duplicated password rejection events logged when attempting to set a weak password using the Active Directory Users and Computers management snap-in?**
 

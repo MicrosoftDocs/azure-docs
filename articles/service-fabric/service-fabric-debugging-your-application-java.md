@@ -1,12 +1,10 @@
 ---
 title: Debug your application in Eclipse
 description: Improve the reliability and performance of your services by developing and debugging them in Eclipse on a local development cluster.
-author: suhuruli
 
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
-ms.author: suhuruli
 ---
 # Debug your Java Service Fabric application using Eclipse
 > [!div class="op_single_selector"]

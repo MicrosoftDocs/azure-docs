@@ -56,7 +56,7 @@ The following table lists the API version for the resources used in this example
 |:---|:---|:---|
 | [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
 | [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
-| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | 2020-03-01-preview |
+| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | workspaces | 2020-03-01-preview |
 
 ### Before you use the template
 
@@ -80,7 +80,7 @@ The JSON template specifies a default value for the other parameters that would 
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 

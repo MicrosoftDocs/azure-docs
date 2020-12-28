@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Resource Manager template'
-description: Deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
+description: In this quickstart, you deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
@@ -88,4 +88,4 @@ Don't remove the resource group and firewall if you plan to continue on to the f
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

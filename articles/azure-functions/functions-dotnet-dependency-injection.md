@@ -25,6 +25,8 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) package version 1.0.28 or later
 
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 3.x and earlier supported)
+
 ## Register services
 
 To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
@@ -87,7 +89,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -113,8 +115,8 @@ This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
 
-- **Transient**: Transient services are created upon each request of the service.
-- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- **Transient**: Transient services are created upon each resolution of the service.
+- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per function execution. Later requests for that service during the execution reuse the existing service instance.
 - **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `DocumentClient` or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) on GitHub.
@@ -126,8 +128,8 @@ If you need your own logging provider, register a custom type as an instance of 
 Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
-> - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
+> - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### ILogger<T> and ILoggerFactory
 
@@ -165,9 +167,9 @@ The following example `host.json` file adds the log filter.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -176,6 +178,8 @@ The following example `host.json` file adds the log filter.
     }
 }
 ```
+
+For more information about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
 ## Function app provided services
 
@@ -248,7 +252,7 @@ public class HttpTrigger
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
 
-### Customizing configuration sources
+## Customizing configuration sources
 
 > [!NOTE]
 > Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
@@ -275,13 +279,14 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }
 ```
 
-Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 A `FunctionsHostBuilderContext` is obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use this context to retrieve the current environment name and resolve the location of configuration files in your function app folder.
 

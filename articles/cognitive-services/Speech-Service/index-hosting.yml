@@ -29,7 +29,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create an Azure Speech resource
-          url: get-started.md#new-resource
+          url: ./overview.md#try-the-speech-service-for-free
         - text: Configure speech containers
           url: speech-container-configuration.md
 - title: Reference
@@ -42,3 +42,10 @@ landingContent:
           url: sovereign-clouds.md
         - text: Containers FAQ
           url: speech-container-faq.md
+          
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

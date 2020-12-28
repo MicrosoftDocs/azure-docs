@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Perform live streaming with on-premises encoders using Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -126,7 +129,7 @@ For more details about pass-through channels, see [Live streaming with on-premis
 ## Get ingest URLs
 Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
-![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Screenshot that shows the "Live streaming" page with a channel selected and the channel pane displayed.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## Watch the event
 To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 

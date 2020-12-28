@@ -26,7 +26,7 @@ step by step guidance, see [How to set up
 alerts](howto-hyperscale-alert-on-metric.md).  Other tasks include setting up
 automated actions, running advanced analytics, and archiving history. For more
 information, see the [Azure Metrics
-Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Overview](../azure-monitor/platform/data-platform.md).
 
 ### List of metrics
 
@@ -36,7 +36,7 @@ These metrics are available for Hyperscale (Citus) nodes:
 |---|---|---|---|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
-|iops|IOPS|Count|See the [IOPS definition](../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale throughput](concepts-hyperscale-configuration-options.md)|
+|iops|IOPS|Count|See the [IOPS definition](../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale (Citus) throughput](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|

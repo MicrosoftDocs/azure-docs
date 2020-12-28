@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Get started with device twins (.NET)

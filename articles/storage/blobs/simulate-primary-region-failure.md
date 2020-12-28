@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Simulate a failure in reading data from the primary region

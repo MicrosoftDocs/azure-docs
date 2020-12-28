@@ -8,6 +8,8 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
+ms.custom: seo-azure-migrate
+keywords: vms support, azure vmware solution by cloudsimple, cloudsimple azure, vms tools, vmware documentation 
 ---
 # Azure VMware Solution by CloudSimple
 

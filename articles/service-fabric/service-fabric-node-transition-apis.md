@@ -6,6 +6,7 @@ author: LMWF
 ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
+ms.custom: devx-track-csharp
 ---
 
 # Replacing the Start Node and Stop node APIs with the Node Transition API

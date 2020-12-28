@@ -306,7 +306,7 @@ When this mode of ad marker is used, the HLS manifest output is similar to Adobe
 
 #### Example MPEG DASH MPD, single period, Adobe Simple mode signals
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ When this mode of ad marker is used, the HLS manifest output is similar to Adobe
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### Example HLS playlist, Adobe Simple mode signals using EXT-X-CUE tag (truncated "..." for brevity)
 
 The following example shows the output from the Media Services dynamic packager for an RTMP ingest stream using Adobe "simple" mode signals and the legacy [Adobe-Primetime] EXT-X-CUE tag.  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### 2.1.6 Cancellation and Updates
 
@@ -525,7 +523,7 @@ For [SCTE35] messages, Smooth Streaming will output the base64-encoded splice_in
 The StreamIndex **MUST** have a Subtype of "DATA", and the CustomAttributes **MUST** contain an Attribute with Name="Schema" and Value="urn:scte:scte35:2013:bin".
 
 #### Smooth Client Manifest Example showing base64-encoded [SCTE35] splice_info_section()
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -561,7 +559,7 @@ The StreamIndex **MUST** have a Subtype of "DATA", and the CustomAttributes **MU
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## 3.2 Apple HLS Manifest Decoration
 
@@ -586,7 +584,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 The following example HLS manifest output from the Media Services dynamic packager shows EXT-X-CUE tag for [Adobe-Primetime] in SCTE35 mode. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -738,7 +736,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -968,7 +966,7 @@ The following example shows HLS manifest decoration using the Adobe Primetime EX
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1027,7 +1025,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### 3.2.4 HLS Message Handling for Adobe Primetime EXT-X-CUE
 
@@ -1097,7 +1095,7 @@ The EventStream element has the following attributes:
 
 The following example shows an excerpt EventStream from the Media Services dynamic packager for an RTMP stream using Adobe "simple" mode signaling.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1112,7 +1110,7 @@ The following example shows an excerpt EventStream from the Media Services dynam
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### 3.3.2.2 Example MPEG DASH .mpd manifest signaling of an RTMP stream using Adobe SCTE-35 mode
@@ -1121,7 +1119,7 @@ The following example shows an excerpt EventStream from the Media Services dynam
 
 Example EventStream element using xml+bin style signaling per [SCTE-214-1]
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1135,7 +1133,7 @@ Example EventStream element using xml+bin style signaling per [SCTE-214-1]
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1151,7 +1149,7 @@ Example EventStream element using xml+bin style signaling per [SCTE-214-1]
 The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe "simple" mode ad signal method. The output is a single period manifest showing an EventStream using the schemeId Uri set to "urn:com:adobe:dpi:simple:2015" and value property set to "simplesignal".
 Each simple signal is provided in an Event element with the @presentationTime, @duration, and @id properties populated based on the incoming simple signals.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1200,7 +1198,7 @@ Each simple signal is provided in an Event element with the @presentationTime, @
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1354,10 +1352,10 @@ The following details outline the specific values the client should expect in th
 
 
 #### Example InBandEvenStream entity for Adobe Simple mode
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### 3.3.5 DASH Message Handling
 

@@ -119,5 +119,5 @@ The example below contains a single event with some supported inference types:
 
 ## Next steps
 
-- [gRPC data contract](grpc-data-contract.md)
-- [HTTP data contract](http-data-contract.md)
+- [gRPC data contract](./grpc-extension-protocol.md)
+- [HTTP data contract](./http-extension-protocol.md)

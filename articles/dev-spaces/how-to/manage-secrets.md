@@ -5,9 +5,11 @@ ms.date: "12/03/2019"
 ms.topic: "conceptual"
 description: "Learn how to use Kubernetes secrets at run or build time when developing applications with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # How to manage secrets when working with an Azure Dev Space
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Your services might require certain passwords, connection strings, and other secrets, such as for databases or other secure Azure services. By setting the values of these secrets in configuration files, you can make them available in your code as environment variables.  These configuration files must be handled with care to avoid compromising the security of the secrets.
 

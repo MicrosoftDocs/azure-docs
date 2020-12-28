@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk self-managed Shipping | Microsoft Docs in data 
 description: Describes self-managed shipping workflow for Azure Data Box Disk devices
 services: databox
-author: twooley
+author: alkohli
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.author: twooley
+ms.author: alkohli
 ---
 
 # Use self-managed shipping for Azure Data Box Disk in the Azure portal
@@ -33,13 +33,13 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
 1. In your Azure Data Box Disk order, under the **Contact details**, select **+ Add Shipping Address**.
 
-   ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Screenshot of the Order wizard showing the Contact details step with the Add Shipping Address option called out.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. When choosing shipping type, select the **Self-managed shipping** option. This option is only available if you are in a supported region as described in the prerequisites.
 
 3. Once you have provided your shipping address, you will need to validate it and complete your order.
 
-   ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Once the device has been prepared and you received an email notification, you can schedule a pickup. In your Azure Data Box Disk order, go to **Overview** and then select **Schedule pickup**.
 
@@ -51,7 +51,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
 6. After you have scheduled your device pickup, you will be able to view your authorization code in the  **Schedule pickup for Azure**.
 
-   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Screenshot of the Schedule pick up for Azure dialog box with the Authorization code for Pickup text box called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Make a note of this **Authorization code**.
 
@@ -74,7 +74,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
 9. If you have received an appointment for drop off the order should now be at the **Ready to receive at Azure datacenter** state in the Azure portal.
 
-   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Screenshot of the Add Shipping Address dialog box with the Ship using options out and the Add shipping address option called out.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. After your ID and authorization code have been verified and you have dropped off the device at the datacenter, the order status should be **Received**.
 

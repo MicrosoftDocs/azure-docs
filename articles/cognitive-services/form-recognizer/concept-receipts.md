@@ -53,6 +53,13 @@ The Receipt API also returns the following information:
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
 
+## Try it out
+
+To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
 ## Input requirements
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -60,7 +67,7 @@ The Receipt API also returns the following information:
 ## Supported locales 
 
 * **Pre-built Receipt v2.0** (GA) supports sales receipts in the EN-US locale
-* **Pre-built Receipt v2.1-preview.1** (Public Preview) adds additional support for the following EN receipt locales: 
+* **Pre-built Receipt v2.1-preview.2** (Public Preview) adds additional support for the following EN receipt locales: 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -69,15 +76,12 @@ The Receipt API also returns the following information:
   > [!NOTE]
   > Language input 
   >
-  > Prebuilt Receipt v2.1-preview.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.1, the model will default to the EN-US model.
-  
- ### Input Requirements 
+  > Prebuilt Receipt v2.1-preview.2 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.2, the model will default to the EN-US model.
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Receipt operation
 
-The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of intrest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -85,7 +89,7 @@ The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/ser
 
 ## The Get Analyze Receipt Result operation
 
-The second step is to call the [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call the [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
@@ -437,7 +441,7 @@ The data extracted with the Receipt API can be used to perform a variety of task
 
 Often filing business expenses involves spending time manually entering data from images of receipts. With the Receipt API, you can use the extracted fields to partially automate this process and analyze your receipts quickly.  
 
-Because the Receipt API has a simple JSON output, you can use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Because the Receipt API has a simple JSON output, you can use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### Auditing and accounting 
 
@@ -449,11 +453,14 @@ The Receipt output is also useful for general book-keeping for business or perso
 
 Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
 
-The Receipt API also powers the [AIBuilder Receipt Processing feature](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
 ## Next steps
 
-- Follow the quickstart to get started [Receipt API Python quickstart](./quickstarts/python-receipts.md).
-- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Learn more about [Form Recognizer](overview.md).
+- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
+- Or, follow the [Receipt API Python quickstart](./quickstarts/python-receipts.md) to recognize receipts using the REST API.
 
+## See also
+
+* [What is Form Recognizer?](./overview.md)
+* [REST API reference docs](./index.yml)

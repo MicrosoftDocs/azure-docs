@@ -45,10 +45,10 @@ Ensure that the following prerequisites are met before you start the offline bac
 * Create an Azure Storage account in the same subscription as the Recovery Services vault.
 * Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
 * Register the Microsoft.ImportExport resource provider with the subscription containing the Azure Storage account. To register the resource provider:
-    1. In the main menu, Click **Subscriptions**.
+    1. In the main menu, select **Subscriptions**.
     2. If you're subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.
-    3. In the subscription menu, click **Resource Providers** to view the list of providers.
-    4. In the list of providers scroll down to Microsoft.ImportExport. If the Status is NotRegistered, click **Register**.
+    3. In the subscription menu, select **Resource Providers** to view the list of providers.
+    4. In the list of providers scroll down to Microsoft.ImportExport. If the Status is NotRegistered, select **Register**.
 
        ![Registering the resource provider](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -62,7 +62,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 ## Initiate offline backup
 
-1. When you create a new protection group with online protection or add online protection to existing protection group, you see the following screen. To select Initial online Replication method, select **Transfer using my own disk** and click **Next**.
+1. When you create a new protection group with online protection or add online protection to existing protection group, you see the following screen. To select Initial online Replication method, select **Transfer using my own disk** and select **Next**.
 
     ![Import screen](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -130,7 +130,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     ![Azure sign-in screen](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     At the end of successful execution of the tool, the command prompt provides three pieces of information:
     * One or more disks you provided are prepared for shipping to Azure.
@@ -154,7 +154,7 @@ The following procedure updates the Azure Import job shipping details. This info
 * return shipping details for your disks
 
    1. Sign in to your Azure subscription.
-   2. In the main menu, click **All services** and in the All services dialog, type Import. When you see **Import/Export jobs**, click it.
+   2. In the main menu, select **All services** and in the All services dialog, type Import. When you see **Import/Export jobs**, select it.
        ![Entering Shipping Information](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        The list of **Import/export jobs** menu opens, and the list of all Import/export jobs in the selected subscription appears.
@@ -163,11 +163,11 @@ The following procedure updates the Azure Import job shipping details. This info
 
        ![Review Shipping Information](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. On the Settings menu for the Import job, click **Manage Shipping Info** and enter the return shipping details.
+   4. On the Settings menu for the Import job, select **Manage Shipping Info** and enter the return shipping details.
 
        ![Storing Shipping Information](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. When you have the tracking number from your shipping carrier, click the banner in the Azure Import job overview page and enter the following details:
+   5. When you have the tracking number from your shipping carrier, select the banner in the Azure Import job overview page and enter the following details:
 
       > [!IMPORTANT]
       > Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted, and drives not being processed.
@@ -186,7 +186,7 @@ You can monitor the status of your Import job from the Azure portal by navigatin
 
 ### Complete the workflow
 
-After the import job finishes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure backup copies the contents of the data from the storage account to the Recovery Services vault.
+After the import job finishes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure Backup copies the contents of the data from the storage account to the Recovery Services vault.
 
 At the time of the next scheduled online replica creation job, Data Protection Manager performs incremental backup over the initial backup copy.
 

@@ -5,6 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore

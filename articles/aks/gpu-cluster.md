@@ -94,7 +94,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -131,13 +131,13 @@ Register the `GPUDedicatedVHDPreview` feature:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -159,7 +159,7 @@ az extension update --name aks-preview
 
 Configure the cluster to use the AKS specialized GPU image when the cluster is created. Use the `--aks-custom-headers` flag for the GPU agent nodes on your new cluster to use the AKS specialized GPU image.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -170,7 +170,7 @@ If you want to create a cluster using the regular AKS images, you can do so by o
 
 Configure a new node pool to use the AKS specialized GPU image. Use the `--aks-custom-headers` flag flag for the GPU agent nodes on your new node pool to use the AKS specialized GPU image.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -178,7 +178,7 @@ If you want to create a node pool using the regular AKS images, you can do so by
 
 > [!NOTE]
 > If your GPU sku requires generation 2 virtual machines, you can create doing:
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 
@@ -269,7 +269,7 @@ spec:
     spec:
       containers:
       - name: samples-tf-mnist-demo
-        image: microsoft/samples-tf-mnist-demo:gpu
+        image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
         resources:

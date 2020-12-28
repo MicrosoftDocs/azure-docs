@@ -3,8 +3,8 @@ title: Deploy on dedicated host
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
+author: macolso
+ms.author: macolso
 ---
 
 # Deploy on dedicated hosts

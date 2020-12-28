@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis with .NET apps'
+title: 'Quickstart: Use Azure Cache for Redis in .NET Framework'
 description: In this quickstart, learn how to access Azure Cache for Redis from your .NET apps
 author: yegu-ms
 ms.author: yegu
@@ -11,7 +11,7 @@ ms.date: 06/18/2020
 
 #Customer intent: As a .NET developer, new to Azure Cache for Redis, I want to create a new .NET app that uses Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis with a .NET Framework application
+# Quickstart: Use Azure Cache for Redis in .NET Framework
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET console app.
 
@@ -88,7 +88,7 @@ using System.Configuration;
 
 The connection to the Azure Cache for Redis is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. Do not create a new connection for each operation. 
 
-Never store credentials in source code. To keep this sample simple, I’m only using an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
+Never store credentials in source code. To keep this sample simple, I’m only using an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
 
 In *Program.cs*, add the following members to the `Program` class of your console application:
 
@@ -267,4 +267,4 @@ In this quickstart, you learned how to use Azure Cache for Redis from a .NET app
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -6,10 +6,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
 ---
 
@@ -24,7 +24,7 @@ If you don't want to wait 12 hours and prefer to delete the virtual cluster and 
 
 > [!IMPORTANT]
 > - The virtual cluster should contain no managed instances for the deletion to be successful. 
-> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [Managed instance management operations](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
+> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [Managed instance management operations](./sql-managed-instance-paas-overview.md#management-operations) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
 
 ## Delete a virtual cluster from the Azure portal
 
@@ -43,7 +43,7 @@ Azure portal notifications will show you a confirmation that the request to dele
 
 ## Delete a virtual cluster by using the API
 
-To delete a virtual cluster through the API, use the URI parameters specified in the [virtual clusters delete method](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+To delete a virtual cluster through the API, use the URI parameters specified in the [virtual clusters delete method](/rest/api/sql/virtualclusters/delete).
 
 ## Next steps
 

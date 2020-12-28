@@ -1,5 +1,5 @@
 ---
-title: Remove Azure Sentinel| Microsoft Docs
+title: Remove Azure Sentinel | Microsoft Docs
 description:  How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
 
 ---
 # Remove Azure Sentinel from your workspace
 
-If you no longer want to use the Azure Sentinel, this article explains how to remove it from your workspace.
+If you no longer want to use Azure Sentinel, this article explains how to remove it from your workspace.
 
 ## How to remove Azure Sentinel
 
@@ -44,13 +44,13 @@ After the disconnection is identified, the offboarding process begins.
 
 -   AWS
 
--   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Microsoft services security alerts: Microsoft Defender for Identity (*formerly Azure ATP*), Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint (*formerly Microsoft Defender ATP*), Azure Defender alerts from Azure Security Center
 
 -   Threat Intelligence
 
--   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
+-   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you get Azure Defender alerts from Azure Security Center, these logs will continue to be collected.)
 
--   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
+-   Windows Security Events (If you get Azure Defender alerts from Azure Security Center, these logs will continue to be collected.)
 
 Within the first 48 hours, the data and analytic rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 

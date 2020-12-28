@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ---
@@ -50,23 +50,23 @@ Before configuring TheOrgWiki for automatic user provisioning with Azure AD, you
 
 1. Sign in to your [TheOrgWiki Admin Console](https://www.theorgwiki.com/login/). Click on **Admin Console**.
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/login.png)
+	![Screenshot of Org Wiki with the user avatar and the Admin Console called out.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. In Admin Console, Click on **Settings tab**. 
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/settings.png)
+	![Screenshot of the The Org Wiki Admin Console with the Settings tab called out.](media/theorgwiki-provisioning-tutorial/settings.png)
 	
 3. Navigate to **Service Accounts**.
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+	![Screenshot of the Service Accounts page in the the Org Wiki Admin Console.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Click on **+Service Account**. Under **Service Account Type**,select **Token Based**. Click **Save**.
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
+	![Screenshot of the New Service Account dialog box with the Service Account Type, Token Based, and Save options called out.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5. 	Copy the **Active Tokens**. This value will be entered in the Secret Token field in the Provisioning tab of your TheOrgWiki application in the Azure portal.
 	 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/token.png)
+	![Screenshot of the Manage Tokens for S C I M provisioning dialog box.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## Add TheOrgWiki from the gallery
 
@@ -90,15 +90,15 @@ To configure TheOrgWiki for automatic user provisioning with Azure AD, you need 
 
 5. Select the **Sign-up for TheOrgWiki** button which will redirect you to TheOrgWiki's login page. 
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image00.png)
+	![Screenshot of The Org Wiki login page with the URL called out](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  In the top right-hand corner, select **Login**.
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image02.png)
+	![Screenshot of the upper-right corner of the login page with the Log In option called out.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. As TheOrgWiki is an OpenIDConnect app, choose to login to OrgWiki using your Microsoft work account.
 
-	![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image03.png)
+	![Screenshot of the The Org Wiki sign in page with the Sign in with Microsoft option called out.](media/theorgwiki-provisioning-tutorial/image03.png)
 	
 8. After a successful authentication, the application will be automatically added to your tenant and you will be redirected to your TheOrgWiki account.
 
@@ -121,11 +121,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<TheOrgWiki Subdomain 		value>.theorgwiki.com/api/v2/scim/v2/` in **Tenant URL**. 
 

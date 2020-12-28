@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Spotinst with Azure Active Direc
 * Enable your users to be automatically signed-in to Spotinst with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
 
@@ -156,15 +156,15 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
    b. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 	c. Click **Users** and select **ADD USER**.
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser1.png)
+	![Screenshot shows ADD USER selected from Users.](./media/spotinst-tutorial/adduser1.png)
 
 	d. On the add user section, perform the following steps:
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser2.png)
+	![Screenshot shows the Add user section where you can enter the values described.](./media/spotinst-tutorial/adduser2.png)
 
 	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
 
@@ -178,15 +178,14 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Spotinst tile in the Access Panel, you should be automatically signed in to the Spotinst for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Spotinst tile in the Access Panel, you should be automatically signed in to the Spotinst for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Spotinst with Azure AD](https://aad.portal.azure.com/)
-

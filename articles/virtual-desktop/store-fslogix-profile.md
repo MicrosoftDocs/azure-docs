@@ -35,7 +35,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises (via ExpressRoute)|Cloud, on-premises|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots|Azure backup snapshot integration|
 |Security and compliance|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completed|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory integration|[Native Active Directory and Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
+|Azure Active Directory integration|[Native Active Directory and Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
 
 Once you've chosen your storage method, check out [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
 
@@ -45,7 +45,7 @@ To learn more about FSLogix profile containers, user profile disks, and other us
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop](create-file-share.md)
 - [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
 - The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
 

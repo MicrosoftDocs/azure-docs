@@ -25,7 +25,7 @@ The script is designed to be flexible. It will first look for existing Immersive
 
 ## Set up PowerShell environment
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
+1. Start by opening the [Azure Cloud Shell](../../cloud-shell/overview.md). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
 1. Copy and paste the following code snippet into the shell.
 
@@ -153,7 +153,7 @@ The script is designed to be flexible. It will first look for existing Immersive
       -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
       -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
-      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_Expiration>'
+      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
     ```
 
     | Parameter | Comments |
@@ -192,7 +192,3 @@ The script is designed to be flexible. It will first look for existing Immersive
 * View the [iOS tutorial](./tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
 * View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
-
-
-
-

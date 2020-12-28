@@ -3,8 +3,6 @@ title: Scenarios to use a virtual network
 description: Scenarios, resources, and limitations to deploy container groups to an Azure virtual network.
 ms.topic: article
 ms.date: 08/11/2020
-ms.author: danlep
-
 ---
 
 # Virtual network scenarios and resources

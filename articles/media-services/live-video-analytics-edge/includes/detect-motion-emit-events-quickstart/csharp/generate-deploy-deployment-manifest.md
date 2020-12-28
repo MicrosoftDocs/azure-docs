@@ -1,5 +1,3 @@
-## Generate and deploy the deployment manifest
-
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules. 
 
 Follow these steps to generate the manifest from the template file and then deploy it to the edge device.

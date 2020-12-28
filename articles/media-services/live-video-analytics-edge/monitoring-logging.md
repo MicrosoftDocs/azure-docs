@@ -15,7 +15,8 @@ You will also learn about how you can control the logs that the module generates
 
 Live Video Analytics on IoT Edge emits events, or telemetry data according to the following taxonomy.
 
-![Live Video Analytics on IoT Edge telemetry schema](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomy of events":::
 
 * Operational: events that are generated as part of actions taken by a user, or during the execution of a [media graph](media-graph-concept.md).
    
@@ -66,6 +67,7 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
    * Examples:
       
       Motion detected (below), Inference result.
+
    ```      
    {
      "body": {
@@ -93,7 +95,30 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
      }
    }
    ```
+
 The events emitted by the module are sent to the [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), and from there it can be routed to other destinations. 
+
+### Timestamps in analytic events
+
+As indicated above, events generated as part of video analysis have a timestamp associated with them. If you [recorded the live video](video-recording-concept.md) as part of your graph topology, then this timestamp helps you locate where in the recorded video that particular event occurred. Following are the guidelines on how to map the timestamp in an analytic event to the timeline of the video recorded into an [Azure Media Service asset](terminology.md#asset).
+
+First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you may want to fetch video that starts 30 seconds before `eventTime` and ends 30 seconds afterwards. With the above example, where `eventTime` is 2020-05-12T23:33:09.381Z, a request for a HLS manifest for the +/- 30s window would look like the following:
+
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+
+The URL above would return a so-called [master playlist](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), containing URLs for media playlists. The media playlist would contain entries like the following:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+In the above, the entry reports that a video fragment is available that starts at a timestamp value of `143039375031270`. The `timestamp` value in the analytic event uses the same timescale as the media playlist, and can be used to identify the relevant video fragment, and seek to the correct frame.
+
+For more information, you can read one of the many [articles](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) on frame accurate seeking in HLS.
 
 ## Controlling events
 
@@ -193,6 +218,85 @@ Examples:
 
 Event time is described in ISO8601 string and it the time the event occurred.
 
+### Azure Monitor Collection using Telegraf
+
+These metrics will be reported the Live Video Analytics on IoT Edge module:  
+
+|Metric Name|Type|Label|Description|
+|-----------|----|-----|-----------|
+|lva_active_graph_instances|Gauge|iothub, edge_device, module_name, graph_topology|Total number of active graphs per topology.|
+|lva_received_bytes_total|Counter|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|The total number of bytes received by a node. Only supported for RTSP Sources|
+|lva_data_dropped_total|Counter|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Counter of any dropped data (events, media, etc.)|
+
+> [!NOTE]
+> A [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) is exposed at port **9600** of the container. If you name your Live Video Analytics on IoT Edge module “lvaEdge”, they would be able to access metrics by sending a GET request to http://lvaEdge:9600/metrics.   
+
+Follow these steps to enable the collection of metrics from the Live Video Analytics on IoT Edge module:
+
+1. Create a folder on your development machine and navigate to that folder
+
+1. In that folder, create `telegraf.toml` file with the following contents
+    ```
+    [agent]
+        interval = "30s"
+        omit_hostname = true
+
+    [[inputs.prometheus]]
+      metric_version = 2
+      urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
+
+    [[outputs.azure_monitor]]
+      namespace_prefix = ""
+      region = "westus"
+      resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
+    ```
+    > [!IMPORTANT]
+    > Make sure you replace the variables (marked by the `{ }`) in the content file
+
+1. In that folder, create a `.dockerfile` with the following content
+    ```
+        FROM telegraf:1.15.3-alpine
+        COPY telegraf.toml /etc/telegraf/telegraf.conf
+    ```
+
+1. Now using docker CLI command **build the docker file** and publish the image to your Azure Container Registry.
+    1. Learn how to [Push and Pull Docker images  - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  More on Azure Container Registry (ACR) can be found [here](https://docs.microsoft.com/azure/container-registry/).
+
+
+1. Once the push to ACR is complete, in your deployment manifest file, add the following node:
+    ```
+    "telegraf": 
+    {
+      "settings": 
+        {
+            "image": "{ACR_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+        },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": 
+        {
+            "AZURE_TENANT_ID": { "value": "{YOUR_TENANT_ID}" },
+            "AZURE_CLIENT_ID": { "value": "{YOUR CLIENT_ID}" },
+            "AZURE_CLIENT_SECRET": { "value": "{YOUR_CLIENT_SECRET}" }
+        }
+    ``` 
+    > [!IMPORTANT]
+    > Make sure you replace the variables (marked by the `{ }`) in the content file
+
+
+1. **Authentication**
+    1. Azure Monitor may be [authenticated by Service Principal](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication).
+        1. The Azure Monitor Telegraf plugin exposes [several methods of authentication](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication). The following environment variables must be set to use Service Principal authentication.  
+            •	AZURE_TENANT_ID: Specifies the Tenant to which to authenticate.  
+            •	AZURE_CLIENT_ID: Specifies the app client ID to use.  
+            •	AZURE_CLIENT_SECRET: Specifies the app secret to use.  
+    >[!TIP]
+    > The Service Principal can be given the “**Monitoring Metrics Publisher**” role.
+
+1. Once the modules are deployed, metrics will appear in Azure Monitor under a single namespace with metric names matching the ones emitted by Prometheus. 
+    1. In this case, in your Azure portal, navigate to the IoT Hub and click on the "**Metrics**" link in the left navigation pane. You should see the metrics there.
 ## Logging
 
 Like with other IoT Edge modules, you can also [examine the container logs](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the Edge device. The information that is written to the logs can be controlled by the [following module twin](module-twin-configuration-schema.md) properties:

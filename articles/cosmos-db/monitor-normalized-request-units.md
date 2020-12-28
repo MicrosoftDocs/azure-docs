@@ -10,10 +10,12 @@ ms.date: 06/25/2020
 ---
 
 # How to monitor normalized RU/s for an Azure Cosmos container or an account
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
 
 The **Normalized RU Consumption** metric is used to see how well saturated the  partition key ranges are  with respect to the traffic. Azure Cosmos DB distributes the throughput equally across all the partition key ranges. This metric provides a per second view of the maximum throughput utilization for partition key range. Use this metric to calculate the RU/s usage across partition key range for given container. By using this metric, if you see high percentage of request units utilization across all partition key ranges in Azure monitor, you should increase the throughput to meet the needs of your workload. 
+Example - Normalized utilization is defined as the max of the RU/s utilization across all partition key ranges. For example, suppose your max throughput is 20,000 RU/s and you have two   partition key ranges, P_1 and P_2, each capable of scaling to 10,000 RU/s. In a given second, if P_1 has used 6000 RUs, and P_2 8000 RUs, the normalized utilization is MAX(6000 RU / 10,000 RU, 8000 RU / 10,000 RU) = 0.8.
 
 ## What to expect and do when normalized RU/s is higher
 

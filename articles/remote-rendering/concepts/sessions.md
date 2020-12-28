@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Remote Rendering Sessions
@@ -25,7 +26,7 @@ Once you are *connected* to an active session, operations such as [loading model
 
 ### Managing multiple sessions simultaneously
 
-It is not possible to fully *connect* to multiple sessions from one device. However, you can create, observe and shut down as many sessions as you like from a single application. As long as the app is not meant to ever connect to a session, it doesn't need to run on a device like HoloLens 2, either. A use case for such an implementation may be if you want to control sessions through a central mechanism. For example, one could build a web app, where multiple tablets and HoloLenses can log into. Then the app can display options on the tablets, such as which CAD model to display. If a user makes a selection, this information is communicated to all HoloLenses to create a shared experience.
+It is not possible to fully *connect* to multiple sessions from one device. However, you can create, observe and shut down as many sessions as you like from a single application. As long as the app is not meant to ever connect to a session, it doesn't need to run on a device like HoloLens 2, either. A use case for such an implementation may be if you want to control sessions through a central mechanism. For example, one could build a web app, where multiple tablets and HoloLens devices can log into. Then the app can display options on the tablets, such as which CAD model to display. If a user makes a selection, this information is communicated to all HoloLens devices to create a shared experience.
 
 ## Session phases
 
@@ -71,7 +72,7 @@ In all cases, you won't be billed further once a session is stopped.
 
 #### Extend a session's lease time
 
-You can [extend the lease time](../how-tos/session-rest-api.md#update-a-session) of an active session, if it turns out that you need it longer.
+You can [extend the lease time](../how-tos/session-rest-api.md#modify-and-query-session-properties) of an active session, if it turns out that you need it longer.
 
 ## Example code
 
@@ -102,6 +103,8 @@ while (true)
     {
         break;
     }
+    // REST calls must not be issued too frequently, otherwise the server returns failure code 429 ("too many requests"). So we insert the recommended delay of 10s
+    await Task.Delay(TimeSpan.FromSeconds(10));
 }
 
 if (sessionProperties.Status != RenderingSessionStatus.Ready)
@@ -138,6 +141,15 @@ The lifetime of a virtual machine isn't tied to the `AzureFrontend` instance or 
 The persistent session ID can be queried via `AzureSession.SessionUUID()` and cached locally. With this ID, an application can call `AzureFrontend.OpenSession` to bind to that session.
 
 When `AzureSession.IsConnected` is true, `AzureSession.Actions` returns an instance of `RemoteManager`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
+
+## API documentation
+
+* [C# AzureSession class](/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend.OpenRenderingSession()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C++ AzureSession class](/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend::OpenRenderingSession](/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## Next steps
 

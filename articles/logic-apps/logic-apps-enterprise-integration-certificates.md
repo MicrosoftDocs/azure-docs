@@ -58,12 +58,12 @@ provide these details for your certificate. When you're done, choose **OK**.
    | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. |
    ||||
 
-   ![Choose "Add", provide certificate details](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Screenshot shows where to select Add to provide certificate details.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    After Azure validates your selection, 
    Azure uploads your certificate.
 
-   ![Azure displays new certificate](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Screenshot that shows where Azure displays the new certificate.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## Upload a private certificate
 

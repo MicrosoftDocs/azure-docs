@@ -14,6 +14,7 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
+ms.custom: devx-track-csharp
 ---
 
 # Export and import Azure Notification Hubs registrations in bulk

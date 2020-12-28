@@ -3,47 +3,26 @@ title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
+ms.custom: devx-track-csharp
 
 ---
 
 # EventCounters introduction
 
-`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
+[`EventCounter`](/dotnet/core/diagnostics/event-counters) is .NET/.NET Core mechanism to publish and consume counters or statistics. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
-While users can publish any custom `EventCounters` to meet their needs, the .NET Core 3.0 runtime publishes a set of these counters by default. The document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
+While users can publish any custom `EventCounters` to meet their needs, .NET Core 3.0 and higher runtime publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
 ## Using Application Insights to collect EventCounters
 
-Application Insights supports collecting `EventCounters` with its `EventCounterCollectionModule`, which is part of the newly released nuget package [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` is automatically enabled when using either [AspNetCore](asp-net-core.md) or [WorkerService](worker-service.md). `EventCounterCollectionModule` collects counters with a non-configurable collection frequency of 60 seconds. There are no special permissions required to collect EventCounters.
+Application Insights supports collecting `EventCounters` with its `EventCounterCollectionModule`, which is part of the newly released NuGet package [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` is automatically enabled when using either [AspNetCore](asp-net-core.md) or [WorkerService](worker-service.md). `EventCounterCollectionModule` collects counters with a non-configurable collection frequency of 60 seconds. There are no special permissions required to collect EventCounters.
 
 ## Default counters collected
 
-For apps running in .NET Core 3.0, the following counters are collected automatically by the SDK. The name of the counters will be of the form "Category|Counter".
+Starting with 2.15.0 version of either [AspNetCore SDK](asp-net-core.md) or [WorkerService SDK](worker-service.md), no counters are collected by default. The module itself is enabled, so users can simply add the desired counters to
+collect them.
 
-|Category | Counter|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
-
-> [!NOTE]
-> Counters of category Microsoft.AspNetCore.Hosting are only added in ASP.NET Core Applications.
+To get a list of well known counters published by the .NET Runtime, see [Available Counters](/dotnet/core/diagnostics/event-counters#available-counters) document.
 
 ## Customizing counters to be collected
 
@@ -51,16 +30,18 @@ The following example shows how to add/remove counters. This customization would
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
+    using Microsoft.Extensions.DependencyInjection;
 
     public void ConfigureServices(IServiceCollection services)
     {
         //... other code...
 
-        // The following code shows several customizations done to EventCounterCollectionModule.
+        // The following code shows how to configure the module to collect
+        // additional counters.
         services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                // This removes all default counters.
+                // This removes all default counters, if any.
                 module.Counters.Clear();
 
                 // This adds a user defined counter "MyCounter" from EventSource named "MyEventSource"
@@ -70,15 +51,38 @@ The following example shows how to add/remove counters. This customization would
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
-
-        // The following code removes EventCounterCollectionModule to disable the module completely.
-        var eventCounterModule = services.FirstOrDefault<ServiceDescriptor>
-                    (t => t.ImplementationType == typeof(EventCounterCollectionModule));
-        if (eventCounterModule != null)
-        {
-            services.Remove(eventCounterModule);
-        }
     }
+```
+
+## Disabling EventCounter collection module
+
+`EventCounterCollectionModule` can be disabled by using `ApplicationInsightsServiceOptions`. An
+example when using ASP.NET Core SDK is shown below.
+
+```csharp
+    using Microsoft.ApplicationInsights.AspNetCore.Extensions;
+    using Microsoft.Extensions.DependencyInjection;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        //... other code...
+
+        var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
+        applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
+        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);
+    }
+```
+
+A similar approach can be used for the WorkerService SDK as well, but the namespace must be
+changed as shown in the example below.
+
+```csharp
+    using Microsoft.ApplicationInsights.WorkerService;
+    using Microsoft.Extensions.DependencyInjection;
+
+    var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
+    applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
+    services.AddApplicationInsightsTelemetryWorkerService(applicationInsightsServiceOptions);
 ```
 
 ## Event counters in Metric Explorer
@@ -86,7 +90,7 @@ The following example shows how to add/remove counters. This customization would
 To view EventCounter metrics in [Metric Explorer](../platform/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
+> ![Event counters reported in Application Insights Metric Explorer](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
@@ -99,7 +103,7 @@ customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights](./media/event-counters/analytics-event-counters.png)
+> ![Event counters reported in Application Insights Analytics](./media/event-counters/analytics-event-counters.png)
 
 To get a chart of a specific counter (for example: `ThreadPool Completed Work Item Count`) over the recent period, run the following query.
 
@@ -123,16 +127,6 @@ Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn yo
 ### Can I see EventCounters in Live Metrics?
 
 Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analytics to see the telemetry.
-
-### Which platforms can I see the default list of .NET Core 3.0 counters?
-
-EventCounter doesn't require any special permissions, and is supported in all platforms .NET Core 3.0 is supported. This includes:
-
-* **Operating system**: Windows, Linux, or macOS.
-* **Hosting method**: In process or out of process.
-* **Deployment method**: Framework dependent or self-contained.
-* **Web server**: IIS (Internet Information Server) or Kestrel.
-* **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
 
 ### I have enabled Application Insights from Azure Web App Portal. But I can't see EventCounters.?
 

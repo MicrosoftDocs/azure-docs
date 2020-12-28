@@ -3,13 +3,13 @@ title: Manually initiate a failover on SQL Managed Instance
 description: Learn how to manually failover primary and secondary replicas on Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
+ms.reviewer: douglas, sstein
+ms.date: 12/16/2020
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -32,6 +32,15 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
+### Azure RBAC permissions required
+
+User initiating a failover will need to have one of the following Azure roles:
+
+- Subscription Owner role, or
+- Managed Instance Contributor role, or
+- Custom role with the following permission:
+  - `Microsoft.Sql/managedInstances/failover/action`
+
 ### Using PowerShell
 
 The minimum version of Az.Sql needs to be [v2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Consider using [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal that always has the latest PowerShell version available. 
@@ -48,7 +57,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use PowerShell command [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
+Use PowerShell command [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -82,7 +91,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### Using Rest API
 
-For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
+For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
 
 To initiate failover using REST API call, first generate the Auth Token using API client of your choice. The generated authentication token is used as Authorization property in the header of API request and it is mandatory.
 
@@ -126,7 +135,7 @@ You will not be able to see the same output with GP service tier as the one abov
 
 > [!IMPORTANT]
 > Functional limitations of user-initiated manual failover are:
-> - There could be one (1) failover initiated on the same Managed Instance every **30 minutes**.
+> - There could be one (1) failover initiated on the same Managed Instance every **15 minutes**.
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
 

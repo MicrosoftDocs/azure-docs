@@ -1,5 +1,5 @@
 ---
-title: "Speech synthesis quickstart - Speech service"
+title: "Text-to-speech quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech SDK to convert text-to-speech. In this quickstart, you learn about object construction and design patterns, supported audio output formats, the Speech CLI, and custom configuration options for speech synthesis.
 services: cognitive-services
@@ -8,23 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
-zone_pivot_groups: speech-full-stack
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
+zone_pivot_groups: programming-languages-set-twenty-four
+keywords: text to speech
 ---
 
-# Get started with speech synthesis
-
-In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
-
-* Getting responses as in-memory streams
-* Customizing output sample rate and bit rate
-* Submitting synthesis requests using SSML (speech synthesis markup language)
-* Using neural voices
-
-> [!TIP]
-> If you want to skip straight to sample code, see the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub.
+# Get started with text-to-speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
@@ -42,12 +33,20 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
-[!INCLUDE [CLI include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/text-to-speech-basics/text-to-speech-basics-curl.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
 ## Next steps

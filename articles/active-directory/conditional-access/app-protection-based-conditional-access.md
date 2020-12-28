@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps with Intune app protection policies applied to them.
 
-This article presents three scenarios to configure Conditional Access policies for resources like Office 365, Exchange Online, and SharePoint Online.
+This article presents three scenarios to configure Conditional Access policies for resources like Microsoft 365, Exchange Online, and SharePoint.
 
-- [Scenario 1: Office 365 apps require approved apps with app protection policies](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [Scenario 1: Microsoft 365 apps require approved apps with app protection policies](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [Scenario 2: Browser apps require approved apps with app protection policies](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [Scenario 3: Exchange Online and SharePoint Online require an approved client app and app protection policy](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [Scenario 3: Exchange Online and SharePoint require an approved client app and app protection policy](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 In the Conditional Access, these client apps are known to be protected with an app protection policy. More information about app protection policies can be found in the article, [App protection policies overview](/intune/apps/app-protection-policy)
 
@@ -33,13 +33,13 @@ In the Conditional Access, these client apps are known to be protected with an a
 > [!NOTE]
 > "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced if an app is supported in both policies. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
-## Scenario 1: Office 365 apps require approved apps with app protection policies
+## Scenario 1: Microsoft 365 apps require approved apps with app protection policies
 
-In this scenario, Contoso has decided that all mobile access to Office 365 resources must use approved client apps, like Outlook mobile and OneDrive, protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
+In this scenario, Contoso has decided that all mobile access to Microsoft 365 resources must use approved client apps, like Outlook mobile and OneDrive, protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following steps in order to require the use of an approved client app on mobile devices.
 
-**Step 1: Configure an Azure AD Conditional Access policy for Office 365**
+**Step 1: Configure an Azure AD Conditional Access policy for Microsoft 365**
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -48,7 +48,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Office 365 (preview)**.
+1. Under **Cloud apps or actions** > **Include**, select **Office 365**.
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
@@ -86,11 +86,11 @@ Review the article [How to create and assign app protection policies](/intune/ap
 
 ## Scenario 2: Browser apps require approved apps with app protection policies
 
-In this scenario, Contoso has decided that all mobile web browsing access to Office 365 resources must use an approved client app, like Edge for iOS and Android, protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
+In this scenario, Contoso has decided that all mobile web browsing access to Microsoft 365 resources must use an approved client app, like Edge for iOS and Android, protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following steps in order to require the use of an approved client app on mobile devices.
 
-**Step 1: Configure an Azure AD Conditional Access policy for Office 365**
+**Step 1: Configure an Azure AD Conditional Access policy for Microsoft 365**
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -99,7 +99,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Office 365 (preview)**.
+1. Under **Cloud apps or actions** > **Include**, select **Office 365**.
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
@@ -117,13 +117,13 @@ Organizations must complete the following steps in order to require the use of a
 
 Review the article [How to create and assign app protection policies](/intune/apps/app-protection-policies), for steps to create app protection policies for Android and iOS. 
 
-## Scenario 3: Exchange Online and SharePoint Online require an approved client app and app protection policy
+## Scenario 3: Exchange Online and SharePoint require an approved client app and app protection policy
 
 In this scenario, Contoso has decided that users may only access email and SharePoint data on mobile devices as long as they use an approved client app like Outlook mobile protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following three steps in order to require the use of an approved client app on mobile devices and Exchange ActiveSync clients.
 
-**Step 1: Policy for Android and iOS based modern authentication clients requiring the use of an approved client app and app protection policy when accessing Exchange Online and SharePoint Online.**
+**Step 1: Policy for Android and iOS based modern authentication clients requiring the use of an approved client app and app protection policy when accessing Exchange Online and SharePoint.**
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

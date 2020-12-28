@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
@@ -294,7 +295,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 

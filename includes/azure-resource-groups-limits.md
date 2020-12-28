@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020    
+ms.date: 09/01/2020    
 ms.author: tomfitz
 ---
 | Resource | Limit |
@@ -16,7 +16,7 @@ ms.author: tomfitz
 | Tag key length |512 |
 | Tag value length |256 |
 
-<sup>1</sup>Starting in June 2020, deployments will be automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
+<sup>1</sup>Deployments are automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### Template limits
 
@@ -31,4 +31,4 @@ ms.author: tomfitz
 | Template size |4 MB |
 | Parameter file size |64 KB |
 
-You can exceed some template limits by using a nested template. For more information, see [Use linked templates when you deploy Azure resources](../articles/azure-resource-manager/templates/linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+You can exceed some template limits by using a nested template. For more information, see [Use linked templates when you deploy Azure resources](../articles/azure-resource-manager/templates/linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

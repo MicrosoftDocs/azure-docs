@@ -2,8 +2,8 @@
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
-
+ms.date: 08/26/2020
+ms.custom: devx-track-csharp
 ---
 
 # Dependency Tracking in Azure Application Insights 
@@ -12,7 +12,7 @@ A *dependency* is a component that is called by your application. It's typically
 
 ## Automatically tracked dependencies
 
-Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingTelemetryModule` which is a Telemetry Module that automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](./asp-net.md) and [ASP.NET Core](./asp-net-core.md) applications, when configured as per the linked official docs. `DependencyTrackingTelemetryModule` is shipped as [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet package, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
+Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingTelemetryModule`, which is a Telemetry Module that automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](./asp-net.md) and [ASP.NET Core](./asp-net-core.md) applications, when configured as per the linked official docs. `DependencyTrackingTelemetryModule` is shipped as [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet package, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
  `DependencyTrackingTelemetryModule` currently tracks the following dependencies automatically:
 
@@ -30,7 +30,7 @@ If you're missing a dependency, or using a different SDK make sure it's in the l
 
 ## Setup automatic dependency tracking in Console Apps
 
-To automatically track dependencies from .NET console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
+To automatically track dependencies from .NET console apps, install the NuGet package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -96,9 +96,10 @@ For ASP.NET applications, full SQL query text is collected with the help of byte
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
 | Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
-| IIS Server (Azure VM, on-prem, and so on.) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-reference.md) and restart IIS. |
+| IIS Server (Azure VM, on-prem, and so on.) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
 | Azure Cloud Service | Add [startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Your app should be onboarded to ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](./asp-net.md) or [ASP.NET Core applications](./asp-net-core.md) |
 | IIS Express | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
+| Azure Web Jobs | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
 
 In addition to the platform specific steps above, you **must also explicitly opt-in to enable SQL command collection** by modifying the applicationInsights.config file with the following:
 
@@ -192,6 +193,18 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
 ### *How does automatic dependency collector report failed calls to dependencies?*
 
 * Failed dependency calls will have 'success' field set to False. `DependencyTrackingTelemetryModule` does not report `ExceptionTelemetry`. The full data model for dependency is described [here](data-model-dependency-telemetry.md).
+
+### *How do I calculate ingestion latency for my dependency telemetry?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### *How do I determine the time the dependency call was initiated?*
+
+In the Log Analytics query view `timestamp` represents the moment the TrackDependency() call was initiated which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
 ## Open-source SDK
 Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

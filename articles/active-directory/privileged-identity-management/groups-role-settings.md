@@ -25,7 +25,7 @@ Role settings are the default settings that are applied to group owner and group
 
 Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -87,7 +87,7 @@ And, you can choose one of these **active** assignment duration options:
 
 ## Require multi-factor authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
 ### Require Multi-Factor Authentication on active assignment
 
@@ -97,7 +97,7 @@ To ensure that the resource administrator fulfilling the assignment is who they 
 
 ### Require Multi-Factor Authentication on activation
 
-You can require users who are eligible for a role to prove who they are using Azure Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
 To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
 

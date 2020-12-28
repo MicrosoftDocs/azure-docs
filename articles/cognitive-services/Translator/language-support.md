@@ -28,86 +28,88 @@ Translator supports the following languages for text to text translation.
 
 [View Translate operation reference documentation](reference/v3-0-translate.md)
 
-|Language|	Language code|
-|:-----|:-----:|
-|Afrikaans|	`af`|
-|Arabic|	`ar`	|
-|Bangla|	`bn`	|
-|Bosnian (Latin)|	`bs`	|
-|Bulgarian|	`bg`	|
-|Cantonese (Traditional)|	`yue`|
-|Catalan|	`ca`	|
-|Chinese Simplified|	`zh-Hans`|
-|Chinese Traditional|	`zh-Hant`		|
-|Croatian|	`hr`	|
-|Czech|	`cs`	|
-|Dari|	`prs`	|
-|Danish|	`da`		|
-|Dutch|	`nl`|
-|English|	`en`	|
-|Estonian|	`et`	|
-|Fijian|	`fj`	|
-|Filipino|	`fil`	|
-|Finnish|	`fi`	|
-|French|	`fr`	|
-|German|	`de`	|
-|Greek|	`el`	|
-|Gujarati|	`gu`	|
-|Haitian Creole|	`ht`		|
-|Hebrew	|`he`	|
-|Hindi|	`hi`	|
-|Hmong Daw|	`mww`	|
-|Hungarian|	`hu`	|
-|Icelandic|	`is`	|
-|Indonesian|	`id`	|
-|Irish | `ga`|
-|Italian|	`it`	|
-|Japanese|	`ja`	|
-|Kannada|`kn`|
-|Kazakh|`kk`|
-|Kiswahili|	`sw`	|
-|Klingon|	`tlh-Latn`	|
-|Klingon (plqaD)|	`tlh-Piqd`	|
-|Korean	|`ko`	|
-|Kurdish (Central)	|`ku`	|
-|Kurdish (Northern)	|`kmr`	|
-|Latvian|	`lv`	|
-|Lithuanian|	`lt`	|
-|Malagasy|	`mg`	|
-|Malay|	`ms`		|
-|Malayalam| `ml` |
-|Maltese|	`mt`	|
-|Maori| `mi`  |
-|Marathi| `mr`  |
-|Norwegian|	`nb`	|
-|Odia|	`or`	|
-|Pashto|	`ps`	|
-|Persian|	`fa`	|
-|Polish|	`pl`	|
-|Portuguese (Brazil)|	`pt-br`	|
-|Portuguese (Portugal)| `pt-pt` |
-|Punjabi|`pa`|
-|Queretaro Otomi|	`otq`	|
-|Romanian|	`ro`	|
-|Russian|	`ru`	|
-|Samoan|	`sm`	|
-|Serbian (Cyrillic)|	`sr-Cyrl`|
-|Serbian (Latin)|	`sr-Latn`		|
-|Slovak|	`sk`	|
-|Slovenian|	`sl`	|
-|Spanish|	`es`	|
-|Swedish|	`sv`	|
-|Tahitian|	`ty`	|
-|Tamil|	`ta`	|
-|Telugu|	`te`	|
-|Thai|	`th`	|
-|Tongan|	`to`	|
-|Turkish|	`tr`		|
-|Ukrainian|	`uk`	|
-|Urdu|	`ur`	|
-|Vietnamese|	`vi`	|
-|Welsh|	`cy`	|
-|Yucatec Maya|	`yua`	|
+| Language | Language code |
+|:-|:-:|
+| Afrikaans | `af` |
+| Arabic | `ar` |
+| Assamese | `as` |
+| Bangla | `bn` |
+| Bosnian (Latin) | `bs` |
+| Bulgarian | `bg` |
+| Cantonese (Traditional) | `yue` |
+| Catalan | `ca` |
+| Chinese Simplified | `zh-Hans` |
+| Chinese Traditional | `zh-Hant` |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Dari | `prs` |
+| Danish | `da` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Fijian | `fj` |
+| Filipino | `fil` |
+| Finnish | `fi` |
+| French | `fr` |
+| French (Canada) | `fr-ca` |
+| German | `de` |
+| Greek | `el` |
+| Gujarati | `gu` |
+| Haitian Creole | `ht` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hmong Daw | `mww` |
+| Hungarian | `hu` |
+| Icelandic | `is` |
+| Indonesian | `id` |
+| Irish | `ga` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Kannada | `kn` |
+| Kazakh | `kk` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Korean | `ko` |
+| Kurdish (Central) | `ku` |
+| Kurdish (Northern) | `kmr` |
+| Latvian | `lv` |
+| Lithuanian | `lt` |
+| Malagasy | `mg` |
+| Malay | `ms` |
+| Malayalam | `ml` |
+| Maltese | `mt` |
+| Maori | `mi` |
+| Marathi | `mr` |
+| Norwegian | `nb` |
+| Odia | `or` |
+| Pashto | `ps` |
+| Persian | `fa` |
+| Polish | `pl` |
+| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Portugal) | `pt-pt` |
+| Punjabi | `pa` |
+| Queretaro Otomi | `otq` |
+| Romanian | `ro` |
+| Russian | `ru` |
+| Samoan | `sm` |
+| Serbian (Cyrillic) | `sr-Cyrl` |
+| Serbian (Latin) | `sr-Latn` |
+| Slovak | `sk` |
+| Slovenian | `sl` |
+| Spanish | `es` |
+| Swahili | `sw` |
+| Swedish | `sv` |
+| Tahitian | `ty` |
+| Tamil | `ta` |
+| Telugu | `te` |
+| Thai | `th` |
+| Tongan | `to` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Urdu | `ur` |
+| Vietnamese | `vi` |
+| Welsh | `cy` |
+| Yucatec Maya | `yua` |
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
@@ -118,63 +120,63 @@ Translator detects the following languages for translation and transliteration.
 
 [View Detect operation reference documentation](reference/v3-0-detect.md)
 
-|Language|	Language code|
-|:-----|:-----:|
-|Afrikaans|	`af`|
-|Arabic|	`ar`	|
-|Bulgarian|	`bg`	|
-|Catalan|	`ca`	|
-|Chinese Simplified|	`zh-Hans`|
-|Chinese Traditional|	`zh-Hant`		|
-|Croatian|	`hr`	|
-|Czech|	`cs`	|
-|Danish|	`da`		|
-|Dutch|	`nl`|
-|English|	`en`	|
-|Estonian|	`et`	|
-|Finnish|	`fi`	|
-|French|	`fr`	|
-|German|	`de`	|
-|Greek|	`el`	|
-|Gujarati|	`gu`	|
-|Haitian Creole|	`ht`		|
-|Hebrew	|`he`	|
-|Hindi|	`hi`	|
-|Hungarian|	`hu`	|
-|Icelandic|	`is`	|
-|Indonesian|	`id`	|
-|Irish | `ga`|
-|Italian|	`it`	|
-|Japanese|	`ja`	|
-|Kiswahili|	`sw`	|
-|Klingon|	`tlh-Latn`	|
-|Korean	|`ko`	|
-|Latvian|	`lv`	|
-|Lithuanian|	`lt`	|
-|Malay|	`ms`		|
-|Maltese|	`mt`	|
-|Norwegian|	`nb`	|
-|Pashto|	`ps`	|
-|Persian|	`fa`	|
-|Polish|	`pl`	|
-|Portuguese (Brazil)|	`pt-br`	|
-|Portuguese (Portugal)| `pt-pt` |
-|Romanian|	`ro`	|
-|Russian|	`ru`	|
-|Serbian (Cyrillic)|	`sr-Cyrl`|
-|Serbian (Latin)|	`sr-Latn`		|
-|Slovak|	`sk`	|
-|Slovenian|	`sl`	|
-|Spanish|	`es`	|
-|Swedish|	`sv`	|
-|Tahitian|	`ty`	|
-|Thai|	`th`	|
-|Turkish|	`tr`		|
-|Ukrainian|	`uk`	|
-|Urdu|	`ur`	|
-|Vietnamese|	`vi`	|
-|Welsh|	`cy`	|
-|Yucatec Maya|	`yua`	|
+| Language | Language code |
+|:-|:-:|
+| Afrikaans | `af` |
+| Arabic | `ar` |
+| Bulgarian | `bg` |
+| Catalan | `ca` |
+| Chinese Simplified | `zh-Hans` |
+| Chinese Traditional | `zh-Hant` |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Finnish | `fi` |
+| French | `fr` |
+| German | `de` |
+| Greek | `el` |
+| Gujarati | `gu` |
+| Haitian Creole | `ht` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hungarian | `hu` |
+| Icelandic | `is` |
+| Indonesian | `id` |
+| Irish | `ga` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Klingon | `tlh-Latn` |
+| Korean | `ko` |
+| Kurdish (Central) | `ku-Arab` |
+| Latvian | `lv` |
+| Lithuanian | `lt` |
+| Malay | `ms` |
+| Maltese | `mt` |
+| Norwegian | `nb` |
+| Pashto | `ps` |
+| Persian | `fa` |
+| Polish | `pl` |
+| Portuguese | `pt` |
+| Romanian | `ro` |
+| Russian | `ru` |
+| Serbian (Cyrillic) | `sr-Cyrl` |
+| Serbian (Latin) | `sr-Latn` |
+| Slovak | `sk` |
+| Slovenian | `sl` |
+| Spanish | `es` |
+| Swahili | `sw` |
+| Swedish | `sv` |
+| Tahitian | `ty` |
+| Thai | `th` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Urdu | `ur` |
+| Vietnamese | `vi` |
+| Welsh | `cy` |
+| Yucatec Maya | `yua` |
 
 ### Transliterate
 
@@ -239,7 +241,6 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
@@ -256,6 +257,7 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili      | `sw`          |
 | Swedish      | `sv`          |
 | Tamil      | `ta`          |
 | Thai      | `th`          |
@@ -277,10 +279,12 @@ The following languages are available for customization to or from English using
 
 | Language    | Language code |
 |:----------- |:-------------:|
+|Afrikaans|	`af`|
 | Arabic       | `ar`          |
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
+|Catalan|	`ca`	|
 | Chinese Simplified      | `zh-Hans`          |
 |Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
@@ -289,6 +293,8 @@ The following languages are available for customization to or from English using
 | Dutch      | `nl`          |
 | English    | `en`     |
 | Estonian      | `et`          |
+|Fijian|	`fj`	|
+|Filipino|	`fil`	|
 | Finnish      | `fi`          |
 | French      | `fr`          |
 | German      | `de`          |
@@ -302,12 +308,13 @@ The following languages are available for customization to or from English using
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-| Kiswahili|	`sw`	|
+|Kannada|`kn`|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
-| Malay|	`ms`		|
+| Malay|	`ms` |
+|Maltese|	`mt`	|
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norwegian      | `nb`          |
@@ -322,8 +329,11 @@ The following languages are available for customization to or from English using
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili|	`sw`	|
 | Swedish      | `sv`          |
+|Tahitian|	`ty`	|
 | Thai      | `th`          |
+|Tongan|	`to`	|
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Urdu|	`ur`	|
@@ -331,7 +341,7 @@ The following languages are available for customization to or from English using
 | Welsh | `cy` |
 
 ## Speech Translation
-Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/) to learn more about using speech translation and to view all of the [available language options](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](../speech-service/index.yml) to learn more about using speech translation and to view all of the [available language options](../speech-service/language-support.md).
 
 ### Speech-to-text
 Convert speech into text in order to translate to the text language of your choice. Speech-to-text is used for speech to text translation, or for speech-to-speech translation when used in conjunction with speech synthesis.
@@ -348,6 +358,7 @@ Convert speech into text in order to translate to the text language of your choi
 |English|
 |Finnish|
 |French|
+|French (Canada)|
 |German|
 |Gujarati|
 |Hindi|
@@ -370,46 +381,47 @@ Convert speech into text in order to translate to the text language of your choi
 ### Text-to-speech
 Convert text to speech. Text-to-speech is used to add audible output of translation results, or for speech-to-speech translation when used with Speech-to-text. 
 
-| Language    |
-|:----------- |
-|Arabic|
-|Bulgarian|
-|Cantonese (Traditional)|
-|Catalan|
-|Chinese Simplified|
-|Chinese Traditional|
-|Croatian|
-|Czech|
-|Danish|
-|Dutch|
-|English|
-|Finnish|
-|French|
-|German|
-|Greek|
-|Hebrew|
-|Hindi|
-|Hungarian|
-|Indonesian|
-|Italian|
-|Japanese|
-|Korean|
-|Malay|
-|Norwegian|
-|Polish|
-|Portuguese (Brazil)|
-|Portuguese (Portugal)|
-|Romanian|
-|Russian|
-|Slovak|
-|Slovenian|
-|Spanish|
-|Swedish|
-|Tamil|
-|Telugu|
-|Thai|
-|Turkish|
-|Vietnamese|
+| Language |
+|:-|
+| Arabic |
+| Bulgarian |
+| Cantonese (Traditional) |
+| Catalan |
+| Chinese Simplified |
+| Chinese Traditional |
+| Croatian |
+| Czech |
+| Danish |
+| Dutch |
+| English |
+| Finnish |
+| French |
+| French (Canada) |
+| German |
+| Greek |
+| Hebrew |
+| Hindi |
+| Hungarian |
+| Indonesian |
+| Italian |
+| Japanese |
+| Korean |
+| Malay |
+| Norwegian |
+| Polish |
+| Portuguese (Brazil) |
+| Portuguese (Portugal) |
+| Romanian |
+| Russian |
+| Slovak |
+| Slovenian |
+| Spanish |
+| Swedish |
+| Tamil |
+| Telugu |
+| Thai |
+| Turkish |
+| Vietnamese |
 
 ## View the language list on the Microsoft Translator website
 

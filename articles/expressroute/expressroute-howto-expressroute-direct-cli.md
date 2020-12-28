@@ -1,21 +1,21 @@
 ---
 
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: Learn how use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations across the world.
+description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
-ms.author: cherylmc 
+ms.date: 09/28/2020
+ms.author: duau 
 ms.custom: devx-track-azurecli
 
 ---
 
 # Configure ExpressRoute Direct by using the Azure CLI
 
-You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 
@@ -283,9 +283,10 @@ By default, you can create 10 circuits in the subscription that contains the Exp
 
 You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli

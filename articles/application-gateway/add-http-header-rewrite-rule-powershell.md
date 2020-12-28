@@ -10,14 +10,14 @@ ms.author: absha
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell
 
-This article describes how to use Azure PowerShell to configure an [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instance to rewrite the HTTP headers in requests and responses.
+This article describes how to use Azure PowerShell to configure an [Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) instance to rewrite the HTTP headers in requests and responses.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
-- You need to run Azure PowerShell locally to complete the steps in this article. You also need to have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then `Get-Module Az` to determine the version that you have installed. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
-- You need to have an Application Gateway v2 SKU instance. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) instance before you begin.
+- You need to run Azure PowerShell locally to complete the steps in this article. You also need to have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then `Get-Module Az` to determine the version that you have installed. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+- You need to have an Application Gateway v2 SKU instance. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) instance before you begin.
 
 ## Create required objects
 
@@ -98,4 +98,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## Next steps
 
-To learn more about how to set up some common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers.md).

@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template'
-description: Learn how to use a Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
+description: In this quickstart, you learn how to use a Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/14/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,6 +37,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 Multiple Azure resources are defined in the template:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)

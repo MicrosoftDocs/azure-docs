@@ -9,7 +9,7 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable Azure Multi-Factor Authentication
+  - name: Enable Azure AD Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
@@ -21,7 +21,19 @@
   expanded: true
   items:
   - name: Authentication methods
-    href: concept-authentication-methods.md
+    items:
+    - name: Overview
+      href: concept-authentication-methods.md
+    - name: Microsoft Authenticator app
+      href: concept-authentication-authenticator-app.md
+    - name: OATH tokens
+      href: concept-authentication-oath-tokens.md
+    - name: Passwordless
+      href: concept-authentication-passwordless.md
+    - name: Phone options
+      href: concept-authentication-phone-options.md
+    - name: Security questions
+      href: concept-authentication-security-questions.md
   - name: Self-service password reset
     items:
     - name: How password reset works
@@ -46,8 +58,6 @@
       href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: FAQ
       href: multi-factor-authentication-faq.md
-  - name: Passwordless authentication
-    href: concept-authentication-passwordless.md
   - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud
@@ -70,7 +80,7 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Azure Multi-Factor Authentication
+  - name: Azure AD Multi-Factor Authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
@@ -98,7 +108,7 @@
         href: howto-mfa-nps-extension.md
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN and Azure MFA
+      - name: Azure VPN and Azure AD MFA
         href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
@@ -116,6 +126,10 @@
             href: howto-authentication-passwordless-security-key-windows.md
           - name: SSO to on-premises resources
             href: howto-authentication-passwordless-security-key-on-premises.md
+          - name: Hybrid FAQs
+            href: howto-authentication-passwordless-faqs.md
+          - name: Troubleshoot hybrid
+            href: howto-authentication-passwordless-troubleshoot.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
@@ -209,8 +223,10 @@
         href: howto-mfa-nps-extension-errors.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSPR
-      href: active-directory-passwords-troubleshoot.md
+    - name: Self-service password reset (SSPR)
+      href: troubleshoot-sspr.md
+    - name: SSPR writeback
+      href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
       href: active-directory-passwords-faq.md
     - name: MFA FAQ
@@ -228,7 +244,7 @@
   - name: Microsoft Graph REST API beta
     href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Resources
   items:
   - name: Azure feedback forum

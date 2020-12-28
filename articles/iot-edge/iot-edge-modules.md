@@ -8,6 +8,7 @@ ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: devx-track-csharp
 ---
 
 # Understand Azure IoT Edge modules

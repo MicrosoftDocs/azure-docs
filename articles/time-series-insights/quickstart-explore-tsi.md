@@ -9,7 +9,7 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
@@ -95,7 +95,7 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
 
       [![Extend the time span to 60 days](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let's drop a marker to display the actual values. 
+1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let's drop a marker to display the actual values.
 
     1. Select **Generator System**, and then select three sensors: **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3**.
     1. Drop a marker on the last data point in the visible area.
@@ -122,9 +122,9 @@ Now that you've completed the quickstart, clean up the resources that you create
 You're ready to create your own Azure Time Series Insights Gen2 environment. To start:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights Gen2 environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md)
 
 Learn to use the demo and its features:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

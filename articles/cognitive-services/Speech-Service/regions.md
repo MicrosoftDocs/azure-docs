@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
+ms.custom: seodec18,references_regions
 ---
 
 # Speech service supported regions
@@ -22,7 +22,7 @@ The Speech portal to perform custom configurations to your speech experience for
 Keep in mind the following points when considering regions:
 
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
-* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+* If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Speech SDK
@@ -59,21 +59,25 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 | North America | West US 2        | `westus2`            |
 | South America | Brazil South     | `brazilsouth`        |
 
-This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](../luis/luis-reference-regions.md).
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) in these regions:
 
-| Region         | Region identifier |
-| -------------- | -------------------- |
-| West US        | `westus`             |
-| West US 2      | `westus2`            |
-| East US        | `eastus`             |
-| East US 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| North Europe   | `northeurope`        |
-| Southeast Asia | `southeastasia`      |
+| Global region | Region           | Region identifier    |
+| ------------- | ---------------- | -------------------- |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | West Central US  | `westcentralus`      |
+| North America | South Central US | `southcentralus`     |
+| Europe        | West Europe      | `westeurope`         |
+| Europe        | North Europe     | `northeurope`        |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| India         | Central India    | `centralindia`       |
 
 ### Speaker Recognition
 

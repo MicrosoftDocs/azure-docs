@@ -24,4 +24,4 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Delete cache**| **Description** |
 | [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Cache for Redis instance  |
 
-For more information about the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+For more information about the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).

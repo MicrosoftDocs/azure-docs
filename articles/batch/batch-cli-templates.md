@@ -2,7 +2,7 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ---
 # Use Azure Batch CLI templates and file transfer
@@ -98,7 +98,7 @@ the following main concepts:
         example, the complete definition for a pool could be placed in the body
         and only one parameter defined for `poolId`; only a pool ID string
         therefore needs to be supplied to create a pool.
-        
+
     -   The template body can be authored by someone with knowledge of Batch and
         the applications to be run by Batch; only values for the author-defined
         parameters must be supplied when the template is used. A user without
@@ -173,7 +173,7 @@ ffmpeg installed. To use it, supply only a pool ID string and the number of VMs 
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -265,7 +265,7 @@ per source video file. See [File groups and file transfer](#file-groups-and-file
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -327,7 +327,7 @@ A file group equates to a container that is created in the Azure storage account
 The Batch CLI extension provides commands to upload files from client to a specified file group and download files from the specified file group to a client.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

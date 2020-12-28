@@ -14,11 +14,11 @@ ms.custom: mvc
 
 # Quickstart: Provision a Python device with symmetric keys
 
-In this quickstart, you will learn how to provision a Windows development machine as a device to an IoT hub using Python. This device will use a symmetric key to authenticate with a Device Provisioning Service (DPS) instance in order to be assigned to an IoT hub. The authenticated device will be recognized by DPS based on an individual enrollment and assigned to an IoT hub. Sample code from the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) will be used to provision the device. 
+In this quickstart, you will learn how to provision a Windows development machine as a device to an IoT hub using Python. This device will use a symmetric key and an individual enrollment to authenticate with a Device Provisioning Service (DPS) instance in order to be assigned to an IoT hub. Sample code from the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) will be used to provision the device. 
 
 Although this article demonstrates provisioning with an individual enrollment, you can also use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). 
+If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 

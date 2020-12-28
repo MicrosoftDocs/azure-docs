@@ -1,8 +1,8 @@
 ---
 title: Reserved compute pricing - Azure Database for PostgreSQL - Single Server
 description: Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
@@ -15,15 +15,15 @@ Azure Database for PostgreSQL now helps you save money by prepaying for compute 
 You don't need to assign the reservation to specific Azure Database for PostgreSQL servers. An already running Azure Database for PostgreSQL (or ones that are newly deployed) will automatically get the benefit of reserved pricing. By purchasing a reservation, you're pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure database for PostgreSQL compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the PostgreSQL Database servers. At the end of the reservation term, the billing benefit expires, and the Azure Database for PostgreSQL are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Reserved capacity pricing is available for the Azure Database for PostgreSQL in both [Single server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) and [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) deployment options. For information about RI pricing on Hyperscale (Citus), see [this page](concepts-hyperscale-reserved-pricing.md).
+> Reserved capacity pricing is available for the Azure Database for PostgreSQL in both [Single server](./overview.md#azure-database-for-postgresql---single-server) and [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus) deployment options. For information about RI pricing on Hyperscale (Citus), see [this page](concepts-hyperscale-reserved-pricing.md).
 
-You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md). To buy the reserved capacity:
+You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for PostgreSQL reserved capacity. </br>
 
-The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) and [understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 
 ## Determine the right server size before purchase
@@ -41,7 +41,7 @@ For example, let's suppose that you are running one general purpose Gen5 – 32 
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for PostgreSQL servers that get the discount depend on the scope and quantity selected.
 
 
-![Overview of reserved pricing](media/concepts-reserved-pricing/postgresql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Overview of reserved pricing":::
 
 
 The following table describes required fields.
@@ -58,7 +58,7 @@ The following table describes required fields.
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## vCore size flexibility
 
@@ -74,9 +74,9 @@ The vCore reservation discount is applied automatically to the number of Azure D
 
 To learn more about Azure Reservations, see the following articles:
 
-* [What are Azure Reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
-* [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Understand Azure Reservations discount](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Understand reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Understand reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+* [What are Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md)?
+* [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

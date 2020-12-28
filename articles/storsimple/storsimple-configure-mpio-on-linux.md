@@ -16,6 +16,9 @@ This procedure is applicable to all the models of StorSimple 8000 series devices
 > [!NOTE]
 > This procedure cannot be used for a StorSimple Cloud Appliance. For more information, see how to configure host servers for your cloud appliance.
 
+> [!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 
 ## About multipathing
 The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
@@ -371,9 +374,9 @@ Repeat this command for all the connected network interfaces on the iSCSI target
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. I am not sure if my device is whitelisted.
+Q. I am not sure if my device is allowed.
 
-A. To verify whether your device is whitelisted, use the following troubleshooting interactive command:
+A. To verify whether your device is allowed, use the following troubleshooting interactive command:
 
 ```console
 multipathd -k
@@ -443,4 +446,3 @@ As you are configuring MPIO on Linux host, you may also need to refer to the fol
 
 * [Setting up MPIO on CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
-

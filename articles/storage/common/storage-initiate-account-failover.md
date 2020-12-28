@@ -11,7 +11,7 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Initiate a storage account failover
@@ -103,6 +103,8 @@ az storage account failover \ --name accountName
 When you initiate an account failover for your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
 
 To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
+The time it takes to failover after initiation can vary though typically less than one hour.
 
 After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 

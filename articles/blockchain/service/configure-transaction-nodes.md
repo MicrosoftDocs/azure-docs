@@ -48,7 +48,7 @@ To view a transaction node's endpoint details:
 
 1. In the Azure portal, navigate to one of your Azure Blockchain Service member transaction nodes and select **Overview**.
 
-    ![Endpoints](./media/configure-transaction-nodes/endpoints.png)
+    ![Screen capture shows the overview for transaction nodes for a blockchain member.](./media/configure-transaction-nodes/endpoints.png)
 
 Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over TLS.
 
@@ -71,7 +71,7 @@ To grant Azure AD access control to your endpoint:
 
 1. Select **Save** to add the role assignment.
 
-For more information on Azure AD access control, see [Manage access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+For more information on Azure AD access control, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 For details on how to connect using Azure AD authentication, see [connect to your node using AAD authentication](configure-aad.md).
 

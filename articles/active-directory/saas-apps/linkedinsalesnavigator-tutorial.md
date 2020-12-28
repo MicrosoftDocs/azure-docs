@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate LinkedIn Sales Navigator with Az
 * Enable your users to be automatically signed-in to LinkedIn Sales Navigator with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -141,11 +141,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Sales Navigator** from the dropdown list.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+	![Screenshot shows the Application Settings where you can select Sales Navigator.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Click on **OR Click Here to load and copy individual fields from the form** and perform the following steps:
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+	![Screenshot shows Single Sign-On where you can enter the values described.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
 	a. Copy **Entity Id** and paste it into the **Identifier** text box in the **Basic SAML Configuration** in the Azure portal.
 
@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **LinkedIn Admin Settings** section. Upload the XML file that you have downloaded from the Azure portal by clicking on the **Upload XML file** option.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+	![Screenshot shows Configure the LinkedIn service provider S S O settings where you can upload an X M L file.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+	![Screenshot shows Single Sign-On where you can enable Authenticate users with S S O.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 ### Create LinkedIn Sales Navigator test user
 
@@ -169,14 +169,14 @@ Linked Sales Navigator Application supports Just in Time (JIT) user provisioning
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the LinkedIn Sales Navigator tile in the Access Panel, you should be automatically signed in to the LinkedIn Sales Navigator for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the LinkedIn Sales Navigator tile in the Access Panel, you should be automatically signed in to the LinkedIn Sales Navigator for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try LinkedIn Sales Navigator with Azure AD](https://aad.portal.azure.com/)

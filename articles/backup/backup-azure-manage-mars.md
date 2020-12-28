@@ -74,7 +74,7 @@ You can add exclusion rules to skip files and folders that you don't want to be 
     ![Select the items to remove](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it is recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
+    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it's recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
 
 2. Complete the next steps and select **Finish** to complete the operation.
 
@@ -167,7 +167,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
 
-For these machines, the Azure Backup service ensures that the last recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+For these machines, the Azure Backup service ensures that the most recent recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
 
 ### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
 
@@ -183,6 +183,19 @@ Managing the backup policy for MARS is done through the MARS console and not thr
   1. Install the agent and re-register to the same vault and with the same passphrase
   1. Launch the MARS client to extend the retention duration according to your requirements
 - Your newly restored machine, protected with MARS, will continue to take backups.  
+
+## Configuring antivirus for the MARS agent
+
+We recommend the following configuration for your antivirus software to avoid conflicts with the operation of the MARS Agent.
+
+1. **Add Path Exclusions**: To avoid degradation of performance and possible conflicts, exclude the following paths from real-time monitoring by the antivirus software:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` and subfolders
+    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) to determine the scratch folder location.
+1. **Add Binary Exclusions**: To avoid degradation of backup and console activities, exclude processes for the following binaries from real-time monitoring by the antivirus software:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>While excluding these paths will be sufficient for most antivirus software, some may still continue to interfere with MARS Agent operations. If you are seeing unexpected failures, uninstall the antivirus software temporarily and monitor to see if the problem goes away. If this resolves the issue, contact your antivirus software vendor for assistance with proper configuration of their product.
 
 ## Next steps
 
