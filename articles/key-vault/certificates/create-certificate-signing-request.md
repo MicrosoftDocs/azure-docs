@@ -13,9 +13,9 @@ ms.date: 06/17/2020
 ms.author: sebansal
 ---
 
-# Create and merge CSR in Key Vault
+# Create and merge a CSR in Key Vault
 
-Azure Key Vault supports storing digital certificate issued by any Certificate Authority (CA) in your key vault. It supports creating the certificate signing request (CSR) with private-public key pair which can be signed by any CA. It could be internal enterprise CA or external public CA. A CSR is a message that is sent by the user to a CA in order to request a digital certificate.
+Azure Key Vault supports storing digital certificates issued by any Certificate Authority (CA) in your key vault. It supports creating the certificate signing request (CSR) with private-public key pair which can be signed by any CA. It could be internal enterprise CA or external public CA. A CSR is a message that is sent by the user to a CA in order to request a digital certificate.
 
 For more general information about certificates, see [Azure Key Vault Certificates](./about-certificates.md).
 
