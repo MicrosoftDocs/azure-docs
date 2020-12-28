@@ -457,4 +457,4 @@ ExtendedProperties : {}
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
