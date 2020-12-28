@@ -51,6 +51,8 @@ Please refer to [Share and receive data from Azure Blob Storage and Azure Data L
 ## Share from a SQL-based source
 Azure Data Share supports sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), and sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool. Sharing from Azure Synapse Analytics (workspace) serverless SQL pool is not currently supported. Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as csv or parquet file, as well as into Azure SQL Database and Azure Synapse Analytics as tables.
 
+[!NOTE] CSV file format does not support quoteChar. So there won't be any single character that would quote column values if it contains column delimiter **comma** `,`.
+
 When accepting data into Azure Data Lake Store Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if already exists.
 When data is received into table and if the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table already exists with the same name, it will be dropped and overwritten with the latest full snapshot. Incremental snapshots are not currently supported.
 
