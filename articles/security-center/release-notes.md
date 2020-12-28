@@ -172,7 +172,7 @@ The filters added this month provide options to refine the recommendations list 
     > This replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
-    > - [Quick fix remediation<a name="one-click"></a>](security-center-remediate-recommendations.md#quick-fix-remediationa-nameone-clicka)
+    > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::
