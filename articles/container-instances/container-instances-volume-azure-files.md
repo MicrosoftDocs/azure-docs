@@ -16,6 +16,9 @@ By default, Azure Container Instances are stateless. If the container crashes or
 > Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). Be aware that if you mount a share into a container directory in which files or directories exist, these files or directories are obscured by the mount and are not accessible while the container runs.
 >
 
+> [!IMPORTANT]
+> If you are deploying container groups into an Azure Virtual Network, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to your Azure Storage Account.
+
 ## Create an Azure file share
 
 Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share, and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string.
