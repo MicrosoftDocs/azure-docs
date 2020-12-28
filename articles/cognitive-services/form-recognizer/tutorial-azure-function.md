@@ -119,11 +119,14 @@ def main(myblob: func.InputStream):
 
 The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
 
+
+# [version 2.0](#tab/2-0)
+
 ```Python
 # This is the call to the Form Recognizer endpoint
     endpoint = "Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
     source = myblob.read()
 
     headers = {
@@ -136,6 +139,25 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 
 ```
 
+# [version 2.1 preview](#tab/2-1)
+
+```Python
+# This is the call to the Form Recognizer endpoint
+    endpoint = "Your Form Recognizer Endpoint"
+    apim_key = "Your Form Recognizer Key"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
+    source = myblob.read()
+
+    headers = {
+    # Request headers
+    'Content-Type': 'application/pdf',
+    'Ocp-Apim-Subscription-Key': apim_key,
+        }
+
+    text1=os.path.basename(myblob.name)
+
+```
+---
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
