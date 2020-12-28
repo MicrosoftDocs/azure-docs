@@ -17,7 +17,7 @@ This article summarizes all the features currently in preview for Azure Stream A
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
 
-### Authenticate to SQL Database output with managed identities
+### Authenticate to SQL Database output with managed identities (preview)
 
 Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes. 
 
@@ -43,7 +43,7 @@ Visual Studio tools for Azure Stream Analytics enhance the local testing feature
 
 ### Visual Studio Code for Azure Stream Analytics
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
+Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](./quick-create-visual-studio-code.md).
 
 ### Local testing with live data in Visual Studio Code
 

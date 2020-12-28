@@ -47,7 +47,7 @@ To access the `DeviceManager` a callAgent instance must first be created. You ca
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -85,7 +85,9 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 To place a video call, you have to enumerate local cameras using the deviceManager `getCameraList` API.
 Once you select the desired camera, use it to construct a `LocalVideoStream` instance and pass it within `videoOptions`
 as an item within the `localVideoStream` array to the `call` method.
-Once your call connects it'll automatically start sending a video stream from the selected camera to the other participant(s)
+Once your call connects it'll automatically start sending a video stream from the selected camera to the other participant(s).
+
+This also applies to the Call.accept() video options and CallAgent.join() video options.
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -95,14 +97,42 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
+### Receiving an incoming call
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+	    addedCall.accept();
+	}
+    });
+})
+```
+
 ### Join a group call
 To start a new group call or join an ongoing group call, use the 'join' method
 and pass an object with a `groupId` property. The value has to be a GUID.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callAgent.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### Join a Teams Meeting
+To join a Teams meeting, use 'join' method and pass a meeting link or a meeting's coordinates
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+	threadId: <thread id>,
+	organizerId: <organizer id>,
+	tenantId: <tenant id>,
+	messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## Call Management
@@ -144,7 +174,8 @@ This returns a string representing the current state of a call:
 * 'Connected' - call is connected
 * 'Hold' - call is put on hold, no media is flowing between local endpoint and remote participant(s)
 * 'Disconnecting' - transition state before the call goes to 'Disconnected' state
-* 'Disconnected' - final call state
+* 'Disconnected' - final call state.
+   * If network connection is lost, state goes to 'Disconnected' after about 2 minutes.
 
 
 * To see why a given call ended, inspect the `callEndReason` property.
@@ -158,6 +189,11 @@ const callEndReason = call.callEndReason;
 * To learn if the current call is an incoming call, inspect the `isIncoming` property, it returns `Boolean`.
 ```js
 const isIncoming = call.isIncoming;
+```
+
+* To check if the call is being recorded, inspect the `isRecordingActive` property, it returns `Boolean`.
+```js
+const isResordingActive = call.isRecordingActive;
 ```
 
 *  To check if the current microphone is muted, inspect the `muted` property, it returns `Boolean`.
@@ -230,6 +266,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### FAQ
+ * If network connectivity is lost, does the call state change to 'Disconnected' ?
+    * Yes, if network connection is lost for more than 2 minutes, call will transition to Disconnected state and call will end.
 
 ## Remote participants management
 
@@ -267,7 +306,8 @@ State can be one of
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
 * 'EarlyMedia' - announcement is played before participant is connected to the call
-* 'Disconnected' - final state - participant is disconnected from the call
+* 'Disconnected' - final state - participant is disconnected from the call.
+   * If remote participant loses their network connectivity, then remote participant state goes to 'Disconnected' after about 2 minutes.
 
 To learn why participant left the call, inspect `callEndReason` property:
 ```js
@@ -411,7 +451,9 @@ You can later update the scaling mode by invoking the `updateScalingMode` method
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### FAQ
+* If a remote participant loses their network connection, does their state change to 'Disconnected' ?
+    * Yes, if a remote participant loses their network connection for more than 2 minutes, their state will transition to Disconnected and they will be removed from the call.
 ## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.

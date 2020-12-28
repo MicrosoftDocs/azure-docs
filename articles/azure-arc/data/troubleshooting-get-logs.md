@@ -1,6 +1,6 @@
 ---
-title: Get logs to troubleshoot Azure Arc enabled data controller
-description: Get service logs to troubleshoot Azure Arc enabled data controller.
+title: Get logs to troubleshoot Azure Arc enabled data services
+description: Learn how to get log files from a data controller to troubleshoot Azure Arc enabled data services.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,20 +11,20 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Get Azure Arc enabled data services logs
+# Get logs to troubleshoot Azure Arc enabled data services
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
-Before proceeding you need:
+Before you proceed, you need:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Installation instructions](./install-client-tools.md).
-* An administrator account to sign in to the Azure Arc enabled data services controller.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
+* An administrator account to sign in to the Azure Arc enabled data controller.
 
-## Get Azure Arc enabled data services logs
+## Get log files
 
-You can get the Azure Arc enabled data services logs across all pods or specific pods for troubleshooting purposes. You can do this using standard Kubernetes tools such as the `kubectl logs` command or in this article you will be using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, which makes it easier to get all of the logs at once.
+You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, which makes it easier to get all of the logs at once.
 
 1. Sign in to the data controller with an administrator account.
 
@@ -48,27 +48,27 @@ The data controller creates the log files in the current working directory in a 
 
 ## Options
 
-`azdata arc dc debug copy-logs` provides the following options to manage the output.
+The `azdata arc dc debug copy-logs` command provides the following options to manage the output:
 
-* Output the log files to a different directory using the `--target-folder` parameter.
+* Output the log files to a different directory by using the `--target-folder` parameter.
 * Compress the files by omitting the `--skip-compress` parameter.
-* Trigger and include memory dumps by omitting the `--exclude-dumps`. This method is not recommended unless Microsoft Support has requested the memory dumps. Taking a memory dump requires that the data controller setting `allowDumps` is set to `true` the time of the data controller creation.
+* Trigger and include memory dumps by omitting `--exclude-dumps`. We don't recommend this method unless Microsoft Support has requested the memory dumps. Getting a memory dump requires that the data controller setting `allowDumps` is set to `true` when the data controller is created.
 * Filter to collect logs for just a specific pod (`--pod`) or container (`--container`) by name.
-* Filter to collect logs for a specific custom resource by passing the `--resource-kind` and `--resource-name` parameter. The `resource-kind` parameter value should be one of the custom resource definition names, which can be retrieved by the command `kubectl get customresourcedefinition`.
+* Filter to collect logs for a specific custom resource by passing the `--resource-kind` and `--resource-name` parameters. The `resource-kind` parameter value should be one of the custom resource definition names. You can retrieve those names by using the command `kubectl get customresourcedefinition`.
 
-With these parameters, you can replace the `<parameters>` in the following example. 
+With these parameters, you can replace the `<parameters>` in the following example: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-For example
+For example:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Example of folder hierarchy. The folder hierarchy is organized by pod name, then container, and then by directory hierarchy within the container.
+The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
 
 ```output
 <export directory>

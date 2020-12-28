@@ -112,6 +112,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -119,7 +124,8 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -151,6 +157,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### applicationInsights.samplingSettings
+
+For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -206,6 +214,28 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 ## cosmosDb
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## customHandler
+
+Configuration settings for a custom handler. For more information, see [Azure Functions custom handlers](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | The executable to start as the custom handler process. It is a required setting when using custom handlers and its value is relative to the function app root. |
+| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It is an optional setting and its value is relative to the function app root. |
+| arguments | n/a | An array of command line arguments to pass to the custom handler process. |
+| enableForwardingHttpRequest | false | If set, all functions that consist of only an HTTP trigger and HTTP output is forwarded the original HTTP request instead of the custom handler [request payload](functions-custom-handlers.md#request-payload). |
 
 ## durableTask
 
@@ -345,6 +375,28 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
 
+## retry
+
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
+|maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
+|minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
+|maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
+
 ## sendGrid
 
 Configuration setting can be found in [SendGrid triggers and bindings](functions-bindings-sendgrid.md#host-json).
@@ -388,6 +440,16 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## watchFiles
+
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

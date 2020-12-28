@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/16/2020
+  ms.date: 10/26/2020
 
 landingContent:
   - title: About Azure Policy
@@ -55,6 +55,8 @@ landingContent:
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
+          - text: Assign a policy (Terraform)
+            url: ./assign-policy-terraform.md
       - linkListType: tutorial
         links:
           - text: Create and manage policies

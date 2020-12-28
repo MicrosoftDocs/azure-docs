@@ -20,7 +20,7 @@ You can [download the package](https://www.npmjs.com/package/azure-streamanalyti
 
 ## Build the project
 
-The **asa-streamanalytics-cicd** npm package provides the tools to generate Azure Resource Manager templates of Stream Analytics [Visual Studio Code projects](quick-create-vs-code.md) or [Visual Studio projects](stream-analytics-quick-create-vs.md). You can also use the npm package on Windows, macOS, and Linux without installing Visual Studio Code or Visual Studio.
+The **asa-streamanalytics-cicd** npm package provides the tools to generate Azure Resource Manager templates of Stream Analytics [Visual Studio Code projects](./quick-create-visual-studio-code.md) or [Visual Studio projects](stream-analytics-quick-create-vs.md). You can also use the npm package on Windows, macOS, and Linux without installing Visual Studio Code or Visual Studio.
 
 Once you have installed the package, use the following command to build your Stream Analytics projects.
 

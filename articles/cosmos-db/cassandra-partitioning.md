@@ -11,6 +11,7 @@ ms.date: 05/20/2020
 ---
 
 # Partitioning in Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 

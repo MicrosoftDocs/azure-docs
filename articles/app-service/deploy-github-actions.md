@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 ---
 
 # Deploy to App Service using GitHub Actions
 
-Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
+Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
 
 ## Prerequisites 
 
@@ -51,7 +51,7 @@ You can quickly get started with GitHub Actions by using the App Service Deploym
 
 This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
 
-## Set up a work manually
+## Set up a workflow manually
 
 You can also deploy a workflow without using the Deployment Center. To do so, you will need to first generate deployment credentials. 
 
@@ -59,7 +59,7 @@ You can also deploy a workflow without using the Deployment Center. To do so, yo
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
 
-Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
+Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/applevel)
 
@@ -71,9 +71,12 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
+> [!NOTE]
+> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
+
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -119,7 +122,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
@@ -185,7 +188,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -298,7 +301,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -342,7 +345,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -428,7 +431,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -509,7 +512,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -560,7 +563,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -650,7 +653,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:
@@ -739,7 +742,7 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Events that trigger workflows](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 

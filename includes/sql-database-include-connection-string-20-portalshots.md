@@ -33,7 +33,7 @@ Use the [Azure portal](https://portal.azure.com/) to obtain the connection strin
 
 8. In one format or another, paste the connection string information into your client program code.
 
-For more information, see [Connection strings and configuration files](https://msdn.microsoft.com/library/ms254494.aspx).
+For more information, see [Connection strings and configuration files](/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
 
 <!-- Image references. -->
 

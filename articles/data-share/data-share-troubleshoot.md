@@ -6,7 +6,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
+ms.date: 12/16/2020
 ---
 
 # Troubleshoot common issues in Azure Data Share 
@@ -47,11 +47,11 @@ This could be due to the following reasons:
 
 "We could not add write permissions for Azure Data Share account to one or more of your selected resources"
 
-If you receive any of the above errors when creating a new share or mapping datasets, it could be due to insufficient permissions to the Azure data store. See [Roles and requirements](concepts-roles-permissions.md) for required permissions. 
+If you receive any of the above errors when creating a new share, adding datasets or mapping datasets, it could be due to insufficient permissions to the Azure data store. See [Roles and requirements](concepts-roles-permissions.md) for required permissions. 
 
-You need write permission to share or receive data from an Azure data store, which typically exists in the Contributor role. 
+You need write permission to share or receive data from an Azure data store, which typically exists in the **Contributor** role. 
 
-If this is the first time you are sharing or receiving data from the Azure data store, you also need *Microsoft.Authorization/role assignments/write* permission, which typically exists in the Owner role. Even if you created the Azure data store resource, it does NOT automatically make you the owner of the resource. With proper permission, Azure Data Share service automatically grants the data share resource's managed identity access to the data store. This process could take a few minutes to take effect. If you experience failure due to this delay, try again in a few minutes.
+If this is the first time you are sharing or receiving data from the Azure data store, you also need *Microsoft.Authorization/role assignments/write* permission, which typically exists in the **Owner** role. Even if you created the Azure data store resource, it does NOT automatically make you the owner of the resource. With proper permission, Azure Data Share service automatically grants the data share resource's managed identity access to the data store. This process could take a few minutes to take effect. If you experience failure due to this delay, try again in a few minutes.
 
 SQL-based sharing requires additional permissions. See [Share from SQL sources](how-to-share-from-sql.md) for detailed list of prerequisites.
 
@@ -62,14 +62,21 @@ Snapshot could fail due to a variety of reasons. You can find detailed error mes
 * Data Share connection to source or target data store is blocked by firewall.
 * Shared dataset, or source or target data store is deleted.
 
+For storage account, the following are additional causes of snapshot failures.
+
+* File is being updated at the source while snapshot is happening. This may result in 0 byte file at the target. Subsequent snapshot after update is completed at the source should succeed.
+
 For SQL sources, the following are additional causes of snapshot failures. 
 
-* The source or target SQL script to grant Data Share permission is not run, or is run using SQL authentication rather than Azure Active Directory authentication.  
+* The source or target SQL script to grant Data Share permission is not run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), it is run using SQL authentication rather than Azure Active Directory authentication.  
 * The source or target SQL data store is paused.
 * SQL data types are not supported by the snapshot process or target data store. Refer to [Share from SQL sources](how-to-share-from-sql.md#supported-data-types) for details.
 * Source or target SQL data store are locked by other processes. Azure Data Share does not apply locks to source and target SQL data store. However, existing locks on the source and target SQL data store will cause snapshot failure.
 * The target SQL table is referenced by a foreign key constraint. During snapshot, if a target table with the same name exists, Azure Data Share drops table and creates a new table. If the target SQL table is referenced by a foreign key constraint, the table cannot be dropped.
 * Target CSV file is generated, but data cannot be read in Excel. This could happen when the source SQL table contains data with non-English characters. In Excel, select 'Get Data' tab and choose the CSV file, select file origin as 65001: Unicode (UTF-8) and load data.
+
+## Snapshot issue after updating snapshot schedule
+After data provider updates snapshot schedule for the sent share, data consumer needs to disable the previous snapshot schedule and re-enable the updated snapshot schedule for the received share. 
 
 ## Next steps
 

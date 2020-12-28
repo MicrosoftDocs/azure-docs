@@ -3,7 +3,7 @@ title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 # Working with large Azure resource data sets
 

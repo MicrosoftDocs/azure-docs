@@ -5,7 +5,7 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As a developer, I want to learn how to create and use a container registry so that I can deploy my own applications to Azure Kubernetes Service.
 ---

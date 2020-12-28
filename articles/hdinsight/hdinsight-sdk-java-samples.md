@@ -27,7 +27,7 @@ This article provides:
 
 ## Prerequisites
 
-[Azure HDInsight SDK for Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+[Azure HDInsight SDK for Java](/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
@@ -40,4 +40,4 @@ You can get these samples for Java by cloning the [hdinsight-java-sdk-samples](h
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Java reference documentation](https://docs.microsoft.com/java/api/overview/azure/hdinsight).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Java reference documentation](/java/api/overview/azure/hdinsight).

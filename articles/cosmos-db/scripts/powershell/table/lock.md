@@ -10,6 +10,7 @@ ms.date: 06/12/2020
 ---
 
 # Create a resource lock for Azure Cosmos Table API table using Azure PowerShell
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

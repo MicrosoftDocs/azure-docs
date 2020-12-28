@@ -39,7 +39,7 @@ Onboarding sensors lets you:
 | **Define a sensor management mode** | Define where asset, alert, and other information detected by the sensor is displayed. This is determined based on the **Sensor management mode** you define.<br /><br />**Locally managed mode**: Information detected by the sensor is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.<br /><br />**Cloud managed mode**: Information detected by the sensor is displayed in the sensor console. In addition, alert information is delivered through an IoT Hub and can be shared with other Azure services, for example Azure Sentinel.<br />See **Onboard sensor** for more information. |
 | **Acquire a sensor activation file** | For **Locally Managed** sensors, an activation file is used to manage authorized sensor activation periods.<br /><br />For **Cloud managed** sensors, an activation file is used as a connection between the sensor and an IoT Hub. For more information, see **Onboard sensors**. |
 | **Upload an activation file to your sensor** | Activation files must be uploaded to your enterprise sensors. Network monitoring and access to sensor console features will not be available until the activation file is uploaded. For more information, see **Upload sensor activation files**. |
-| **Update sensor network parameters before activation** | Update parameters defined during sensor installation. For more information, see **Error! Reference source not found**.|
+| **Update sensor network parameters before activation** | Update parameters defined during sensor installation. For more information, see **Upload sensor activation files**.|
 
 
 **To deploy a sensor:**
@@ -54,7 +54,7 @@ Onboarding sensors lets you:
 
 4. Select an option for acquiring a sensor.
 
-   ![Azure Defender for IoT network sector view](media/updates/image6.png)
+   ![Azure Defender for IoT network sensor view](media/updates/image6.png)
 
   - **Buy a preconfigured sensor**: Microsoft and Arrow have partnered to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: <hardware.sales@arrow.com>. The sensor will be delivered to your facility. The most current version is installed.
 

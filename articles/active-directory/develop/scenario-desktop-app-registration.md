@@ -46,7 +46,7 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 - To distinguish [device code flow](scenario-desktop-acquire-token.md#device-code-flow), [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication), and a [username and a password](scenario-desktop-acquire-token.md#username-and-password) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, you need to configure it as a public client application. To achieve this configuration:
 
     1. In the [Azure portal](https://portal.azure.com), select your app in **App registrations**, and then select **Authentication**.
-    1. In **Advanced settings** > **Default client type** > **Treat application as a public client**, select **Yes**.
+    1. In **Advanced settings** > **Allow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::
 
@@ -56,5 +56,5 @@ Desktop applications call APIs for the signed-in user. They need to request dele
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Desktop app: App configuration](scenario-desktop-app-configuration.md)
+Move on to the next article in this scenario, 
+[App Code configuration](scenario-desktop-app-configuration.md).

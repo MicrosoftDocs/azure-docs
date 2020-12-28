@@ -38,9 +38,9 @@ The APIs contain Swagger technical documentation. For information about the APIs
 
 ## Authentication
 
-FarmBeats uses Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Azure App Service provides built-in authentication and authorization support. 
+FarmBeats uses Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD). Azure App Service provides built-in authentication and authorization support. 
 
-For more information about Azure AD, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+For more information about Azure AD, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
 

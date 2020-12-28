@@ -5,12 +5,15 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
+ms.date: 11/10/2020
 
 ---
 
 # How to create alerts from Azure Monitor for VMs
 [Alerts in Azure Monitor](../platform/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. Azure Monitor for VMs does not include pre-configured alert rules, but you can create your own based on data that it collects. This article provides guidance on creating alert rules, including a set of sample queries.
+
+> [!IMPORTANT]
+> The alerts described in this article are based on log queries from data collected Azure Monitor for VMs. This is different than the alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
 
 
 ## Alert rule types

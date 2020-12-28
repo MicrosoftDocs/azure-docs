@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 12/11/2020
 ms.author: tamram   
 ms.custom: devx-track-azurepowershell
 ---
@@ -41,7 +41,7 @@ To upgrade a general-purpose v1 account to a general-purpose v2 account using Po
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # [Azure CLI](#tab/azure-cli)
 
@@ -107,7 +107,7 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the storage service for GPv1, GPv2, and Blob storage account types. This data is stored in well-known tables in the same storage account.
 
-For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+For more information, see [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
 
 > [!NOTE]
 > Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account.
@@ -164,4 +164,7 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Next steps
 
+* [Storage account overview](storage-account-overview.md)
 * [Create a storage account](storage-account-create.md)
+* [Move an Azure Storage account to another region](storage-account-move.md)
+* [Recover a deleted storage account](storage-account-recover.md)

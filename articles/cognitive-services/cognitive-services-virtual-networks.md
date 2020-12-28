@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/04/2020
 ms.author: aahi
 ---
 
@@ -44,19 +44,22 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 > * Custom Vision
 > * Face
 > * Form Recognizer
+> * Immersive Reader
 > * Language Understanding (LUIS)
 > * Personalizer
+> * Speech Services
 > * Text Analytics
 > * QnA Maker
 > * Translator Text
-> * Immersive Reader
+
 
 > [!NOTE]
-> If you're using LUIS, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use the LUIS portal from a virtual network, you will need to use the following tags:  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
+> If you're using LUIS, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal from a virtual network, you will need to use the following tags:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## Change the default network access rule
@@ -486,7 +489,7 @@ Private endpoints for Cognitive Services resources let you:
 
 A private endpoint is a special network interface for an Azure resource in your [VNet](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Cognitive Services resource provides secure connectivity between clients in your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
 
-Applications in the VNet can connect to the service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. The exception is the Speech Service, which requires a separate endpoint. See the section on [Private endpoints with the Speech Service](#private-endpoints-with-the-speech-service). Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
+Applications in the VNet can connect to the service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
 
 Private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect to one Cognitive Services resource using private endpoint, while using service endpoints to access others.
 
@@ -504,13 +507,13 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 
 ### Connecting to private endpoints
 
-Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Service, which requires a separate endpoint. See the section on [Private endpoints with the Speech Service](#private-endpoints-with-the-speech-service). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. The Speech Service 
+Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 
 We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
-### Private endpoints with the Speech Service
+### Private endpoints with the Speech Services
 
-When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service. You cannot use the global endpoint. The endpoint must follow this pattern: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
+See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 ### DNS changes for private endpoints
 
@@ -527,8 +530,8 @@ If you are using a custom DNS server on your network, clients must be able to re
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-* [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [DNS configuration for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### Pricing
 
@@ -536,5 +539,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Next steps
 
-* Explore the various [Azure Cognitive Services](welcome.md)
+* Explore the various [Azure Cognitive Services](./what-are-cognitive-services.md)
 * Learn more about [Azure Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)

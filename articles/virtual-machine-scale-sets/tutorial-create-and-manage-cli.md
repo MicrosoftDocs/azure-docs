@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create & manage an Azure VM scale set – Azure CLI'
+title: 'Tutorial: Create & manage a virtual machine scale set – Azure CLI'
 description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
@@ -21,11 +21,11 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## Create a resource group
@@ -117,7 +117,7 @@ exit
 
 
 ## Understand VM instance images
-When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. The Azure marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
+When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. Azure Marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
 ```azurecli-interactive
 az vm image list --output table

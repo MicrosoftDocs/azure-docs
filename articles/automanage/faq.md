@@ -27,7 +27,6 @@ The following are prerequisites for enabling Azure Automanage:
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only
-- VMs must not link to a log analytics workspace in a different subscription
 - Automanage does not support Sandbox subscriptions at this time
 
 **What Azure RBAC permission is needed to enable Automanage?**
@@ -39,7 +38,7 @@ If you are using a new Automanage Account when enabling, you must have either th
 
 **What regions are supported?**
 
-VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US.
+VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
 
 
 **Which capabilities does Azure Automanage automate?**

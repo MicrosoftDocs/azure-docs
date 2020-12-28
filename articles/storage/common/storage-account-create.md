@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -211,7 +211,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -219,7 +219,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 To learn how to modify this template or create new ones, see:
 
-- [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+- [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -275,10 +275,11 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 > [!WARNING]
 > It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 >
-> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](../../virtual-machines/troubleshooting/index.yml).
 
 ## Next steps
 
 - [Storage account overview](storage-account-overview.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
+- [Recover a deleted storage account](storage-account-recover.md)

@@ -3,7 +3,7 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
 ---
 
@@ -54,6 +54,13 @@ Use the following steps to configure file tracking on Windows computers:
     |Recursion     | True if recursion is used when looking for the item to be tracked, and False otherwise.        |    
     |Upload file content | True to upload file content on tracked changes, and False otherwise.|
 
+    If you plan on configuring monitoring of files and folders using wildcards, consider the following:
+
+    - Wildcards are required for tracking multiple files.
+    - Wildcards can only be used in the last segment of a path, such as *C:\folder\file* or */etc/*.conf*
+    - If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
+    - When setting the path, avoid general paths such as *c:*.** which will result in too many folders being traversed.
+
 8. Ensure that you specify True for **Upload file content**. This setting enables file content tracking for the indicated file path.
 
 ### Configure file tracking on Linux
@@ -87,6 +94,7 @@ Use the following steps to configure file tracking on Linux computers:
 File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](../../storage/common/storage-account-overview.md) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content.
+* By default, storage accounts accept connections from clients on any network. If you have secured your storage account to allow only certain traffic, you need to modify your configuration rules to allow your Automation account to connect to it. See [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 * Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../../storage/common/storage-account-create.md).
 * You can connect the storage account to only one Automation account.
 * Change Tracking and Inventory must be enabled in your Automation account.
@@ -133,7 +141,7 @@ Use the following steps to configure registry key tracking on Windows computers:
 
 3. Select **+ Add** to add a new registry key to track.
 
-4. On the **Add Windows Registry for Change Tracking** page, enter the information for the key to track and then select **Save**. The following table defines the properties that you can use for the information.
+4. On the **Add Windows Registry for Change Tracking** page, enter the information for the key to track and then select **Save**. The following table defines the properties that you can use for the information. When specifying a registry path, it must be the key and not a value.
 
     |Property  |Description  |
     |---------|---------|

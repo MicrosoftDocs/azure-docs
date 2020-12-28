@@ -105,7 +105,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Fsv2-series     |- Intel® 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
 |M-series     |- Intel® E7-8890 v3 2.5 GHz and Intel® 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
 
-\* In the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel® SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel® 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
+\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel® SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel® 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
 For more information on resource limits, see [Resource limits for single databases (vCore)](resource-limits-vcore-single-databases.md), or [Resource limits for elastic pools (vCore)](resource-limits-vcore-elastic-pools.md).
 
@@ -162,7 +162,7 @@ Use the following PowerShell script:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-For more details, check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
+For more details, check [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) command.
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -172,7 +172,7 @@ Use the following CLI command:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-For more details, check [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
+For more details, check [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ---
 
@@ -234,5 +234,4 @@ For details about the specific compute and storage sizes available in the genera
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore-based resource limits for pooled Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
-
+- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md).

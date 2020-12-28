@@ -21,7 +21,7 @@ If your subscription has Azure Defender enabled, you'll receive security alerts 
 You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
 
 - [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Azure Security Center and sends them to the [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md) for Azure Sentinel.
-- Third-party SIEMs - Use Security Center's [continuous export](continuous-export.md) tools to send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM.
+- Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
 
 If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. Also, if you're exporting to an Event Hub or trying to trigger Workflow Automation with generic HTTP connectors, use the schemas to properly parse the JSON objects.
@@ -42,8 +42,9 @@ Below you'll find the schema of the alert events passed to:
 - Azure Logic App instances that were configured in Security Center's workflow automation
 - Azure Event Hub using Security Center's continuous export feature
 
-For more information about the workflow automation feature, see [Automate responses to alerts and recommendations](workflow-automation.md).
-For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
+For more information about the workflow automation feature, see [Automate responses to Security Center triggers](workflow-automation.md).
+
+For more information about continuous export, see [Continuously export Security Center data](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -181,5 +182,5 @@ For more information on the ways to access security alerts from outside Security
 
 - [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
-- Security Center's [continuous export feature](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 - [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information

@@ -8,19 +8,21 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 12/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Azure HANA Large Instances control through Azure portal
+
+>[!NOTE]
+>For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](baremetal-infrastructure-portal.md) topic.
+
 This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 
 ## Register HANA Large Instance Resource Provider
@@ -52,7 +54,7 @@ As your first HANA Large Instances are getting deployed, a new [Azure resource g
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
 
-![Navigation pane in Azure portal](./media/hana-li-portal/portal-resource-group.png)
+![Screenshot that highlights the Resource groups option.](./media/hana-li-portal/portal-resource-group.png)
 
 In the list of resource groups, you are getting listed, you might need to filter on the subscription you used to have HANA Large Instances deployed
 

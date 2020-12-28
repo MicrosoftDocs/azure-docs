@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # List and get tables for Azure Cosmos DB - Table API
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

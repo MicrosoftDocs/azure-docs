@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 
 ---
 
@@ -17,6 +17,4 @@ ms.date: 06/22/2020
     > [!TIP]
     > Cloning into a new version is a best practice before you modify your app. When you finish with a change to a version, export the version (as a .json or .lu file), and check the file into your source control system.
 
-1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
-
-    ![Change from the Versions page to the Intents page.](../media/tutorial-machine-learned-entity/new-version-imported-app.png)
+1. Select **Build** at the top of the screen, then click **Intents** in the left navigation menu. You will see the app's intents, which are the main building blocks of a LUIS app.

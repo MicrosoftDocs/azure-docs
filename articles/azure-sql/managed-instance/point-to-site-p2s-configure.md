@@ -16,15 +16,15 @@ ms.date: 03/13/2019
 # Quickstart: Configure a point-to-site connection to Azure SQL Managed Instance from on-premises
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This quickstart demonstrates how to connect to Azure SQL Managed Instance using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../../vpn-gateway/point-to-site-about.md).
+This quickstart demonstrates how to connect to Azure SQL Managed Instance using [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../../vpn-gateway/point-to-site-about.md).
 
 ## Prerequisites
 
 This quickstart:
 
 - Uses the resources created in  [Create a managed instance](instance-create-quickstart.md) as its starting point.
-- Requires PowerShell 5.1 and Azure PowerShell 1.4.0 or later on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
-- Requires the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) on your on-premises client computer.
+- Requires PowerShell 5.1 and Azure PowerShell 1.4.0 or later on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](/powershell/azure/install-az-ps#install-the-azure-powershell-module).
+- Requires the newest version of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) on your on-premises client computer.
 
 ## Attach a VPN gateway to a virtual network
 

@@ -287,7 +287,7 @@
     href: ../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
-    href: https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways
+    href: /azure/templates/microsoft.network/applicationgateways
 - name: Resources
   items:
   - name: Author templates

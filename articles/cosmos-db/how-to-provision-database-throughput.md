@@ -3,6 +3,7 @@ title: Provision database throughput in Azure Cosmos DB SQL API
 description: Learn how to provision throughput at the database level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown 
@@ -10,6 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB - SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to provision standard (manual) throughput on a database in Azure Cosmos DB SQL API. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 

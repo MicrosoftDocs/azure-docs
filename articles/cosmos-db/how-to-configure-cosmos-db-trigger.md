@@ -9,6 +9,7 @@ ms.author: maquaran
 ---
 
 # How to configure logging and connectivity with the Azure Functions trigger for Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes advanced configuration options you can set when using the Azure Functions trigger for Cosmos DB.
 

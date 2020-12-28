@@ -59,7 +59,7 @@ The Ink Recognizer API returns an analysis response about the objects it recogni
 
 ## Shapes recognized by the Ink Recognizer API
 
-The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://go.microsoft.com/fwlink/?linkid=2089907). 
+The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![The list of shapes recognized by the Ink Recognizer API](../media/shapes.png)
 
@@ -79,12 +79,12 @@ Having the recognition results in advance gives you information about the charac
 
 ## Integrate the Ink Recognizer API with Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) provides tools and technologies to enable digital inking experiences on a diverse range of devices. You can combine the Windows Ink platform with the Ink Recognizer API to create applications that display and interpret digital ink strokes.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) provides tools and technologies to enable digital inking experiences on a diverse range of devices. You can combine the Windows Ink platform with the Ink Recognizer API to create applications that display and interpret digital ink strokes.
 
 ## Next steps
 
 * [What is the Ink Recognizer API?](../overview.md)
-* [Ink Recognizer REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Ink Recognizer REST API reference](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Start sending digital ink stroke data using:
     * [C#](../quickstarts/csharp.md)

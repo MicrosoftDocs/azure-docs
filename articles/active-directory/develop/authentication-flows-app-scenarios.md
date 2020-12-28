@@ -214,7 +214,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that calls web APIs" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Web app that calls web APIs</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization code</a></td>
    <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
@@ -240,7 +240,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
-   <td>Work or school accounts</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
  <tr>

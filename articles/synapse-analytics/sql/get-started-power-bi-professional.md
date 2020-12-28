@@ -1,18 +1,18 @@
 ---
-title: Connect to Power BI Professional
-description: In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand (preview).
+title: Connect to Synapse SQL with Power BI Professional
+description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
 
-# Connect to Synapse SQL with Power BI Professional
+# Connect to serverless SQL pool with Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -22,7 +22,7 @@ ms.reviewer: jrasnick
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-In this tutorial, we will go through the steps for connecting Power BI desktop to SQL on-demand (preview).
+In this tutorial, we will go through the steps for connecting Power BI desktop to serverless SQL pool.
 
 ## Prerequisites
 
@@ -39,17 +39,17 @@ Parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on-demand service endpoint address    | Will be used as server name                                   |
-| SQL on-demand service endpoint region     | Will be used to determine what storage will we use in samples |
+| Serverless SQL pool service endpoint address    | Will be used as server name                                   |
+| Serverless SQL pool service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
-| Database you'll use to create views     | This database will be used as starting point in samples       |
+| Database you'll use to create views       | This database will be used as starting point in samples       |
 
 ## First-time setup
 
 There are two steps prior to using samples:
 
 1. Create database for your views
-2. Create credentials to be used by SQL on-demand to access files in storage
+2. Create credentials to be used by serverless SQL pool to access files in storage
 
 ### Create database
 
@@ -66,10 +66,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### Create credentials
 
-We need to create credentials before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
+We need to create credentials before you can run queries. This credential will be used by serverless SQL pool service to access files in storage.
 
 > [!NOTE]
-> You need to create credentials for storage account access. Although SQL on-demand can access storage from different regions, having storage and Azure Synapse workspace in the same region will provide a better performance experience.
+> You need to create credentials for storage account access. Although serverless SQL pool can access storage from different regions, having storage and Azure Synapse workspace in the same region will provide a better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
@@ -104,5 +104,4 @@ Write the URL for the database and the name of the database where the view resid
 
 ## Next steps
 
-Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to SQL on-demand using Azure Data Studio.
- 
+Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to serverless SQL pool using Azure Data Studio.

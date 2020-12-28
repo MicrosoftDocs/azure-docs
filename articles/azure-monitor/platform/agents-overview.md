@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
+ms.date: 12/17/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -30,7 +30,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Azure Monitor agent (preview) | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|
-| **Environments supported** | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
@@ -40,7 +40,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Azure Monitor agent (preview) | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|:---|
-| **Environments supported** | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Arc Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
@@ -52,7 +52,7 @@ The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in previ
 
 Use the Azure Monitor agent if you need to:
 
-- Collect guest logs and metrics from any virtual machine in Azure, in other clouds, or on-premises. (Azure only in preview.)
+- Collect guest logs and metrics from any virtual machine in Azure, in other clouds, or on-premises. (Azure Arc required for virtual machines outside of Azure.) 
 - Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
 - Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
@@ -77,8 +77,8 @@ Use the Log Analytics agent if you need to:
 * Collect logs and performance data from virtual or physical machines inside or outside of Azure. 
 * Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](data-platform-logs.md) such as [log queries](../log-query/log-query-overview.md).
 * Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your virtual machines at scale and monitors their processes and dependencies on other resources and external processes..  
-* Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-intro.md)  or [Azure Sentinel](../../sentinel/overview.md).
-* Use [Azure Automation Update management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure VMs
+* Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
+* Use [Azure Automation Update management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure VMs
 * Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent include:
@@ -154,27 +154,26 @@ The following tables list the operating systems that are supported by the Azure 
 | Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X |   |   |
-| CentOS Linux 7                                           | X | X |   | X |
-| CentOS Linux 7.8                                         | X | X | X | X |
-| CentOS Linux 7.6                                         | X | X | X | X |
+| CentOS Linux 8                                           |   | X | X |   |
+| CentOS Linux 7                                           | X | X | X | X |
 | CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5+                                        |   | X |   | X |
-| Debian 10                                                | X |   |   |   |
+| CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4+                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15                          | X | X |   |   |
+| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
+| SUSE Linux Enterprise Server 15                          | X | X | X |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X |   |   |
+| Ubuntu 20.04 LTS                                         |   | X | X |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14.04 LTS                                         |   | X |   | X |
@@ -185,17 +184,31 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
-|  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
+|  Red Hat Linux 8   | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+|                    | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| CentOS Linux 8     | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-|                    | 16.04.3 | 4.15.* |
+| Ubuntu Server      | 20.04   | 5.4\* |
+|                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
+|                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
+| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
+|                                 | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
 |                                 | 12 SP3 | 4.4.* |
 |                                 | 12 SP2 | 4.4.* |
 | Debian                          | 9      | 4.9  | 

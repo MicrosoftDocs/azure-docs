@@ -7,9 +7,9 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -85,7 +85,7 @@ The [Privileged authentication administrator](#privileged-authentication-adminis
 
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed the company's Azure AD organization.
+Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
 
 All enterprise Azure DevOps policies can be managed by users in this role.
 
@@ -137,7 +137,7 @@ In | Can do
 
 ### [Compliance Data Administrator](#compliance-data-administrator-permissions)
 
-Users with this role have permissions to track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also track compliance data within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. [This documentation](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) has details on differences between Compliance Administrator and Compliance Data Administrator.
+Users with this role have permissions to track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also track compliance data within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. [This documentation](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) has details on differences between Compliance Administrator and Compliance Data Administrator.
 
 In | Can do
 ----- | ----------
@@ -312,7 +312,7 @@ Users with the Modern Commerce User role typically have administrative permissio
 
 **When is the Modern Commerce User role assigned?**
 
-* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
 * **Purchases from Microsoft commercial marketplace**  – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global admin or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
 * **Proposals from Microsoft**  – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global admin or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
 * **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global or Billing admin, they get the Modern Commerce User role so they can access the admin center.  
@@ -702,10 +702,11 @@ Full access to manage devices in Azure AD.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
 | microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
 | microsoft.directory/devices/enable | Enable devices in Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
@@ -726,6 +727,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/allProperties/allTasks | Create and delete appRoleAssignments, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/contacts/allProperties/allTasks | Create and delete contacts, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/contracts/allProperties/allTasks | Create and delete contracts, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties in Azure Active Directory. |
@@ -1009,6 +1011,7 @@ Can read & write basic directory information. For granting access to application
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/create | Create users in Azure Active Directory. |
 | microsoft.directory/users/disable | Disable a user account in Azure Active Directory. |
 | microsoft.directory/users/enable | Enable a user account in Azure Active Directory |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory, requiring users to re-authenticate on their next sign-in |
@@ -1082,6 +1085,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.directory/applications/basic/read    | Read basic properties on applications in Azure Active Directory. |
 | microsoft.directory/applications/owners/read    | Read applications.owners property in Azure Active Directory. |
 | microsoft.directory/applications/policies/read    | Read applications.policies property in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/contacts/basic/read    | Read basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/memberOf/read    | Read contacts.memberOf property in Azure Active Directory. |
 | microsoft.directory/contracts/basic/read    | Read basic properties on contracts in Azure Active Directory. |
@@ -1262,13 +1266,16 @@ Can manage all aspects of the Intune product.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
 | microsoft.directory/devices/basic/update | Update basic properties on devices in Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.directory/devices/create | Create devices in Azure Active Directory. |
 | microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
+| microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
+| microsoft.directory/devices/enable | Enable devices in Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property in Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Update devices.registeredUsers property in Azure Active Directory. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
@@ -1508,7 +1515,7 @@ Can manage all aspects of the Power BI product.
 
 ### Power Platform Administrator permissions
 
-Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Microsoft Flow. 
+Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Power Automate.
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1519,7 +1526,7 @@ Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Micro
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Manage all aspects of Power Automate. |
 | microsoft.powerApps/allEntities/allTasks | Manage all aspects of PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
@@ -1649,9 +1656,9 @@ Can read security information and reports,and manage configuration in Azure AD a
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
@@ -1701,7 +1708,7 @@ Can read security information and reports in Azure AD and Microsoft 365.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |

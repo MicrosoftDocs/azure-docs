@@ -4,7 +4,7 @@ description: In this quickstart, you create the basic parts of an app, intents, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 11/30/2020
 ---
 
 # Quickstart: Create a new app in the LUIS portal
@@ -15,21 +15,22 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 ## Create an app
 
-1. Select **+ New app for conversation** from the context toolbar, then select **+ New app for conversation** again.
+To create an application, select **+ New app**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot of creating new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+In the window that appears, enter the following information:
 
-1. In the pop-up window, configure the app with the following settings and then select **Done**.
+|Name  |Description  |
+|---------|---------|
+|Name     | A name for your app. For example, "home automation". Required.        |
+|Culture     | The language that your app understands and speaks. Required.   |
+|Description | A description for your app. Optional.
+|Prediction resource | The prediction resource that will receive queries. Optional. |
 
-   |Setting name| Value | Purpose|
-   |--|--|--|
-   |Name|`myEnglishApp`|Unique LUIS app name<br>required|
-   |Culture|**English**|Language of utterances from users, **en-us**<br>required|
-   |Description (Optional)|`App made with LUIS Portal`|Description of app<br>optional|
-   |Prediction resource (Optional) |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
+Select **Done**.
 
-   ![Screenshot of entering new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>The culture cannot be changed once the application is created.
+
 
 ## Create intents
 
@@ -47,7 +48,7 @@ The app's two different _intentions_ align to the following intents:
 
 To create intents, complete the following steps:
 
-1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create**.
+1. After the app is created, make sure you are on the **Intents** page of the **Build** section. Select **Create**.
 
    [![Screenshot of selecting 'Create' to create new intent](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -55,14 +56,9 @@ To create intents, complete the following steps:
 
 ## Add an example utterance
 
-You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent.
+You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent. For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
-For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
-
-> [!div class="mx-imgBorder"]
-> [![Screenshot of entering example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Add the following 15 example utterances to the `FindForm` intent.
+On the **Intents** page for `FindForm`, add the following example utterances under **Example Utterance**, 
 
 |#|Example utterances|
 |--|--|

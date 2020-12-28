@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Degreed SSO
 
-To configure single sign-on on **Degreed** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Degreed support team](mailto:admin@degreed.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Degreed** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Degreed support team](mailto:sso@degreed.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Degreed test user
 
@@ -150,7 +150,7 @@ The objective of this section is to create a user called Britta Simon in Degreed
 There is no action item for you in this section. A new user is created during an attempt to access Degreed if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create a user manually, you need to contact the [Degreed support team](mailto:admin@degreed.com).
+> If you need to create a user manually, you need to contact the [Degreed support team](mailto:sso@degreed.com).
 
 
 ## Test SSO

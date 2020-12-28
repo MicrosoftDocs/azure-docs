@@ -52,4 +52,4 @@ Unlike standard Custom Translator models, Hub models will only be available in a
 ## Next steps
 
 - [Train a model](how-to-train-model.md).
-- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).

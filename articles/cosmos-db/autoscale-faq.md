@@ -5,10 +5,11 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 12/11/2020
 ---
 
 # Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your database or container based on usage. This article answers commonly asked questions about autoscale.
 
@@ -37,7 +38,7 @@ In single write region accounts, the autoscale rate per 100 RU/s is 1.5x the rat
 In accounts with multiple write regions, the autoscale rate per 100 RU/s is the same as the rate for standard (manual) provisioned multiple write region throughput. On your bill, you will see the existing multiple write regions meter. Since the rates are the same, if you use autoscale, you'll see the same quantity as with standard throughput.
 
 ### Does autoscale work with reserved capacity?
-Yes. When you purchase reserved capacity for accounts with multiple write regions, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Yes. When you purchase reserved capacity for accounts with single write regions, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 Multi-write region reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 

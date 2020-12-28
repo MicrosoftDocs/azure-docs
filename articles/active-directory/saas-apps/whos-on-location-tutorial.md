@@ -131,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on **Tools** -> **Account**.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config1.png)
+    ![Screenshot shows Account selected from the Tools menu in the WhosOnLocation site.](./media/WhosOnLocation-tutorial/config1.png)
 
 3. In the left side navigator, select **Employee Access**.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config2.png)
+    ![Screenshot shows Employee Access selected from Account Profile.](./media/WhosOnLocation-tutorial/config2.png)
 
 4. Perform the following steps in the following page.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config3.png)
+    ![Screenshot shows the Employess Access tab where you can enter user data.](./media/WhosOnLocation-tutorial/config3.png)
 
     a. Change **Single sign-on with SAML** to **Yes**.
 

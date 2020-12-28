@@ -8,7 +8,7 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library) <span class="docon docon-navigate-external x-hidden-focus"></span></a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.13.0`.
+        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library) <span class="docon docon-navigate-external x-hidden-focus"></span></a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.14.0`.
     :::column-end:::
     :::column:::
         <br>
@@ -27,7 +27,7 @@ To consume the package from your Android Studio project, make the following chan
 
 2. In the module-level *build.gradle* file, add the following to the `dependencies` section:
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
   ```
 
 The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).

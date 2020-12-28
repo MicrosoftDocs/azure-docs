@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 08/12/2020
+ms.date: 10/27/2020
 ---
 
 # How to review and publish an offer to the commercial marketplace
@@ -72,7 +72,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 ## Certification phase
 
-Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies).
+Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](/legal/marketplace/certification-policies).
 
 ### Types of validation that take place during certification
 
@@ -95,7 +95,7 @@ The information entered when you created your offer is checked for quality and r
 - Quality screenshots and videos
 - An explanation of how the offer utilizes Microsoft platforms and tools.
 
-Learn more regarding the content validation criteria by reading the [general listing policies](https://aka.ms/commercial-marketplace-certification-policies#100-general).
+Learn more regarding the content validation criteria by reading the [general listing policies](/legal/marketplace/certification-policies#100-general).
 
 #### Technical validation
 
@@ -121,6 +121,19 @@ During the preview creation phase, we create a version of your offer that will b
 > [!NOTE]
 > Do not use the preview audience to give people outside your organization visibility into an offer. Use the Private Offer option instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.
 
+## Cancel publishing
+
+To cancel an offer with the **Publish in progress** status:
+
+1. Select the offer name to open the **Offer overview** page.
+1. Select **Cancel publish** from the top-right corner of the page.
+1. Confirm that you want to stop the offer from being published.
+
+If you want to publish the offer at a later time, you'll need to start the publishing process over.
+
+> [!NOTE]
+> You can stop an offer from being published only if the offer hasn't yet progressed to the publisher sign off step. After you select **Go live**, you will not have the option to cancel publish any longer.
+
 ## Publisher sign-off phase
 
 When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
@@ -138,7 +151,7 @@ On the **Offer overview** page, you will see preview links under the **Go live**
 
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
-If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md)
+If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
 
 ## Publish phase
 

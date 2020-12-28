@@ -32,9 +32,6 @@ This feature does not require you to enable or configure anything, the storage m
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
->[!NOTE]
->Azure Monitor for Storage does not support [general-purpose v1 accounts](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
->
 
 ## View from Azure Monitor
 
@@ -90,7 +87,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights.
 
-    ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot that shows the Overview workbook page for the storage account.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 On the **Overview** workbook for the storage account, it shows several storage performance metrics that help you quickly assess:
 

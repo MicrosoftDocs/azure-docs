@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Cosmos DB Core (SQL) API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). Azure Cosmos DB CLI script samples can also be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 

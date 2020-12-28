@@ -1,8 +1,8 @@
 ---
 title: Configure data-in Replication - Azure Database for MariaDB
 description: This article describes how to set up Data-in Replication in Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
@@ -47,7 +47,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. The MariaDB server is the source in Data-in Replication.
 
-1. Review the [master server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
+1. Review the [primary server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
 
 2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
@@ -279,7 +279,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
     
     Because of a native replication limitation in MariaDB, you must set  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
 
-    Check your slave server's `sync_master_info` and `sync_relay_log_info` variables to make sure the data-in replication is stable, and set the variables to `1`.
+    Check your replica server's `sync_master_info` and `sync_relay_log_info` variables to make sure the data-in replication is stable, and set the variables to `1`.
     
 ## Other stored procedures
 

@@ -26,4 +26,4 @@ Azure Form Recognizer automatically encrypts your data when persisting it to the
 ## Next steps
 
 * [Form Recognizer Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

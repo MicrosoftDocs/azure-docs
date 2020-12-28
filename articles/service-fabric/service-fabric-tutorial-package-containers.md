@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to generate an Azure Service Fabric
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 

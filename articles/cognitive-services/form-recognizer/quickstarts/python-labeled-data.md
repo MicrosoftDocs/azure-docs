@@ -26,7 +26,7 @@ To complete this quickstart, you must have:
 - A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Download and extract *sample_data.zip*. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 > [!NOTE]
-> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation for v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) and [reference documentation for v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
+> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation for v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) and [reference documentation for v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/TrainCustomModelAsync).
 
 ## Create a Form Recognizer resource
 
@@ -251,7 +251,7 @@ For each source form, the corresponding label file should have the original file
 To train a model with labeled data, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 1. Replace `<Blob folder name>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
 # [v2.0](#tab/v2-0)
@@ -304,7 +304,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -584,7 +584,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
   }
 }
 ```
-# [v2.1 preview](#tab/v2-1) 
+# [v 2](#tab/v2-1) 
 ```json   
 {
   "status": "succeeded",

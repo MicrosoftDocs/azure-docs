@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -286,7 +286,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## Deploy as a web service
 
-With your model, you can predict the danger of death from a collision. Use Azure ML to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+With your model, you can predict the danger of death from a collision. Use Azure ML to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](../container-instances/index.yml) (ACI).
 
 ### Register the model
 

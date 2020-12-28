@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -20,11 +20,9 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 
 ## Deprecation of login.microsoftonline.com
 
-On 04 December 2019, we announced the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on **04 December 2020**:
+**October 2020 update:** We're extending a grace period for tenants who are unable to meet the originally announced deprecation date of 04 December 2020. Retirement of login.microsoftonline.com will now occur no earlier than **14 January 2021.**
 
-[Azure Active Directory B2C is deprecating login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
-
-The deprecation of login.microsoftonline.com goes into effect for all Azure AD B2C tenants on 04 December 2020, providing existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
+**Background**: On 04 December 2019, we originally [announced](https://azure.microsoft.com/updates/b2c-deprecate-msol/) the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on 04 December 2020. This provided existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
 
 The deprecation of login.microsoftonline.com does not impact Azure Active Directory tenants. Only Azure Active Directory B2C tenants are affected by this change.
 
@@ -51,7 +49,7 @@ When you use *b2clogin.com* as your redirect URL:
 
 * Space consumed in the cookie header by Microsoft services is reduced.
 * Your redirect URLs no longer need to include a reference to Microsoft.
-* JavaScript client-side code is supported (currently in [preview](user-flow-javascript-overview.md)) in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
+* JavaScript client-side code is supported (currently in [preview](javascript-and-page-layout.md)) in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
 
 ## Overview of required changes
 
@@ -59,7 +57,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references. This may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
 
 An old endpoint may look like:
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>

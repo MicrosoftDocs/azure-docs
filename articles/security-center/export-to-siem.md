@@ -86,4 +86,4 @@ This page explained how to ensure your Azure Security Center alert data is avail
 
 - [What is Azure Sentinel?](../sentinel/overview.md)
 - [Alert validation in Azure Security Center](security-center-alert-validation.md) - Verify your alerts are correctly configured
-- [Continuously export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)

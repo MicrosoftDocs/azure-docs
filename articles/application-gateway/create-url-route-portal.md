@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Tutorial: Create an application gateway with path-based routing rules using the Azure portal
 
-You can use the Azure portal to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
+You can use the Azure portal to configure [URL path-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). In this tutorial, you create backend pools using virtual machines. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
 In this article, you learn how to:
 
@@ -207,4 +207,4 @@ When no longer needed, delete the resource group and all related resources. To d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)
+> [Enable end to end TLS on Azure Application Gateway](./ssl-overview.md)

@@ -42,7 +42,7 @@ For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell, you'll need the [Az Module](/powershell/azure/).
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 

@@ -5,7 +5,7 @@ author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Running Apache Spark jobs on AKS

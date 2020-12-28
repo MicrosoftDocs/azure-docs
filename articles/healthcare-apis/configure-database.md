@@ -12,7 +12,7 @@ ms.author: matjazl
 
 Azure API for FHIR uses database to store its data. Performance of the underlying database depends on the number of Request Units (RU) selected during service provisioning or in database settings after the service has been provisioned.
 
-Azure API for FHIR borrows the concept of RUs from Cosmos DB (see [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) when setting the performance of underlying database. 
+Azure API for FHIR borrows the concept of RUs from Cosmos DB (see [Request Units in Azure Cosmos DB](../cosmos-db/request-units.md)) when setting the performance of underlying database. 
 
 Throughput must be provisioned to ensure that sufficient system resources are available for your database at all times. How many RUs you need for your application depends on operations you perform. Operations can range from simple read and writes to more complex queries. 
 

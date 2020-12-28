@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure portal - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
@@ -24,6 +24,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Update data
 > * Restore data
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
@@ -32,7 +34,7 @@ Open your favorite web browser, and visit the [Microsoft Azure portal](https://p
 
 ## Create an Azure Database for MySQL server
 
-An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
@@ -175,6 +177,14 @@ Imagine you have accidentally deleted an important database table, and cannot re
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify.
+
+## Clean up resources
+
+If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group, follow these steps:
+1. In the Azure portal, search for and select **Resource groups**. 
+2. In the resource group list, choose the name of your resource group.
+3. In the Overview page of your resource group, select **Delete resource group**.
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 ## Next steps
 

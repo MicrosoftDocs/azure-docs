@@ -39,5 +39,5 @@ Here is specific information you need to know to protect web APIs:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-protected-web-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-protected-web-api-app-registration.md).

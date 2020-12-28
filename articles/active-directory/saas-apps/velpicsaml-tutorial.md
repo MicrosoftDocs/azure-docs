@@ -133,23 +133,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.
 
-	![Plugin](./media/velpicsaml-tutorial/velpic_1.png)
+	![Screenshot shows the Integration page where you can select Plugins.](./media/velpicsaml-tutorial/velpic_1.png)
 
 5. Click on the **‘Add plugin’** button.
 	
-	![Plugin](./media/velpicsaml-tutorial/velpic_2.png)
+	![Screenshot shows the Add Plugin button selected.](./media/velpicsaml-tutorial/velpic_2.png)
 
 6. Click on the **SAML** tile in the Add Plugin page.
 	
-	![Plugin](./media/velpicsaml-tutorial/velpic_3.png)
+	![Screenshot shows SAML selected in the Add Plugin page.](./media/velpicsaml-tutorial/velpic_3.png)
 
 7. Enter the name of the new SAML plugin and click the **‘Add’** button.
 
-	![Plugin](./media/velpicsaml-tutorial/velpic_4.png)
+	![Screenshot shows the Add new SAML plugin dialog box with Azure A D entered.](./media/velpicsaml-tutorial/velpic_4.png)
 
 8. Enter the details as follows:
 
-	![Plugin](./media/velpicsaml-tutorial/velpic_5.png)
+	![Screenshot shows the Azure A D page where you can enter the values described.](./media/velpicsaml-tutorial/velpic_5.png)
 
 	a. In the **Name** textbox, type the name of SAML plugin.
 
@@ -195,7 +195,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 1. When you click the Velpic SAML tile in the Access Panel, you should get login page of Velpic SAML application. You should see the **‘Log In With Azure AD’** button on the sign in page.
 
-	![Plugin](./media/velpicsaml-tutorial/velpic_6.png)
+	![Screenshot shows the Learning Portal with Log In With Azure A D selected.](./media/velpicsaml-tutorial/velpic_6.png)
 
 1. Click on the **‘Log In With Azure AD’** button to log in to Velpic using your Azure AD account.
 

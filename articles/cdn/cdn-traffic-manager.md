@@ -55,11 +55,11 @@ Create two or more Azure CDN profiles and endpoints with different providers.
 ## Create traffic manager profile
 Create an Azure Traffic Manager profile and configure load balancing across your CDN endpoints. 
 
-1. Create an Azure Traffic Manager profile by following the steps in [Create a Traffic Manager profile](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
+1. Create an Azure Traffic Manager profile by following the steps in [Create a Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md). 
 
     * **Routing method**, select **Priority**.
 
-2. Add your CDN endpoints in your Traffic Manager profile by following the steps in [Add Traffic Manager endpoints](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Add your CDN endpoints in your Traffic Manager profile by following the steps in [Add Traffic Manager endpoints](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)
 
     * **Type**, select **External endpoints**.
     * **Priority**, enter a number.
@@ -116,7 +116,4 @@ To test the functionality, disable the primary CDN endpoint and verify that the 
 ## Next steps
 You can configure other routing methods, such as geographic, to balance the load among different CDN endpoints. 
 
-For more information, see [Configure the geographic traffic routing method using Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
-
-
-
+For more information, see [Configure the geographic traffic routing method using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).

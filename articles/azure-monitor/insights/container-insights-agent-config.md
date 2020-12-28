@@ -52,7 +52,7 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
-1. Download the [template ConfigMap YAML file](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and save it as container-azm-ms-agentconfig.yaml. 
+1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and save it as container-azm-ms-agentconfig.yaml. 
 
    > [!NOTE]
    > This step is not required when working with Azure Red Hat OpenShift because the ConfigMap template already exists on the cluster.

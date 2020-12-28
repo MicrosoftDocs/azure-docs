@@ -94,14 +94,14 @@ To configure Azure AD single sign-on with Workable, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Workable Domain and URLs single sign-on information](common/both-replyurl.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter a Reply U R L.](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
 
 5. Click **set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Workable Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://www.workable.com/sso/signin`

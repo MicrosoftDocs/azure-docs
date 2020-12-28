@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB bulk executor library overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 Azure Cosmos DB is a fast, flexible, and globally distributed database service that is designed to elastically scale out to support: 
 

@@ -22,6 +22,8 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: Security baseline
+      href: ./security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -142,7 +144,7 @@
   - name: EA subscriptions
     items:
     - name: Create
-      href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
+      href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Grant access to create
       href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Resource providers and types
@@ -178,6 +180,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-resource-manager
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator

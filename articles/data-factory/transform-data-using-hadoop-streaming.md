@@ -73,7 +73,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | mapper            | Specifies the name of the mapper executable | Yes      |
 | reducer           | Specifies the name of the reducer executable | Yes      |
 | combiner          | Specifies the name of the combiner executable | No       |
-| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner, and Reducer programs to be executed. Only **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** and **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** linked services are supported here. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
+| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner, and Reducer programs to be executed. Only **[Azure Blob Storage](./connector-azure-blob-storage.md)** and **[ADLS Gen2](./connector-azure-data-lake-storage.md)** linked services are supported here. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
 | filePath          | Provide an array of path to the Mapper, Combiner, and Reducer programs stored in the Azure Storage referred by fileLinkedService. The path is case-sensitive. | Yes      |
 | input             | Specifies the WASB path to the input file for the Mapper. | Yes      |
 | output            | Specifies the WASB path to the output file for the Reducer. | Yes      |

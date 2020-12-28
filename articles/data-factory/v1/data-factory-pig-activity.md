@@ -1,10 +1,10 @@
 ---
 title: Transform data using Pig Activity in Azure Data Factory 
-description: Learn how you can use the Pig Activity in an Azure data factory v1 to run Pig scripts on an on-demand/your own HDInsight cluster.
+description: Learn how you can use the Pig Activity in Azure Data Factory v1 to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5

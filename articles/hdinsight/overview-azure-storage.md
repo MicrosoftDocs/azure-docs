@@ -39,7 +39,7 @@ Consider the following principles when using an Azure Storage account with HDIns
 * **Public containers or public blobs in storage accounts that aren't connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]  
-  > Public containers allow you to get a list of all blobs that are available in that container and to get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
+  > Public containers allow you to get a list of all blobs that are available in that container and to get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Private containers in storage accounts that aren't connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs.
 

@@ -4,8 +4,8 @@ description: Create a SQL managed instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
@@ -84,10 +84,10 @@ You can use an online tool to base64 encode your desired username and password o
 PowerShell
 
 ```console
-[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
+[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('<your string to encode here>'))
 
 #Example
-#[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('example'))
+#[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
 
 ```
 

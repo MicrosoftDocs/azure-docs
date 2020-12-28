@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a database and graph with autoscale for Azure Cosmos DB - Gremlin API
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

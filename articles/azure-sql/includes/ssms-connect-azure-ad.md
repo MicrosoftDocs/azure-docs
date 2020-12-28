@@ -10,4 +10,4 @@ ms.reviewer: drskwier
 > [!NOTE]
 > In December 2021, releases of SSMS prior to 18.6 will no longer authenticate through Azure Active Directory with MFA.
 >
-> To continue utilizing Azure Active Directory authentication with MFA, you need [SSMS 18.6 or later](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+> To continue utilizing Azure Active Directory authentication with MFA, you need [SSMS 18.6 or later](/sql/ssms/download-sql-server-management-studio-ssms).

@@ -74,10 +74,10 @@ The following table provides links to resources for each type of security soluti
 | Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  | Customer |
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
-|  | Configure [Azure virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Cosmos DB and [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
+|  | Configure [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Cosmos DB and [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Customer |
 |  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
-|  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
-|  | Control access to your data by Azure support using [Customer lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
+|  | Configure [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md) for Azure Storage encryption | Customer |
+|  | Control access to your data by Azure support using [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
 | Application and middleware security | Integrate with AAD-DS and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
@@ -94,5 +94,5 @@ The following table provides links to resources for each type of security soluti
 ## Next steps
 
 * [Plan for HDInsight clusters with ESP](apache-domain-joined-architecture.md)
-* [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md)
+* [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md)

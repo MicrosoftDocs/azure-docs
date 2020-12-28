@@ -28,7 +28,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create an Apache Spark cluster in HDInsight
 
-You use the Azure portal to create an HDInsight cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+You use the Azure portal to create an HDInsight cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

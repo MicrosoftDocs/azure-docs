@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ ms.custom: seodec18
 Azure Time Series Insights Gen2 streaming data ingress limitations are described below.
 
 > [!TIP]
-> Read [Plan your Azure Time Series Insights Gen2 environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) for a comprehensive list of all limits.
+> Read [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits) for a comprehensive list of all limits.
 
 ## Per environment limitations
 
@@ -55,7 +55,7 @@ When planning your Azure Time Series Insights Gen2 environment, it's important t
 
 A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed.
 
-For Event Hubs partitioning best practices, review [How many partitions do I need?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 > [!NOTE]
 > Most IoT Hubs used with Azure Time Series Insights Gen2 only need four partitions.
@@ -88,9 +88,9 @@ To mitigate that circumstance, we recommend the following best practices:
 
 Refer to the following resources to learn more about optimizing hub throughput and partitions:
 
-* [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
-* [Event Hub Partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+* [IoT Hub Scale](../iot-hub/iot-hub-scaling.md)
+* [Event Hub Scale](../event-hubs/event-hubs-scalability.md#throughput-units)
+* [Event Hub Partitions](../event-hubs/event-hubs-features.md#partitions)
 
 ## Next steps
 

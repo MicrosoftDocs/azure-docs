@@ -1,7 +1,7 @@
 ---
 title:  "Add Columns: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Add Columns module in Azure Machine Learning to concatenate two datasets.
+description: Learn how to use the Add Columns module in the drag-and-drop Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

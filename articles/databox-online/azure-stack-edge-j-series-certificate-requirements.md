@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
 ---
 
@@ -26,12 +26,13 @@ Certificate issuing requirements are as follows:
 * The certificate's *Issued to:* field must not be the same as its *Issued by:* field except for Root CA certificates.
 
 
-
 ## Certificate algorithms
 
 Certificate algorithms must have the following requirements:
 
 * Certificates must use the RSA key algorithm.
+
+* Only RSA certificates with Microsoft RSA/Schannel Cryptographic Provider are supported.
 
 * The certificate signature algorithm cannot be SHA1.
 
@@ -70,13 +71,15 @@ The PFX certificates installed on your Azure Stack Edge Pro device should meet t
 
 * The certificate's PFX Encryption should be 3DES. This is the default encryption used when exporting from a Windows 10 client or Windows Server 2016 certificate store. For more information related to 3DES, see [Triple DES](https://en.wikipedia.org/wiki/Triple_DES).
 
-* The certificate PFX files must have valid *Digital Signature* and *KeyEncipherment* values in its *Key Usage* field.
+* The certificate PFX files must have valid *Digital Signature* and *KeyEncipherment* values in the *Key Usage* field.
 
 * The certificate PFX files must have the values *Server Authentication (1.3.6.1.5.5.7.3.1)* and *Client Authentication (1.3.6.1.5.5.7.3.2)* in the *Enhanced Key Usage* field.
 
 * The passwords to all certificate PFX files must be the same at the time of deployment if you are using the Azure Stack Readiness Checker Tool. For more information, see [Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * The password to the certificate PFX must be a complex password. Make a note of this password because it is used as a deployment parameter.
+
+* Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider.
 
 For more information, see [Export PFX certificates with private key](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

@@ -1,7 +1,7 @@
 ---
 title: Model interpretability in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
+description: Learn how to understand & explain how your machine learning model makes predictions during training & inferencing using the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
+ms.date: 11/16/2020
 ---
 
 # Model interpretability in Azure Machine Learning (preview)
@@ -34,7 +34,7 @@ Enabling the capability of explaining a machine learning model is important duri
 
 ## Interpretability with Azure Machine Learning
 
-The interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+The interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contains functionalities supported by Microsoft.
 

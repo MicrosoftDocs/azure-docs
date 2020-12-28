@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurecli
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will
 >[!div class="checklist"]
@@ -116,4 +116,4 @@ az group delete -n myresourcegroup
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Map an existing custom DNS name to Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

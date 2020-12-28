@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using Ruby - Azure Database for MySQL'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
@@ -34,7 +34,7 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 5. Test the Gem installation by running the command `gem -v` to see the version installed.
 6. Build the Mysql2 module for Ruby using Gem by running the command `gem install mysql2`.
 
-### MacOS
+### macOS
 1. Install Ruby using Homebrew by running the command `brew install ruby`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/#homebrew).
 2. Test the Ruby installation by running the command `ruby -v` to see the version installed.
 3. Test the Gem installation by running the command `gem -v` to see the version installed.
@@ -67,7 +67,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class to connect to MySQL server. Then it calls method ```query()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. Finally, call the ```close()``` to close the connection before terminating.
+The code uses a mysql2::client class to connect to MySQL server. Then it calls method ```query()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. Finally, call the ```close()``` to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values.
 ```ruby
@@ -219,6 +219,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps
