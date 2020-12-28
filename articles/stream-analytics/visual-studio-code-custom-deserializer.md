@@ -1,7 +1,7 @@
 ---
 title: Create custom .NET deserializers for Azure Stream Analytics cloud jobs using Visual Studio Code
 description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio Code.
-author: sujie
+author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
@@ -109,7 +109,7 @@ You can debug your .NET deserializer locally the same way you debug standard .NE
    :::image type="content" source="./media/custom-deserializer/create-launch-file-vscode.png" alt-text="Create launch file.":::
 
    Choose **ProtobufCloudDeserializer** and then **Azure Stream Analytics** from the dropdown list.
-   :::image type="content" source="./media/custom-deserializer/create-launch-file-vscode-2.png" alt-text="Create launch file.":::
+   :::image type="content" source="./media/custom-deserializer/create-launch-file-vscode-2.png" alt-text="Create launch file 2.":::
 
    Edit the **launch.json** file to replace <ASAScript>.asaql with ProtobufCloudDeserializer.asaql.
    :::image type="content" source="./media/custom-deserializer/configure-launch-file-vscode.png" alt-text="Configure launch file.":::
