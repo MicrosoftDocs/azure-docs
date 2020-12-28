@@ -18,6 +18,8 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
 ## Create IoT Central applications
 
+[!INCLUDE [Warning About Access Required](../../../includes/warning-contribitorrequireaccess.md)]
+
 To create an application, navigate to the [Azure portal](https://ms.portal.azure.com) and select **Create a resource**.
 
 In **Search the Marketplace** bar, type *IoT Central*:
