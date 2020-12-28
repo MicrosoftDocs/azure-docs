@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Custom .NET deserializers for Azure Stream Analytics cloud jobs
-description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio or Visual Studio Code.
+description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -19,14 +19,12 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a custom deserializer for protocol buffer.
-> * Create an Azure Stream Analytics job in Visual Studio or Visual Studio Code.
+> * Create an Azure Stream Analytics job in Visual Studio.
 > * Configure your Stream Analytics job to use the custom deserializer.
 > * Run your Stream Analytics job locally to test and debug the custom deserializer.
 
 
-## Custom .NET deserializers in Visual Studio
-
-### Prerequisites
+## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -39,7 +37,7 @@ In this tutorial, you learn how to:
 * Create a container in your Azure Storage Account.
 The container you create will be used to store assets related to your Stream Analytics job. If you already have a storage account with existing containers, you may use them. If not, you'll need to [create a new container](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-### Create a custom deserializer
+## Create a custom deserializer
 
 1. Open Visual Studio and select **File > New > Project**. Search for **Stream Analytics** and select **Azure Stream Analytics Custom Deserializer Project (.NET)**. Give the project a name, like **Protobuf Deserializer**.
 
@@ -51,13 +49,13 @@ The container you create will be used to store assets related to your Stream Ana
 
 4. Build the **Protobuf Deserializer** project.
 
-### Add an Azure Stream Analytics project
+## Add an Azure Stream Analytics project
 
 1. In Solution Explorer, right-click the **Protobuf Deserializer** solution and select **Add > New Project**. Under **Azure Stream Analytics > Stream Analytics**, choose **Azure Stream Analytics Application**. Name it **ProtobufCloudDeserializer** and select **OK**. 
 
 2. Right-click **References** under the **ProtobufCloudDeserializer** Azure Stream Analytics project. Under **Projects**, add **Protobuf Deserializer**. It should be automatically populated for you.
 
-### Configure a Stream Analytics job
+## Configure a Stream Analytics job
 
 1. Double-click **JobConfig.json**. Use the default configurations, except for the following settings:
 
@@ -102,7 +100,7 @@ The container you create will be used to store assets related to your Stream Ana
    |Class Name|MessageBodyProto.MessageBodyDeserializer|
    |Local Input File Path|< the file path for the downloaded sample protobuf input file>|
 
-### Execute the Stream Analytics job
+## Execute the Stream Analytics job
 
 1. Open **Script.asaql** and select **Run Locally**.
 
@@ -110,7 +108,7 @@ The container you create will be used to store assets related to your Stream Ana
 
 You have successfully implemented a custom deserializer for your Stream Analytics job! In this tutorial, you tested the custom deserializer locally. For your actual data, you would properly configure the input and output. Then submit the job to Azure from Visual Studio to run your job in the cloud using the custom deserializer you just implemented.
 
-### Debug your deserializer
+## Debug your deserializer
 
 You can debug your .NET deserializer locally the same way you debug standard .NET code.
 1. Right click **ProtobufCloudDeserializer** project name ans set it as startup project. 
