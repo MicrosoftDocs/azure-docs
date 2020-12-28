@@ -1735,7 +1735,7 @@ decodeUriComponent('<value>')
 This example replaces the escape characters in this string with decoded versions:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
