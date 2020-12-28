@@ -52,7 +52,7 @@ You can create custom analytics rules to help you discover threats and anomalous
   
       Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
-     :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screen shots":::
+     :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
 
    - If you see that your query would trigger too many or too frequent alerts, you can set a baseline in the **Alert threshold** section (see below).
 
