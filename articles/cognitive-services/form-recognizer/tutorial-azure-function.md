@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Use an Azure Function to process stored documents
 
-You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
+You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Form Recognizer Layout service and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
 > [!div class="mx-imgBorder"]
 > ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
-* [Python 3.x](https://www.python.org/) installed.
+* [Python 3.8.x](https://www.python.org/downloads/) installed.
 * [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) installed.
-* [Azure Functions Core Tools](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#azure-functions-core-tools) installed.
+* [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) installed.
 * Visual Studio Code with the following extensions installed:
   * [Azure Functions extension](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Python extension](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
@@ -45,27 +45,27 @@ In this tutorial, you learn how to:
 
 [Create an Azure Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) on the Azure portal. Select **StorageV2** as the Account kind.
 
-Once that has deployed, create two empty blob storage containers, named **Test** and **Output**.
+On the left pane, select the **CORS** tab, and remove the existing CORS policy if any exists.
+
+Once that has deployed, create two empty blob storage containers, named **test** and **output**.
 
 ## Create an Azure Functions project
 
-Open Visual Studio Code. If you've installed the Azure Functions extension, you should see an Azure logo on the left navigation pane. Select it. Then create a new folder called **coa_new**.
-
-Select the Create Function button (lightning icon) to start a workflow for building a simple Azure function. 
+Open Visual Studio Code. If you've installed the Azure Functions extension, you should see an Azure logo on the left navigation pane. Select it. Create a new project, and when prompted create a local folder **coa_new** to contain the project.
 
 ![VSCode create function button](./media/tutorial-azure-function/vs-code-create-function.png)
 
 
 You'll be prompted to configure a number of settings:
 * In the **Select a language** prompt, select Python.
-* In the **Select a template** prompt, Select Azure Blob Storage trigger. Then give the default trigger a name.
+* In the **Select a template** prompt, select Azure Blob Storage trigger. Then give the default trigger a name.
 * In the **Select setting** prompt, opt to create new local app settings.
 * Select your Azure subscription with the storage account you created. Then you need to enter the name of the storage container (in this case, `test/{name}`)
 * Opt to open the project in the current window. 
 
 ![VSCode create prompt example](./media/tutorial-azure-function/vs-code-prompt.png)
 
-When you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **Test** storage container, but it won't do anything.
+When you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **test** storage container, but it won't do anything.
 
 ## Test the function
 
@@ -86,7 +86,6 @@ In VSCode, navigate to the function's *requirements.txt* file. This defines the 
 
 ```
 azure-functions
-azure-storage
 azure-storage-blob
 requests
 numpy
@@ -122,7 +121,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 
 ```Python
 # This is the call to the Form Recognizer endpoint
-    endpoint = r"Your Form Recognizer Endpoint"
+    endpoint = "Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
     post_url = endpoint + "/formrecognizer/v2.0-preview/Layout/analyze"
     source = myblob.read()
@@ -135,6 +134,18 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 
     text1=os.path.basename(myblob.name)
 
+```
+
+
+> [!IMPORTANT]
+> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the [Cognitive Services security](../cognitive-services-security.md) article.
+
+Next, add code to query the service and get the returned data. 
+
+
+```Python
     resp = post(url = post_url, data = source, headers = headers)
     if resp.status_code != 202:
         print("POST analyze failed:\n%s" % resp.text)
@@ -145,16 +156,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
     wait_sec = 25
 
     time.sleep(wait_sec)
-```
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the [Cognitive Services security](../cognitive-services-security.md) article.
-
-Next, add code to query the service and get the returned data. 
-
-```Python
 # The layout API is async therefore the wait statement
     resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
 
@@ -172,7 +174,7 @@ Next, add code to query the service and get the returned data.
     results=resp_json
 ```
 
-Then add the following code to connect to the Azure Storage **Output** container
+Then add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
 
 ```Python
 # This is the connection to the blob storage, with the Azure Python SDK
@@ -180,7 +182,7 @@ Then add the following code to connect to the Azure Storage **Output** container
     container_client=blob_service_client.get_container_client("output")
 ```
 
-The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **Output** container. 
+The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **output** container. 
 
 
 > [!IMPORTANT]
@@ -225,6 +227,11 @@ The following code parses the returned Form Recognizer response, constructs a .c
             b.ix[i,j]=new_table.ix[new_table.ix[s,"rownum"],"text"]
             s=s+1
 
+```
+
+Finally, the last block of code uploads the extracted table and text data to your blob storage element.
+
+```Python
     # Here is the upload to the blob storage
     tab1_csv=b.to_csv(header=False,index=False,mode='w')
     name1=(os.path.splitext(text1)[0]) +'.csv'
@@ -233,7 +240,7 @@ The following code parses the returned Form Recognizer response, constructs a .c
 
 ## Run the function
 
-Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **Test** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **Output** container.
+Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **Test** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **output** container.
 
 You can connect this container to Power BI to create rich visualizations of the data it contains.
 
