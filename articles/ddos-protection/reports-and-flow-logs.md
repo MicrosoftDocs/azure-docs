@@ -21,7 +21,7 @@ Azure DDoS Protection standard provides detailed attack insights and visualizati
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * View and configure DDoS attack mitigation reports and flow logs, including DDoS Protection notifications, DDoS mitigation flow logs and DDoS mitigation reports. 
+> * View and configure DDoS attack mitigation reports and flow logs, including notifications, mitigation reports and mitigation flow logs. 
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ The following table lists the field names and descriptions:
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
 | **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
 | **Message** | Details of the attack. |
-| **Type** | Type of notification. Possible values include `MitigationStarted`. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 | **PublicIpAddress** | Your public IP address. |
 
 # [DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
@@ -93,7 +93,7 @@ The following table lists the field names and descriptions:
 | **SourcePort** | The port number of the client generating the attack traffic to your public IP address. |
 | **DestPublicIpAddress** | Your public IP address. |
 | **DestPort** | The port number of your public IP address. |
-| **Protocol** | Possible values include `tcp`, `udp` or `other`.|
+| **Protocol** | Possible values include `tcp`, `udp`, `other`.|
 
 # [DDoSMitigationReports](#tab/DDoSMitigationReports)
 
@@ -114,7 +114,7 @@ The following table lists the field names and descriptions:
 | **AttackVectors** |  Breakdown of attack types. Keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
 | **TrafficOverview** |  Breakdown of attack traffic. Keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, `Total Other packets dropped`. |
 | **Protocols** | Keys include `TCP`, `UDP`, `Other`. |
-| **DropReasons** | Keys include `Invalid TCP SYN`, `Invalid TCP`, `Invalid UDP`, `UDP reflection`, `TCP destination based rate limit`, `TCP source based rate limit`, `UDP destination based rate limit`, `UDP source based rate limit`.  |
+| **DropReasons** | Keys include `Protocol violation invalid TCP syn`, `Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood`, `Rate limit exceeded`, `Packet was forwarded to service`. |
 | **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
 | **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
 | **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
