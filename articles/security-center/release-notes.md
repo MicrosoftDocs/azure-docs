@@ -166,10 +166,10 @@ The filters added this month provide options to refine the recommendations list 
 
 - **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
 - **Severity** - View recommendations according to the severity classification set by Security Center
-- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce.
+- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce
 
     > [!TIP]
-    > This replaces the **Quick fix available (Yes/No)** filter. 
+    > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
     > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
