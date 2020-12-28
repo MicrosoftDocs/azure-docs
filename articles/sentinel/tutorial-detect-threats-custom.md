@@ -24,11 +24,13 @@ Once you have [connected your data sources](quickstart-onboard.md) to Azure Se
 This tutorial helps you detect threats with Azure Sentinel.
 > [!div class="checklist"]
 > * Create analytics rules
+> * Define how events and alerts are processed
+> * Define how alerts and incidents are generated
 > * Automate threat responses
 
 ## Create a custom analytics rule with a scheduled query
 
-You can create custom analytics rules to help you search for the types of threats and anomalies that are suspicious in your environment. The rule makes sure you are notified right away, so that you can triage, investigate, and remediate the threats.
+You can create custom analytics rules to help you discover threats and anomalous behaviors that are present in your environment. The rule makes sure you are notified right away, so that you can triage, investigate, and remediate the threats.
 
 1. In the Azure portal under Azure Sentinel, select **Analytics**.
 
@@ -42,11 +44,11 @@ You can create custom analytics rules to help you search for the types of threat
 
 ## Define the rule query logic and configure settings
 
-1. In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics, and then copy and paste it there.
+1. In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics, and then copy and paste it there. Queries are written in Kusto Query Language (KQL). Learn more about KQL [concepts](/azure/data-explorer/kusto/concepts/) and [queries](/azure/data-explorer/kusto/query/), and see this handy [quick reference guide](/azure/data-explorer/kql-quick-reference).
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
 
-   - In the **Results simulation** area to the right, select **Test with current data** and Azure Sentinel will show you a graph of the last 50 results (log events) the query would have generated in the past. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
+   - In the **Results simulation** area to the right, select **Test with current data** and Azure Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
   
       Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
@@ -84,6 +86,8 @@ You can create custom analytics rules to help you search for the types of threat
         > **Query intervals and lookback period**
         > - These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
         >
+        > - You can set a lookback period of up to 14 days.
+        >
         > **Ingestion delay**
         > - To account for **latency** that may occur between an event's generation at the source and its ingestion into Azure Sentinel, and to ensure complete coverage without data duplication, Azure Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
 
@@ -98,7 +102,7 @@ You can create custom analytics rules to help you search for the types of threat
     Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the twentieth alert will summarize the entire set of returned events. In other words, the twentieth alert is what would have been generated under the **Group all events into a single alert** option.
 
     > [!NOTE]
-    > What's the difference between **Events** and **Alerts**?
+    > What's the difference between **events** and **alerts**?
     >
     > - An **event** is a description of a single occurrence. For example, a single entry in a log file could count as an event. In this context an event refers to a single result returned by a query in an analytics rule.
     >
