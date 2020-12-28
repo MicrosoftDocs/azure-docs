@@ -124,7 +124,7 @@ If you're not going to continue to use this application, you can delete the Azur
 
 ```bash
 az staticwebapp delete \
-    --name my-first-static-web-app
+    --name my-first-static-web-app \
     --resource-group my-first-static-web-app
 ```
 

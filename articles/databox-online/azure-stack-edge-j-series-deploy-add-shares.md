@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 12/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -67,8 +67,7 @@ To create a share, do the following procedure:
    
     f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
      
-    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
-    If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
+    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. Modification of share-level permissions is currently not supported. If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
     
         ![Add SMB share](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    

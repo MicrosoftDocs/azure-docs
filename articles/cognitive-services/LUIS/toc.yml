@@ -191,8 +191,6 @@
       href: luis-how-to-azure-subscription.md
     - name: App and version settings
       href: how-to-application-settings-portal.md
-    - name: Migrate to authoring resource
-      href: luis-migration-authoring.md
     - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
@@ -227,7 +225,7 @@
     - name: Configure containers
       href: luis-container-configuration.md
     - name: Use container instances
-      href: deploy-luis-on-container-instances.md
+      href: ../containers/azure-container-instance-recipe.md
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
