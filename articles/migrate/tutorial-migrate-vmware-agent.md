@@ -11,7 +11,7 @@ ms.custom: MVC
 
 # Migrate VMware VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
  In this tutorial, you learn how to:
