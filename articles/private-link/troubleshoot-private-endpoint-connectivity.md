@@ -103,13 +103,12 @@ Review these steps to make sure all the usual configurations are as expected to 
      - The Source VM and the Private Endpoint belongs to the same VNET. If yes, then you need to engage support. 
      - The Source VM and the Private Endpoint are part of different VNETs, then check for the IP connectivity between the VNETS. If there are IP connectivity and still you are not able to see the route, engage support. 
 
-       ![NIC Effective Rules](./media/private-endpoint-tsg/nic-effective-rules.png)
 1. If the connection has validated results, the connectivity problem might be related to other aspects like secrets, tokens, and passwords at the application layer.
    - In this case, review the configuration of the private link resource associated with the private endpoint. For more information, see the [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)
    
 1. It is always good to narrow down before raising the support ticket. 
     a. If the Source is On-Premises connecting to Private Endpoint in Azure having issues, then try to connect 
-      - To another Virtual Machiner from On-Premises and check if you have IP connectivity to the Virtual Network from On-Premises. 
+      - To another Virtual Machine from On-Premises and check if you have IP connectivity to the Virtual Network from On-Premises. 
       - From a Virtual Machine in the Virtual Network to the Private Endpoint.
     b. If the Source is Azure and Private Endpoint is in different Virtual Network, then try to connect 
       - To the Private Endpoint from a different Source. By doing this you can isolate any Virtual Machine specific issues. 
