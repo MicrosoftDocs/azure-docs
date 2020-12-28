@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/24/2020
+ms.date: 12/28/2020
 ms.author: memildin
 
 ---
@@ -39,6 +39,7 @@ Updates in December include:
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
 - [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
 - [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
 - [Continuous export gets new data types and improved deployifnotexist policies](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
 
 
@@ -152,6 +153,29 @@ Wish this change, the recommendation is now a recommended best practice which do
 
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
+
+### Recommendations page has new filters for environment, severity, and available responses
+
+Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country.
+
+As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+
+With the growing list, there's a need to be able to filter to the recommendations of greatest interest. In November, we added filters to the recommendations page (see [Recommendations list now includes filters](#recommendations-list-now-includes-filters)).
+
+The filters added this month provide options to refine the recommendations list according to:
+
+- **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
+- **Severity** - View recommendations according to the severity classification set by Security Center
+- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce
+
+    > [!TIP]
+    > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
+    > 
+    > Learn more about each of these response options:
+    > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
+
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::
 
 ### Continuous export gets new data types and improved deployifnotexist policies
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ---
 
-# Syntax and expressions in Azure Resource Manager templates
+# Syntax and expressions in ARM templates
 
 The basic syntax of the Azure Resource Manager template (ARM template) is JavaScript Object Notation (JSON). However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
 
