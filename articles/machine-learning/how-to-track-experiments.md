@@ -87,7 +87,7 @@ The following notebooks demonstrate concepts in this article:
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
-!INCLUDE aml-clone-in-azure-notebook
+`!INCLUDE aml-clone-in-azure-notebook`
 
 ## Next steps
 
