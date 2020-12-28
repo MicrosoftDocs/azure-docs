@@ -297,7 +297,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
  #### [.NET 5.x](#tab/core5x)
 
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -321,10 +321,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
         // ...
     }
-    ```
+```
 #### [.NET Core 3.x](#tab/core3x)
 
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -348,10 +348,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
         // ...
     }
-    ```
+```
 #### [.NET Core 2.x](#tab/core2x)
 
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -370,8 +370,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
             return View();
         }
     }
-    ```
-    ---
+```
+---
 
 
 
