@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Sentinel for Defender for IoT (preview)
+title: Configure Azure Sentinel for Defender for IoT 
 description: Explains how to configure Azure Sentinel to receive data from your Defender for IoT solution.
 services: defender-for-iot
 ms.service: defender-for-iot
