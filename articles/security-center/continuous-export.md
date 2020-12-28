@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
 
 ---
@@ -19,6 +19,7 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 - All high severity alerts are sent to an Azure Event Hub
 - All medium or higher severity findings from vulnerability assessment scans of your SQL servers are sent to a specific Log Analytics workspace
 - Specific recommendations are delivered to an Event Hub or Log Analytics workspace whenever they're generated 
+- The secure score for a subscription is sent to a Log Analytics workspace whenever the score for a control changes by 0.01 or more 
 
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
@@ -40,8 +41,15 @@ This article describes how to configure continuous export to Log Analytics works
 |||
 
 
+## What data types can be exported?
 
+Continuous export can export the following data types whenever they change:
 
+- Security alerts
+- Security recommendations 
+- Security findings which can be thought of as 'sub' recommendations like findings from vulnerability assessment scanners or specific system updates. You can select to include them with their 'parent' recommendations such as "System updates should be installed on your machines".
+- Secure score (per subscription or per control)
+- Regulatory compliance data
 
 ## Set up a continuous export 
 
@@ -62,7 +70,7 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
-1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
+1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
     - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
     - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
@@ -211,6 +219,9 @@ No. Continuous export is built for streaming of **events**:
 
 - **Alerts** received before you enabled export won't be exported.
 - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+- **Secure score (preview)** per security control or subscription is sent when a security control's score  changes by 0.01 or more. 
+- **Regulatory compliance status (preview)** is sent when the status of the resource's compliance changes.
+
 
 
 ### Why are recommendations sent at different intervals?
