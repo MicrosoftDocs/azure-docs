@@ -228,14 +228,9 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Use Azure Defender for SQL
-    items:
-    - name: Configure Azure Defender for SQL on Azure VMs
+    - name: Use Azure Defender for SQL
       href: defender-for-sql-usage.md
       displayName: hybrid, arc
-    - name: Customize your SQL information protection policy
-      displayName: sql, database, data discovery
-      href: security-center-info-protection-policy.md
   - name: Use Azure Defender for container registries
     items:
     - name: Scan your registry images for vulnerabilities
@@ -285,6 +280,9 @@
     href: security-center-investigation-user-data.md
   - name: Gain tenant-wide visibility
     href: security-center-management-groups.md
+  - name: Customize your SQL information protection policy
+    displayName: sql, database, data discovery
+    href: security-center-info-protection-policy.md
 
 - name: Reference
   items:
