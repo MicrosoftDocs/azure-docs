@@ -51,7 +51,7 @@ Sign in to the [Azure Machine Learning studio](https://ml.azure.com). In the men
 
 On the **Create compute instance** page, select a VM size. For this tutorial, select a **Standard_D11_v2** VM. Then select **Next**. 
 
-On the **Setting** page, name your compute instance. Then select **Create**. 
+On the **Settings** page, name your compute instance. Then select **Create**. 
 
 >[!TIP]
 > You can also use the compute instance to create and run notebooks.

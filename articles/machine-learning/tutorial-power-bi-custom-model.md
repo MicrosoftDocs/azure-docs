@@ -102,7 +102,7 @@ y_df = y.to_pandas_dataframe()
 X_df.info()
 ```
 
-The `X_df` pandas data frame contains 10 baseline input variables. These variables include age, sex, body mass index, average blood pressure, and six blood serum measurements. The `y_df` pandas data frame is the target variable. It contains a quantitative measure of disease progression one year after the baseline. The data frame includes 442 records.
+The `X_df` pandas data frame contains 10 baseline input variables. These variables include age, sex, body mass index, average blood pressure, and six blood serum measurements. The `y_df` pandas data frame is the target variable. It contains a quantitative measure of disease progression one year after the baseline. The data frame contains 442 records.
 
 ### Train the model
 
@@ -148,7 +148,7 @@ print('Name:', model.name)
 print('Version:', model.version)
 ```
 
-You can also view the model in the Azure Machine Learning studio. In the menu on the left, select **Endpoints**:
+You can also view the model in the Azure Machine Learning studio. In the menu on the left, select **Models**:
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing how to view a model.":::
 
@@ -156,7 +156,7 @@ You can also view the model in the Azure Machine Learning studio. In the menu on
 
 When you deploy a model that will be integrated into Power BI, you need to define a Python *scoring script* and custom environment. The scoring script contains two functions:
 
-- The `init()` function runs after the service starts. It loads the model (which is automatically downloaded from the model registry) and deserializes it.
+- The `init()` function runs when the service starts. It loads the model (which is automatically downloaded from the model registry) and deserializes it.
 - The `run(data)` function runs when a call to the service includes input data that needs to be scored. 
 
 >[!NOTE]

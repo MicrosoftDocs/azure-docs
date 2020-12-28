@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create the predictive model by using automated ML (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy automated ML models so you can use the best model to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy automated machine learning models so you can use the best model to predict outcomes in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -21,11 +21,11 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Create an Azure Machine Learning compute cluster.
 > * Create a dataset.
-> * Create an automated ML run.
+> * Create an automated machine learning run.
 > * Deploy the best model to a real-time scoring endpoint.
 
 
-There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated ML in the studio."  This option is a no-code authoring experience. It fully automates data preparation and model training. 
+There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option C: Train and deploy models by using automated machine learning in the studio."  This option is a no-code authoring experience. It fully automates data preparation and model training. 
 
 But you could instead use one of the other options:
 
@@ -39,7 +39,7 @@ But you could instead use one of the other options:
 
 ## Create a compute cluster
 
-Automated ML trains many machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
+Automated machine learning trains many machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
 
 To begin, in the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Compute**. Open the **Compute clusters** tab. Then select **New**:
 
@@ -57,7 +57,7 @@ On the **Create compute cluster** page:
 The status of your cluster changes to **Creating**.
 
 >[!NOTE]
-> The new cluster has 0 nodes, so no compute costs are incurred. You incur costs only when the automated ML job runs. The cluster scales back to 0 automatically after 120 seconds of idle time.
+> The new cluster has 0 nodes, so no compute costs are incurred. You incur costs only when the automated machine learning job runs. The cluster scales back to 0 automatically after 120 seconds of idle time.
 
 
 ## Create a dataset
@@ -82,7 +82,7 @@ To explore the data, select the dataset and then select **Explore**:
 
 The data has 10 baseline input variables, such as age, sex, body mass index, average blood pressure, and six blood serum measurements. It also has one target variable, named **Y**. This target variable is a quantitative measure of diabetes progression one year after the baseline.
 
-## Create an automated ML run
+## Create an automated machine learning run
 
 In the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML run**:
 
@@ -101,7 +101,7 @@ On the **Configure run** page:
 
 Your completed form should look like this:
 
-:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated ML.":::
+:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated machine learning.":::
 
 Finally, select a machine learning task. In this case, the task is **Regression**:
 
@@ -110,11 +110,11 @@ Finally, select a machine learning task. In this case, the task is **Regression*
 Select **Finish**.
 
 > [!IMPORTANT]
-> Automated ML takes around 30 minutes to finish training the 100 models.
+> Automated machine learning takes around 30 minutes to finish training the 100 models.
 
 ## Deploy the best model
 
-When automated ML finishes, you can see all the machine learning models that have been tried by selecting the **Models** tab. The models are ordered by performance; the best-performing model is shown first. After you select the best model, the **Deploy** button is enabled:
+When automated machine learning finishes, you can see all the machine learning models that have been tried by selecting the **Models** tab. The models are ordered by performance; the best-performing model is shown first. After you select the best model, the **Deploy** button is enabled:
 
 :::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot showing the list of models.":::
 
@@ -128,7 +128,7 @@ You should see a message that states that the model was deployed successfully.
 
 ## Next steps
 
-In this tutorial, you saw how to train and deploy a machine learning model by using automated ML. In the next tutorial, you'll learn how to consume (score) this model in Power BI.
+In this tutorial, you saw how to train and deploy a machine learning model by using automated machine learning. In the next tutorial, you'll learn how to consume (score) this model in Power BI.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
