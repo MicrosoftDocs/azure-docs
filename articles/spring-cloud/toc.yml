@@ -95,6 +95,11 @@
           href: diagnostic-services.md
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
+        - name: Application Insights using Java In-Process Agent
+          href: spring-cloud-howto-application-insights.md
+        - name: Resilience4J Circuit Breaker Metrics
+          href: spring-cloud-howto-circuit-breaker-metrics.md
+
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
