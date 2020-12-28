@@ -94,6 +94,8 @@
     href: backup-architecture.md
   - name: Guidance and best practices
     href: guidance-best-practices.md
+  - name: Glossary of terms
+    href: azure-backup-glossary.md
 - name: How to guides
   items:
   - name: Vaults

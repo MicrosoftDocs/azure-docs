@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 12/24/2020
 ms.author: memildin
 
 ---
@@ -37,6 +37,9 @@ Updates in December include:
 - [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
 - [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
+- [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Continuous export gets new data types and improved deployifnotexist policies](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
 
 
 ### Azure Defender for SQL servers on machines is generally available
@@ -123,6 +126,52 @@ The Security Center experience within SQL provides access to the following Secur
 - **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.	 
 
 :::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
+
+
+### Asset inventory tools and filters updated
+
+The inventory page in Azure Security Center has been refreshed with the following changes:
+
+- **Guides and feedback** added to the toolbar. This opens a pane with links to related information and tools. 
+- **Subscriptions filter** added to the default filters available for your resources.
+- **Open query** link for opening the current filter options as an Azure Resource Graph query (formerly called "View in resource graph explorer").
+- **Operator options** for each filter. Now you can choose from additional logical operators other than '='. For example, you might want to find all resources with active recommendations whose titles include the string 'encrypt'. 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
+
+Learn more about inventory in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+
+### Recommendation about web apps requesting SSL certificates no longer part of secure score
+
+The recommendation "Web apps should request an SSL certificate for all incoming requests" has been moved from the security control **Manage access and permissions** (worth a maximum of 4 pts) into **Implement security best practices** (which is worth no points). 
+
+Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+Wish this change, the recommendation is now a recommended best practice which does not impact your score. 
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### Continuous export gets new data types and improved deployifnotexist policies
+
+Azure Security Center's continuous export tools enable you to export Security Center's recommendations and alerts for use with other monitoring tools in your environment.
+
+Continuous export lets you fully customize what will be exported, and where it will go. For full details, see  [Continuously export Security Center data](continuous-export.md).
+
+These tools have been enhanced and expanded in the following ways:
+
+- **Continuous export's deployifnotexist policies enhanced**. The policies now:
+
+    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+
+    - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
+    
+    - **Support exporting secure score data.**
+
+- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national/sovereign clouds.
+
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliant assessment information with your continuous export data.":::
 
 
 ## November 2020
@@ -474,7 +523,7 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
-Learn more in [Explore and manage your resources with asset inventory and management tools](asset-inventory.md).
+Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 
 
