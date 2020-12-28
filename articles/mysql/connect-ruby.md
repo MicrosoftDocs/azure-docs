@@ -67,7 +67,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class to connect to MySQL server. Then it calls method ```query()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. Finally, call the ```close()``` to close the connection before terminating.
+The code uses a mysql2::client class to connect to MySQL server. Then it calls method ```query()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. Finally, call the ```close()``` to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values.
 ```ruby

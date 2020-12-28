@@ -360,7 +360,7 @@ The Container Instances Dedicated SKU provides an [isolated and dedicated comput
 
 Azure Kubernetes Service (AKS) supports Impact Level 5 workloads in Azure Government with these configurations:
 
-- Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](https://ddocs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+- Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](/azure/aks/azure-disk-customer-managed-keys).
 - For workloads that require isolation from other customer workloads, you can use [isolated virtual machines](../aks/concepts-security.md#compute-isolation) as the agent nodes in an AKS cluster. 
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
