@@ -43,6 +43,7 @@ In this tutorial, you'll learn how to:
     - **DDoSMitigationReports**: Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
     - **AllMetrics**
     
+
     ![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 
 1. Under **Destination details**, select as many of the following options as you require:
@@ -50,6 +51,7 @@ In this tutorial, you'll learn how to:
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+
 
 This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) creates an Azure Policy definition to enable diagnostic logging.
 
@@ -71,7 +73,7 @@ The following table lists the field names and descriptions:
 | **Resource** | The name of your public IP address. |
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
 | **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
-| **Message** |  |
+| **Message** | Details of the attack. |
 | **SourcePublicIpAddress** | The public IP address of the client generating the attack traffic to your public IP address. |
 | **SourcePort** | The port number of the client generating the attack traffic to your public IP address. |
 | **DestPublicIpAddress** | Your public IP address. |
