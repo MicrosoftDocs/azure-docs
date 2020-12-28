@@ -49,7 +49,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
     - In the **Redirect URIs** section, select **Web** in the combo-box and enter the following redirect URI:
     `http://localhost:3000/auth/openid/return`
     - In the **Advanced settings** section, set **Logout URL** to `https://localhost:3000`.
-    - In the **Advanced settings > Implicit grant** section, check **ID tokens** as this sample requires the [Implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled to sign-in the user.
+    - In the **Advanced settings > Implicit grant** section, check **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
 
 1. Select **Save**.
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 

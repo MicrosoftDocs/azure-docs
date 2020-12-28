@@ -62,7 +62,7 @@ Copy activity execution details and performance characteristics are also returne
 | throughput | Rate of data transfer. | Floating point number, in KBps |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
-| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics (formerly SQL Data Warehouse). | Boolean |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics. | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |

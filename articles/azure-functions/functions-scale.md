@@ -253,6 +253,6 @@ The following comparison table shows all important aspects to help the decision 
 
 ## Next steps
 
-+ [Quickstart: Create an Azure Functions project using Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Quickstart: Create an Azure Functions project using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Deployment technologies in Azure Functions](functions-deployment-technologies.md) 
 + [Azure Functions developer guide](functions-reference.md)

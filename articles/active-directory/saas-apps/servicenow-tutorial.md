@@ -21,6 +21,8 @@ In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Dir
 * Enable your users to be automatically signed-in to ServiceNow with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
+
 ## Prerequisites
 
 To get started, you need the following items:
@@ -102,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://<instancename>.service-now.com/navpage.do`
 
 	> [!NOTE]
-	> If "/ " is added in the Identifier value , please remove that manually.
+	> If "/ " is added in the Identifier value, please remove that manually.
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -176,7 +178,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	`https://<instancename>.service-now.com/navpage.do`
 	
 	> [!NOTE]
-	> If "/ " is added in the Identifier value , please remove that manually.
+	> If "/ " is added in the Identifier value, please remove that manually.
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -479,5 +481,4 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 ## Next Steps
 
-Once you configure the ServiceNow you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Once you configure the ServiceNow you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

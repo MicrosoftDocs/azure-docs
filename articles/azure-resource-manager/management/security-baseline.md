@@ -65,7 +65,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../../azure-monitor/log-query/get-started-portal.md) 
+- [Getting started with Log Analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -95,9 +95,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -115,7 +115,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 You can also enable a Just-In-Time access by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 - [How to use Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -161,7 +161,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
@@ -193,7 +193,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. 
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
 
@@ -207,7 +207,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -217,7 +217,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -235,7 +235,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](./tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -283,7 +283,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 - [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -295,7 +295,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy.
 
-- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -312,11 +312,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 More related details are provided below,
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](/azure/governance/management-groups/create)
+- [How to create management groups](../../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](./tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -391,7 +391,7 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -425,7 +425,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates, and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -487,7 +487,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates, and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -563,5 +563,5 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../security/benchmarks/security-baselines-overview.md)

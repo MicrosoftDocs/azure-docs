@@ -22,7 +22,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` method:
 
-* Creates a `client` object and sets the `dtmi:com:example:Thermostat;1` model ID before it opens the connection.
+* Creates a `client` object and sets the `dtmi:com:example:Thermostat;1` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Creates a command handler.
 * Starts a loop to send temperature telemetry every 10 seconds.
 * Sends the `maxTempSinceLastReboot` property to IoT Central. IoT Central ignores the `serialNumber` property because it's not part of the device model.
@@ -78,7 +78,7 @@ async function main() {
 }
 ```
 
-The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID:
+The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {

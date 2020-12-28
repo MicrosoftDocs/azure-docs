@@ -53,12 +53,13 @@ The main benefits of the integration are:
 Start using the ITSM Connector tool with these steps:
 
 1. Register your app with Azure AD.
-2. Create a Secure Webhook action group.
-3. Configure your partner environment. 
+1. Define Service Principle.
+1. Create a Secure Webhook action group.
+1. Configure your partner environment.
 
 Secure Export supports connections with the following ITSM tools:
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
 
 ## Register with Azure Active Directory
 
@@ -70,6 +71,13 @@ Follow these steps to register the application with Azure AD:
 
    [![Screenshot of the option for setting the U R I of the application I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
 4. Select **Save**.
+
+## Define Service Principle
+
+The Action Group service will need permission to acquire authentication tokens from your AAD application in order to authentication with Service now. To grant those permissions you will need to create a service principal for the Action Group service in your tenant. 
+You can use this [PowerShell commands](./action-groups.md#secure-webhook-powershell-script) for this purpose. (Requires tenant admin privileges).
+As an optional step you can define application role in the created app’s manifest which can allow you to further restrict access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal. 
+This can be done through the same [PowerShell commands](./action-groups.md#secure-webhook-powershell-script).
 
 ## Create a Secure Webhook action group
 
@@ -87,7 +95,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 5. Select **Secure Webhook**.
 6. Select these details:
    1. Select the object ID of the Azure Active Directory instance that you registered.
-   2. For the URI, paste in the webhook URL that you copied from the [ITSM tool environment](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. For the URI, paste in the webhook URL that you copied from the [ITSM tool environment](#configure-the-itsm-tool-environment).
    3. Set **Enable the common Alert Schema** to **Yes**. 
 
    The following image shows the configuration of a sample Secure Webhook action:
@@ -117,8 +125,9 @@ Ensure that you've met the following prerequisites:
 1.Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
 
 2. Follow the instructions according to the version:
-   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
-   * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
+   * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
+   * [New York](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
 
 ### Connect BMC Helix to Azure Monitor
 
