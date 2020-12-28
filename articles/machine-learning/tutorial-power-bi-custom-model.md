@@ -44,7 +44,7 @@ On the [**Azure Machine Learning studio**](https://ml.azure.com) home page, sele
 
 :::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook.":::
  
-In the **Create a new file** window:
+On the **Create a new file** page:
 
 1. Name your notebook (for example, *my_model_notebook*).
 1. Change the **File Type** to **Notebook**.

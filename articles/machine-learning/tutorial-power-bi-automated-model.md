@@ -45,7 +45,7 @@ To begin, in the [Azure Machine Learning studio](https://ml.azure.com), in the m
 
 :::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster.":::
 
-In the **Create compute cluster** window:
+On the **Create compute cluster** page:
 
 1. Select a VM size. For this tutorial, a **Standard_D11_v2** machine is fine.
 1. Select **Next**.
@@ -68,7 +68,7 @@ To create the dataset, in the menu on the left, select **Datasets**. Then select
 
 :::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset.":::
 
-Select **From Open Datasets**. Then in the **Create dataset from Open Datasets** window:
+Select **From Open Datasets**. Then on the **Create dataset from Open Datasets** page:
 
 1. Use the search bar to find *diabetes*.
 1. Select **Sample: Diabetes**.
@@ -92,7 +92,7 @@ Next, select the **diabetes** dataset you created earlier. Then select **Next**:
 
 :::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot showing how to select a dataset.":::
  
-In the **Configure run** window:
+On the **Configure run** page:
 
 1. Under **Experiment name**, select **Create new**.
 1. Name the experiment.
