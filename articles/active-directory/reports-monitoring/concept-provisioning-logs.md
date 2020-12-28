@@ -53,7 +53,7 @@ Your tenant must have an Azure AD Premium license associated with it to see the 
 The provisioning logs provide answers to the following questions:
 
 * What groups were successfully created in ServiceNow?
-* What roles were imported from Amazon Web Services?
+* What users were successfully removed from Adobe?
 * What users were unsuccessfully created in DropBox?
 
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
