@@ -28,10 +28,9 @@ Before you can create a connection, you need to add ITSMC.
 
    ![Screenshot that shows the Create button in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install ITSMC.
+3. In the **LA Workspace** section, select the Azure Log Analytics workspace where you want to install ITSMC.
    >[!NOTE]
    >
-   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as *Log Analytics workspaces*.
    > * ITSMC can be installed only in Log Analytics workspaces in the following regions: East US, West US 2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Canada Central, West Europe, South UK, Southeast Asia, Japan East, Central India, and Australia Southeast.
 
 4. In the **Log Analytics workspace** section, select the resource group where you want to create the ITSMC resource:
@@ -69,7 +68,12 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
    This page displays the list of connections.
 1. Select **Add Connection**.
 
-4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services](./itsmc-connections.md).
+1. Specify the connection settings as described according to ITSM products/services:
+
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
    >
@@ -79,13 +83,7 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 
 ## Use ITSMC
 
-   You can use ITSMC to create work items from Azure alerts, Log Analytics alerts, and Log Analytics log records.
-
-## Template definitions
-
-   There are work item types that can use templates that are defined by the ITSM tool.
-   By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
-   You can define in which template you would like to use as a part of the definition of the action group.
+   You can use ITSMC to create alerts from Azure Monitor Alerts into the ITSM tool.
 
 ## Create ITSM work items from Azure alerts
 
@@ -96,7 +94,13 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 > [!NOTE]
 > After you create the ITSM connection, you need to wait for 30 minutes for the sync process to finish.
 
-Use the following procedure to create work items:
+### Template definitions
+
+   There are work item types that can use templates that are defined by the ITSM tool.
+   By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
+   You can define in which template you would like to use as a part of the definition of the action group.
+
+Use the following procedure to create action groups:
 
 1. In the Azure portal, select  **Alerts**.
 2. In the menu at the top of the screen, select **Manage actions**:
