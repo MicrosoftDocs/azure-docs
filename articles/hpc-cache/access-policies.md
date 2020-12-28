@@ -92,7 +92,7 @@ You can edit or delete access policies from the table in the **Client access pol
 
 Click the policy name to open it for editing.
 
-To delete a policy, mark the checkbox next to its name in the list, then click the **Delete** button at the top of the list. You can't delete the policy named Default.
+To delete a policy, mark the checkbox next to its name in the list, then click the **Delete** button at the top of the list. You can't delete the policy named "default".
 
 > [!NOTE]
 > You can't delete an access policy that is in use. Remove the policy from any namespace paths that include it before trying to delete it.
