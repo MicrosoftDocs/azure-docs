@@ -40,7 +40,7 @@ In this tutorial, you'll learn how to:
     - **DDoSProtectionNotifications**: Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
     - **DDoSMitigationFlowLogs**: Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Azure Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
     - **DDoSMitigationReports**: Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
-    - **AllMetrics**: All possible metrics available during the duration of a DDoS attack. 
+    - **AllMetrics**: Provides all possible metrics available during the duration of a DDoS attack. 
     
 
     ![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
@@ -89,11 +89,11 @@ The following table lists the field names and descriptions:
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
 | **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
 | **Message** | Details of the attack. |
-| **SourcePublicIpAddress** | The public IP address of the client generating the attack traffic to your public IP address. |
-| **SourcePort** | The port number of the client generating the attack traffic to your public IP address. |
+| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. |
+| **SourcePort** | Port number ranging from 0 to 65535. |
 | **DestPublicIpAddress** | Your public IP address. |
-| **DestPort** | The port number of your public IP address. |
-| **Protocol** | Possible values include `tcp`, `udp`, `other`.|
+| **DestPort** | Port number ranging from 0 to 65535. |
+| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
 
 # [DDoSMitigationReports](#tab/DDoSMitigationReports)
 
@@ -113,7 +113,7 @@ The following table lists the field names and descriptions:
 | **IPAddress** | Your public IP address. |
 | **AttackVectors** |  Breakdown of attack types. Keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
 | **TrafficOverview** |  Breakdown of attack traffic. Keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, `Total Other packets dropped`. |
-| **Protocols** | Breakdown of protocols. Keys include `TCP`, `UDP`, `Other`. |
+| **Protocols** | Breakdown of protocols involved. Keys include `TCP`, `UDP`, `Other`. |
 | **DropReasons** | Breakdown of reasons for dropped packets. Keys include `Protocol violation invalid TCP syn`, `Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood`, `Rate limit exceeded`, `Packet was forwarded to service`. |
 | **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
 | **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
