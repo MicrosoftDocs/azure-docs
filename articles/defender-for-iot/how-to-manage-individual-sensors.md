@@ -455,8 +455,6 @@ To access system properties:
 
 ## See also
 
-[Deploy and onboard a sensor](how-to-onboard-sensors.md)
-
 [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

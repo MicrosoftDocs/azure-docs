@@ -114,4 +114,4 @@ Many console features support an extensive range of languages.
 
 ## Next step
 
-[Deploy and onboard a sensor](how-to-onboard-sensors.md)
+[Getting started with Defender for IoT](getting-started.md)
