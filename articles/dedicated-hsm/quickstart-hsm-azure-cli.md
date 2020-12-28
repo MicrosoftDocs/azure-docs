@@ -26,8 +26,6 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
   ```
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]  
   
-- The **dedicated-hsm** extension is part of the **hardware-security-modules** extension and requires Azure CLI version 2.3.1 or higher. The extension automatically installs the first time you run an **az dedicated-hsm** command.
-  
 - All requirements met for a dedicated HSM, including registration, approval, and a virtual network and virtual machine to use for provisioning. For more information about dedicated HSM requirements and prerequisites, see [Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI](tutorial-deploy-hsm-cli.md).
   
 
@@ -41,11 +39,12 @@ az group create --name myRG --location westus
 
 ## Create a dedicated HSM
 
-To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command. The following example provisions a dedicated HSM named `hsm1` in the `westus` region, `myRG` resource group, specified subscription, and `MyHSM-vnet` virtual network and subnet:
+To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command. The following example provisions a dedicated HSM named `hsm1` in the `westus` region, `myRG` resource group, and specified subscription, virtual network, and subnet. The required parameters are `name`, `location`, and `resource group`.
 
 ```azurecli-interactive
-az dedicated-hsm create --resource-group myRG  --name hsm1 --location westus --network-profile-network-interfaces \
-     /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+az dedicated-hsm create --resource-group myRG  --name "hsm1" -location "westus" --network-profile-network-interfaces \
+   private-ip-address="1.0.0.1" --subnet id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/hsm/subnets/hsm" \
+   --stamp-id "stamp1" --sku name="SafeNet Luna Network HSM A790" --tags resourceType="hsm" Environment="test" --zones "AZ 1"
 ```
 
 The deployment takes approximately 25 to 30 minutes to complete.
@@ -60,10 +59,10 @@ az dedicated-hsm show --resource-group myRG --name hsm1
 
 ## Update a dedicated HSM
 
-Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update a dedicated HSM. The following example updates the `hsm1` dedicated HSM in the `myRG` resource group:
+Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update a dedicated HSM. The following example updates the `hsm1` dedicated HSM in the `myRG` resource group, and its tags:
 
 ```azurecli-interactive
-az dedicated-hsm update --resource-group myRG –-name hsm1
+az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod"
 ```
 
 ## List dedicated HSMs
