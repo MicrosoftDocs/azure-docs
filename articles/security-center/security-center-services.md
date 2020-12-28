@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/17/2020
+ms.date: 12/24/2020
 ms.author: memildin
 ---
 
@@ -103,6 +103,12 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government clouds
 
+We strive for feature parity between our government clouds and our commercial cloud. When there are gaps, it's usually for one of these reasons:
+
+- **Preview feature** - Features typically  don’t reach parity before they're offered in general availability.
+- **Irrelevant to gov cloud** - Some features, such as adaptive network hardening, aren't relevant to a gov cloud.
+
+
 | Service / Feature | US Gov | China Gov |
 |------|:----:|:----:|
 |[Just-in-time VM access](security-center-just-in-time.md) (1)|✔|✔|
@@ -119,7 +125,7 @@ For information about when recommendations are generated for each of these prote
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|
 |[Email notifications for security alerts](security-center-provide-security-contact-details.md)|✔|✔|
-|[Asset inventory](asset-inventory.md)|-|-|
+|[Asset inventory](asset-inventory.md)|✔|✔|
 |[Azure Defender for App Service](defender-for-app-service-introduction.md)|-|-|
 |[Azure Defender for Storage](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|

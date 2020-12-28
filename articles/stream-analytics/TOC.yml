@@ -57,6 +57,8 @@
     href: develop-locally.md
   - name: Security
     items:
+    - name: Connect jobs to Azure Virtual Network (VNet)
+      href: connect-job-to-vnet.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -184,27 +186,27 @@
       href: stream-analytics-job-reliability.md
     - name: Use SQL reference data
       href: sql-reference-data.md
-    - name: Authenticate with managed identity
-      items:
-      - name: ADLS Gen 1
-        href: stream-analytics-managed-identities-adls.md
-        displayName: managed identity, identities, authenticate
-      - name: Blob storage
-        href: blob-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
-      - name: Event Hubs
-        href: event-hubs-managed-identity.md
-        displayName: managed identity, identities, authenticate
-      - name: Power BI
-        href: powerbi-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
-      - name: Azure SQL & Azure Synapse
-        href: sql-database-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
     - name: Encrypt your data
       href: data-protection.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+  - name: Authenticate with managed identity
+    items:
+    - name: ADLS Gen 1
+      href: stream-analytics-managed-identities-adls.md
+      displayName: managed identity, identities, authenticate
+    - name: Blob storage
+      href: blob-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Event Hubs
+      href: event-hubs-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Power BI
+      href: powerbi-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Azure SQL & Azure Synapse
+      href: sql-database-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis

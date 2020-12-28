@@ -5,12 +5,12 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
 ---
 
-# Explore and manage your resources with asset inventory and management tools
+# Explore and manage your resources with asset inventory
 
 The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
 
@@ -38,7 +38,7 @@ The asset management possibilities for this tool are substantial and continue to
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 

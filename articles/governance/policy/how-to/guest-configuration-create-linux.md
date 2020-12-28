@@ -389,12 +389,21 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-To release an update to the policy definition, there are three fields that require attention.
+If you would like to release an update to the policy, make the change for both the Guest Configuration
+package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
 > are hosted by Microsoft. The best practice for versioning custom content is to include
 > the version in the file name.
+
+First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
+unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
+The number in this example is only used to make the package unique, not to specify that the package
+should be considered newer or older than other packages.
+
+Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
+the explanations below.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.
