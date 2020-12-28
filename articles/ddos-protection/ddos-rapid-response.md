@@ -52,4 +52,4 @@ To learn more, read the [DDoS Protection Standard documentation](./ddos-protecti
 
 - Learn how to [test through simulations](test-through-simulations.md).
 - Learn how to [view and configure DDoS protection telemetry](telemetry-monitoring-alerting.md).
-- Learn how to [configure DDoS attack mitigation reports and flow logs](reports-and-flow-logs.md).
+- Learn how to [view and configure DDoS diagnostic logging](diagnostic-logging.md).

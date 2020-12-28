@@ -30,6 +30,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Configure DDoS diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
 > * Enable diagnostic logging on all public IPs in a defined scope.
+> * View log data in workbooks.
 
 ## Prerequisites
 
@@ -54,13 +55,6 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
-
-
-## Enable diagnostic logging on all public IPs
-
-This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) creates an Azure Policy definition to automatically enable diagnostic logging on all public IP logs in a defined scope.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
 ## Log schemas
 
@@ -127,6 +121,12 @@ The following table lists the field names and descriptions:
 | **SourceContinents** | Breakdown of the source continents of incoming traffic. |
 ***
 
+## Enable diagnostic logging on all public IPs
+
+This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) creates an Azure Policy definition to automatically enable diagnostic logging on all public IP logs in a defined scope.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+
 ## View log data in workbooks
 
 ### Azure Sentinel data connector
@@ -147,8 +147,9 @@ You can use this Azure Resource Manager (ARM) template to deploy an attack analy
 
 In this tutorial, you learned how to:
 
-- View and configure DDoS attack mitigation reports and flow logs, including notifications, mitigation reports and mitigation flow logs. 
+- Configure DDoS diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
 - Enable diagnostic logging on all public IPs in a defined scope.
+- View log data in workbooks.
 
 To learn how to test and simulate a DDoS attack, see the simulation testing guide:
 
