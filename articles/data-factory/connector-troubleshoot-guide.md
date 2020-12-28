@@ -117,7 +117,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: CosmosDbSqlApi operation hit problem.
 
-- **Recommendation**:  Check the error in details. Refer to CosmosDb help document: https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-dot-net-sdk. Contact CosmosDb team if need help.
+- **Recommendation**:  Check the error in details. Refer to [CosmosDb help document](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Contact CosmosDb team if need help.
 
 
 ## Azure Data Lake Storage Gen1
@@ -244,7 +244,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If this is a transient issue (e.g., instable network connection), please add retry in activity policy to mitigate.
 
-- **Recommendation**:  Follow with this reference doc: https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities#activity-policy.
+- **Recommendation**:  Follow this reference doc: https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
@@ -529,7 +529,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Error thrown from driver. Sql code: '%code;'`
 
-- **Cause**: If the error message contains "SQLSTATE=51002 SQLCODE=-805", please refer to the Tip this document: https://docs.microsoft.com/en-us/azure/data-factory/connector-db2#linked-service-properties
+- **Cause**: If the error message contains "SQLSTATE=51002 SQLCODE=-805", please refer to the Tip in this document: https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties
 
 - **Recommendation**:  Try to set "NULLID" in property "packageCollection"
 
