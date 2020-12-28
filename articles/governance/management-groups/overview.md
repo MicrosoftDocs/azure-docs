@@ -17,8 +17,7 @@ All subscriptions within a single management group must trust the same Azure Act
 tenant.
 
 For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all management groups,
-subscriptions, and resources under that management group by only allowing VMs to be created in that
+virtual machine (VM) creation. This policy would be applied to all subscriptions, resource groups, and resources under that management group by only allowing VMs to be created in that
 region.
 
 ## Hierarchy of management groups and subscriptions
