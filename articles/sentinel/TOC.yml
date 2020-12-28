@@ -23,30 +23,24 @@
     href: tutorial-respond-threats-playbook.md    
 - name: Concepts
   items:
-  - name: Azure Sentinel basic concepts
-    items:
-    - name: Events, alerts, and incidents
-      href: events-alerts-and-incidents.md
-    - name: Classify data using entities
-      href: entities-in-azure-sentinel.md
-  - name: Azure Sentinel feature concepts
-    items:
-    - name: Assign permissions using roles
-      href: roles.md
-    - name: Advanced multistage attack detection
-      href: fusion.md
-    - name: Bring your own machine learning platform
-      href: bring-your-own-ml.md
-    - name: Extend Azure Sentinel across workspaces and tenants
-      href: extend-sentinel-across-workspaces-tenants.md
-    - name: Identify advanced threats with UEBA
-      href: identify-threats-with-entity-behavior-analytics.md
-    - name: Import threat intelligence into Azure Sentinel
-      href: import-threat-intelligence.md
-    - name: Use external data with watchlists
-      href: watchlists.md
-    - name: Normalize your data across tables
-      href: normalization.md
+  - name: Classify data using entities
+    href: entities-in-azure-sentinel.md
+  - name: Advanced multistage attack detection
+    href: fusion.md
+  - name: Identify advanced threats with UEBA
+    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Import threat intelligence into Azure Sentinel
+    href: import-threat-intelligence.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
+  - name: Use external data with watchlists
+    href: watchlists.md
+  - name: Assign permissions using roles
+    href: roles.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
+  - name: Normalize your data across tables
+    href: normalization.md
   - name: Security
     items:
     - name: Security baseline
@@ -86,7 +80,7 @@
         href: connect-azure-firewall.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Defender (formerly ASC) for IoT
+      - name: Defender for IoT (formerly ASC for IoT)
         href: connect-asc-iot.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
@@ -217,6 +211,8 @@
   items:
   - name: REST APIs
     href: /rest/api/securityinsights/
+  - name: Entities reference
+    href: entities-reference.md
   - name: Network normalization schema
     href: normalization-schema.md
 - name: Resources
