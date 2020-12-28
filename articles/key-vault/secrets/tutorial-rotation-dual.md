@@ -223,7 +223,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Next steps
 
-- Tutorial: [Secrets rotation for one set of credentials](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation)
+- Tutorial: [Secrets rotation for one set of credentials](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
 - Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - How to: [Create your first function in the Azure portal](../../azure-functions/functions-create-first-azure-function.md)
 - How to: [Receive email when a Key Vault secret changes](../general/event-grid-logicapps.md)
