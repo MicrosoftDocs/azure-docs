@@ -35,16 +35,16 @@ Traditional network security monitoring tools developed for corporate IT network
 
 Azure Defender for IoT’s agentless monitoring capabilities gives you visibility and security for these networks, addressing key concerns for these environments. 
 
-Automatic device discovery  
+**Automatic device discovery**  
 Use passive, agentless network monitoring to gain a complete inventory of all your IoT/OT assets, their details, and how they communicate, with zero impact on the IoT/OT network.  
 
-Proactive visibility into risk and vulnerabilities  
+**Proactive visibility into risk and vulnerabilities**  
 Identify risks and vulnerabilities in your IoT/OT environment, including unpatched devices, open ports, unauthorized applications, and unauthorized connections, as well as changes to devices configurations, PLC code, and firmware. 
 
-IoT/OT threat detection  
+**IoT/OT threat detection**  
 Detect anomalous or unauthorized activities with specialized IoT/OT-aware threat intelligence and behavioral analytics, including advanced threats missed by static IOCs like zero-day malware, fileless malware, and living-off-the-land tactics. 
 
-Unified security management across IT/OT  
+**Unified security management across IT/OT**
 Integrate into Azure Sentinel for a bird’s eye view of your entire organization. Implement unified IT/OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM Qradar, and ServiceNow. 
 
 ## Agent-based solution for device builders 
@@ -55,15 +55,15 @@ The Azure Defender for IoT security agents allows you to build security directly
 
 The Azure Defender for IoT micro agent provides endpoint visibility into security posture management, threat detection, and integration into Microsoft’s other security tools for unified security management. 
 
-Security posture management 
+**Security posture management**
 
 Proactively monitor the security posture of your IoT devices. Azure Defender for IoT provides security posture recommendations based on the CIS benchmark, as well as device-specific recommendations. Get visibility into operating system security, including OS configuration, firewall configurations, permissions, and more. 
 
-Endpoint IoT/OT threat detection 
+**Endpoint IoT/OT threat detection**
 
 Detect threats like botnets, brute force attempts, crypto miners, and suspicious network activity. Create custom alerts to target the most important threats in your unique organization. 
 
-Flexible distribution and deployment models 
+**Flexible distribution and deployment models** 
 
 The Azure Defender for IoT micro agent includes source code, so you can incorporate the micro agent into firmware or customize it to include only what you need. It is also available as a binary package, or integrated directly into other Azure IoT solutions. 
 ## See also
