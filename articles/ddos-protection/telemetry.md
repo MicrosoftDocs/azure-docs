@@ -1,6 +1,6 @@
 ---
-title: View and configure DDoS protection telemetry
-description: Learn how to view and configure DDoS protection telemetry.
+title: View and configure DDoS protection telemetry for Azure DDoS Protection Standard
+description: Learn how to view and configure DDoS protection telemetry for Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
 author: yitoh
