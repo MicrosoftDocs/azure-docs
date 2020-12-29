@@ -271,11 +271,12 @@ A storage account and a container instance are needed for script execution and t
     | Standard_RAGZRS | StorageV2          |
     | Standard_ZRS    | StorageV2          |
 
-    These combinations support file share. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+    These combinations support file shares. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+
 - Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 
-To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
+To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
 ```json
 "storageAccountSettings": {
@@ -284,8 +285,8 @@ To specify an existing storage account, add the following json to the property e
 },
 ```
 
-- **storageAccountName**: specify the name of the storage account.
-- **storageAccountKey"**: specify one of the storage account keys. You can use the [`listKeys()`](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
+- `storageAccountName`: specify the name of the storage account.
+- `storageAccountKey`: specify one of the storage account keys. You can use the [listKeys()](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
 
     ```json
     "storageAccountSettings": {
