@@ -65,15 +65,14 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 1. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
 
    ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
-   This page displays the list of connections.
 1. Select **Add Connection**.
 
 1. Specify the connection settings as described according to ITSM products/services:
 
-- [ServiceNow](./itsmc-connections-servicenow.md)
-- [System Center Service Manager](./itsmc-connections-scsm.md)
-- [Cherwell](./itsmc-connections-cherwell.md)
-- [Provance](./itsmc-connections-provance.md)
+    - [ServiceNow](./itsmc-connections-servicenow.md)
+    - [System Center Service Manager](./itsmc-connections-scsm.md)
+    - [Cherwell](./itsmc-connections-cherwell.md)
+    - [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
    >
@@ -98,7 +97,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
    There are work item types that can use templates that are defined by the ITSM tool.
    By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
-   You can define in which template you would like to use as a part of the definition of the action group.
+   You can define which template you would like to use as a part of the definition of the action group.
 
 Use the following procedure to create action groups:
 
@@ -115,13 +114,16 @@ Use the following procedure to create action groups:
 
 4. In the notification list, select **Next: Actions**.
 5. In the actions list, select **ITSM** in the **Action Type** list. Provide a **Name** for the action. Select the pen button that represents **Edit details**.
+
+    ![Screenshot that shows action group definition.](media/itsmc-definition/action-group-pen.png)
+
 6. In the **Subscription** list, select the subscription in which your Log Analytics workspace is located. In the **Connection** list, select your ITSM connector name. It will be followed by your workspace name. For example, MyITSMConnector(MyWorkspace).
 
 7. Select a **Work Item** type.
 
 8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#template-definitions) in the **Template** list and enter the fixed values in the template fields.
 
-9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. There will be one work item per configuration item. It will be updated according to the alerts that will be created.
+9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. Meaning there will be one work item per configuration item.
 
     * In a case you select in the work item dropdown "Incident" or "Alert": If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
 
@@ -142,124 +144,6 @@ When you create or edit an Azure alert rule, use an action group, which has an I
 >
 >- The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
 
-## Additional information
-
-### Data synced from your ITSM product
-
-Incidents and change requests are synced from your ITSM product to your Log Analytics workspace, based on the connection's configuration.
-
-This section shows some examples of data gathered by ITSMC.
-
-The fields in **ServiceDesk_CL** vary depending on the work item type that you import into Log Analytics. Here's a list of fields for two work item types:
-
-**Work item:** **Incidents**  
-ServiceDeskWorkItemType_s="Incident"
-
-**Fields**
-
-- ServiceDeskConnectionName
-- Service Desk ID
-- State
-- Urgency
-- Impact
-- Priority
-- Escalation
-- Created By
-- Resolved By
-- Closed By
-- Source
-- Assigned To
-- Category
-- Title
-- Description
-- Created Date
-- Closed Date
-- Resolved Date
-- Last Modified Date
-- Computer
-
-**Work item:** **Change Requests**
-
-ServiceDeskWorkItemType_s="ChangeRequest"
-
-**Fields**
-- ServiceDeskConnectionName
-- Service Desk ID
-- Created By
-- Closed By
-- Source
-- Assigned To
-- Title
-- Type
-- Category
-- State
-- Escalation
-- Conflict Status
-- Urgency
-- Priority
-- Risk
-- Impact
-- Assigned To
-- Created Date
-- Closed Date
-- Last Modified Date
-- Requested Date
-- Planned Start Date
-- Planned End Date
-- Work Start Date
-- Work End Date
-- Description
-- Computer
-
-## Output data for a ServiceNow incident
-
-| Log Analytics field | ServiceNow field |
-|:--- |:--- |
-| ServiceDeskId_s| Number |
-| IncidentState_s | State |
-| Urgency_s |Urgency |
-| Impact_s |Impact|
-| Priority_s | Priority |
-| CreatedBy_s | Opened by |
-| ResolvedBy_s | Resolved by|
-| ClosedBy_s  | Closed by |
-| Source_s| Contact type |
-| AssignedTo_s | Assigned to  |
-| Category_s | Category |
-| Title_s|  Short description |
-| Description_s|  Notes |
-| CreatedDate_t|  Opened |
-| ClosedDate_t| closed|
-| ResolvedDate_t|Resolved|
-| Computer  | Configuration item |
-
-## Output data for a ServiceNow change request
-
-| Log Analytics | ServiceNow field |
-|:--- |:--- |
-| ServiceDeskId_s| Number |
-| CreatedBy_s | Requested by |
-| ClosedBy_s | Closed by |
-| AssignedTo_s | Assigned to  |
-| Title_s|  Short description |
-| Type_s|  Type |
-| Category_s|  Category |
-| CRState_s|  State|
-| Urgency_s|  Urgency |
-| Priority_s| Priority|
-| Risk_s| Risk|
-| Impact_s| Impact|
-| RequestedDate_t  | Requested by date |
-| ClosedDate_t | Closed date |
-| PlannedStartDate_t  | Planned start date |
-| PlannedEndDate_t  | Planned end date |
-| WorkStartDate_t  | Actual start date |
-| WorkEndDate_t | Actual end date|
-| Description_s | Description |
-| Computer  | Configuration Item |
-
 ## Next steps
 
-* [ITSM Connector Overview](./itsmc-overview.md)
-* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
 * [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
