@@ -16,8 +16,8 @@
   items:
   - name: View and configure DDoS protection telemetry
     href: telemetry-monitoring-alerting.md
-  - name: Configure DDoS attack mitigation reports and flow logs
-    href: reports-and-flow-logs.md
+  - name: View and configure DDoS diagnostic logging
+    href: diagnostic-logging.md
 - name: Concepts
   items:
   - name: Types of attacks
