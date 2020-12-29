@@ -289,7 +289,12 @@ Before you create the data controller on Azure Red Hat OpenShift, you will need 
    ```console
    oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
    ```
-
+   > [!NOTE]
+   > If you are using Redhat Openshift 4.5 or greater, Redhat have changed how to apply the SCC to the service account.
+   > Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`. 
+   ```console
+   oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
+   ```
 
 #### Create custom deployment profile
 
