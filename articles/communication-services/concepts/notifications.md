@@ -80,9 +80,9 @@ Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getti
 
 When you don't see push notifications on your device, there are three places where the notifications could have been dropped:
 
-1. Azure Notification Hubs didn't accept the notification from Azure Communication Services
-1. The Platform Notification System (for example APNs and FCM) didn't accept the notification from Azure Notification Hubs
-1. The Platform Notification System didn't deliver the notification to the device.  
+- Azure Notification Hubs didn't accept the notification from Azure Communication Services
+- The Platform Notification System (for example APNs and FCM) didn't accept the notification from Azure Notification Hubs
+- The Platform Notification System didn't deliver the notification to the device.
 
 The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other two places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
