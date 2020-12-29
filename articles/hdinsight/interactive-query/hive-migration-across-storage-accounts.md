@@ -34,9 +34,10 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
     |---|---|
     |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/export-hive-data-v01.sh`|
     |Node type(s)|Head|
-    |Parameters|`<hdfs-export-path>`|
+    |Parameters|`<hdfs-export-path>` `[--overwrite]`|
 
     * `<hdfs-export-path>` is an empty HDFS directory to write export data to. For example: `wasb://containername@storageaccountname.blob.core.windows.net/hdi_hive_export`.
+    * If `--overwrite` option is specified, then `<hdfs-export-path>` is allowed to be non-empty and will be overwritten.
 
 2. After successful completion of export, apply the "import" script action on the new cluster with the following fields.
 
