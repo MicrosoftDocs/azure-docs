@@ -195,7 +195,7 @@ Authorization: Bearer <token>
 
 After you create your *Cluster* resource and it is fully provisioned, you can edit additional properties at the cluster level using PowerShell or REST API. Other than the properties that are available during cluster creation, additional properties can only be set after the cluster has been provisioned:
 
-- **keyVaultProperties**: Used to configure the Azure Key Vault used to provision an [Azure Monitor customer-managed key](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). It contains the following parameters:  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
+- **keyVaultProperties**: Used to configure the Azure Key Vault used to provision an [Azure Monitor customer-managed key](../platform/customer-managed-keys.md#customer-managed-key-provisioning). It contains the following parameters:  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
   - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
   - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
@@ -524,7 +524,7 @@ Authorization: Bearer <token>
     
 The same as for 'clusters in a resource group', but in subscription scope.
 
-## Update *capacity reservation* in cluster
+## Update capacity reservation in cluster
 
 When the data volume to your linked workspaces change over time and you want to update the capacity reservation level appropriately. The Capacity is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
 
@@ -557,7 +557,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
   }
   ```
 
-## Update *billingType* in cluster
+## Update billingType in cluster
 
 The *billingType* property determines the billing attribution for the cluster and its data:
 - *cluster* (default) -- The billing is attributed to the subscription hosting your Cluster resource
@@ -626,8 +626,8 @@ The *billingType* property determines the billing attribution for the cluster an
 
   Cluster Update
   -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
-  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
-  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](#grant-key-vault-permissions) in Key Vault.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
   -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.

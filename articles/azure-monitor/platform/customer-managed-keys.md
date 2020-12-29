@@ -373,7 +373,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - [Update *capacity reservation* in cluster](../log-query/logs-dedicated-clusters.md#update-capacity-reservation-in-cluster)
 
-- [Update *billingType* in cluster](../log-query/logs-dedicated-clusters.md#update-billingType-in-cluster)
+- [Update *billingType* in cluster](../log-query/logs-dedicated-clusters.md#update-billingtype-in-cluster)
 
 - [Link a workspace to the cluster](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster)
 
