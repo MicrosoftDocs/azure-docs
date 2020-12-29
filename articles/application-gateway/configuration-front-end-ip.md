@@ -25,7 +25,7 @@ For more information, see [Frequently asked questions about Application Gateway]
 
 A public IP address isn't required for an internal endpoint that's not exposed to the Internet. That's known as an *internal load-balancer* (ILB) endpoint or private frontend IP. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the Internet but that require round-robin load distribution, session stickiness, or TLS termination.
 
-Only one public IP address or one private IP address is supported. You choose the front-end IP when you create the application gateway.
+Only one public IP address and one private IP address is supported. You choose the front-end IP when you create the application gateway.
 
 - For a public IP address, you can create a new public IP address or use an existing public IP in the same location as the application gateway. For more information, see [static vs. dynamic public IP address](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
