@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Create a solar penal monitoring app with IoT Central'
+title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
 description: 'Tutorial: Learn how to create a solar panel application using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,8 +11,6 @@ manager: abjork
 ---
 
 # Tutorial: Create and walk-through the solar panel monitoring app template 
-
-
 
 This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
@@ -26,8 +24,8 @@ This tutorial guides you through the process of creating the solar panel monitor
 If you don't have a subscription, [create a free trial account](https://azure.microsoft.com/free)
 
 ## Prerequisites
-- None
-- Azure subscription is recommended, but not required to try out
+* None
+* Azure subscription is recommended, but not required to try out
 
 
 ## Create a solar panel monitoring app 
@@ -36,12 +34,12 @@ You can create this application in three simple steps:
 
 1. Open [Azure IoT Central home page](https://apps.azureiotcentral.com) and click **Build** to create a new application. 
 
-2. Select **Energy** tab and click **Create app** under **Solar panel monitoring** application tile. 
+1. Select **Energy** tab and click **Create app** under **Solar panel monitoring** application tile. 
 
     > [!div class="mx-imgBorder"]
     > ![Build App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
+1. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
     * **Application name**: Pick a name for your IoT Central application. 
     * **URL**: Pick an IoT Central URL, the platform will verify its uniqueness.
     * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don't have an Azure subscription, start with free trial.
@@ -95,14 +93,16 @@ Click on the **Device templates** tab to see the solar panel device model. The m
 If you decide to not continue using this application, delete your application with the following these steps:
 
 1. From the left pane, open Administration tab
-2. Select Application settings and click Delete button at the bottom of the page. 
+1. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]
     > ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## Next steps
-* Learn about solar panel app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
-* Create solar panel application templates for free: [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
-
+* Learn about solar panel app architecture refer to 
+> [!div class="nextstepaction"]
+> [the concept article](./concept-iot-central-solar-panel-app.md)
+* Create solar panel application templates for free: 
+[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Learn more about IoT Central, see 
+[IoT Central overview](../index.yml)

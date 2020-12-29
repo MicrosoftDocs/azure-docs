@@ -1,10 +1,10 @@
 ---
 title: Tutorial- Cleanup Azure Service Fabric Mesh resources 
 description: Learn how to remove Azure Service Fabric Mesh resources so that you do not get charged for resources you are no longer using.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to avoid being charged for Azure resources I am no longer using.
 ---
@@ -58,4 +58,4 @@ Now that you have completed publishing a Service Fabric Mesh application to Azur
 * To see another example of service-to-service communication, explore the [Voting app sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)
 * To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
-* Read about the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Read about the [Cloud Shell](../cloud-shell/overview.md)

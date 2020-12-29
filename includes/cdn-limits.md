@@ -1,6 +1,6 @@
 ---
 author: mdgattuso
-ms.service: cost-management-billing
+ms.service: cdn
 ms.topic: include
 ms.date: 04/29/2019    
 ms.author: magattus

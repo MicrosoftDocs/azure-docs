@@ -27,3 +27,6 @@ Each recommendation includes the following information:
 - **Azure Security Center monitoring**: Whether the control is monitored by Azure Security Center, with link to reference.
 
 All recommendations, including recommendations that are not applicable to this specific service, are included in the baseline to provide you a complete picture of how the Azure Security Benchmark relates to each service. There may occasionally be controls that are not applicable for various reasons—for example, IaaS/compute-centric controls (such as controls specific to OS configuration management) may not be applicable to PaaS services.
+
+
+We welcome your feedback on the security baselines for Azure services. We encourage you to provide comments in the feedback area below. Or, if you prefer to share your input more privately with the Azure Security Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark.

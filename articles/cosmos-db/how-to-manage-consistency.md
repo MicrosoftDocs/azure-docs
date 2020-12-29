@@ -1,14 +1,17 @@
 ---
 title: Manage consistency in Azure Cosmos DB
 description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/24/2020
-ms.author: mjbrown
+ms.subservice: cosmosdb-sql
+ms.topic: how-to
+ms.date: 06/10/2020
+ms.author: anfeldma
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Manage consistency levels in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
@@ -18,7 +21,13 @@ This article explains how to manage consistency levels in Azure Cosmos DB. You l
 
 The [default consistency level](consistency-levels.md) is the consistency level that clients use by default.
 
-### CLI
+# [Azure portal](#tab/portal)
+
+To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**. The Azure portal also provides a visualization of different consistency levels with music notes. 
+
+:::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Consistency menu in the Azure portal":::
+
+# [CLI](#tab/cli)
 
 Create a Cosmos account with Session consistency, then update the default consistency.
 
@@ -30,7 +39,7 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-### PowerShell
+# [PowerShell](#tab/powershell)
 
 Create a Cosmos account with Session consistency, then update the default consistency.
 
@@ -44,11 +53,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
   -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
-### Azure portal
-
-To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**. The Azure portal also provides a visualization of different consistency levels with music notes. 
-
-![Consistency menu in the Azure portal](./media/how-to-manage-consistency/consistency-settings.png)
+---
 
 ## Override the default consistency level
 
@@ -57,7 +62,9 @@ Clients can override the default consistency level that is set by the service. C
 > [!TIP]
 > Consistency can only be **relaxed** at the request level. To move from weaker to stronger consistency, update the default consistency for the Cosmos account.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
+### <a id="override-default-consistency-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 // Override consistency at the client level
@@ -69,7 +76,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
@@ -81,8 +88,29 @@ var response = await client.GetContainer(databaseName, containerName)
         new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
+---
 
-### <a id="override-default-consistency-java-async"></a>Java Async SDK
+### <a id="override-default-consistency-javav4"></a> Java V4 SDK
+
+# [Async](#tab/api-async)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
+
+# [Sync](#tab/api-sync)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
+
+--- 
+
+### <a id="override-default-consistency-javav2"></a> Java V2 SDKs
+
+# [Async](#tab/api-async)
+
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -96,13 +124,16 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>Java Sync SDK
+# [Sync](#tab/api-sync)
+
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
+---
 
 ### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -132,7 +163,9 @@ One of the consistency levels in Azure Cosmos DB is *Session* consistency. This 
 
 To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -145,7 +178,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -156,8 +189,29 @@ ItemRequestOptions options = new ItemRequestOptions();
 options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
+---
 
-### <a id="utilize-session-tokens-java-async"></a>Java Async SDK
+### <a id="override-default-consistency-javav4"></a> Java V4 SDK
+
+# [Async](#tab/api-async)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
+
+# [Sync](#tab/api-sync)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
+
+--- 
+
+### <a id="utilize-session-tokens-javav2"></a>Java V2 SDKs
+
+# [Async](#tab/api-async)
+
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -179,7 +233,9 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>Java Sync SDK
+# [Sync](#tab/api-sync)
+
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -191,6 +247,7 @@ RequestOptions options = new RequestOptions();
 options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
+---
 
 ### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -221,15 +278,16 @@ item = client.ReadItem(doc_link, options)
 
 How eventual is eventual consistency? For the average case, can we offer staleness bounds with respect to version history and time. The [**Probabilistically Bounded Staleness (PBS)**](https://pbs.cs.berkeley.edu/) metric tries to quantify the probability of staleness and shows it as a metric. To view the PBS metric, go to your Azure Cosmos account in the Azure portal. Open the **Metrics** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
 
-![PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="PBS graph in the Azure portal":::
 
 ## Next steps
 
 Learn more about how to manage data conflicts, or move on to the next key concept in Azure Cosmos DB. See the following articles:
 
 * [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
+* [Partitioning and data distribution](./partitioning-overview.md)
 * [Manage conflicts between regions](how-to-manage-conflicts.md)
-* [Partitioning and data distribution](partition-data.md)
+* [Partitioning and data distribution](partitioning-overview.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [High availability](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

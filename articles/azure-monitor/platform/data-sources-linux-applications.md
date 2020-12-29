@@ -10,7 +10,7 @@ ms.date: 05/04/2017
 ---
 
 # Collect performance counters for Linux applications in Azure Monitor 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Azure Monitor.  The applications included in this article are:  
 
 - [MySQL](#mysql)
@@ -30,10 +30,10 @@ The MySQL authentication file is stored at `/var/opt/microsoft/mysql-cimprov/aut
 ### Authentication file format
 Following is the format for the MySQL OMI authentication file
 
-	[Port]=[Bind-Address], [username], [Base64 encoded Password]
-	(Port)=(Bind-Address), (username), (Base64 encoded Password)
-	(Port)=(Bind-Address), (username), (Base64 encoded Password)
-	AutoUpdate=[true|false]
+> [Port]=[Bind-Address], [username], [Base64 encoded Password]  
+> (Port)=(Bind-Address), (username), (Base64 encoded Password)  
+> (Port)=(Bind-Address), (username), (Base64 encoded Password)  
+> AutoUpdate=[true|false]  
 
 The entries in the authentication file are described in the following table.
 
@@ -59,7 +59,7 @@ The following table has example instance settings
 ### MySQL OMI Authentication File Program
 Included with the installation of the MySQL OMI provider is a MySQL OMI authentication file program which can be used to edit the MySQL OMI Authentication file. The authentication file program can be found at the following location.
 
-	/opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > The credentials file must be readable by the omsagent account. Running the mycimprovauth command as omsgent is recommended.
@@ -77,15 +77,18 @@ The following table provides details on the syntax for using mycimprovauth.
 
 The following example commands define a default user account for the MySQL server on localhost.  The password field should be entered in plain text - the password in the MySQL OMI authentication file will be Base 64 encoded
 
-	sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-	sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### Database Permissions Required for MySQL Performance Counters
 The MySQL User requires access to the following queries to collect MySQL Server performance data. 
 
-	SHOW GLOBAL STATUS;
-	SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 The MySQL user also requires SELECT access to the following default tables.
 
@@ -94,9 +97,10 @@ The MySQL user also requires SELECT access to the following default tables.
 
 These privileges can be granted by running the following grant commands.
 
-	GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-	GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > To grant permissions to a MySQL monitoring user the granting user must have the ‘GRANT option’ privilege as well as the privilege being granted.
@@ -128,12 +132,14 @@ Once you configure the Log Analytics agent for Linux to send data to Azure Monit
 
 ## Apache HTTP Server 
 If Apache HTTP Server is detected on the computer when the omsagent bundle is installed, a performance monitoring provider for Apache HTTP Server will be automatically installed. This provider relies on an Apache module that must be loaded into the Apache HTTP Server in order to access performance data. The module can be loaded with the following command:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 To unload the Apache monitoring module, run the following command:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

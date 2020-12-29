@@ -19,7 +19,7 @@ Both LSR modes improve hologram stability, although they have their distinct lim
 
 ## Choose LSR mode in Unity
 
-In the Unity editor, go to *File > Build Settings*. Select *Player Settings* in the lower left, then check under *Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality* whether **Enable Depth Buffer Sharing** is checked:
+In the Unity editor, go to *:::no-loc text="File > Build Settings":::*. Select *:::no-loc text="Player Settings":::* in the lower left, then check under *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* whether **:::no-loc text="Enable Depth Buffer Sharing":::** is checked:
 
 ![Depth Buffer Sharing Enabled flag](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -29,7 +29,9 @@ If it is, your app will use Depth LSR, otherwise it will use Planar LSR.
 
 For Depth LSR to work, the client application must supply a valid depth buffer that contains all the relevant geometry to consider during LSR.
 
-Depth LSR attempts to stabilize the video frame based on the contents of the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as transparent objects, can't be adjusted by LSR and may show instability and reprojection artifacts.
+Depth LSR attempts to stabilize the video frame based on the contents of the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as transparent objects, can't be adjusted by LSR and may show instability and reprojection artifacts. 
+
+To mitigate reprojection instability for transparent objects, you can force depth buffer writing. See the material flag *TransparencyWritesDepth* for the [Color](color-materials.md) and [PBR](pbr-materials.md) materials. Note however, that visual quality of transparent/opaque object interaction may suffer when enabling this flag.
 
 ## Planar LSR
 
@@ -39,7 +41,7 @@ Planar LSR reprojects those objects best that lie close to the supplied plane. T
 
 ### Configure Planar LSR in Unity
 
-The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
+The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
 
 You can calculate the focus point yourself, though it might make sense to base it on the one calculated by the Remote Rendering host. Call `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` to obtain that. You are asked to provide a coordinate frame in which to express the focus point. In most cases, you'll just want to provide the result from `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` here.
 

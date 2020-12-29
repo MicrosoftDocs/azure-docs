@@ -20,13 +20,13 @@ This article contains security recommendations for Azure Key Vault. Implementing
 Some of the recommendations included in this article can be automatically monitored by Azure Security Center. Azure Security Center is the first line of defense in protecting your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them.
 
 - For more information on Azure Security Center recommendations, see [Security recommendations in Azure Security Center](../../security-center/security-center-recommendations.md).
-- For information on Azure Security Center see the [What is Azure Security Center?](../../security-center/security-center-intro.md)
+- For information on Azure Security Center see the [What is Azure Security Center?](../../security-center/security-center-introduction.md)
 
 ## Data protection
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-|Enable soft-delete | [Soft-delete](overview-soft-delete.md)) allows you to recover deleted vaults and vault objects |  - |
+|Enable soft-delete | [Soft-delete](soft-delete-overview.md) allows you to recover deleted vaults and vault objects |  - |
 | Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
 
 ## Identity and access management
@@ -50,4 +50,4 @@ Some of the recommendations included in this article can be automatically monito
 
 ## Next steps
 
-Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../../security/fundamentals/abstract-develop-secure-apps.md).
+Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).

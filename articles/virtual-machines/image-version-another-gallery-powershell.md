@@ -1,5 +1,5 @@
 ---
-title: Copy an image from another gallery
+title: Copy an image from another gallery using PowerShell
 description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.reviewer: akjosh
 #SIG to SIG
 ---
 
-# Copy an image from another gallery
+# Copy an image from another gallery using PowerShell
 
 If you have multiple galleries in your organization, you can create images from images stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
 
@@ -96,7 +96,7 @@ The output will look something like this:
 }
 ```
 
-Create a new image definition, in your destination gallery, using the [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) cmdlet and the information from the output above.
+Create a new image definition, in your destination gallery, using the [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) cmdlet and the information from the output above.
 
 
 In this example, the image definition is named *myDestinationImgDef* in the gallery named *myDestinationGallery*.
@@ -110,7 +110,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Name 'myDestinationImgDef' `
    -OsState specialized `
    -OsType Windows `
-   -HyperVGeneration v1
+   -HyperVGeneration v1 `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'
@@ -119,7 +119,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## Create the image version
 
-Create an image version using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `--managed-image` parameter for creating the image version in your destination gallery. 
+Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `--managed-image` parameter for creating the image version in your destination gallery. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -152,7 +152,7 @@ $job.State
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+> You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
 
@@ -161,3 +161,5 @@ $job.State
 Create a VM from a [generalized](vm-generalized-image-version-powershell.md) or a [specialized](vm-specialized-image-version-powershell.md) image version.
 
 [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

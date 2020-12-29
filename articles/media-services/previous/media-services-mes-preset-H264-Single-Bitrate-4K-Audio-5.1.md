@@ -19,6 +19,9 @@ ms.author: juliako
 ---
 
 # H264 Single Bitrate 4K Audio 5.1
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs. You can either use a `preset name` to specify into which format you would like to encode your media file. Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding. You would then pass the custom preset to the encoder. For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  This topic shows the `H264 Single Bitrate 4K Audio 5.1` preset (in XML and JSON format).  
@@ -26,7 +29,7 @@ ms.author: juliako
  This preset produces a single MP4 file with a bitrate of 18000 kbps, and AAC 5.1 audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).  
   
 > [!NOTE]
->  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
   
  XML  
   

@@ -27,7 +27,7 @@ The troubleshooting process is as follows:
 1. Stop the affected VM.
 1. Take a snapshot for the OS disk of the VM.
 1. Create a virtual hard disk from the snapshot.
-1. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
+1. Attach and mount the virtual hard disk to another Linux VM for troubleshooting purposes.
 1. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
 1. Unmount and detach the virtual hard disk from the troubleshooting VM.
 1. Swap the OS disk for the VM.
@@ -175,6 +175,6 @@ Azure portal now supports change the OS disk of the VM. To do this, follow these
 1. Select OK.
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

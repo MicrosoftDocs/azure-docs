@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,11 +22,11 @@ Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens
 
 ## Protocol
 
-The **Name** attribute of the **Protocol** element needs to be set to `None`. Set the **OutputTokenFormat** element to `JWT`.
+The **Name** attribute of the **Protocol** element needs to be set to `OpenIdConnect`. Set the **OutputTokenFormat** element to `JWT`.
 
 The following example shows a technical profile for `JwtIssuer`:
 
-```XML
+```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="None" />

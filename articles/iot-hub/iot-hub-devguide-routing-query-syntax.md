@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
 # IoT Hub message routing query syntax
@@ -15,7 +16,7 @@ Message routing enables users to route different data types namely, device telem
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed which routes all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in diagnostic logs in case of a failure. The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed which routes all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes) logs in case of a failure. The query syntax must be correct for the route to be saved and evaluated.  
 
 ## Message routing query based on message properties 
 
@@ -51,9 +52,10 @@ System properties help identify contents and source of the messages.
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
-| iothub-interface-name | string | This value is set by the user and represents the name of the digital twin interface that implements the telemetry message. To query, use `$interfaceName`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
+| dt-dataschema | string |  This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
+| dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |
 
-As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
+As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to above properties in the previous table, you can also query **connectionDeviceId**, **connectionModuleId**.
 
 ### Application properties
 

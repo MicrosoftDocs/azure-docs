@@ -1,33 +1,30 @@
 ---
-title: Create and use views in SQL on-demand (preview)
-description: In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use views in serverless SQL pool
+description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
-ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.subservice: sql
+ms.date: 05/20/2020
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
-# Create and use views in SQL on-demand (preview) using Azure Synapse Analytics
+# Create and use views using serverless SQL pool in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 
 ## Prerequisites
 
-Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand views:
-
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+Your first step is to create a database where the view will be created and initialize the objects needed to authenticate on Azure storage by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
 
 ## Create a view
 
-You can create views the same way you create regular SQL Server views. The query below creates view that reads *population.csv* file.
+You can create views the same way you create regular SQL Server views. The following query creates view that reads *population.csv* file.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];
@@ -39,8 +36,9 @@ GO
 CREATE VIEW populationView AS
 SELECT * 
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV', 
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', 
         FIELDTERMINATOR =',', 
         ROWTERMINATOR = '\n'
     )
@@ -52,14 +50,27 @@ WITH (
 ) AS [r];
 ```
 
+The view in this example uses `OPENROWSET` function that uses absolute path to the underlying files. If you have `EXTERNAL DATA SOURCE` with a root URL of your storage, you can use `OPENROWSET` with `DATA_SOURCE` and relative file path:
+
+```sql
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries.
 
-The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
+The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];

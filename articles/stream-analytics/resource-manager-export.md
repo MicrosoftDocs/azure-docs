@@ -5,7 +5,7 @@ services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ---
 
@@ -23,7 +23,7 @@ To export a job to a local project, locate the job you wish to export in the **S
 
 ![Open Stream Analytics job in Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
-For more information on using Visual Studio Code to manage Stream Analytics jobs, see the [Visual Studio Code quickstart](quick-create-vs-code.md).
+For more information on using Visual Studio Code to manage Stream Analytics jobs, see the [Visual Studio Code quickstart](quick-create-visual-studio-code.md).
 
 ## Compile the script 
 
@@ -55,7 +55,7 @@ You're ready to deploy your Azure Stream Analytics job using the Azure Resource 
 
 In a PowerShell window, run the following command. Be sure to reaplce the *ResourceGroupName*, *TemplateFile*, and *TemplateParameterFile* with your actual resource group name, and the complete file paths to the *JobTemplate.json* and *JobTemplate.parameters.json* files in the **Deploy Folder** of your job workspace.
 
-If you don't have Azure PowerShell configured, follow the steps in [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+If you don't have Azure PowerShell configured, follow the steps in [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"

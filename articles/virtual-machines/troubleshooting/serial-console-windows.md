@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console for Windows | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
+description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets using a Windows example.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -23,10 +23,12 @@ The Serial Console in the Azure portal provides access to a text-based console f
 
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
+Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
+
 For serial console documentation for Linux, see [Azure Serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
+> Serial Console is currently incompatible with a managed boot diagnostics storage account. To use Serial Console, ensure that you are using a custom storage account.
 
 
 ## Prerequisites
@@ -35,7 +37,7 @@ For serial console documentation for Linux, see [Azure Serial Console for Linux]
 
 - Your account that uses serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
-- Your VM or virtual machine scale set instance must have a password-based user. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
+- Your VM or virtual machine scale set instance must have a password-based user. You can create one with the [reset password](../extensions/vmaccess.md#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
 
 * The VM for virtual machine scale set instance must have [boot diagnostics](boot-diagnostics.md) enabled.
 
@@ -47,7 +49,7 @@ For serial console documentation for Linux, see [Azure Serial Console for Linux]
 > If you are not seeing anything in the serial console, make sure that boot diagnostics is enabled on your VM or virtual machine scale set.
 
 ### Enable the serial console in custom or older images
-Newer Windows Server images on Azure have [Special Administration Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7).
+Newer Windows Server images on Azure have [Special Administration Console](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7).
 
 For older Windows Server images (created before February 2018), you can automatically enable the serial console through the Azure portal's run command feature. In the Azure portal, select **Run command**, then select the command named **EnableEMS** from the list.
 
@@ -73,11 +75,11 @@ If needed, the SAC can be enabled offline as well:
 
 #### How do I know if SAC is enabled?
 
-If [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) isn't enabled, the serial console won't display the SAC prompt. In some cases, VM health information is shown, and in other cases it's blank. If you're using a Windows Server image created before February 2018, SAC probably won't be enabled.
+If [SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) isn't enabled, the serial console won't display the SAC prompt. In some cases, VM health information is shown, and in other cases it's blank. If you're using a Windows Server image created before February 2018, SAC probably won't be enabled.
 
 ### Enable the Windows boot menu in the serial console
 
-If you need to enable Windows boot loader prompts to display in the serial console, you can add the following additional options to your boot configuration data. For more information, see [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+If you need to enable Windows boot loader prompts to display in the serial console, you can add the following additional options to your boot configuration data. For more information, see [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Connect to your Windows VM or virtual machine scale set instance by using Remote Desktop.
 
@@ -97,19 +99,18 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 
 1. Connect to the serial console. If you successfully connect, the prompt is **SAC>**:
 
-    ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+   ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+1. Enter `cmd` to create a channel that has a CMD instance.
 
-1.    Enter `cmd` to create a channel that has a CMD instance.
+1. Enter `ch -si 1` or press the `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
 
-1.    Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
+1. Press **Enter**, and then enter sign-in credentials with administrative permissions.
 
-1.    Press **Enter**, and then enter sign-in credentials with administrative permissions.
+1. After you've entered valid credentials, the CMD instance opens.
 
-1.    After you've entered valid credentials, the CMD instance opens.
+1. To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
 
-1.    To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
-
-    ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### Use the serial console for NMI calls
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine won't ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times. Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems that are not responding.
@@ -124,7 +125,7 @@ For information on configuring Windows to create a crash dump file when it recei
 Function keys are enabled for usage for serial console in Windows VMs. The F8 in the serial console dropdown provides the convenience of easily entering the Advanced Boot Settings menu, but serial console is compatible with all other function keys. You may need to press **Fn** + **F1** (or F2, F3, etc.) on your keyboard depending on the computer you are using serial console from.
 
 ### Use WSL in serial console
-The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. For instructions to enable WSL for Windows Server, see the [Installation guide](https://docs.microsoft.com/windows/wsl/install-on-server).
+The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. For instructions to enable WSL for Windows Server, see the [Installation guide](/windows/wsl/install-on-server).
 
 ### Restart your Windows VM/virtual machine scale set instance within Serial Console
 You can initiate a restart within the serial console by navigating to the power button and clicking "Restart VM". This will initiate a VM restart, and you will see a notification within the Azure portal regarding the restart.
@@ -145,7 +146,7 @@ Access to the serial console is limited to users who have an access role of [Vir
 All data that is sent back and forth is encrypted on the wire.
 
 ### Audit logs
-All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.
+All access to the serial console is currently logged in the [boot diagnostics](./boot-diagnostics.md) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.
 
 > [!CAUTION]
 > No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII.
@@ -157,7 +158,7 @@ If a user is connected to the serial console and another user successfully reque
 > This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows, there's an automatic timeout enabled in SAC; for Linux, you can configure the terminal timeout setting.
 
 ## Accessibility
-Accessibility is a key focus for the Azure serial console. To that end, we've ensured that the serial console is accessible for the visual and hearing impaired, as well as people who might not be able to use a mouse.
+Accessibility is a key focus for the Azure serial console. To that end, we've ensured that the serial console is accessible for the people with vision impairment, or who are hard of hearing, as well as people who might not be able to use a mouse.
 
 ### Keyboard navigation
 Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl**+**F6** on your keyboard.
@@ -171,7 +172,7 @@ Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules.
 Filesystem corruption/check | Access the serial console and recover the filesystem.
-RDP configuration issues | Access the serial console and change the settings. For more information, see the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+RDP configuration issues | Access the serial console and change the settings. For more information, see the [RDP documentation](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Network lock down system | Access the serial console from the Azure portal to manage the system. Some network commands are listed in [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md).
 Interacting with bootloader | Access BCD through the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console).
 
@@ -185,7 +186,7 @@ Only health information is shown when connecting to a Windows VM| This error occ
 SAC does not take up the entire Serial Console area in the browser | This is a known issue with Windows and the terminal emulator. We are tracking this issue with both teams but for now there is no mitigation.
 Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP, you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk by running `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swapping the disk back.
 Pasting into PowerShell in SAC results in a third character if the original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
-Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
+Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](/windows/console/console-virtual-terminal-sequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
 ## Frequently asked questions

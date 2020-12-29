@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues with Change Tracking and Inventory
-description: Learn how to troubleshoot and resolve issues with the Azure Automation Change Tracking and Inventory solution.
+title: Troubleshoot Azure Automation Change Tracking and Inventory issues
+description: This article tells how to troubleshoot and resolve issues with the Azure Automation Change Tracking and Inventory feature.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -12,10 +12,7 @@ manager: carmonm
 ---
 # Troubleshoot Change Tracking and Inventory issues
 
-This article describes how to troubleshoot Azure Automation Change Tracking and Inventory issues.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Windows
 
@@ -23,7 +20,7 @@ This article describes how to troubleshoot Azure Automation Change Tracking and 
 
 #### Issue
 
-You don't see any Change Tracking and Inventory results for Windows machines that are onboarded.
+You don't see any Change Tracking and Inventory results for Windows machines that have been enabled for the feature.
 
 #### Cause
 
@@ -32,7 +29,7 @@ This error can have the following causes:
 * The Azure Log Analytics agent for Windows isn't running.
 * Communication back to the Automation account is being blocked.
 * The Change Tracking and Inventory management packs aren't downloaded.
-* The VM being onboarded might have come from a cloned machine that wasn't sysprepped with the Log Analytics agent for Windows installed.
+* The VM being enabled might have come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Log Analytics agent for Windows installed.
 
 #### Resolution
 
@@ -58,7 +55,7 @@ Verify that the Log Analytics agent for Windows (**HealthService.exe**) is runni
 
 Check Event Viewer on the machine, and look for any events that have the word `changetracking` in them.
 
-To learn about addresses and ports that must be allowed for Change Tracking and Inventory to work, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#network-planning).
+To learn about addresses and ports that must be allowed for Change Tracking and Inventory to work, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
 
 ##### Management packs not downloaded
 
@@ -78,7 +75,7 @@ If using a cloned image, sysprep the image first and then install the Log Analyt
 
 #### Issue
 
-You don't see any Change Tracking and Inventory results for Linux machines that are onboarded for the solution. 
+You don't see any Change Tracking and Inventory results for Linux machines that are enabled for the feature. 
 
 #### Cause
 Here are possible causes specific to this issue:
@@ -97,19 +94,19 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md).
 
-If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting).
+If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot#issue-you-are-not-seeing-any-linux-data).
+For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### Log Analytics agent for Linux not configured correctly
 
-The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Track changes in your environment with the Change Tracking and Inventory solution](../change-tracking.md).
+The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ##### FIM conflicts
 
-Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Track changes in your environment with the Change Tracking and Inventory solution](../change-tracking.md).
+Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Next steps
 

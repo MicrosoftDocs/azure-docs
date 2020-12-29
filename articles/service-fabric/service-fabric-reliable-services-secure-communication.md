@@ -195,4 +195,4 @@ To help secure a service when you're using service remoting with C# services, fo
     ```
 
 
-As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+As a next step, read [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md).

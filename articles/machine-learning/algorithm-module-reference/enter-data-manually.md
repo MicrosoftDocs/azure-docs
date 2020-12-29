@@ -13,7 +13,7 @@ ms.date: 02/22/2020
 ---
 # Enter Data Manually module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use the **Enter Data Manually** module to create a small dataset by typing values. The dataset can have multiple columns.
   

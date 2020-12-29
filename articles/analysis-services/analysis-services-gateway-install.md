@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -39,11 +39,11 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 * Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 
-## <a name="download"></a>Download
+## Download
 
  [Download the gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a>Install
+## Install
 
 1. Run setup.
 
@@ -62,13 +62,13 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
    > [!NOTE]
    > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
 
-## <a name="register"></a>Register
+## Register
 
 In order to create a gateway resource in Azure, you must register the local instance you installed with the Gateway Cloud Service. 
 
 1.  Select **Register a new gateway on this computer**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Screenshot that highlights the Register a new gateway on this computer option.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
 
@@ -78,7 +78,7 @@ In order to create a gateway resource in Azure, you must register the local inst
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-resource"></a>Create an Azure gateway resource
+## Create an Azure gateway resource
 
 After you've installed and registered your gateway, you need to create a gateway resource in Azure. Sign in to Azure with the same account you used when registering the gateway.
 
@@ -105,7 +105,12 @@ After you've installed and registered your gateway, you need to create a gateway
 
      When you're done, click **Create**.
 
-## <a name="connect-servers"></a>Connect servers to the gateway resource
+## Connect gateway resource to server
+
+> [!NOTE]
+> Connecting to a gateway resource in a different subscription from your server is not supported in the portal, but is supported using PowerShell.
+
+# [Portal](#tab/azure-portal)
 
 1. In your Azure Analysis Services server overview, click **On-Premises Data Gateway**.
 
@@ -122,6 +127,27 @@ After you've installed and registered your gateway, you need to create a gateway
 
 
     ![Connect server to gateway resource success](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+# [PowerShell](#tab/azure-powershell)
+
+Use [Get-AzResource](/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+To get the gateway resource ID:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+To configure an existing server:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
 
 That's it. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
 

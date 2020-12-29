@@ -17,7 +17,7 @@ ms.subservice: metrics
 
 ## Metrics in Azure
 
-[Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics),  [Windows Azure Diagnostics (WAD) extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), or by [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md),  [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or by [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
 ## Create views with multiple metrics and charts
 
@@ -73,15 +73,15 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 2. Select which dimension (property) you want to filter
 
-   ![metric image](./media/metrics-charts/00006.png)
+   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![metric image](./media/metrics-charts/00007.png)
+   ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/029.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![metric image](./media/metrics-charts/00008.png)
+   ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/030.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -100,11 +100,11 @@ You can split a metric by dimension to visualize how different segments of the m
 
 2. Choose a dimension on which you want to segment your chart:
 
-   ![metric image](./media/metrics-charts/00010.png)
+   ![Screenshot that shows the selected dimension on which you segment your chart.](./media/metrics-charts/031.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![metric image](./media/metrics-charts/00012.png)
+   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/032.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
@@ -119,9 +119,13 @@ For example, when the volume of successful requests drops down from 99.99% to 99
 
 Another example is a fluctuation in the available memory, where the value will technically never reach 0. Fixing the range to a higher value may make the drops in available memory easier to spot. 
 
-To control the y-axis range, use the “…” chart menu, and select **Edit chart** to access advanced chart settings. Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
+To control the y-axis range, use the “…” chart menu, and select **Chart settings** to access advanced chart settings.
 
-![metric image](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot that highlights the chart settings option.](./media/metrics-charts/033.png)
+
+ Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
+ 
+ ![Screenshot that highlights the Y-axis range section.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
@@ -132,12 +136,9 @@ After you configure the charts, the chart lines are automatically assigned a col
 
 To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
 
+![Screenshot that shows how to change color](./media/metrics-charts/035.png)
+
 After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
-
-> [!NOTE]
-> Due to constraints of our release and publishing schedule, changing colors of the chart lines temporarily requires passing a special parameter **?feature.colorpicker=true** when starting Azure portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). This limitation will be removed soon. 
-
-![metric image](./media/metrics-charts/018.png)
 
 ## Pin charts to dashboards
 
@@ -145,9 +146,9 @@ After configuring the charts, you may want to add it to the dashboards so that y
 
 To pin a configured chart to a dashboard:
 
-After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
+After configuring your chart, click **Pin to dashboard** in the right top corner of the chart.
 
-![metric image](./media/metrics-charts/00013.png)
+![Screenshot that shows you how to pin to chart](./media/metrics-charts/036.png)
 
 ## Create alert rules
 
@@ -155,11 +156,11 @@ You can use the criteria you have set to visualize your metrics as the basis of 
 
 ### To create a new alert rule, click **New Alert rule**
 
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+![New alert rule button highlighted in red](./media/metrics-charts/042.png)
 
 You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
 
-![Create alert rule](./media/metrics-charts/016.png)
+![Create alert rule](./media/metrics-charts/041.png)
 
 Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
@@ -175,5 +176,4 @@ Check out this [article](alerts-metric.md) to learn more about setting up metric
 
 ## Next steps
 
-  Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
-
+  Read [Creating custom KPI dashboards](../learn/tutorial-app-dashboards.md) to learn about the best practices for creating actionable dashboards with metrics.

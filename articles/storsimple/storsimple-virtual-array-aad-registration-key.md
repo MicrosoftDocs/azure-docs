@@ -1,6 +1,6 @@
 ---
 title: New authentication for StorSimple Virtual Arrays
-description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
+description: Learn about AAD authentication, the associated new service registration key, and modifications to the firewall rules as applicable to the StorSimple devices.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual

@@ -52,7 +52,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients
@@ -75,10 +75,6 @@ Here is a list of the supported storage types for the Data Box Disk.
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
-
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.
-
 
 ## Supported storage types for upload
 

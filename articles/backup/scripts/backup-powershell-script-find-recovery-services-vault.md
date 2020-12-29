@@ -1,13 +1,14 @@
-﻿---
+---
 title: PowerShell Script - find Vault for Storage Account
-description: Learn how to use an Azure PowerShell script to find the recovery services vault where your storage account is registered.
+description: Learn how to use an Azure PowerShell script to find the Recovery Services vault where your storage account is registered.
 ms.topic: sample
-ms.date: 1/28/2020
+ms.date: 1/28/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Powershell Script to find the Recovery Services Vault where a Storage Account is registered
+# PowerShell Script to find the Recovery Services vault where a Storage Account is registered
 
-This script helps you to find the recovery services vault where your storage account is registered.
+This script helps you to find the Recovery Services vault where your storage account is registered.
 
 ## Sample script
 
@@ -51,7 +52,7 @@ if(!$found)
     * **-StorageAccountName** - Storage Account Name
     * **-SubscriptionID** - The ID of subscription where the storage account is present.
 
-The following example tries to find the recovery services vault where the *afsaccount* storage account is registered:
+The following example tries to find the Recovery Services vault where the *afsaccount* storage account is registered:
 
 ```powershell
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
@@ -59,7 +60,7 @@ The following example tries to find the recovery services vault where the *afsac
 
 ## Output
 
-The output will display the complete path of the recovery services vault where the storage account is registered. Here is a sample output:
+The output will display the complete path of the Recovery Services vault where the storage account is registered. Here is a sample output:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123
@@ -67,4 +68,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## Next steps
 
-Learn how to [Backup Azure File Shares from the Azure portal](https://docs.microsoft.com/azure/backup/backup-afs)
+Learn how to [Backup Azure File Shares from the Azure portal](../backup-afs.md)

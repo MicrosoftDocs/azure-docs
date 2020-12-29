@@ -4,8 +4,9 @@ description: Understand your Microsoft Partner Agreement billing account (CSP)
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -23,7 +24,7 @@ The following diagram shows the relationship between a billing account, billing 
 
 ![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/mpa-overview/mpa-hierarchy.svg)
 
-Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
+Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 ## Billing profiles
 
@@ -41,7 +42,7 @@ You can view and manage customers who have accepted a Microsoft Customer Agreeme
 
 ### Enable policy to give visibility into cost
 
-Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go rates for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) access on a subscription can view and analyze the cost for the subscription.
+Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go rates for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](../../role-based-access-control/overview.md) access on a subscription can view and analyze the cost for the subscription.
 
 To turn on the policy:
 
@@ -49,7 +50,7 @@ To turn on the policy:
 
 1. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mpa-overview/search-cmb.png)
+   ![Screenshot shows Azure portal search for Cost Management + Billing.](./media/mpa-overview/search-cmb.png)
 
 1. Select **Customers** from the left-hand side and then select a customer from the list.
 
@@ -63,7 +64,7 @@ To turn on the policy:
 
 ## Resellers
 
-Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/partner-center) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
+Indirect providers in the CSP [two-tier model](/partner-center) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
 
 ## Check access to a Microsoft Partner Agreement
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -77,5 +78,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 See the following articles to learn about your billing account:
 
 - [Create an additional Azure subscription for Microsoft Partner Agreement](../manage/create-subscription.md)
-- Integrate billing data with your own reporting system using the [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
-- [Azure Cost Management quickstart guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Integrate billing data with your own reporting system using the [Azure Billing APIs](/rest/api/billing/)
+- [Azure Cost Management quickstart guide for partners](../costs/get-started-partners.md)

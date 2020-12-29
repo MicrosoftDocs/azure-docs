@@ -3,18 +3,18 @@ title: StorSimple Snapshot Manager and volumes | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: twooley
+ms.author: alkohli
 
 ---
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -41,7 +41,7 @@ This tutorial explains how you can mount, initialize, and format volumes and the
 > 
 
 ## Mount volumes
-Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
+Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) on the Microsoft TechNet website.
 
 #### To mount volumes
 1. On your host computer, start the Microsoft iSCSI initiator.
@@ -76,7 +76,7 @@ Use the following procedure to mount, initialize, and format StorSimple volumes.
       * Select the NTFS file system.
       * Specify a 64 KB allocation unit size.
       * Perform a quick format.
-7. Format multi-partition volumes. For instructions, go to the section, "Partitions and Volumes" in [Implementing Disk Management](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Format multi-partition volumes. For instructions, go to the section, "Partitions and Volumes" in [Implementing Disk Management](/previous-versions/tn-archive/dd163556(v=technet.10)).
 
 ## View information about your volumes
 Use the following procedure to view information about local and Azure StorSimple volumes.
@@ -129,7 +129,7 @@ Use the following procedure to configure a backup of a basic volume, and then ei
 ### Prerequisites
 Before you begin:
 
-* Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+* Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](./storsimple-8000-deployment-walkthrough-u2.md).
 * Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### To configure backup of a basic volume
@@ -162,7 +162,7 @@ Before you begin:
 * Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
 
 ### Step 1: Use Disk Management to create a dynamic mirrored volume
-Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
+Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) on the Microsoft TechNet website.
 
 #### To create a dynamic mirrored volume
 1. Use any of the following options to start Disk Management: 
@@ -206,4 +206,4 @@ Use the following procedure to configure a dynamic mirrored volume, and then eit
 * Learn how to [use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

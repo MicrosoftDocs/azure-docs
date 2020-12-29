@@ -32,11 +32,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 If you don't have a Remote Rendering account, [create one](create-an-account.md). Each resource is identified by an *accountId*, which is used throughout the session APIs.
 
-### Example script: Set accountId and accountKey
+### Example script: Set accountId, accountKey and account domain
+
+Account domain is the location of remote rendering account. In this example, the account's location is region *eastus*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## Common request headers
@@ -47,7 +50,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -66,9 +69,9 @@ This command creates a session. It returns the ID of the new session. You need t
 
 **Request body:**
 
-* maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
+* maxLeaseTime (timespan): a timeout value when the session will be decommissioned automatically
 * models (array): asset container URLs to preload
-* size (string): the VM size (**"standard"** or **"premium"**). See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+* size (string): the server size to configure ([**"standard"**](../reference/vm-sizes.md) or [**"premium"**](../reference/vm-sizes.md)). See specific [size limitations](../reference/limits.md#overall-number-of-polygons).
 
 **Responses:**
 
@@ -112,7 +115,14 @@ The response from the request above includes a **sessionId**, which you need for
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## Update a session
+## Modify and query session properties
+
+There are a few commands to query or modify the parameters of existing sessions.
+
+> [!CAUTION]
+> As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The status code in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+
+### Update session parameters
 
 This command updates a session's parameters. Currently you can only extend the lease time of a session.
 
@@ -125,7 +135,7 @@ This command updates a session's parameters. Currently you can only extend the l
 
 **Request body:**
 
-* maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
+* maxLeaseTime (timespan): a timeout value when the session will be decommissioned automatically
 
 **Responses:**
 
@@ -133,7 +143,7 @@ This command updates a session's parameters. Currently you can only extend the l
 |-----------|:-----------|:-----------|
 | 200 | | Success |
 
-### Example script: Update a session
+#### Example script: Update a session
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -155,7 +165,7 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## Get active sessions
+### Get active sessions
 
 This command returns a list of active sessions.
 
@@ -169,7 +179,7 @@ This command returns a list of active sessions.
 |-----------|:-----------|:-----------|
 | 200 | - sessions: array of session properties | see "Get session properties" section for a description of session properties |
 
-### Example script: Query active sessions
+#### Example script: Query active sessions
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -198,7 +208,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## Get sessions properties
+### Get sessions properties
 
 This command returns information about a session, such as its VM hostname.
 
@@ -212,7 +222,7 @@ This command returns information about a session, such as its VM hostname.
 |-----------|:-----------|:-----------|
 | 200 | - message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>If the status is 'error' or 'expired', the message will contain more information |
 
-### Example script: Get session properties
+#### Example script: Get session properties
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }

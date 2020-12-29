@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Questions about backing up Azure Files
 
-This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
@@ -25,17 +25,17 @@ Check if the Azure file share is already protected in the same Recovery Services
 
 Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 
-### When trying to back up file shares, I clicked on a Storage Account for discovering the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
+### When trying to back up file shares, I selected a Storage Account to discover the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
 
 When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the vault from which this is done. If you choose to protect the file shares with a different vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the chosen Storage Account from this vault.
+
+### Why can't I change the vault to configure backup for the file share?
+
+If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you aren't given an option to change it. All file shares in a storage account can be protected only by the same vault. If you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
 
 ### Can I change the Vault to which I back up my file shares?
 
 Yes. However, you'll need to [stop protection on the file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) this Storage Account, and then protect it from a different vault.
-
-### How many Azure file shares can I protect in a Vault?
-
-You can protect Azure file shares from up to 50 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
 
 ### Can I protect two different file shares from the same Storage Account to different Vaults?
 
@@ -51,7 +51,7 @@ You can have up to 200 Snapshots for a file share at any point in time. The limi
 
 ### Can I recover from a deleted Azure file share?
 
-When an Azure file share is deleted, you're shown the list of backups that will be deleted and a confirmation is requested. Currently, a deleted Azure file share can't be restored.
+If the file share is in the soft deleted state, you need to first undelete the file share to perform the restore operation. The undelete operation will bring the file share into the active state where you can restore to any point in time. To learn how to undelete your file share, visit [this link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) or see the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md). If the file share is permanently deleted, you won't be able restore the contents and snapshots.
 
 ### Can I restore from backups if I stopped protection on an Azure file share?
 
@@ -71,18 +71,102 @@ Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
 
 All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files](../storage/files/storage-snapshots-files.md).
 
+### What happens after I move a backed up file share to a different subscription?
+
+Once a file share is moved to a different subscription, it's considered as a new file share by Azure Backup. These are the recommended steps:
+ 
+Scenario: Let's say you have a file share *FS1* in subscription *S1* and it's protected using the *V1* vault. Now you want to move your file share to subscription *S2*.
+ 
+1.	Move the desired storage account and file share (FS1) to the different subscription (S2).
+2.	In the V1 vault, trigger the stop protection with delete data operation for FS1.
+3.	Unregister the storage account hosting FS1 from the V1 vault.
+4.	Reconfigure backup for FS1, now moved to S2, with a vault (V2) in the S2 subscription. 
+ 
+Note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup. So you'll have to delete those snapshots manually according to your requirements.
+
+### Can I move my backed up file share to a different resource group?
+ 
+Yes, you can move your backed up file share to a different resource group. However, you'll need to reconfigure backup for the file share as it will be treated as a new resource by Azure Backup. Also, the snapshots that were created before the resource group move will no longer be managed by Azure backup. So you'll have to delete those snapshots manually according to your requirements.
+
 ### What is the maximum retention I can configure for backups?
 
 Refer to the [support matrix](azure-file-share-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
 
-### What happens when I change the Backup policy for an Azure file share?
+### What is the impact on existing recovery points and snapshots when I modify the Backup policy for an Azure file share to switch from “Daily Policy" to "GFS Policy”?
 
-When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.
+When you modify a Daily backup policy to GFS policy (adding weekly/monthly/yearly retention), the behavior is as follows:
+
+- **Retention**: If you're adding weekly/monthly/yearly retention as part of modifying the policy, all the future recovery points created as part of the scheduled backup will be tagged according to the new policy. All the existing recovery points will still be considered as daily recovery points and so won’t be tagged as weekly/monthly/yearly.
+
+- **Snapshots and recovery points cleanup**:
+
+  - If daily retention is extended, the expiration date of the existing recovery points is updated according to the daily retention value configured in the new policy.
+  - If daily retention is reduced, the existing recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy, and then deleted.
+
+Here's an example of how this works:
+
+#### Existing Policy [P1]
+
+|Retention Type |Schedule |Retention  |
+|---------|---------|---------|
+|Daily    |    Every day at 8 PM    |  100 days       |
+
+#### New Policy [Modified P1]
+
+| Retention Type | Schedule                       | Retention |
+| -------------- | ------------------------------ | --------- |
+| Daily          | Every day at 9 PM              | 50 days   |
+| Weekly         | On Sunday at 9 PM              | 3 weeks   |
+| Monthly        | On Last Monday at 9 PM         | 1 month   |
+| Yearly         | In Jan on Third Sunday at 9 PM | 4 years   |
+
+#### Impact
+
+1. The expiration date of existing recovery points will be adjusted according to the daily retention value of the new policy:  that is, 50 days. So any recovery point that’s older than 50 days will be marked for deletion.
+
+2. The existing recovery points won’t be tagged as weekly/monthly/yearly based on new policy.
+
+3. All the future backups will be triggered according to the new schedule: that is, at 9 PM.
+
+4. The expiration date of all future recovery points will be aligned with the new policy.
+
+>[!NOTE]
+>The policy changes will affect only the recovery points created as part of the scheduled backup job run. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking backup.
+
+### What is the impact on existing recovery points when I modify an existing GFS Policy?
+
+When a new policy is applied on file shares, all the future scheduled backups will be taken according to the schedule configured in the modified policy.  The retention of all existing recovery points is aligned according to the new retention values configured. So if the retention is extended, existing recovery points are marked to be retained according to the new policy. If the retention is reduced, they're marked for clean-up in the next cleanup job and then deleted.
+
+Here's an example of how this works:
+
+#### Existing Policy [P2]
+
+| Retention Type | Schedule           | Retention |
+| -------------- | ------------------ | --------- |
+| Daily          | Every day at 8 PM | 50 days   |
+| Weekly         | On Monday at 8 PM  | 3 weeks   |
+
+#### New Policy [Modified P2]
+
+| Retention Type | Schedule               | Retention |
+| -------------- | ---------------------- | --------- |
+| Daily          | Every day at 9 PM     | 10 days   |
+| Weekly         | On Monday at 9 PM      | 2 weeks   |
+| Monthly        | On Last Monday at 9 PM | 2 months  |
+
+#### Impact of change
+
+1. The expiration date of existing daily recovery points will be aligned according to the new daily retention value, that is 10 days. So any daily recovery point older than 10 days will be deleted.
+
+2. The expiration date of existing weekly recovery points will be aligned according to the new weekly retention value, that is two weeks. So any weekly recovery point older than two weeks will be deleted.
+
+3. The monthly recovery points will only be created as part of future backups based on the new policy configuration.
+
+4. The expiration date of all future recovery points will be aligned with the new policy.
+
+>[!NOTE]
+>The policy changes will affect only the recovery points created as part of the scheduled backup. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking the backup.
 
 ## Next steps
 
-To learn more about other areas of Azure Backup, see some of these other Backup FAQs:
-
-- [Recovery Services vault FAQ](backup-azure-backup-faq.md)
-- [Azure VM backup FAQ](backup-azure-vm-backup-faq.md)
-- [Azure Backup agent FAQ](backup-azure-file-folder-backup-faq.md)
+- [Troubleshoot problems while backing up Azure file shares](troubleshoot-azure-files.md)

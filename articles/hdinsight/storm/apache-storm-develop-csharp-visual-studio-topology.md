@@ -6,8 +6,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2019
+ms.custom: devx-track-csharp
 ---
 
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio

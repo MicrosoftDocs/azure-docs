@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with PerformanceCentre | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PerformanceCentre.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with PerformanceCentre
 
@@ -27,7 +21,7 @@ Integrating PerformanceCentre with Azure AD provides you with the following bene
 * You can enable your users to be automatically signed-in to PerformanceCentre (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -108,7 +102,7 @@ To configure Azure AD single sign-on with PerformanceCentre, perform the followi
     `http://<companyname>.performancecentre.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [PerformanceCentre Client support team](https://www.performancecentre.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [PerformanceCentre Client support team](https://www.performio.co/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -130,19 +124,19 @@ To configure Azure AD single sign-on with PerformanceCentre, perform the followi
 
 2. In the tab on the left side, click **Configure**.
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot that shows the "PerformanceCenter" menu with "Configure" selected.][10]
 
 3. In the tab on the left side, click **Miscellaneous**, and then click **Single Sign On**.
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot that shows the "Configure" tab with "Single Sign-On" selected from the "Miscellaneous" menu.][11]
 
 4. As **Protocol**, select **SAML**.
    
-    ![Azure AD Single Sign-On][12]
+    ![Screenshot that shows the "Single Sign-On Configuration" section with "S A M L" selected from the "Protocol" menu.][12]
 
 5. Open your downloaded metadata file in notepad, copy the content, paste it into the **Identity Provider Metadata** textbox, and then click **Save**.
    
-    ![Azure AD Single Sign-On][13]
+    ![Screenshot that shows the "Identity Provider Metadata" textbox.][13]
 
 6. Verify that the values for the **Entity Base URL** and **Entity ID URL** are correct.
     
@@ -209,7 +203,7 @@ The objective of this section is to create a user called Britta Simon in Perform
 
 2. In the menu on the left, click **Interrelate**, and then click **Create Participant**.
    
-    ![Create User][400]
+    ![Screenshot that shows the "PerformanceCenter" company site "Interrelate -Participants" page with the "Create Participant" button selected.][400]
 
 3. On the **Interrelate - Create Participant** dialog, perform the following steps:
    
@@ -228,15 +222,15 @@ The objective of this section is to create a user called Britta Simon in Perform
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the PerformanceCentre tile in the Access Panel, you should be automatically signed in to the PerformanceCentre for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the PerformanceCentre tile in the Access Panel, you should be automatically signed in to the PerformanceCentre for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 <!--Image references-->
 

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -28,7 +28,7 @@ Some attributes have two representations in Azure AD. Both the on-premises value
 You cannot see the shadow attributes using the Azure portal or with PowerShell. But understanding the concept helps you to troubleshoot certain scenarios where the attribute has different values on-premises and in the cloud.
 
 To better understand the behavior, look at this example from Fabrikam:  
-![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Screenshot shows the Active Directory UPN Suffix for several examples with a corresponding Azure AD Domain value of Not Added, Not Verified, and Verified.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 They have multiple UPN suffixes in their on-premises Active Directory, but they have only verified one.
 
 ### userPrincipalName

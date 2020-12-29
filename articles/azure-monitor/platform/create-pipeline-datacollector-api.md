@@ -39,7 +39,7 @@ This article will not cover how to create data or [upload it to an Azure Blob St
 
 While the detailed setup of the blob storage, Logic App, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
 
-To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/monitor-logic-apps-log-analytics.md). 
 
 ## Setting up the pipeline
 To set the pipeline, first make sure you have your blob container created and configured. Likewise, make sure that the Log Analytics workspace where you’d like to send the data to is created.

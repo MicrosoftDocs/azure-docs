@@ -1,6 +1,8 @@
 ---
 title: Extend app at runtime - LUIS
 description:
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
 ---

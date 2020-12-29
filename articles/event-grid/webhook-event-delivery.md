@@ -1,14 +1,8 @@
 ---
 title: WebHook event delivery
 description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
 
 
@@ -17,7 +11,7 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-- Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Logic Apps with [Event Grid Connector](/connectors/azureeventgrid/)
 - Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
@@ -35,7 +29,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
    This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn't return back a validation response synchronously, the mode is transitioned to the manual validation mode. If there's a GET on the validation URL within 5 minutes, the validation handshake is considered to be successful.
 
 > [!NOTE]
-> Using self-signed certificates for validation isn't supported. Use a signed certificate from a certificate authority (CA) instead.
+> Using self-signed certificates for validation isn't supported. Use a signed certificate from a commercial certificate authority (CA) instead.
 
 ### Validation details
 

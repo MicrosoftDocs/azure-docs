@@ -5,8 +5,8 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: article
-ms.date: 03/18/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
