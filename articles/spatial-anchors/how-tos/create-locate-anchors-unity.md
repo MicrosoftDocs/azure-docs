@@ -52,6 +52,7 @@ Learn more about the [CloudSpatialAnchorSession](/dotnet/api/microsoft.azure.spa
 Learn more about the [SessionConfiguration](/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) class.
 
 ```csharp
+    this.cloudSession.Configuration.AccountId = @"MyAccountId";
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
