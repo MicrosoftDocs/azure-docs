@@ -564,7 +564,7 @@
           href: platform/itsmc-connections-provance.md
       - name: ITSM Connector Azure Configuration
         href: platform/itsmc-definition.md
-      - name: Data synced from your ITSM product
+      - name: Data Synced From Your ITSM Product
         href: platform/itsmc-synced-data.md
       - name: Troubleshooting problems in ITSM Connector
         href: platform/itsmc-resync-servicenow.md
