@@ -59,23 +59,23 @@ There are five basic stats aggregation types available in the metrics explorer: 
 
 **Sum** – the sum of all values captured over the aggregation interval
 
-![Screenshot of sum of request](./media/metrics-charts/request_sum.png)
+![Screenshot of sum of request](./media/metrics-charts/request-sum.png)
 
 **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
 
-![Screenshot of count of request](./media/metrics-charts/request_count.png)
+![Screenshot of count of request](./media/metrics-charts/request-count.png)
 
 **Average** – the average of the metric values captured over the aggregation interval
 
-![Screenshot of average request](./media/metrics-charts/request_avg.png)
+![Screenshot of average request](./media/metrics-charts/request-avg.png)
 
 **Min** – the smallest value captured over the aggregation interval
 
-![Screenshot of minimum request](./media/metrics-charts/request_min.png)
+![Screenshot of minimum request](./media/metrics-charts/request-min.png)
 
 **Max** – the largest value captured over the aggregation interval
 
-![Screenshot of sum of request](./media/metrics-charts/request_max.png)
+![Screenshot of sum of request](./media/metrics-charts/request-max.png)
 
 ## Apply filters to charts
 
