@@ -25,6 +25,15 @@ In this tutorial, you'll learn how to:
 > * View DDoS mitigation policies
 > * View DDoS protection alerts in Azure Security Center
 
+
+### Metrics
+
+The following metrics are available for Azure DDoS Protection Standard:
+
+| Metric | Metric Display Name | Unit | Aggregation Type | Description |
+| --- | --- | --- | --- | --- |
+| ByteCount​ | Byte Count​ | Count​ | Total​ | Total number of Bytes transmitted within time period​ |
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
