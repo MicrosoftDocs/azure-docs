@@ -75,7 +75,7 @@ There are five basic stats aggregation types available in the metrics explorer: 
 
 **Max** – the largest value captured over the aggregation interval
 
-![Screenshot of sum of request](./media/metrics-charts/request-max.png)
+![Screenshot of max request](./media/metrics-charts/request-max.png)
 
 ## Apply filters to charts
 
