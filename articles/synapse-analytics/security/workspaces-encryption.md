@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
 ---
-# Encryption for Azure Synapse Analytics (workspaces preview)
+# Encryption for Azure Synapse Analytics workspaces
 
 This article will describe:
-* Encryption of data at rest in Azure Synapse Analytics workspaces.
+* Encryption of data at rest in Synapse Analytics workspaces.
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 
@@ -41,13 +41,13 @@ The data in the following Synapse components is encrypted with the customer-mana
 Workspaces can be configured to enable double encryption with a customer-managed key at the time of workspace creation. Select the “Enable double encryption using a customer-managed key” option on the "Security" tab when creating your new workspace. You can choose to enter a key identifier URI or select from a list of key vaults in the **same region** as the workspace. The Key Vault itself needs to have **purge protection enabled**.
 
 > [!IMPORTANT]
-> At present, the configuration setting for double encryption cannot be changed after the workspace is created.
+> The configuration setting for double encryption cannot be changed after the workspace is created.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key.":::
 
 ### Key access and workspace activation
 
-The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
+The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the [“Application-only”](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) option during policy creation (select the workspace's managed identity and do not add it as an authorized application).
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Note that encryption can be enabled or disabled for dedicated SQL Pools- each pool is not enabled for encryption by default.
 
@@ -70,6 +70,9 @@ After your workspace (with double encryption enabled) is created, it will remain
 You can change the customer-managed key used to encrypt data from the **Encryption** page in the Azure portal. Here too, you can choose a new key using a key identifier or select from Key Vaults that you have access to in the same region as the workspace. If you choose a key in a different key vault from the ones previously used, grant the workspace managed identity "Get", "Wrap", and "Unwrap" permissions on the new key vault. The workspace will validate its access to the new key vault and all data in the workspace will be re-encrypted with the new key.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="This diagram shows the workspace Encryption section in the Azure portal.":::
+
+>[!IMPORTANT]
+>When changing the encryption key of a workspace, retain the key until you replace it in the workspace with a new key. This is  to allow decryption of data with the old key before it gets re-encrypted with the new key.
 
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
 

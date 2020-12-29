@@ -74,7 +74,7 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -282,7 +282,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -316,7 +316,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Instructions for onboarding Linux servers to Azure Security center](../security-center/quickstart-onboard-machines.md)
 
-* [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](../virtual-machines/linux/security-recommendations.md)
+* [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](../virtual-machines/security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -470,7 +470,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -754,7 +754,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 
 * [An introduction to Azure Automation](../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md)
 
@@ -1034,7 +1034,7 @@ You will need a third-party tool for anti-malware protection in Azure Linux Virt
 
 * [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../virtual-machines/linux/security-recommendations.md)
+* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../virtual-machines/security-recommendations.md)
 
 **Azure Security Center monitoring**: Not applicable
 

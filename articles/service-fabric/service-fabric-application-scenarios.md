@@ -3,7 +3,6 @@ title: Application scenarios and design
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
 ---
 # Service Fabric application scenarios
 

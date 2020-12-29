@@ -20,8 +20,6 @@
     items:
     - name: Train and use custom model without labels
       items:
-      - name: cURL
-        href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
     - name: Train and use custom model with labels
@@ -30,8 +28,6 @@
         href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
-      - name: cURL
-        href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
     - name: Use prebuilt business card model
@@ -77,7 +73,8 @@
       href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
-      href: deploy-form-recognizer-on-container-instances.md
+      maintainContext: true 
+      href: ../containers/azure-container-instance-recipe.md
     - name: Cognitive Services containers documentation
       href: ../containers/index.yml
   - name: Back up and recover models

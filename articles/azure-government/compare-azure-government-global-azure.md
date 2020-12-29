@@ -308,7 +308,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 - Performance
     - Improve App Service performance and reliability
     - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve Azure Synapse Analytics (formerly SQL Data Warehouse) performance
+    - Improve Azure Synapse Analytics performance
     - Use Premium Storage
     - Migrate your Storage Account to Azure Resource Manager
 - Cost
@@ -412,6 +412,9 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Azure AD Join:
     - Enterprise state roaming for Windows 10 devices is not available
+    
+- Limitaitons with Azure AD SSPR:
+    - Azure AD SSPR from Windows 10 login screen is not available
 
 
 
@@ -494,7 +497,7 @@ When you're deploying the StorSimple Manager service, use the [https://portal.az
 ### [Azure Import/Export](../storage/common/storage-import-export-service.md)
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
 
-For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport).
+For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport-service).
 
 For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 

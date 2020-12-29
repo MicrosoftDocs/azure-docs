@@ -2,14 +2,14 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ---
 
 # Understand the structure and syntax of ARM templates
 
 This article describes the structure of an Azure Resource Manager template (ARM template). It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
+This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 
 ## Template format
 
@@ -278,7 +278,7 @@ You define resources with the following structure:
 |:--- |:--- |:--- |
 | condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](conditional-resource-deployment.md). |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| apiVersion |Yes |Version of the REST API to use for creating the resource. To determine available values, see [template reference](/azure/templates/). |
+| apiVersion |Yes |Version of the REST API to use for creating the resource. When creating a new template, set this value to the latest version of the resource you're deploying. As long as the template works as needed, keep using the same API version. By continuing to use the same API version, you minimize the risk of a new API version changing how your template works. Consider updating the API version only when you want to use a new feature that is introduced in a later version. To determine available values, see [template reference](/azure/templates/). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](template-syntax.md#comments). |
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
@@ -346,7 +346,7 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 

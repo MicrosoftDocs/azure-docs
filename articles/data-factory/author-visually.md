@@ -5,8 +5,8 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: 
 manager: anandsub
 ms.date: 09/08/2020

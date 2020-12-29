@@ -41,4 +41,4 @@ The main difference between Cosmos DB functions and ANSI SQL functions is that C
 - [String functions](sql-query-string-functions.md)
 - [Type checking functions](sql-query-type-checking-functions.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

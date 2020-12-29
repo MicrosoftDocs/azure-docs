@@ -29,7 +29,7 @@ Open a PowerShell window and Import the ADSyncTools Powershell module
 
 ``` powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 

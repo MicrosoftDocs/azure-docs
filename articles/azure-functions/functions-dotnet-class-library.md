@@ -324,6 +324,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you are using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name may instead be based on `T`.  
+
 ### Structured logging
 
 The order of placeholders, not their names, determines which parameters are used in the log message. Suppose you have the following code:
@@ -509,14 +511,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -554,7 +556,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

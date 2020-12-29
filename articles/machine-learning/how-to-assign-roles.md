@@ -10,7 +10,7 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---
 
@@ -24,7 +24,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 >
 > * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
 > * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
-> * [Use Azure RBAC for access to blob data](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Use Azure RBAC for access to blob data](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
