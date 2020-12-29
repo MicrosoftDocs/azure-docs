@@ -233,7 +233,7 @@ replication tasks.
 
 The last scenario requires excluding already replicated events from being
 replicated again. The technique is demonstrated and explained in the
-[EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/code/EventHubToEventHubMerge)
+[EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/code/EventHubMerge)
 sample.
 
 ## Editor
