@@ -17261,12 +17261,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/ddos-protection/reports-and-flow-logs.md",
+      "source_path_from_root": "/articles/ddos-protection/reports-and-flow-logs.md",
       "redirect_url": "/azure/ddos-protection/diagnostic-logging",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/ddos-protection/telemetry-monitoring-alerting.md",
+      "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
       "redirect_url": "/azure/ddos-protection/telemetry",
       "redirect_document_id": false
     },

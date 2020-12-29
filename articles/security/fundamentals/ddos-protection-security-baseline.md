@@ -140,7 +140,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 - [How to register your client application (service principal) with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Azure DDos Protection API information](/rest/api/virtual-network/)
+- [Azure DDoS Protection API information](/rest/api/virtual-network/)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -382,7 +382,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Define and implement standard security configurations for Azure DDos Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
+**Guidance**: Define and implement standard security configurations for Azure DDoS Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
 - [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
