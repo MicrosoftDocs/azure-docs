@@ -40,7 +40,7 @@ Copy the command to a text editor and make the following changes:
 1. Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Replace `{name}` with the name of your project.
-1. Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject method](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
+1. Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
 
 You'll receive a JSON response like the following. Save the `"id"` value of your project to a temporary location.
 
@@ -122,13 +122,13 @@ This method trains the model on the tagged images you've uploaded and returns an
 > Train with selected tags
 >
 > You can optionally train on only a subset of your applied tags. You may want to do this if you haven't applied enough of certain tags yet, but you do have enough of others. Add the optional JSON content to the body of your request. Populate the `"selectedTags"` array with the IDs of the tags you want to use.
-```json
-{
-  "selectedTags": [
-    "00000000-0000-0000-0000-000000000000"
-  ]
-}
-```
+> ```json
+> {
+>   "selectedTags": [
+>     "00000000-0000-0000-0000-000000000000"
+>   ]
+> }
+> ```
 
 The JSON response contains information about your trained project, including the iteration ID (`"id"`). Save this value for the next step.
 
@@ -217,4 +217,3 @@ Now you've done every step of the image classification process using the REST AP
 * [What is Custom Vision?](../../overview.md)
 * [API reference documentation (training)](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
 * [API reference documentation (prediction)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)
-                                                                                                                                                        
