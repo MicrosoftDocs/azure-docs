@@ -15,7 +15,7 @@ The diagram shows how Traffic Manager provides load balancing for the applicatio
 
 :::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Architecture diagram of the Traffic Manager integration with Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
-Review the [Prerequisites](#prerequisites) first; then we'll walk through the procedures to:
+Before you begin, first review the [Prerequisites](#prerequisites) and then we'll walk through the procedures to:
 
 > [!div class="checklist"]
 > * Verify configuration of your application gateways and the NSX-T segment
