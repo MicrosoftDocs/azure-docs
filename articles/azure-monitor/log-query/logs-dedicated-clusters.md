@@ -85,7 +85,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 *Call* 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -122,7 +122,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. You can
 - Send a GET request on the *Cluster* resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
    ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
    Authorization: Bearer <token>
    ```
 
@@ -183,7 +183,7 @@ For example:
 *Call*
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -212,7 +212,7 @@ Content-type: application/json
 
 ### Check cluster update status
 
-The propagation of the Key identifier takes a few minutes to complete. You can check the update state in two ways:
+The propagation of the Key identifier takes a while to complete. You can check the update state in two ways:
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check. 
 
@@ -294,7 +294,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -324,7 +324,7 @@ A send request looks like the following:
 *Send*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -402,7 +402,208 @@ Use the following REST call to delete a cluster:
 
   200 OK
 
+## Get all clusters in a resource group
+  
+**CLI**
 
+```azurecli
+az monitor log-analytics cluster list --resource-group "resource-group-name"
+```
+
+**PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
+```
+
+**REST**
+
+*Call*
+
+  ```rst
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+*Response*
+  
+  ```json
+  {
+    "value": [
+      {
+        "identity": {
+          "type": "SystemAssigned",
+          "tenantId": "tenant-id",
+          "principalId": "principal-Id"
+        },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
+        "properties": {
+           "keyVaultProperties": {
+              "keyVaultUri": "https://key-vault-name.vault.azure.net",
+              "keyName": "key-name",
+              "keyVersion": "current-version"
+              },
+          "provisioningState": "Succeeded",
+          "billingType": "cluster",
+          "clusterId": "cluster-id"
+        },
+        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
+        "name": "cluster-name",
+        "type": "Microsoft.OperationalInsights/clusters",
+        "location": "region-name"
+      }
+    ]
+  }
+  ```
+
+## Get all clusters in a subscription
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster list
+```
+
+**PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster
+```
+
+**REST**
+
+*Call*
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+Authorization: Bearer <token>
+```
+    
+*Response*
+    
+The same as for 'clusters in a resource group', but in subscription scope.
+
+## Update *capacity reservation* in cluster
+
+When the data volume to your linked workspaces change over time and you want to update the capacity reservation level appropriately. The Capacity is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
+```
+
+**PowerShell**
+
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
+```
+
+**REST**
+
+*Call*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 2000
+    }
+  }
+  ```
+
+## Update cluster *billingType*
+
+The *billingType* property determines the billing attribution for the cluster and its data:
+- *cluster* (default) -- The billing is attributed to the subscription hosting your Cluster resource
+- *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
+
+**REST**
+
+*Call*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ```
+
+## Limits and constraints
+
+- The max number of cluster per region and subscription is 2
+
+- The maximum of linked workspaces to cluster is 1000
+
+- You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to 2 in a period of 30 days.
+
+- Workspace link to cluster should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
+
+- Cluster move to another resource group or subscription isn't supported currently.
+
+- Workspace link to cluster will fail if it is linked to another cluster.
+
+- Lockbox isn't available in China currently. 
+
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` property in the REST request body.
+  - Double encryption setting can not be changed after the cluster has been created.
+
+## Troubleshooting
+
+- If you get conflict error when creating a cluster – it may be that you have deleted your cluster in the last 14 days and it’s in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+
+- If you update your cluster while an operation is in progress, the operation will fail.
+
+- Some operations are long and can take a while to complete -- these are cluster create, cluster key update and cluster delete. You can check the operation status in two ways:
+  1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+  2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
+
+- Error messages
+  
+  Cluster Create:
+  -  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
+  -  400 -- The body of the request is null or in bad format.
+  -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
+  -  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
+  -  400 -- Missing Capacity in SKU. Set Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Capacity in SKU is not in range. Should be minimum 1000 and up to the max allowed capacity which is available under ‘Usage and estimated cost’ in your workspace.
+  -  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
+  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
+
+  Cluster Update
+  -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
+  -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
+  -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
+
+  Cluster Get:
+    -  404 -- Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+
+  Cluster Delete
+    -  409 -- Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+
+  Workspace link:
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace link or unlink operation in process.
+  -  400 -- Cluster not found, the cluster you specified doesn’t exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+
+  Workspace unlink:
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace link or unlink operation in process.
 
 ## Next steps
 
