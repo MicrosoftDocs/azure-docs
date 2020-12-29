@@ -95,7 +95,6 @@ Response:
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": "{tableName}"
       }
-
 ```
 >[!TIP]
 >* You can use any REST API tool to run the commands. [Read More](https://docs.microsoft.com/rest/api/azure/)
