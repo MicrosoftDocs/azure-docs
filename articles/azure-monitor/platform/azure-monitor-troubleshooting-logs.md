@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor Troubleshooting logs
 description: Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
