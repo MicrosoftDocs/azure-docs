@@ -1,6 +1,6 @@
 ---
 title: Share and receive data from Azure Blob Storage and Azure Data Lake Storage
-description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage
+description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
 author: jifems
 ms.author: jife
 ms.service: data-share
@@ -11,9 +11,9 @@ ms.date: 12/16/2020
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
-Azure Data Share supports snapshot-based sharing from storage account. This article explains how to share and receive data from the following sources: Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2.
+Azure Data Share supports snapshot-based sharing from a storage account. This article explains how to share and receive data from Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 
-Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. Data shared from these sources can be received into Azure Data Lake Gen2 or Azure Blob Storage.
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. Data shared from these sources can be received into Azure Data Lake Gen2 or Azure Blob Storage.
 
 When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten during snapshot. File deleted from the source is not deleted on the target. Empty sub-folders at the source are not copied over to the target. 
 
@@ -25,7 +25,7 @@ When file systems, containers or folders are shared in snapshot-based sharing, d
 * Your recipient's Azure login e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
-### Prerequisites for source storage account
+### Prerequisites for the source storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md)
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role.
@@ -35,7 +35,7 @@ When file systems, containers or folders are shared in snapshot-based sharing, d
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Create a Data Share Account
+### Create a Data Share account
 
 Create an Azure Data Share resource in an Azure resource group.
 
@@ -61,7 +61,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 ### Create a share
 
-1. Navigate to your Data Share Overview page.
+1. Go to your Data Share Overview page.
 
     ![Share your data](./media/share-receive-data.png "Share your data") 
 
@@ -116,7 +116,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 * Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
-### Prerequisites for target storage account
+### Prerequisites for a target storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
@@ -126,7 +126,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Open invitation
+### Open an invitation
 
 1. You can open invitation from email or directly from Azure portal. 
 
@@ -138,7 +138,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the share you would like to view. 
 
-### Accept invitation
+### Accept an invitation
 1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
 
    ![Terms of use](./media/terms-of-use.png "Terms of use") 
@@ -157,7 +157,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    If you don't want to accept the invitation, Select *Reject*. 
 
-### Configure received share
+### Configure a received share
 Follow the steps below to configure where you want to receive data.
 
 1. Select **Datasets** tab. Check the box next to the dataset you'd like to assign a destination to. Select **+ Map to target** to choose a target data store. 
