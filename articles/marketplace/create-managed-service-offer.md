@@ -22,7 +22,7 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
 2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview tab, select **+ New offer** > **Managed Service**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
+:::image type="content" source="./media/new-offer-managed-service.png" alt-text="Illustrates the left-navigation menu.":::
 
 4. In the **New offer** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
@@ -39,10 +39,10 @@ Connect your customer relationship management (CRM) system with your commercial 
 
 To configure the lead management in Partner Center:
 
-1.	In Partner Center, go to the **Offer setup** tab.
-2.	Under **Customer leads**, select the **Connect** link.
-3.	In the **Connection details** dialog box, select a lead destination from the list.
-4.	Complete the fields that appear. For detailed steps, see the following articles:
+1. In Partner Center, go to the **Offer setup** tab.
+2. Under **Customer leads**, select the **Connect** link.
+3. In the **Connection details** dialog box, select a lead destination from the list.
+4. Complete the fields that appear. For detailed steps, see the following articles:
 
     * [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
     * [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
@@ -50,9 +50,9 @@ To configure the lead management in Partner Center:
     * [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
     * [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
-5.	To validate the configuration you provided, select the **Validate link**.
-6.	When you’ve configured the connection details, select **Connect**.
-7.	Select **Save draft**.
+5. To validate the configuration you provided, select the **Validate link**.
+6. When you’ve configured the connection details, select **Connect**.
+7. Select **Save draft**.
 
 After you submit your offer for publication in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, test your lead connection by trying to purchase the offer yourself in the preview environment.
 

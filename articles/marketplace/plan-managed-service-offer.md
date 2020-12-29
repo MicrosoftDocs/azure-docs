@@ -36,7 +36,7 @@ In the Properties page of Partner Center, you’ll be asked to provide **terms a
 
 When you create your Managed Service offer in Partner Center, you’ll enter text, images, documents, and other offer details. This is what customers will see when they discover your offer on Azure Marketplace. See the following example:
 
-![Illustrates how a Managed Service offer appears on Azure Marketplace.](media/example-managed-service.png)
+:::image type="content" source="media/example-managed-service.png" alt-text="Illustrates how a Managed Service offer appears on Azure Marketplace.":::
 
 **Call-out descriptions**
 
@@ -75,7 +75,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 Here are some tips for writing your description:
 
-*  Clearly describe the value of your offer in the first few sentences, including:
+* Clearly describe the value of your offer in the first few sentences, including:
     * The type of user who benefits from the offer.
     * What customer needs or issues the offer addresses.
 * Remember that the first few sentences might be displayed in search results.
