@@ -163,6 +163,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
                                                time_series_id_column_names=["store"],
+                                               freq='W',
                                                target_lags='auto',
                                                target_rolling_window_size=10)
                                               
@@ -317,7 +318,7 @@ When you have your `AutoMLConfig` object ready, you can submit the experiment. A
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
