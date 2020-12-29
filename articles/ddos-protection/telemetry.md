@@ -28,6 +28,7 @@ In this tutorial, you'll learn how to:
 
 The following metrics are available for Azure DDoS Protection Standard:
 
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description |
 | --- | --- | --- | --- | --- |
 | ByteCount​ | Byte Count​ | Count​ | Total​ | Total number of Bytes transmitted within time period​ |

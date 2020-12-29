@@ -522,7 +522,7 @@ Test your assumptions about how your services will respond to an attack by gener
 
 Select any of the available DDoS protection metrics to alert you when there’s an active mitigation during an attack, using the Azure Monitor alert configuration. When the conditions are met, the address specified receives an alert email
 
-- [Configure alerts for DDoS protection metrics](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Configure alerts for DDoS protection metrics](../../ddos-protection/alerts.md)
 
 - [How to configure continuous export](../../security-center/continuous-export.md)
 
