@@ -2,7 +2,7 @@
 title: VMware software versions
 description: Supported VMware software versions for Azure VMware Solution.
 ms.topic: include
-ms.date: 12/31/2020
+ms.date: 12/29/2020
 ---
 
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
