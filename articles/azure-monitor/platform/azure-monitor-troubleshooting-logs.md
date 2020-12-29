@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Troubleshooting logs
-description: Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases which often rely upon searching over high volume of data for specific insights.
+description: Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 author: orens
 ms.author: bwren
 ms.reviewer: bwren
@@ -11,10 +11,10 @@ ms.date: 12/29/2020
 ---
 
 # Azure Monitor Troubleshooting logs (Preview)
-Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases which often rely upon searching over high volume of data for specific insights.
+Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 
 ## Troubleshoot and query your code or configuration issues
-Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheeper way using KQL.
+Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheaper way using KQL.
 
 The service allows you to join analytics docs on supported tables with a free retention period.
 
@@ -25,7 +25,7 @@ The service allows you to join analytics docs on supported tables with a free re
 >* Contact the [CM team](mailto:XXXXXXX@microsoft.com) with any questions or to apply the feature.
 
 ## Check if the Troubleshooting logs feature is enabled for a given table
-To check whether the troubleshooting log is enabled for a given table you can use the following API call.
+To check whether the troubleshooting log is enabled for a given table, you can use the following API call.
 
 ```http
 GET https://PortalURL/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}
@@ -40,10 +40,9 @@ Response:
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": " {tableName}"
 
-
 ```
 ## Check if the Troubleshooting logs feature is enabled for all of the tables in a workspace
-To check which tables have the troubleshooting log enabled you can use the following API call.
+To check which tables have the troubleshooting log enabled, you can use the following API call.
 
 ```http
 GET "https://PortalURL/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables"
@@ -75,9 +74,6 @@ Response:
           "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/table3",
           "name": "table3"
         }
-
-
-
 ```
 
 ## Add Troubleshooting logs to your tables
