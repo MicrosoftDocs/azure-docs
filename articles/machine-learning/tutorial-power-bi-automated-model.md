@@ -14,7 +14,7 @@ ms.date: 12/11/2020
 
 # Tutorial: Power BI integration - Create the predictive model by using automated machine learning (part 1 of 2)
 
-In part 1 of this tutorial, you train and deploy a predictive machine learning model. You use automated machine learning (ML) in the Azure Machine Learning studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model. You use automated machine learning (ML) in Azure Machine Learning Studio.  In part 2, you'll use the best-performing model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -29,7 +29,7 @@ There are three ways to create and deploy the model you'll use in Power BI.  Thi
 
 But you could instead use one of the other options:
 
-* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning studio.
+* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning Studio.
 * [Option B: Train and deploy models by using the Azure Machine Learning designer](tutorial-power-bi-designer-model.md). This low-code authoring experience uses a drag-and-drop user interface.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ But you could instead use one of the other options:
 
 Automated machine learning trains many machine learning models to find the "best" algorithm and parameters. Azure Machine Learning parallelizes the running of the model training over a compute cluster.
 
-To begin, in the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Compute**. Open the **Compute clusters** tab. Then select **New**:
+To begin, in [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Compute**. Open the **Compute clusters** tab. Then select **New**:
 
 :::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster.":::
 
@@ -84,7 +84,7 @@ The data has 10 baseline input variables, such as age, sex, body mass index, ave
 
 ## Create an automated machine learning run
 
-In the [Azure Machine Learning studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML run**:
+In [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML run**:
 
 :::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot showing how to create a new automated machine learning run.":::
 

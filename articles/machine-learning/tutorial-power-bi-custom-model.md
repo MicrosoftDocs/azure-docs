@@ -24,7 +24,7 @@ In this tutorial, you:
 > * Train a regression model by using scikit-learn.
 > * Deploy the model to a real-time scoring endpoint.
 
-There are three ways to create and deploy the model that you'll use in Power BI.  This article covers "Option A: Train and deploy models by using notebooks."  This option is a code-first authoring experience. It uses Jupyter notebooks that are hosted in the Azure Machine Learning studio. 
+There are three ways to create and deploy the model that you'll use in Power BI.  This article covers "Option A: Train and deploy models by using notebooks."  This option is a code-first authoring experience. It uses Jupyter notebooks that are hosted in Azure Machine Learning Studio. 
 
 But you could instead use one of the other options:
 
@@ -40,7 +40,7 @@ But you could instead use one of the other options:
 
 ## Create a notebook and compute
 
-On the [**Azure Machine Learning studio**](https://ml.azure.com) home page, select **Create new** > **Notebook**:
+On the [**Azure Machine Learning Studio**](https://ml.azure.com) home page, select **Create new** > **Notebook**:
 
 :::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook.":::
  
@@ -148,7 +148,7 @@ print('Name:', model.name)
 print('Version:', model.version)
 ```
 
-You can also view the model in the Azure Machine Learning studio. In the menu on the left, select **Models**:
+You can also view the model in Azure Machine Learning Studio. In the menu on the left, select **Models**:
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing how to view a model.":::
 
@@ -271,11 +271,11 @@ Succeeded
 ACI service creation operation finished, operation "Succeeded"
 ```
 
-You can also view the service in the Azure Machine Learning studio. In the menu on the left, select **Endpoints**:
+You can also view the service in Azure Machine Learning Studio. In the menu on the left, select **Endpoints**:
 
 :::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Screenshot showing how to view the service.":::
 
-We recommend that you test the web service to ensure it works as expected. To return your notebook, in the Azure Machine Learning studio, in the menu on the left, select **Notebooks**. Then copy the following code and paste it into a new *code cell* in your notebook to test the service.
+We recommend that you test the web service to ensure it works as expected. To return your notebook, in Azure Machine Learning Studio, in the menu on the left, select **Notebooks**. Then copy the following code and paste it into a new *code cell* in your notebook to test the service.
 
 ```python
 import json
