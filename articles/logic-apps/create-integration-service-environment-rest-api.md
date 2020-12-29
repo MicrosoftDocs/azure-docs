@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/05/2020
+ms.date: 12/29/2020
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
@@ -68,8 +68,6 @@ In the request body, provide the resource definition to use for creating your IS
 
 * To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
 
-  To enable this capability on an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
-
 * To create an ISE that uses a system-assigned or user-assigned managed identity, include the `identity` object with the managed identity type and other required information in the ISE definition, as this article later describes.
 
 * To create an ISE that uses customer-managed keys and Azure Key Vault to encrypt data at rest, include the [information that enables customer-managed key support](customer-managed-keys-integration-service-environment.md). You can set up customer-managed keys *only at creation*, not afterwards.
@@ -120,7 +118,7 @@ Here is the request body syntax, which describes the properties to use when you 
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certificate support
+      // Include `certificates` object to enable self-signed or customer root certificate support
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -180,9 +178,57 @@ This example request body shows the sample values:
             "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
             "kind": "TrustedRoot"
          }
+      }
    }
 }
 ```
+## Upload Custom Root Certificates
+
+ISE is often used to connect to custom services on the VNet or on premises. These custom services are often protected with a certificate issued by custom root certificate (e.g. enterprise CA or self-signed certificate). In order for ISE to successfully connect to these service through TLS, ISE needs to have access to these root certificates. To upload custom trusted root certificates, make this HTTPS PATCH request:
+
+`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+## Request body
+
+In the request body, provide the resource definition to use for creating your ISE, including information for additional capabilities that you want to enable on your ISE, for example:
+
+* To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
+
+* To create an ISE that uses a system-assigned or user-assigned managed identity, include the `identity` object with the managed identity type and other required information in the ISE definition, as this article later describes.
+
+* To create an ISE that uses customer-managed keys and Azure Key Vault to encrypt data at rest, include the [information that enables customer-managed key support](customer-managed-keys-integration-service-environment.md). You can set up customer-managed keys *only at creation*, not afterwards.
+
+### Request body syntax
+
+Here is the request body syntax, which describes the properties to use when you create your ISE:
+
+```json
+{
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}",
+   "properties": {
+      "certificates": {
+         "testCertificate1": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         },
+         "testCertificate2": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
+      }
+   }
+}
+```
+Please note:
+* Uploading root certificates is a asynchronous operation and may take some time.  You can issue a GET request on the same URI to check on the result. The response message will have a 'provisioningState' field. When 'provisioningState' value is 'InProgress', the uploading operation is still ongoing. When 'provisioningState' value is 'Succeeded', the uploading operation is completed.
+
+* Uploading root certificates is a replacement operation. Late upload will overwrite the previous uploads. For example, if you upload certificate 1 and then upload certificate 2, ISE will have only certificate 2. If you need both certificate 1 and certificate 2, please upload both through a same request.
+
+* Please upload the root certificate and also all the intermideiate certificates.  The maximum number of certificates is 20. 
+
 
 ## Next steps
 
