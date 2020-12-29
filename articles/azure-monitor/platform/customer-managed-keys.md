@@ -25,7 +25,7 @@ Customer-Managed key is delivered on [dedicated clusters](../log-query/logs-dedi
 
 Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-Managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-Managed key in the first half of 2021.
 
-Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#creating-a-cluster#cluster-pricing-model) starting at 1000 GB/day.
+Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
 
 > [!IMPORTANT]
 > Due to temporary capacity constraints, we require you pre-register to before creating a cluster. Use your contacts into Microsoft, or open support request to register your subscriptions IDs.
@@ -62,7 +62,7 @@ The following rules apply:
 - Your KEK never leaves your Key Vault and in the case of an HSM key, it never leaves the hardware.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
-## Customer-Managed key provisioning procedure
+## Customer-Managed key provisioning
 
 1. Registering your subscription to allow cluster creation
 1. Creating Azure Key Vault and storing key
