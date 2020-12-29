@@ -21,9 +21,9 @@ For more general information about certificates, see [Azure Key Vault Certificat
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Adding certificates in Key Vault issued by partnered CA
+## Adding certificates in Key Vault issued by partnered CAs
 
-Key Vault partners with following Certificate Authorities to simplify certificate creation.
+Key Vault partners with the following Certificate Authorities to simplify certificate creation.
 
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
@@ -32,7 +32,7 @@ Key Vault partners with following Certificate Authorities to simplify certificat
 
 ## Adding certificates in Key Vault issued by non-partnered CAs
 
-The following steps will help you create a certificate from CAs that are not partnered with Key Vault. (For example, GoDaddy is not a trusted Key Vault CA.)
+Follow these steps to add a certificate from CAs that aren't partnered with Key Vault. (For example, GoDaddy isn't a trusted Key Vault CA.)
 
 ### [Portal](#tab/azure-portal)
 
@@ -60,13 +60,13 @@ The following steps will help you create a certificate from CAs that are not par
    ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 1. Have the CSR (.csr) signed by the CA.
-1. Once the request is signed, select **Merge Signed Request** on the **Certificate Operation** tab.
+1. Once the request is signed, select **Merge Signed Request** on the **Certificate Operation** tab to add the signed certificate to Key Vault.
 
 The certificate request has now been successfully merged.
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Create a certificate policy. Because the CA chosen in this scenario is not partnered, the IssuerName is set to **Unknown** and Key Vault doesn't enroll or renew the certificate from the issuer on behalf of the user.
+1. Create a certificate policy. Because the CA chosen in this scenario isn't partnered, the IssuerName is set to **Unknown** and Key Vault doesn't enroll or renew the certificate.
 
    ```azure-powershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -85,7 +85,7 @@ The certificate request has now been successfully merged.
    $csr.CertificateSigningRequest
    ```
 
-1. Have the the CSR signed by the CA. The `$csr.CertificateSigningRequest` is the base encoded CSR for the certificate. You can dump this blob into the issuer’s certificate request website. This step varies from CA to CA. Look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the CSR signed and complete the process of generating a certificate.
+1. Have the CSR signed by the CA. The `$csr.CertificateSigningRequest` is the base encoded CSR for the certificate. You can dump this blob into the issuer’s certificate request website. This step varies from CA to CA. Look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the CSR signed and complete the process of generating a certificate.
 
 1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private-public key pair created in Azure Key Vault.
 
@@ -123,7 +123,7 @@ Example
 
 - What if I see **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**?
 
-     This error can occur if you aren't merging the signed CSR with the same CSR request you initiated. Each time a CSR is created, it creates a private key which has to be matched when merging the signed request.
+     This error occurs if you aren't merging the signed CSR with the same CSR request you initiated. Each new CSR that you create has a private key, which has to match when you merge the signed request.
 
 - When a CSR is merged, will it merge the entire chain?
 
@@ -131,11 +131,11 @@ Example
 
 - What if the certificate issued is in 'disabled' status in the Azure portal?
 
-     View the **Certificate Operation** to review the error message for that certificate.
+     View the **Certificate Operation** tab to review the error message for that certificate.
 
 - What if I see **Error type 'The subject name provided is not a valid X500 name'**?
 
-     This error can occur if you have included any special characters in the values of SubjectName. See notes in Azure portal and PowerShell instructions respectively.
+     This error might occur if the **SubjectName** includes any special characters. See notes in Azure portal and PowerShell instructions respectively.
 
 ---
 
