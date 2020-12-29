@@ -365,7 +365,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - [Check cluster provisioning status](../log-query/logs-dedicated-clusters.md#check-cluster-provisioning-status)
 
---[Check workspace link status](../log-query/logs-dedicated-clusters.md#check-workspace-link-status)
+- [Check workspace link status](../log-query/logs-dedicated-clusters.md#check-workspace-link-status)
 
 - [Get all clusters in a resource group](../log-query/logs-dedicated-clusters.md#get-all-clusters-in-a-resource-group)
   
