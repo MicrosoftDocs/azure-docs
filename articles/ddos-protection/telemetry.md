@@ -26,6 +26,9 @@ In this tutorial, you'll learn how to:
 
 ### Metrics
 
+> [!NOTE]
+> While multiple options for **Aggregation** are displayed on Azure portal, only the aggregation types listed in the table below are supported for each metric. We apologize for this confusion and we are working to resolve it.
+
 The following [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection Standard. These metrics are also exportable via diagnostic settings (see [View and configure DDoS diagnostic logging](diagnostic-logging.md)).
 
 
@@ -71,7 +74,7 @@ Telemetry for an attack is provided through Azure Monitor in real time. The tele
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS Protection Plan.
 2. Under **Monitoring**, select **Metrics**.
 3. Select **Scope**. Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for, and then select **Apply**.
-4. Select the **Aggregation** type as **Max**
+4. Select the **Aggregation** type as **Max**.
 
 The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
 
