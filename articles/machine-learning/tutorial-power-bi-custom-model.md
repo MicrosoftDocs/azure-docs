@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create the predictive model by using a notebook (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy a machine learning model by using code in a Jupyter notebook. You can use the model to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. You can use the model to predict outcomes in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,14 +12,14 @@ ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ---
 
-# Tutorial: Power BI integration - Create the predictive model by using a Jupyter notebook (part 1 of 2)
+# Tutorial: Power BI integration - Create the predictive model by using a Jupyter Notebook (part 1 of 2)
 
-In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter notebook. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create a Jupyter notebook.
+> * Create a Jupyter Notebook.
 > * Create an Azure Machine Learning compute instance.
 > * Train a regression model by using scikit-learn.
 > * Deploy the model to a real-time scoring endpoint.
