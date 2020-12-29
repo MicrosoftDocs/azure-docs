@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/22/2020
+ms.date: 12/28/2020
 ms.author: jgao
 
 ---
@@ -155,6 +155,9 @@ Property value details:
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
+  > [!NOTE]
+  > The Azure portal can't parse a deployment script with multiple lines. To deploy a template with deployment script from the Azure portal, you can either chain the PowerShell commands by using semicolons into one line, or use the `primaryScriptUri` property with an external script file.
+
 - `primaryScriptUri`: Specify a publicly accessible Url to the primary deployment script with supported file extensions.
 - `supportingScriptUris`: Specify an array of publicly accessible Urls to supporting files that are called in either `scriptContent` or `primaryScriptUri`.
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
