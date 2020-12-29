@@ -113,4 +113,4 @@ In this tutorial, you learned how to:
 To learn how to configure attack mitigation reports and flow logs, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Configure DDoS attack mitigation reports and flow logs](reports-and-flow-logs.md)
+> [View and configure DDoS diagnostic logging](diagnostic-logging.md)
