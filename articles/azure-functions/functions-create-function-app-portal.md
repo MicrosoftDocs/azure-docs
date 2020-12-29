@@ -26,10 +26,12 @@ If you are planning to run JavaScript functions on a Dedicated (App Service) pla
 
 ## Storage account requirements
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally, Functions uses Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These accounts are filtered out of from the Storage Account blade when creating a function app.
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally, Functions uses Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. 
+
+Accounts of an unsupported type are filtered out when you create a function app in the Azure portal. The portal also only allows you use an existing storage account when that account is in the same region as the function app you're creating. If for some reason you want to violate the performance best practice of having the storage account used by your function app in the same region, you must create your function app outside of the portal. 
 
 >[!NOTE]
->When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
+>When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered. 
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 

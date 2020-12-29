@@ -283,9 +283,9 @@ conceptualContent:
     - title: Roles
       links:
         - url: ./roles/groups-assign-role.md
-          itemType: how-to-guide
-          text:  Assign a role to a cloud group
-        - url: ./roles/custom-create.md
+          itemType: concept
+          text:  Understand Azure AD roles
+        - url: ./roles/concept-understand-roles.md
           itemType: how-to-guide
           text:  Create a custom role
         - url: ./roles/groups-view-assignments.md

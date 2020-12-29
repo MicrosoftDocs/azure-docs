@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
 ---
 
@@ -52,6 +52,10 @@ Azure AD currently can't provision null attributes. If an attribute is null on t
 
 Attribute-mapping expressions can have a maximum of 10,000 characters. 
 
+**Unsupported scoping filters**
+
+Directory extensions, appRoleAssignments, userType, and accountExpires are not supported as scoping filters.
+
 
 ## Service issues 
 
@@ -59,7 +63,8 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 - Provisioning passwords isn't supported. 
 - Provisioning nested groups isn't supported. 
-- Provisioning to B2C tenants isn't supported because of the size of the tenants. 
+- Provisioning to B2C tenants isn't supported because of the size of the tenants.
+- Not all provisioning apps are available in all clouds. For example, Atlassian is not yet available in the Government Cloud. We are working with app developers to onboard their apps to all clouds.
 
 **Automatic provisioning is not available on my OIDC based application**
 

@@ -1,13 +1,13 @@
 ---
-title: Azure Functions custom handlers (preview)
+title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
 ---
 
-# Azure Functions custom handlers (preview)
+# Azure Functions custom handlers
 
 Every Functions app is executed by a language-specific handler. While Azure Functions supports many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
 
@@ -15,10 +15,12 @@ Custom handlers are lightweight web servers that receive events from the Functio
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not currently supported, such as Go and Rust.
+- Implement a function app in a language that's not currently supported, such as Go or Rust.
 - Implement a function app in a runtime that's not currently supported, such as Deno.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
+
+Get started with Azure Functions custom handlers with [quickstarts in Go and Rust](create-first-function-vs-code-other.md).
 
 ## Overview
 
@@ -578,3 +580,7 @@ Custom handlers run in the same environment as a typical Azure Functions app. Te
 If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of possible languages used to build custom handlers apps, support is not unlimited.
 
 Support is available if the Functions host has problems starting or communicating with the custom handler process. For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team is unable to provide assistance in this context.
+
+## Next steps
+
+Get started building an Azure Functions app in Go or Rust with the [custom handlers quickstart](create-first-function-vs-code-other.md).

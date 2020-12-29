@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics Managed Virtual Network (preview)
+# Azure Synapse Analytics Managed Virtual Network
 
 This article will explain Managed Virtual Network in Azure Synapse Analytics.
 
@@ -47,8 +47,6 @@ If you leave the checkbox unchecked, then your workspace won't have a Virtual Ne
 
 ![Enable Managed workspace Virtual Network](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->All outbound traffic from the Managed workspace Virtual Network except through Managed private endpoints will be blocked in the future. It's recommended that you create Managed private endpoints to connect to all your Azure data sources external to the workspace. 
 
 You can check whether your Azure Synapse workspace is associated to a Managed workspace Virtual Network by selecting **Overview** from Azure portal.
 

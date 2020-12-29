@@ -12,6 +12,10 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
+  - name: Database deployment
+    items:
+    - name: GitHub Actions
+      href: quickstart-mysql-github-actions.md
   - name: Migration
     items:
       - name: Migrate data with mysqldump or phpmyadmin
@@ -88,9 +92,6 @@
          href: connect-cpp.md
        - name: Go
          href: connect-go.md
-       - name: GitHub Actions
-         href: quickstart-mysql-github-actions.md
-
   - name: Tutorials
     items:
     - name: Design a database
@@ -455,6 +456,8 @@
             href: flexible-server/connect-python.md
   - name: Tutorials
     items:
+    - name : WordPress on Azure Kubernetes
+      href: flexible-server/tutorial-deploy-wordpress-on-aks.md
     - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
     - name: Connect with private web app

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Run experiments using Azure Automated ML'
-description: A tutorial on how to run machine learning experiments using Apache Spark and Azure Automated ML
+title: 'Tutorial: Train a model in Python with automated ML'
+description: Tutorial on how to train a machine learning model in Python in Azure Synapse using Apache Spark and automated ML.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: midesa
 ms.reviewer: jrasnick
  
 ---
-# Tutorial: Run experiments using Azure Automated ML and Apache Spark
+# Tutorial: Train a machine learning model in Python in Azure Synapse with Apache Spark and automated ML
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
@@ -67,7 +67,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
+3. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
 
    Based on the summary statistics, we can see that there are some irregularities and outliers in the data. For example, the statistics show that the the minimum trip distance is less than 0. We will need to filter out these irregular data points.
    
@@ -150,11 +150,11 @@ The following code gets the existing workspace and the default Azure Machine Lea
 import pandas 
 from azureml.core import Dataset
 
-# Get the AML Default Datastore
+# Get the Azure Machine Learning Default Datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into AML Tabular Dataset
+# Convert into Azure Machine Learning Tabular Dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -163,7 +163,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 ```
 ![Picture of uploaded dataset.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
-## Submit an AutoML experiment
+## Submit an automated ML experiment
 
 #### Define training settings
 1. To submit an experiment, we will need to define the experiment parameter and model settings for training. You can view the full list of settings [here](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
@@ -216,7 +216,7 @@ Once the experiment has completed, the output will return details about the comp
 ![Screenshot of model output.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> Once submitted, the AutoML experiment will run various iterations and model types. This run will typically take 1-1.5 hours. 
+> Once submitted, the automated ML experiment will run various iterations and model types. This run will typically take 1-1.5 hours. 
 
 #### Retrieve the best model
 To select the best model from your iterations, we will use the ```get_output``` function to return the best run and fitted model. The code below will retrieve the best run and fitted model for any logged metric or a particular iteration.
@@ -320,7 +320,7 @@ plt.show()
 Once we have validated our best model, we can register the model to Azure Machine Learning. After you register the model, you can then download or deploy the registered model and receive all the files that you registered.
 
 ```python
-description = 'My AutoML Model'
+description = 'My automated ML model'
 model_path='outputs/model.pkl'
 model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
@@ -331,7 +331,7 @@ NYCGreenTaxiModel 1
 ## View results in Azure Machine Learning
 Last, you can also access the results of the iterations by navigating to the experiment in your Azure Machine Learning Workspace. Here, you will be able to dig into additional details on the status of your run, attempted models, and other model metrics. 
 
-![Screenshot of AML workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
+![Screenshot of Azure Machine Learning workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## Next steps
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
