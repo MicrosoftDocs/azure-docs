@@ -8,13 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
 ---
 
 # Calculate the total billing size of a blob container
 
 This script calculates the size of a container in Azure Blob storage for the purpose of estimating billing costs. The script totals the size of the blobs in the container.
+
+> [!IMPORTANT]
+> The sample script provided in this article may not accurately calculate the billing size for blob snapshots.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -40,6 +43,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Following is the breakdown:
+
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
