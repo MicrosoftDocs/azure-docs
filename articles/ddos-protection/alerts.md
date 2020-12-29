@@ -85,6 +85,8 @@ The alerts include general information about the public IP address that’s unde
 
 To simulate a DDoS attack to validate your alerts, see [Validate DDoS detection](test-through-simulations.md).
 
+## Next steps
+
 In this tutorial, you learned how to:
 
 - Configure alerts through Azure Monitor
