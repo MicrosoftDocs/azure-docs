@@ -129,6 +129,6 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 ## Related links
 [Azure Media Services Analytics Overview](./legacy-components.md)
 
-[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

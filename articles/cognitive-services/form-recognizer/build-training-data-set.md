@@ -70,7 +70,6 @@ If you add the following content to the request body, the API will train with do
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
 * [Train a model and extract form data using the client library](./quickstarts/client-library.md)
-* [Train a model and extract form data using cURL](./quickstarts/curl-train-extract.md)
 * [Train a model and extract form data using the REST API and Python](./quickstarts/python-train-extract.md)
 * [Train with labels using the sample labeling tool](./quickstarts/label-tool.md)
 * [Train with labels using the REST API and Python](./quickstarts/python-labeled-data.md)
