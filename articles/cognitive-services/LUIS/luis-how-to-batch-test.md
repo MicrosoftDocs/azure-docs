@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 12/29/2020
 
 ---
 
@@ -55,9 +55,10 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 
 1. Select **Train** in the top-right corner of the navigation to train the app.
 
-### Batch test file
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
+### Batch test file
 
 The example JSON includes one utterance with a labeled entity to illustrate what a test file looks like. In your own tests, you should have many utterances with correct intent and machine-learning entity labeled.
 
