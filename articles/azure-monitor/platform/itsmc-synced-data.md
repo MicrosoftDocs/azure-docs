@@ -18,7 +18,7 @@ Incidents and change requests are synced from your ITSM tool to your Log Analyti
 * [Cherwell](./itsmc-connections-cherwell.md)
 * [Provance](./itsmc-connections-provance.md)
 
-## Synced Data
+## Synced data
 
 This section shows some examples of data gathered by ITSMC.
 
@@ -83,7 +83,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Description
 - Computer
 
-## ServiceNow Example 
+## ServiceNow example 
 ### Output data for a ServiceNow incident
 
 | Log Analytics field | ServiceNow field |
