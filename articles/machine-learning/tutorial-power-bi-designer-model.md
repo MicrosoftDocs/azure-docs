@@ -31,7 +31,7 @@ There are three ways to create and deploy the model you'll use in Power BI.  Thi
 
 But you could instead use one of the other options:
 
-* [Option A: Train and deploy models by using Jupyter notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter notebooks that are hosted in the Azure Machine Learning studio.
+* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in the Azure Machine Learning studio.
 * [Option C: Train and deploy models by using automated machine learning](tutorial-power-bi-automated-model.md). This no-code authoring experience fully automates data preparation and model training.
 
 ## Prerequisites
