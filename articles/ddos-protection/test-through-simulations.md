@@ -59,6 +59,6 @@ Once the resource is under attack, you should see that the value changes from **
 
 ## Next steps
 
-- Learn how to [view and configure DDoS protection telemetry](telemetry-monitoring-alerting.md).
+- Learn how to [view and configure DDoS protection telemetry](telemetry.md).
 - Learn how to [view and configure DDoS diagnostic logging](diagnostic-logging.md).
 - Learn how to [engage DDoS rapid response](ddos-rapid-response.md).
