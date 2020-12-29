@@ -308,6 +308,8 @@ For your code, set the endpoint to `host:port`/speech/recognition/interactive/co
 
 For the various modes, see Speech modes - see below:
 
+## Speech modes - Interactive, conversation, dictation
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
@@ -557,6 +559,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 </summary>
 
 **Answer:** There are three endpoints on the Speech container for different usages, they're defined as Speech modes - see below:
+
+## Speech modes
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 

@@ -204,7 +204,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-3: Enable logging for Azure network activities
 
-**Guidance**: Azure Frond Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
+**Guidance**: Azure Front Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
 Azure Front Door logs all network traffic that it processes for customer access. Enable the network flow logs feature and configure these logs to be sent to a storage account for long term retention and auditing.
 
@@ -404,7 +404,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 More information is available at the referenced links.
 
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 

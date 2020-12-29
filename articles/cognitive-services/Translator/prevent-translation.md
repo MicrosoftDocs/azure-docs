@@ -44,7 +44,8 @@ The Translator allows you to tag content so that it isn't translated. For exampl
    ```html
    <div translate="no">This will not be translated.</div>
    <div>This will be translated. </div>
-
+   ```
+   
 3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
 
 4. Don't pass the string to the Translator for translation.

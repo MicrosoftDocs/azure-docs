@@ -144,7 +144,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -163,7 +163,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
