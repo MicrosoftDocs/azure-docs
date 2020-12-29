@@ -36,7 +36,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../b
 
 Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-- [How to configure alerts for DDoS protection metrics](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [View and configure DDoS diagnostic logging](../../ddos-protection/diagnostic-logging.md)
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -58,7 +58,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry.md)
 
 - [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -74,7 +74,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 Onboard a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor.
 
-- [How configure alerts for DDoS metrics](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [How configure alerts for DDoS metrics](../../ddos-protection/alerts.md)
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
