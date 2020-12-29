@@ -101,7 +101,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 - DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
 - DC-series hardware provides balanced compute and memory resources.
 
-DC-series is only supported for the Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
+DC-series is only supported for the Provisioned compute (Serverless is not supported) and it does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
 
 #### Azure offer types supported by DC-series
 

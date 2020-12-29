@@ -291,7 +291,7 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
     7. Select **Connect**.
     8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
 
-        ![Allow enclave computations](media/connect-to-server-configure-attestation.png)
+        ![Connect with attestation](media/always-encrypted-enclaves/connect-to-server-configure-attestation.png)
 
 1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 

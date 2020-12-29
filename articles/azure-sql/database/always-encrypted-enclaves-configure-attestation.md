@@ -46,10 +46,10 @@ Microsoft recommends the following policy for attesting Intel SGX enclaves used 
 version= 1.0;
 authorizationrules 
 {
-       [ type=="$is-debuggable", value==false ]
-        && [ type=="$product-id", value==4639 ]
-        && [ type=="$svn", value>= 0 ]
-        && [ type=="$sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==4639 ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
     => permit();
 };
 ```
@@ -58,13 +58,12 @@ The above policy verifies:
 - The enclave inside Azure SQL Database doesn't support debugging (which would reduce the level of protection the enclave provides).
 - The product ID of the library inside the enclave is the product ID assigned to Always Encrypted with secure enclaves (4639).
 - The version ID (svn) of the library is greater than 0.
-- The library in the enclave has been signed using the Microsoft signing key (the value of the sgx-mrsigner claim is the hash of the signing key).
+- The library in the enclave has been signed using the Microsoft signing key (the value of the x-ms-sgx-mrsigner claim is the hash of the signing key).
 
 For instructions for how to create an attestation provider and configure with an attestation policy using:
 
-- Azure portal - **see ...**
-- Azure PowerShell - [Quickstart: Set up Azure Attestation with Azure PowerShell](../../attestation/quickstart-powershell.md)
-- ARM templates - [Quickstart: Create an Azure Attestation provider with an ARM template](../../attestation/quickstart-template.md)
+- [Quickstart: Set up Azure Attestation with Azure PowerShell](../../attestation/quickstart-powershell.md)
+- [Quickstart: Create an Azure Attestation provider with an ARM template](../../attestation/quickstart-template.md)
 
 ## Determine the attestation URL for your attestation policy
 
