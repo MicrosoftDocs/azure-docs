@@ -181,7 +181,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-If you installed v5.1.0 of the client library using `pip install azure-ai-textanalytics --pre`, you can specify v3.0 of the Text Analytics API with the client's `api_version` parameter. Only use the following `authenticate_client()` methods if your client is v5.1.0 or later.
+If you installed v5.1.0 of the client library using `pip install azure-ai-textanalytics --pre`, you can specify v3.0 of the Text Analytics API with the client's `api_version` parameter. Only use the following `authenticate_client()` method if your client is v5.1.0 or later.
 
 ```python
 # Only use the following code sample if you're using v5.1.0 of the client library, 
