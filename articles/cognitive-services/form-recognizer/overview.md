@@ -112,13 +112,11 @@ Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow
  * Extract text, selection marks and table structure from documents
     * [Extract layout data - Python](quickstarts/python-layout.md)
   * Train custom models and extract form data
-    * [Train without labels - cURL](quickstarts/curl-train-extract.md)
     * [Train without labels - Python](quickstarts/python-train-extract.md)
     * [Train with labels - Python](quickstarts/python-labeled-data.md)
   * Extract data from invoices
     * [Extract invoice data - Python](quickstarts/python-invoices.md)
   * Extract data from sales receipts
-    * [Extract receipt data - cURL](quickstarts/curl-receipts.md)
     * [Extract receipt data - Python](quickstarts/python-receipts.md)
   * Extract data from business cards
     * [Extract business card data - Python](quickstarts/python-business-cards.md)

@@ -115,6 +115,9 @@ Use the following procedure to create action groups:
 
 4. In the notification list, select **Next: Actions**.
 5. In the actions list, select **ITSM** in the **Action Type** list. Provide a **Name** for the action. Select the pen button that represents **Edit details**.
+
+    ![Screenshot that shows action group definition.](media/itsmc-definition/action-group-pen.png)
+
 6. In the **Subscription** list, select the subscription in which your Log Analytics workspace is located. In the **Connection** list, select your ITSM connector name. It will be followed by your workspace name. For example, MyITSMConnector(MyWorkspace).
 
 7. Select a **Work Item** type.
