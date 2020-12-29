@@ -45,7 +45,7 @@ The following example shows the common Application Insights technical profile. O
 
 The **InputClaims** element contains a list of claims to send to Application Insights. You can also map the name of your claim to a name you prefer to appear in Application Insights. The following example shows how to send telemetries to Application Insights. Properties of an event are added through the syntax `{property:NAME}`, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported [claim resolvers](claim-resolver-overview.md).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />

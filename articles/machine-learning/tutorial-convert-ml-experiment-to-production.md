@@ -1,15 +1,19 @@
 ---
-title: Convert machine learning experiment code to production code
+title: Convert notebook code into Python scripts 
 titleSuffix: Azure Machine Learning
-description: Learn how to convert machine learning experimental code to production code using the MLOpsPython code template. 
+description: Turn your machine learning experimental notebooks into production-ready code using the MLOpsPython code template. You can then test, deploy, and automate that code. 
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 04/30/2020
+ms.custom: devx-track-python
 ---
 
-# Tutorial: Convert ML experimental code to production code
+# Tutorial: Convert ML experiments to production Python code
+
+In this tutorial, you learn how to convert Juptyer notebooks into Python scripts to make it testing and automation friendly using the MLOpsPython code template and Azure Machine Learning. Typically, this process is used to take experimentation / training code from a Juptyer notebook and convert it into Python scripts. Those scripts can then be used testing and CI/CD automation in your production environment. 
 
 A machine learning project requires experimentation where hypotheses are tested with agile tools like Jupyter Notebook using real datasets. Once the model is ready for production, the model code should be placed in a production code repository. In some cases, the model code must be converted to Python scripts to be placed in the production code repository. This tutorial covers a recommended approach on how to export experimentation code to Python scripts.
 
@@ -59,7 +63,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
@@ -519,5 +523,5 @@ def test_train_model():
 Now that you understand how to convert from an experiment to production code, see the following links for more information and next steps:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
-+ [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [Monitor Azure ML experiment runs and metrics](./how-to-track-experiments.md)
++ [Monitor and collect data from ML web service endpoints](./how-to-enable-app-insights.md)

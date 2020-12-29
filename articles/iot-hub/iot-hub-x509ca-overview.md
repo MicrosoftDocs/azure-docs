@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 # Device Authentication using X.509 CA Certificates
 
@@ -17,6 +18,8 @@ This article describes how to use X.509 Certificate Authority (CA) certificates 
 * How to register the X.509 CA certificate to IoT Hub
 * How to sign devices using X.509 CA certificates
 * How devices signed with X.509 CA are authenticated
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Overview
 
@@ -44,7 +47,7 @@ The owner of an X.509 CA certificate can cryptographically sign an intermediate 
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
+The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** (`CN=deviceId`) that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
 
 Learn here how to [create a certificate chain](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) as done when signing devices.
 
@@ -78,4 +81,4 @@ Learn here how to [complete this device connection step](iot-hub-security-x509-g
 
 Learn about [the value of X.509 CA authentication](iot-hub-x509ca-concept.md) in IoT.
 
-Get started with IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/).
+Get started with IoT Hub [Device Provisioning Service](../iot-dps/index.yml).

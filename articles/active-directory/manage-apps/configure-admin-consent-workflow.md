@@ -2,15 +2,14 @@
 title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---
@@ -58,11 +57,11 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 2. The **Approval required** message appears. The user types a justification for needing access to the app, and then selects **Request approval**.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot shows an Approval required dialog box where you can Request approval.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. A **Request sent** message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot shows the Request sent confirmation.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. The user receives an email notification when their request is approved, denied, or blocked. 
 
@@ -143,7 +142,7 @@ No, for now requestors are only able to get updates via email notifications.
 
 **As a reviewer, is it possible to approve the application, but not for everyone?**
  
-If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
 ## Next steps
 
@@ -153,6 +152,6 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+[Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

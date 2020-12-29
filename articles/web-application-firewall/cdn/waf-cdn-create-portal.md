@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a WAF policy
-> * Associate it with a CDN endpoint
+> * Associate it with a CDN endpoint. You can associate a WAF policy only with endpoints that are hosted on the **Azure CDN Standard from Microsoft** SKU.
 > * Configure WAF rules
 
 ## Prerequisites
@@ -38,7 +38,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
     | Resource group          |Select your Front Door resource group name.|
     | Policy name             |Enter a unique name for your WAF policy.|
 
-   ![Create a WAF policy](../media/waf-cdn-create-portal/basic.png)
+   :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="Screenshot of the Create a W A F policy page, with a Review + create button and values entered for various settings." border="false":::
 
 3. In the **Association** tab of the **Create a WAF policy** page, select **Add CDN Endpoint**, enter the following settings, and then select **Add**:
 
@@ -59,7 +59,7 @@ By default WAF policy is in *Detection* mode when you create a WAF policy. In *D
 
 To see WAF in action, you can change the mode settings from *Detection* to *Prevention*. In *Prevention* mode, requests that match rules that are defined in Default Rule Set (DRS) are blocked and logged at WAF logs.
 
- ![Change WAF policy mode](../media/waf-cdn-create-portal/policy.png)
+ :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="Screenshot of the Policy settings section. The Mode toggle is set to Prevention." border="false":::
 
 ### Custom rules
 
@@ -67,17 +67,22 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** s
 
 The following screenshot shows a custom match rule to block a request if the query string contains the value **blockme**.
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/custommatch.png)
+:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="Screenshot of the custom rule configuration page showing settings for a rule that checks whether the QueryString variable contains the value blockme." border="false":::
 
 Rate limit rules require two additional fields: **Rate limit duration** and **Rate limit threshold (requests)** as shown in the following example:
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/customrate.png)
+:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="Screenshot of the rate limit rule configuration page. A Rate limit duration list box and a Rate limit threshold (requests) box are visible." border="false":::
 
 ### Default Rule Set (DRS)
 
 The Azure managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the check box in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
- ![Change WAF Rule Set](../media/waf-cdn-create-portal/managed2.png)
+ :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons. One rule is checked." border="false":::
+
+## Clean up resources
+
+When no longer needed, remove the resource group and all related resources.
+
 
 ## Next steps
 

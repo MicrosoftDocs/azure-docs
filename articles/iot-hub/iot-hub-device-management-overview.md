@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 
 # Overview of device management with IoT Hub
@@ -69,7 +70,7 @@ Within each of these five stages, there are several device operator requirements
   
     *Further reading*:
     * [How to use device twin properties](tutorial-device-twins.md)
-    * [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md)
+    * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
 * **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention.  Apply the device twin to allow devices to report realtime operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries.
@@ -77,7 +78,7 @@ Within each of these five stages, there are several device operator requirements
     *Further reading*: 
     * [How to use device twin properties](tutorial-device-twins.md)
     * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
-    * [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md)
+    * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
 * **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.

@@ -103,6 +103,8 @@ After having the traffic manger ID, the following command demonstrates creating 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
+> [!NOTE]
+> If you are receiving an error that states, "SSL validation on the traffic manager hostname is failing" then we suggest you use -IgnoreCustomHostNames attribute in the powershell cmdlet while performing the clone operation or else use the portal.
 
 ## Current Restrictions
 Here are the known restrictions of app cloning:

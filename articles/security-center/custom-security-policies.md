@@ -6,8 +6,8 @@ author: memildin
 manager: rkarlin
 
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 12/03/2020
 ms.author: memildin
 ---
 
@@ -17,9 +17,9 @@ ms.author: memildin
 
 To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
 
-With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
+With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
-As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
+As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
 ## To add a custom initiative to your subscription 
 
@@ -36,7 +36,7 @@ As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/
 
 1. In the Security policy page, under Your custom initiatives, click **Add a custom initiative**.
 
-    [![Click **Add a custom initiative**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Click Add a custom initiative](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     The following page appears:
 
@@ -51,7 +51,7 @@ As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/
     1. Select the policies to include and click **Add**.
     1. Enter any desired parameters.
     1. Click **Save**.
-    1. In the Add custom initiatives page, click refresh and your new initiative will be shown as available.
+    1. In the Add custom initiatives page, click refresh. Your new initiative will be shown as available.
     1. Click **Add** and assign it to your subscription.
 
     > [!NOTE]
@@ -67,6 +67,75 @@ As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/
 
     [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
+## Enhance your custom recommendations with detailed information
+
+The built-in recommendations supplied with Azure Security Center include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure portal or wherever you access your recommendations, you'll need to use the REST API. 
+
+The two types of information you can add are:
+
+- **RemediationDescription** – String
+- **Severity** – Enum [Low, Medium, High]
+
+The metadata should be added to the policy definition for a policy that is part of the custom initiative. It should be in the ‘securityCenter’ property, as shown:
+
+```json
+ "metadata": {
+	"securityCenter": {
+		"RemediationDescription": "Custom description goes here",
+		"Severity": "High"
+    },
+```
+
+Below is an example of a custom policy including the metadata/securityCenter property:
+
+  ```json
+  {
+"properties": {
+	"displayName": "Security - ERvNet - AuditRGLock",
+	"policyType": "Custom",
+	"mode": "All",
+	"description": "Audit required resource groups lock",
+	"metadata": {
+		"securityCenter": {
+			"RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+			"Severity": "High"
+		}
+	},
+	"parameters": {
+		"expressRouteLockLevel": {
+			"type": "String",
+			"metadata": {
+				"displayName": "Lock level",
+				"description": "Required lock level for ExpressRoute resource groups."
+			},
+			"allowedValues": [
+				"CanNotDelete",
+				"ReadOnly"
+			]
+		}
+	},
+	"policyRule": {
+		"if": {
+			"field": "type",
+			"equals": "Microsoft.Resources/subscriptions/resourceGroups"
+		},
+		"then": {
+			"effect": "auditIfNotExists",
+			"details": {
+				"type": "Microsoft.Authorization/locks",
+				"existenceCondition": {
+					"field": "Microsoft.Authorization/locks/level",
+					"equals": "[parameters('expressRouteLockLevel')]"
+				}
+			}
+		}
+	}
+}
+}
+  ```
+
+For another example of using the securityCenter property, see [this section of the REST API documentation](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+
 
 ## Next steps
 
@@ -75,4 +144,4 @@ In this article, you learned how to create custom security policies.
 For other related material, see the following articles: 
 
 - [The overview of security policies](tutorial-security-policy.md)
-- [A list of the built-in security policies](security-center-policy-definitions.md)
+- [A list of the built-in security policies](./policy-reference.md)

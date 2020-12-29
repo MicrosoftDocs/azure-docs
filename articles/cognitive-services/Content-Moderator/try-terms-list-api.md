@@ -74,15 +74,17 @@ After you make changes to a term list, you must refresh its index for changes to
 
 5. Use key-value pair placeholders to assign more descriptive metadata to your list.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
-             "Category": "Competitors",
-             "Type": "Exclude"
-          }
-       }
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
+            "Category": "Competitors",
+            "Type": "Exclude"
+        }
+    }
+    ```
 
    Add list metadata as key-value pairs, and not actual terms.
  

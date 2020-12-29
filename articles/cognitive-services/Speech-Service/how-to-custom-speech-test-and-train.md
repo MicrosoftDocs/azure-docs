@@ -3,18 +3,37 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Prepare data for Custom Speech
 
-When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them.
+When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data a custom speech model needs.
+
+## Data diversity
+
+Text and audio used to test and train a custom model need to include samples from a diverse set of speakers and scenarios you need your model to recognize.
+Consider these factors when gathering data for custom model testing and training:
+
+* Your text and speech audio data need to cover the kinds of verbal statements your users will make when interacting with your model. For example, a model that raises and lowers the temperature needs training on statements people might make to request such changes.
+* Your data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
+* Audio must be gathered using hardware devices the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data you provide to train your model must also represent these diverse scenarios.
+* You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
+* Including data that is *not* within your custom model recognition needs can harm recognition quality overall, so do not include data that your model does not need to transcribe.
+
+A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose data that represents the full scope of scenarios you need your custom model to recognize.
+
+> [!TIP]
+> Start with small sets of sample data that match the language and acoustics your model will encounter.
+> For example, record a small but representative sample of audio on the same hardware and in the same acoustic environment your model will find in production scenarios.
+> Small datasets of representative data can expose problems before you have invested in gathering a much larger datasets for training.
 
 ## Data types
 
@@ -22,9 +41,11 @@ This table lists accepted data types, when each data type should be used, and th
 
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
-| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
+| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
+| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+
+When you train a new model, start with [related text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases.
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
@@ -35,7 +56,7 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
+![Screenshot that highlights the Audio upload option from the Speech Portal.](./media/custom-speech/custom-speech-select-audio.png)
 
 Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
 
@@ -76,6 +97,8 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 
 To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
+Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. While audio with low recording volume or disruptive background noise is not helpful, it should not hurt your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
+
 | Property                 | Value                               |
 |--------------------------|-------------------------------------|
 | File format              | RIFF (WAV)                          |
@@ -91,7 +114,7 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 > [!NOTE]
 > When uploading training and testing data, the .zip file size cannot exceed 2 GB. You can only test from a *single* dataset, be sure to keep it within the appropriate file size. Additionally, each training file cannot exceed 60 seconds otherwise it will error out.
 
-To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
+To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 20 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
   For example:
 ```
@@ -109,6 +132,8 @@ After you've gathered your audio files and corresponding transcriptions, package
 
 > [!div class="mx-imgBorder"]
 > ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model.
 
 ## Related text data for training
 
@@ -178,4 +203,4 @@ Use the following table to ensure that your related data file for pronunciations
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train your model](how-to-custom-speech-train-model.md)
-* [Deploy your model](how-to-custom-speech-deploy-model.md)
+* [Deploy your model](./how-to-custom-speech-train-model.md)

@@ -58,17 +58,29 @@ landingContent:
             url: quickstarts/deploy-to-hololens.md
           - text: Deploy Unity sample to Desktop
             url: quickstarts/deploy-to-desktop.md
+          - text: Deploy native C++ sample to HoloLens
+            url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
           - text: Convert a model for rendering
             url: quickstarts/convert-model.md
 
   # Card
-  - title: Learn how to build your own app in Unity
+  - title: Learn how to build your own app
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Setting up a Unity project from scratch
-            url: tutorials/unity/project-setup.md
-          - text: Working with remote entities in Unity
-            url: tutorials/unity/working-with-remote-entities.md
-          - text: Changing environment and materials
-            url: tutorials/unity/changing-environment-and-materials.md
+          - text: Overview
+            url: tutorials/unity/tutorial-landing.md
+          - text: Viewing a remotely rendered model
+            url: tutorials/unity/view-remote-models/view-remote-models.md
+          - text: Loading custom models
+            url: tutorials/unity/custom-models/custom-models.md
+          - text: Manipulating models
+            url: tutorials/unity/manipulate-models/manipulate-models.md
+          - text: Refining materials, lighting, and effects
+            url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+          - text: Securing Azure Remote Rendering and model storage
+            url: tutorials/unity/security/security.md
+          - text: Creating a commercial ready Azure Remote Rendering application
+            url: tutorials/unity/commercial-ready/commercial-ready.md
+          - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
+            url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

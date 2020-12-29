@@ -4,9 +4,8 @@ description: Use your IoT Hub in the Azure portal to push an IoT Edge module fro
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -15,18 +14,25 @@ services: iot-edge
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
-This article shows how the Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+This article shows how the Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
 
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-* An [IoT Edge device](how-to-register-device.md#register-in-the-azure-portal) with the IoT Edge runtime installed.
+* An IoT Edge device.
+
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 ## Configure a deployment manifest
 
 A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
 The Azure portal has a wizard that walks you through creating the deployment manifest, instead of building the JSON document manually. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+
+>[!NOTE]
+>The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
+>
+>If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
 
 ### Select device and add modules
 
@@ -36,21 +42,30 @@ The Azure portal has a wizard that walks you through creating the deployment man
 1. On the upper bar, select **Set Modules**.
 1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
-1. Look at the types of modules from the drop-down menu:
+1. Choose one of the three types of modules from the drop-down menu:
 
    * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
    * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
-1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
-1. If needed, repeat steps 5 through 8 to add additional modules to your deployment.
+1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary.
+
+   For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
+
+   For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+
+1. Repeat steps 6 through 8 to add additional modules to your deployment.
 1. Select **Next: Routes** to continue to the routes section.
 
 ### Specify routes
 
-On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default, the first deployment for a new device includes a route called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
-Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next: Review + create** to continue to the next step of the wizard.
+The **Priority** and **Time to live** parameters are optional parameters that you can include in a route definition. The priority parameter allows you to choose which routes should have their messages processed first, or which routes should be processed last. Priority is determined by setting a number 0-9, where 0 is top priority. The time to live parameter allows you to declare how long messages in that route should be held until they're either processed or removed from the queue.
+
+For more information about how to create routes, see [Declare routes](module-composition.md#declare-routes).
+
+Once the routes are set, select **Next: Review + create** to continue to the next step of the wizard.
 
 ### Review deployment
 
@@ -101,4 +116,4 @@ Select **Next: Routes** and continue with deployment as described by [Specify ro
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md)

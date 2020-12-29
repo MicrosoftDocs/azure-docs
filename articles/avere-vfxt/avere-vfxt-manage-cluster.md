@@ -3,7 +3,7 @@ title: Manage the Avere vFXT cluster - Azure
 description: How to manage Avere cluster - add or remove nodes, reboot, stop, or destroy the vFXT cluster 
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ---

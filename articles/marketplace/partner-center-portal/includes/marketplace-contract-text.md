@@ -2,14 +2,13 @@
 title: include file
 description: include file of text for Microsoft commercial marketplace standard contract
 documentationcenter: partner-center-commercial-marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dsindona
 ms.custom: include file
-
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 Microsoft provides a standard contract template for the commercial marketplace.
@@ -42,7 +41,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 **Custom amendment terms to the Standard Contract for Microsoft's commercial marketplace**: Start by selecting **Add custom amendment terms**. You can provide up to 10 custom amendment terms per offer.
 
 - **Custom amendment terms**: Enter your custom amendment terms in the custom amendment terms box. You can enter an unlimited number of characters in this box. Only customers from the tenant IDs you specify for these custom terms will be presented with the custom amendment terms in the offer's purchase flow in the Azure portal.  
-- **Tenant IDs** (required): Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID. The tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by navigating to portal.azure.com > Azure Active Directory > Properties. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com).
+- **Tenant IDs** (required): Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID. The tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by navigating to portal.azure.com > Azure Active Directory > Properties. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com).
 - **Description** (optional): Optionally provide a friendly description for the tenant ID that helps you identify the customer you're targeting with the amendment.
 
 **Terms and conditions**
@@ -51,5 +50,4 @@ If you want to provide your own custom terms and conditions, you can elect to en
 
 Customers are required to accept these terms before they can try your offer.
 
-Remember to **Save** before moving on to the next section.
-Remember to **Save** before moving on to the next section.
+Select **Save draft** before continuing.

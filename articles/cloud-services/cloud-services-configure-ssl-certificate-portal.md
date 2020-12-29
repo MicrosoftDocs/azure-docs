@@ -27,7 +27,7 @@ To configure TLS for an application, you first need to get a TLS/SSL certificate
 
 The certificate must meet the following requirements for TLS/SSL certificates in Azure:
 
-* The certificate must contain a private key.
+* The certificate must contain a public key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 * The certificate's subject name must match the domain used to access the cloud service. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
 * The certificate must use a minimum of 2048-bit encryption.

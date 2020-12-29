@@ -5,13 +5,11 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
-# Module twin JSON schema
+# Module twin JSON schema (Azure Event Grid)
 
 Event Grid on IoT Edge integrates with the IoT Edge ecosystem and supports creating topics and subscriptions via the Module Twin. It also reports the current state of all the topics and event subscriptions to the reported properties on the Module Twin.
 

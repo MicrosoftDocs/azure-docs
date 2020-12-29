@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # What is workload management?
 
-Running mixed workloads can pose resource challenges on busy systems.  Solution Architects seek ways to separate classic data warehousing activities (such as loading, transforming and querying data) to ensure that enough resources exist to hit SLAs.  
+Running mixed workloads can pose resource challenges on busy systems.  Solution Architects seek ways to separate classic data warehousing activities (such as loading, transforming, and querying data) to ensure that enough resources exist to hit SLAs.  
 
 Physical server isolation can lead to pockets of infrastructure that are underutilized, overbooked or in a state where caches are constantly being primed with hardware starting and stopping.  A successful workload management scheme effectively manages resources, ensures highly efficient resource utilization, and maximizes return on investment (ROI).
 
@@ -33,13 +33,13 @@ The performance capacity of a data warehouse is determined by the [data warehous
 
 ## Workload management concepts
 
-In the past, for SQL Analytics in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
+In the past, for Synapse SQL in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
 
 For example, granting an ad-hoc user role membership to smallrc allowed that user to consume 100% of the memory on the system.  With resource classes, there is no way to reserve and ensure resources are available for critical workloads.
 
-Synapse SQL pool workload management in Azure Synapse consists of three high-level concepts: [Workload Classification](sql-data-warehouse-workload-classification.md), [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).  These capabilities give you more control over how your workload utilizes system resources.
+Dedicated SQL pool workload management in Azure Synapse consists of three high-level concepts: [Workload Classification](sql-data-warehouse-workload-classification.md), [Workload Importance](sql-data-warehouse-workload-importance.md), and [Workload Isolation](sql-data-warehouse-workload-isolation.md).  These capabilities give you more control over how your workload utilizes system resources.
 
-Workload classification is the concept of assigning a request to a workload group and setting importance levels.  Historically, this assignment was done via role membership using [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  This can now be done via the [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  The classification capability provides a richer set of options such as label, session, and time to classify requests.
+Workload classification is the concept of assigning a request to a workload group and setting importance levels.  Historically, this assignment was done via role membership using [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  This action can now be done via the [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  The classification capability provides a richer set of options such as label, session, and time to classify requests.
 
 Workload importance influences the order in which a request gets access to resources.  On a busy system, a request with higher importance has first access to resources.  Importance can also ensure ordered access to locks.
 

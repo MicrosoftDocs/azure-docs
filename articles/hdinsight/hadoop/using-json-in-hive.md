@@ -5,8 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.topic: how-to
+ms.custom: seoapr2020
+ms.date: 04/20/2020
 ---
 
 # Process and analyze JSON documents by using Apache Hive in Azure HDInsight
@@ -154,6 +155,5 @@ The type of JSON operator in Hive that you choose depends on your scenario. With
 
 For related articles, see:
 
-* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
+* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](./hdinsight-use-hive.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)

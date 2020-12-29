@@ -1,6 +1,6 @@
 ---
 title: Diagnostics Tool to troubleshoot StorSimple 8000 device | Microsoft Docs
-description: Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode.
+description: This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
@@ -328,7 +328,7 @@ Here is a sample output of the 8100 device. You can see in the output that:
 * DATA 2 - 5 are not enabled in the portal.
 * The DNS server configuration is valid and the device can connect via the DNS server.
 * The NTP server connectivity is also fine.
-* Ports 80 and 443 are open. However, port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
+* Ports 80 and 443 are open. However, port 9354 is blocked. Based on the [system network requirements](./storsimple-8000-system-requirements.md), you need to open this port for the service bus communication.
 * The TLS/SSL certification is valid.
 * The device can connect to the storage account: _myss8000storageacct_.
 * The connectivity to Update servers is valid.
@@ -384,7 +384,7 @@ To use this tool, perform the following steps:
 
     If the read-write latencies reported by the diagnostics tool are high:
 
-    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
+    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/blobs/monitor-blob-storage.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
 
     2. If the storage account latencies are low, contact your network administrator to investigate any latency issues in your network.
 
@@ -436,6 +436,6 @@ Here is a table describing what the various Windows PowerShell parameters in the
 
 ## Next steps
 
-* Learn the [syntax of the Invoke-HcsDiagnostics cmdlet](https://technet.microsoft.com/library/mt795371.aspx).
+* Learn the [syntax of the Invoke-HcsDiagnostics cmdlet](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Learn more about how to [troubleshoot deployment issues](storsimple-troubleshoot-deployment.md) on your StorSimple device.
+* Learn more about how to [troubleshoot deployment issues](./storsimple-8000-troubleshoot-deployment.md) on your StorSimple device.

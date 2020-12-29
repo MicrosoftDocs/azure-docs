@@ -1,25 +1,21 @@
 ---
-title: "Quickstart: Add questions and answer in QnA Maker portal"
-description:  This quickstart shows how to add question and answer sets with metadata so your users can find the right answer to their question.
-services: cognitive-services
-author: diberry
-manager: nitinme
+title: "Add questions and answer in QnA Maker portal"
+description:  This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
+ms.date: 05/26/2020
 ---
 
-# Quickstart: Add questions and answer with QnA Maker portal
+# Add questions and answer with QnA Maker portal
 
-Once a knowledge base is created, add question and answer (QnA) sets with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure service.
+Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 
 <a name="qna-table"></a>
 
-|Set|Questions|Answer|Metadata|
+|Pair|Questions|Answer|Metadata|
 |--|--|--|--|
-|#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
+|#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 Once metadata is added to a QnA pair, the client application can:
@@ -36,15 +32,15 @@ Once metadata is added to a QnA pair, the client application can:
 
 1. Sign in to the [QnA Maker portal](https://www.qnamaker.ai).
 
-1. Select your existing knowledge base from the [previous quickstart](../how-to/create-knowledge-base.md).
+1. Select your existing knowledge base from the [previous quickstart](./create-publish-knowledge-base.md).
 
 ## Add additional alternatively-phrased questions
 
-The current knowledge base has the QnA Maker troubleshooting QnA pairs. These sets were created when the URL was added to the knowledge base during the creation process.
+The current knowledge base has the QnA Maker troubleshooting QnA pairs. These pairs were created when the URL was added to the knowledge base during the creation process.
 
 When this URL was imported, only one question with one answer was created. In this procedure, add additional questions.
 
-1. From the **Edit** page, use the search textbox above the question and answer sets, to find the question `How large a knowledge base can I create?`
+1. From the **Edit** page, use the search textbox above the question and answer pairs, to find the question `How large a knowledge base can I create?`
 
 1. In the **Question** column, select **+ Add alternative phrasing** then add each new phrasing, provided in the following table.
 
@@ -61,7 +57,7 @@ When this URL was imported, only one question with one answer was created. In th
 
     The correct answer is returned in markdown format:
 
-    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`
 
     If you select **Inspect** under the returned answer, you can see more answers met the question but not with the same high level of confidence.
 
@@ -71,9 +67,9 @@ When this URL was imported, only one question with one answer was created. In th
 
 ## Add metadata to filter the answers
 
-Adding metadata to a question and answer set allows your client application to request filtered answers. This filter is applied before the [first and second rankers](../concepts/query-knowledge-base.md#ranker-process) are applied.
+Adding metadata to a question and answer pair allows your client application to request filtered answers. This filter is applied before the [first and second rankers](../concepts/query-knowledge-base.md#ranker-process) are applied.
 
-1. Add the second question and answer set, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps.
+1. Add the second question and answer pair, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps.
 
 1. Select **View options**, then select **Show metadata**.
 
@@ -86,7 +82,7 @@ Adding metadata to a question and answer set allows your client application to r
 1. Add metadata pairs for the same two metadata tags:
 
     `link_in_answer` : `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     You now have two questions with the same metadata tags with different values.
 

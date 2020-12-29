@@ -1,11 +1,8 @@
 ---
 title: Quickly create a .NET app on Service Fabric in Azure
 description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
-author: mikkelhegn
-
 ms.topic: quickstart
 ms.date: 06/26/2019
-ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric
@@ -50,7 +47,7 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
 > Docker running when you create the cluster is included as a best-practice.
 > Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 >
-> [Set up Windows 10 or Windows Server for containers](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [Set up Windows 10 or Windows Server for containers](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Open a new, elevated PowerShell window as an administrator.
 2. Run the following PowerShell command to create a development cluster:

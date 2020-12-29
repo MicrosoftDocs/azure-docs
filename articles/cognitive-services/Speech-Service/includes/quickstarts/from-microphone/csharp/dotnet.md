@@ -1,9 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -94,4 +95,4 @@ Now you're ready to rebuild your app and test the speech recognition functionali
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

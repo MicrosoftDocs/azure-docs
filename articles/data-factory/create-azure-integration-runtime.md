@@ -5,14 +5,15 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ---
 # How to create and configure Azure Integration Runtime
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
 
 Azure IR provides a fully managed compute to natively perform data movement and dispatch data transformation activities to compute services like HDInsight. It is hosted in Azure environment and supports connecting to resources in public network environment with public accessible endpoints.
@@ -22,7 +23,7 @@ This document introduces how you can create and configure Azure Integration Runt
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Default Azure IR
-By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is auto-resolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
+By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is autoresolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
 
 ## Create Azure IR
 
@@ -41,21 +42,21 @@ You can configure an existing Azure IR to change its location using the Set-AzDa
 ### Create an Azure IR via Azure Data Factory UI
 Use the following steps to create an Azure IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the **Author** tab on the left pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-   ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
+   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Select **Connections** at the bottom of the left pane, and select **Integration runtimes** in the **Connections** window. Select **+New**.
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Screenshot that highlights Integration runtimes in the left pane and the +New button.](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
 1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
-   ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Enter a name for your Azure IR, and select **Create**.
-   ![Create an Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Create an Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
 
@@ -85,4 +86,3 @@ See the following articles on how to create other types of integration runtimes:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)
 - [Create Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md)
- 

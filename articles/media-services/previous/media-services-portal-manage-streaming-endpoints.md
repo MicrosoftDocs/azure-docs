@@ -20,7 +20,9 @@ ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with the Azure portal 
+# Manage streaming endpoints with the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article shows  how to use the Azure portal to manage streaming endpoints. 
 
@@ -36,7 +38,7 @@ To start managing streaming endpoints for your account, do the following.
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** blade, select **Streaming endpoints**.
    
-    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Screenshot that shows the "Media services" page with "Streaming endpoints" selected from the "Settings" blade.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in running state.
@@ -55,7 +57,7 @@ To add/delete streaming endpoint using the Azure portal, do the following:
 2. To delete a streaming endpoint, press **Delete** button.      
 3. Click the **Start** button to start the streaming endpoint.
    
-    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Screenshot that shows the "Endpoint" action selected and the "Streaming Endpoint Details" pane displayed.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint
@@ -65,7 +67,7 @@ Streaming Endpoint enables you to configure the following properties:
 * Cache control
 * Cross site access policies
 
-For detailed information about these properties, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+For detailed information about these properties, see [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
 >When CDN is enabled, you cannot access IP access. IP access is only applicable when you don’t have CDN.
@@ -77,7 +79,7 @@ You can configure streaming endpoint by doing the following:
 
 A brief description of the fields follows.
 
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Screenshot that shows the "Settings" action selected for the streaming endpoint.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Maximum cache policy: used to configure cache lifetime for assets served through this streaming endpoint. If no value is set, the default is used. The default values can also be defined directly in Azure storage. If Azure CDN is enabled for the streaming endpoint, you should not set the cache policy value to less than 600 seconds.  
 2. Allowed IP addresses: used to specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect. IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.255.0)').
@@ -120,4 +122,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

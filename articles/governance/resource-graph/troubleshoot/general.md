@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with the various SDKs while querying Azure resources with Azure Resource Graph.
-ms.date: 10/18/2019
+ms.date: 10/14/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Resource Graph
@@ -16,6 +16,28 @@ fails, the SDK provides details about the failed query. This information indicat
 it can be fixed and a later query succeeds.
 
 ## General errors
+
+### <a name="throttled"></a>Scenario: Throttled requests
+
+#### Issue
+
+Customers making large or frequent resource queries have requests throttled.
+
+#### Cause
+
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
+user can send at most 15 queries within every 5-second window without being throttled. The quota
+value is determined by many factors and is subject to change. For more information, see
+[Throttling in Azure Resource Graph](../overview.md#throttling).
+
+#### Resolution
+
+There are several methods of dealing with throttled requests:
+
+- [Grouping queries](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Staggering queries](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Query in Parallel](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Pagination](../concepts/guidance-for-throttled-requests.md#pagination)
 
 ### <a name="toomanysubscription"></a>Scenario: Too many subscriptions
 
@@ -85,7 +107,7 @@ _403_ (Forbidden) response.
 #### Cause
 
 If the customer doesn't have read permission to all the provided subscriptions, the request is
-denied due to lack of appropriate security rights.
+denied because of lack of appropriate security rights.
 
 #### Resolution
 

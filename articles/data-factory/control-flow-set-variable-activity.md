@@ -7,12 +7,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ---
-# Set variable activity in Azure Data Factory
+# Set Variable Activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory pipeline.
 
@@ -23,8 +24,8 @@ Property | Description | Required
 name | Name of the activity in pipeline | yes
 description | Text describing what the activity does | no
 type | Must be set to **SetVariable** | yes
-value | String literal or expression object value that the variable will be assigned to | yes
-variableName | Name of the variable that will be set by this activity | yes
+value | String literal or expression object value that the variable is assigned to | yes
+variableName | Name of the variable that is set by this activity | yes
 
 ## Incrementing a variable
 

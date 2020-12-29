@@ -2,13 +2,13 @@
 title: Speech service
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Reference docs
@@ -38,5 +38,6 @@ The [Speech Devices SDK](../speech-devices-sdk.md) is a superset of the Speech S
 For references of various Speech service REST APIs, refer to the listing below:
 
 - [REST API: Speech-to-text](../rest-speech-to-text.md)
+- [REST API: Pronunciation assessment](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: Text-to-speech](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Batch transcription and customization <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: Batch transcription and customization <span class="docon docon-navigate-external x-hidden-focus"></span></a>

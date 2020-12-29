@@ -1,9 +1,9 @@
 ---
 title: Media streaming optimization with Azure CDN
-description: Optimize streaming media files for smooth delivery
+description: Learn about options to optimize streaming media in Azure Content Delivery Network, such as partial cache sharing and cache fill wait time.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: magattus
+ms.author: allensu
 ---
 # Media streaming optimization with Azure CDN 
  
@@ -77,12 +77,11 @@ After you create the endpoint, it applies the optimization for all files that ma
 If **Azure CDN Standard from Akamai** detects that the asset is a streaming manifest or fragment, it uses different caching expiration times from general web delivery. (See the full list in the following table.) As always, cache-control or Expires headers sent from the origin are honored. If the asset is not a media asset, it caches by using the expiration times for general web delivery.
 
 The short negative caching time is useful for origin offload when many users request a fragment that doesn’t exist yet. An example is a live stream where the packets aren't available from the origin that second. The longer caching interval also helps offload requests from the origin because video content isn't typically modified.
- 
 
-|   | General web delivery | General media streaming | Video-on-demand media streaming  
---- | --- | --- | ---
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |365 days | 365 days   
-Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 second
+| Caching  | General web delivery | General media streaming | Video-on-demand media streaming  
+|--- | --- | --- | ---
+| Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |365 days | 365 days   
+| Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 second
  
 ### Deal with origin failure  
 

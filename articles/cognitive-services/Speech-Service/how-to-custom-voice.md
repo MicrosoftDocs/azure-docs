@@ -3,13 +3,13 @@ title: "Improve synthesis with Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience."
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Get started with Custom Voice
@@ -37,7 +37,7 @@ The diagram below highlights the steps to create a custom voice model using the 
 The neural voice customization capability is currently in public preview, limited to selected customers. Fill out this [application form](https://go.microsoft.com/fwlink/?linkid=2108737) to get started.
 
 > [!NOTE]
-> As part of Microsoft's commitment to designing responsible AI, our intent is to protect the rights of individuals and society, and foster transparent human-computer interactions. For this reason, Custom Neural Voice is not generally available to all customers. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our ethics principles. Learn more about our [application gating process](https://aka.ms/custom-neural-gating-overview).
+> As part of Microsoft's commitment to designing responsible AI, our intent is to protect the rights of individuals and society, and foster transparent human-computer interactions. For this reason, Custom Neural Voice is not generally available to all customers. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our ethics principles. Learn more about our [application gating process](./concepts-gating-overview.md).
 
 ## Set up your Azure account
 
@@ -51,7 +51,7 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.
 
 > [!NOTE]
-> The Custom Voice service does NOT support the 30-day free trial key. You must have a F0 or a S0 key created in Azure before you can use the service.
+> You must have a F0 or a S0 key created in Azure before you can use the service.
 
 ## How to create a project
 

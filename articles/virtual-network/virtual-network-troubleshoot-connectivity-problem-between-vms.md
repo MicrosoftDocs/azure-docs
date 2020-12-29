@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting connectivity problems between Azure VMs | Microsoft Docs
-description: Learn how to Troubleshoot the connectivity problems between Azure VMs.
+description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure VMs.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -77,11 +77,15 @@ You can use one of the following methods to check whether the VM app or service 
 
 **Windows VM**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Run the **telnet** command on the virtual machine itself to test the port. If the test fails, the application or service is not configured to listen on that port.
 

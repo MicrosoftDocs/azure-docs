@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -29,7 +29,9 @@ Create a file named *quickstart.py* and paste the following Python code in it.
 
 ## Build and run app
 
-Now you're ready to test the app, and verify the speech recognition functionality using the Speech service.
+Now you're ready to test speech recognition using the Speech service. 
+
+If you're running this on macOS and it's the first Python app you've built that uses a microphone, you'll probably need to give Terminal access to the microphone. Open **System Settings** and select **Security & Privacy**. Next, select **Privacy** and locate **Microphone** in the list. Last, select **Terminal** and save. 
 
 1. **Start your app** - From the command line, type:
     ```bash
@@ -39,4 +41,4 @@ Now you're ready to test the app, and verify the speech recognition functionalit
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

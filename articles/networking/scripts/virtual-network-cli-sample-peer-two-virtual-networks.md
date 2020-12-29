@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Sample - Peer two virtual networks | Microsoft Docs
-description: Azure CLI Script Sample - Peer two virtual networks
+description: Use an Azure CLI script sample to create and connect two virtual networks in the same region through the Azure network.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -11,10 +11,11 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
-# Peer two virtual networks
+# Use an Azure CLI sample script to connect two virtual networks
 
 This script creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
 

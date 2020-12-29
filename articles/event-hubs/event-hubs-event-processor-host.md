@@ -1,36 +1,22 @@
 ---
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija 
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Event processor host
 > [!NOTE]
-> This article applies to the old version of Azure Event Hubs SDK. To learn how to migrate your code to the newer version of the SDK, see these migration guides. 
+> This article applies to the old version of Azure Event Hubs SDK. For current version of the SDK, see [Balance partition load across multiple instances of your application](event-processor-balance-partition-load.md). To learn how to migrate your code to the newer version of the SDK, see these migration guides. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Also, see [Balance partition load across multiple instances of your application](event-processor-balance-partition-load.md).
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
-The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](https://msdn.microsoft.com/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
+The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](/previous-versions/msp-n-p/dn568101(v=pandp.10)) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
 
 ## Home security scenario
 
@@ -96,6 +82,8 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
 
+> [!NOTE]
+> The consumerGroupName is case-sensitive.  Changes to the consumerGroupName can result in reading all partitions from the start of the stream.
 
 ### Example
 
@@ -170,7 +158,7 @@ Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsof
 Here is how the receive epoch works:
 
 ### With Epoch
-Epoch is a unique identifier (epoch value) that the service uses, to enforce partition/lease ownership. You create an Epoch-based receiver using the [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) method. This method creates an Epoch-based receiver. The receiver is created for a specific event hub partition from the specified consumer group.
+Epoch is a unique identifier (epoch value) that the service uses, to enforce partition/lease ownership. You create an Epoch-based receiver using the [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) method. This method creates an Epoch-based receiver. The receiver is created for a specific event hub partition from the specified consumer group.
 
 The epoch feature provides users the ability to ensure that there is only one receiver on a consumer group at any point in time, with the following rules:
 
@@ -179,7 +167,7 @@ The epoch feature provides users the ability to ensure that there is only one re
 - If there is a receiver with an epoch value e1 and a new receiver is created with an epoch value e2 where e1 > e2, then creation of e2 with fail with the error: A receiver with epoch e1 already exists.
 
 ### No Epoch
-You create a non-Epoch-based receiver using the [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) method. 
+You create a non-Epoch-based receiver using the [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) method. 
 
 There are some scenarios in stream processing where users would like to create multiple receivers on a single consumer group. To support such scenarios, we do have ability to create a receiver without epoch and in this case we allow upto 5 concurrent receivers on the consumer group.
 
@@ -200,10 +188,10 @@ We don’t recommend application usage where you create a receiver with epoch an
 Now that you're familiar with the Event Processor Host, see the following articles to learn more about Event Hubs:
 
 - Get started with Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,6 +18,23 @@ ms.collection: M365-identity-device-management
 # Troubleshooting sign-in problems with Conditional Access
 
 The information in this article can be used to troubleshoot unexpected sign-in outcomes related to Conditional Access using error messages and Azure AD sign-ins log.
+
+## Select "all" consequences
+
+The Conditional Access framework provides you with a great configuration flexibility. However, great flexibility also means that you should carefully review each configuration policy before releasing it to avoid undesirable results. In this context, you should pay special attention to assignments affecting complete sets such as **all users / groups / cloud apps**.
+
+Organizations should avoid the following configurations:
+
+**For all users, all cloud apps:**
+
+- **Block access** - This configuration blocks your entire organization.
+- **Require device to be marked as compliant** - For users that have not enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you are an administrator without an enrolled device, this policy blocks you from getting back into the Azure portal to change the policy.
+- **Require Hybrid Azure AD domain joined device** - This policy block access has also the potential to block access for all users in your organization if they don't have a hybrid Azure AD joined device.
+- **Require app protection policy** - This policy block access has also the potential to block access for all users in your organization if you don't have an Intune policy. If you are an administrator without a client application that has an Intune app protection policy, this policy blocks you from getting back into portals such as Intune and Azure.
+
+**For all users, all cloud apps, all device platforms:**
+
+- **Block access** - This configuration blocks your entire organization.
 
 ## Conditional Access sign-in interrupt
 
@@ -53,7 +70,15 @@ To find out which Conditional Access policy or policies applied and why do the f
    1. To investigate further, drill down into the configuration of the policies by clicking on the **Policy Name**. Clicking the **Policy Name** will show the policy configuration user interface for the selected policy for review and editing.
    1. The **client user** and **device details** that were used for the Conditional Access policy assessment are also available in the **Basic Info**, **Location**, **Device Info**, **Authentication Details**, and **Additional Details** tabs of the sign-in event.
 
+### Policy details
+
+Selecting the ellipsis on the right side of the policy in a sign-in event brings up policy details. This gives administrators additional information about why a policy was successfully applied or not.
+
    ![Sign in event Conditional Access tab](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Policy details (preview)](./media/troubleshoot-conditional-access/policy-details.png)
+
+The left side provides details collected at sign-in and the right side provides details of whether those details satisfy the requirements of the applied Conditional Access policies. Conditional Access policies only apply when all conditions are satisfied or not configured.
 
 If the information in the event isn't enough to understand the sign-in results or adjust the policy to get desired results, then a support incident may be opened. Navigate to that sign-in event's **Troubleshooting and support** tab and select **Create a new support request**.
 
@@ -71,8 +96,14 @@ When submitting the incident, provide the request ID and time and date from the 
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## What to do if you are locked out of the Azure portal?
+
+If you are locked out of the Azure portal due to an incorrect setting in a Conditional Access policy:
+
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign-in. 
+- If none of the administrators in your organization can update the policy, submit a support request. Microsoft support can review and upon confirmation update the Conditional Access policies that are preventing access.
+
 ## Next steps
 
 - [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md)
 - [Troubleshooting Conditional Access using the What If tool](troubleshoot-conditional-access-what-if.md)
-- Best practices for [Conditional Access in Azure Active Directory](best-practices.md)
