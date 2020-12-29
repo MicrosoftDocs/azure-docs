@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
+ms.custom: devx-track-python
 ---
 
 # Schedule and broadcast jobs (Python)

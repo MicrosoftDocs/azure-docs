@@ -7,9 +7,9 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshoot
+# Troubleshoot Azure FarmBeats
 
-This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) or email us at farmbeatssupport@microsoft.com.
+This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Q&A Support Forum](/answers/topics/azure-farmbeats.html) or email us at farmbeatssupport@microsoft.com.
 
 > [!NOTE]
   > If you have installed FarmBeats during April and your jobs are failing with an empty error message, your installation may not have been allocated any batch quota to prioritize support for critical health and safety organizations. See [here](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) for more information. You will need to request VMs to be allocated to the Batch account to run jobs successfully.
@@ -53,8 +53,8 @@ Contact us with the following details:
 
 **Corrective action**
 
-1. Go to your FarmBeats Datahub resource group.
-2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+1. Go to your FarmBeats resource group.
+2. Select the **Event Hub** namespace ("sensor-partner-eh-namespace-xxxx"), click on "Event Hubs" and then check for the number of incoming messages in the event hub that is assigned to the partner
 3. Do either of the following:
 
    - If there are *no incoming messages*, contact your device partner.  
@@ -83,11 +83,11 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -173,7 +173,7 @@ Ask the administrator to authorize you to access the FarmBeats deployment. This 
 
 If you've already been granted access and facing this error, try again by refreshing the page. If the error persists, contact us with the error message/logs.
 
-![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Screenshot that shows the authorization error.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### Accelerator issues  
 
@@ -294,7 +294,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 6. In the left pane, select **Blob Containers**, and then select **job-logs** for Azure Data Factory logs or **appinsights-logs** for App Service logs.
 7. Select **Download** and download the logs to a local folder on your machine.
 
-    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Screenshot that shows the downloaded log files.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### Collect Azure Data Factory job logs or App Service logs for Accelerator
 
@@ -315,3 +315,39 @@ This issue can occur if any maintenance activities are being done on the Sentine
 1. Go to your FarmBeats Datahub resource group.
 2. Select the **App service**.  
 3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
+
+## Weather data job failures
+
+**Error**: You run Jobs to get weather data but the job fails
+
+### Collect logs to troubleshoot weather data job failures
+
+1. Go to your FarmBeats resource group in the Azure portal.
+2. Click on the Data Factory service that is part of the resource group. The service will have a tag "sku: Datahub"
+
+> [!NOTE]
+> To view the tags of the services within the resource group, click on "Edit Columns" and add "Tags" to the resource group view
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Screenshot that highlights the sku:Datahub tag.":::
+
+3. On the Overview page of the Data factory, click on **Author and Monitor**. A new tab opens on your browser. Click on **Monitor**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Screenshot that highlights the Monitor menu option.":::
+
+4. You will see a list of pipeline runs that are part of the weather job execution. Click on the Job that you want to collect logs for
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Screenshot that highlights the Pipeline runs menu option and the selected job.":::
+
+5. On the pipeline overview page, you will see the list of activity runs. Make a note of the Run IDs of the activities that you want to collect logs for
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Screenshot that shows the list of activity runs.":::
+
+6. Go back to your FarmBeats resource group in Azure portal and click on the Storage Account with the name **datahublogs-XXXX**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Screenshot that highlights the Storage Account with the name datahublogs-XXXX.":::
+
+7. Click on **Containers** -> **adfjobs**. In the Search box, enter the job Run ID that you noted in step 5 above.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Project FarmBeats":::
+
+8. The search result will contain the folder which has the logs pertaining to the job. Download the logs and send it to farmbeatssupport@microsoft.com for assistance in debugging the issue.

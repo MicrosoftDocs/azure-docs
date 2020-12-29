@@ -15,3 +15,12 @@
     - name: Policy
       tocHref: /azure/key-vault
       topicHref: /azure/governance/policy
+    - name: Policy
+      tocHref: /azure/aks
+      topicHref: /azure/governance/policy
+    - name: Policy
+      tocHref: /azure/storage
+      topicHref: /azure/governance/policy
+    - name: Policy
+      tocHref: /azure/web-application-firewall
+      topicHref: /azure/governance/policy

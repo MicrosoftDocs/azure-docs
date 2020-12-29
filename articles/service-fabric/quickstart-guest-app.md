@@ -4,6 +4,7 @@ description: Use an Azure Service Fabric cluster to host an existing Node.js app
 
 ms.topic: conceptual
 ms.date: 12/06/2017
+ms.custom: devx-track-js
 ---
 
 # Host a Node.js application on Azure Service Fabric
@@ -26,7 +27,7 @@ Create a project with `CTRL`+`SHIFT`+`N`
 
 In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-Name the application **MyGuestApp** and press **OK**.
+Name the application **MyGuestApp** and press **Create**.
 
 >[!IMPORTANT]
 >Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow **[these instructions](https://stackoverflow.com/a/41687101/1664231)** to enable long file paths in Windows 10.

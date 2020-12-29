@@ -11,7 +11,7 @@ You use [Azure Policy](../../governance/policy/overview.md) to enforce tagging r
 
 ## Policies
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## Next steps
 

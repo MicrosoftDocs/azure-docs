@@ -1,20 +1,9 @@
 ---
 title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-editor: ''
-
-ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/27/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Availability and consistency in Event Hubs
@@ -46,7 +35,9 @@ If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eve
 For use cases that require the maximum up time, this model is preferred.
 
 ## Consistency
-In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object (if you are using the old Microsoft.Azure.Messaging library) to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order. If you are using the **Azure.Messaging.EventHubs** library and for more information, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object (if you are using the old Microsoft.Azure.Messaging library) to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order. 
+
+If you are using the newer **Azure.Messaging.EventHubs** library, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
 
@@ -148,5 +139,5 @@ This example sends your event to one of the available partitions in your event h
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs service overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs service overview](./event-hubs-about.md)
 * [Create an event hub](event-hubs-create.md)

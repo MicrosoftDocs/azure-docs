@@ -13,8 +13,6 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-
-
 This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
 
 As a _solution builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
@@ -98,7 +96,7 @@ The top menu appears on every page:
 * To search for device templates and devices, enter a **Search** value.
 * To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md)
 * To sign out of the application, choose the **Account** icon.
-* To get help and support, choose the **Help** drop-down for a list of resources. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
+* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](./howto-get-app-info.md) from the **About your app** link. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 

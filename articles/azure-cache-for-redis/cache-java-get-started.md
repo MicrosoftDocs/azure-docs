@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis with Java'
+title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
 author: yegu-ms
 
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 05/22/2020
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
 ---
 
-# Quickstart: Use Azure Cache for Redis with Java
+# Quickstart: Use Azure Cache for Redis in Java
 
 In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
@@ -27,12 +27,24 @@ In this quickstart, you incorporate Azure Cache for Redis into a Java app using 
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Add environment variables for your **HOST NAME** and **Primary** access key. You will use these variables from your code instead of including the sensitive information directly in your code.
+## Setting up the working environment 
+
+Depending on your operating system, add environment variables for your **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Replace the placeholders with the following values:
+
+- `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
 
 ## Create a new Java app
 
@@ -50,7 +62,7 @@ Open the *pom.xml* file and add a dependency for [Jedis](https://github.com/xeto
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>2.9.0</version>
+        <version>3.2.0</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency>

@@ -9,11 +9,11 @@ ms.author: pkc
 ---
 # Azure Service Fabric support options
 
-To deliver the appropriate support for your Service Fabric clusters that you are running your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
+We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads. Depending on the urgency of support needed and the severity of the issue, you may choose the option that is right for you.
 
 ## Report production issues or request paid support for Azure
 
-For reporting issues on your Service Fabric cluster deployed on Azure, open a ticket for support [on Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
@@ -22,15 +22,15 @@ Learn more about:
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters running on a bronze reliability tier or Single Node Cluster will  allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability or Single Node Cluster, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. Please refer to [the reliability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details.
+> Clusters running on a bronze reliability tier or Single Node Cluster will allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability or Single Node Cluster, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. For more information, please refer to [the reliability characteristics of the cluster](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
 >
-> For more information about what is required for a production ready cluster, please refer to the [production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> For more information about what is required for a production ready cluster, please refer to the [production readiness checklist](./service-fabric-production-readiness-checklist.md).
 
 <a id="getlivesitesupportonprem"></a>
 
 ## Report production issues or request paid support for standalone Service Fabric clusters
 
-For reporting issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+To report issues related to Service Fabric clusters running on-premises or on other clouds, you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Learn more about:
 
@@ -43,28 +43,30 @@ We have set up a GitHub repo for reporting Service Fabric issues.  We are also a
 
 ### GitHub repo 
 
-Report Azure Service Fabric Issues on [Service-Fabric-issues git repo](https://github.com/Azure/service-fabric-issues). This repo is intended for reporting and tracking issues with Azure Service Fabric and for making small feature requests. **Do not use this to report live-site issues**.
+Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github.com/microsoft/service-fabric/issues). This repo is intended for reporting and tracking issues as well as making small feature requests related to Azure Service Fabric. **Do not use this medium to report live-site issues**.
 
 ### StackOverflow and MSDN forums
 
-The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] are best used for asking questions about how the platform works and how you might accomplish certain tasks with it.
+The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] are best used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
 
 ### Azure Feedback forum
 
-The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting big feature ideas you have for the product as we review the most popular requests are part of our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
+The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting significant product feature ideas. We review the most popular requests and factor them for our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
 ## Service Fabric Preview Versions - unsupported for production use
 
-From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric) and will have details on the features included.
-There is no paid support option for these preview releases. Use one of the options listed under [Report Azure Service Fabric issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) to ask questions or provide feedback.
+Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
+
+A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Use one of the options listed under [Report Azure Service Fabric issues](#report-azure-service-fabric-issues) to ask questions or provide feedback.
 
 ## Next steps
 
 [Supported Service Fabric versions](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: https://aka.ms/servicefabricdocs
-[sample-repos]: https://aka.ms/servicefabricsamples
+[acom-docs]: ./index.yml
+[sample-repos]: /samples/browse/?products=azure
+[msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

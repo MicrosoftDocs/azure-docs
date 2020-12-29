@@ -1,17 +1,14 @@
 ---
-title: Troubleshooting the onboarding of Azure Automation management solutions
-description: Learn how to troubleshoot Azure Automation solution onboarding errors.
+title: Troubleshoot Azure Automation feature deployment issues
+description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ---
-# Troubleshoot solution onboarding
+# Troubleshoot feature deployment issues
 
-You might receive error messages when you onboard the Azure Automation Update Management solution or the Change Tracking and Inventory solution. This article describes the various errors that might occur and how to resolve them.
+You might receive error messages when you deploy the Azure Automation Update Management feature or the Change Tracking and Inventory feature on your VMs. This article describes the errors that might occur and how to resolve them.
 
 ## Known issues
 
@@ -33,7 +30,7 @@ Unregister the node from Azure Automation State Configuration, and then register
 
 #### Issue
 
-When you connect through a proxy solution that terminates HTTPS traffic and then re-encrypts the traffic using a new certificate, the service doesn't allow the connection.
+When you connect through a proxy that terminates HTTPS traffic and then re-encrypts the traffic using a new certificate, the service doesn't allow the connection.
 
 #### Cause
 
@@ -45,11 +42,11 @@ There's currently no workaround for this issue.
 
 ## General errors
 
-### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message "The solution cannot be enabled"
+### <a name="missing-write-permissions"></a>Scenario: Feature deployment fails with the message "The solution cannot be enabled"
 
 #### Issue
 
-You receive one of the following messages when you attempt to onboard a VM to a solution:
+You receive one of the following messages when you attempt to enable a feature on a VM:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -65,13 +62,13 @@ This error is caused by incorrect or missing permissions on the VM or workspace,
 
 #### Resolution
 
-Ensure that you have correct [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding-permissions), and then try to onboard the solution again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure that you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is onboarded to a workspace.
+Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#feature-setup-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, see the following [troubleshooting information](update-management.md#failed-to-enable-error).
 
-### <a name="diagnostic-logging"></a>Scenario: Onboarding fails with the message "Failed to configure automation account for diagnostic logging"
+### <a name="diagnostic-logging"></a>Scenario: Feature deployment fails with the message "Failed to configure automation account for diagnostic logging"
 
 #### Issue
 
-You receive the following message when you attempt to onboard a VM to a solution:
+You receive the following message when you attempt to enable a feature on a VM:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -79,17 +76,17 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
 
 #### Resolution
 
-Create your Log Analytics workspace manually, and repeat the onboarding process to select the workspace created.
+Create your Log Analytics workspace manually, and repeat the feature deployment process to select the workspace created.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
-This error code means that the saved search computer group query used to target the solution isn't formatted correctly. 
+This error code means that the saved search computer group query used to target the feature isn't formatted correctly. 
 
 #### Cause
 
@@ -97,7 +94,7 @@ You might have altered the query, or the system might have altered it.
 
 #### Resolution
 
-You can delete the query for the solution and then onboard the solution again, which re-creates the query. The query can be found in your workspace under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the associated solution. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** query shows multiple times under **Saved searches**.
+You can delete the query for the feature and then enable the feature again, which re-creates the query. The query can be found in your workspace under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the associated feature. If multiple features are enabled, the **MicrosoftDefaultComputerGroup** query shows multiple times under **Saved searches**.
 
 ### <a name="policy-violation"></a>Scenario: PolicyViolation
 
@@ -111,10 +108,10 @@ A policy is blocking the operation from completing.
 
 #### Resolution
 
-To successfully deploy the solution, you must consider altering the indicated policy. Because there are many different types of policies that can be defined, the changes required depend on the policy that's violated. For example, if a policy is defined on a resource group that denies permission to change the contents of some contained resources, you might choose one of these fixes:
+To successfully deploy the feature, you must consider altering the indicated policy. Because there are many different types of policies that can be defined, the changes required depend on the policy that's violated. For example, if a policy is defined on a resource group that denies permission to change the contents of some contained resources, you might choose one of these fixes:
 
 * Remove the policy altogether.
-* Try to onboard the solution to a different resource group.
+* Try to enable the feature for a different resource group.
 * Retarget the policy to a specific resource, for example, an Automation account.
 * Revise the set of resources that the policy is configured to deny.
 
@@ -132,26 +129,26 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### Cause
 
-This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation account and Log Analytics workspace being linked.
+This error occurs when you still have features active in your Log Analytics workspace that depend on your Automation account and Log Analytics workspace being linked.
 
 ### Resolution
 
-Remove the following solutions from your workspace if you're using them:
+Remove the resources for the following features from your workspace if you're using them:
 
 * Update Management
 * Change Tracking and Inventory
 * Start/Stop VMs during off-hours
 
-After you remove the solutions, you can unlink your workspace. It's important to clean up any existing artifacts from these solutions from your workspace and your Automation account:
+After you remove the feature resources, you can unlink your workspace. It's important to clean up any existing artifacts from these  features from your workspace and your Automation account:
 
 * For Update Management, remove **Update Deployments (Schedules)** from your Automation account.
-* For Start/Stop VMs during off-hours, remove any locks on solution components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the Start/Stop VMs during off-hours solution](../automation-solution-vm-management.md#remove-the-solution).
+* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management.md#remove-the-feature).
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-An installation of the Log Analytics agent for Windows extension can fail for a variety of reasons. The following section describes onboarding issues that can cause failures during deployment of the Log Analytics agent for Windows extension.
+An installation of the Log Analytics agent for Windows extension can fail for a variety of reasons. The following section describes feature deployment issues that can cause failures during deployment of the Log Analytics agent for Windows extension.
 
 >[!NOTE]
 >Log Analytics agent for Windows is the name used currently in Azure Automation for the Microsoft Monitoring Agent (MMA).

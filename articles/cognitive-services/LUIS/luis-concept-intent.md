@@ -3,14 +3,14 @@ title: Intents and entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: A single intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
+
 ---
 # Intents in your LUIS app
 
@@ -28,7 +28,7 @@ Travel app intents   |   Example utterances   |
 All applications come with the predefined intent, "[None](#none-intent)", which is the fallback intent.
 
 ## Prebuilt domains provide intents
-In addition to intents that you define, you can use prebuilt intents from one of the [prebuilt domains](luis-how-to-use-prebuilt-domains.md).
+In addition to intents that you define, you can use prebuilt intents from one of the [prebuilt domains](./howto-add-prebuilt-models.md).
 
 ## Return all intents' scores
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, by default, it returns the top intent for that utterance.
@@ -55,7 +55,7 @@ Create an intent when the user's _intention_ would trigger an action in your cli
 
 ## Prebuilt domain intents
 
-[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) provide intents with utterances.
+[Prebuilt domains](./howto-add-prebuilt-models.md) provide intents with utterances.
 
 ## None intent
 

@@ -4,7 +4,7 @@ description: Learn how to deploy a Linux Service Fabric cluster into an existing
 
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Deploy a Linux Service Fabric cluster into an Azure virtual network
 
@@ -36,7 +36,12 @@ For Ubuntu 18.04 LTS:
 * [AzureDeploy.json][template2]
 * [AzureDeploy.Parameters.json][parameters2]
 
-The difference between the two templates is the **vmImageSku** attribute being set to "18.04-LTS" and each node's **typeHandlerVersion** being set to 1.1.
+For Ubuntu 18.04 LTS the difference between the two templates are 
+* the **vmImageSku** attribute being set to "18.04-LTS"
+* each node's **typeHandlerVersion** being set to 1.1
+* Microsoft.ServiceFabric/clusters resource's
+   - **apiVersion** being set to "2019-03-01" or higher
+   - **vmImage** property being set to "Ubuntu18_04"
 
 This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 
@@ -49,8 +54,8 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deploye
 * OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable in the template parameters)
 * certificate secured (configurable in the template parameters)
 * [DNS service](service-fabric-dnsservice.md) is enabled
-* [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
+* [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
+* [Reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 * client connection endpoint: 19000 (configurable in the template parameters)
 * HTTP gateway endpoint: 19080 (configurable in the template parameters)
 
@@ -157,7 +162,7 @@ sfctl cluster health
 
 ## Clean up resources
 
-If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
+If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-tutorial-delete-cluster.md) to avoid incurring charges.
 
 ## Next steps
 

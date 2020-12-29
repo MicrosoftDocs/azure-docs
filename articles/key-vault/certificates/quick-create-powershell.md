@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set and retrieve a certificate from Azure Key Vault'
+title: 'Quickstart: Set & view Azure Key Vault certificates – Azure PowerShell'
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -58,8 +58,6 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
-![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
-
 ## Add a certificate to Key Vault
 
 To add a certificate to the vault, you just need to take a couple of additional steps. This certificate could be used by an application. 
@@ -71,7 +69,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate'** to get the current version. 
 
 To view previously stored certificate:
 

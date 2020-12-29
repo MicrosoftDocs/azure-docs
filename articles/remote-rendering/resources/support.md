@@ -38,7 +38,7 @@ To open a technical support ticket within the Azure portal for Azure Remote Rend
 
 ## Community support
 
-For support from the user community, please see [Azure Remote Rendering on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-remote-rendering).
+For support from the user community, see [Azure Remote Rendering on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-remote-rendering).
 
 ## Provide documentation feedback
 
@@ -47,6 +47,11 @@ On the bottom of each documentation article, you can open a GitHub issue to prov
 ## Provide product feedback
 
 To provide feedback, share an idea or suggestion for Azure Remote Rendering, or vote on the ideas that others have submitted, visit the [Azure Remote Rendering Feedback Forum](https://feedback.azure.com/forums/928696-azure-remote-rendering).
+
+
+## Microsoft Q&A
+
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/topics/azure-remote-rendering.html), Azure’s preferred destination for community support.
 
 ## Next steps
 

@@ -17,7 +17,7 @@ You can create variables for data types such as integer, float, boolean, string,
 * Get or reference the variable's value.
 * Increase or decrease the variable by a constant value, also known as *increment* and *decrement*.
 * Assign a different value to the variable.
-* Insert or *append* the variable's value as the last time in a string or array.
+* Insert or *append* the variable's value as the last item in a string or array.
 
 Variables exist and are global only within the logic app instance that creates them. Also, they persist across any loop iterations inside a logic app instance. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
@@ -52,7 +52,7 @@ You can create a variable and declare its data type and initial value - all with
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Screenshot that shows the "New Step" action selected on the "Logic app designer" page.](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 

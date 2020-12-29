@@ -59,7 +59,10 @@
         "YAML"
     ],
     "cSpell.words": [
-        "auditd"
+        "agentless",
+        "auditd",
+        "covid",
+        "onboarded"
     ],
     "git.ignoreLimitWarning": true
 }

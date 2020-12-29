@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.topic: how-to
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
 ---
 
@@ -39,7 +39,7 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 
 ## Create an Apache Spark MLlib machine learning app
 
-1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**.
 

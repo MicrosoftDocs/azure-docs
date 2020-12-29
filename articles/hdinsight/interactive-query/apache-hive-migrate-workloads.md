@@ -5,7 +5,7 @@ author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
 ---
 
@@ -29,7 +29,7 @@ One advantage of Hive is the ability to export metadata to an external database 
 HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
 ### 2. Copy SQL database
-Create a new copy of your external metastore. If you're using an external metastore, one of the safe and easy ways to make a copy of the metastore is to [restore the Database](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) with a different name using the SQL Database restore function.  See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster.
+Create a new copy of your external metastore. If you're using an external metastore, one of the safe and easy ways to make a copy of the metastore is to [restore the database](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) with a different name using the `RESTORE` function.  See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster.
 
 ### 3. Upgrade metastore schema
 Once the metastore **copy** is complete, run a schema upgrade script in [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) on the existing HDInsight 3.6 cluster to upgrade the new metastore to Hive 3 schema. (This step doesn't require the new metastore to be connected to a cluster.) This allows the database to be attached as HDInsight 4.0 metastore.
@@ -204,30 +204,9 @@ Once you've confirmed that the release is complete and fully operational, you ca
 
 ## Query execution across HDInsight versions
 
-There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the Tez view/Hive view provides a GUI-based workflow.
+There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the [Tez view/Hive view](../hadoop/apache-hadoop-use-hive-ambari-view.md) provides a GUI-based workflow.
 
-In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline can also be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
-
-In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 does not ship with Ambari View. We have provided a way for our customers to use Data Analytics Studio (DAS), which is not a core HDInsight service. DAS doesn't ship with HDInsight clusters out-of-the-box and isn't an officially supported package. However, DAS can be installed on the cluster using a [script action](../hdinsight-hadoop-customize-cluster-linux.md) as follows:
-
-|Property | Value |
-|---|---|
-|Script type|- Custom|
-|Name|DAS|
-|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Node type(s)|Head|
-
-Wait 10 to 15 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
-
-A refresh of the Ambari UI and/or a restart of all Ambari components may be required before accessing DAS.
-
-Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
-
-1. Set the configurations for Hive, Tez, and DAS as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Make sure that the following Azure storage directory configs are Page blobs, and that they're listed under `fs.azure.page.blob.dirs`:
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Restart HDFS, Hive, Tez, and DAS on both headnodes.
+In HDInsight 4.0, HiveCLI has been replaced with Beeline. The Tez view/Hive view provides a GUI-based workflow. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline also can be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
 
 ## Next steps
 

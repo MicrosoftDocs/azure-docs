@@ -4,8 +4,6 @@ description: This quickstart shows how to connect to Azure Government and create
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti
-manager: liki
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/09/2018 
-ms.author: stemi
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using portal so I can start creating apps and developing against Azure Government's secure isolated datacenters.
 ---
@@ -47,11 +44,11 @@ You can take a look at Azure Government regions and their health status by click
 
 Currently, you can choose from 6 available government-only datacenter regions.
 
-![Azure Government Portal](./media/connect-with-portal/connect-with-portal.png)
+![Screenshot shows the Service Health page for Azure Government with the Region drop-down menu open.](./media/connect-with-portal/connect-with-portal.png)
 
 ## Next steps
 
 This quickstart showed you how to use portal to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](../index.yml).

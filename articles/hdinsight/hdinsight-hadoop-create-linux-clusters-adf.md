@@ -15,7 +15,7 @@ ms.date: 04/24/2020
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this tutorial, you learn how to create an [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to `operationalize` a big data job run where cluster creation, job run, and cluster deletion are done on a schedule.
+In this tutorial, you learn how to create an [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to `operationalize` a big data job run where cluster creation, job run, and cluster deletion are done on a schedule.
 
 This tutorial covers the following tasks:
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 * An Azure Active Directory service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 

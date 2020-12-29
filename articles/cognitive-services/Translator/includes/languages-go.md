@@ -1,6 +1,7 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
@@ -29,9 +30,9 @@ import (
 
 ## Create the main function
 
-Let's create the main function for our application. You'll notice it's a single line of code. That's because we're creating a single function to get and print the list of supported languages for Translator Text.
+Let's create the main function for our application. You'll notice it's a single line of code. That's because we're creating a single function to get and print the list of supported languages for Translator.
 
-This sample will try to read your Translator Text endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
+This sample will try to read your Translator endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
 
 Copy this code into your project:
 
@@ -71,11 +72,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Languages](../reference/v3-0-languages.md).
 
 ## Build the request
 
-Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator Text API.
+Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator.
 
 ```go
 // Build the HTTP GET request
@@ -86,14 +87,14 @@ if err != nil {
 // Add required headers
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Handle and print the response
 
@@ -112,7 +113,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 go run get-languages.go
@@ -122,7 +123,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 A successful response is returned in JSON as shown in the following example:
 
@@ -212,7 +213,7 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

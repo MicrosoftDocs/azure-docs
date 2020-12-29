@@ -279,11 +279,11 @@ and return to your integration account.
 2.	You can also view your agreements in your integration account overview. 
 On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	![Screenshot that shows the Agreements tile.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Connector reference
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/edifact/).
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/edifact/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 

@@ -3,8 +3,8 @@ title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
 description: Describes Azure Analysis Services PowerShell cmdlets for common administrative tasks such as creating servers, suspending operations, or changing service level.
 author: minewiskan
 ms.service: azure-analysis-services
-ms.topic: reference
-ms.date: 10/28/2019
+ms.topic: conceptual
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -22,7 +22,7 @@ Server resource management tasks like creating or deleting a server, suspending 
 
 Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account or service principal running the scheduler must have Admin privileges on the Analysis Services server. 
 
-For server operations using Azure PowerShell cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
+For server operations using Azure PowerShell cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## Resource and server operations 
 
@@ -42,21 +42,21 @@ Documentation - [SqlServer reference](/powershell/module/sqlserver)
 
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Add a member to a database role.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Backup an Analysis Services database.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remove a member from a database role.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute a TMSL script.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Process a database.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Process a partition.| 
-|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Process a table.|  
-|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Merge a partition.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Restore an Analysis Services database.| 
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|Add a member to a database role.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Backup an Analysis Services database.|  
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|Remove a member from a database role.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Execute a TMSL script.|
+|[Invoke-ProcessASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|Process a database.|  
+|[Invoke-ProcessPartition](/powershell/module/sqlserver/invoke-processpartition)|Process a partition.| 
+|[Invoke-ProcessTable](/powershell/module/sqlserver/invoke-processtable)|Process a table.|  
+|[Merge-Partition](/powershell/module/sqlserver/merge-partition)|Merge a partition.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Restore an Analysis Services database.| 
   
 
 ## Related information
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [Download SQL Server PowerShell Module](/sql/ssms/download-sql-server-ps-module)   
+* [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabular Model Programming for Compatibility Level 1200 and higher](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Tabular Model Programming for Compatibility Level 1200 and higher](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

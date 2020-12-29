@@ -100,7 +100,7 @@ http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 If you no longer want to cache an object in Azure CDN, you can take one of the following steps:
 
-- Make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
+- Make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md).
 - Disable or delete the CDN endpoint by using the Azure portal.
 - Modify your hosted service to no longer respond to requests for the object.
 

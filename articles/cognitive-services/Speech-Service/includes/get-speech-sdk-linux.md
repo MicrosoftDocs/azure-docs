@@ -8,8 +8,7 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
-        - x64
+        The Speech SDK only supports **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -19,11 +18,13 @@ ms.author: trbye
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> When targeting Linux ARM64, and using C# - the .NET Core 3.x (dotnet-sdk-3.x package) is required. If you're targeting ARM32 or ARM64, Python is not supported.
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for .NET Core
+- x64 for Python
 
-> [!NOTE]
-> The x86 architectures of Ubuntu 16.04, Ubuntu 18.04, and Debian 9 only support C++ development with the Speech SDK.
+> [!IMPORTANT]
+> For C# on Linux ARM64, the .NET Core 3.x (dotnet-sdk-3.x package) is required.
 
 ### System requirements
 
@@ -33,19 +34,25 @@ For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServic
 - The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
 - The shared library for ALSA applications (`libasound.so.2`)
 
-# [Ubuntu 16.04/18.04](#tab/ubuntu)
+# [Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# [Debian 9](#tab/debian)
+> [!NOTE]
+> If libssl1.0.x is not available, install libssl1.1 instead.
+
+# [Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
+
+> [!NOTE]
+> If libssl1.0.x is not available, install libssl1.1 instead.
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 
@@ -55,10 +62,8 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> Follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-
-> [!TIP]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
