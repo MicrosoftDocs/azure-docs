@@ -107,6 +107,7 @@ Review these steps to make sure all the usual configurations are as expected to 
    - In this case, review the configuration of the private link resource associated with the private endpoint. For more information, see the [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)
    
 1. It is always good to narrow down before raising the support ticket. 
+
     a. If the Source is On-Premises connecting to Private Endpoint in Azure having issues, then try to connect 
       - To another Virtual Machine from On-Premises and check if you have IP connectivity to the Virtual Network from On-Premises. 
       - From a Virtual Machine in the Virtual Network to the Private Endpoint.
