@@ -77,4 +77,4 @@ Select **Save draft** before continuing to the next tab: **Preview audience**.
 
 ## Next steps
 
-* [Add a preview audience](create-managed-service-offer-preview)
+* [Add a preview audience](create-managed-service-offer-preview.md)

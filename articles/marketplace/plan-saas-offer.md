@@ -152,7 +152,7 @@ When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, 
 
 The following example shows an offer listing in the Azure portal.
 
-![Illustrates an offer listing in the Azure portal.](./media/example-managed-services.png)
+![Illustrates an offer listing in the Azure portal.](./media/example-managed-service-azure-portal.png)
 
 **Call out descriptions**
 

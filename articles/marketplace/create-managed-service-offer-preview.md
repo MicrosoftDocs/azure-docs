@@ -42,4 +42,4 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 ## Next steps
 
-* [Create plans](./create-managed-service-offer-plans)
+* [Create plans](create-managed-service-offer-plans.md)
