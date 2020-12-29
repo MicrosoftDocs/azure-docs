@@ -20,8 +20,6 @@
     items:
     - name: Train and use custom model without labels
       items:
-      - name: cURL
-        href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
     - name: Train and use custom model with labels
@@ -30,8 +28,6 @@
         href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
-      - name: cURL
-        href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
     - name: Use prebuilt business card model

@@ -252,6 +252,8 @@ To train a model with labeled data, call the **[Train Custom Model](https://west
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 1. Replace `<Blob folder name>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
 # [v2.0](#tab/v2-0)
