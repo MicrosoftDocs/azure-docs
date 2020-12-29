@@ -57,11 +57,25 @@ For example, suppose the chart is showing the **Server Response Time** metric us
 
 There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
 
-- **Sum** – the sum of all values captured over the aggregation interval
-- **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
-- **Average** – the average of the metric values captured over the aggregation interval
-- **Min** – the smallest value captured over the aggregation interval
-- **Max** – the largest value captured over the aggregation interval
+**Sum** – the sum of all values captured over the aggregation interval
+
+![Screenshot of sum of request](./media/metrics-charts/request-sum.png)
+
+**Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+
+![Screenshot of count of request](./media/metrics-charts/request-count.png)
+
+**Average** – the average of the metric values captured over the aggregation interval
+
+![Screenshot of average request](./media/metrics-charts/request-avg.png)
+
+**Min** – the smallest value captured over the aggregation interval
+
+![Screenshot of minimum request](./media/metrics-charts/request-min.png)
+
+**Max** – the largest value captured over the aggregation interval
+
+![Screenshot of max request](./media/metrics-charts/request-max.png)
 
 ## Apply filters to charts
 

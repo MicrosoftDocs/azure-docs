@@ -6581,6 +6581,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-batch-test.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
       "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
       "redirect_document_id": false

@@ -90,7 +90,7 @@ The systems listed in the following table are considered compatible with Azure I
 <sup>1</sup> Debian 10 systems, including Raspberry Pi OS Buster, use a version of OpenSSL that IoT Edge doesn't support. Use the following command to install an earlier version before installing IoT Edge:
 
 ```bash
-sudo apt-get install libssl1.0.2
+sudo apt-get install libssl1.1
 ```
 
 <sup>2</sup> The Debian 9 packages from the [Azure IoT Edge releases repo](https://github.com/Azure/azure-iotedge/releases) should work out of the box with Ubuntu 20.04.
