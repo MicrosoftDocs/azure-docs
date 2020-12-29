@@ -3,6 +3,7 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
+ms.topic: include
 ---
 
 Get started with the Custom Vision REST API. Follow these steps to call the API and build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
@@ -36,11 +37,11 @@ You'll use a command like the following to create an image classification projec
 
 Copy the command to a text editor and make the following changes:
 
-1. Replace `{subscription key}` with your valid Face subscription key.
-1. Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
+* Replace `{subscription key}` with your valid Face subscription key.
+* Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
-1. Replace `{name}` with the name of your project.
-1. Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
+* Replace `{name}` with the name of your project.
+* Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
 
 You'll receive a JSON response like the following. Save the `"id"` value of your project to a temporary location.
 
@@ -75,9 +76,9 @@ Use the following command to define the tags that you will train the model on.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="createtag":::
 
-1. Again, insert your own key and endpoint URL.
-1. Replace `{projectId}` with your own project ID.
-1. Replace `{name}` with the name of the tag you want to use.
+* Again, insert your own key and endpoint URL.
+* Replace `{projectId}` with your own project ID.
+* Replace `{name}` with the name of the tag you want to use.
 
 Repeat this process for all the tags you'd like to use in your project. If you're using the example images provided, add the tags `"Hemlock"` and `"Japanese Cherry"`.
 
@@ -101,10 +102,10 @@ Use the following command to upload the images and apply tags; once for the "Hem
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="uploadimages":::
 
-1. Again, insert your own key and endpoint URL.
-1. Replace `{projectId}` with your own project ID.
-1. Replace `{tagArray}` with the ID of a tag.
-1. Then, populate the body of the request with the binary data of the images you want to tag.
+* Again, insert your own key and endpoint URL.
+* Replace `{projectId}` with your own project ID.
+* Replace `{tagArray}` with the ID of a tag.
+* Then, populate the body of the request with the binary data of the images you want to tag.
 
 ## Train the project
 
@@ -112,11 +113,11 @@ This method trains the model on the tagged images you've uploaded and returns an
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="trainproject":::
 
-1. Again, insert your own key and endpoint URL.
-1. Replace `{projectId}` with your own project ID.
-1. Replace `{tagArray}` with the ID of a tag.
-1. Then, populate the body of the request with the binary data of the images you want to tag.
-1. Optionally use other URL parameters. See the [Train Project](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API for options.
+* Again, insert your own key and endpoint URL.
+* Replace `{projectId}` with your own project ID.
+* Replace `{tagArray}` with the ID of a tag.
+* Then, populate the body of the request with the binary data of the images you want to tag.
+* Optionally use other URL parameters. See the [Train Project](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API for options.
 
 > [!TIP]
 > Train with selected tags
@@ -161,12 +162,12 @@ This method makes the current iteration of the model available for querying. You
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="publish":::
 
-1. Again, insert your own key and endpoint URL.
-1. Replace `{projectId}` with your own project ID.
-1. Replace `{iterationId}` with the ID returned in the previous step.
-1. Replace `{publishedName}` with the name you'd like to assign to your prediction model.
-1. Replace `{predictionId}` with your own prediction resource ID. You can find it on your prediction resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
-1. Optionally use other URL parameters. See the [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
+* Again, insert your own key and endpoint URL.
+* Replace `{projectId}` with your own project ID.
+* Replace `{iterationId}` with the ID returned in the previous step.
+* Replace `{publishedName}` with the name you'd like to assign to your prediction model.
+* Replace `{predictionId}` with your own prediction resource ID. You can find it on your prediction resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
+* Optionally use other URL parameters. See the [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
 
 ## Test the prediction endpoint
 
@@ -174,11 +175,11 @@ Finally, use this command to test your trained model by uploading a new image fo
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="publish":::
 
-1. Again, insert your own key and endpoint URL.
-1. Replace `{projectId}` with your own project ID.
-1. Replace `{publishedName}` with the name you used in the previous step.
-1. Add the binary data of your local image to the request body.
-1. Optionally use other URL parameters. See the [Classify Image](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
+* Again, insert your own key and endpoint URL.
+* Replace `{projectId}` with your own project ID.
+* Replace `{publishedName}` with the name you used in the previous step.
+* Add the binary data of your local image to the request body.
+* Optionally use other URL parameters. See the [Classify Image](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
 
 The returned JSON response will least each of the tags that the model applied to your image, along with probability scores for each tag. 
 
