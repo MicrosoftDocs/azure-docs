@@ -57,8 +57,12 @@ Once the resource is under attack, you should see that the value changes from **
 
 ![DDoS Attack Simulation Example: Portal](./media/ddos-attack-simulation/ddos-attack-simulation-example-2.png)
 
+### BreakingPoint Cloud API Script
+
+This [API script](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
+
 ## Next steps
 
-- Learn how to [view and configure DDoS protection telemetry](telemetry-monitoring-alerting.md).
+- Learn how to [view and configure DDoS protection telemetry](telemetry.md).
 - Learn how to [view and configure DDoS diagnostic logging](diagnostic-logging.md).
 - Learn how to [engage DDoS rapid response](ddos-rapid-response.md).
