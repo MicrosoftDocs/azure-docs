@@ -1,6 +1,6 @@
 ---
 title: Advanced features of Azure Metrics Explorer
-description: Learn about advanced features of Azure Monitor Metrics Explorer
+description: Learn about advanced features of Azure Monitor Metrics Explorer.
 author: vgorbenko
 services: azure-monitor
 
@@ -13,75 +13,83 @@ ms.subservice: metrics
 # Advanced features of Azure Metrics Explorer
 
 > [!NOTE]
-> This article assumes that you are familiar with basic features of Metrics Explorer. If you are a new user and want to learn how to create your first metric chart, see [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
+> This article assumes that you're familiar with basic features of Azure Metrics Explorer. If you're a new user and want to learn how to create your first metric chart, see [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
 
 ## Metrics in Azure
 
-[Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md),  [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or by [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (or *platform*) or custom. 
 
-## Create views with multiple metrics and charts
+Standard metrics are provided by the Azure platform. They reflect the health and usage statistics of your Azure resources. 
 
-You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
+Custom metrics are sent to Azure by your applications by using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md), [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
-- correlate related metrics on the same graph to see how one value is related to another
-- display metrics with different units of measure in close proximity
-- visually aggregate and compare metrics from multiple resources
+## Multiple metric lines and charts
 
-For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
+You can create charts that plot multiple metric lines or show multiple metric charts at once. This functionality allows you to:
+
+- Correlate related metrics on the same graph to see how one value relates to another.
+- Display metrics that use different units of measure in close proximity.
+- Visually aggregate and compare metrics from multiple resources.
+
+For example, if you have five storage accounts and you want to know how much space they consume together, you can create a (stacked) area chart that shows the individual values and the sum of all the values at particular points in time.
 
 ### Multiple metrics on the same chart
 
-First, [create a new chart](metrics-getting-started.md#create-your-first-metric-chart). Click **Add Metric** and repeat the steps to add another metric on the same chart.
+To view multiple metrics on the same chart, first [create a new chart](metrics-getting-started.md#create-your-first-metric-chart). Then select **Add metric**. Repeat this step to add another metric on the same chart.
 
    > [!NOTE]
-   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
+   > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid metrics whose scales differ significantly. 
+   >
+   > In these cases, consider using multiple charts instead. In Metrics Explorer, select **Add chart** to create a new chart.
 
 ### Multiple charts
 
-Click the **Add chart** and create another chart with a different metric.
+To create another chart that uses a different metric, select **Add chart**.
 
-### Order or delete multiple charts
+To reorder or delete multiple charts, select the ellipsis (**...**) button to open the chart menu. Then choose **Move up**, **Move down**, or **Delete**.
 
-To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
+## Aggregation
 
-## Changing aggregation
+When you add a metric to a chart, Metrics Explorer automatically applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain additional insights about the metric. Viewing different aggregations on a chart requires that you understand how Metrics Explorer handles them. 
 
-When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use a different aggregation to gain additional insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them. 
+Metrics are a series of measurements (or "metric values") captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. 
 
-Metrics are the series of measurements (or "metric values") captured over the time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. You select the size of the time grain [using the Metrics Explorer time picker panel](metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection of the time grain, the time granularity is automatically selected based on the currently selected time range. Once the time grain is determined, the metric values that were captured during each time grain interval are aggregated and placed onto the chart - one datapoint per time grain.
+You select the size of the time grain by using the Metrics Explorer [time picker panel](metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
 
-For example, suppose the chart is showing the **Server Response Time** metric using the **Average** aggregation over the **last 24 hours** time span:
+For example, suppose a chart shows the **Server Response Time** metric. It uses the **Average** aggregation over time span of the **last 24 hours**:
 
-- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated datapoints (e.g. the line chart connects 48 dots in the chart plot area). That is, 24 hours x 2 datapoints per hour. Each datapoint represents the *average* of all captured response times for server requests that occurred during each of the relevant 30 min time periods.
-- If you switch the time granularity to 15 minutes, you get 96 aggregated datapoints.  That is, 24 hours x 4 datapoints per hour.
+- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, the line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
 
-There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
+Metrics Explorer has five basic statistical aggregation types: Sum, Count, Min, Max, and Average. The *Sum* aggregation is sometimes called the *Total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are totally irrelevant and can't be used.
 
-**Sum** – the sum of all values captured over the aggregation interval
+* **Sum**: The sum of all values captured over the aggregation interval.
 
-![Screenshot of sum of request](./media/metrics-charts/request-sum.png)
+    ![Screenshot of a Sum request.](./media/metrics-charts/request-sum.png)
 
-**Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+* **Count**: The number of measurements captured over the aggregation interval. 
+    
+    When the metric is always captured with the value of 1, the Count is equal to the Sum. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. That is, the code emits a metric record every time a new request arrives.
 
-![Screenshot of count of request](./media/metrics-charts/request-count.png)
+    ![Screenshot of a Count request.](./media/metrics-charts/request-count.png)
 
-**Average** – the average of the metric values captured over the aggregation interval
+* **Average**: The average of the metric values captured over the aggregation interval.
 
-![Screenshot of average request](./media/metrics-charts/request-avg.png)
+    ![Screenshot of an Average request.](./media/metrics-charts/request-avg.png)
 
-**Min** – the smallest value captured over the aggregation interval
+* **Min**: The smallest value captured over the aggregation interval.
 
-![Screenshot of minimum request](./media/metrics-charts/request-min.png)
+    ![Screenshot of a Minimum request.](./media/metrics-charts/request-min.png)
 
-**Max** – the largest value captured over the aggregation interval
+* **Max**: The largest value captured over the aggregation interval.
 
-![Screenshot of max request](./media/metrics-charts/request-max.png)
+    ![Screenshot of a Max request.](./media/metrics-charts/request-max.png)
 
-## Apply filters to charts
+## Chart filters
 
 You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
 
-### To add a filter
+### Add a filter
 
 1. Select **Add filter** above the chart
 
@@ -107,7 +115,7 @@ You can split a metric by dimension to visualize how different segments of the m
 
 ### Apply splitting
 
-1. Click on **Apply splitting** above the chart.
+1. Select **Apply splitting** above the chart.
  
    > [!NOTE]
    > Splitting cannot be used with charts that have multiple metrics. Also, you can have multiple filters but only one splitting dimension applied to any single chart.
@@ -144,31 +152,31 @@ To control the y-axis range, use the “…” chart menu, and select **Chart se
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
 
-## Change colors of chart lines
+## Chart line colors
 
 After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
 
-To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
+To change the color of a chart line, select the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
 
 ![Screenshot that shows how to change color](./media/metrics-charts/035.png)
 
 After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
 
-## Pin charts to dashboards
+## Pinning charts to dashboards
 
 After configuring the charts, you may want to add it to the dashboards so that you can view it again, possibly in context of other monitoring telemetry, or share with your team.
 
 To pin a configured chart to a dashboard:
 
-After configuring your chart, click **Pin to dashboard** in the right top corner of the chart.
+After configuring your chart, select **Pin to dashboard** in the right top corner of the chart.
 
 ![Screenshot that shows you how to pin to chart](./media/metrics-charts/036.png)
 
-## Create alert rules
+## Alert rules
 
 You can use the criteria you have set to visualize your metrics as the basis of a metric based alert rule. The new alerting rule will include your target resource, metric, splitting, and filter dimensions from your chart. You will be able to modify these settings later on the alert rule creation pane.
 
-### To create a new alert rule, click **New Alert rule**
+### To create a new alert rule, select **New Alert rule**
 
 ![New alert rule button highlighted in red](./media/metrics-charts/042.png)
 
