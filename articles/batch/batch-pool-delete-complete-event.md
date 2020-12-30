@@ -2,7 +2,7 @@
 title: Azure Batch pool delete complete event
 description: Reference for Batch pool delete complete event. This event is emitted when a pool delete operation has completed.
 ms.topic: reference
-ms.date: 04/20/2017
+ms.date: 12/28/2020
 ---
 
 # Pool delete complete event
@@ -13,9 +13,9 @@ ms.date: 04/20/2017
 
 ```
 {
-	"id": "myPool1",
-	"startTime": "2016-09-09T22:13:48.579Z",
-	"endTime": "2016-09-09T22:14:08.836Z"
+   "id": "myPool1",
+   "startTime": "2016-09-09T22:13:48.579Z",
+   "endTime": "2016-09-09T22:14:08.836Z"
 }
 ```
 
@@ -26,4 +26,5 @@ ms.date: 04/20/2017
 |`endTime`|DateTime|The time the pool delete completed.|
 
 ## Remarks
+
 For more information about states and error codes for pool resize operation, see [Delete a pool from an account](/rest/api/batchservice/delete-a-pool-from-an-account).

@@ -125,7 +125,7 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |Spark Core|Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.|
 |Anaconda|A python package manager.|
 |Apache Livy|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
-|Jupyter and Apache Zeppelin notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
+|Jupyter Notebooks and Apache Zeppelin Notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|
 
 For applications running in the Jupyter Notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.

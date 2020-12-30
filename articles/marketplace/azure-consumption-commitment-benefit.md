@@ -26,7 +26,7 @@ To take advantage of this benefit, simply purchase a qualifying offer on Azure M
 
 ## Determine if your organization has an Azure consumption commitment (MACC/CtC)
 
-If you are unsure if your organization has a qualifying agreement, sign in to the Marketplace experience within the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under a tenant associated with your organization. If you see the **Azure benefit eligible** option within the Pricing filter, you have a qualifying Azure consumption commitment. Qualifying Azure Marketplace purchases will contribute towards your organization’s Azure consumption commitment if purchased directly through the Azure Marketplace.
+If you are unsure if your organization has a qualifying agreement, sign in to the Marketplace experience within the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under a tenant associated with your organization. If you see the option to select **Azure benefit eligible only** as a filter option, you have a qualifying Azure consumption commitment. Qualifying Azure Marketplace purchases will contribute towards your organization’s Azure consumption commitment if purchased directly through the Azure Marketplace.
 
 [![Azure benefit eligible menu option.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 
