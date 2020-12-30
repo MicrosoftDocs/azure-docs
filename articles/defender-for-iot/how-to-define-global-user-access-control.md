@@ -13,15 +13,15 @@ ms.service: azure
 
 In large organizations, user permissions can be complex and might be determined by a global organizational structure, in addition to the standard site and zone structure.
 
-To support the demand for more complex global user access permissions, you can create a global business topology that is based on business units, regions and sites, and then define user access permissions around these entities.
+To support the demand for user access permissions that are global and more complex, you can create a global business topology that's based on business units, regions, and sites. Then you can define user access permissions around these entities.
 
 Working with access tools for business topology helps organizations implement zero-trust strategies by better controlling where users manage and analyze assets in the Azure Defender for IoT platform.
 
 ## About access groups
 
-Global access control is established by creating user Access Groups. Access Groups consist of rules regarding which users can access specific business entities. Working with groups lets you control view and configuration access to Defender for IoT for specific user roles at relevant business units, regions, and specific sites.
+Global access control is established through the creation of user access groups. Access groups consist of rules regarding which users can access specific business entities. Working with groups lets you control view and configuration access to Defender for IoT for specific user roles at relevant business units, regions, and sites.
 
-For example, allow Security Analysts from an Active Directory group access to all West European automotive and glass production lines, as well as a plastic line in one region.
+For example, allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region.
 
 :::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
 
@@ -57,7 +57,7 @@ To create groups:
 
 5. On the **Users** pane, assign as many users as required to the group. You can also assign users to different groups. If you work this way, you must create and save the access group and rules, and then assign users to the group from the **Users** pane.
 
-   :::image type="content" source="media/how-to-define-global-user-access-control/role-management.png" alt-text="Manage your user's roles and assign them as needed.":::
+   :::image type="content" source="media/how-to-define-global-user-access-control/role-management.png" alt-text="Manage your users' roles and assign them as needed.":::
 
 6. Create rules in the **Add Rules for *name*** dialog box based on your business topology's access requirements. Options that appear here are based on the topology that you designed in the **Enterprise View** and **Site Management** windows. 
 
@@ -77,7 +77,7 @@ When you're creating rules, be aware of the following information:
 
 - For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window.
 
-- You can only assign one element per rule. For example, one business unit, one region, and one site for each rule. Create addition rules for the group if, for example, you want users in one Active Directory group to have access to different business units in different regions.
+- You can assign only one element per rule. For example, you can assign one business unit, one region, and one site for each rule. Create more rules for the group if, for example, you want users in one Active Directory group to have access to different business units in different regions.
 
 - If you change an entity and the change affects the rule logic, the rule will be deleted. If changes made to a topology entity affect the rule logic such that all rules are deleted, the access group remains but the users can't sign in to the on-premises management console. Users are notified to contact their administrator to sign in.
 
