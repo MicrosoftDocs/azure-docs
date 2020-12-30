@@ -61,110 +61,112 @@ For example, suppose a chart shows the **Server Response Time** metric. It uses 
 - If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, the line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
 - If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
 
-Metrics Explorer has five basic statistical aggregation types: Sum, Count, Min, Max, and Average. The *Sum* aggregation is sometimes called the *Total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are totally irrelevant and can't be used.
+Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are totally irrelevant and can't be used.
 
 * **Sum**: The sum of all values captured over the aggregation interval.
 
-    ![Screenshot of a Sum request.](./media/metrics-charts/request-sum.png)
+    ![Screenshot of a sum request.](./media/metrics-charts/request-sum.png)
 
 * **Count**: The number of measurements captured over the aggregation interval. 
     
     When the metric is always captured with the value of 1, the Count is equal to the Sum. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. That is, the code emits a metric record every time a new request arrives.
 
-    ![Screenshot of a Count request.](./media/metrics-charts/request-count.png)
+    ![Screenshot of a count request.](./media/metrics-charts/request-count.png)
 
 * **Average**: The average of the metric values captured over the aggregation interval.
 
-    ![Screenshot of an Average request.](./media/metrics-charts/request-avg.png)
+    ![Screenshot of an average request.](./media/metrics-charts/request-avg.png)
 
 * **Min**: The smallest value captured over the aggregation interval.
 
-    ![Screenshot of a Minimum request.](./media/metrics-charts/request-min.png)
+    ![Screenshot of a minimum request.](./media/metrics-charts/request-min.png)
 
 * **Max**: The largest value captured over the aggregation interval.
 
-    ![Screenshot of a Max request.](./media/metrics-charts/request-max.png)
+    ![Screenshot of a maximum request.](./media/metrics-charts/request-max.png)
 
 ## Chart filters
 
-You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
+You can apply filters to charts that show metrics that have dimensions. For example, imagine a "Transaction count" metric that has a "Response type" dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, you'll see a chart line for only successful (or only failed) transactions. 
 
 ### Add a filter
 
-1. Select **Add filter** above the chart
+1. Above the chart, select **Add filter**.
 
-2. Select which dimension (property) you want to filter
+2. Select a dimension (property) to filter.
 
    ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
 
-3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
+3. Select the dimension values you want to include when you plot the chart. The following example filters out the successful storage transactions:
 
-   ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/029.png)
+   ![Screenshot that shows the successful filtered storage transactions.](./media/metrics-charts/029.png)
 
-4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
+4. Select away from the **Filter Selector** to close the selector. Now the chart shows how many storage transactions have failed:
 
-   ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/030.png)
+   ![Screenshot that shows how many storage transactions have failed.](./media/metrics-charts/030.png)
 
-5. You can repeat steps 1-4 to apply multiple filters to the same charts.
+You can repeat these steps to apply multiple filters to the same charts.
 
 
 
 ## Apply splitting to a chart
 
-You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension.
+You can split a metric by dimension to visualize how different segments of the metric compare and to identify the outlying segments of a dimension.
 
 ### Apply splitting
 
-1. Select **Apply splitting** above the chart.
+1. Above the chart, select **Apply splitting**.
  
    > [!NOTE]
-   > Splitting cannot be used with charts that have multiple metrics. Also, you can have multiple filters but only one splitting dimension applied to any single chart.
+   > Charts that have multiple metrics can't use the splitting functionality. Also, although a chart can have multiple filters, it can have only one splitting dimension.
 
-2. Choose a dimension on which you want to segment your chart:
+2. Choose a dimension on which to segment your chart:
 
-   ![Screenshot that shows the selected dimension on which you segment your chart.](./media/metrics-charts/031.png)
+   ![Screenshot that shows the selected dimension on which to segment the chart.](./media/metrics-charts/031.png)
 
-   Now the chart now shows multiple lines, one for each segment of dimension:
+   Now the chart now shows multiple lines, one for each dimension segment:
 
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/032.png)
+   ![Screenshot that shows multiple lines, one for each dimension segment.](./media/metrics-charts/032.png)
 
-3. Click away from the **Grouping Selector** to close it.
+3. Select away from the **Grouping Selector** to close it.
 
    > [!NOTE]
-   > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
+   > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.
 
-## Lock boundaries of chart y-axis
+## Lock boundaries of the y-axis
 
-Locking the range of the y-axis becomes important when the chart shows smaller fluctuations of larger values. 
+Locking the range of the value (y) axis becomes important in charts that show small fluctuations of large values. 
 
-For example, when the volume of successful requests drops down from 99.99% to 99.5%, it may represent a significant reduction in the quality of service. However, noticing a small numeric value fluctuation would be difficult or even impossible from the default chart settings. In this case you could lock the lowest boundary of the chart to 99%, which would make this small drop more apparent. 
+For example, a drop in the volume of successful requests from 99.99 percent to 99.5 percent might represent a significant reduction in the quality of service. But noticing a small numeric value fluctuation would be difficult or even impossible if you're using the default chart settings. In this case, you could lock the lowest boundary of the chart to 99 percent to make a small drop more apparent. 
 
-Another example is a fluctuation in the available memory, where the value will technically never reach 0. Fixing the range to a higher value may make the drops in available memory easier to spot. 
+Another example is a fluctuation in the available memory, where the value will technically never reach 0. Fixing the range to a higher value might make drops in available memory easier to spot. 
 
-To control the y-axis range, use the “…” chart menu, and select **Chart settings** to access advanced chart settings.
+To control the y-axis range, open the chart menu (**...**). Then select **Chart settings** to access advanced chart settings.
 
-![Screenshot that highlights the chart settings option.](./media/metrics-charts/033.png)
+![Screenshot that highlights the chart settings.](./media/metrics-charts/033.png)
 
- Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
+ Modify the values in the **Y-axis range**  section, or use the **Auto** button to revert to the defaults.
  
  ![Screenshot that highlights the Y-axis range section.](./media/metrics-charts/034.png)
 
 > [!WARNING]
-> Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
+> If you need to lock the boundaries of the y-axis for charts that track counts or sums over a period of time (by using count, sum, min, or max aggregations), you should usually specify a fixed time granularity. In this case, you shouldn't rely on the automatic defaults. 
+>
+> You choose a fixed time granularity because chart values change when the time granularity is automatically modified after a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the look of the chart, invalidating the current selection of the y-axis range.
 
 ## Chart line colors
 
 After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
 
-To change the color of a chart line, select the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
+To change the color of a chart line, select the colored bar in the legend that corresponds to the chart. The color picker dialog box opens. Use the color picker to configure the line color.
 
-![Screenshot that shows how to change color](./media/metrics-charts/035.png)
+![Screenshot that shows how to change color.](./media/metrics-charts/035.png)
 
-After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
+Your customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
 ## Pinning charts to dashboards
 
-After configuring the charts, you may want to add it to the dashboards so that you can view it again, possibly in context of other monitoring telemetry, or share with your team.
+After you configure a chart, you might want to add it to dashboards. By pinning a chart to a dashboard, you can make it accessible to your team. You can also gain insights by viewing it in the context of other monitoring telemetry.
 
 To pin a configured chart to a dashboard:
 
@@ -199,3 +201,6 @@ Check out this [article](alerts-metric.md) to learn more about setting up metric
 ## Next steps
 
   Read [Creating custom KPI dashboards](../learn/tutorial-app-dashboards.md) to learn about the best practices for creating actionable dashboards with metrics.
+
+
+
