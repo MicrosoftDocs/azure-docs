@@ -101,9 +101,9 @@ Response:
 >* You need to use the Bearer token for authentication. [Read More](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx)
 
 >[!NOTE]
->* The isTroubleshootingAllowed flag – describes if the table is allowed in the service
->* The isTroubleshootEnabled indicates if the feature is enabled for the table - can be switched on or off (true or false)
->* When disabling the isTroubleshootEnabled flag for a specific table, re-enabling it is possible only one week after the prior enable date.
+>* The "isTroubleshootingAllowed" flag – describes if the table is allowed in the service
+>* The "isTroubleshootEnabled" indicates if the feature is enabled for the table - can be switched on or off (true or false)
+>* When disabling the "isTroubleshootEnabled" flag for a specific table, re-enabling it is possible only one week after the prior enable date.
 >* Currently this is supported only for tables under PerGB2018 SKU (some other SKUs will also be supported in the future).
 ## Next steps
 * [Write queries](https://docs.microsoft.com/azure/data-explorer/write-queries)
