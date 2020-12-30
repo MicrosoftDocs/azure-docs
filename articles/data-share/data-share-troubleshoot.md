@@ -17,9 +17,9 @@ This article explains how to troubleshoot common problems in Azure Data Share.
 
 In some cases, when new users select **Accept Invitation** in an email invitation, they might see an empty list of invitations. 
 
-![Screenshot showing an empty list of invitations.](media/no-invites.png)
+:::image type="content" source="media/no-invites.png" alt-text="Screenshot showing an empty list of invitations.":::
 
-This problem could be caused by the following reasons:
+This problem could have one of the following causes:
 
 * **The Azure Data Share service isn't registered as a resource provider of any Azure subscription in the Azure tenant.** This problem happens when your Azure tenant has no Data Share resource. 
 

@@ -65,7 +65,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Go to your data share **Overview** page.
 
-    ![Screenshot showing the data share overview.](./media/share-receive-data.png "Share your data.") 
+   :::image type="content" source="./media/share-receive-data.png" alt-text="Screenshot showing the data share overview.":::
 
 1. Select **Start sharing your data**.
 
@@ -81,7 +81,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![Screenshot showing how to add datasets to your share.](./media/datasets.png "Datasets.")
 
-1. Select a dataset type to add. The list of dataset types depends on the share type (snapshot or in-place) you selected in the previous step. 
+1. Select a dataset type to add. The list of dataset types depends on whether you selected snapshot-based sharing or in-place sharing in the previous step. 
 
     ![Screenshot showing where to select a dataset type.](./media/add-datasets.png "Add datasets.")    
 
