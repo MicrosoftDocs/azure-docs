@@ -10,7 +10,7 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy, devx-track-azurecli
+ms.custom: deploy
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
