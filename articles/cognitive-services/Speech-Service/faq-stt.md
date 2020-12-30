@@ -20,7 +20,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: What is the difference between a baseline model and a custom Speech to Text model?**
 
-**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
+**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model. If you train a custom model, you should start with related text to improve the recognition of special terms and phrases.
 
 **Q: Where do I start if I want to use a baseline model?**
 
@@ -43,6 +43,12 @@ You can deploy baseline and customized models in the portal and then run accurac
 **Q: I realized I made a mistake. How do I cancel my data import or model creation that’s in progress?**
 
 **A**: Currently, you can't roll back an acoustic or language adaptation process. You can delete imported data and models when they're in a terminal state.
+
+**Q: I get several results for each phrase with the detailed output format. Which one should I use?**
+
+**A**: Always take the first result, even if another result ("N-Best") might have a higher confidence value. The Speech service considers the first result to be the best. It can also be an empty string if no speech was recognized.
+
+The other results are likely worse and might not have full capitalization and punctuation applied. These results are most useful in special scenarios such as giving users the option to pick corrections from a list or handling incorrectly recognized commands.
 
 **Q: What's the difference between the Search and Dictation model and the Conversational model?**
 

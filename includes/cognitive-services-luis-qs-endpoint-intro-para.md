@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/16/2018
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 
 In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain. 

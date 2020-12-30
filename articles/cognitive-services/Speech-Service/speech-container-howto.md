@@ -308,6 +308,11 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+> [!NOTE]
+> Containers support compressed audio input to Speech SDK using GStreamer.
+> To install GStreamer in a container, 
+> follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
+
 
 #### Analyze sentiment on the speech-to-text output 
 Starting in v2.6.0 of the speech-to-text container, you should use TextAnalytics 3.0 API endpoint instead of the preview one. For example
