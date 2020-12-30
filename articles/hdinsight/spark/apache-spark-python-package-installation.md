@@ -1,6 +1,6 @@
 ---
 title: Script action for Python packages with Jupyter on Azure HDInsight
-description: Step-by-step instructions on how to use script action to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
+description: Step-by-step instructions on how to use script action to configure Jupyter Notebooks available with HDInsight Spark clusters to use external python packages.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -162,5 +162,5 @@ To check your Anaconda version, you can SSH to the cluster header node and run `
 ## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [External packages with Jupyter notebooks in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
+* [External packages with Jupyter Notebooks in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)

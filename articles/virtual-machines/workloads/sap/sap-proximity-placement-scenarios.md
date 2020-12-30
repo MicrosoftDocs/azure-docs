@@ -13,7 +13,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -38,6 +38,8 @@ To give you a possibility to optimize network latency, Azure offers [proximity p
 > - Only when necessary
 > - Only on granularity of a single SAP system and not for a whole system landscape or a complete SAP landscape
 > - In a way to keep the different VM types and the number of VMs within a proximity placement group to a minimum
+
+Assume that if you deploy VMs by specifying Availability Zones and select the same Availability Zones, the network latency between these VMs should be sufficient to operate SAP NetWeaver and S/4HANA systems with satisfying performance and throughput. This assumption is independent of the fact whether a particular zone is built up out of one datacenter or multiple datacenters. The only reason for using proximity placement groups in zonal deployments is the case where you want to allocate Azure availability set deployed VMs together with zonal deployed VMs.
 
 
 ## What are proximity placement groups? 
