@@ -72,7 +72,7 @@ For SQL sources, a snapshot can fail for these other reasons:
 * The source data store or target SQL data store is paused.
 * The snapshot process or target data store doesn't support SQL data types. For more information, see [Share from SQL sources](how-to-share-from-sql.md#supported-data-types).
 * The source data store or target SQL data store is locked by other processes. Azure Data Share doesn't lock these data stores. But existing locks on these data stores can make a snapshot fail.
-* The target SQL table is referenced by a foreign key constraint. During a snapshot, if a target table has the same name, Azure Data Share drops the table and creates a new table. If the target SQL table is referenced by a foreign key constraint, the table can't be dropped.
+* The target SQL table is referenced by a foreign key constraint. During a snapshot, if a target table has the same name as a table in the source data, Azure Data Share drops the table and creates a new table. If the target SQL table is referenced by a foreign key constraint, the table can't be dropped.
 * A target CSV file is generated, but the data can't be read in Excel. You might see this problem when the source SQL table contains data that includes non-English characters. In Excel, select the **Get Data** tab and choose the CSV file. Select the file origin **65001: Unicode (UTF-8)**, and then load the data.
 
 ## Updated snapshot schedules
