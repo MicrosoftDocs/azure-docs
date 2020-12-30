@@ -299,19 +299,19 @@ The scenarios listed below will have the characteristics listed in the table abo
 
         If the client has multiple open connections, and a single thread of execution, the following distributed deadlock may occur. For brevity, the term `dbproc` used here refers to the client connection structure.
 
-        ```
-        SPID1------blocked on lock------->SPID2
-         /\ (waiting to write results
-         | back to client)
-         | |
-         | | Server side
-         | ================================|==================================
-         | <-- single thread --> | Client side
-         | \/
-         dbproc1 <------------------- dbproc2
-         (waiting to fetch (effectively blocked on dbproc1, awaiting
-         next row) single thread of execution to run)
-        ```
+    ```
+    SPID1------blocked on lock------->SPID2
+        /\ (waiting to write results
+        | back to client)
+        | |
+        | | Server side
+        | ================================|==================================
+        | <-- single thread --> | Client side
+        | \/
+        dbproc1 <------------------- dbproc2
+        (waiting to fetch (effectively blocked on dbproc1, awaiting
+        next row) single thread of execution to run)
+    ```
 
         In the case shown above, a single client application thread has two open connections. It asynchronously submits a SQL operation on dbproc1. This means it does not wait on the call to return before proceeding. The application then submits another SQL operation on dbproc2, and awaits the results to start processing the returned data. When data starts coming back (whichever dbproc first responds, assume this is dbproc1), it processes to completion all the data returned on that dbproc. It fetches results from dbproc1 until SPID1 gets blocked on a lock held by SPID2 (because the two queries are running asynchronously on the server). At this point, dbproc1 will wait indefinitely for more data. SPID2 is not blocked on a lock, but tries to send data to its client, dbproc2. However, dbproc2 is effectively blocked on
         dbproc1 at the application layer as the single thread of execution for the application is in use by dbproc1. This results in a deadlock that SQL Server cannot detect or resolve because only one of the resources involved is a SQL Server resource.
@@ -364,9 +364,9 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 9, issue the following command 
 
-    ```sql
-    KILL 9
-    ```
+```sql
+KILL 9
+```
 
     The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.
 
