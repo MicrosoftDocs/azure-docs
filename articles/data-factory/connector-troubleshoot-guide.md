@@ -191,11 +191,11 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**: 
 
-    1. Place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
+    - Place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
 
-    1. Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
+    - Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
 
-    1. Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
 
        To specify the custom block size, you can edit the property in .json editor:
         ```
@@ -899,7 +899,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
     
-    - Note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios, 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
+    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios, 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
 
       Tools like **Postman** and **Fiddler** are recommended for the above case.
 
@@ -1019,7 +1019,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Recommendation**:  Check your registered application (service principal ID) and key whether it's correctly set.
 
 
-## XML Format
+## Xml Format
 
 ### Error code:  XmlSinkNotSupported
 
