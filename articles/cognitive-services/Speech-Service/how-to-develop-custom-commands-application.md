@@ -165,7 +165,7 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
 1. Now that the command will handle both on and off scenarios, rename the command as *TurnOnOff*.
    1. In the pane on the left, select the **TurnOn** command. Then next to **New command** at the top of the pane, select the ellipsis (**...**) button.
    
-   1. Select **Rename**. In the **Rename command** windows, change the name to *TurnOnOff*.
+   1. Select **Rename**. In the **Rename command** window, change the name to *TurnOnOff*.
 
 1. Add a new parameter to the command. The parameter represents whether the user wants to turn the device on or off.
    1. At top of the middle pane, select  **Add**. From the drop-down menu, select **Parameter**.
