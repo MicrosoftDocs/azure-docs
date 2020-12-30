@@ -548,6 +548,7 @@ Review this list before site deployment:
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
+|--|--|--|--|
 | Defender for IoT |  | Site name* |  |
 | Name |  | Name |  |
 | Position |  | Position |  |

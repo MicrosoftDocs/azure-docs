@@ -1,3 +1,4 @@
+---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
 author: shhazam-ms
