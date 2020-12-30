@@ -66,7 +66,7 @@ In the request header, include these properties:
 
 In the request body, provide the resource definition to use for creating your ISE, including information for additional capabilities that you want to enable on your ISE, for example:
 
-* To create an ISE that permits using a self-signed certificate and certficate issued by Enterprise Certificate Authority that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
+* To create an ISE that permits using a self-signed certificate and certificate issued by Enterprise Certificate Authority that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
 
 * To create an ISE that uses a system-assigned or user-assigned managed identity, include the `identity` object with the managed identity type and other required information in the ISE definition, as this article later describes.
 
