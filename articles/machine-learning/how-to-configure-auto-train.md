@@ -474,6 +474,8 @@ For general information on how model explanations and feature importance can be 
     2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
     3. If the listed version is not a supported version, `pip uninstall PyJWT` in the command shell and enter y for confirmation.
     4. Install using `pip install 'PyJWT<2.0.0'`
+    
+    Consider upgrading to the latest version of AutoML SDK by using `pip install -U azureml-sdk[automl]`.
 
 ## Next steps
 
