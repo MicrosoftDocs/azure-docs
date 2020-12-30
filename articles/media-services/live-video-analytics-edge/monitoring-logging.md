@@ -308,45 +308,47 @@ As with other IoT Edge modules, you can also [examine the container logs](../../
 
 * `logLevel`
 
-   * Allowed values are Verbose, Information, Warning, Error, and None.
-   * The default value is Information. The logs will contain error, warning, and information messages.
-   * If you set the value to Warning, the logs will contain error and warning messages.
-   * If you set the value to Error, the logs will contain only error messages.
-   * If you set the value to None, no logs will be generated. (We don't recommend this configuration.)
-   * You should use Verbose only if you need to share logs with Azure Support for diagnosing an issue.
+   * Allowed values are `Verbose`, `Information`, `Warning`, `Error`, and `None`.
+   * The default value is `Information`. The logs will contain error, warning, and information messages.
+   * If you set the value to `Warning`, the logs will contain error and warning messages.
+   * If you set the value to `Error`, the logs will contain only error messages.
+   * If you set the value to `None`, no logs will be generated. (We don't recommend this configuration.)
+   * Use `Verbose` only if you need to share logs with Azure support to diagnose a problem.
 
 * `logCategories`
 
-   * A comma-separated list of one or more of the following: Application, Events, MediaPipeline.
-   * Default: Application, Events.
-   * Application – this is high-level information from the module, such as module startup messages, environment errors, and direct method calls.
-   * Events – these are all the events that were described earlier in this article.
-   * MediaPipeline – these are some low-level logs that may offer insight when troubleshooting issues, such as difficulties establishing a connection with an RTSP-capable camera.
+   * A comma-separated list of one or more of these values: `Application`, `Events`, `MediaPipeline`.
+   * The default value is `Application, Events`.
+   * `Application`: High-level information from the module, like module startup messages, environment errors, and direct method calls.
+   * `Events`: All the events that were described earlier in this article.
+   * `MediaPipeline`: Low-level logs that might offer insight when you're troubleshooting problems, like difficulties establishing a connection with an RTSP-capable camera.
    
 ### Generating debug logs
 
-In certain cases, you may need to generate more detailed logs than the ones described above, to help Azure support resolve an issue. There are two steps to accomplish this.
+In certain cases, to help Azure support resolve an problem, you might need to generate more detailed logs than the ones described previously. To generate these logs:
 
-First, you [link the module storage to the device storage](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via createOptions. If you examine a [deployment manifest template](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) from the quick-starts, you will see:
+1. [Link the module storage to the device storage](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via `createOptions`. If you look at a [deployment manifest template](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) from the quickstarts, you'll see this code:
 
-```
-"createOptions": {
-   …
-   "Binds": [
-     "/var/local/mediaservices/:/var/lib/azuremediaservices/"
-   ]
- }
-```
+   ```
+   "createOptions": {
+     …
+     "Binds": [
+       "/var/local/mediaservices/:/var/lib/azuremediaservices/"
+     ]
+    }
+   ```
 
-Above lets the Edge module write logs to the (device) storage path “/var/local/mediaservices/”. If you add the following desired property to the module:
+   This code lets the Edge module write logs to the device storage path `/var/local/mediaservices/`. 
 
-`"debugLogsDirectory": "/var/lib/azuremediaservices/debuglogs/",`
+ 1. Add the following `desired` property to the module:
 
-Then, the module will write debug logs in a binary format to the (device) storage path /var/local/mediaservices/debuglogs/, which you can share with Azure Support.
+    `"debugLogsDirectory": "/var/lib/azuremediaservices/debuglogs/",`
+
+The module will now write debug logs in a binary format to the device storage path `/var/local/mediaservices/debuglogs/`. You can share these logs with Azure support.
 
 ## FAQ
 
-[FAQs](faq.md#monitoring-and-metrics)
+If you have questions, see the [monitoring and metrics FAQ](faq.md#monitoring-and-metrics).
 
 ## Next steps
 
