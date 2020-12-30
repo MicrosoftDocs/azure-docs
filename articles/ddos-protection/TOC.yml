@@ -15,9 +15,11 @@
 - name: Tutorials
   items:
   - name: View and configure DDoS protection telemetry
-    href: telemetry-monitoring-alerting.md
+    href: telemetry.md
   - name: View and configure DDoS diagnostic logging
     href: diagnostic-logging.md
+  - name: View and configure DDoS protection alerts
+    href: alerts.md
 - name: Concepts
   items:
   - name: Types of attacks
