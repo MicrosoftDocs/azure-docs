@@ -1,6 +1,6 @@
 ---
-title: Create your first function in Azure with Kotlin and Maven
-description: Create and publish an HTTP triggered function to Azure with Kotlin and Maven.
+title: Create your first function app in Azure Functions with Kotlin and Maven
+description: Create and publish an HTTP triggered function app to Azure Functions with Kotlin and Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
