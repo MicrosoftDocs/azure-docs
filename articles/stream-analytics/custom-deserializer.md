@@ -111,7 +111,8 @@ You have successfully implemented a custom deserializer for your Stream Analytic
 ## Debug your deserializer
 
 You can debug your .NET deserializer locally the same way you debug standard .NET code.
-1. Right click **ProtobufCloudDeserializer** project name ans set it as startup project. 
+
+1. Right click **ProtobufCloudDeserializer** project name and set it as startup project.
 
 2. Add breakpoints in your function.
 
@@ -130,4 +131,4 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 In this tutorial, you learned how to implement a custom .NET deserializer for the protocol buffer input serialization. To learn more about creating custom deserializers, continue to the following article:
 
 > [!div class="nextstepaction"]
-> * [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)
+> [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)

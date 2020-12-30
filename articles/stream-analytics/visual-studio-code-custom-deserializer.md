@@ -131,5 +131,5 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 In this tutorial, you learned how to implement a custom .NET deserializer for the protocol buffer input serialization. To learn more about creating custom deserializers, continue to the following article:
 
 > [!div class="nextstepaction"]
-> [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)
-> [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](visual-studio-code-local-run-live-input.md)
+> * [Create different .NET deserializers for Azure Stream Analytics jobs](custom-deserializer-examples.md)
+> * [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](visual-studio-code-local-run-live-input.md)
