@@ -44,6 +44,8 @@
         href: api-management-howto-developer-portal-customize.md
       - name: 10 - Manage APIs in Visual Studio Code
         href: visual-studio-code-tutorial.md
+      - name: 11 - Analyze API Logs in Moesif
+        href: api-management-howto-analyze-api-logs-in-moesif.md
 - name: Samples
   items:
       - name: Policies
