@@ -11,6 +11,7 @@ ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory.
@@ -493,7 +494,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `There are duplicate files in the resource folder.`
 
-- **Cause**: Multiple files of the same name are in different sub-folders of folderPath.
+- **Cause**: Multiple files of the same name are in different subfolders of folderPath.
 
 - **Recommendation**: Custom activities flatten folder structure under folderPath. If you need to preserve the folder structure, zip the files and extract them in Azure Batch by using an unzip command.
    
@@ -540,7 +541,6 @@ The following table applies to Azure Batch.
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
 - **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](../hdinsight/hdinsight-managed-identities.md).
-
 
 ### Error code: 2300
 
@@ -1022,9 +1022,9 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
 
-**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Please check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
+**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
 ## Next steps
 
