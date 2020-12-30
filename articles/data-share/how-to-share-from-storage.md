@@ -114,7 +114,7 @@ The following sections describe how to set up your storage account to receive da
 Before you accept a data share invitation, make sure you have the following prerequisites: 
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/).
-* A Data Share invitation from Azure. The email subject should be "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*".
+* An invitation from Azure. The email subject should be "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*".
 * A registered [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in:
     * The Azure subscription where you'll create a Data Share resource.
     * The Azure subscription where your target Azure data stores are located.

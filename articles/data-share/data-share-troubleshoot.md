@@ -23,7 +23,7 @@ This problem could have one of the following causes:
 
 * **The Azure Data Share service isn't registered as a resource provider of any Azure subscription in the Azure tenant.** This problem happens when your Azure tenant has no Data Share resource. 
 
-    When you create an Azure Data Share resource, it automatically registers the resource provider in your Azure subscription. You can manually register the Data Share service by using the following steps. To complete these steps, you need the [Azure Contributor role](../role-based-access-control/built-in-roles.md#contributor) for the Azure subscription. 
+    When you create an Azure Data Share resource, it automatically registers the resource provider in your Azure subscription. You can manually register the Data Share service by using the following steps. To complete these steps, you need the [Contributor role](../role-based-access-control/built-in-roles.md#contributor) for the Azure subscription. 
 
     1. In the Azure portal, go to **Subscriptions**.
     1. Select the subscription you want to use to create the Azure Data Share resource.
@@ -47,9 +47,9 @@ The following errors might appear when you create a new share, add datasets, or 
 
 You might see one of these errors if you have insufficient permissions to the Azure data store. For more information, see [Roles and requirements](concepts-roles-permissions.md). 
 
-You need the write permission to share or receive data from an Azure data store. This permission is typically part of the *Contributor* role. 
+You need the write permission to share or receive data from an Azure data store. This permission is typically part of the Contributor role. 
 
-If you're sharing data or receiving data from the Azure data store for the first time, you also need the *Microsoft.Authorization/role assignments/write* permission. This permission is typically part of the *Owner* role. Even if you created the Azure data store resource, you're not necessarily the owner of the resource. 
+If you're sharing data or receiving data from the Azure data store for the first time, you also need the *Microsoft.Authorization/role assignments/write* permission. This permission is typically part of the Owner role. Even if you created the Azure data store resource, you're not necessarily the owner of the resource. 
 
 When you have the proper permissions, the Azure Data Share service automatically allows the data share resource's managed identity to access the data store. This process can take a few minutes. If you experience failure because of this delay, try again after a few minutes.
 
