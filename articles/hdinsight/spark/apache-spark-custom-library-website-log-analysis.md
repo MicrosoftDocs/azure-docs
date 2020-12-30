@@ -20,7 +20,7 @@ An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark
 
 ## Save raw data as an RDD
 
-In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
+In this section, we use the [Jupyter](https://jupyter.org) Notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
 
 Once your data is saved as an Apache Hive table, in the next section we'll connect to the Hive table using BI tools such as Power BI and Tableau.
 
