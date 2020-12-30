@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 12/28/2020
 ms.author: yitoh
 
 ---
@@ -35,7 +35,8 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md). DDoS Protection Standard must be enabled on the virtual network of the public IP address. 
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) and DDoS Protection Standard must be enabled on a virtual network.
+- DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments and Azure VPN Gateway. To continue with this tutorial, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.    
 
 ## Configure DDoS diagnostic logs
 
@@ -43,10 +44,10 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 1. Select **All services** on the top, left of the portal.
 2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
-3. Under **SETTINGS**, select **Diagnostic Settings**.
+3. Under **Settings**, select **Diagnostic Settings**.
 4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
-5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
-6. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require.
+5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to enable logs for.
+6. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require, and then select **Save**.
 
     ![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 
@@ -151,7 +152,7 @@ In this tutorial, you learned how to:
 - Enable diagnostic logging on all public IPs in a defined scope.
 - View log data in workbooks.
 
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
+To learn how to configure attack alerts, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+> [View and configure DDoS protection alerts](alerts.md)
