@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Threat intelligence research and packages
 
-Proprietary ICS threat intelligence and vulnerability research is carried out by security research teams in Microsoft. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit) and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineer malware, campaigns, and adversaries).
+Security teams in Microsoft carry out proprietary ICS threat intelligence and vulnerability research. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit), and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries).
 
 The teams provide security detection, analytics, and response to Microsoft's:
 
@@ -26,7 +26,7 @@ Security teams gain the benefit of:
 - An understanding of the full context of threats before they're affected.
 - More relevant, accurate, and actionable data.
 
-This intelligence adds contextual information to enrich our platform analytics and supports our managed services for incident response and breach investigation. Threat intelligence packages contain signatures (including malware signatures), CVEs, and other security content.
+This intelligence adds contextual information to enrich Microsoft platform analytics and supports the company's managed services for incident response and breach investigation. Threat intelligence packages contain signatures (including malware signatures), CVEs, and other security content.
 
 You can download packages from the **Updates** page in the Azure Defender for IoT portal.
 
