@@ -1,6 +1,6 @@
 ---
 title: Create and manage users
-description: Create and manage users of sensors and on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
+description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -11,11 +11,11 @@ ms.service: azure
 
 # About Defender for IoT console users
 
-This article describes how to create and manage sensor and on-premises management console users. User roles include administrators, security analysts, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
+This article describes how to create and manage users of sensors and the on-premises management console. User roles include administrator, security analyst, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
 
 Features are also available to track user activity and enable Active Directory sign-in.
 
-By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an Admin user and then create additional users for Security Analysts and Read only users.
+By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create additional users for security analysts and read-only users.
 
 ## Role-based permissions
 The following user roles are available:
@@ -24,7 +24,7 @@ The following user roles are available:
 
 - **Security analyst**: Security analysts have read-only user permissions. They can also perform actions on devices, acknowledge alerts, and use investigation tools. These users have access to options displayed under **Navigation** and **Analysis**.
 
-- **Administrator**: Administrators have access to all tools, including defining system configurations, creating and managing users, and more. These users have access to options displayed under **Navigation, Analysis**, and **Administration**.
+- **Administrator**: Administrators have access to all tools, including defining system configurations, creating and managing users, and more. These users have access to options displayed under **Navigation**, **Analysis**, and **Administration**.
 
 ### Role-based permissions to on-premises management console tools
 
@@ -137,12 +137,12 @@ To update sign-out counting periods, adjust the `= <number>` value to the requir
 
 ## Track user activity 
 
-You can track user activity in the Event Timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
+You can track user activity in the event timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
 
 To view user activity:
 
 1. Sign in to the sensor.
-1. In the Event Timeline, enable the **User Operations** option. 
+1. In the event timeline, enable the **User Operations** option. 
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
@@ -152,7 +152,7 @@ Configure the sensor or on-premises management console to work with Active Direc
 
 Two types of LDAP-based authentication are supported:
 
-- **Full authentication**: User details are retrieved from the LDAP server. Example are the first name, last name, email, and user permissions.
+- **Full authentication**: User details are retrieved from the LDAP server. Examples are the first name, last name, email, and user permissions.
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
@@ -176,8 +176,8 @@ To configure Active Directory:
 
     > [!NOTE]
     > - You must define the LDAP parameters here exactly as they appear in Active Directory.
-    > -	For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
-    > -	You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+    > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
+    > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
 4. Set the Active Directory server parameters, as follows:
 
@@ -186,7 +186,7 @@ To configure Active Directory:
    | Domain controller FQDN | Set the fully qualified domain name (FQDN) exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. |
    | Domain controller port | Define the port on which your LDAP is configured. |
    | Primary domain | Set the domain name (for example, `subdomain.domain.com`) and the connection type according to your LDAP configuration. |
-   | Active directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. |
+   | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. |
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
 5. Select **Save**.
