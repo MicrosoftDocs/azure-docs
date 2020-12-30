@@ -17,7 +17,7 @@ When adding a large number of tasks, use the appropriate methods or overloads pr
 
 The maximum size of the task collection that you can add in a single call depends on the Batch API you use.
 
-### Collections of up to 100 tasks
+### APIs allowing collections of up to 100 tasks
 
 These Batch APIs limit the collection to **100 tasks**. The limit could be smaller depending on the size of the tasks (for example, if the tasks have a large number of resource files or environment variables).
 
@@ -27,7 +27,7 @@ These Batch APIs limit the collection to **100 tasks**. The limit could be small
 
 When using these APIs, you need to provide logic to divide the number of tasks to meet the collection limit, and to handle errors and retries in case of task addition failures. If a task collection is too large to add, the request generates an error and should be retried again with fewer tasks.
 
-### Collections of larger numbers of tasks
+### APIs allowing collections of larger numbers of tasks
 
 Other Batch APIs support much larger task collections, limited only by RAM availability on the submitting client. These APIs transparently handle dividing the task collection into "chunks" for the lower-level APIs and retries for task addition failures.
 
