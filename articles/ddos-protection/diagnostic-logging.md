@@ -144,6 +144,10 @@ You can use this Azure Resource Manager (ARM) template to deploy an attack analy
 
 ![DDoS Protection Workbook](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
+## Validate and test
+
+To simulate a DDoS attack to validate your logs, see [Validate DDoS detection](test-through-simulations.md).
+
 ## Next steps
 
 In this tutorial, you learned how to:
