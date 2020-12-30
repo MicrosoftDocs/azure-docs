@@ -17261,6 +17261,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/ddos-protection/reports-and-flow-logs.md",
+      "redirect_url": "/azure/ddos-protection/diagnostic-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
+      "redirect_url": "/azure/ddos-protection/telemetry",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/asc-for-iot/index.yml",
       "redirect_url": "/azure/defender-for-iot/",
       "redirect_document_id": false
