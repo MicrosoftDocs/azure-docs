@@ -112,7 +112,7 @@ end
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class to connect to Azure Database for MySQL with ```new()```method. Then it calls method ```query()``` to run the SELECT commands. Then it calls method ```close()``` to close the connection before terminating.
+The code uses a mysql2::client class to connect to Azure Database for MySQL with ```new()```method. Then it calls method ```query()``` to run the SELECT commands. Then it calls method ```close()``` to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values.
 

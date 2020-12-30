@@ -82,7 +82,7 @@ end
 ## Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement.
 
-The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the `resultSet.each do` loop, keeping the current row values in the `row` variable. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
+The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the `resultSet.each do` loop, keeping the current row values in the `row` variable. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See Ruby Pg reference documentation for more information on these classes and methods.
 
 Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
