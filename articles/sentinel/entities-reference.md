@@ -334,6 +334,36 @@ Strong identifiers of an URL entity:
 Weak identifiers of an URL entity:
 - Url (when a relative URL)
 
+## IoTDevice
+
+> [!NOTE]
+> Entity mapping is not yet supported for this entity type.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| Type | String | 'iotdevice' |
+| IoTHub | AzureResource (Entity) | The AzureResource entity representing the IoT Hub the device belongs to. |
+| DeviceId | String | The ID of the device in the context of the IoT Hub. |
+| DeviceName | String | The friendly name of the device. |
+| IoTSecurityAgentId | Guid? | The ID of the *Defender for IoT* agent running on the device. |
+| DeviceType | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
+| Source | String | The source (Microsoft/Vendor) of the device entity. |
+| SourceRef | Url (Entity) | A URL reference to the source item where the device is managed. |
+| Manufacturer | String | The manufacturer of the device. |
+| Model | String | The model of the device. |
+| OperatingSystem | String | The operating system the device is running. |
+| IpAddress | IP (Entity) | The current IP address of the device. |
+| MacAddress | String | The MAC address of the device. |
+| Protocols | List&lt;String&gt; | A list of protocols that the device supports. |
+| SerialNumber | String | The serial number of the device. |
+|
+
+Strong identifiers of an IoT device entity:
+- IoTHub + DeviceId
+
+Weak identifiers of an IoT device entity:
+- DeviceId (without IoTHub)
+
 ## Mailbox
 
 | Field | Type | Description |
