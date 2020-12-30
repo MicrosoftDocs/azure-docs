@@ -189,7 +189,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
   ```
 
-9. Retrieve the attestation URL.
+7. Retrieve the attestation URL.
 
   ```powershell
   $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
@@ -197,7 +197,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   Write-Host "Your attestation URL is: " $attestationUrl 
   ```
 
-10.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave?api-version=201 8-09-01-preview`
+8.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave?api-version=201 8-09-01-preview`
 
 ## Step 3: Populate your database
 
@@ -208,6 +208,9 @@ In this step, you'll create a table and populate it with some data that you'll l
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
+
+        ![Connect without Always Encrypted](media/always-encrypted-enclaves/connect-without-always-encrypted-ssms.png)
+
     5. Click **Connect**.
 
 2. Create a new table, named **Employees**.
@@ -241,7 +244,7 @@ In this step, you'll create a table and populate it with some data that you'll l
             , N'Abel'
             , $31692);
 
-    INSERT INTO [dbo].[Employees]
+    INSERT INTO [HR].[Employees]
             ([SSN]
             ,[FirstName]
             ,[LastName]
@@ -288,21 +291,24 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
     4. Select the **Always Encrypted** tab.
     5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
     6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider). See the below screenshot.
+
+        ![Connect with attestation](media/always-encrypted-enclaves/connect-to-server-configure-attestation.png)
+
     7. Select **Connect**.
     8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
 
-        ![Connect with attestation](media/always-encrypted-enclaves/connect-to-server-configure-attestation.png)
+
 
 1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 
     ```sql
-    ALTER TABLE [dbo].[Employees]
+    ALTER TABLE [HR].[Employees]
     ALTER COLUMN [SSN] [char] (11) COLLATE Latin1_General_BIN2
     ENCRYPTED WITH (COLUMN_ENCRYPTION_KEY = [CEK1], ENCRYPTION_TYPE = Randomized, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256') NOT NULL
     WITH
     (ONLINE = ON);
 
-    ALTER TABLE [dbo].[Employees]
+    ALTER TABLE [HR].[Employees]
     ALTER COLUMN [Salary] [money]
     ENCRYPTED WITH (COLUMN_ENCRYPTION_KEY = [CEK1], ENCRYPTION_TYPE = Randomized, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256') NOT NULL
     WITH
@@ -317,7 +323,7 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 1. To verify the **SSN** and **Salary** columns are now encrypted, open a new query window in the SSMS instance **without** Always Encrypted enabled for the database connection and execute the below statement. The query window should return encrypted values in the **SSN** and **Salary** columns. If you execute the same query using the SSMS instance with Always Encrypted enabled, you should see the data decrypted.
 
     ```sql
-    SELECT * FROM [dbo].[Employees];
+    SELECT * FROM [HR].[Employees];
     ```
 
 ## Step 6: Run rich queries against encrypted columns
@@ -335,7 +341,7 @@ You can run rich queries against the encrypted columns. Some query processing wi
     ```sql
     DECLARE @SSNPattern [char](11) = '%6818';
     DECLARE @MinSalary [money] = $1000;
-    SELECT * FROM [dbo].[Employees]
+    SELECT * FROM [HR].[Employees]
     WHERE SSN LIKE @SSNPattern AND [Salary] >= @MinSalary;
     ```
 

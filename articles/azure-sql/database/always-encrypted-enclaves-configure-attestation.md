@@ -28,11 +28,16 @@ To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encry
 
 2. Grant your Azure SQL logical server access to your attestation provider.
 
+> [!NOTE]
+> Configuring attestation is the responsibility of the attestation administrator. See [Roles and responsibilities when configuring SGX enclaves and attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
+
 ## Requirements
 
 The Azure SQL logical server and the attestation provider must belong to the same Azure Active Directory tenant. Cross-tenant interactions aren't supported. 
 
-The Azure SQL logical server must have an Azure AD identity assigned to it. The administrator of the attestation provider will use the identity to grant the server access to the attestation provider. For instructions on how to create a server with an identity or assign an identity to an existing server using PowerShell and Azure CLI, see [Assign an Azure AD identity to your server](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
+The Azure SQL logical server must have an Azure AD identity assigned to it. As the attestation administrator you need to obtain the Azure AD identity of the server from the Azure SQL Database administrator for that server. You will use the identity to grant the server access to the attestation provider. 
+
+For instructions on how to create a server with an identity or assign an identity to an existing server using PowerShell and Azure CLI, see [Assign an Azure AD identity to your server](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
 
 ## Create and configure an attestation provider
 
@@ -67,7 +72,7 @@ For instructions for how to create an attestation provider and configure with an
 
 ## Determine the attestation URL for your attestation policy
 
-As an administrator of the attestation policy, determine the attestation URL referencing the policy and share it with administrators or users of database client applications in your organization. Client application admins or users will need to configure their apps with the attestation URL, so that they can run statements that use secure enclaves.
+After you've configured an attestation policy, you need to share the attestation URL, referencing the policy, administrators of applications that use Always Encrypted with secure enclaves in Azure SQL Database. Application administrators or/and application users will need to configure their apps with the attestation URL, so that they can run statements that use secure enclaves.
 
 ### Use PowerShell to determine the attestation URL
 
