@@ -21,31 +21,42 @@ ms.author: yelevin
 
 # Azure Sentinel entity types reference
 
-## Entity types
+## Entity types and identifiers
 
-| Entity type | Fields | Required fields | Required field sets |
+The following table shows the **entity types** currently available for mapping in Azure Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](tutorial-detect-threats-custom.md).
+
+Each one of the identifiers in the **required identifiers** column is *usually*, by itself, sufficient to uniquely identify its entity. The more identifiers used, the stronger the unique identification. You can use up to three identifiers for a single entity mapping.
+
+For best results - for guaranteed unique identification - you should use an identifier from the **strongest identifiers** column whenever possible.
+
+| Entity type | Identifiers | Required identifiers | Strongest identifiers |
 | - | - | - | - |
-| **User account**<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name, NTDomain<br>Name, UPNSuffix<br>AADUserId<br>Sid |
-| What's the difference between *FullName* and *DisplayName*? Neither appear in Entities.md.
-| **Host** | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName, NTDomain<br>HostName, DnsDomain<br>NetBiosName, NTDomain<br>NetBiosName, DnsDomain<br>AzureID<br>OMSAgentID |
-| What's *FullName* for a Host? 
-| **IP address**<br>*(IP)* | Address | Address | |
-| **Malware** | Name<br>Category | Name | |
-| **File** | Directory<br>Name | Name | |
-| **Process** | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
-| **Cloud application**<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
-| **Domain name**<br>*(DNS)* | DomainName | DomainName | |
-| **Azure resource** | ResourceId | ResourceId | |
-| **File hash**<br>*(FileHash)* | Algorithm<br>Value | Algorithm, Value<br>*(together)* | |
-| **Registry key** | Hive<br>Key | Hive<br>Key | *How are the hive or key not too-weak identifiers by themselves? How are they not both necessary, like algorithm and value above?* |
-| **Registry value** | Name<br>Value<br>ValueType | Name | |
-| **Security group** | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
-| **URL** | Url | Url | |
-| **Mailbox** | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
-| **Mail cluster** | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | |
-| **Mail message** | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | |
-| **Submission mail** | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType | SubmissionId<br>NetworkMessageId<br>Recipient<br>Submitter | *This can't be right - half of the **required fields** are missing from the **identifiers** list.* |
+| [**User account**](#user-account)<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name + NTDomain<br>Name + UPNSuffix<br>AADUserId<br>Sid |
+| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName + NTDomain<br>HostName + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
+| [**IP address**](#ip-address)<br>*(IP)* | Address<br>***Location ?*** (not in list) | Address | |
+| [**Malware**](#malware) | Name<br>Category | Name | |
+| [**File**](#file) | Directory<br>Name | Name | |
+| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
+| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
+| [**Domain name**](#domain-name)<br>*(DNS)* | DomainName | DomainName | |
+| [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
+| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm + Value | |
+| [**Registry key**](#registry-key) | Hive<br>Key | Hive<br>Key | Hive + Key |
+| [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
+| [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
+| [**URL**](#url) | Url | Url | |
+| [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
+| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | |
+| [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | |
+| [**Submission mail**](#submission-mail) | SubmissionId<br>SubmissionDate<br>Submitter<br>NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType | SubmissionId<br>NetworkMessageId<br>Recipient<br>Submitter |  |
 |
+
+## Entity type schemas
+
+The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally-linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+
+> [!NOTE]
+> A question mark following the value in the **Type** column indicates the field is nullable.
 
 ## User account
 
@@ -55,6 +66,7 @@ ms.author: yelevin
 | ----- | ---- | ----------- |
 | Type | String | ‘account’ |
 | Name | String | The name of the account. This field should hold only the name without any domain added to it. |
+| **FullName** | **?** | **Not part of schema, included for backward and external compatibility ?**
 | NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Middleeast, NT AUTHORITY |
 | DnsDomain | String | The fully qualified domain DNS name. Examples: middleeast.corp.microsoft.com |
 | UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: microsoft.com |
@@ -64,18 +76,20 @@ ms.author: yelevin
 | AadUserId | Guid? | The Azure AD account object ID, if known. |
 | PUID | Guid? | The Azure AD Passport User ID, if known. |
 | IsDomainJoined | Bool? | Determines whether this is a domain account. |
+| DisplayName | String | The display name of the account. |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 |
 
 Strong identifiers of an account entity:
 
-- UPNSuffix, Name
+- Name + UPNSuffix
 - AadUserId
-- Sid (except when not a builtin account SID)
-- Host, Sid
-- Host, NTDomain, Name (if NTDomain is a builtin domain, i.e. Workgroup)
-- NTDomain, Name (if NTDomain differs from Host, if Host exists)
-- DnsDomain, Name
+- Sid (except a SID of a builtin account)
+- Sid + Host **(for SIDs of builtin accounts?)**
+- Name + Host + NTDomain (if NTDomain is a builtin domain, i.e. Workgroup)
+- ***Name + Host (if NTDomain is a builtin domain, i.e. Workgroup) ?***
+- Name + NTDomain (if NTDomain differs from Host, if Host exists)
+- Name + DnsDomain
 - PUID
 - ObjectGuid
 
@@ -91,6 +105,7 @@ Weak identifiers of an account entity:
 | DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known |
 | NTDomain | String | The NT domain that this host belongs to. |
 | HostName | String | The hostname without the domain suffix. |
+| **FullName** | **?** | **Not part of schema, included for backward and external compatibility ?**
 | NetBiosName | String | The host name (pre-windows2000). |
 | IoTDevice | IoTDevice (Entity) | The IoT Device entity (if this host represents an IoT Device). |
 | AzureID | String | The Azure resource ID of the VM, if known. |
@@ -101,13 +116,13 @@ Weak identifiers of an account entity:
 |
 
 Strong identifiers of a host entity:
-- HostName, NTDomain
-- HostName, DnsDomain
-- NetBiosName, NTDomain
-- NetBiosName, DnsDomain
+- HostName + NTDomain
+- HostName + DnsDomain
+- NetBiosName + NTDomain
+- NetBiosName + DnsDomain
 - AzureID
 - OMSAgentID
-- IoTDevice
+- IoTDevice (not supported for entity mapping)
 
 Weak identifiers of a host entity:
 - HostName
@@ -121,7 +136,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in Ipv4 or Ipv6) |
-| Location | GeoLocation | The geo-location context attached to the IP entity. See structure below. |
+| Location | GeoLocation | The geo-location context attached to the IP entity. ***See structure below ?.*** |
 |
 
 Strong identifiers of an IP entity:
@@ -140,7 +155,7 @@ Strong identifiers of an IP entity:
 
 Strong identifiers of a malware entity:
 
-- Name, Category
+- Name + Category
 
 ## File
 
@@ -152,6 +167,11 @@ Strong identifiers of a malware entity:
 | Host | Host (Entity) | The host on which the file was stored. |
 | FileHashes | List&lt;FileHash (Entity)&gt; | The file hashes associated with this file. |
 |
+
+Strong identifiers of a file entity:
+- Directory + Name
+- ***Name + FileHash ?***
+- ***Name + Directory + FileHash ?***
 
 ## Process
 
@@ -171,19 +191,15 @@ Strong identifiers of a malware entity:
 
 Strong identifiers of a process entity:
 
-- Host, ProcessId, CreationTimeUtc
-- Host, ParentProcessId, CreationTimeUtc, CommandLine
-- Host, ProcessId, CreationTimeUtc, ImageFile
-- Host, ProcessId, CreationTimeUtc, ImageFile.FileHash
+- Host + ProcessId + CreationTimeUtc
+- Host + ParentProcessId + CreationTimeUtc + CommandLine
+- Host + ProcessId + CreationTimeUtc + ImageFile
+- Host + ProcessId + CreationTimeUtc + ImageFile.FileHash
 
 Weak identifiers of a process entity:
 
-- ProcessId, CreationTimeUtc, CommandLine (and no Host)
-- ProcessId, CreationTimeUtc, ImageFile (and no Host)
-
-
-Strong identifiers of a file entity:
-- Directory, Name
+- ProcessId + CreationTimeUtc + CommandLine (and no Host)
+- ProcessId + CreationTimeUtc + ImageFile (and no Host)
 
 ## Cloud application
 
@@ -192,7 +208,7 @@ Strong identifiers of a file entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘cloud-application’ |
-| AppId | int | The technical identifier of the application. This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md). The value for AppId field is optional. |
+| AppId | int | The technical identifier of the application. ***This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md) ?***. The value for AppId field is optional. |
 | Name | String | The name of the related cloud application. The value of application name is optional. |
 | InstanceName | String | The user defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
 |
@@ -200,8 +216,8 @@ Strong identifiers of a file entity:
 Strong identifiers of a cloud application entity:
  - AppId (without InstanceName)
  - Name (without InstanceName)
- - AppId, InstanceName
- - Name, InstanceName
+ - AppId + InstanceName
+ - Name + InstanceName
 
 ## Domain name
 
@@ -217,24 +233,28 @@ Strong identifiers of a cloud application entity:
 |
 
 Strong identifiers of a DNS entity:
-- DomainName, DnsServerIp, HostIpAddress
+- DomainName + DnsServerIp + HostIpAddress
 
 Weak identifiers of a DNS entity:
-- DomainName, HostIpAddress
+- DomainName + HostIpAddress
 
 ## Azure resource
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type
+| Type | String | 'azure-resource' |
+| ResourceId | String | The Azure resource ID of the resource |
+| SubscriptionId | String | The subscription ID of the resource |
+| TryGetResourceGroup | Bool | The resource group value if it exists |
+| TryGetProvider | Bool | The provider value if it exists |
+| TryGetName | Bool | The name value if it exists |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 |
 
 Strong identifiers of an Azure resource entity:
 - ResourceId
-
-Weak identifiers of an Azure resource entity:
-- none
-
 
 ## File hash
 
@@ -248,7 +268,7 @@ Weak identifiers of an Azure resource entity:
 |
 
 Strong identifiers of a file hash entity:
-- Algorithm, Value
+- Algorithm + Value
 
 ## Registry key
 
@@ -262,7 +282,7 @@ Strong identifiers of a file hash entity:
 |
 
 Strong identifiers of a registry key entity:
-- Hive, Key
+- Hive + Key
 
 ## Registry value
 
@@ -278,7 +298,7 @@ Strong identifiers of a registry key entity:
 |
 
 Strong identifiers of a registry value entity:
-- Key, Name
+- Key + Name
 
 Weak identifiers of a registry value entity:
 - Name (without Key)
@@ -339,16 +359,22 @@ Strong identifiers of a mailbox entity:
 | NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster. |
 | CountByDeliveryStatus | IDictionary&lt;String,int&gt; | Count of mail messages by DeliveryStatus string representation. |
 | CountByThreatType | IDictionary&lt;String,int&gt; | Count of mail messages by ThreatType string representation. |
+| ***CountByProtectionStatus ?*** |  |  |
 | Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster. |
 | Query | String | The query that was used to identify the messages of the mail cluster. |
 | QueryTime | DateTime? | The query time. |
 | MailCount | int? | The number of mail messages that are part of the mail cluster. |
 | IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
+| ***ClusterSourceIdentifier ?*** |  |  |
+| ***ClusterSourceType ?*** |  |  |
+| ***ClusterQueryStartTime ?*** |  |  |
+| ***ClusterQueryEndTime ?*** |  |  |
+| ***ClusterGroup ?*** |  |  |
 |
 
 Strong identifiers of a mail cluster entity:
-- Query, Source
+- Query + Source ***(together or separate?)***
 
 ## Mail message
 
@@ -362,18 +388,31 @@ Strong identifiers of a mail cluster entity:
 | Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
 | Threats | IList&lt;String&gt; | The threats contained in this mail message. |
 | Sender | String | The sender's email address. |
+| ***P1Sender ?*** |  |  |
+| ***P1SenderDisplayName ?*** |  |  |
+| ***P1SenderDomain ?*** |  |  |
+| ***P2Sender ?*** |  |  |
+| ***P2SenderDisplayName ?*** |  |  |
+| ***P2SenderDomain ?*** |  |  |
 | SenderIP | String | The sender's IP address. |
 | ReceivedDate | DateTime | The received date of this message. |
 | NetworkMessageId | Guid? | The network message ID of this mail message. |
 | InternetMessageId | String | The internet message ID of this mail message. |
 | Subject | String | The subject of this mail message. |
+| ***BodyFingerprintBin1 ?*** |  |  |
+| ***BodyFingerprintBin2 ?*** |  |  |
+| ***BodyFingerprintBin3 ?*** |  |  |
+| ***BodyFingerprintBin4 ?*** |  |  |
+| ***BodyFingerprintBin5 ?*** |  |  |
 | AntispamDirection | AntispamMailDirection? | The directionality of this mail message. |
 | DeliveryAction | DeliveryAction? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
 | DeliveryLocation | DeliveryLocation? | The delivery location of this mail message - Inbox, JunkFolder, and others |
+| ***Language ?*** |  |  |
+| ***ThreatDetectionMethods ?*** |  |  |
 |
 
 Strong identifiers of a mail message entity:
-- NetworkMessageId, Recipient
+- NetworkMessageId + Recipient ***(together or separate?)***
 
 ## Submission mail
 
