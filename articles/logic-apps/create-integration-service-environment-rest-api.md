@@ -182,25 +182,15 @@ This example request body shows the sample values:
    }
 }
 ```
-## Upload Custom Root Certificates
+## Add custom root certificates
 
-ISE is often used to connect to custom services on the VNet or on premises. These custom services are often protected with a certificate issued by custom root certificate (e.g. enterprise CA or self-signed certificate). In order for ISE to successfully connect to these service through TLS, ISE needs to have access to these root certificates. To upload custom trusted root certificates, make this HTTPS PATCH request:
+You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates. To update your ISE with a custom trusted root certificate, make this HTTPS `PATCH` request:
 
 `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
-## Request body
+#### Request body syntax for adding custom root certificates
 
-In the request body, provide the resource definition to use for creating your ISE, including information for additional capabilities that you want to enable on your ISE, for example:
-
-* To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
-
-* To create an ISE that uses a system-assigned or user-assigned managed identity, include the `identity` object with the managed identity type and other required information in the ISE definition, as this article later describes.
-
-* To create an ISE that uses customer-managed keys and Azure Key Vault to encrypt data at rest, include the [information that enables customer-managed key support](customer-managed-keys-integration-service-environment.md). You can set up customer-managed keys *only at creation*, not afterwards.
-
-### Request body syntax
-
-Here is the request body syntax, which describes the properties to use when you create your ISE:
+Here is the request body syntax, which describes the properties to use when you add root certificates:
 
 ```json
 {
@@ -222,13 +212,13 @@ Here is the request body syntax, which describes the properties to use when you 
    }
 }
 ```
-Please note:
-* Uploading root certificates is a asynchronous operation and may take some time.  You can issue a GET request on the same URI to check on the result. The response message will have a 'provisioningState' field. When 'provisioningState' value is 'InProgress', the uploading operation is still ongoing. When 'provisioningState' value is 'Succeeded', the uploading operation is completed.
+Before you perform this operation, review these considerations:
 
-* Uploading root certificates is a replacement operation. Late upload will overwrite the previous uploads. For example, if you upload certificate 1 and then upload certificate 2, ISE will have only certificate 2. If you need both certificate 1 and certificate 2, please upload both through a same request.
+* Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
 
-* Please upload the root certificate and also all the intermideiate certificates.  The maximum number of certificates is 20. 
+* Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
 
+* Uploading root certificates is an asynchronous operation that might take some time. To check the status or result, you can send a `GET` request by using the same URI. The response message has a `provisioningState` field that returns the `InProgress` value when the upload operation is still working. When `provisioningState` value is `Succeeded`, the upload operation is complete.
 
 ## Next steps
 
