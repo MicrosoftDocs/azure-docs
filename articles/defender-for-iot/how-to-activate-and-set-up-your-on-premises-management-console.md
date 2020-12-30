@@ -13,67 +13,67 @@ ms.service: azure
 
 Activation and setup of the on-premises management console ensures that:
 
-- Network devices you are monitoring through connected sensors are registered with an Azure account.
+- Network devices that you're monitoring through connected sensors are registered with an Azure account.
 
 - Sensors send information to the on-premises management console.
 
 - The on-premises management console carries out management tasks on connected sensors.
 
-- You have installed an SSL certificate
+- You have installed an SSL certificate.
 
-## First-time sign in
+## Sign in for the first time
 
 To sign in to the management console:
 
-1. Open a web browser and enter the IP address and password you received with your installation for the on-premises management console that you received during the system installation. if you forgot your password then select **Recover Password** and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery).
+- Open a web browser and enter the IP address and password that you received for the on-premises management console during the system installation. If you forgot your password, select **Recover Password** and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery).
 
 ## Upload an activation file
 
-After first-time log in, activate the on-premises management console by downloading an activation file from the Defender for IoT portal **Pricing** page. This file contains the aggregate committed devices defined during the onboarding process. Committed devices indicates the number of devices that will be monitored by Defender for IoT per subscription.
+After first-time sign-in, activate the on-premises management console by downloading an activation file from the **Pricing** page of the Azure Defender for IoT portal. This file contains the aggregate committed devices defined during the onboarding process. **Committed devices** indicates the number of devices that Defender for IoT will monitor per subscription.
 
 To upload an activation file:
 
 1. Go to the Defender for IoT **Pricing** page.
 1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download activation file.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
 1. Select **System Settings** from the management console.
 1. Select **Activation**.
 1. Select **Choose a File** and select the file that you saved.
 
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
 
 ## Set up a certificate
 
-Following management console installation, a local self-signed certificate is generated and used to access the management console. After logging in to the management console for the first time, Administrator users are prompted to onboard an SSL/TLS certificate. It is recommended to work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
+Following installation of the management console, a local self-signed certificate is generated and used to access the console. After an administrator signs in to the management console for the first time, that user is prompted to onboard an SSL/TLS certificate. We recommend that you work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
 
 Two levels of security are available:
 
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-- Allow validation between the management console and connected sensors. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. **If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console. This option is enabled by default after installation.**  
+- Allow validation between the management console and connected sensors. Validation is evaluated against a certificate revocation list and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console.* This option is enabled by default after installation.  
 
-The following types of certificates are supported:
+The console supports the following types of certificates:
 
-- Private and Enterprise Key Infrastructure (Private PKI)
-- Public Key Infrastructure (Public PKI)
-- Locally generated on the appliance (locally self-signed). **It is recommended not to use a self-signed certificate.**
-The certificate is INSECURE and should be used for test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.  This option should never be used for production networks.
+- Private and Enterprise Key Infrastructure (private PKI)
+- Public Key Infrastructure (public PKI)
+- Locally generated on the appliance (locally self-signed) 
+
+  > [!IMPORTANT]
+  > We recommend that you don't use a self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
 To upload a certificate:
 
-1. When prompted after login, define a Certificate name.
-1. Upload the CRT and Key files.
+1. When you're prompted after sign-in, define a certificate name.
+1. Upload the CRT and key files.
 1. Enter a passphrase and upload a PEM file if required.
 
-You may need to refresh your screen after uploading the CA-signed certificate.
+You might need to refresh your screen after you upload the CA-signed certificate.
 
 To disable validation between the management console and connected sensors:
 
 1. Select **Next**.
-1. Disable  the **Enable system-wide validation...** toggle.
-
-
+1. Turn off the **Enable system-wide validation** toggle.
 
 For information about uploading a new certificate, supported certificate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
@@ -91,11 +91,9 @@ After connecting, you must set up a site with these sensors.
 
 ### Connect sensors from the sensor console
 
-Connect specific sensors to the on-premises management console from the sensor console.
+To connect specific sensors to the on-premises management console from the sensor console:
 
-To connect from the console:
-
-1. In the left pane of a sensor console, select **System Settings**.
+1. On the left pane of the sensor console, select **System Settings**.
 
 2. Select **Connection to Management**.
 
@@ -158,7 +156,7 @@ For each zone, you should assign at least one sensor. The five-level model provi
 
 You can edit your sites directly from any of the map views. When you're opening a site from a map view, the number of open alerts appears next to each zone.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Screenshot of on-premises management console map with Berlin data overlay.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Screenshot of an on-premises management console map with Berlin data overlay.":::
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram showing sensors and regional relationship.":::
 
@@ -190,11 +188,11 @@ To add a new region:
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-regions-screen.png" alt-text="Screenshot showing the Manage Regions view.":::
 
-2. Type the new region name and select **ADD**.
+2. Enter the new region name and select **ADD**.
 
 To add a new site:
 
-1. From the Enterprise view, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/new-site-icon.png" border="false"::: on the top bar. Your cursor appears as a **+**.
+1. From the Enterprise view, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/new-site-icon.png" border="false"::: on the top bar. Your cursor appears as a plus sign (**+**).
 
 2. Position the **+** at the location of the new site and select it. The **Create New Site** dialog box opens.
 
@@ -204,7 +202,7 @@ To add a new site:
 
 To delete a site:
 
-1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Delete Site**. The confirmation box appears, verifying if you want to delete the site.
+1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Delete Site**. The confirmation box appears, verifying that you want to delete the site.
 
 2. In the confirmation box, select **YES**. The confirmation box closes, and the **Site Management** window appears without the site that you've deleted.
 
@@ -239,7 +237,7 @@ To add a zone to a site:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Add Zone**. The **Create New Zone** dialog box appears.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Screenshot of Create New Zone view.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Screenshot of the Create New Zone view.":::
 
 2. Enter the zone name.
 

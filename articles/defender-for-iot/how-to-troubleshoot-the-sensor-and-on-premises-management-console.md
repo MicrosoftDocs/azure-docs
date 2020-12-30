@@ -16,28 +16,30 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 
 **SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server. 
 
-**System Notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
+**System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
 ## Sensor troubleshooting tools
-### Initial sign in password failure
 
-When signing in to a preconfigured Arrow sensor you will need to perform the following password recovery to sign in for the first time.
+### Investigate password failure at initial sign-in
 
-To recover the sensor's password:
+When you're signing in to a preconfigured Arrow sensor for the first time, you'll need to perform the following password recovery:
 
-1. In the Defender for IoT sign in screen, select  the **Password Recovery** option to open the **Password Recovery** screen where you will be prompted to select the user, subscription, and be given a unique identifier.
+1. On the Defender for IoT sign-in screen, select the **Password Recovery** option. 
+
+   The **Password Recovery** screen opens. There, you're prompted to select the user and subscription, and you're given a unique identifier.
 
 1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
 
-1. Enter the unique identifier you received on the **Password Recovery** screen and select **Recover**. The `password_recovery.zip` file
+1. Enter the unique identifier that you received on the **Password Recovery** screen and select **Recover**. The `password_recovery.zip` file
  is downloaded.
 
-> Note
-> Do not alter the activation file, as it is a signed file and will not work if tampered with.
+   > [!NOTE]
+   > Don't alter the activation file. It's a signed file and won't work if you tamper with it.
 
 1. On the **Password Recovery** screen, upload the `password_recovery.zip` file and select **Next**.
 
-1. You will then be given your system-generated password for your management console. 
+You then receive your system-generated password for your management console. 
+
 ### Investigate a lack of traffic
 
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users.
@@ -91,27 +93,27 @@ To check system performance:
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
 
 
-### Expected alerts are not shown
+### Investigate a lack of expected alerts
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
-  - Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
+- Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
 
-  - Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console. 
+- Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console. 
 
-### Widgets show no data
+### Investigate widgets that show no data
 
 When the widgets in the **Trends & Statistics** window show no data, do the following:
 
-  - [Check system performance](#check-system-performance).
+- [Check system performance](#check-system-performance).
 
-  - Make sure the time and region settings are properly configured and not set to a future time. 
+- Make sure the time and region settings are properly configured and not set to a future time. 
 
-### Device map shows only broadcasting devices
+### Investigate a device map that shows only broadcasting devices
 
 When devices shown on the map appear not connected to each other, something might be wrong with the SPAN port configuration. That is, you might be seeing only broadcasting devices and no unicast traffic.
 
-  :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
 
 In such a case, you need to validate that you can see only the broadcast traffic. Then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic.
 
@@ -135,9 +137,9 @@ To connect a sensor controlled by the management console to NTP:
 
 - The connection to NTP is configured on the management console. All the sensors that the management console controls get the NTP connection automatically.
 
-### Devices aren't shown on the map, or you have multiple internet-related alerts
+### Investigate when devices aren't shown on the map, or you have multiple internet-related alerts
 
-Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud is presented on the map. The IP addresses of these devices are included in the cloud image.
+Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image.
 
 Another indication of the same problem is when multiple internet-related alerts appear.
 
@@ -151,7 +153,7 @@ To fix the configuration:
 
 3. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor quality of service
+### Tweak the sensor's quality of service
 
 To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
 
@@ -176,7 +178,7 @@ To tweak the quality of service:
 
 ## On-premises management console troubleshooting tools
 
-### Expected alerts are not shown
+### Investigate a lack of expected alerts
 
 If an expected alert is not shown in the **Alerts** window, verify the following:
 
@@ -226,9 +228,7 @@ To tweak the quality of service:
 
 ## Export information for troubleshooting
 
-In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a One Time Password (OTP), unique for the exported logs, in a separate text file. 
-
-We recommend sending the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file. 
 
 To export logs:
 
@@ -246,7 +246,7 @@ To export logs:
     |--|--|
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
-    | **System Sanity Output** | Select this option to check your system performance. |
+    | **System Sanity Output** | Select this option to check system performance. |
     | **Dissection Logs** | Select this option to allow advanced inspection of protocol dissection. |
     | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
     | **Forwarding logs** | Select this option for investigation of the forwarding rules. |

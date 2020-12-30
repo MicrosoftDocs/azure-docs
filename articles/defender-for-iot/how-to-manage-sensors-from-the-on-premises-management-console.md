@@ -39,7 +39,7 @@ You can define the following sensor system settings from the management console:
 
 To apply system settings:
 
-1. In the console's left pane, select **System Settings**.
+1. On the console's left pane, select **System Settings**.
 
 2. On the **Configure Sensors** pane, select one of the options.
 
@@ -141,11 +141,11 @@ Sensors are protected by five Defender for IoT engines. You can enable or disabl
 
 | Engine | Description | Example scenario |
 |--|--|--|
-| Protocol Violation Engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification, and the secondary device might not handle the input correctly. |
-| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on a device. This might be a new web browser or application on that device. |
-| Malware Engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
-| Anomaly Engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
-| Operational Engine | Operational incidents or malfunctioning entities. | "Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
+| Protocol violation engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification, and the secondary device might not handle the input correctly. |
+| Policy violation engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on a device. This might be a new web browser or application on that device. |
+| Malware engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
+| Anomaly engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
+| Operational engine | This engine detects operational incidents or malfunctioning entities. | "Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
 |
 
 To enable or disable engines for connected sensors:
