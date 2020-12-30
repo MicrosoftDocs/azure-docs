@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/28/2020
+ms.date: 12/30/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -663,19 +663,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: This error happens when Azure Data Factory talk to http server, but http request operation fail.
 
 - **Recommendation**:  Check the http status code \ message in error message and fix the remote server issue.
-
-
-## HDInsight
-
-### SSL error when ADF linked service using HDInsight ESP cluster
-
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
-
-- **Cause**: The issue is most likely related with System Trust Store.
-
-- **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
-
-    ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
 
 
 ## Oracle
