@@ -4,7 +4,7 @@ description: Common issues, workarounds, and diagnostic steps, when using the Az
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
