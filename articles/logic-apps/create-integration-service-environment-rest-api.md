@@ -66,7 +66,7 @@ In the request header, include these properties:
 
 In the request body, provide the resource definition to use for creating your ISE, including information for additional capabilities that you want to enable on your ISE, for example:
 
-* To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
+* To create an ISE that permits using a self-signed certificate and certficate issued by Enterprise Certificate Authority that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section, as this article later describes.
 
 * To create an ISE that uses a system-assigned or user-assigned managed identity, include the `identity` object with the managed identity type and other required information in the ISE definition, as this article later describes.
 
@@ -118,7 +118,7 @@ Here is the request body syntax, which describes the properties to use when you 
             }
          ]
       },
-      // Include `certificates` object to enable self-signed or customer root certificate support
+      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -184,9 +184,17 @@ This example request body shows the sample values:
 ```
 ## Add custom root certificates
 
-You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates. To update your ISE with a custom trusted root certificate, make this HTTPS `PATCH` request:
+You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates. To update your ISE with a custom trusted root certificate, make this HTTPS `PATCH` request:
 
 `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+Before you perform this operation, review these considerations:
+
+* Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
+
+* Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
+
+* Uploading root certificates is an asynchronous operation that might take some time. To check the status or result, you can send a `GET` request by using the same URI. The response message has a `provisioningState` field that returns the `InProgress` value when the upload operation is still working. When `provisioningState` value is `Succeeded`, the upload operation is complete.
 
 #### Request body syntax for adding custom root certificates
 
@@ -212,13 +220,6 @@ Here is the request body syntax, which describes the properties to use when you 
    }
 }
 ```
-Before you perform this operation, review these considerations:
-
-* Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
-
-* Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
-
-* Uploading root certificates is an asynchronous operation that might take some time. To check the status or result, you can send a `GET` request by using the same URI. The response message has a `provisioningState` field that returns the `InProgress` value when the upload operation is still working. When `provisioningState` value is `Succeeded`, the upload operation is complete.
 
 ## Next steps
 
