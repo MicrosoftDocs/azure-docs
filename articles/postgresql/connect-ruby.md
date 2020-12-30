@@ -116,7 +116,7 @@ end
 ## Update data
 Use the following code to connect and update the data using a **UPDATE** SQL statement.
 
-The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the UPDATE command. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
+The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the UPDATE command. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
 
 Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
@@ -195,4 +195,4 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md) <br/>
 > [!div class="nextstepaction"]
-> [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG)
+> [Ruby Pg reference documentation](https://rubygems.org/gems/pg)
