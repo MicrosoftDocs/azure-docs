@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 07/14/2020
+ms.date: 10/14/2020
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -31,7 +31,8 @@ We'll walk through the following starter queries:
 - [Get cost savings summary from Azure Advisor](#advisor-savings)
 - [Count machines in scope of Guest Configuration policies](#count-gcmachines)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+before you begin.
 
 ## Language support
 

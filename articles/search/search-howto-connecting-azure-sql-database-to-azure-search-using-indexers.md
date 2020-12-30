@@ -35,7 +35,7 @@ A single indexer can only consume one table or view, but you can create multiple
 You can set up and configure an Azure SQL indexer using:
 
 * Import Data wizard in the [Azure portal](https://portal.azure.com)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 In this article, we'll use the REST API to create **indexers** and **data sources**.

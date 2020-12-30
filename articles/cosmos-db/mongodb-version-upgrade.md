@@ -1,16 +1,17 @@
 ---
 title: Upgrade the Mongo version of your Azure Cosmos DB's API for MongoDB account
 description: How to upgrade the MongoDB wire-protocol version for your existing Azure Cosmos DB's API for MongoDB accounts seamlessly
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
-ms.author: jasonh
+ms.author: chrande
 
 ---
 
 # Upgrade the MongoDB wire protocol version of your Azure Cosmos DB's API for MongoDB account
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article describes how to upgrade the wire protocol version of your Azure Cosmos DB's API for MongoDB account. After you upgrade the wire protocol version, you can use the latest functionality in Azure Cosmos DB's API for MongoDB. The upgrade process doesn't interrupt the availability of your account and it doesn't consume RU/s or decrease the capacity of the database at any point. No existing data or indexes will be affected by this process.
 

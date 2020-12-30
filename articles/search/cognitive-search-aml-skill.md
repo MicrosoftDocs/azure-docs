@@ -29,7 +29,7 @@ Like built-in skills, an **AML** skill has inputs and outputs. The inputs are se
 
 * An [AML workspace](../machine-learning/concept-workspace.md)
 * An [Azure Kubernetes Service AML compute target](../machine-learning/concept-compute-target.md) in this workspace with a [deployed model](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
-  * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search only allows access to **https** endpoints
+  * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). Azure Cognitive Search only allows access to **https** endpoints
   * Self-signed certificates may not be used.
 
 ## @odata.type  
@@ -54,9 +54,9 @@ Parameters are case-sensitive. Which parameters you choose to use depends on wha
 
 Which AML skill parameters are required depends on what authentication your AML service uses, if any. AML services provide three authentication options:
 
-* [Key-Based Authentication](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). A static key is provided to authenticate scoring requests from AML skills
+* [Key-Based Authentication](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). A static key is provided to authenticate scoring requests from AML skills
   * Use the _uri_ and _key_ parameters
-* [Token-Based Authentication](../machine-learning/concept-enterprise-security.md#authentication). The AML service is [deployed using token based authentication](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). The Azure Cognitive Search service's [managed identity](../active-directory/managed-identities-azure-resources/overview.md) is granted the [Reader Role](../machine-learning/how-to-assign-roles.md) in the AML service's workspace. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML service, with no static keys required.
+* [Token-Based Authentication](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). The AML service is [deployed using token based authentication](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). The Azure Cognitive Search service's [managed identity](../active-directory/managed-identities-azure-resources/overview.md) is granted the [Reader Role](../machine-learning/how-to-assign-roles.md) in the AML service's workspace. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML service, with no static keys required.
   * Use the _resourceId_ parameter.
   * If the Azure Cognitive Search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML service was deployed in
 * No Authentication. No authentication is required to use the AML service

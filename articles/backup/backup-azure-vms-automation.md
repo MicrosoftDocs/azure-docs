@@ -255,6 +255,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > If you're using the Azure Government cloud, then use the value `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` for the parameter **ServicePrincipalName** in [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
+If you want to selectively backup few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## Monitoring a backup job
 
 You can monitor long-running operations, such as backup jobs, without using the Azure portal. To get the status of an in-progress job, use the [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. This cmdlet gets the backup jobs for a specific vault, and that vault is specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
@@ -334,6 +336,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### Exclude disks for a protected VM
+
+Azure VM backup provides a capability to selectively exclude or include disks which is helpful in [these scenarios](selective-disk-backup-restore.md#scenarios). If the virtual machine is already protected by Azure VM backup and if all disks are backed up, then you can modify the protection to selectively include or exclude disks as mentioned [here](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### Trigger a backup
 
@@ -508,6 +514,13 @@ $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetV
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
 
+#### Restore selective disks
+
+A user can selectively restore few disks instead of the entire backed up set. Provide the required disk LUNs as parameter to only restore them instead of the entire set as documented [here](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> One has to selectively back up disks to selectively restore disks. More details are provided [here](selective-disk-backup-restore.md#selective-disk-restore).
+
 Once you restore the disks, go to the next section to create the VM.
 
 ## Replace disks in Azure VM
@@ -525,7 +538,7 @@ After you restore the disks, use the following steps to create and configure the
 > [!NOTE]
 >
 > 1. AzureAz module 3.0.0 or higher is required. <br>
-> 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md). <br>
 > 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. YOu don't need different PowerShell cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.<br>
 > <br>
 

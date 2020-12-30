@@ -17,7 +17,7 @@ A PowerShell Azure function (function) is represented as a PowerShell script tha
 
 Like other kinds of functions, PowerShell script functions take in parameters that match the names of all the input bindings defined in the `function.json` file. A `TriggerMetadata` parameter is also passed that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) to create your first PowerShell function.
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./create-first-function-vs-code-powershell.md) to create your first PowerShell function.
 
 ## Folder structure
 
@@ -141,7 +141,7 @@ The following common parameters are also supported:
 * `PipelineVariable`
 * `OutVariable` 
 
-For more information, see [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see [About CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### Push-OutputBinding example: HTTP responses
 
@@ -560,7 +560,7 @@ There are a few concurrency models that you could explore depending on the type 
 
 You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
-Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > You might get "requests are being queued due to no available runspaces" warnings, please note that this is not an error. The message is telling you that requests are being queued and they will be handled when the previous requests are completed.

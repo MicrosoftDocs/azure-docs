@@ -24,7 +24,7 @@ This article describes how to check the status of provisioning jobs after they h
 Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
 
 * **Azure portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
-* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
+* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
 
 ### Definitions
 

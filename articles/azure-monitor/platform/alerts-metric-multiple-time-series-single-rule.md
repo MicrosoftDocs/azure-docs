@@ -4,7 +4,7 @@ description: Alert at scale using a single alert rule for multiple time series
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
 ---
 
@@ -158,6 +158,7 @@ For this alert rule, six metric time-series are being monitored separately:
 1.	**Selecting all current and future dimensions** – You can choose to monitor all possible values of a dimension, including future values. Such an alert rule will scale automatically to monitor all values of the dimension without you needing to modify the alert rule every time a dimension value is added or removed.
 2.	**Excluding dimensions** – Selecting the '≠' (exclude) operator for a dimension value is equivalent to selecting all other values of that dimension, including future values.
 3.	**New and custom dimensions** – The dimension values displayed in the Azure portal are based on metric data collected in the last three days. If the dimension value you’re looking for isn’t yet emitted, you can add a custom dimension value.
+4. **Matching dimensions with a prefix** - You can choose to monitor all dimension values that start with a specific pattern, by selecting the 'Starts with' operator and entering a custom prefix.
 
 ![Advanced multi-dimension features](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 
@@ -169,6 +170,11 @@ The pricing of metric alert rules is available on the [Azure Monitor pricing pag
 When creating a metric alert rule, the provided price estimation is based on the selected features and the number of monitored time-series, which is determined from the rule configuration and current metric values. However, the monthly charge is based on actual evaluations of the time-series, and can therefore differ from the original estimation if some time-series don’t have data to evaluate, or if the alert rule uses features that can make it scale dynamically.
 
 For example, an alert rule can show a high price estimation if it leverages the multi-dimension feature, and a large number of dimension values combinations are selected, resulting in the monitoring of many time-series. But the actual charge for that alert rule can be lower if not all the time-series resulting from the dimension values combinations actually have data to evaluate.
+
+## Number of time series monitored by a single alert rule
+
+To prevent excess costs, each alert rule can monitor up to 5000 time-series by default. To lift this limit from your subscription, open a support ticket.
+
 
 ## Next steps
 

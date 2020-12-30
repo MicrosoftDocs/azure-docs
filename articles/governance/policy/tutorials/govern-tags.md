@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage tag governance"
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
 ---
 # Tutorial: Manage tag governance with Azure Policy
@@ -145,7 +145,12 @@ your Azure environment. The Modify policy for each looks something like this pol
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

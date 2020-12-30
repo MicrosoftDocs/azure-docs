@@ -32,10 +32,10 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
-  - name: Postman
-    href: search-get-started-postman.md
+  - name : JavaScript
+    href: search-get-started-javascript.md
+  - name: REST
+    href: search-get-started-rest.md
   - name: PowerShell
     href: search-get-started-powershell.md
   - name: Python
@@ -81,19 +81,21 @@
 - name: Samples
   items:
   - name: C# samples
-    href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+    href: samples-dotnet.md
   - name: Java samples
-    href: /samples/browse/?languages=java&products=azure-cognitive-search
+    href: samples-java.md
   - name: JavaScript samples
-    href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+    href: samples-javascript.md
   - name: Python samples
-    href: /samples/browse/?languages=python&products=azure-cognitive-search
+    href: samples-python.md
   - name: REST samples
     href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Concepts
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Relevance scoring
+    href: index-similarity-and-scoring.md
   - name: Indexers
     href: search-indexer-overview.md
   - name: AI enrichment
@@ -116,7 +118,7 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Securing indexer resources
+    - name: Accessing protected content
       href: search-indexer-securing-resources.md
     - name: Security baseline
       href: security-baseline.md
@@ -140,7 +142,7 @@
       items:
       - name: Add synonyms
         href: search-synonyms.md
-      - name: Synonyms example
+      - name: Synonyms C# example
         href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
@@ -196,6 +198,8 @@
         href: search-howto-index-csv-blobs.md
       - name: Index JSON blobs
         href: search-howto-index-json-blobs.md
+      - name: Index encrypted blobs
+        href: search-howto-index-encrypted-blobs.md
     - name: Azure Tables
       href: search-howto-indexing-azure-tables.md
     - name: Azure Cosmos DB
@@ -252,9 +256,11 @@
     items:
     - name: Query types and composition
       href: search-query-overview.md
-    - name: Create a simple query
+    - name: Create a basic query
+      href: search-query-create.md
+    - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene syntax
+    - name: Use full Lucene (examples)
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
@@ -292,8 +298,6 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
@@ -302,10 +306,12 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
+    - name: Estimate capacity and cost
+      href: search-sku-manage-costs.md
     - name: Adjust capacity
       href: search-capacity-planning.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
     - name: Scale for performance
       href: search-performance-optimization.md
     - name: Multitenant architecture
@@ -318,9 +324,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Get started (v10)
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
@@ -356,12 +364,6 @@
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
-    - name: Identity-based access
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
-        href: search-security-trimming-for-azure-search-with-aad.md
     - name: Outbound security (indexers)  
       items:
       - name: Access over an IP range
@@ -370,6 +372,12 @@
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Access through private endpoints
         href: search-indexer-howto-access-private.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Filter on user identities
+        href: search-security-trimming-for-azure-search-with-aad.md
   - name: Manage
     items:
     - name: Portal
@@ -401,7 +409,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: Resource Manager template
@@ -532,6 +540,8 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+    - name: NYC Jobs demo
+      href: https://azjobsdemo.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)
@@ -540,6 +550,8 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
+  - name: Partner solutions
+    href: resource-partners-knowledge-mining.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

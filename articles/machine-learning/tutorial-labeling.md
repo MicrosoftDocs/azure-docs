@@ -10,7 +10,7 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-
+ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
@@ -40,7 +40,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 

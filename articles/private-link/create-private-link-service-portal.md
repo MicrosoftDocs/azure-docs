@@ -163,7 +163,7 @@ In this section, you will create a Private Link service behind a standard load b
 
 1. Select **Next: Access security**.
 
-1. Under **Create a private link service - Access security**, select **Visibility**, and then choose **Role-Based access control only**.
+1. Under **Create a private link service - Access security**, select **Visibility**, and then choose **Role-based access control only**.
   
 1. Either select **Next: Tags** > **Review + create** or choose the **Review + create** tab at the top of the page.
 
@@ -180,4 +180,4 @@ When you are done using the Private Link service, delete the resource group to c
 
 ## Next steps
 
-In this quickstart, you created an internal Azure load balancer and a Private Link service. You can also learn how to [create a private endpoint by using the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+In this quickstart, you created an internal Azure load balancer and a Private Link service. You can also learn how to [create a private endpoint by using the Azure portal](./create-private-endpoint-portal.md).

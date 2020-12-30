@@ -40,7 +40,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Assigning owners recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## On-premises identity synchronization
@@ -152,13 +152,13 @@ Use the following guidelines to define service plans to users:
 - Optionally, an attribute can be defined to hold the packages for users.
 
 > [!IMPORTANT]
-> Group-based licensing in Azure AD introduces the concept of users in a licensing error state. If you notice any licensing errors, then you should immediately [identify and resolve](../users-groups-roles/licensing-groups-resolve-problems.md) any license assignment problems.
+> Group-based licensing in Azure AD introduces the concept of users in a licensing error state. If you notice any licensing errors, then you should immediately [identify and resolve](../enterprise-users/licensing-groups-resolve-problems.md) any license assignment problems.
 
 ![A screenshot of a computer screen Description automatically generated](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### Lifecycle management
 
-If you are currently using a tool, such as [Microsoft Identity Manager](/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [groups](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn't account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
+If you are currently using a tool, such as [Microsoft Identity Manager](/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [groups](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn't account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
 
 ### Assignment of apps with "All users" group
 

@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 12/16/2020
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
@@ -15,7 +15,7 @@ Azure Data Share supports snapshot-based sharing from storage account. This arti
 
 Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. Data shared from these sources can be received into Azure Data Lake Gen2 or Azure Blob Storage.
 
-When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten.
+When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten during snapshot. File deleted from the source is not deleted on the target. Empty sub-folders at the source are not copied over to the target. 
 
 ## Share data
 
@@ -27,7 +27,7 @@ When file systems, containers or folders are shared in snapshot-based sharing, d
 
 ### Prerequisites for source storage account
 
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md)
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role.
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role. 
 
@@ -118,7 +118,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 
 ### Prerequisites for target storage account
 
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
@@ -188,4 +188,3 @@ This step only applies to snapshot-based sharing. To view history of your snapsh
 
 ## Next steps
 You have learned how to share and receive data from storage account using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
-

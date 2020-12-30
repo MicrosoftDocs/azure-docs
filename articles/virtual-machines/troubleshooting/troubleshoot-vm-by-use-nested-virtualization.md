@@ -107,7 +107,7 @@ In order to mount the faulty VM, the Rescue VM must use the same type of Storage
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 
-2.  [Unmount and detach the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Unmount and detach the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 ).
 3.  [Replace the OS disk used by the VM with the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).

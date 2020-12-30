@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Tutorial: Upload image data in the cloud with Azure Storage

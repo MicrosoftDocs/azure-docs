@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A form document. You can download an image from the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+- A form document. You can download an image from the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a locally stored document. To use learn how to use remote files accessed by URL, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
@@ -57,7 +57,8 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -85,12 +86,13 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
     source = r"<path to your form>"
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -124,11 +126,11 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 ``` 
 # [v2.1 preview](#tab/v2-1)  
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```  
 
 ---
-	
+    
 
 
 
@@ -234,7 +236,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                             }
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ],
@@ -265,10 +267,10 @@ See the following invoice image and its corresponding JSON output. The output ha
                                     "#/readResults/0/lines/14/words/1"
                                 ]
                             },
-							...
+                            ...
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ]
@@ -335,7 +337,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                             }
                         ]
                     },
-					...
+                    ...
                         ]
                     }
                 ],
@@ -354,7 +356,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                         "confidence": 0.989,
                         "state": "selected"
                     },
-					...
+                    ...
                 ]
             }
         ],
@@ -385,10 +387,10 @@ See the following invoice image and its corresponding JSON output. The output ha
                                     "#/readResults/0/lines/12/words/1"
                                 ]
                             },
-							...
+                            ...
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ]

@@ -46,9 +46,10 @@ Specifically, this SAP table connector supports:
 - Retrieving data via default or custom RFC.
 
 The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
-1.	Use SAP GUI to connect to the SAP System. 
-2.	Go to **System** -> **Status**. 
-3.	Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
+
+1. Use SAP GUI to connect to the SAP System. 
+2. Go to **System** -> **Status**. 
+3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
       ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## Prerequisites
@@ -223,7 +224,7 @@ To copy data from an SAP table, the following properties are supported:
 | `rfcTableFields`                 | The fields (columns) to copy from the SAP table. For example, `column0, column1`. | No       |
 | `rfcTableOptions`                | The options to filter the rows in an SAP table. For example, `COLUMN0 EQ 'SOMEVALUE'`. See also the SAP query operator table later in this article. | No       |
 | `customRfcReadTableFunctionModule` | A custom RFC function module that can be used to read data from an SAP table.<br>You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to Data Factory. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by Data Factory.<br>Data Factory | No       |
-| `partitionOption`                  | The partition mechanism to read from an SAP table. The supported options include: <ul><li>`None`</li><li>`PartitionOnInt` (normal integer or integer values with zero padding on the left, such as `0000012345`)</li><li>`PartitionOnCalendarYear` (4 digits in the format "YYYY")</li><li>`PartitionOnCalendarMonth` (6 digits in the format "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 digits in the format "YYYYMMDD")</li></ul> | No       |
+| `partitionOption`                  | The partition mechanism to read from an SAP table. The supported options include: <ul><li>`None`</li><li>`PartitionOnInt` (normal integer or integer values with zero padding on the left, such as `0000012345`)</li><li>`PartitionOnCalendarYear` (4 digits in the format "YYYY")</li><li>`PartitionOnCalendarMonth` (6 digits in the format "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 digits in the format "YYYYMMDD")</li><li>`PartitionOntime` (6 digits in the format "HHMMSS", such as `235959`)</li></ul> | No       |
 | `partitionColumnName`              | The name of the column used to partition the data.                | No       |
 | `partitionUpperBound`              | The maximum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. | No       |
 | `partitionLowerBound`              | The minimum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. (Note: `partitionLowerBound` cannot be "0" when partition option is `PartitionOnInt`) | No       |

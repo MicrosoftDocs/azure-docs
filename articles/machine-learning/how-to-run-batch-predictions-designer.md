@@ -1,7 +1,7 @@
 ---
 title: Run batch predictions using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Learn how to train a model and set up a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
+description: Learn how to create a batch prediction pipeline. Deploy the pipeline as a parameterized web service, and trigger it from any HTTP library.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,7 +24,7 @@ In this how-to, you learn to do the following tasks:
 > * Consume a pipeline endpoint
 > * Manage endpoint versions
 
-To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
+To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## Prerequisites
 

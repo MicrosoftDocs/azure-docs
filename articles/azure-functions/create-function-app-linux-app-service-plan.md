@@ -79,7 +79,7 @@ Next, you create a function in the new function app.
 This section shows you how to create a function in your new function app in the portal.
 
 > [!NOTE]
-> The portal development experience can be useful for trying out Azure Functions. For most scenarios, consider developing your functions locally and publishing the project to your function app using either [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) or the [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
+> The portal development experience can be useful for trying out Azure Functions. For most scenarios, consider developing your functions locally and publishing the project to your function app using either [Visual Studio Code](./create-first-function-vs-code-csharp.md#create-an-azure-functions-project) or the [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
 1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
  

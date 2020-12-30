@@ -12,12 +12,13 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 In this quickstart, you create an Azure Cosmos DB Table API account, and use Data Explorer and a Java app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.

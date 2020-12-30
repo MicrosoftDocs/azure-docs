@@ -102,7 +102,7 @@ Take the following steps in the Azure portal to remove the existing Edge compute
 
 2. If you remove the compute configuration, you will need to reconfigure your device in case you need to use compute again. When prompted for confirmation, select **Yes**.
 
-    ![Select Remove compute](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Select Remove compute 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### Sync up IoT device and IoT Edge device access keys
 

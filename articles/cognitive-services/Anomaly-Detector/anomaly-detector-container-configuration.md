@@ -3,13 +3,13 @@ title: How to configure a container for Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector API container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Configure Anomaly Detector containers
@@ -23,7 +23,7 @@ This container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Used to track billing information.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|

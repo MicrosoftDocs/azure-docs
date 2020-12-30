@@ -17,7 +17,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
  
     * Change the link to the graph topology:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
@@ -102,9 +102,18 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 ### Prepare to monitor events
 
-Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+
+   ![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### Run the sample program
 
@@ -115,7 +124,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -134,7 +143,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

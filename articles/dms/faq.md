@@ -27,7 +27,7 @@ Azure Database Migration Service is a fully managed service designed to enable s
 * Continued investment in friction-free migrations.
 
 **Q. What source/target pairs does Azure Database Migration Service currently support?**
-The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status).
+The service currently supports a variety of source/target pairs, or migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](./resource-scenario-status.md).
 
 Other migration scenarios are in preview and require submitting a nomination via the DMS Preview site. For a complete listing of the scenarios in preview and to sign up to participate in one of these offerings, see the [DMS Preview site](https://aka.ms/dms-preview/).
 
@@ -53,11 +53,11 @@ There are several prerequisites required to ensure that Azure Database Migration
 
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
 
-* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Ensure that your virtual network Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Ensure that your virtual network Network Security Group rules don't block the following communication ports 443, 53, 5671-5672, 9350-9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
 
-For a list of all the prerequisites required to compete specific migration scenarios using Azure Database Migration Service, see the related tutorials in the Azure Database Migration Service [documentation](https://docs.microsoft.com/azure/dms/dms-overview) on docs.microsoft.com.
+For a list of all the prerequisites required to compete specific migration scenarios using Azure Database Migration Service, see the related tutorials in the Azure Database Migration Service [documentation](./dms-overview.md) on docs.microsoft.com.
 
 **Q. How do I find the IP address for Azure Database Migration Service so that I can create an allow list for the firewall rules used to access my source database for migration?**
 You may need to add firewall rules allowing Azure Database Migration Service to access to your source database for migration. The IP address for the service is dynamic, but if you're using ExpressRoute, this address is privately assigned by your corporate network. The easiest way to identify the appropriate IP address is to look in the same resource group as your provisioned Azure Database Migration Service resource to find the associated Network Interface. Usually the name of the Network Interface resource begins with the NIC prefix and followed by a unique character and number sequence, for example NIC-jj6tnztnmarpsskr82rbndyp. By selecting this network interface resource, you can see the IP address that needs to be included in the allow list on the resource overview Azure portal page.
@@ -81,7 +81,7 @@ You can also determine the port that SQL Server is listening by querying the SQL
 ```
 
 **Q. How do I set up a Microsoft Azure Virtual Network?**
-While multiple Microsoft tutorials that can walk you through the process of setting up a virtual network, the official documentation appears in the article [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+While multiple Microsoft tutorials that can walk you through the process of setting up a virtual network, the official documentation appears in the article [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ## Usage
 
@@ -91,7 +91,7 @@ During a typical, simple database migration, you:
 1. Create a target database(s).
 2. Assess your source database(s).
     * For homogenous migrations, assess your existing database(s) by using [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * For heterogeneous migrations (from compete sources), assess your existing database(s) with [SSMA](https://aka.ms/get-ssma). You also use SSMA to convert database objects and migrate the schema to your target platform.
+    * For heterogeneous migrations (from compete sources), assess your existing database(s) with [SSMA](/sql/ssma/sql-server-migration-assistant). You also use SSMA to convert database objects and migrate the schema to your target platform.
 3. Create an instance of Azure Database Migration Service.
 4. Create a migration project specifying the source database(s), target database(s), and the tables to migrate.
 5. Start the full load.

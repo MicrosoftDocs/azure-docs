@@ -5,12 +5,12 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
 ---
 
-# Explore and manage your resources with asset inventory and management tools
+# Explore and manage your resources with asset inventory
 
 The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
 
@@ -28,7 +28,7 @@ Use this view and its filters to address such questions as:
 The asset management possibilities for this tool are substantial and continue to grow. 
 
 > [!TIP]
-> The security recommendations are the same as those on the **Recommendations** page, but here they're filtered to the specific resource type you've selected. For more information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
+> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
 
 ## Availability
@@ -38,7 +38,7 @@ The asset management possibilities for this tool are substantial and continue to
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
@@ -58,27 +58,27 @@ The inventory page provides the following tools:
 
     As soon as you've applied filters, the summary values are updated to relate to the query results. 
 
-- **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the KQL query.
+- **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the Kusto Query Language (KQL) query.
 
-    ![Inventory's export options](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Inventory's export options":::
 
     > [!TIP]
-    > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
     - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
     - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button.
-    - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](../logic-apps/logic-apps-overview.md).
 
 
 ## How does asset inventory work?
 
-Asset inventory utilizes [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
+Asset inventory utilizes [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale.
 
-Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
+Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
 
 
 ## How to use asset inventory
@@ -118,7 +118,7 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. To further examine the results of your query, select the resources that interest you.
 
-1. To view the current selected filter options as a query in Resource Graph Explorer, select **View in resource graph explorer**.
+1. To view the current selected filter options as a query in Resource Graph Explorer, select **Open query**.
 
     ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
@@ -151,5 +151,5 @@ This article described the asset inventory page of Azure Security Center.
 
 For more information on related tools, see the following pages:
 
-- [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)

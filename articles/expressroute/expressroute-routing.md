@@ -135,7 +135,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 * You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 > [!NOTE]
-> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) to work around this.
+> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) to work around this.
 > 
 > 
 
@@ -226,9 +226,12 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Azure Resource Manager |12076:5070 |
 | Other Office 365 Online services** | 12076:5100 |
 
-\* Azure Global Services includes only Azure DevOps at this time.\
-\*\* Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)\
-\*\*\* This community also publishes the needed routes for Microsoft Teams services.\
+\* Azure Global Services includes only Azure DevOps at this time.
+
+\*\* Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)
+
+\*\*\* This community also publishes the needed routes for Microsoft Teams services.
+
 \*\*\*\* CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
 
 > [!NOTE]
@@ -255,6 +258,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
 ## Next steps

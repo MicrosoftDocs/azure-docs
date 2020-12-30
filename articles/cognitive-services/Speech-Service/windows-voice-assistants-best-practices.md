@@ -64,7 +64,7 @@ Even if states change rapidly it is worth considering providing UX for states, s
 When the assistant app has focus, the customer intent is clearly to interact with the app, so all voice activation experiences should be handled by the main app view. This view may be resized by the customer. To help explain assistant shell interactions, the rest of this document uses the concrete example of a financial service assistant named Contoso. In this and subsequent diagrams, what the customer says will appear in cartoon speech bubbles on the left with assistant responses in cartoon bubbles on the right.
 
 **In-app view. Initial state when voice activation begins:**
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/initial_state.png)
+![Screenshot showing the Contoso finance assistant app open to it's default canvas. A cartoon speech bubble on the right says "Contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **In-app view. After successful voice activation, listening experience begins:**![Screenshot of voice assistant on Windows while voice assistant is listening](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -102,9 +102,9 @@ The assistant must implement the dismissal guidance in this section to make it e
 - If the app is &quot;in use&quot;, it may continue above lock. &quot;in use&quot; constitutes any input or output. For example, when streaming music or video the app may continue above lock. &quot;Follow on&quot; and other multiturn dialog steps are permitted to keep the app above lock.
 - **Implementation details on dismissing the application** can be found [in the above lock implementation guide](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Screenshot showing the above lock view of the Contoso finance assistant app.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Screenshot of a desktop showing the Windows lock screen.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### Privacy &amp; security considerations above lock
 

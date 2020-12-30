@@ -11,6 +11,8 @@ ms.author: akshanka
 
 ---
 # Azure Cosmos DB Table API for Node.js: Release notes and resources
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)

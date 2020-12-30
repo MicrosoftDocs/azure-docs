@@ -197,7 +197,7 @@ If you want to include health events that may have expired (gone passed their ti
 *Historical health for all services in "myApp":*
 
 Currently, health report events for services show up as `DeployedServicePackageNewHealthReport` events under the corresponding application entity. To see how your services have been doing for "App1", use the following query:
-`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Partition reconfiguration:*
 

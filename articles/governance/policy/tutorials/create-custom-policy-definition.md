@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -78,9 +78,9 @@ to browse resources in your environment and see the Resource Manager properties 
 
 ### ARM templates
 
-There are several ways to look at a [Resource Manager
-template](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)
-that includes the property you're looking to manage.
+There are several ways to look at an
+[ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
+includes the property you're looking to manage.
 
 #### Existing resource in the portal
 
@@ -88,6 +88,11 @@ The simplest way to find properties is to look at an existing resource of the sa
 already configured with the setting you want to enforce also provide the value to compare against.
 Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
+
+> [!WARNING]
+> The ARM template exported by Azure portal can't be plugged straight into the `deployment` property
+> for an ARM template in a [deployIfNotExists](../concepts/effects.md#deployifnotexists) policy
+> definition.
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Screenshot of the Export template page on an existing resource in Azure portal." border="false":::
 

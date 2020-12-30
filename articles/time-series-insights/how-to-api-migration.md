@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: shresha
 ---
 
@@ -16,9 +16,12 @@ ms.custom: shresha
 
 ## Overview
 
-If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article.
+If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article. This change does not affect any users who are using the Gen1 version of Azure Time Series Insights.
 
-The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+> [!IMPORTANT]
+> The updates described in this article will ONLY upgrade the API versions used by your TSI environment. This change is unrelated to the new [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) introduced for Gen2 environments.
+
+The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Users must migrate their environment's [Time Series Model variables](./concepts-variables.md), saved queries, Power BI queries, and any custom tools making calls to the API endpoints. If you have any questions or concerns about the migration process, submit a support ticket through the Azure portal and mention this document.
 
@@ -68,7 +71,7 @@ If you have generated queries using the Power BI Connector, they are making call
 To update the queries to use the new API version and new Time Series Expression Syntax, queries will need to be regenerated from the Explorer. Read more about how to [create queries using the Power BI Connector](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> You must be using the July 2020 Version of Power BI Desktop. If not you may see an [invalid query payload version error](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
+> You must be using at least the July 2020 Version of Power BI Desktop. If you do not, you may see an "Invalid query payload version" error.
 
 ## Migrate custom applications
 
@@ -76,28 +79,28 @@ If your custom application is making calls to the following REST endpoints, it i
 
 - Time Series Model APIs
   - Model Settings APIs
-    - [Get](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Update](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [Get](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Update](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Instance APIs
-    - [All Batch Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [Search](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Suggest](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [All Batch Operations](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [List](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [Search](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Suggest](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - Hierarchy APIs
-    - [All Batch Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [All Batch Operations](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [List](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - Types APIs
-    - [Delete, Get Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [Delete, Get Operations](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [List](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - Types APIs
-  - [Put Operation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Put Operation](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - Query APIs
-  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
 ### Examples
 
@@ -350,7 +353,7 @@ Alternatively, the `value` can also be `coalesce($event['Temp'].Double, toDouble
 
 #### InvalidInput
 
-If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
+If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
 
 ```JSON
 {

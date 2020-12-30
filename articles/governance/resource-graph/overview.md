@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -78,8 +78,8 @@ First, for details on operations and functions that can be used with Azure Resou
 
 ## Permissions in Azure Resource Graph
 
-To use Resource Graph, you must have appropriate rights in [Role-based access
-control](../../role-based-access-control/overview.md) (RBAC) with at least read access to the
+To use Resource Graph, you must have appropriate rights in [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md) with at least read access to the
 resources you want to query. Without at least `read` permissions to the Azure object or object
 group, results won't be returned.
 

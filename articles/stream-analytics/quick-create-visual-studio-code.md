@@ -278,4 +278,4 @@ To learn about Azure Stream Analytics Tools for Visual Studio Code, continue to 
 
 * [Use Visual Studio Code to view Azure Stream Analytics jobs](visual-studio-code-explore-jobs.md)
 
-* [Set up CI/CD pipelines by using the npm package](setup-cicd-vs-code.md)
+* [Set up CI/CD pipelines by using the npm package](./cicd-overview.md)

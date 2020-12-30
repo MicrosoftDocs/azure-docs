@@ -413,13 +413,13 @@ Once the operation is complete, the VM will transition into one of the following
 
 ## VM instance view
 
-The instance view API provides VM running-state information. For more information, see the [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API documentation.
+The instance view API provides VM running-state information. For more information, see the [Virtual Machines - Instance View](/rest/api/compute/virtualmachines/instanceview) API documentation.
 
 Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM.
 
-To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
+To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
 ## Next steps
 

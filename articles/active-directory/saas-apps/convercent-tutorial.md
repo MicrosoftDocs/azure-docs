@@ -21,7 +21,7 @@ Integrating Convercent with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Convercent (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -45,19 +45,19 @@ To configure the integration of Convercent into Azure AD, you need to add Conver
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Convercent**, select **Convercent** from result panel then click **Add** button to add the application.
 
-	 ![Convercent in the results list](common/search-new-app.png)
+    ![Convercent in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,41 +89,41 @@ To configure Azure AD single sign-on with Convercent, perform the following step
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![Convercent Domain and URLs single sign-on information](common/both-identifier.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier (Entity ID)" field and "Save" button highlighted.](common/both-identifier.png)
 
-	In the **Identifier** text box, type a URL using the following pattern:
+    In the **Identifier** text box, type a URL using the following pattern:
     `https://<instancename>.convercent.com/`
 
 5. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
     ![Convercent Domain and URLs single sign-on information](common/both-advanced-urls.png)
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<instancename>.convercent.com/`
 
-	b. In the **Relay State** text box, type a URL using the following pattern:
+    b. In the **Relay State** text box, type a URL using the following pattern:
     `https://<instancename>.convercent.com/`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Sign-On URL and Relay State. Contact [Convercent Client support team](http://support.convercent.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Sign-On URL and Relay State. Contact [Convercent Client support team](http://support.convercent.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 7. On the **Set up Convercent** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure Convercent Single Sign-On
 
@@ -146,7 +146,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -160,11 +160,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Convercent**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Convercent**.
 
-	![The Convercent link in the Applications list](common/all-applications.png)
+    ![The Convercent link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -188,13 +188,12 @@ In this section, you create a user called Britta Simon in Convercent. Work withÂ
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Convercent tile in the Access Panel, you should be automatically signed in to the Convercent for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Convercent tile in the Access Panel, you should be automatically signed in to the Convercent for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

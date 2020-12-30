@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect with Ruby - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Ruby code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
@@ -38,7 +38,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
+The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See Ruby Pg reference documentation for more information on these classes and methods.
 
 Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
@@ -178,6 +178,16 @@ rescue PG::Error => e
 ensure
     connection.close if connection
 end
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

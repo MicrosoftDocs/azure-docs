@@ -15,7 +15,7 @@ ms.date: 01/03/2019
 # Using the RecoveryManager class to fix shard map problems
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) class provides ADO.NET applications the ability to easily detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database environment.
+The [RecoveryManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) class provides ADO.NET applications the ability to easily detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database environment.
 
 The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
 
@@ -43,7 +43,7 @@ For more information about Azure SQL Database Elastic Database tools, geo-replic
 
 ## Retrieving RecoveryManager from a ShardMapManager
 
-The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returns the recovery manager for the current [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instance. To address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map.
+The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returns the recovery manager for the current [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instance. To address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -57,7 +57,7 @@ Since this application code manipulates the shard map itself, the credentials us
 
 ## Removing a shard from the ShardMap after a shard is deleted
 
-The [DetachShard method](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) detaches the given shard from the shard map and deletes mappings associated with the shard.  
+The [DetachShard method](/previous-versions/azure/dn842083(v=azure.100)) detaches the given shard from the shard map and deletes mappings associated with the shard.  
 
 * The location parameter is the shard location, specifically server name and database name, of the shard being detached.
 * The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional.
@@ -77,7 +77,7 @@ Since it is assumed the database deletion was intentional, the final administrat
 
 ## To detect mapping differences
 
-The [DetectMappingDifferences method](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
+The [DetectMappingDifferences method](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -88,19 +88,19 @@ The [DetectMappingDifferences method](https://docs.microsoft.com/dotnet/api/micr
 
 ## To resolve mapping differences
 
-The [ResolveMappingDifferences method](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
+The [ResolveMappingDifferences method](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard.
-* The [MappingDifferenceResolution enumeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) is used to indicate the method for resolving the difference between the shard mappings.
+* The [MappingDifferenceResolution enumeration](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) is used to indicate the method for resolving the difference between the shard mappings.
 * **MappingDifferenceResolution.KeepShardMapping** is recommended that when the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case if there is a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the LSM must be used to re-establish the shard mapping.
 
 ## Attach a shard to the ShardMap after a shard is restored
 
-The [AttachShard method](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (before the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp.
+The [AttachShard method](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (before the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp.
 
    ```java
    rm.AttachShard(location, shardMapName)

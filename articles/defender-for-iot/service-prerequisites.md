@@ -4,7 +4,7 @@ description: Details of everything needed to get started with Azure Defender for
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ms.custom: references_regions
 ---
 
@@ -24,61 +24,23 @@ This article provides an explanation of the different components of the Defender
 
 ## Minimum requirements
 
-- IoT Hub Standard tier
-  - Azure role **Owner** level privileges
-- [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-- Azure Security Center (recommended)
-  - Use of Azure Security Center is a recommendation, and not a requirement. Without Azure Security Center, you'll be unable to view your other Azure resources within IoT Hub.
+- Agentless monitoring for IoT and OT devices (based on CyberX technology)
+    - Network switches supporting traffic monitoring via SPAN port
+    - Hardware appliances for NTA sensor, for more information see [certified hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance)
+    - Azure Subscription **Contributor** role (required only during onboarding for defining committed devices)
+    - IoT Hub (Free or Standard tier) **Contributor** role (for cloud connected management)
+- Security for managed IoT devices managed via Azure IoT Hub
+    - IoT Hub (Standard tier) **Contributor** role
+    - IoT Hub: **Azure Defender for IoT** feature toggle should be enabled
+    - For device level security module support  
+        - Defender for IoT agents supports a growing list of devices and platforms, see the [supported platform list](how-to-deploy-agent.md)
 
-## Working with Defender for IoT service
-
-Defender for IoT insights and reporting are available using Azure IoT Hub and Azure Security Center. To enable Defender for IoT on your Azure IoT Hub, an account with **Owner** level privileges is required. After enabling ASC for IoT in your IoT Hub, Defender for IoT insights are displayed as the **Security** feature in Azure IoT Hub and as  **IoT** in Azure Security Center.
 
 ## Supported service regions
 
-Defender for IoT is currently supported for IoT Hubs in the following Azure regions:
-
-- Central US
-- East US
-- East US 2
-- West Central US
-- West US
-- West US2
-- Central US South
-- North Central US
-- Canada Central
-- Canada East
-- North Europe
-- Brazil South
-- France Central
-- UK West
-- UK South
-- West Europe
-- Northern Europe
-- Japan West
-- Japan East
-- Australia Southeast
-- Australia East
-- East Asia
-- Southeast Asia
-- Korea Central
-- Korea South
-- Central India
-- South India
+See [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) for more information. 
 
 Defender for IoT routes all traffic from all European regions to the West Europe regional data center and all remaining regions to the Central US regional data center.
-
-## Where's my IoT Hub?
-
-Check your IoT Hub location to verify service availability before you begin.
-
-1. Open your IoT Hub.
-1. Click **Overview**.
-1. Verify the location listed matches one of the [supported service regions](#supported-service-regions).
-
-## Supported platforms for agents
-
-Defender for IoT agents supports a growing list of devices and platforms. See the [supported platform list](how-to-deploy-agent.md) to check your existing or planned device library.
 
 ## Next steps
 

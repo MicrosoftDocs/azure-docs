@@ -14,7 +14,7 @@ A common challenge when building cloud applications is how to securely store sec
 > Use of this preview feature is not recommended in production environments.
 
 > [!NOTE]
-> KeyVault Reference Preview feature supports only [versioned](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) secrets. Versionless secrets are not supported.
+> KeyVault Reference Preview feature supports only [versioned](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) secrets. Versionless secrets are not supported.
 
 ## Prerequisites
 

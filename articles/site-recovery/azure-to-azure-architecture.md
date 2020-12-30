@@ -14,7 +14,7 @@ ms.author: raynew
 # Azure to Azure disaster recovery architecture
 
 
-This article describes the architecture, components, and processes used when you deploy disaster recovery for Azure virtual machines (VMs)  using the [Azure Site Recovery](site-recovery-overview.md) service. With disaster recovery set up, Azure VMs continuously replicate from to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there. When everything's running normally again, you can fail back and continue working in the primary location.
+This article describes the architecture, components, and processes used when you deploy disaster recovery for Azure virtual machines (VMs)  using the [Azure Site Recovery](site-recovery-overview.md) service. With disaster recovery set up, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there. When everything's running normally again, you can fail back and continue working in the primary location.
 
 
 
@@ -126,7 +126,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	             | Allows data to be written from the VM to the cache storage account in the source region. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	  | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
@@ -163,11 +163,11 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 
 #### Control access with NSG rules
 
-If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/security-overview.md), note the following requirements:
+If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/network-security-groups-overview.md), note the following requirements:
 
 - NSG rules for the source Azure region should allow outbound access for replication traffic.
 - We recommend you create rules in a test environment before you put them into production.
-- Use [service tags](../virtual-network/security-overview.md#service-tags) instead of allowing individual IP addresses.
+- Use [service tags](../virtual-network/network-security-groups-overview.md#service-tags) instead of allowing individual IP addresses.
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  

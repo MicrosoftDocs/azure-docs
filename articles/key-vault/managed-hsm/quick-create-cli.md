@@ -74,7 +74,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your HSM through its REST API must use this URI.
+* **hsmUri**: In the example, the URI is 'https://contosohsm.managedhsm.azure.net.' Applications that use your HSM through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 

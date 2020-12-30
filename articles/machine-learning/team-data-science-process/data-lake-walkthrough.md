@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough
-This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
+This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](./index.yml), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
 ## Technologies
 
@@ -86,7 +86,7 @@ Create an ADLA account from the [Azure portal](https://portal.azure.com). For de
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure portal](https://portal.azure.com). For details, see the Create a storage account section in [About Azure Storage accounts](../../storage/common/storage-create-storage-account.md).
+Create an Azure Blob storage account from the [Azure portal](https://portal.azure.com). For details, see the Create a storage account section in [About Azure Storage accounts](../../storage/common/storage-account-create.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -716,7 +716,7 @@ When the query completes, you should see the results like this:
 ### Build and deploy models in Azure Machine Learning Studio
 You are now ready to build and deploy a model that predicts whether or not a tip is paid with Azure Machine Learning. The stratified sample data is ready to be used in this binary classification (tip or not) problem. The predictive models using multiclass classification (tip_class) and regression (tip_amount) can also be built and deployed with Azure Machine Learning Studio, but here it is only shown how to handle the case using the binary classification model.
 
-1. Get the data into Azure Machine Learning Studio (classic) using the **Import Data** module, available in the **Data Input and Output** section. For more information, see the [Import Data module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) reference page.
+1. Get the data into Azure Machine Learning Studio (classic) using the **Import Data** module, available in the **Data Input and Output** section. For more information, see the [Import Data module](/azure/machine-learning/studio-module-reference/import-data) reference page.
 2. Select **Hive Query** as the **Data source** in the **Properties** panel.
 3. Paste the following Hive script in the **Hive database query** editor
 
@@ -749,7 +749,7 @@ By completing this walkthrough, you have created a data science environment for 
 
 ## What's next?
 The learning path for the
-[Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
+[Team Data Science Process (TDSP)](./index.yml) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
 * [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md)
 * [The Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md)

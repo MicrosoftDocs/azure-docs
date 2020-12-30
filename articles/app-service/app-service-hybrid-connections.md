@@ -7,7 +7,7 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure App Service Hybrid Connections
@@ -38,7 +38,7 @@ There are a number of benefits to the Hybrid Connections capability, including:
 - It normally does not require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
-- It is supported in GA for Windows apps and is in preview for Linux apps.
+- It is supported in GA for Windows native apps and is in preview for Linux apps. It is not supported for Windows container apps.
 
 ### Things you cannot do with Hybrid Connections ###
 

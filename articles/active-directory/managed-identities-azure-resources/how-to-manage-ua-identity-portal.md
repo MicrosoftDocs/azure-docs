@@ -41,7 +41,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example **West US**.
     - **Name**: This is the name for your user-assigned managed identity, for example UAI1.
     ![Create a user-assigned managed identity](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Click **Review + crate** to review the changes.
+4. Click **Review + create** to review the changes.
 5. Click **Create**.
 
 ## List user-assigned managed identities

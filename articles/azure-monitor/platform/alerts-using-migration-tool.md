@@ -77,7 +77,7 @@ When a subscription becomes ready for migration, the subscription owner will rec
 
 ### Who can trigger the migration?
 
-Users who have the Monitoring Contributor role assigned to them at the subscription level are able to trigger the migration. [Learn more about Role-Based Access Control for the migration process](alerts-understand-migration.md#who-can-trigger-the-migration).
+Users who have the Monitoring Contributor role assigned to them at the subscription level are able to trigger the migration. [Learn more about Azure role-based access control for the migration process](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### How long will the migration take?
 

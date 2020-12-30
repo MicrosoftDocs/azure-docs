@@ -12,6 +12,7 @@ ms.custom: devx-track-python
 
 ---
 # Azure Cosmos DB Python examples
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
@@ -33,7 +34,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB Free Tier](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Without an Azure active subscription:
         * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
@@ -45,7 +46,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 
 ## Database examples
 
-The [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -57,7 +58,7 @@ The [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/
 
 ## Container examples
 
-The [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos collections before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos collections before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -70,7 +71,7 @@ The [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob
 
 ## Item examples
 
-The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -85,7 +86,7 @@ The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mast
 
 ## Indexing examples
 
-The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-types.md), and [indexing paths](index-paths.md) conceptual articles.
+The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-kinds), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles.
 
 | Task | API reference |
 | --- | --- |

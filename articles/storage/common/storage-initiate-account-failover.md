@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Initiate a storage account failover
@@ -33,6 +33,13 @@ Before you can perform an account failover on your storage account, make sure th
 - Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS)
 
 For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
+
+Keep in mind that the following features and services are not supported for account failover:
+
+- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
+- ADLS Gen2 storage accounts (accounts that have hierarchical namespace enabled) are not supported at this time.
+- A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 
 ## Initiate the failover
 
@@ -103,6 +110,8 @@ az storage account failover \ --name accountName
 When you initiate an account failover for your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
 
 To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
+The time it takes to failover after initiation can vary though typically less than one hour.
 
 After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 

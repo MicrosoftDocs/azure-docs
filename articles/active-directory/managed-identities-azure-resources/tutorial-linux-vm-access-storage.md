@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 10/23/2020
 ms.author: barclayn
 
 ms.collection: M365-identity-device-management
@@ -75,7 +75,10 @@ Files require blob storage so you need to create a blob container in which to st
 
 ## Grant your VM access to an Azure Storage container 
 
-You can use the VM's managed identity to retrieve the data in the Azure storage blob.   
+You can use the VM's managed identity to retrieve the data in the Azure storage blob.
+
+>[!NOTE]
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  

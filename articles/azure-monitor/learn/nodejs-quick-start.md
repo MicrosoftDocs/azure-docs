@@ -56,7 +56,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    npm install applicationinsights --save
    ```
 
-3. Edit your app's first *.js* file and add the two lines below to the topmost part of your script. If you're using the [Node.js quickstart app](../../app-service/quickstart-nodejs.md), you would modify the *index.js* file. Replace `<instrumentation_key>` with your application's instrumentation key. 
+3. Edit your app's first *.js* file and add the two lines below to the topmost part of your script. If you're using the [Node.js quickstart app](../../app-service/quickstart-nodejs.md), you would modify the *index.js* file. Replace `<instrumentation_key>` with your application insight's instrumentation key. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

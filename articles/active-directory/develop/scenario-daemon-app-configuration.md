@@ -33,9 +33,9 @@ These Microsoft libraries support daemon apps:
 
 Daemon applications use application permissions rather than delegated permissions. So their supported account type can't be an account in any organizational directory or any personal Microsoft account (for example, Skype, Xbox, Outlook.com). There's no tenant admin to grant consent to a daemon application for a Microsoft personal account. You'll need to choose *accounts in my organization* or *accounts in any organization*.
 
-So the authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
+The authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
 
-If you're an ISV and want to provide a multitenant tool, you can use `organizations`. But keep in mind that you'll also need to explain to your customers how to grant admin consent. For details, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Also, there's currently a limitation in MSAL: `organizations` is allowed only when the client credentials are an application secret (not a certificate).
+Even if want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
 
 ## Configure and instantiate the application
 
@@ -349,17 +349,17 @@ ConfidentialClientApplication cca =
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=python)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=java)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

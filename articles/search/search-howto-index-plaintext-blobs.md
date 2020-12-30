@@ -57,9 +57,10 @@ Parsing modes are specified in the indexer definition.
 ```
 
 ## Help us make Azure Cognitive Search better
+
 If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## See also
+## Next steps
 
 * [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 * [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md)

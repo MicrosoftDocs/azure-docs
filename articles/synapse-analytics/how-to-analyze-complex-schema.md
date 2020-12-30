@@ -5,7 +5,7 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.subservice: 
+ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick

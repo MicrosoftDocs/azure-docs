@@ -39,9 +39,9 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 
 * DocuSign supports **just-in-time** user provisioning.
 
-* DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* DocuSign supports [automatic user provisioning](./docusign-provisioning-tutorial.md).
 
-* Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding DocuSign from the gallery
 
@@ -230,12 +230,12 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to DocuSign Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the DocuSign tile in the Access Panel, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the DocuSign tile in the Access Panel, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next Steps
 
-Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

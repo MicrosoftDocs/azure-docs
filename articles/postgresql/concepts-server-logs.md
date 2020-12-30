@@ -1,8 +1,8 @@
 ---
 title: Logs - Azure Database for PostgreSQL - Single Server
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
@@ -67,7 +67,7 @@ To enable resource logs using Powershell, CLI, or REST API, visit the [diagnosti
 
 ### Access resource logs
 
-The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
+The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) article.
 
 For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/log-query/log-query-overview.md) overview.
 

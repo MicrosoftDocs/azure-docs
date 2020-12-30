@@ -144,12 +144,12 @@ When `AzureSession.IsConnected` is true, `AzureSession.Actions` returns an insta
 
 ## API documentation
 
-* [C# AzureSession class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
-* [C# AzureFrontend.CreateNewRenderingSessionAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
-* [C# AzureFrontend.OpenRenderingSession()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
-* [C++ AzureSession class](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
-* [C++ AzureFrontend::CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
-* [C++ AzureFrontend::OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
+* [C# AzureSession class](/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend.OpenRenderingSession()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C++ AzureSession class](/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend::OpenRenderingSession](/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## Next steps
 

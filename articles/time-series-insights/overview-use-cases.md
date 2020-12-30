@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
 ---
 
@@ -47,13 +47,13 @@ Customers can take advantage of the speed to diagnose asset-related issues quick
 
 There are three primary ways to interact with data stored in Azure Time Series Insights Gen2:
 
-* The first and easiest way to get started is with the Azure Time Series Insights Gen2 Explorer. You can use it to quickly visualize all of your IoT data in one place. It provides tools like the heat map to help you spot anomalies in your data. It also provides a perspective view. Use it to compare up to four views from one or more Azure Time Series Insights Gen2 environments in a single dashboard. The dashboard gives you a view of your time-series data across all your locations. Learn more about the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md). To plan out your environment, read [Azure Time Series Insights Gen2 planning](./time-series-insights-update-plan.md).
+* The first and easiest way to get started is with the Azure Time Series Insights Gen2 Explorer. You can use it to quickly visualize all of your IoT data in one place. It provides tools like the heat map to help you spot anomalies in your data. It also provides a perspective view. Use it to compare up to four views from one or more Azure Time Series Insights Gen2 environments in a single dashboard. The dashboard gives you a view of your time-series data across all your locations. Learn more about the [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md). To plan out your environment, read [Azure Time Series Insights Gen2 planning](./how-to-plan-your-environment.md).
 
 * The second way to start is to use the JavaScript SDK to quickly embed powerful charts and graphs in your web application. With just a few lines of code, you can author powerful queries. Use them to populate line charts, pie charts, bar charts, heat maps, data grids, and more. All of these elements exist out-of-the-box by using the SDK. The SDK also abstracts Azure Time Series Insights Gen2 query APIs. You can use them to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Azure Time Series Insights Gen2 offers parameterized URLs. They provide seamless connection points with the Azure Time Series Insights Gen2 Explorer for deep dives into data.
 
   * Read about the [JS client library](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) and the [Sample Client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
-  * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md).
+  * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 * The third way to start is to use the powerful APIs to query data stored in Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 has temporal operators such as `from`, `to`, `first`, and `last`. It has aggregations and transformations such as `average`, `sum`, `min`, `max`, `time-weighted average`, `time-weighted sum`, etc. It also allows filtering, arithmetic and boolean operators, scalar functions, etc. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate homegrown visualizations to spot anomalies.
 
@@ -95,6 +95,6 @@ Azure Time Series Insights Gen2 bridges the gap between IoT data and advanced an
 
 ## Next steps
 
-* Learn more about the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
-* Read [Azure Time Series Insights Gen2 best practices](./time-series-insights-update-plan.md) to plan out your environment.
+* Learn more about the [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
+* Read [Azure Time Series Insights Gen2 best practices](./how-to-plan-your-environment.md) to plan out your environment.
 * Read the [Sample Client](https://github.com/Microsoft/tsiclient) documentation.

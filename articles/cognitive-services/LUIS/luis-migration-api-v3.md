@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
+
 ---
 
 
@@ -57,7 +57,7 @@ If you know none of your client application or integrations (Bot Framework, and 
 
 ### Bing Spell Check
 
-This API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections. If you need spelling correction while using V3 API, have the client application call the [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) API, and change the text to the correct spelling, prior to sending the text to the LUIS API.
+This API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections. If you need spelling correction while using V3 API, have the client application call the [Bing Spell Check](../bing-spell-check/overview.md) API, and change the text to the correct spelling, prior to sending the text to the LUIS API.
 
 ## Bot Framework and Azure Bot Service client applications
 

@@ -13,16 +13,13 @@ ms.author: jushiman
 
 The Av2-series VMs can be deployed on a variety of hardware types and processors. Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine. Some example use cases include development and test servers, low traffic web servers, small to medium databases, proof-of-concepts, and code repositories.
 
-ACU: 100
-
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
-
+[ACU](acu.md): 100<br>
+[Premium Storage](premium-storage-performance.md): Not Supported <br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported <br>
+[Live Migration](maintenance-and-updates.md): Supported <br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
+[VM Generation Support](generation-2.md): Generation 1 <br>
+<br>
 
 | Size | vCore | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs | Expected network bandwidth (Mbps)
 |---|---|---|---|---|---|---|---|

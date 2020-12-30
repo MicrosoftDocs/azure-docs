@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -34,7 +34,7 @@ A [series of related tutorials](saas-dbpertenant-wingtip-app-overview.md#sql-dat
 
 ## Prerequisites
 
-To complete this tutorial, make sure Azure PowerShell is installed. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+To complete this tutorial, make sure Azure PowerShell is installed. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## Deploy the Wingtip Tickets SaaS application
 
@@ -140,7 +140,7 @@ In a production environment, typically you create a CNAME DNS record to [*point
 
 > [!NOTE]
 > It may not be immediately obvious what the use of the traffic manager is in this tutorial. The goal of this series of tutorials is to showcase patterns that can handle the scale of a complex production environment. In such a case, for example, you would have multiple web apps distributed across the globe, co-located with databases and you would need traffic manager to route between these instances.
-Another set of tutorials that illustrates the use of traffic manager though are the [geo-restore](../../sql-database/saas-dbpertenant-dr-geo-restore.md) and the [geo-replication](../../sql-database/saas-dbpertenant-dr-geo-replication.md) tutorials. In these tutorials, traffic manager is used to help to switch over to a recovery instance of the SaaS app in the event of a regional outage.
+Another set of tutorials that illustrates the use of traffic manager though are the [geo-restore](./saas-dbpertenant-dr-geo-restore.md) and the [geo-replication](./saas-dbpertenant-dr-geo-replication.md) tutorials. In these tutorials, traffic manager is used to help to switch over to a recovery instance of the SaaS app in the event of a regional outage.
 
 ## Start generating load on the tenant databases
 
@@ -249,7 +249,7 @@ The two charts illustrate that elastic pools and SQL Database are well suited to
 
 - For more information, see additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - To learn about elastic pools, see [What is an Azure SQL elastic pool?](elastic-pool-overview.md).
-- To learn about elastic jobs, see [Manage scaled-out cloud databases](../../sql-database/elastic-jobs-overview.md).
+- To learn about elastic jobs, see [Manage scaled-out cloud databases](./elastic-jobs-overview.md).
 - To learn about multitenant SaaS applications, see [Design patterns for multitenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 ## Next steps

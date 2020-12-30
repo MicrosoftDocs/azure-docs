@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -60,4 +60,4 @@ To see the affected tabs you must use the Teams web client in Edge, Internet Exp
 
 ## Next steps
 
-- To configure Conditional Access policies for your environment, see the [Best practices for Conditional Access in Azure Active Directory](best-practices.md). 
+- To configure Conditional Access policies for your environment, see the article [Plan a Conditional Access deployment](plan-conditional-access.md). 

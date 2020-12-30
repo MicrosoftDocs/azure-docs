@@ -20,7 +20,7 @@ This guide discusses how to secure public applications or devices that cannot se
 ## Create an application registration in Azure AD
 
 > [!NOTE]
-> * **Prerequisite Reading:** [Scenario: Desktop app that calls web APIs](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
+> * **Prerequisite Reading:** [Scenario: Desktop app that calls web APIs](../active-directory/develop/scenario-desktop-overview.md)
 > * The following scenario uses the device code flow, which does not involve a web browser to acquire a token.
 
 Create the device based application in Azure AD to enable Azure AD sign in. This application will be granted access to Azure Maps REST APIs.
@@ -30,7 +30,7 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
     > [!div class="mx-imgBorder"]
     > ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
-2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Supported account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Then **Register** the application.
+2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Supported account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](../active-directory/develop/scenario-desktop-app-registration.md). Then **Register** the application.
 
     > [!div class="mx-imgBorder"]
     > ![Add app registration details for name and redirect uri](./media/azure-maps-authentication/devicecode-app-registration.png)
@@ -50,13 +50,13 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
     > [!div class="mx-imgBorder"]
     > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure Azure role based access control for users or groups. See [Grant role based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure Azure role-based access control (Azure RBAC) for users or groups. See [Grant role-based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
-7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
+7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
 > [!Tip]
 > Use Microsoft Authentication Library (MSAL) to acquire access tokens. 
-> See recommendations on [Desktop app that calls web APIs: Code configuration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
+> See recommendations on [Desktop app that calls web APIs: Code configuration](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Compose the HTTP request with the acquired token from Azure AD, and sent request with a valid HTTP client.
 
@@ -106,7 +106,7 @@ Body:
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
 

@@ -4,8 +4,8 @@ description: Learn about go-to-market listing best practices for your Microsoft 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
 ---
 
@@ -56,7 +56,8 @@ Select categories and subcategories that best align with your solution type. You
 
 #### IMPORTANT: SaaS Offers and Microsoft 365 Add-ins
 
-Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published:
+See [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
+
 
 | SaaS offer    | SaaS offer   | SaaS offer  | SaaS offer   | SaaS offer   | SaaS offer   | SaaS offer    | Applicable online store| Applicable online store |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|

@@ -52,7 +52,7 @@ Each audit entry is indicated by `AUDIT:` near the beginning of the log line. Th
 To quickly get started, set `pgaudit.log` to `WRITE`, and open your server logs to review the output. 
 
 ## Viewing audit logs
-The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
+The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) article.
 
 For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../../azure-monitor/log-query/log-query-overview.md) overview.
 

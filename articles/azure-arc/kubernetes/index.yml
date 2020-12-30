@@ -32,3 +32,16 @@ landingContent:
             url: use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
             url: deploy-azure-iot-edge-workloads.md
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage deployments and configurations for hybrid Kubernetes clusters
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes

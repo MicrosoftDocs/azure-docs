@@ -16,7 +16,7 @@ Security administrators need to manage firewalls and ensure compliance across on
 Azure Firewall policy allows you to define a rule hierarchy and enforce compliance:
 
 - Provides a hierarchical structure to overlay a central base policy on top of a child application team policy. The base policy has a higher priority and runs before the child policy.
-- Use a custom role-based access control (RBAC) definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group. 
+- Use an Azure custom role definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group. 
 
 ## Solution overview
 
@@ -148,7 +148,7 @@ Repeat this procedure for the other firewall policies.
 
 ### Summary
 
-Firewall Policy with custom RBAC now provides selective access to firewall policy rule collection groups.
+Firewall Policy with custom roles now provides selective access to firewall policy rule collection groups.
 
 Users don’t have permissions to:
 - Delete the Azure Firewall or firewall policy.

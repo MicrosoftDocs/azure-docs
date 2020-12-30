@@ -1,8 +1,8 @@
 ---
 title: Performance Recommendations - Azure Database for PostgreSQL - Single Server
 description: This article describes the Performance Recommendation feature in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019

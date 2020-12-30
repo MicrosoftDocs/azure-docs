@@ -3,11 +3,11 @@ title: Retrieve key-value pairs from a point-in-time
 titleSuffix: Azure App Configuration
 description: Retrieve old key-value pairs using point-in-time snapshots in Azure App Configuration, which maintains a record of changes to key-values.
 services: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 08/05/2020
 ---
 
 # Point-in-time snapshot
@@ -18,7 +18,7 @@ Azure App Configuration maintains a record of changes made to key-values. This r
 
 You can use Azure portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
-If you don't have Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview).
+If you don't have Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Retrieve all recorded changes to your key-values.
 
@@ -53,4 +53,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)

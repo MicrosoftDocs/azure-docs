@@ -3,14 +3,14 @@ title: Correct misspelled words - LUIS
 titleSuffix: Azure Cognitive Services
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
+
 ---
 
 # Correct misspelled words with Bing Spell Check
@@ -94,4 +94,4 @@ Two solutions are:
 The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance.
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
+> [Learn more about example utterances](./luis-how-to-add-entities.md)

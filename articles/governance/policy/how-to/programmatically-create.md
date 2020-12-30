@@ -111,7 +111,7 @@ HTTP requests.
 
    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Subscription - `/subscriptions/{subId}/`
+   - Subscription - `/subscriptions/{subId}`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 For more information about managing resource policies using the Resource Manager PowerShell
@@ -231,7 +231,7 @@ To create a policy definition, use the following procedure:
 
    The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_.
    For more information about other parameters that you can use, see
-   [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+   [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create).
 
    When called without location parameters, `az policy definition creation` defaults to saving the
    policy definition in the selected subscription of the sessions context. To save the definition to

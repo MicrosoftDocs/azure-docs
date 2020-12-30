@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ---
 
 # Manage an Azure Database for PostgreSQL - Flexible Server using the Azure portal

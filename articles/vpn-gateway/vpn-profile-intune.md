@@ -14,6 +14,10 @@ ms.author: cherylmc
 
 You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
 
+> [!NOTE]
+> This method will only work for deploying profiles that use Azure Active Directory or a common certificate for client authentication. If unique client certificates are used, each user will have to select the correct certificate manually within the Azure VPN Client.
+>
+
 ## Prerequisites
 
 * Devices are already enrolled with Intune MDM.
@@ -27,7 +31,7 @@ In the following steps, we use a sample XML for a custom OMA-URI profile for Int
 * Auto-connect ON
 * Trusted Network detection enabled.
 
-For other supported options, see the [VPNv2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) article.
+For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/vpnv2-csp) article.
 
 1. Download the VPN profile from the Azure portal and extract the *azurevpnconfig.xml* file from the package.
 1. Copy and paste the text below into a new text editor file.
@@ -79,7 +83,7 @@ In this section, you create a Microsoft Intune profile with custom settings.
 1. On the **Review + create** page, select **Create**.
 
     :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Create profile":::
-1. Your custom profile is now created. For the Microsoft Intune steps to deploy this profile, see [Assign user and device profiles](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. Your custom profile is now created. For the Microsoft Intune steps to deploy this profile, see [Assign user and device profiles](/mem/intune/configuration/device-profile-assign).
  
 ## Next steps
 

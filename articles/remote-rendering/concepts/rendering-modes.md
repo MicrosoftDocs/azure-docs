@@ -70,10 +70,10 @@ async void ExampleConnect(AzureSession session)
 
 ## API documentation
 
-* [C# AzureSession.ConnectToRuntime()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
-* [C# ConnectToRuntimeParams struct](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
-* [C++ AzureSession::ConnectToRuntime()](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession#connecttoruntime)
-* [C++ ConnectToRuntimeParams struct](https://docs.microsoft.com/cpp/api/remote-rendering/connecttoruntimeparams)
+* [C# AzureSession.ConnectToRuntime()](/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
+* [C# ConnectToRuntimeParams struct](/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
+* [C++ AzureSession::ConnectToRuntime()](/cpp/api/remote-rendering/azuresession#connecttoruntime)
+* [C++ ConnectToRuntimeParams struct](/cpp/api/remote-rendering/connecttoruntimeparams)
 
 ## Next steps
 

@@ -1,26 +1,29 @@
 ---
 title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
-description: 'Use Azure Machine Learning studio to deploy models trained in the designer.'
+description: Use Azure Machine Learning studio to deploy machine learning models without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+
+Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
 Deployment in the studio consists of the following steps:
 
 1. Register the trained model.
 1. Download the entry script and conda dependencies file for the model.
+1. (Optional) Configure the entry script.
 1. Deploy the model to a compute target.
 
 You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
@@ -31,7 +34,14 @@ Models trained in the designer can also be deployed through the SDK or command-l
 
 * [An Azure Machine Learning workspace](how-to-manage-workspace.md)
 
-* A completed training pipeline containing a [Train Model module](./algorithm-module-reference/train-model.md)
+* A completed training pipeline containing one of following modules:
+    - [Train Model module](./algorithm-module-reference/train-model.md)
+    - [Train Anomaly Detection Model module](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Train Clustering Model module](./algorithm-module-reference/train-clustering-model.md)
+    - [Train Pytorch Model module](./algorithm-module-reference/train-pytorch-model.md)
+    - [Train SVD Recommender module](./algorithm-module-reference/train-svd-recommender.md)
+    - [Train Vowpal Wabbit Model module](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Train Wide & Deep Model module](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## Register the model
 
@@ -48,7 +58,6 @@ After the training pipeline completes, register the trained model to your Azure 
 After registering your model, you can find it in the **Models** asset page in the studio.
     
 ![Screenshot of registered model in the Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## Download the entry script file and conda dependencies file
 
@@ -131,9 +140,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### Consume computer vision related real-time endpoints
+
+When consuming computer vision related real-time endpoints, you need to convert images to bytes, since web service only accepts string as input. Following is the sample code:
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## Configure the entry script
 
-Some modules in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. In this section, you learn how to update these parameters in the entry script file too.
+Some modules in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. 
+
+In this section, you learn how to update these parameters in the entry script file too.
 
 The following example updates the default behavior for a trained **Wide & Deep recommender** model. By default, the `score.py` file tells the web service to predict ratings between users and items. 
 
@@ -228,6 +295,7 @@ score_params = dict(
 ## Next steps
 
 * [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
+* [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)

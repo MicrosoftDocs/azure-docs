@@ -75,7 +75,7 @@ To actually create or update the zone in Azure DNS, the zone object containing t
 > [!NOTE]
 > DnsManagementClient supports three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').  You can choose any of these modes, depending on your application needs.
 
-Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-dnszone.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call fails if a zone with the given name already exists in the given resource group.
+Azure DNS supports optimistic concurrency, called [Etags](./dns-getstarted-powershell.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call fails if a zone with the given name already exists in the given resource group.
 
 ```cs
 // Create zone parameters

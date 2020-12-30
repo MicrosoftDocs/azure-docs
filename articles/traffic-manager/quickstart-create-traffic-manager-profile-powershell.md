@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Create a profile for high availability of applications - Azure PowerShell - Azure Traffic Manager
+title: 'Quickstart: Create a profile for high availability of applications - Azure PowerShell - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
 services: traffic-manager
 author: duongau
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
 ---
 
@@ -20,17 +20,18 @@ This quickstart describes how to create a Traffic Manager profile that delivers 
 
 In this quickstart, you'll create two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a Resource Group
 Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"
@@ -65,7 +66,7 @@ New-AzTrafficManagerProfile `
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*West US* and *East US*). Each will serve as primary and failover endpoints for Traffic Manager.
 
 ### Create Web App Service plans
-Create Web App service plans using [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) for the two instances of the web application that you will deploy in two different Azure regions.
+Create Web App service plans using [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) for the two instances of the web application that you'll deploy in two different Azure regions.
 
 ```azurepowershell-interactive
 

@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Maps Indoor Maps module
+title: Use the Azure Maps Indoor Maps module with Microsoft Creator services (Preview)
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
@@ -13,12 +13,17 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator.
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services (Preview) 
 
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Create a Creator resource](how-to-manage-creator.md)
+2. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
  You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
@@ -142,7 +147,7 @@ This example shows you how to use the *Azure Maps Indoor* module in your web app
 4. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
-    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
+    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
@@ -244,7 +249,7 @@ Read about the APIs that are related to the *Azure Maps Indoor* module:
 > [Drawing package requirements](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator for indoor maps](creator-indoor-maps.md)
+> [Creator (Preview) for indoor maps](creator-indoor-maps.md)
 
 Learn more about how to add more data to your map:
 
@@ -252,4 +257,4 @@ Learn more about how to add more data to your map:
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

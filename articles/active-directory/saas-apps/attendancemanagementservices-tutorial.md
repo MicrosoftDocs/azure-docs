@@ -21,7 +21,7 @@ Integrating Attendance Management Services with Azure AD provides you with the f
 * You can enable your users to be automatically signed-in to Attendance Management Services (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -124,11 +124,11 @@ To configure Azure AD single sign-on with Attendance Management Services, perfor
 
 1. Click on **SAML authentication** under the **Security management section**.
 
-	![Attendance Management Services Configuration](./media/attendancemanagementservices-tutorial/user1.png)
+	![Screenshot shows SAML authentication selected in a page that uses non-latin characters.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Perform the following steps:
 
-	![Attendance Management Services Configuration](./media/attendancemanagementservices-tutorial/user2.png)
+	![Screenshot shows window where you can perform the tasks described in this step.](./media/attendancemanagementservices-tutorial/user2.png)
 
 	a. Select **Use SAML authentication**.
 
@@ -202,15 +202,15 @@ To enable Azure AD users to sign in to Attendance Management Services, they must
 
 1. Click on **User management** under the **Security management section**.
 
-	![Add Employee](./media/attendancemanagementservices-tutorial/user5.png)
+	![Screenshot shows User management selected in a page that uses non-latin characters.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Click **New rules login**.
 
-    ![Add Employee](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Screenshot shows selecting the plus option.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. In the **OBCiD information** section, perform the following steps:
 
-	![Add Employee](./media/attendancemanagementservices-tutorial/user4.png)
+	![Screenshot shows window where you can perform the tasks described.](./media/attendancemanagementservices-tutorial/user4.png)
 
 	a. In the **OBCiD** textbox, type the email of user like `BrittaSimon\@contoso.com`.
 
@@ -222,12 +222,12 @@ To enable Azure AD users to sign in to Attendance Management Services, they must
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Attendance Management Services tile in the Access Panel, you should be automatically signed in to the Attendance Management Services for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Attendance Management Services tile in the Access Panel, you should be automatically signed in to the Attendance Management Services for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

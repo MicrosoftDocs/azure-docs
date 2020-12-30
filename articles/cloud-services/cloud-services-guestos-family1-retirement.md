@@ -18,7 +18,7 @@ The retirement of OS Family 1 was first announced on June 1, 2013.
 
 **November 3, 2014** Extended support for Guest OS Family 1 ended and it is fully retired. All services still on Family 1 will be impacted. We may stop those services at any time. There is no guarantee your services will continue to run unless you manually upgrade them yourself.
 
-If you have additional questions, visit the [Microsoft Q&A question page for Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) or [contact Azure support](https://azure.microsoft.com/support/options/).
+If you have additional questions, visit the [Microsoft Q&A question page for Cloud Services](/answers/topics/azure-cloud-services.html) or [contact Azure support](https://azure.microsoft.com/support/options/).
 
 ## Are you affected?
 Your Cloud Services are affected if any one of the following applies:
@@ -27,7 +27,7 @@ Your Cloud Services are affected if any one of the following applies:
 2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
 3. The Azure portal lists your Guest Operating System family value as "Windows Server 2008".
 
-To find which of your cloud services are running which OS Family, you can run the following script in Azure PowerShell, though you must [set up Azure PowerShell](/powershell/azure/) first. For more information on the script, see [Azure Guest OS Family 1 End of Life: June 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
+To find which of your cloud services are running which OS Family, you can run the following script in Azure PowerShell, though you must [set up Azure PowerShell](/powershell/azure/) first. For more information on the script, see [Azure Guest OS Family 1 End of Life: June 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

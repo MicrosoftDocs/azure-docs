@@ -48,7 +48,7 @@ On the **Management** tab, in **Monitoring** section, make sure that **Boot diag
 ![Create VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.
+> The Boot diagnostics feature does not support premium storage account or Zone Redundent Storage Account Types. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.
 >
 
 ### Deploying from an Azure Resource Manager template

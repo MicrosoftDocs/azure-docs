@@ -23,9 +23,9 @@ You can use Azure Bastion to connect to a Linux virtual machine using SSH. You c
 
 The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
 
-## Before you begin
+## Prerequisites
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. 
+Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. 
 
 When you use Bastion to connect, it assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs. For information about connecting to a Windows VM, see [Connect to a VM - Windows](bastion-connect-vm-rdp.md).
 
@@ -48,7 +48,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    ![Screenshot shows the overview for a virtual machine in Azure portal with Connect selected.](./media/bastion-connect-vm-ssh/connect.png)
-1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md).
+1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./tutorial-create-host-portal.md).
 
    ![Screenshot shows the Connect to virtual machine dialog box with BASTION selected.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Enter the username and password for SSH to your virtual machine.
@@ -59,7 +59,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    ![Screenshot shows the overview for a virtual machine in Azure portal with Connect selected.](./media/bastion-connect-vm-ssh/connect.png)
-1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md).
+1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./tutorial-create-host-portal.md).
 
    ![Screenshot shows the Connect to virtual machine dialog box with BASTION selected.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Enter the username and select **SSH Private Key**.
@@ -71,7 +71,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    ![Screenshot shows the overview for a virtual machine in Azure portal with Connect selected.](./media/bastion-connect-vm-ssh/connect.png)
-1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md).
+1. After you click Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./tutorial-create-host-portal.md).
 
    ![Screenshot shows the Connect to virtual machine dialog box with BASTION selected.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Enter the username and select **SSH Private Key from Local File**.

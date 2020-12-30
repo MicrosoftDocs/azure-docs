@@ -37,7 +37,7 @@ Scripts are located in the *..\\Learning Modules* folder.
 
 ## Working with the Wingtip Tickets PowerShell scripts
 
-To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts as they execute and examine how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
+To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts as they execute and examine how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
 ### Update the configuration file for your deployment
 
@@ -69,7 +69,7 @@ Tips for exploring and stepping through PowerShell scripts:
 
 ## Explore database schema and execute SQL queries using SSMS
 
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
+Use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
 
 The deployment initially has tenants and catalog servers to connect to. The naming of the servers depends on the database tenancy pattern (see below for specifics).
 
@@ -110,7 +110,6 @@ The image below demonstrates the log in for the *Database per tenant* pattern.
 
 
 ## Next steps
-- [Deploy the Wingtip Tickets SaaS Standalone Application](../../sql-database/saas-standaloneapp-get-started-deploy.md)
-- [Deploy the Wingtip Tickets SaaS Database per Tenant application](../../sql-database/saas-dbpertenant-get-started-deploy.md)
-- [Deploy the Wingtip Tickets SaaS Multi-tenant Database application](../../sql-database/saas-multitenantdb-get-started-deploy.md)
-
+- [Deploy the Wingtip Tickets SaaS Standalone Application](./saas-standaloneapp-get-started-deploy.md)
+- [Deploy the Wingtip Tickets SaaS Database per Tenant application](./saas-dbpertenant-get-started-deploy.md)
+- [Deploy the Wingtip Tickets SaaS Multi-tenant Database application](./saas-multitenantdb-get-started-deploy.md)

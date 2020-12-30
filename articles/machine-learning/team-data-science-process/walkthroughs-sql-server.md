@@ -27,21 +27,21 @@ The [Use SQL Server](sql-walkthrough.md) walkthrough shows how you build and dep
 
 ## Predict taxi tips using Microsoft R with SQL Server 
 
-The [Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) walkthrough shows how to build and deploy an R model to SQL Server. The walkthrough is designed to introduce R developers to R Services (In-Database).
+The [Use SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) walkthrough shows how to build and deploy an R model to SQL Server. The walkthrough is designed to introduce R developers to R Services (In-Database).
 
 
 ## Predict taxi tips using R from T-SQL or stored procedures with SQL Server
 
-The [Data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) provides SQL programmers with experience building an advanced analytics solution with Transact-SQL using SQL Server R Services to operationalize an R solution. 
+The [Data science walkthrough for R and SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) provides SQL programmers with experience building an advanced analytics solution with Transact-SQL using SQL Server R Services to operationalize an R solution. 
 
 
 ## Predict taxi tips using Python in SQL Server stored procedures
 
-The [Use T-SQL with SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough provides SQL programmers with experience building a machine learning solution in SQL Server. It demonstrates how to incorporate Python into an application by adding Python code to stored procedures.
+The [Use T-SQL with SQL Server Python Services](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough provides SQL programmers with experience building a machine learning solution in SQL Server. It demonstrates how to incorporate Python into an application by adding Python code to stored procedures.
 
 
 ## Next steps
 
 For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](overview.md).
 
-For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.

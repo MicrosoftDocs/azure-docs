@@ -48,7 +48,7 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > 
 > 
 
-![Coexist](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
+![Diagram that shows a Site-to-Site VPN connection as a backup for ExpressRoute.](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 

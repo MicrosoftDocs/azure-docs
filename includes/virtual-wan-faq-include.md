@@ -9,6 +9,10 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
+### Is Azure Virtual WAN in GA?
+
+Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consists of several features and scenarios. There are feature or scenarios within Virtual WAN where Microsoft applies the Preview tag. In those cases, the specific feature, or the scenario itself, is in Preview. If you do not use a specific preview feature, regular GA support applies. For more information about Preview support, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
 
 Virtual WAN provides many functionalities built into a single pane of glass such as Site/Site-to-site VPN connectivity, User/P2S connectivity, ExpressRoute connectivity, Virtual Network connectivity, VPN ExpressRoute Interconnectivity, VNet-to-VNet transitive connectivity, Centralized Routing, Azure Firewall and Firewall Manager security, Monitoring, ExpressRoute Encryption, and many other capabilities. You do not have to have all of these use-cases to start using Virtual WAN. You can get started with just one use case. The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in where branches (VPN/SD-WAN devices), users (Azure VPN Clients, openVPN, or IKEv2 Clients), ExpressRoute circuits, Virtual Networks serve as spokes to Virtual Hub(s). All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For hub and spoke with SD-WAN/VPN devices, users can either manually set it up in the Azure Virtual WAN portal or use the Virtual WAN Partner CPE (SD-WAN/VPN) to set up connectivity to Azure. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration and establish connectivity to the Azure Virtual WAN hub. For Point-to-site/User VPN connectivity, we support [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN, or IKEv2 client. 
@@ -220,7 +224,7 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows:
 
 1. Longest prefix match.
-2. Local routes over interhub.
+2. Local routes over interhub (Virtual hub assigns 65520-65520 for interhub AS)
 3. Static routes over BGP: This is in context to the decision being made by Virtual Hub router. However if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
 4. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios.
 5. AS path length.
@@ -246,11 +250,13 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
 ### Can hubs be created in different resource group in Virtual WAN?
-Yes. This option is currently available via powershell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
+Yes. This option is currently available via PowerShell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
 
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
+
+For the point to site (user) VPN scenario with internet breakout via Azure Firewall, you will likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices by default use IPv6 addresses by default.
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 
@@ -263,3 +269,11 @@ See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+
+### Does Virtual WAN store customer data? 
+
+No. Virtual WAN does not store any customer data.
+
+### Are there any Managed Service Providers that can manage Virtual WAN for users as a service? 
+
+Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).

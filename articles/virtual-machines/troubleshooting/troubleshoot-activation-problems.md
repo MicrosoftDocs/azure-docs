@@ -57,7 +57,7 @@ For the VM that is created from a custom image, you must configure the appropria
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. If **slmgr.vbs /dlv** shows RETAIL channel, run the following commands to set the [KMS client setup key](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys) for the version of Windows Server being used, and force it to retry activation: 
+2. If **slmgr.vbs /dlv** shows RETAIL channel, run the following commands to set the [KMS client setup key](/windows-server/get-started/kmsclientkeys) for the version of Windows Server being used, and force it to retry activation: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>

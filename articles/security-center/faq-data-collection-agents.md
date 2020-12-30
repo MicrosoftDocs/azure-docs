@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
 
 ---
@@ -39,7 +39,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 ## What is the Log Analytics agent?
 
-To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) - this is the same agent used by the Azure Monitor service. 
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
 
 The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
 
@@ -62,7 +62,7 @@ Windows or Linux IaaS VMs qualify if:
 
 - The Log Analytics agent extension is not currently installed on the VM.
 - The VM is in running state.
-- The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is installed.
+- The Windows or Linux [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) is installed.
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 
@@ -82,9 +82,9 @@ The location of the default workspace depends on your Azure region:
 - For VMs in Australia, the workspace location is Australia
 
 
-## What data is collected by the Log Analytics agent?
+## What security events are collected by the Log Analytics agent?
 
-For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
@@ -105,14 +105,19 @@ You can select an existing Log Analytics workspace to store data collected by Se
 
 To select an existing Log Analytics workspace:
 
-1. Under **Security policy – Data Collection**, select **Use another workspace**.
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. Open the **Auto provisioning** page, s
+1. For the Log Analytics agent, select **Edit configuration**. 
 
-    ![Use another workspace][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="The configuration of the Log Analytics agent to use when using auto deploy" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. From the pull-down menu, select a workspace to store collected data.
+1. Select **Connect Azure VMs to a different workspace** and choose your existing workspace.
 
-    > [!NOTE]
-    > In the pull down menu, only workspaces that you have access to and are in your Azure subscription are shown.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Selecting a non-default workspace for your Log Analytics agent to report to" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > The list only includes workspaces to which you have access and which are in your Azure subscription.
 
 1. Select **Save**. You will be asked if you would like to reconfigure monitored VMs.
 
@@ -122,7 +127,6 @@ To select an existing Log Analytics workspace:
     > [!NOTE]
     > If you select **Yes**, don't delete any workspaces created by Security Center until all VMs have been reconnected to the new target workspace. This operation fails if a workspace is deleted too early.
 
-    - To cancel the operation, select **Cancel**.
 
 ## What if the Log Analytics agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
 
@@ -158,14 +162,19 @@ If you remove the Microsoft Monitoring Extension, Security Center is not able to
 
 ## How do I stop the automatic agent installation and workspace creation?
 
-You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
+You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
-1. If your subscription has Azure Defender enabled, open the security policy for that subscription and select **Azure Defender off**.
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. If your subscription has Azure Defender enabled, open **Azure Defender plans** and select **Azure Defender off**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
-1. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** page.
-   ![Data collection][2]
+1. From the **Auto provisioning** page, Select pen  and the turn off auto provisioning in the  **Security policy – Data collection** page.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Enable auto deploy for the Log Analytics agent":::
+
+1. Select **Save**.
 
 
 ## Should I opt out of the automatic agent installation and workspace creation?
@@ -228,13 +237,11 @@ Automatic provisioning is highly recommended in order to get security alerts and
 
 If you've enabled it but now want to disable it:
 
-1. From [the Azure portal](https://portal.azure.com), open **Security Center** and select **Security policy**.
+1. From [the Azure portal](https://portal.azure.com), open **Security Center** and select **Pricing and settings**.
 
 1. Select the subscription on which you want to disable automatic provisioning.
 
-    **Security policy - Data collection** opens.
-
-1. Under **Auto provisioning**, select **Off**.
+1. Under **Auto provisioning**, turn off the toggle for the Log Analytics agent.
 
 
 ## How do I enable data collection?

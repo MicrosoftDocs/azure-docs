@@ -27,4 +27,4 @@ Persistent volumes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
 ## Next steps
 
-Some default limits can be increased. If your setup requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Some default limits can be increased. If your setup requires an increase, [create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).

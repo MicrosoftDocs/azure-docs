@@ -44,10 +44,10 @@ Replace *myKeyVaultName* with the name of your key vault.  You will also need a 
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -59,7 +59,7 @@ Use the DiskEncryptionSet and resource groups you created on the prior steps, an
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
@@ -74,7 +74,7 @@ Create a **new resource group** and AKS cluster, then use your key to encrypt th
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName
@@ -147,8 +147,8 @@ Review [best practices for AKS cluster security][best-practices-security]
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
-[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
+[byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

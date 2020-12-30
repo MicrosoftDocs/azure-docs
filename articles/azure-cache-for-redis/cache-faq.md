@@ -27,12 +27,11 @@ To view archived documentation, see [Archived Managed Cache Service Documentatio
 
 To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
-["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: /previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)
 
 ## What if my question isn't answered here?
 If your question isn't listed here, let us know and we'll help you find an answer.
 
-* To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
+* To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
 * If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/forums/169382-cache).
 * You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
-

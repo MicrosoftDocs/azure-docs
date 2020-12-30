@@ -15,7 +15,7 @@ ms.date: 09/03/2020
 
 Azure SQL Edge is built on the latest version of the SQL Database Engine. It supports a subset of the features supported in SQL Server 2019 on Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux (or in SQL Server on Windows).
 
-For a complete list of the features supported in SQL Server on Linux, see [Editions and supported features of SQL Server 2019 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). For editions and supported features of SQL Server on Windows, see [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+For a complete list of the features supported in SQL Server on Linux, see [Editions and supported features of SQL Server 2019 on Linux](/sql/linux/sql-server-linux-editions-and-components-2019). For editions and supported features of SQL Server on Windows, see [Editions and supported features of SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## Azure SQL Edge editions
 

@@ -19,7 +19,7 @@ ms.author: memildin
 # Tutorial: Protect your resources with Azure Security Center
 Security Center limits your exposure to threats by using access and application controls to block malicious activity. Just-in-time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Security Center uses machine learning to analyze the processes running in the VM and helps you apply allow listing rules using this intelligence.
 
-In this tutorial you learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > * Configure a just-in-time VM access policy

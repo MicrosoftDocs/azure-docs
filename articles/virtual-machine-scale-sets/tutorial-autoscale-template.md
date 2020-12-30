@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with an Azure template
@@ -20,11 +20,11 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## Define an autoscale profile
@@ -138,10 +138,10 @@ First, create a resource group with [az group create](/cli/azure/group). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```

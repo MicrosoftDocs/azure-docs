@@ -19,7 +19,7 @@ Images can be used with HTML markers and various layers within the Azure Maps we
  - Polygon layers can be rendered with a fill pattern image. 
  - HTML markers can render points using images and other HTML elements.
 
-In order to ensure good performance with layers, load the images into the map image sprite resource before rendering. The [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), of the SymbolLayer, preloads a couple of marker images in a handful of colors into the map image sprite, by default. These marker images and more are available as SVG templates. They can be used to create images with custom scales, or used as a customer primary and secondary color. In total there are 42 image templates provided: 27 symbol icons and 15 polygon fill patterns.
+In order to ensure good performance with layers, load the images into the map image sprite resource before rendering. The [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions), of the SymbolLayer, preloads a couple of marker images in a handful of colors into the map image sprite, by default. These marker images and more are available as SVG templates. They can be used to create images with custom scales, or used as a customer primary and secondary color. In total there are 42 image templates provided: 27 symbol icons and 15 polygon fill patterns.
 
 Image templates can be added to the map image sprite resources by using the `map.imageSprite.createFromTemplate` function. This function allows up to five parameters to be passed in;
 
@@ -515,10 +515,10 @@ With the following tool, you can render the different built-in image templates i
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [atlas namespace](/javascript/api/azure-maps-control/atlas#functions
 )
 
 See the following articles for more code samples where image templates can be used:

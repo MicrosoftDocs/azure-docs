@@ -5,18 +5,23 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
+ms.date: 12/10/2020
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-java
 ---
 
 # How to use Azure Table storage or Azure Cosmos DB Table API from Java
 
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Java and use the [Azure Storage SDK v8 for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+
+> [!IMPORTANT]
+> The last version of the Azure Storage SDK supporting Table Storage is [v8][Azure Storage SDK for Java]. A new version of the Table Storage SDK for Java will be coming soon.
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
@@ -624,8 +629,8 @@ catch (Exception e)
 For more information, visit [Azure for Java developers](/java/azure).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Java]: https://github.com/Azure/azure-storage-java/tree/v8.6.5
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: /rest/api/storageservices/
 [Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

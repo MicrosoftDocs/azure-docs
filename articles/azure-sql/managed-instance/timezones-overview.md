@@ -6,11 +6,11 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-ms.date: 05/25/2020
+ms.date: 10/12/2020
 ---
 # Time zones in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ When you enter parameters for a new instance, select a time zone from the list o
 
 ### Azure Resource Manager template
 
-Specify the timezoneId property in your [Resource Manager template](https://aka.ms/sql-mi-create-arm-posh) to set the time zone during instance creation.
+Specify the timezoneId property in your [Resource Manager template](./scripts/create-powershell-azure-resource-manager-template.md) to set the time zone during instance creation.
 
 ```json
 "properties": {
@@ -89,7 +89,7 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 ## Limitations
 
-- The time zone of the existing managed instance can't be changed.
+- The time zone of the existing managed instance can't be changed. As a workaround, create a new managed instance with the proper time zone and then either perform a manual backup and restore, or what we recommend, perform a [cross-instance point-in-time restore](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - External processes launched from the SQL Server Agent jobs don't observe the time zone of the instance.
 
 ## List of supported time zones
@@ -237,7 +237,7 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 ## See also 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

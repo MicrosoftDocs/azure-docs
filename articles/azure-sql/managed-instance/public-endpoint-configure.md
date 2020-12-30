@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
@@ -14,7 +14,7 @@ ms.date: 05/07/2019
 # Configure public endpoint in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Public endpoint for a [managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) enables data access to your managed instance from outside the [virtual network](../../virtual-network/virtual-networks-overview.md). You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network. By using the public endpoint on a managed instance, you do not need to use a VPN, which can help avoid VPN throughput issues.
+Public endpoint for a [managed instance](./sql-managed-instance-paas-overview.md) enables data access to your managed instance from outside the [virtual network](../../virtual-network/virtual-networks-overview.md). You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network. By using the public endpoint on a managed instance, you do not need to use a VPN, which can help avoid VPN throughput issues.
 
 In this article, you'll learn how to:
 

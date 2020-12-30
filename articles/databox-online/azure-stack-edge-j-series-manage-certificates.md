@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Pro GPU device
@@ -56,7 +56,7 @@ These certificates could be root certificates or the intermediate certificates. 
 - The root certificates should be signing chain certificates.
 - The root certificates can be uploaded on your device in the following format: 
     - **DER** – These are available as a `.cer` file extension.
-    - **Base-64 encoded or PEM** – These are available as `.cer` extension also.
+    - **Base-64 encoded** – These are available as `.cer` file extension.
     - **P7b** – This format is used only for signing chain certificates that includes the root and intermediate certificates.
 - Signing chain certificates are always uploaded before you upload any other certificates.
 
@@ -270,11 +270,11 @@ The certificates that you created for your device by default reside in the **Per
 
     1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
 
-        ![Add signing chain certificate](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![Add signing chain certificate 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. Next upload the endpoint certificates. 
 
-        ![Add signing chain certificate](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![Add signing chain certificate 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         Choose the certificate files in *.pfx* format and enter the password you supplied when you exported the certificate. The Azure Resource Manager certificate may take a few minutes to apply.
 
@@ -378,20 +378,19 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 1. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
 
-    ![Export certificate 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Export certificate DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. The certificate wizard opens up. Select the format as **DER encoded binary X.509 (.cer)**. Select **Next**.
 
-    ![Export certificate 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Export certificate DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Browse and select the location where you want to export the .cer format file.
 
-    ![Export certificate 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
+    ![Export certificate DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 4. Select **Finish**.
 
-    ![Export certificate 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Export certificate DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## Supported certificate algorithms
@@ -405,11 +404,11 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 If you bring in your own certificates, the certificates will expire typically in 1 year or 6 months. To view the expiration date on your certificate, go to the **Certificates** page in the local web UI of your device. If you select a specific certificate, you can view the expiration date on your certificate.
 
-## Rotate certificates
+<!--## Rotate certificates
 
 Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## Next steps
 

@@ -43,9 +43,9 @@ The common helloworld project contains platform-independent implementations for 
 1. In the source file's `OnRecognitionButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
 
-1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceregion`, and replace it with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. 
+1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceregion`, and replace it with the **Region identifier** from [region](../../../../regions.md) associated with your subscription. 
 
-1. Next, you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects, such as UWP, Android, and iOS. To do that, add a new folder named *Services* under the helloworld project, and create a new C# source file under it. You can right-click the *Services* folder, and select **Add** > **New Item** > **Code File**. Rename the file `IMicrophoneService.cs`, and place all code from the following snippet in that file:
+1. Next, you need to create a [Xamarin Service](/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects, such as UWP, Android, and iOS. To do that, add a new folder named *Services* under the helloworld project, and create a new C# source file under it. You can right-click the *Services* folder, and select **Add** > **New Item** > **Code File**. Rename the file `IMicrophoneService.cs`, and place all code from the following snippet in that file:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
@@ -115,7 +115,7 @@ Now add the C# code that defines the UWP-specific part of the application.
 1. Next, double-click the `Package.appxmanifest` file under the helloworld.UWP project inside Visual Studio. Under **Capabilities**, make sure that **Microphone** is selected, and save the file.
 
 1. Next double click `Package.appxmanifest` file under the `helloworld.UWP` project inside Visual Studio and under **Capabilities** > **Microphone** is checked and save the file.
-   > Note: In case you see warning : Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx, please check [speech to text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) sample for more information.
+   > Note: In case you see warning : Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx, please check [speech to text](../../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) sample for more information.
 
 1. From the menu bar, select **File** > **Save All** to save your changes.
 

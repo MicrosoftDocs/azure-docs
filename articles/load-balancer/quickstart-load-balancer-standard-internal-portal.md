@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and three virtual machines.
 
 ## Prerequisites
 
@@ -35,6 +35,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -56,7 +58,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -104,7 +106,7 @@ In this section, you'll create a virtual network and subnet.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB** created in the previous step.|
+    | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
@@ -190,23 +192,25 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **No**.
+    | Idle timeout (minutes) | Move the slider to **15** minutes. |
+    | TCP reset | Select **Enabled**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 4. Leave the rest of the defaults and then select **OK**.
 
 >[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## Create backend servers
 
 In this section, you:
 
-* Create two virtual machines for the backend pool of the load balancer.
+* Create three virtual machines for the backend pool of the load balancer.
 * Install IIS on the virtual machines to test the load balancer.
 
 ### Create virtual machines
 
-In this section, you'll create two VMs (**myVM1** and **myVM2**).
+In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**).
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -218,7 +222,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -255,19 +259,21 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
-    | Setting | VM 2|
-    | ------- | ----- |
-    | Name |  **myVM2** |
-    | Availability zone | **2** |
-    | Network security group | Select the existing **myNSG**|
+    | Setting | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Name |  **myVM2** | **myVM3** |
+    | Availability zone | **2** | **3** |
+    | Network security group | Select the existing **myNSG**| Select the existing **myNSG** |
 
 
 # [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -289,7 +295,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -337,7 +343,7 @@ In this section, you'll create a virtual network and subnet.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB** created in the previous step.|
+    | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
@@ -430,6 +436,7 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
+    | Idle timeout (minutes) | Move the slider to **15** minutes. |
  
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -437,13 +444,13 @@ In this section, you'll create a load balancer rule:
 
 In this section, you:
 
-* Create two virtual machines for the backend pool of the load balancer.
+* Create three virtual machines for the backend pool of the load balancer.
 * Create an availability set for the virtual machines.
 * Install IIS on the virtual machines to test the load balancer.
 
 ### Create virtual machines
 
-In this section, you'll create two VMs (**myVM1**, and **myVM2**).
+In this section, you'll create three VMs (**myVM1**, **myVM2**, **myVM3**).
 
 The two VMs will be added to an availability set named **myAvailabilitySet**.
 
@@ -457,7 +464,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -490,13 +497,13 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
-    | Setting | VM 2 |
-    | ------- | ----- |
-    | Name |  **myVM2** |
-    | Availability set| Select **myAvailabilitySet** |
-    | Network security group | Select the existing **myNSG**|
+    | Setting | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Name |  **myVM2** | **myVM3** |
+    | Availability set | Select **myAvailabilitySet** | Select **myAvailabilitySet** |
+    | Network security group | Select the existing **myNSG** | Select the existing **myNSG** |
 
 ### Add virtual machines to the backend pool
 
@@ -510,7 +517,7 @@ The VMs created in the previous steps must be added to the backend pool of **myL
 
 4. In the **Virtual machines** section, select **+ Add**.
 
-5. Select the boxes next to **myVM1** and **myVM2**.
+5. Select the boxes next to **myVM1**, **myVM2**, and **myVM3**.
 
 6. Select **Add**.
 
@@ -529,7 +536,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myTestVM** |
     | Region | Select **West Europe** |
@@ -561,7 +568,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreateIntLBQS-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -590,7 +597,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
    ```
 8. Close the Bastion session with **myVM1**.
 
-9. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2**.
+9. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
 
 
 ## Test the load balancer
@@ -599,7 +606,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
+3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -615,15 +622,16 @@ To see the load balancer distribute traffic across both VMs, you can customize t
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **CreateIntLBQS-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
 In this quickstart, you:
 
 * Created an Azure standard or basic internal load balancer
-* Attached 2 VMs to the load balancer.
+* Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
+To learn more about Azure Load Balancer, continue to:
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md)

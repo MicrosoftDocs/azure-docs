@@ -122,7 +122,7 @@ To set the domain filter, do the following steps:
 3.  Select **Customize Synchronization Options** and click **Next**.
 4.  Enter your Azure AD credentials
 5.  On the **Connected Directories** screen click **Next**.
-6.  On the **Domain and OU filtering page** click **Refresh**.  New domains ill now appear and deleted domains will disappear.
+6.  On the **Domain and OU filtering page** click **Refresh**.  New domains will now appear and deleted domains will disappear.
    ![Partitions](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### Update the run profiles

@@ -57,7 +57,7 @@ It is not uncommon for 35 percent of a support call to be what we call non-talk 
 
 ### Translation
 
-Some companies are experimenting with providing translated transcripts from foreign language support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](/azure/cognitive-services/speech-service/speech-translation) capabilities are unsurpassed. We can translate audio-to-audio or audio-to-text for a large number of locales.
+Some companies are experimenting with providing translated transcripts from foreign language support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](./speech-translation.md) capabilities are unsurpassed. We can translate audio-to-audio or audio-to-text for a large number of locales.
 
 ### Text to Speech
 
@@ -91,7 +91,7 @@ A typical solution uses these services:
 
 - The Speech service is used to transcribe speech-to-text. A standard subscription (S0) for the Speech service is required to use the Batch Transcription API. Free subscriptions (F0) will not work.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store telephony data, and the transcripts returned by the Batch Transcription API. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
+- [Azure Functions](../../azure-functions/index.yml) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
 
 Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Technologies used to support Microsoft customer calls in Batch mode.":::
@@ -108,7 +108,7 @@ Internally we are using the above technologies to analyze in real-time Microsoft
 
 ## A word on IVRs
 
-The Speech service can be easily integrated in any solution by using either the [Speech SDK](speech-sdk.md) or the [REST API](rest-apis.md). However, call center transcription may require additional technologies. Typically, a connection between an IVR system and Azure is required. Although we do not offer such components, here is a description what a connection to an IVR entails.
+The Speech service can be easily integrated in any solution by using either the [Speech SDK](speech-sdk.md) or the [REST API](./overview.md#reference-docs). However, call center transcription may require additional technologies. Typically, a connection between an IVR system and Azure is required. Although we do not offer such components, here is a description what a connection to an IVR entails.
 
 Several IVR or telephony service products (such as Genesys or AudioCodes) offer integration capabilities that can be leveraged to enable inbound and outbound audio pass-through to an Azure service. Basically, a custom Azure service might provide a specific interface to define phone call sessions (such as Call Start or Call End) and expose a WebSocket API to receive inbound stream audio that is used with the Speech service. Outbound responses, such as conversation transcription or connections with the Bot Framework, can be synthesized with Microsoft's text-to-speech service and returned to the IVR for playback.
 
@@ -120,10 +120,10 @@ Another scenario is direct integration with Session Initiation Protocol (SIP). A
 
 | Speech service | Model | Description |
 | -------------- | ----- | ----------- |
-| Speech-to-text | [Acoustic model](how-to-customize-acoustic-models.md) | Create a custom acoustic model for applications, tools, or devices that are used in particular environments like in a car or on a factory floor, each with specific recording conditions. Examples include accented speech, specific background noises, or using a specific microphone for recording. |
-|                | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of industry-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
-|                | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display for a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file, which is a simple `.txt` file. |
-| Text-to-speech | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started. The more data that you provide, the more natural and human-like your voice font will sound. |
+| Speech-to-text | [Acoustic model](./how-to-custom-speech-train-model.md) | Create a custom acoustic model for applications, tools, or devices that are used in particular environments like in a car or on a factory floor, each with specific recording conditions. Examples include accented speech, specific background noises, or using a specific microphone for recording. |
+|                | [Language model](./how-to-custom-speech-train-model.md) | Create a custom language model to improve transcription of industry-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
+|                | [Pronunciation model](./how-to-custom-speech-train-model.md) | With a custom pronunciation model, you can define the phonetic form and display for a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file, which is a simple `.txt` file. |
+| Text-to-speech | [Voice font](./how-to-custom-voice-create-voice.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started. The more data that you provide, the more natural and human-like your voice font will sound. |
 
 ## Sample code
 
@@ -135,11 +135,11 @@ Sample code is available on GitHub for each of the Speech service features. Thes
 
 ## Reference docs
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Speech SDK](./speech-sdk.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: Speech-to-text](rest-speech-to-text.md)
 - [REST API: Text-to-speech](rest-text-to-speech.md)
-- [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+- [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## Next steps
 

@@ -26,8 +26,8 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
           "type": "String"
@@ -45,53 +45,53 @@ The following sample creates a diagnostic setting for an Activity log by adding 
           "type": "String"
         }
     },
-	"resources": [
-		{
-			"type": "Microsoft.Insights/diagnosticSettings",
-			"apiVersion": "2017-05-01-preview",
-			"name": "[parameters('settingName')]",
-			"properties": {
-				"workspaceId": "[parameters('workspaceId')]",
-				"storageAccountId": "[parameters('storageAccountId')]",
-				"eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-				"eventHubName": "[parameters('eventHubName')]",
-				"logs": [
-					{
-						"category": "Administrative",
-						"enabled": true
-					},
-					{
-						"category": "Security",
-						"enabled": true
-					},
-					{
-						"category": "ServiceHealth",
-						"enabled": true
-					},
-					{
-						"category": "Alert",
-						"enabled": true
-					},
-					{
-						"category": "Recommendation",
-						"enabled": true
-					},
-					{
-						"category": "Policy",
-						"enabled": true
-					},
-					{
-						"category": "Autoscale",
-						"enabled": true
-					},
-					{
-						"category": "ResourceHealth",
-						"enabled": true
-					}
-				]
-			}
-		}
-	]
+    "resources": [
+        {
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[parameters('settingName')]",
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "Administrative",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Security",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ServiceHealth",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Alert",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Recommendation",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Policy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Autoscale",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ResourceHealth",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
 
@@ -99,7 +99,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -247,7 +247,7 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/', parameters('settingName'))]",
           "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
@@ -522,7 +522,7 @@ The following sample creates a diagnostic setting for a Log Analytics workspace 
                 "metrics": [],
                 "logs": [
                     {
-                        "category": "LAQueryLogs",
+                        "category": "Audit",
                         "enabled": true
                     }
                 ]

@@ -89,8 +89,8 @@ Each active cut plane incurs a small cost during rendering. Disable or delete cu
 
 ## API documentation
 
-* [C# CutPlaneComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
-* [C++ CutPlaneComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
+* [C# CutPlaneComponent class](/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C++ CutPlaneComponent class](/cpp/api/remote-rendering/cutplanecomponent)
 
 ## Next steps
 

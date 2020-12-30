@@ -120,11 +120,11 @@ For grid visualizations, the sorting of the rows for the column with the composi
 3. Change visualization to *Tiles*.
 4. Run query.
 5. Select **Tile Settings**.
-6. Select *Left* in title fields.
+6. Select *Left* in Tile fields.
 7. Enter the settings below under *Field Settings*.
     1. Use column: "server".
     2. Column renderer: "Text".
-8. Select *Bottom* in title fields.
+8. Select *Bottom* in Tile fields.
 9. Enter the settings below under *Field Settings*.
     1. Use column: "total".
     2. Column renderer: "Composite Bar".
@@ -139,9 +139,9 @@ For grid visualizations, the sorting of the rows for the column with the composi
     4. Add Label:`["online"] of ["total"] are healthy`.
 10. Select **Apply**.
 
-Composite bar settings for titles:
+Composite bar settings for tiles:
 
-![Screenshot of composite bar title settings with settings described above.](./media/workbooks-composite-bar/tiles-settings.png)
+![Screenshot of composite bar tile settings with settings described above.](./media/workbooks-composite-bar/tiles-settings.png)
 
 The Composite bar view for Tiles with the above settings will look like this:
 
@@ -153,7 +153,7 @@ To make a composite bar renderer for Graphs visualization (type Hive Clusters), 
 
 1. Select **Add** and *add query*.
 2. Change the data source to JSON enter the data from the [previous example](#adding-composite-bar-renderer).
-3. Change visualization to *Tiles*.
+3. Change visualization to *Graphs*.
 4. Run query.
 5. Select **Graph Settings**.
 6. Select *Center Content* in Node Format Settings.

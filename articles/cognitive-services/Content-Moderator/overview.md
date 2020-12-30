@@ -9,10 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service
+keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
@@ -79,4 +79,4 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Next steps
 
-To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library quickstart](client-libraries.md) to implement the basic scenarios in code.
+To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.

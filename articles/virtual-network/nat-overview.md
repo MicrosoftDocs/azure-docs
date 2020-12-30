@@ -39,7 +39,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. 
 
-NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP whitelisting of your deployments is now easy.
+NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP filtering of your deployments is now easy.
 
 All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
@@ -141,4 +141,3 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-

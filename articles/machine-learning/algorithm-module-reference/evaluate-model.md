@@ -25,7 +25,7 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 
 > [!TIP]
-> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
+> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) from EdX. 
 
 
 ## How to use Evaluate Model
@@ -35,6 +35,14 @@ Use this module to measure the accuracy of a trained model. You provide a datase
     > Actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
     > Actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
     > 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1)     exist to calculate metrics for clustering.
+
+    > [!IMPORTANT]
+    > + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
+    > + The `Labels` column will be considered as actual labels.
+    > + For regression task, the dataset to evaluate must has one column, named `Regression Scored Labels`, which represents scored labels.
+    > + For binary classification task, the dataset to evaluate must has two columns, named `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, which represent scored labels, and probabilities respectively.
+    > + For multi classification task, the dataset to evaluate must has one column, named `Multi Class Scored Labels`, which represents scored labels.
+    > If the outputs of the upstream module does not have these columns, you need to modify according to the requirements above.
 
 2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right** input port of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 
@@ -130,4 +138,4 @@ The following metrics are reported for evaluating clustering models.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

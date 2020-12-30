@@ -81,6 +81,8 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+  - name: Planned maintenance
+    href: concepts-planned-maintenance-notification.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -116,10 +118,6 @@
       href: concepts-data-in-replication.md
     - name: Read replicas
       href: concepts-read-replicas.md
-  - name: Move between regions
-    items:
-    - name: Azure portal
-      href: howto-move-regions-portal.md
 - name: How-to guides
   items:
   - name: Manage a server
@@ -238,6 +236,10 @@
       href: howto-restart-server-cli.md
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -260,7 +262,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mariadb/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-mariadb.html
+    href: /answers/topics/azure-database-mariadb.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature

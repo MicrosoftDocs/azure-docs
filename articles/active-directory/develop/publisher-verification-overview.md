@@ -16,7 +16,11 @@ ms.reviewer: jesakowi
 
 # Publisher verification
 
-Publisher verification helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
+Publisher verification helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
 ![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
@@ -45,7 +49,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 -  The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
 
-    -  In Azure AD this user must be a member of one of the following [roles](../users-groups-roles/directory-assign-admin-roles.md): Application Admin, Cloud Application Admin, or Global Admin. 
+    -  In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin. 
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     

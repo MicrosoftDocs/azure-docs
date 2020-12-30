@@ -1,14 +1,14 @@
 ---
-title: Manage Backups with Role-Based Access Control
-description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
+title: Manage Backups with Azure role-based access control
+description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ---
 
-# Use Role-Based Access Control to manage Azure Backup recovery points
+# Use Azure role-based access control to manage Azure Backup recovery points
 
-Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 > [!IMPORTANT]
 > Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in the Azure Backup agent client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
@@ -72,9 +72,9 @@ The following table captures the Backup management actions and corresponding rol
 
 ## Next steps
 
-* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with Azure RBAC in the Azure portal.
 * Learn how to manage access with:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Role-Based Access Control troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.
+* [Azure role-based access control troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.

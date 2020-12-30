@@ -63,7 +63,7 @@ As new Kubernetes versions become available, your cluster can be upgraded using 
 
 ## Access, monitoring
 
-The Kubernetes cluster on your Azure Stack Edge Pro device  allows role-based access control (RBAC). For more information, see [Role-based access control for Kubernetes cluster on your Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-rbac.md).
+The Kubernetes cluster on your Azure Stack Edge Pro device  allows Kubernetes role-based access control (Kubernetes RBAC). For more information, see [Kubernetes role-based access control on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 You can also monitor the health of your cluster and resources via the Kubernetes dashboard. Container logs are also available. For more information, see [Use the Kubernetes dashboard to monitor the Kubernetes cluster health on your Azure Stack Edge Pro device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 
@@ -102,7 +102,7 @@ For more information on deploying applications on your Kubernetes cluster via Io
 
 ### Kubernetes and Azure Arc
 
-Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## Next steps
