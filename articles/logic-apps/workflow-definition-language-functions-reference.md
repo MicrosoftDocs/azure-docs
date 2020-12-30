@@ -3,7 +3,7 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
 ---
@@ -1814,7 +1814,7 @@ This example creates a URI-encoded version for this string:
 encodeUriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -4273,8 +4273,7 @@ triggerBody()
 
 ### triggerFormDataMultiValues
 
-Return an array with values that match a key name
-in a trigger's *form-data* or *form-encoded* output.
+Return an array with values that match a key name in a trigger's *form-data* or *form-encoded* output.
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -4292,14 +4291,13 @@ triggerFormDataMultiValues('<key>')
 
 *Example*
 
-This example creates an array from the "feedUrl" key value in
-an RSS trigger's form-data or form-encoded output:
+This example creates an array from the "feedUrl" key value in an RSS trigger's form-data or form-encoded output:
 
 ```
 triggerFormDataMultiValues('feedUrl')
 ```
 
-And returns this array as an example result: `["http://feeds.reuters.com/reuters/topNews"]`
+And returns this array as an example result: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4333,7 +4331,7 @@ an RSS trigger's form-data or form-encoded output:
 triggerFormDataValue('feedUrl')
 ```
 
-And returns this string as an example result: `"http://feeds.reuters.com/reuters/topNews"`
+And returns this string as an example result: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4471,7 +4469,7 @@ This example creates a URI-encoded version for this string:
 uriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4498,7 +4496,7 @@ uriComponentToBinary('<value>')
 This example creates the binary version for this URI-encoded string:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result:
@@ -4534,7 +4532,7 @@ uriComponentToString('<value>')
 This example creates the decoded string version for this URI-encoded string:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
@@ -4594,7 +4592,7 @@ uriPath('<uri>')
 This example finds the `path` value for this URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm"`
@@ -4624,7 +4622,7 @@ uriPathAndQuery('<uri>')
 This example finds the `path` and `query` values for this URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm?date=today"`
@@ -4654,7 +4652,7 @@ uriPort('<uri>')
 This example returns the `port` value for this URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 And returns this result: `8080`
@@ -4684,7 +4682,7 @@ uriQuery('<uri>')
 This example returns the `query` value for this URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"?date=today"`
@@ -4714,7 +4712,7 @@ uriScheme('<uri>')
 This example returns the `scheme` value for this URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"http"`
@@ -5055,16 +5053,16 @@ Here is the result: `30`
 
 *Example 8*
 
-In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
+In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="https://contoso.com"`:
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Here is the result node that matches the `<location></location>` node: 
 
