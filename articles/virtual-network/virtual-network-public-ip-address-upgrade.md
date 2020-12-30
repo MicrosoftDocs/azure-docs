@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
-ms.custom: references_regions , devx-track-azurecli
+ms.custom: references_regions 
 ---
 
 # Upgrade public IP addresses

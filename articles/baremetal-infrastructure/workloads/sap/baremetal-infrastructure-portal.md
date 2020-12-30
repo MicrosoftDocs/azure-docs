@@ -1,25 +1,13 @@
 ---
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
-author: shortpatti
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 12/18/2020
-ms.author: v-patsho
+ms.topic: how-to
+ms.date: 12/31/2020
 ---
 
 # Manage BareMetal Instances through the Azure portal
  
-This article shows how the [Azure portal](https://portal.azure.com/) displays BareMetal Instances. This article also shows you the activities you can do in the Azure portal with your deployed BareMetal Instance units. 
+This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal Instances](baremetal-overview-architecture.md). This article also shows you the activities you can do in the Azure portal with your deployed BareMetal Instance units. 
  
 ## Register the resource provider
 An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview. By default, the Azure subscription you use for BareMetal Instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal Instance units, you must register the resource provider with your subscription. There are two ways to register the BareMetal Instance resource provider:
@@ -100,7 +88,7 @@ The possible hardware revisions are:
 * Revision 4.2
  
 >[!NOTE]
->Revision 4.2 is the latest rebranded BareMetal Infrastructure using the Revision 4 architecture. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows.
+>Revision 4.2 is the latest rebranded BareMetal Infrastructure using the Revision 4 architecture. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows. For more information about the different revisions, see [BareMetal Infrastructure on Azure](baremetal-overview-architecture.md).
  
 Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/linux/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
  
@@ -177,4 +165,4 @@ It takes up to five business days for a support representative to confirm your r
 
 ## Next steps
 
-If you want to learn more about BareMetal, see [BareMetal workload types](../../../virtual-machines/workloads/sap/get-started.md).
+If you want to learn more about the workloads, see [BareMetal workload types](../../../virtual-machines/workloads/sap/get-started.md).
