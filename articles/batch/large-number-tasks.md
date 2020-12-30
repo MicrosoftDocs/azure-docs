@@ -19,7 +19,7 @@ The maximum size of the task collection that you can add in a single call depend
 
 ### APIs allowing collections of up to 100 tasks
 
-These Batch APIs limit the collection to **100 tasks**. The limit could be smaller depending on the size of the tasks (for example, if the tasks have a large number of resource files or environment variables).
+These Batch APIs limit the collection to 100 tasks. The limit could be smaller depending on the size of the tasks (for example, if the tasks have a large number of resource files or environment variables).
 
 - [REST API](/rest/api/batchservice/task/addcollection)
 - [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations)
