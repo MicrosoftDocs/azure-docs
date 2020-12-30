@@ -47,4 +47,4 @@ For customers who have various subscriptions, and who want to ensure a single pl
 To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [View and configure DDoS protection telemetry](telemetry-monitoring-alerting.md)
+> [View and configure DDoS protection telemetry](telemetry.md)
