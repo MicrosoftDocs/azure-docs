@@ -20,7 +20,7 @@ An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark
 
 ## Save raw data as an RDD
 
-In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
+In this section, we use the [Jupyter](https://jupyter.org) Notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
 
 Once your data is saved as an Apache Hive table, in the next section we'll connect to the Hive table using BI tools such as Power BI and Tableau.
 
@@ -28,7 +28,7 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 
 1. Create a new notebook. Select **New**, and then **PySpark**.
 
-    ![Create a new Apache Jupyter notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Create a new Jupyter notebook")
+    ![Create a new Apache Jupyter Notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Create a new Jupyter Notebook")
 
 1. A new notebook is created and opened with the name Untitled.pynb. Select the notebook name at the top, and enter a friendly name.
 
@@ -198,5 +198,5 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 Explore the following articles:
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
