@@ -10,7 +10,7 @@ ms.author: aashishb
 author: aashishb
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.custom: how-to
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
