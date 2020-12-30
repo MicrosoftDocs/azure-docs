@@ -9,7 +9,7 @@ ms.topic: include
 Get started with the Custom Vision REST API. Follow these steps to call the API and build an object detection model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
 
 > [!NOTE]
-> If you want to build and train a model _without_ writing code, see the [browser-based guidance](../../get-started-build-detector.md) instead.
+> Custom Vision is most easily used through a client library SDK or through the [browser-based guidance](../../get-started-build-detector.md).
 
 Use the Custom Vision client library for .NET to:
 
@@ -74,7 +74,7 @@ You'll receive a JSON response like the following. Save the `"id"` value of your
 
 Use the following command to define the tags that you will train the model on.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="createtag":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/object-detector.sh" ID="createtag":::
 
 * Again, insert your own key and endpoint URL.
 * Replace `{projectId}` with your own project ID.
@@ -96,11 +96,11 @@ You'll get a JSON response like the following. Save the `"id"` value of each tag
 
 ## Upload and tag images
 
-Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
+Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) to your local device.
 
 Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API for more options.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="uploadimages":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/object-detector.sh" ID="uploadimages":::
 
 * Again, insert your own key and endpoint URL.
 * Replace `{projectId}` with your own project ID.
@@ -111,7 +111,7 @@ Use the following command to upload the images and apply tags; once for the "Hem
 
 This method trains the model on the tagged images you've uploaded and returns an ID for the current project iteration.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="trainproject":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/object-detector.sh" ID="trainproject":::
 
 * Again, insert your own key and endpoint URL.
 * Replace `{projectId}` with your own project ID.
@@ -160,7 +160,7 @@ The JSON response contains information about your trained project, including the
 
 This method makes the current iteration of the model available for querying. You use the returned model name as a reference to send prediction requests. 
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="publish":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/object-detector.sh" ID="publish":::
 
 * Again, insert your own key and endpoint URL.
 * Replace `{projectId}` with your own project ID.
@@ -173,7 +173,7 @@ This method makes the current iteration of the model available for querying. You
 
 Finally, use this command to test your trained model by uploading a new image for it to classify with tags. You may use the image in the "Test" folder of the sample files you downloaded earlier.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="publish":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/object-detector.sh" ID="publish":::
 
 * Again, insert your own key and endpoint URL.
 * Replace `{projectId}` with your own project ID.
