@@ -79,9 +79,9 @@ For both inputs and outputs, CSV and JSON formats are supported.
 For each input and output stream you create in your Stream Analytics job, a corresponding endpoint is created on your deployed module. These endpoints can be used in the routes of your deployment.
 
 Supported stream input types are:
-* Edge Hub.
-* Event Hub.
-* IoT Hub.
+* Edge Hub
+* Event Hub
+* IoT Hub
 
 Supported stream output types are:
 * Edge Hub
