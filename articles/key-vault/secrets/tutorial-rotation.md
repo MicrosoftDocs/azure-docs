@@ -11,7 +11,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
