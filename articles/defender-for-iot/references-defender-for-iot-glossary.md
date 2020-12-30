@@ -50,7 +50,7 @@ This glossary provides a brief description of important terms and concepts for t
 | **Defender for IoT platform** | The Defender for IoT solution installed on Defender for IoT sensors and the on-premises management console. | **sensor<br /><br />on-premises management console** |
 | **device map** | A graphical representation of network devices that Defender for IoT detects. It shows the connections between devices and information about each device. Use the map to:<br /><br />- Retrieve and control critical device information.<br /><br />- Analyze network slices.<br /><br />- Export device details and summaries. | **Purdue layer group** |
 | **device inventory - sensor** | The device inventory displays an extensive range of device attributes detected by Defender for IoT. Options are available to:<br /><br />- Filter displayed information.<br /><br />- Export this information to a CSV file.<br /><br />- Import Windows registry details. | **group device inventory - on-premises management console** |
-| **device inventory - on-premises management console** | Device information from connected sensors can be viewed from the on-premises management console in the Device Inventory. This gives users of the on-premises management console a comprehensive view of all network information. | **device inventory - sensor<br /><br />device inventory - data integrator** |
+| **device inventory - on-premises management console** | Device information from connected sensors can be viewed from the on-premises management console in the device inventory. This gives users of the on-premises management console a comprehensive view of all network information. | **device inventory - sensor<br /><br />device inventory - data integrator** |
 | **device inventory - data integrator** | The data integration capabilities of the on-premises management console let you enhance the data in the device inventory with information from other enterprise resources. Example resources are CMDBs, DNS, firewalls, and Web APIs. | **device inventory - on-premises management console** |
 
 ## E
@@ -77,8 +77,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Horizon Open Development Environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defender for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters. |
-| Contact your customer success representative for details. | **protocol support<br /><br />localization** |
+| **Horizon Open Development Environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defender for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters.<br /><br />Contact your customer success representative for details. | **protocol support<br /><br />localization** |
 | **Horizon custom alert** | Enhance alert management in your enterprise by triggering custom alerts for any protocol (based on Horizon Framework traffic dissectors).<br /><br />These alerts can be used to communicate information:<br /><br />- About traffic detections based on protocols and underlying protocols in a proprietary Horizon plug-in.<br /><br />- About a combination of protocol fields from all protocol layers. | **protocol support** |
 
 ## I
@@ -112,7 +111,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **operational alert** | Alerts that deal with operational network issues, such as a device that's suspected to be disconnected form the network. | **alert<br /><br />security alert** |
+| **operational alert** | Alerts that deal with operational network issues, such as a device that's suspected to be disconnected from the network. | **alert<br /><br />security alert** |
 
 ## P
 

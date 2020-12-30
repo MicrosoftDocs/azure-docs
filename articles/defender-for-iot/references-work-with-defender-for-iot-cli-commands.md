@@ -33,7 +33,7 @@ The attributes that you can define within the alert exclusion rules are as follo
 | [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br />`xx:yy-xx:yy`<br />You can define more than one time period by using a comma between them. For example: `xx:yy-xx:yy, xx:yy-xx:yy`. |
 | [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br />`both | src | dst` |
 | [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
-| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001`. |
+| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001` |
 
 ## Append local alert exclusion rules
 
