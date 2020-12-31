@@ -949,11 +949,13 @@
       - name: Database mail
         href: /sql/relational-databases/database-mail/database-mail?toc=%252fazure%252fazure-sql%252ftoc.json
     - name: Security
-      items: 
-      - name: Secure public endpoints
-        href: managed-instance/public-endpoint-overview.md
+      items:
+      - name: Always Encrypted
+        href: database/always-encrypted-landing.yml
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Secure public endpoints
+        href: managed-instance/public-endpoint-overview.md
       - name: Server trust groups
         href: managed-instance/server-trust-group-overview.md
 
