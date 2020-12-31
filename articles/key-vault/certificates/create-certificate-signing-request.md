@@ -15,29 +15,29 @@ ms.author: sebansal
 
 # Create and merge a CSR in Key Vault
 
-Azure Key Vault supports storing digital certificates issued by any Certificate Authority (CA). It supports creating a certificate signing request (CSR) with a private-public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). A CSR is a message that you send to a CA in order to request a digital certificate.
+Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). A CSR is a message that you send to a CA in order to request a digital certificate.
 
-For more general information about certificates, see [Azure Key Vault Certificates](./about-certificates.md).
+For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Adding certificates in Key Vault issued by partnered CAs
+## Add certificates in Key Vault issued by partnered CAs
 
-Key Vault partners with the following Certificate Authorities to simplify certificate creation.
+Key Vault partners with the following certificate authorities to simplify certificate creation.
 
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](./how-to-integrate-certificate-authority.md)
-|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration guide](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
-## Adding certificates in Key Vault issued by non-partnered CAs
+## Add certificates in Key Vault issued by non-partnered CAs
 
 Follow these steps to add a certificate from CAs that aren't partnered with Key Vault. (For example, GoDaddy isn't a trusted Key Vault CA.)
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
-1. Navigate to the Key Vault you want to add the certificate to.
-1. On the Key Vault properties page, select **Certificates**.
+1. Go to the key vault that you want to add the certificate to.
+1. On the properties page, select **Certificates**.
 1. Select the **Generate/Import** tab.
 1. On the **Create a certificate** screen, choose the following values:
     - **Method of Certificate Creation**: Generate.
@@ -50,23 +50,23 @@ Follow these steps to add a certificate from CAs that aren't partnered with Key 
      > Example entry to **Subject**: `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
      >
      > In this example, the RDN `OU` contains a value with a comma in the name. The resulting output for `OU` is **Docs, Contoso**.
-1. Select the other values as desired, and then click **Create** to add the certificate to the **Certificates** list.
+1. Select the other values as desired, and then select **Create** to add the certificate to the **Certificates** list.
 
     ![Screenshot of the certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)  
 
-1. In the **Certificates** list, select the new certificate. The current state of the certificate is **disabled** as it hasn’t been issued by the CA yet.
+1. In the **Certificates** list, select the new certificate. The current state of the certificate is **disabled** because it hasn’t been issued by the CA yet.
 1. On the **Certificate Operation** tab, select **Download CSR**.
 
    ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
-1. Have the CSR (.csr) signed by the CA.
-1. Once the request is signed, select **Merge Signed Request** on the **Certificate Operation** tab to add the signed certificate to Key Vault.
+1. Have the CA sign the CSR (.csr).
+1. After the request is signed, select **Merge Signed Request** on the **Certificate Operation** tab to add the signed certificate to Key Vault.
 
 The certificate request has now been successfully merged.
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
-1. Create a certificate policy. Because the CA chosen in this scenario isn't partnered, the IssuerName is set to **Unknown** and Key Vault doesn't enroll or renew the certificate.
+1. Create a certificate policy. Because the CA chosen in this scenario isn't partnered, **IssuerName** is set to **Unknown** and Key Vault doesn't enroll or renew the certificate.
 
    ```azure-powershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -85,9 +85,9 @@ The certificate request has now been successfully merged.
    $csr.CertificateSigningRequest
    ```
 
-1. Have the CSR signed by the CA. The `$csr.CertificateSigningRequest` is the base encoded CSR for the certificate. You can dump this blob into the issuer’s certificate request website. This step varies from CA to CA. Look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the CSR signed and complete the process of generating a certificate.
+1. Have the CA sign the CSR. The `$csr.CertificateSigningRequest` is the base encoded CSR for the certificate. You can dump this blob into the issuer’s certificate request website. This step varies from CA to CA. Look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the CSR signed and complete the process of generating a certificate.
 
-1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private-public key pair created in Azure Key Vault.
+1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private/public key pair created in Azure Key Vault.
 
     ```azure-powershell-interactive
     Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
@@ -100,11 +100,11 @@ The certificate request has now been successfully merged.
 ## Add more information to the CSR
 
 If you want to add more information when creating the CSR, define it in **SubjectName**. You might want to add information such as:
-- Country.
-- City / Locality.
-- State / Province.
-- Organization.
-- Organizational Unit.
+- Country
+- City/locality
+- State/province
+- Organization
+- Organizational unit
 
 Example
 
@@ -129,13 +129,13 @@ Example
 
      Yes, it will merge the entire chain, provided the user has brought back a .p7b file to merge.
 
-- What if the certificate issued is in 'disabled' status in the Azure portal?
+- What if the certificate issued is in disabled status in the Azure portal?
 
      View the **Certificate Operation** tab to review the error message for that certificate.
 
 - What if I see **Error type 'The subject name provided is not a valid X500 name'**?
 
-     This error might occur if the **SubjectName** includes any special characters. See notes in Azure portal and PowerShell instructions respectively.
+     This error might occur if **SubjectName** includes any special characters. See notes in the Azure portal and PowerShell instructions.
 
 ---
 
@@ -143,6 +143,6 @@ Example
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
-- [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault)
+- [Azure Key Vault REST API reference](/rest/api/keyvault)
 - [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate)
 - [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy)
