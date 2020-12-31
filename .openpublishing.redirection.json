@@ -12965,6 +12965,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
@@ -54214,6 +54219,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/123contactform-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial",
       "redirect_document_id": true
     },
     {
