@@ -134,7 +134,7 @@ Create access policy in Key Vault to grants permissions to your cluster. These p
 
 The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
-## Update cluster with Key identifier details
+## Update cluster with key identifier details
 
 All operations on the cluster require the `Microsoft.OperationalInsights/clusters/write` action permission. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action.
 
@@ -230,7 +230,7 @@ A response to GET request should look like this when the key update is complete:
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## Key revocation
 
