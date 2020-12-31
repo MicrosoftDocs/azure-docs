@@ -107,7 +107,8 @@ In either case, the rotated certificate is now provisioned to all of the nodes, 
   - for new connections within, as well as into the cluster, the Service Fabric runtime will find and select the matching certificate that is the newest (the certificate with the farthest 'NotBefore' property, often abbreviated as 'nb')
   - existing connections will be kept alive/allowed to naturally expire or otherwise terminate; an internal handler will have been notified that a new match exists
 
-[!NOTE] Prior to version 7.2 CU4, Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property)
+> [!NOTE] 
+> Prior to version 7.2 CU4, Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property)
 
 This translates into the following important observations:
   - The renewal certificate may be ignored if its expiration date is sooner than that of the certificate currently in use.
@@ -130,8 +131,11 @@ We've described mechanisms, restrictions, outlined intricate rules and definitio
 
 The sequence is fully scriptable/automated and allows a user-touch-free initial deployment of a cluster configured for certificate autorollover. Detailed steps are provided below. We'll use a mix of PowerShell cmdlets and fragments of json templates. The same functionality is achievable with all supported means of interacting with Azure.
 
-[!NOTE] This example assumes a certificate exists already in the vault; enrolling and renewing a KeyVault-managed certificate requires prerequisite manual steps as described earlier in this article. For production environments, use KeyVault-managed certificates - a sample script specific to a Microsoft-internal PKI is included below.
-Certificate autorollover only makes sense for CA-issued certificates; using self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local/developer-hosted deployments, by declaring the issuer thumbprint to be the same as of the leaf certificate.
+> [!NOTE]
+> This example assumes a certificate exists already in the vault; enrolling and renewing a KeyVault-managed certificate requires prerequisite manual steps as described earlier in this article. For production environments, use KeyVault-managed certificates - a sample script specific to a Microsoft-internal PKI is included below.
+
+> [!NOTE]
+> Certificate autorollover only makes sense for CA-issued certificates; using self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local/developer-hosted deployments, by declaring the issuer thumbprint to be the same as of the leaf certificate.
 
 ### Starting point
 For brevity, we will assume the following starting state:
