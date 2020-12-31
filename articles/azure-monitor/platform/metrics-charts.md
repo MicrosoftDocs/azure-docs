@@ -29,7 +29,7 @@ In Azure Metrics Explorer, you can create charts that plot multiple metric lines
 - Display metrics that use different units of measure in close proximity.
 - Visually aggregate and compare metrics from multiple resources.
 
-For example, if you have five storage accounts and you want to know how much space they consume together, you can create a (stacked) area chart that shows the individual values and the sum of all the values at particular points in time.
+For example, imagine you have five storage accounts, and you want to know how much space they consume together. You can create a (stacked) area chart that shows the individual values and the sum of all the values at particular points in time.
 
 ### Multiple metrics on the same chart
 
@@ -48,7 +48,7 @@ To reorder or delete multiple charts, select the ellipsis (**...**) button to op
 
 ## Aggregation
 
-When you add a metric to a chart, Metrics Explorer automatically applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain additional insights about the metric. 
+When you add a metric to a chart, Metrics Explorer automatically applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain more insights about the metric. 
 
 Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. 
 
@@ -59,7 +59,7 @@ For example, suppose a chart shows the *Server response time* metric. It uses th
 - If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, the line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
 - If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
 
-Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are totally irrelevant and can't be used.
+Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are irrelevant and can't be used.
 
 * **Sum**: The sum of all values captured during the aggregation interval.
 
@@ -162,7 +162,7 @@ To change the color of a chart line, select the colored bar in the legend that c
 
 Your customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
-## Pinning to dashboards
+## Pinning to dashboards 
 
 After you configure a chart, you might want to add it to a dashboard. By pinning a chart to a dashboard, you can make it accessible to your team. You can also gain insights by viewing it in the context of other monitoring telemetry.
 
@@ -172,13 +172,13 @@ To pin a configured chart to a dashboard, in the upper-right corner of the chart
 
 ## Alert rules
 
-You can use your visualization criteria to help you create a metric-based alert rule. The new alert rule will include your chart's target resource, metric, splitting, and filter dimensions. You can later modify these settings by using the alert rule creation pane.
+You can use your visualization criteria to create a metric-based alert rule. The new alert rule will include your chart's target resource, metric, splitting, and filter dimensions. You can modify these settings by using the alert rule creation pane.
 
 To begin, select **New alert rule**.
 
 ![Screenshot that shows the New alert rule button highlighted in red.](./media/metrics-charts/042.png)
 
-The alert rule creation pane opens. In the pane, you see the your chart's metric dimensions. The fields in the pane are prepopulated to help you generate custom alert rules.
+The alert rule creation pane opens. In the pane, you see the chart's metric dimensions. The fields in the pane are prepopulated to help you customize the rule.
 
 ![Screenshot showing the rule creation pane.](./media/metrics-charts/041.png)
 
@@ -186,7 +186,7 @@ For more information, see [Create, view, and manage metric alerts](alerts-metric
 
 ## Troubleshooting
 
-If you don't see any data on your chart, review the following troubleshooting suggestions:
+If you don't see any data on your chart, review the following troubleshooting information:
 
 * Filters apply to all of the charts on the pane. While you focus on a chart, make sure that you don't set a filter that excludes all the data on another chart.
 
@@ -198,5 +198,4 @@ If you don't see any data on your chart, review the following troubleshooting su
 
 To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../learn/tutorial-app-dashboards.md).
 
-
-
+ 
