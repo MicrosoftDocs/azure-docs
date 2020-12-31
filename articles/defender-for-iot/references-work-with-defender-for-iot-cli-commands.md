@@ -33,7 +33,7 @@ The attributes that you can define within the alert exclusion rules are as follo
 | [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br />`xx:yy-xx:yy`<br />You can define more than one time period by using a comma between them. For example: `xx:yy-xx:yy, xx:yy-xx:yy`. |
 | [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br />`both | src | dst` |
 | [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
-| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001`. |
+| [-a ALERTS] | The name of the alert that the rule will exclude:<br />`0x00000`<br />`0x000001` |
 
 ## Append local alert exclusion rules
 
@@ -48,7 +48,7 @@ The attributes used here are similar to attributes described when you're creatin
 
 ## Show local alert exclusion rules
 
-You can enter the following command to view all existing exclusion rules:
+Enter the following command to view all existing exclusion rules:
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -72,14 +72,14 @@ You can use the following attribute with the alert exclusion rules:
 
 ## Sync time from the NTP server
 
-This section describes how to enable and disable a time sync from an NTP server.
+You can enable and disable a time sync from an NTP server.
 
 ### Enable NTP sync
 
 Entering the following command will enable a periodic retrieval of the current time from a specified NTP server:
 
 ```azurecli-interactive
-ntp enable IP.
+ntp enable IP
 ```
 
 The attribute that you can define within the command is the IP address of the NTP server.
@@ -266,21 +266,22 @@ Enter the following command to import SSL and TLS enterprise certificates into t
 ```azurecli-interactive
 cyberx-xsense-certificate-import
 ```
-The certificate files need to be uploaded to the device to use the tool. This can be done through tools such as WinSCP or Wget. 
+To use the tool, you need to upload the certificate files to the device. You can do this through tools such as WinSCP or Wget. 
 
 The command supports the following input flags:
 
 | Flag | Description |
 |--|--|
-| -h | Shows the command line help syntax. |
-| --crt | The path to the certificate file (CRT extension). |
-| --key | *.key file, key length should be minimum 2048 bits. |
-| --chain | Path to certificate chain file (optional). |
+| -h | Shows the command-line help syntax. |
+| --crt | The path to the certificate file (.crt extension). |
+| --key | The \*.key file. Key length should be a minimum of 2,048 bits. |
+| --chain | Path to the certificate chain file (optional). |
 | --pass | Passphrase used to encrypt the certificate (optional). |
-| --passphrase-set | The default is **False**, **unused** <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). |  |
+| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). |  |
 
-When using the tool;
-- Verify the certificates files are readable on the appliance 
+When you're using the tool:
+
+- Verify that the certificate files are readable on the appliance. 
 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
     
