@@ -228,17 +228,15 @@ section of this article below. The `wait_type`, `open_transaction_count`, and `s
 
 The scenarios listed below will have the characteristics listed in the table above. This section provides additional details when applicable, as well as paths to resolution.
 
-1.  Blocking Caused by a Normally Running Query with a Long Execution Time
+1.  Blocking caused by a normally running query with a long execution time
 
-    Resolution:
-
-    The solution to this type of blocking problem is to look for ways to optimize the query. Actually, this class of blocking problem may just be a performance problem, and require you to pursue it as such. For information on troubleshooting a specific slow-running query, see [How to troubleshoot slow-running queries on SQL Server](/troubleshoot/sql/performance/troubleshoot-slow-running-queries). For more information, see [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance). 
+    Resolution: The solution to this type of blocking problem is to look for ways to optimize the query. Actually, this class of blocking problem may just be a performance problem, and require you to pursue it as such. For information on troubleshooting a specific slow-running query, see [How to troubleshoot slow-running queries on SQL Server](/troubleshoot/sql/performance/troubleshoot-slow-running-queries). For more information, see [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance). 
 
     The Query Store reports, accessible via SSMS, are also a highly recommended and valuable tool for identifying the most costly queries, suboptimal execution plans, as well as the Intelligent Performance section of the Azure portal for the Azure SQL database in question, including [Query Performance Insight](query-performance-insight-use.md).
 
     If you have a long-running query that is blocking other users and cannot be optimized, consider moving it from an OLTP environment to a dedicated reporting system, a [synchronous read-only replica of the database](read-scale-out.md).
 
-2.  Blocking Caused by a Sleeping SPID That Has Lost Track of the Transaction Nesting Level
+2.  Blocking caused by a sleeping SPID that has lost track of the transaction nesting level
 
     This type of blocking can often be identified by a SPID that is sleeping or awaiting a command, yet whose transaction nesting level (`@@TRANCOUNT`, `open_transaction_count` from sys.dm_exec_requests) is greater than zero. This can occur if the application experiences a query time-out, or issues a cancel without also issuing the required number of
     ROLLBACK and/or COMMIT statements. When a SPID receives a query time-out or a cancel, it will terminate the current query and batch, but does not automatically roll back or commit the transaction. The application is responsible for this, as Azure SQL Database cannot assume that an entire transaction must be rolled back due to a single query being canceled. The query time-out or cancel will appear as an ATTENTION signal event for the SPID in the Extended Event session.
@@ -278,18 +276,16 @@ The scenarios listed below will have the characteristics listed in the table abo
 > [!CAUTION]
 > Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
 
-
-3.  Blocking Caused by a SPID Whose Corresponding Client Application Did Not Fetch All Result Rows to Completion
+3.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
 
     After sending a query to the server, all applications must immediately fetch all result rows to completion. If an application does not fetch all result rows, locks can be left on the tables, blocking other users. If you are using an application that transparently submits SQL statements to the server, the application must fetch all result rows. If it does not (and if it cannot be configured to do so), you may be unable to resolve the blocking problem. To avoid the problem, you can restrict poorly behaved applications to a reporting or a decision-support database.
-
-> Note
-> See [guidance for retry logic](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
-
+    
+    > [!NOTE]
+    > See [guidance for retry logic](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
+    
     Resolution: The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
 
-
-4.  Blocking Caused by a Distributed Client/Server Deadlock
+4.  Blocking caused by a distributed client/server deadlock
 
     Unlike a conventional deadlock, a distributed deadlock is not detectable using the RDBMS lock manager. This is because only one of the resources involved in the deadlock is a SQL Server lock. The other side of the deadlock is at the client application level, over which SQL Server has no control. The following are two examples of how this can happen, and possible ways the application can avoid it.
 
@@ -338,7 +334,7 @@ The scenarios listed below will have the characteristics listed in the table abo
         For more information, see also [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md) and [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling).
 
 
-5.  Blocking Caused by a SPID that is in rollback state
+5.  Blocking caused by a SPID that is in rollback state
 
     A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting. Likewise, a query selected as the deadlock victim will be rolled back. A data modification query often cannot be rolled back any faster than the changes were initially applied. For example, if a `DELETE`, `INSERT`, or `UPDATE` statement had been running for an hour, it could take at least an hour to roll back. This is expected behavior, because the changes made must be rolled back, or transactional and physical integrity in the database would be compromised. Because this must happen, the database engine marks the SPID in a  rollback state (which means it cannot be KILLed or selected as a deadlock victim). This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
 
@@ -346,25 +342,25 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     To avoid this situation, do not perform large batch `INSERT`, `UPDATE`, or `DELETE` operations or index creation or maintenance operations during busy hours on OLTP systems. If possible, perform such operations during periods of low activity.
 
-6.  Blocking Caused by an orphaned connection
+6.  Blocking caused by an orphaned connection
 
     If the client application traps errors or the client workstation is restarted, the network session to the server may not be immediately canceled under some conditions. From the Azure SQL Database perspective, the client still appears to be present, and any locks acquired may still be retained. For more information, see [How to troubleshoot orphaned connections in SQL Server](/sql/t-sql/language-elements/kill-transact-sql#remarks). 
 
     Resolution: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 9, issue the following command 
 
-```sql
-KILL 9
-```
-
+    ```sql
+    KILL 9
+    ```
+    
     The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.
 
 ## Application involvement in blocking problems
 
-    There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, this does not usually lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for business-critical OLTP environments. 
+There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, this does not usually lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for business-critical OLTP environments. 
 
-    It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
+It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
 
-    With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
+With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
 
 ## See Also
 
