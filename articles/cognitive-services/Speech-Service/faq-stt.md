@@ -50,9 +50,9 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 The other results are likely worse and might not have full capitalization and punctuation applied. These results are most useful in special scenarios such as giving users the option to pick corrections from a list or handling incorrectly recognized commands.
 
-**Q: What's the difference between the Search and Dictation model and the Conversational model?**
+**Q: Why are there different base models?**
 
-**A**: You can choose from more than one baseline model in the Speech service. The Conversational model is useful for recognizing speech that is spoken in a conversational style. This model is ideal for transcribing phone calls. The Search and Dictation model is ideal for voice-triggered apps. The Universal model is a new model that aims to address both scenarios. The Universal model is currently at or above the quality level of the Conversational model in most locales.
+**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model to get the best accuracy. Older base models are still available for some time when a new model is made available. You can continue using the model that you have worked with until it is retired (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)). It is still recommended to switch to the latest base model for better accuracy.
 
 **Q: Can I update my existing model (model stacking)?**
 
@@ -60,15 +60,17 @@ The other results are likely worse and might not have full capitalization and pu
 
 The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
 
-**Q: When a new version of a baseline is available, is my deployment automatically updated?**
+**Q: When a new version of a base model is available, is my deployment automatically updated?**
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, readapt using the newer version of the baseline and redeploy.
+If you have adapted and deployed a model, that deployment will remain as is. You can decommission the deployed model, readapt using the newer version of the base model and redeploy for better accuracy.
+
+Both base models and custom models will be retired after some time (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)).
 
 **Q: Can I download my model and run it locally?**
 
-**A**: Models can't be downloaded and executed locally.
+**A**: You can run a custom model locally in a [Docker container](speech-container-howto.md?tabs=cstt).
 
 **Q: Are my requests logged?**
 
