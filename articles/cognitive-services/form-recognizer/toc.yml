@@ -13,9 +13,7 @@
   - name: Using the client library or REST API
     href: quickstarts/client-library.md
   - name: Using the sample labeling tool
-    items:
-    - name: Train custom model with labels
-      href: quickstarts/label-tool.md
+    href: quickstarts/label-tool.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Cognitive Search
