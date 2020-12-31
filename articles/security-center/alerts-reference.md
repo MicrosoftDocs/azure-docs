@@ -480,7 +480,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 
 
-## MITRE ATTA&CK tactics <a name="intentions"></a>
+## MITRE ATT&CK tactics <a name="intentions"></a>
 
 Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Azure Security Center alerts include the MITRE tactics with many alerts.
 
