@@ -24,7 +24,7 @@ ms.author: irenehua
   1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
   
   1. Under **Settings**, select **Inbound NAT Rules**.
-If you see on the right pane, a list of rules created for the each individual instance in the Virtual Machine Scale Set, the congrats you are all set to go for scaleing up/down at any time.
+If you see on the right pane, a list of rules created for the each individual instance in the Virtual Machine Scale Set, the congrats you are all set to go for scaling up at any time.
 
 ## How to add inbound NAT rules? 
   * Individual inbound NAT rule cannot be added. However, you can add a set of inbound NAT rules with defined frontend port range and backend port for all instances in the Virtual Machine Scale Set.
