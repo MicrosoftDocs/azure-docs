@@ -480,7 +480,7 @@ To add a confirmation, you use the `SetTemperature` command. To achieve confirma
           1. Leave the existing **Confirmation was denied** condition.
           1. Add a new condition: **Type** > **Required parameters** > **Temperature**.
           1. Add a new action: **Type** > **Send speech response** > **No problem. What temperature then?**.
-          1. Leave the default **Post-execution state** value as **Wait for user's input**.
+          1. Change the default **Post-execution state** value to **Wait for user's input**.
 
 > [!IMPORTANT]
 > In this article, you use the built-in confirmation capability. You can also manually add interaction rules one by one.
@@ -494,7 +494,7 @@ Try out the changes by selecting **Train**. When the training finishes, select *
 - **Input**: *72 degrees*
 - **Output**: are you sure you want to set the temperature as 72 degrees?
 - **Input**: *Yes*
-- **Output**: OK, setting temperature to 83 degrees
+- **Output**: OK, setting temperature to 72 degrees
 
 ### Implement corrections in a command
 
