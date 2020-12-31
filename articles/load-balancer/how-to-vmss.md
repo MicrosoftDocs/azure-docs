@@ -1,7 +1,7 @@
 ---
 title: Configure existing Azure Load Balancer with Virtual Machine Scale Sets
 titleSuffix: Configure existing Azure Load Balancer with Virtual Machine Scale Sets
-description: With this learning path, get started with Azure Standard Load Balancer and Virtual Machine Scale Sets.
+description: With this how-to article, get started with Azure Standard Load Balancer and Virtual Machine Scale Sets.
 services: load-balancer
 documentationcenter: na
 author: irenehua
