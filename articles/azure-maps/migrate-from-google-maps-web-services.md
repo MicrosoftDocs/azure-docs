@@ -17,6 +17,7 @@ Both Azure and Google Maps provide access to spatial APIs through REST web servi
 
 In this tutorial, you will learn how to:
 
+> [!div class="checklist"]
 > * Forward and reverse geocoding
 > * Search for points of interest
 > * Calculate routes and directions
