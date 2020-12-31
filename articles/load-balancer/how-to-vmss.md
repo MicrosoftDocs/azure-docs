@@ -90,13 +90,13 @@ az network lb inbound-nat-pool update
 
 1. Create new set of inbound NAT rules using the newly created frontend IP Configurations if needed. Example can be found here in the [previous section].
 
-# How to delete Frontend IP Configuration used by Virtual Machine Scale Set: 
+## How to delete Frontend IP Configuration used by Virtual Machine Scale Set: 
  1. To delete the Frontend IP Configuration in use by the Scale Set, you need to first delete the inbound NAT pool (set of inbound NAT rules) referencing the frontend IP configuration. Instructions on how to delete the inbound rules can be found in the previous section.
  1. Delete the Load Balancing rule referencing the Frontend IP Configuration. 
  1. Delete the Frontend IP Configuration.
  
 
-# How to delete Azure Load Balancer used by Virtual Machine Scale Set: 
+## How to delete Azure Load Balancer used by Virtual Machine Scale Set: 
  1. To delete the Frontend IP Configuration in use by the Scale Set, you need to first delete the inbound NAT pool (set of inbound NAT rules) referencing the frontend IP configuration. Instructions on how to delete the inbound rules can be found in the previous section.
  
  1. Delete the Load Balancing rule referencing backend pool containing the Virtual Machine Scale Set.
