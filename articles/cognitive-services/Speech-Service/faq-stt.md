@@ -52,7 +52,7 @@ The other results are likely worse and might not have full capitalization and pu
 
 **Q: Why are there different base models?**
 
-**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model to get the best accuracy. Older base models are still available for some time when a new model is made available. You can continue using the model that you have worked with until it is retired (see [Model lifecycle](custom-speech-overview#model-lifecycle)). It is still recommended to switch to the latest base model for better accuracy.
+**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model to get the best accuracy. Older base models are still available for some time when a new model is made available. You can continue using the model that you have worked with until it is retired (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)). It is still recommended to switch to the latest base model for better accuracy.
 
 **Q: Can I update my existing model (model stacking)?**
 
@@ -66,11 +66,11 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 If you have adapted and deployed a model, that deployment will remain as is. You can decommission the deployed model, readapt using the newer version of the base model and redeploy for better accuracy.
 
-Both base models and custom models will be retired after some time (see [Model lifecycle](custom-speech-overview#model-lifecycle)).
+Both base models and custom models will be retired after some time (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)).
 
 **Q: Can I download my model and run it locally?**
 
-**A**: You can run a custom model locally in a [Docker container](speech-container-howto?tabs=cstt).
+**A**: You can run a custom model locally in a [Docker container](speech-container-howto.md?tabs=cstt).
 
 **Q: Are my requests logged?**
 
