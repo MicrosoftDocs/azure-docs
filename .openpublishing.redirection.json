@@ -54222,6 +54222,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-15five-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/15five-tutorial",
       "redirect_document_id": true
