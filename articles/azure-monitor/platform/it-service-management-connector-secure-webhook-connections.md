@@ -58,8 +58,8 @@ Start using the ITSM Connector tool with these steps:
 1. Configure your partner environment.
 
 Secure Export supports connections with the following ITSM tools:
-* [ServiceNow](#connect-servicenow-to-azure-monitor)
-* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
+* [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
 ## Register with Azure Active Directory
 
@@ -108,73 +108,5 @@ The configuration contain 2 steps:
 1. Get the URI for the secure export definition.
 2. Definitions according to the flow of the ITSM tool.
 
-
-### Connect ServiceNow to Azure Monitor
-
-The following sections provide details about how to connect your ServiceNow product and Secure Export in Azure.
-
-### Prerequisites
-
-Ensure that you've met the following prerequisites:
-
-* Azure AD is registered.
-* You have the supported version of The ServiceNow Event Management - ITOM (version Orlando or later).
-
-### Configure the ServiceNow connection
-
-1.Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
-
-2. Follow the instructions according to the version:
-   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
-   * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
-   * [New York](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/task/azure-events-authentication.html)
-
-### Connect BMC Helix to Azure Monitor
-
-The following sections provide details about how to connect your BMC Helix product and Secure Export in Azure.
-
-### Prerequisites
-
-Ensure that you've met the following prerequisites:
-
-* Azure AD is registered.
-* You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
-
-### Configure the BMC Helix connection
-
-1.Use the following procedure in the BMC Helix environment in order to get the URI for the secure export:
-
-   1. Log in to Integration Studio.
-   2. Search for the **Create Incident from Azure Alerts** flow.
-   3. Copy the webhook URL .
-   
-   ![Screenshot of the webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
-   
-2. Follow the instructions according to the version:
-   * [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
-   * [Enabling prebuilt integration with Azure Monitor for version 19.11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
-
-3. As a part of the configuration of the connection in BMC Helix, go into your integration BMC instance and follow these instructions:
-
-   1. Select **catalog**.
-   2. Select **Azure alerts**.
-   3. Select **connectors**.
-   4. Select **configuration**.
-   5. Select the **add new connection** configuration.
-   6. Fill in the information for the configuration section:
-      - **Name**: Make up your own.
-      - **Authorization type**: **NONE**
-      - **Description**: Make up your own.
-      - **Site**: **Cloud**
-      - **Number of instances**: **2**, the default value.
-      - **Check**: Selected by default to enable usage.
-      - The Azure tenant ID and Azure application ID are taken from the application that you defined earlier.
-
-![Screenshot that shows BMC configuration.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
-
-
-
-
 ## Next steps
-
 * [Create ITSM work items from Azure alerts](./itsmc-overview.md)
