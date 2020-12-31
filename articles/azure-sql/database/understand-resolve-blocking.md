@@ -267,14 +267,13 @@ The scenarios listed below will have the characteristics listed in the table abo
         before releasing the connection back to the pool, such as a Web-based application, temporarily disabling connection
         pooling may help alleviate the problem until the client application is modified to handle the errors appropriately.
         By disabling connection pooling, releasing the connection will cause a physical disconnect of the Azure SQL Database connection, resulting in the server rolling back any open transactions.
-
+    
+        > [!NOTE]
+        > The connection is not reset until it is reused from the connection pool, so it is possible that a user could open a transaction and then release the connection to the connection pool, but it might not be reused for several seconds, during which time the transaction would remain open. If the connection is not reused, the transaction will be aborted when the connection times out and is removed from the connection pool. Thus, it is optimal for the client application to abort transactions in their error handler or use `SET XACT_ABORT ON` to avoid this potential delay.
         -    Use `SET XACT_ABORT ON` for the connection, or in any stored procedures that begin transactions and are not cleaning up following an error. In the event of a run-time error, this setting will abort any open transactions and return control to the client.
-        
-> [!NOTE]
-> The connection is not reset until it is reused from the connection pool, so it is possible that a user could open a transaction and then release the connection to the connection pool, but it might not be reused for several seconds, during which time the transaction would remain open. If the connection is not reused, the transaction will be aborted when the connection times out and is removed from the connection pool. Thus, it is optimal for the client application to abort transactions in their error handler or use `SET XACT_ABORT ON` to avoid this potential delay.
-
-> [!CAUTION]
-> Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
+    
+        > [!CAUTION]
+        > Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
 
 3.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
 
@@ -346,10 +345,10 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     If the client application traps errors or the client workstation is restarted, the network session to the server may not be immediately canceled under some conditions. From the Azure SQL Database perspective, the client still appears to be present, and any locks acquired may still be retained. For more information, see [How to troubleshoot orphaned connections in SQL Server](/sql/t-sql/language-elements/kill-transact-sql#remarks). 
 
-    Resolution: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 9, issue the following command 
+    Resolution: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 99, issue the following command 
 
     ```sql
-    KILL 9
+    KILL 99
     ```
     
     The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.
@@ -364,4 +363,14 @@ With proper application and query design, Azure SQL Database is capable of suppo
 
 ## See Also
 
+* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/monitor-tune-overview.md)
+* [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Transaction Locking and Row Versioning Guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
+* [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)
+* [Quickstart: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
+
+## Learn More
+
+* [Azure SQL Database: Improving Performance Tuning with Automatic Tuning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
+* [Improve Azure SQL Database Performance with Automatic Tuning](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)
+* [Deliver consistent performance with Azure SQL](/learn/modules/azure-sql-performance/)
