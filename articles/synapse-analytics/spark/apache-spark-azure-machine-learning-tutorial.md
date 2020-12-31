@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Train a model in Python with automated ML'
-description: Tutorial on how to train a machine learning model in Python in Azure Synapse using Apache Spark and automated ML.
+title: 'Tutorial: Train a model in Python with automated machine learning'
+description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
@@ -11,120 +11,117 @@ ms.author: midesa
 ms.reviewer: jrasnick
  
 ---
-# Tutorial: Train a machine learning model in Python in Azure Synapse with Apache Spark and automated ML
+# Tutorial: Train a model in Python with automated machine learning
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
-In this tutorial, you use [automated machine learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you use [automated machine learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict taxi fare prices. This process arrives at the best model by accepting training data and configuration settings, and automatically iterating through combinations of different methods, models, and hyperparameter settings.
 
-In this tutorial you learn the following tasks:
-- Download the data using Apache Spark and Azure Open Datasets
-- Transform and clean data using Apache Spark dataframes
-- Train an automated machine learning regression model
-- Calculate model accuracy
+In this tutorial, you learn how to:
+- Download the data by using Apache Spark and Azure Open Datasets.
+- Transform and clean data by using Apache Spark dataframes.
+- Train an automated machine learning regression model.
+- Calculate model accuracy.
 
-### Before you begin
+## Before you begin
 
 - Create a serverless Apache Spark Pool by following the [Create a serverless Apache Spark pool quickstart](../quickstart-create-apache-spark-pool-studio.md).
-- Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you don't have an existing Azure Machine Learning workspace. 
 
-### Understand regression models
+## Understand regression models
 
-*Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others.  
+*Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable affects the others.  
 
-### Regression analysis example on the NYC taxi data
+### Example based on New York City taxi data
 
-In this example, you will use Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
+In this example, you use Spark to perform some analysis on taxi trip tip data from New York City (NYC). The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, and the cost.
 
 > [!IMPORTANT]
-> 
-> There may be additional charges for pulling this data from its storage location. In the following steps, you will develop a model to predict NYC taxi fare prices. 
-> 
+> There might be additional charges for pulling this data from its storage location. In the following steps, you develop a model to predict NYC taxi fare prices. 
 
 ##  Download and prepare the data
 
-1. Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
+Here's how:
+
+1. Create a notebook by using the PySpark kernel. For instructions, see [Create a notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook).
    
-> [!Note]
-> 
-> Because of the PySpark kernel, you do not need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
->
-
-2. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, we'll use the Spark dataframe *schema on read* properties to infer the datatypes and schema. 
+    > [!Note]
+    > Because of the PySpark kernel, you don't need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
+  
+2. Because the raw data is in a Parquet format, you can use the Spark context to pull the file directly into memory as a dataframe. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, you use the Spark dataframe `schema on read` properties to infer the datatypes and schema. 
    
-```python
-blob_account_name = "azureopendatastorage"
-blob_container_name = "nyctlc"
-blob_relative_path = "yellow"
-blob_sas_token = r""
+    ```python
+    blob_account_name = "azureopendatastorage"
+    blob_container_name = "nyctlc"
+    blob_relative_path = "yellow"
+    blob_sas_token = r""
 
-# Allow Spark to read from Blob remotely
-wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
+    # Allow Spark to read from Blob remotely
+    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-# Spark read parquet, note that it won't load any data yet by now
-df = spark.read.parquet(wasbs_path)
+    # Spark read parquet, note that it won't load any data yet by now
+    df = spark.read.parquet(wasbs_path)
 
-```
+    ```
 
-3. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
+3. Depending on the size of your Spark pool, the raw data might be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. After you have the filtered dataframe, you also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
 
-   Based on the summary statistics, we can see that there are some irregularities and outliers in the data. For example, the statistics show that the the minimum trip distance is less than 0. We will need to filter out these irregular data points.
+   Based on the summary statistics, you can see that there are some irregularities in the data. For example, the statistics show that the minimum trip distance is less than 0. You need to filter out these irregular data points.
    
-```python
-# Create an ingestion filter
-start_date = '2015-01-01 00:00:00'
-end_date = '2015-12-31 00:00:00'
+   ```python
+   # Create an ingestion filter
+   start_date = '2015-01-01 00:00:00'
+   end_date = '2015-12-31 00:00:00'
 
-filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
+   filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime< "' + end_date + '"')
 
-filtered_df.describe().show()
-```
+   filtered_df.describe().show()
+   ```
 
-4. Now, we will generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup datetime field. We will also filter out outliers that were identified from the earlier step and then remove the last few columns which are unnecessary for training.
+4. Next, generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup datetime field. Filter out the outliers that were identified from the earlier step, and then remove the last few columns because they are unnecessary for training.
    
-```python
-from datetime import datetime
-from pyspark.sql.functions import *
+   ```python
+   from datetime import datetime
+   from pyspark.sql.functions import *
 
-# To make development easier, faster and less expensive down sample for now
-sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
+   # To make development easier, faster and less expensive down sample for now
+   sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
-taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
-                                , 'endLat', 'paymentType', 'fareAmount', 'tipAmount'\
-                                , column('puMonth').alias('month_num') \
-                                , date_format('tpepPickupDateTime', 'hh').alias('hour_of_day')\
-                                , date_format('tpepPickupDateTime', 'EEEE').alias('day_of_week')\
-                                , dayofmonth(col('tpepPickupDateTime')).alias('day_of_month')
-                                ,(unix_timestamp(col('tpepDropoffDateTime')) - unix_timestamp(col('tpepPickupDateTime'))).alias('trip_time'))\
-                        .filter((sampled_taxi_df.passengerCount > 0) & (sampled_taxi_df.passengerCount < 8)\
-                                & (sampled_taxi_df.tipAmount >= 0)\
-                                & (sampled_taxi_df.fareAmount >= 1) & (sampled_taxi_df.fareAmount <= 250)\
-                                & (sampled_taxi_df.tipAmount < sampled_taxi_df.fareAmount)\
-                                & (sampled_taxi_df.tripDistance > 0) & (sampled_taxi_df.tripDistance <= 200)\
-                                & (sampled_taxi_df.rateCodeId <= 5)\
-                                & (sampled_taxi_df.paymentType.isin({"1", "2"})))
-taxi_df.show(10)
-```
+   taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
+                                   , 'endLat', 'paymentType', 'fareAmount', 'tipAmount'\
+                                   , column('puMonth').alias('month_num') \
+                                   , date_format('tpepPickupDateTime', 'hh').alias('hour_of_day')\
+                                   , date_format('tpepPickupDateTime', 'EEEE').alias('day_of_week')\
+                                   , dayofmonth(col('tpepPickupDateTime')).alias('day_of_month')
+                                   ,(unix_timestamp(col('tpepDropoffDateTime')) - unix_timestamp(col('tpepPickupDateTime'))).alias('trip_time'))\
+                           .filter((sampled_taxi_df.passengerCount > 0) & (sampled_taxi_df.passengerCount < 8)\
+                                   & (sampled_taxi_df.tipAmount >= 0)\
+                                   & (sampled_taxi_df.fareAmount >= 1) & (sampled_taxi_df.fareAmount <= 250)\
+                                   & (sampled_taxi_df.tipAmount < sampled_taxi_df.fareAmount)\
+                                   & (sampled_taxi_df.tripDistance > 0) & (sampled_taxi_df.tripDistance <= 200)\
+                                   & (sampled_taxi_df.rateCodeId <= 5)\
+                                   & (sampled_taxi_df.paymentType.isin({"1", "2"})))
+   taxi_df.show(10)
+   ```
    
    As you can see, this will create a new dataframe with additional columns for the day of the month, pickup hour, weekday, and total trip time. 
 
-
-![Picture of taxi dataframe.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
+   ![Picture of taxi dataframe.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## Generate test and validation datasets
 
-Once we have our final dataset, we can split the data into training and test sets by using the Spark ```random_ split ``` function. Using the provided weights, this function randomly splits the data into the training dataset for model training and the validation dataset for testing.
+After you have your final dataset, you can split the data into training and test sets by using the ```random_ split ``` function in Spark. Using the provided weights, this function randomly splits the data into the training dataset for model training and the validation dataset for testing.
 
 ```python
-# Random split dataset using spark, convert Spark to Pandas
+# Random split dataset using Spark, convert Spark to Pandas
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
-This step ensures that the data points to test the finished model that haven't been used to train the model. 
+This step ensures that the data points to test the finished model haven't been used to train the model. 
 
-## Connect to an Azure Machine Learning Workspace
-In Azure Machine Learning, a  **Workspace** is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. In this step, we will create a workspace object from the existing Azure Machine Learning workspace.
+## Connect to an Azure Machine Learning workspace
+In Azure Machine Learning, a workspace is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. In this step, you create a workspace object from the existing Azure Machine Learning workspace.
    
 ```python
 from azureml.core import Workspace
@@ -141,7 +138,7 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## Convert a dataframe to an Azure Machine Learning Dataset
+## Convert a dataframe to an Azure Machine Learning dataset
 To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
