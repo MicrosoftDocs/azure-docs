@@ -19,12 +19,12 @@ This table lists the human languages supported by the Form Recognizer service.
 
 |Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview|
 |:-----|:----:|:-----:|:---:|
-|English (printed & handwritten) | `en` | ✔ | ✔|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
-|Japanese | `ja` |  | ✔|
 |Dutch | `nl` | | ✔ |
+|English (printed & handwritten) | `en` | ✔ | ✔|
 |French | `fr` | | ✔ |
 |German | `de` | | ✔ |
 |Italian | `it` | | ✔ |
+|Japanese | `ja` |  | ✔|
 |Portuguese | `pt` | | ✔ |
 |Spanish | `es` | | ✔ |
