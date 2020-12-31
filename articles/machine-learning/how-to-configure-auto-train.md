@@ -468,11 +468,11 @@ For general information on how model explanations and feature importance can be 
   3. If the listed version is not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
   
  * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`.
-    
-    Check PyJWT version in the automated ml conda environment. Supported versions are < 2.0.0. You may check the version of PyJWT as follows:
+
+    For versions <= 1.17.0 of the SDK, installation might result in an unsupported version of PyJWT. Check PyJWT version in the automated ml conda environment. Supported versions are < 2.0.0. You may check the version of PyJWT as follows:
     1. Start a command shell, activate conda environment where automated ml packages are installed.
     2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
-    
+
     If the listed version is not a supported version:
     1. Consider upgrading to the latest version of AutoML SDK: `pip install -U azureml-sdk[automl]`.
     2. If that is not viable, uninstall PyJWT from the environment and install the right version as follows:
