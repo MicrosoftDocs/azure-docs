@@ -23,10 +23,9 @@ Ensure that you've met the following prerequisites:
 ## Configure the BMC Helix connection
 
 1.Use the following procedure in the BMC Helix environment in order to get the URI for the secure export:
-
    1. Log in to Integration Studio.
-   2. Search for the **Create Incident from Azure Alerts** flow.
-   3. Copy the webhook URL .
+   1. Search for the **Create Incident from Azure Alerts** flow.
+   1. Copy the webhook URL .
    
    ![Screenshot of the webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
    
