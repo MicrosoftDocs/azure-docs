@@ -24,12 +24,12 @@ ms.author: irenehua
   1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
   
   1. Under **Settings**, select **Inbound NAT Rules**.
-If you see on the right pane, a list of rules created for the each individual instance in the Virtual Machine Scale Set, the congrats you are all set to go for scaling up at any time.
+If you see on the right pane, a list of rules created for each individual instance in the Virtual Machine Scale Set, the congrats you are all set to go for scaling up at any time.
 
 ## How to add inbound NAT rules? 
   * Individual inbound NAT rule cannot be added. However, you can add a set of inbound NAT rules with defined frontend port range and backend port for all instances in the Virtual Machine Scale Set.
   * In order to add a whole set of inbound NAT rules for the Virtual Machine Scale Sets, you need to first create an inbound NAT pool in the Load Balancer, and then reference the inbound NAT pool from the network profile of Virtual Machine Scale Set. A full example using CLI is shown below.
-  * Note that the new inbound NAT pool should not have overlapping frontend port range with existing inbound NAT pools. To view existing inbound NAT pools set up, you can use this [CLI command](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+  * The new inbound NAT pool should not have overlapping frontend port range with existing inbound NAT pools. To view existing inbound NAT pools set up, you can use this [CLI command](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
