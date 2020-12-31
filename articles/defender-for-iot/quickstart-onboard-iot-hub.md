@@ -30,7 +30,7 @@ This article provides an explanation of how to enable the Defender for IoT servi
   - Two types of information are stored by default in your Log Analytics workspace by Defender for IoT; **security alerts** and **recommendations**.
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs.
 - IoT Hub (standard tier)
-- Meet all [service prerequisites](service-prerequisites.md)
+- Meet all [System prerequisites](quickstart-system-prerequisites.md).
 
 ## Enable Defender for IoT on your IoT Hub
 
