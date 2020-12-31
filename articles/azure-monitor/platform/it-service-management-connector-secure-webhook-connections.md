@@ -58,8 +58,8 @@ Start using the ITSM Connector tool with these steps:
 1. Configure your partner environment.
 
 Secure Export supports connections with the following ITSM tools:
-* [ServiceNow](#connect-servicenow-to-azure-monitor)
-* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
+* [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
 ## Register with Azure Active Directory
 
