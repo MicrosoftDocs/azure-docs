@@ -111,6 +111,8 @@ landingContent:
         links:
           - text: Run Transact-SQL statements using secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
+          - text: Troubleshoot common issues for Always Encrypted with secure enclaves
+            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
 
 
   # Card
