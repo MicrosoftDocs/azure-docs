@@ -52,8 +52,8 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 
 Use the Elevation service (Preview) APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
 
-* [Get Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [Post Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [Get Data for Points](/rest/api/maps/elevation/getdataforpoints)
+* [Post Data for Points](/rest/api/maps/elevation/postdataforpoints)
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -63,7 +63,7 @@ Use the Elevation service (Preview) APIs to request elevation data in GeoJSON fo
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
  >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
@@ -99,7 +99,7 @@ In this example, we'll use the [Get Data for Points API](https://docs.microsoft.
     }
     ```
 
-4. Now, we'll call the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+4. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -484,7 +484,7 @@ The following sample web page shows you how to use the map control to display el
 To further explore the Azure Maps Elevation (Preview) APIs, see:
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Lat Long Coordinates](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Elevation (Preview) - Get Data for Lat Long Coordinates](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
 > [Elevation (Preview) - Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)

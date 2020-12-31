@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-
+ms.custom: data4ml
 ---
 
 # Tag images in a labeling project 

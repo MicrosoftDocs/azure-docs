@@ -19,6 +19,35 @@ ms.subservice: metrics
 
 [Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md),  [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or by [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
+## Resource scope picker
+The resource scope picker allows you to view metrics across single and multiple resources. Below are instructions on how to use the resource scope picker. 
+
+### Selecting a single resource
+Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Click on the "Select a scope" button to open the scope picker, which will allow you to select the resource(s) you want to see metrics for. This should already be populated if you opened metrics explorer from a resource's menu. 
+
+![Screenshot of the resource scope picker](./media/metrics-charts/scope-picker.png)
+
+For certain resources, you can only view a single resource’s metrics at a time. These resources are under the “All resource types” section in the Resource types dropdown.
+
+![Screenshot of single resource](./media/metrics-charts/single-resource-scope.png)
+
+After clicking your desired resource, you will see all subscriptions and resource groups that contain that resource.
+
+![Screenshot of available resources](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> If you’d like to view multiple resource’s metrics at the same time, or metrics across a subscription or resource group, click the Upvote button.
+
+Once you’re satisfied with your selection click “Apply”.
+
+### Viewing metrics across multiple resources
+Some resource types have enabled the ability to query for metrics over multiple resources, as long as they are within the same subscription and location. These resource types can be found at the top of the “Resource Types” dropdown. To get more details on how to view metrics across multiple resources view [this document](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Screenshot of cross resource types](./media/metrics-charts/multi-resource-scope.png)
+
+For multi-resource compatible types, you can also query for metrics across a subscription or multiple resource groups. To learn how to do this, view [this article](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
+
 ## Create views with multiple metrics and charts
 
 You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
@@ -57,11 +86,25 @@ For example, suppose the chart is showing the **Server Response Time** metric us
 
 There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
 
-- **Sum** – the sum of all values captured over the aggregation interval
-- **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
-- **Average** – the average of the metric values captured over the aggregation interval
-- **Min** – the smallest value captured over the aggregation interval
-- **Max** – the largest value captured over the aggregation interval
+**Sum** – the sum of all values captured over the aggregation interval
+
+![Screenshot of sum of request](./media/metrics-charts/request-sum.png)
+
+**Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+
+![Screenshot of count of request](./media/metrics-charts/request-count.png)
+
+**Average** – the average of the metric values captured over the aggregation interval
+
+![Screenshot of average request](./media/metrics-charts/request-avg.png)
+
+**Min** – the smallest value captured over the aggregation interval
+
+![Screenshot of minimum request](./media/metrics-charts/request-min.png)
+
+**Max** – the largest value captured over the aggregation interval
+
+![Screenshot of max request](./media/metrics-charts/request-max.png)
 
 ## Apply filters to charts
 
@@ -73,15 +116,15 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 2. Select which dimension (property) you want to filter
 
-   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/00006.png)
+   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/00007.png)
+   ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/029.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/00008.png)
+   ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/030.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -100,11 +143,11 @@ You can split a metric by dimension to visualize how different segments of the m
 
 2. Choose a dimension on which you want to segment your chart:
 
-   ![Screenshot that shows the selected dimension on which you segment your chart.](./media/metrics-charts/00010.png)
+   ![Screenshot that shows the selected dimension on which you segment your chart.](./media/metrics-charts/031.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/00012.png)
+   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/032.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
@@ -119,9 +162,13 @@ For example, when the volume of successful requests drops down from 99.99% to 99
 
 Another example is a fluctuation in the available memory, where the value will technically never reach 0. Fixing the range to a higher value may make the drops in available memory easier to spot. 
 
-To control the y-axis range, use the “…” chart menu, and select **Edit chart** to access advanced chart settings. Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
+To control the y-axis range, use the “…” chart menu, and select **Chart settings** to access advanced chart settings.
 
-![Screenshot that highlights the Edit chart option.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot that highlights the chart settings option.](./media/metrics-charts/033.png)
+
+ Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
+ 
+ ![Screenshot that highlights the Y-axis range section.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
@@ -132,9 +179,9 @@ After you configure the charts, the chart lines are automatically assigned a col
 
 To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
 
-After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
+![Screenshot that shows how to change color](./media/metrics-charts/035.png)
 
-![Screenshot that shows how to pin a chart.](./media/metrics-charts/018.png)
+After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
 
 ## Pin charts to dashboards
 
@@ -142,9 +189,9 @@ After configuring the charts, you may want to add it to the dashboards so that y
 
 To pin a configured chart to a dashboard:
 
-After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
+After configuring your chart, click **Pin to dashboard** in the right top corner of the chart.
 
-![metric image](./media/metrics-charts/00013.png)
+![Screenshot that shows you how to pin to chart](./media/metrics-charts/036.png)
 
 ## Create alert rules
 
@@ -152,11 +199,11 @@ You can use the criteria you have set to visualize your metrics as the basis of 
 
 ### To create a new alert rule, click **New Alert rule**
 
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+![New alert rule button highlighted in red](./media/metrics-charts/042.png)
 
 You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
 
-![Create alert rule](./media/metrics-charts/016.png)
+![Create alert rule](./media/metrics-charts/041.png)
 
 Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 

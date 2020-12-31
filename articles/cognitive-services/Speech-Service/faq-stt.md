@@ -20,7 +20,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: What is the difference between a baseline model and a custom Speech to Text model?**
 
-**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
+**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model. If you train a custom model, you should start with related text to improve the recognition of special terms and phrases.
 
 **Q: Where do I start if I want to use a baseline model?**
 
@@ -44,9 +44,15 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 **A**: Currently, you can't roll back an acoustic or language adaptation process. You can delete imported data and models when they're in a terminal state.
 
-**Q: What's the difference between the Search and Dictation model and the Conversational model?**
+**Q: I get several results for each phrase with the detailed output format. Which one should I use?**
 
-**A**: You can choose from more than one baseline model in the Speech service. The Conversational model is useful for recognizing speech that is spoken in a conversational style. This model is ideal for transcribing phone calls. The Search and Dictation model is ideal for voice-triggered apps. The Universal model is a new model that aims to address both scenarios. The Universal model is currently at or above the quality level of the Conversational model in most locales.
+**A**: Always take the first result, even if another result ("N-Best") might have a higher confidence value. The Speech service considers the first result to be the best. It can also be an empty string if no speech was recognized.
+
+The other results are likely worse and might not have full capitalization and punctuation applied. These results are most useful in special scenarios such as giving users the option to pick corrections from a list or handling incorrectly recognized commands.
+
+**Q: Why are there different base models?**
+
+**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model to get the best accuracy. Older base models are still available for some time when a new model is made available. You can continue using the model that you have worked with until it is retired (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)). It is still recommended to switch to the latest base model for better accuracy.
 
 **Q: Can I update my existing model (model stacking)?**
 
@@ -54,15 +60,17 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
 
-**Q: When a new version of a baseline is available, is my deployment automatically updated?**
+**Q: When a new version of a base model is available, is my deployment automatically updated?**
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, readapt using the newer version of the baseline and redeploy.
+If you have adapted and deployed a model, that deployment will remain as is. You can decommission the deployed model, readapt using the newer version of the base model and redeploy for better accuracy.
+
+Both base models and custom models will be retired after some time (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)).
 
 **Q: Can I download my model and run it locally?**
 
-**A**: Models can't be downloaded and executed locally.
+**A**: You can run a custom model locally in a [Docker container](speech-container-howto.md?tabs=cstt).
 
 **Q: Are my requests logged?**
 

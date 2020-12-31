@@ -88,8 +88,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the Http status code is in the 5xx range. The default is `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-|token_endpoint_auth_method| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`.|
+|token_endpoint_auth_method| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), `private_key_jwt` (public preview), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-behavior.md#sign-out).  Possible values: `true` (default), or `false`.|
 
 ```xml
 <Metadata>
@@ -128,6 +128,6 @@ When you configure the redirect URI of your identity provider, enter `https://{y
 
 Examples:
 
-- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account-custom.md)
-- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant-custom.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account.md)
+- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant.md)
+- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant.md)
