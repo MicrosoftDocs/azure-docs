@@ -21,6 +21,7 @@ The service allows you to join analytics docs on supported tables with a free re
 > [!NOTE]
 >* Troubleshooting logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
 >* There is a 4 days free retention period, can be extended in addition cost.
+>* By default, the tables inherent the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
 > * Troubleshooting logs is in preview mode.
 >* Contact the [CM team](mailto:XXXXXXX@microsoft.com) with any questions or to apply the feature.
 
@@ -76,9 +77,9 @@ Response:
         }
 ```
 
-## Add Troubleshooting logs to your tables
+## Turn on Troubleshooting Logs on your tables
 
-To enable troubleshooting logs in your workspace, you need to use the following API call.
+To turn on Troubleshooting Logs in your workspace, you need to use the following API call.
 ```http
 PUT https://PortalURL/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}
 
