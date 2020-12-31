@@ -453,7 +453,7 @@ The Receipt output is also useful for general book-keeping for business or perso
 
 Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
 
-The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
+The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
 ## Next steps
 

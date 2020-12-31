@@ -30,7 +30,7 @@ To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
 ![Analyzed invoice example](./media/analyze-invoice.png)
 
@@ -76,7 +76,7 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
 | PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | Id for this specific invoice (often "Invoice Number") | INV-100 | |  |
+| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |  |
 | InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
