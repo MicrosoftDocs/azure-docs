@@ -1,6 +1,6 @@
 ---
-title: Configure existing Azure Load Balancer with Virtual Machine Scale Sets
-titleSuffix: Configure existing Azure Load Balancer with Virtual Machine Scale Sets
+title: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
+titleSuffix: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
 description: With this how-to article, get started with Azure Standard Load Balancer and Virtual Machine Scale Sets.
 services: load-balancer
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
 ---
-# How to update/delete Azure Load Balancer with Virtual Machine Scale Sets
+# How to update/delete Azure Load Balancer used by Virtual Machine Scale Sets
 
 ## How to set up Azure Load Balancer for scaling out Virtual Machine Scale Sets
   * Make sure that the Load Balancer has [inbound NAT pool](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) set up and that the Virtual Machine Scale Set is put in the backend pool of the Load Balancer. Azure Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new Virtual Machine instances are added to the Virtual Machine Scale Set. 
