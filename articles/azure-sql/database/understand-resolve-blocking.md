@@ -286,9 +286,7 @@ The scenarios listed below will have the characteristics listed in the table abo
 > Note
 > See [guidance for retry logic](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
 
-    Resolution:
-
-    The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
+    Resolution: The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
 
 
 4.  Blocking Caused by a Distributed Client/Server Deadlock
@@ -335,31 +333,24 @@ The scenarios listed below will have the characteristics listed in the table abo
 
         This case is similar to Example A, except dbproc2 and SPID2 are running a `SELECT` statement with the intention of performing row-at-a-time processing and handing each row through a buffer to dbproc1 for an `INSERT`, `UPDATE`, or `DELETE` statement on the same table. Eventually, SPID1 (performing the `INSERT`, `UPDATE`, or `DELETE`) becomes blocked on a lock held by SPID2 (performing the `SELECT`). SPID2 writes a result row to the client dbproc2. Dbproc2 then tries to pass the row in a buffer to dbproc1, but finds dbproc1 is busy (it is blocked waiting on SPID1 to finish the current `INSERT`, which is blocked on SPID2). At this point, dbproc2 is blocked at the application layer by dbproc1 whose SPID (SPID1) is blocked at the database level by SPID2. Again, this results in a deadlock that SQL Server cannot detect or resolve because only one of the resources involved is a SQL Server resource.
 
-5.  Both examples A and B are fundamental issues that application developers must be aware of. They must code applications to handle these cases appropriately.
+        When a query time-out has been provided, if the distributed deadlock occurs, it will be broken when time-out happens. See the data provider documentation for more information on using a query time-out. Note this is different from the SQL Server 'remote query timeout' configuration option, which is not configurable in Azure SQL Database.
 
-    Resolution:
+        For more information, see also [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md) and [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling).
 
-    When a query time-out has been provided, if the distributed deadlock occurs, it will be broken when time-out happens. See the data provider documentation for more information on using a query time-out. Note this is different from the SQL Server 'remote query timeout' configuration option, which is not configurable in Azure SQL Database.
 
-    For more information, see also [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md) and [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling).
-
-6.  Blocking Caused by a SPID that is in rollback state
+5.  Blocking Caused by a SPID that is in rollback state
 
     A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting. Likewise, a query selected as the deadlock victim will be rolled back. A data modification query often cannot be rolled back any faster than the changes were initially applied. For example, if a `DELETE`, `INSERT`, or `UPDATE` statement had been running for an hour, it could take at least an hour to roll back. This is expected behavior, because the changes made must be rolled back, or transactional and physical integrity in the database would be compromised. Because this must happen, the database engine marks the SPID in a  rollback state (which means it cannot be KILLed or selected as a deadlock victim). This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
 
-    Resolution:
- 
-    You must wait for the SPID to finish rolling back the changes that were made. 
+    Resolution: You must wait for the SPID to finish rolling back the changes that were made. 
 
     To avoid this situation, do not perform large batch `INSERT`, `UPDATE`, or `DELETE` operations or index creation or maintenance operations during busy hours on OLTP systems. If possible, perform such operations during periods of low activity.
 
-7.  Blocking Caused by an orphaned connection
+6.  Blocking Caused by an orphaned connection
 
     If the client application traps errors or the client workstation is restarted, the network session to the server may not be immediately canceled under some conditions. From the Azure SQL Database perspective, the client still appears to be present, and any locks acquired may still be retained. For more information, see [How to troubleshoot orphaned connections in SQL Server](/sql/t-sql/language-elements/kill-transact-sql#remarks). 
 
-    Resolution: 
-
-    If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 9, issue the following command 
+    Resolution: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 9, issue the following command 
 
 ```sql
 KILL 9
@@ -374,7 +365,6 @@ KILL 9
     It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
 
     With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
-
 
 ## See Also
 
