@@ -50,11 +50,9 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 The other results are likely worse and might not have full capitalization and punctuation applied. These results are most useful in special scenarios such as giving users the option to pick corrections from a list or handling incorrectly recognized commands.
 
-**Q: What's the difference between different base models?**
+**Q: Why are there different base models?**
 
-**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model. Older base models are still available for some time. You can continue using a model you worked with even if a successor has become available. It is still recommended to switch to the latest base model for better accuracy.
-
-Both base models and custom models will be retired after some time (see [Model lifecycle](custom-speech-overview#model-lifecycle)).
+**A**: You can choose from more than one base model in the Speech service. Each model name contains the date when it was added. When you start training a custom model, use the latest model to get the best accuracy. Older base models are still available for some time when a new model is made available. You can continue using the model that you have worked with until it is retired (see [Model lifecycle](custom-speech-overview#model-lifecycle)). It is still recommended to switch to the latest base model for better accuracy.
 
 **Q: Can I update my existing model (model stacking)?**
 
