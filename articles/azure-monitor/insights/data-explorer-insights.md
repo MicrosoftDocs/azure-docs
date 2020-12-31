@@ -20,7 +20,7 @@ Before jumping into the experience, you should understand how it presents and vi
 -   **Drill down analysis** of a particular Azure Data Explorer cluster to help perform detailed analysis.
 -    **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own custom workbooks. Charts in the workbook can be pinned to Azure dashboards.
 
-## View from Azure Monitor
+## View from Azure Monitor (at scale perspective)
 
 From Azure Monitor, you can view the main performance metrics for the cluster, including metrics for queries, ingestion, and export operations from multiple clusters in your subscription, and help identify performance problems.
 
@@ -32,42 +32,42 @@ To view the performance of your clusters across all your subscriptions, perform 
 
 ![Screenshot of overview experience with multiple graphs](./media/data-explorer-insights/insights-hub.png)
 
-## Overview tab
+### Overview tab
 
 On the **Overview** tab for the selected subscription, the table displays interactive  metrics for the Azure Data Explorer clusters grouped within the subscription. You can filter results based on the options you select from the following drop-down lists:
 
 * Subscriptions – only subscriptions that have Azure Data Explorer clusters are listed.
 
-* Azure Data Explorer clusters – by default only up to five clusters are pre-selected. If you select all or multiple clusters in the scope selector, up to 200 clusters will be returned. For example, if you had a total of 573 clusters across three subscriptions that you've selected, only 200 clusters will be displayed.
+* Azure Data Explorer clusters – by default only up to five clusters are pre-selected. If you select all or multiple clusters in the scope selector, up to 200 clusters will be returned.
 
 * Time Range – by default, displays the last 24 hours of information based on the corresponding selections made.
 
 The counter tile, under the drop-down list, rolls-up the total number of Azure Data Explorer clusters in the selected subscriptions and reflects how many are selected. There are conditional color-codings for the columns: Keep alive, CPU, Ingestion Utilization, and Cache Utilization. Orange-coded cells have values that are not sustainable for the cluster. 
 
-To better understand what each of the metrics represent, we recommend reading through the documentation on [Azure Data Explorer metrics - https://docs.microsoft.com/azure/data-explorer/using-metrics](https://docs.microsoft.com/azure/data-explorer/using-metrics).
+To better understand what each of the metrics represent, we recommend reading through the documentation on [Azure Data Explorer metrics](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics).
 
-## Query Performance tab
+### Query Performance tab
 
 Select **Query Performance** at the top of the page and the Query Performance tab opens. It shows you the query duration, total number of concurrent queries, and the total number of throttled queries.
 
 ![Screenshot of query performance tab](./media/data-explorer-insights/query-performance.png)
 
 
-## Ingestion Performance tab
+### Ingestion Performance tab
 
 Select **Ingestion Performance** at the top of the page and the Ingestion Performance tab opens. It shows you the ingestion latency, succeeded ingestion results, failed ingestion results, ingestion volume, and events processed for Event/IoT Hubs.
 
 [![Screenshot of ingestion performance tab](./media/data-explorer-insights/ingestion-performance.png)](./media/data-explorer-insights/ingestion-performance.png#lightbox)
 
-## Streaming Ingest Performance tab
+### Streaming Ingest Performance tab
 
 This tab provides information on average data rate, average duration, and request rate.
 
-## Export Performance tab
+### Export Performance tab
 
 This tab provides information on exported records, lateness, pending count, and utilization percentage for continuous export operations.
 
-## View from an Azure Data Explorer Cluster resource
+## View from an Azure Data Explorer Cluster resource (drill down analysis)
 
 To access Azure Monitor for Azure Data Explorer Clusters directly from an Azure Data Explorer Cluster:
 
@@ -75,37 +75,41 @@ To access Azure Monitor for Azure Data Explorer Clusters directly from an Azure 
 
 2. From the list, choose an Azure Data Explorer Cluster. In the monitoring section, choose **Insights (preview)**.
 
-These views are also accessible by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights workbooks.
+These views are also accessible by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights view.
 
-Azure Monitor for Azure Data Explorer combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs-based visualizations requires users to **enable logging of their Azure Data Explorer cluster]**
+Azure Monitor for Azure Data Explorer combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace.](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are: **Command**, **Query**, **TableDetails** and **TableUsageStatistics**.
 
 ![Screenshot of blue button that displays the text "Enable Logs for Monitoring"](./media/data-explorer-insights/enable-logs.png)
 
-### Overview
+
+ The **Overview** tab shows several performance metrics that help you quickly assess the health of your cluster:
+
+- Metrics tiles highlighting the availability and overall status of the cluster.
+
+- Charts showing the top CPU and memory consumers and the number of unique users over time.
+
+- A summary of active [Advisor recommendations](https://docs.microsoft.com/azure/data-explorer/azure-advisor) and [resource health](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health) status.
 
 [![Screenshot of view from an Azure Data Explorer cluster resource](./media/data-explorer-insights/overview.png)](./media/data-explorer-insights/overview.png#lightbox)
-
-On the **Overview** workbook for the cluster, it shows several performance metrics that help you quickly assess the health of your cluster:
-
-- Interactive performance charts showing the most essential details related to cluster performance and availability.
-
-- Metrics and status tiles highlighting the availability and overall status of the cluster.
-
-Selecting any of the other tabs for **Key Metrics** or **Commands and Queries** opens their respective tabs.
 
 The **Key Metrics** tab shows a unified view of some of the cluster's metrics, grouped by: general metrics, query-related, ingestion-related, and streaming ingestion-related metrics.
 
 [![Screenshot of failures view](./media/data-explorer-insights/key-metrics.png)](./media/data-explorer-insights/key-metrics.png#lightbox)
 
-The **Usage** tab allows users to deep dive into the performance of the cluster's commands and queries. You can see the heaviest resource consumers broken down by users, applications, and command types.
+The **Usage** tab allows users to deep dive into the performance of the cluster's commands and queries. In this page, you can:
+ 
+ - See the top CPU and memory consumers broken down by users and applications.
+ - See the top users by command and query count.
+ - Identify top users and applications by failed queries
+ - Identify trends in the number of queries, memory, and CPU consumption by user or application.
 
 [![Screenshot of operations view with donut charts of top application by command and query count, top principals by command and query count, and top commands by command types](./media/data-explorer-insights/usage.png)](./media/data-explorer-insights/usage.png#lightbox)
 
 [![Screenshot of operations view with line charts of query count by application, total memory by application and total CPU by application](./media/data-explorer-insights/usage-2.png)](./media/data-explorer-insights/usage-2.png#lightbox)
 
-The tables tab shows the properties of all the tables in the cluster and historical perspective for the top 10 tables by row count, extent and hot extent size, and total extent count.
+The **tables** tab shows the properties of tables in the cluster. You can track growth history by table size, hot data, and the number of rows over time. 
 
-The cache tab allows users to analyze their actual queries look back periods, compare it to the configured cache policy (for each table), and adapt the cache policy accordingly. You may get specific cache policy recommendations on specific tables in Azure Advisor. For example, cache reduction recommendations are available for clusters that are "bounded by data"(meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity the cluster couldn't scale-in or scale-down).
+The **cache** tab allows users to analyze their actual queries look back periods and compare it to the configured cache policy (for each table). You can identify tables that are used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get specific cache policy recommendations on specific tables in Azure Advisor. For example, cache reduction recommendations are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity the cluster couldn't scale-in or scale-down). 
 
 [![Screenshot of cache details](./media/data-explorer-insights/cache-tab.png)](./media/data-explorer-insights/cache-tab.png#lightbox)
 
@@ -131,29 +135,12 @@ Customizations are saved to a custom workbook to prevent overwriting the default
 
 ![Screenshot of the workbook gallery](./media/data-explorer-insights/gallery.png)
 
-### Specifying a subscription for Azure Data Explorer Cluster
-
-You can configure the multi-subscription and Azure Data Explorer Cluster Overview or Failures workbooks to scope to a particular subscription(s) on every run, by performing the following steps:
-
-1. Select **Monitor** from the portal and then select **Azure Data Explorer Cluster  (preview)** from the left-hand pane.
-2. On the **Overview** tab, from the command bar select **Customize**.
-3. Select from the **Subscriptions** drop-down list one or more subscriptions you want use as the default. Remember, the workbook supports selecting up to a total of 10 subscriptions.
-4. Select from the **Azure Data Explorer Clusters** drop-down list one or more accounts you want it to use as the default. Remember, the workbook supports selecting up to a total of 200 clusters.
-5. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then select **Done editing** to return to reading mode.
-
 ## Troubleshooting
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Azure Data Explorer Cluster (preview). Use the list below to locate the information relevant to your specific issue.
 
-### Resolving performance issues or failures
-
-To help troubleshoot any Azure Data Explorer related issues you identify with Azure Monitor for Azure Data Explorer Clusters (preview), see the [Azure Data Explorer documentation](/azure/data-explorer/).
-
-### Why can I only see 200 Azure Data Explorer Clusters
-
-There is a limit of 200 clusters that can be selected and viewed. Regardless of the number of selected subscriptions, the number of selected clusters has a limit of 200.
 
 ### Why don't I see all my subscriptions in the subscription picker
 
@@ -161,25 +148,13 @@ We only show subscriptions that contain Azure Data Explorer Clusters, chosen fro
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed"
-
-Currently, there is a limit to 25 regions and 200 workspaces, to view your data, you will need to reduce the number of subscriptions and/or resource groups.
-
 ### I want to make changes or add additional visualizations to Azure Data Explorer Cluster Insights
 
 To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
 
-### What is the time-grain once we pin any part of the Workbooks
+### Why do I not see any data for my Azure Data Explorer Cluster under the Usage, Tables or Cache sections
 
-We utilize the "Auto" time grain, therefore it depends on what time range is selected.
-
-### What is the time range when any part of the workbook is pinned
-
-The time range will depend on the dashboard settings.
-
-### Why do I not see any data for my Azure Data Explorer Cluster under the Commands and Queries sections
-
-To view your logs-based data, you will need to enable logs for each of the Azure Data Explorer Clusters you want to monitor. This can be done under the diagnostic settings for each cluster. You will need to send your data to a designated Log Analytics workspace.
+To view your logs-based data, you will need to [enable diagnostic logs](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) for each of the Azure Data Explorer Clusters you want to monitor. This can be done under the diagnostic settings for each cluster. You will need to send your data to a Log Analytics workspace.
 
 ### I have already enabled logs for my Azure Data Explorer Cluster, why am I still unable to see my data under Commands and Queries
 
