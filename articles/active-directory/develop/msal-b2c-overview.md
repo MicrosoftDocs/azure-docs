@@ -18,7 +18,7 @@ ms.custom: aaddev devx-track-js
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
 
-# Use  the Microsoft Authentication Library for JavaScript to work with Azure AD B2C
+# Use the Microsoft Authentication Library for JavaScript to work with Azure AD B2C
 
 [The Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) enables JavaScript developers to authenticate users with social and local identities using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
