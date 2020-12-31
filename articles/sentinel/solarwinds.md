@@ -100,60 +100,35 @@ In your [workbook](#access-the-microsoft-azure-ad-workbook-for-the-solarigate-ri
 
 Microsoft Defender solutions provides the following coverage and visibility to help protect against the Solorigate attack:
 
-- **Microsoft Defender for Endpoint** has comprehensive detection coverage across the Solorigate attack chain. These detections raise alerts that inform security operations teams about activities and artifacts related to the attack.
 
-    Since the attack compromised legitimate software that should not be interrupted, automatic remediation is not enabled. However, the detections provide visibility into the attack activity and can be used to investigate and hunt further.
-
-    For more information, see [Endpoint detection and response (EDR)](#endpoint-detection-and-response-edr).
-
-- **Microsoft 365 Defender** provides visibility *beyond* endpoints, by consolidating threat data from across domains, including identities, data, cloud apps, as well as endpoints. Cross-domain visibility enables Microsoft 365 Defender to correlate signals and comprehensively resolve whole attack chains. 
-
-    Security operations teams can then hunt using rich threat data and gain insights for protecting networks from compromise.
-
-    For more information, see [Endpoint detection and response (EDR)](#endpoint-detection-and-response-edr).
-
-- **Microsoft Defender Antivirus**, the default anti-malware solution on Windows 10, detects and blocks the malicious DLL and its behaviors. It quarantines malware, even if the process is running. Detections include:
-
-    |Dections  |Threat descriptions  |
-    |---------|---------|
-    |**Detection for backdoored SolarWinds.Orion.Core.BusinessLayer.dll files**     |   [Trojan:MSIL/Solorigate.BR!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.BR!dha)      |
-    |**Detection for Cobalt Strike fragments in process memory and stops the process**     | [Trojan:Win32/Solorigate.A!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:Win32/Solorigate.A!dha&threatId=-2147196107) <br>[Behavior:Win32/Solorigate.A!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Behavior:Win32/Solorigate.A!dha&threatId=-2147196108)       |
-    |**Detection for the second-stage payload** <br>A cobalt strike beacon that might connect to `infinitysoftwares[.]com`|  [Trojan:Win64/Solorigate.SA!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:Win64/Solorigate.SA!dha)      |
-    |**Detection for the PowerShell payload** that grabs hashes and SolarWinds passwords from the database along with machine information     |     [Trojan:PowerShell/Solorigate.H!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:PowerShell/Solorigate.H!dha&threatId=-2147196089)    |
-    |     |         |
-
-For more information, see: 
-
-- [Endpoint detection and response (EDR)](#endpoint-detection-and-response-edr)
-- [Threat analytics report](#threat-analytics-report)
-- [Advanced hunting with Microsoft Defender](#advanced-hunting-with-microsoft-defender)
-- [Find SolarWinds Orion software in your enterprise](#find-solarwinds-orion-software-in-your-enterprise)
-- [ADFS adapter process spawning](#adfs-adapter-process-spawning)
-- [MITRE ATT&CK techniques observed](#mitre-attck-techniques-observed)
-
-### Endpoint detection and response (EDR)
-
-We recommend that you check for the following titles in the Microsoft Defender Security Center and the Microsoft 365 security center:
-
-|Indication  |Titles  |
+|Product  |Description  |
 |---------|---------|
-|May indicate threat activity on your network    | **SolarWinds Malicious binaries associated with a supply chain attack** <br><br>**SolarWinds Compromised binaries associated with a supply chain attack** <br><br>**Network traffic to domains associated with a supply chain attack**  |
-|May indicate that threat activity has occurred or may occur later.<br><br>These alerts may also be associated with other malicious threats.     |**ADFS private key extraction attempt** <br><br>**Masquerading Active Directory exploration tool**<br><br> **Suspicious mailbox export or access modification** <br><br>**Possible attempt to access ADFS key material** <br><br>**Suspicious ADFS adapter process created**         |
-|    |         |
+|**Microsoft Defender for Endpoint**     | Has comprehensive detection coverage across the Solorigate attack chain. These detections raise alerts that inform security operations teams about activities and artifacts related to the attack. <br><br>Since the attack compromised legitimate software that should not be interrupted, automatic remediation is not enabled. However, the detections provide visibility into the attack activity and can be used to investigate and hunt further.        |
+|**Microsoft 365 Defender**     |  Provides visibility *beyond* endpoints, by consolidating threat data from across domains, including identities, data, cloud apps, as well as endpoints. Cross-domain visibility enables Microsoft 365 Defender to correlate signals and comprehensively resolve whole attack chains. <br><br>    Security operations teams can then hunt using rich threat data and gain insights for protecting networks from compromise.       |
+|**Microsoft Defender Antivirus**     |  The default anti-malware solution on Windows 10, detects and blocks the malicious DLL and its behaviors. It quarantines malware, even if the process is running.  <br><br>For more information, see [Microsoft Defender Antivirus detections for Solarigate](#microsoft-defender-antivirus-detections-for-solarigate).     |
+|     |         |
 
-Each alert in Microsoft Defender for Endpoint provides a full description and recommended actions.
+We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#threat-analytics-reports) created by Microsoft specifically for Solarigate. 
 
-### Threat analytics report
+Use these reports to perform the following recommended steps:
 
-Microsoft published a threat analytics report specifically to help investigate after the Solarigate attack, which includes a deep-dive analysis, MITRE techniques, detection details, recommended actions, updated lists of IOCs, and advanced hunting techniques to expand detection coverage.
+- [Find devices with the compromised SolarWinds Orion application](#find-devices-with-the-compromised-solarwinds-orion-application)
+- [Investigate related alerts and incidents](#investigate-related-alerts-and-incidents)
+- [Hunt for related attacker activity](#hunt-for-related-attacker-activity)
+- [Detect and block malware and malicious behavior on endpoints](#detect-and-block-malware-and-malicious-behavior-on-endpoints)
+- [Detect hands-on-keyboard activity in an on-premises environment](#detect-hands-on-keyboard-activity-in-an-on-premises-environment)
+- [Detect hands-on-keyboard activity in the cloud environment](#detect-hands-on-keyboard-activity-in-the-cloud-environment)
 
-**All customers**, including both E5 and E3 customers, can access and use the information in the threat report. 
+For more information, see [MITRE ATT&CK techniques observed](#mitre-attck-techniques-observed).
 
-**E5 customers** can also use the threat analytics report to view their own organization's state in connection with the Solarigate attack, and perform the following tasks:
+### Microsoft Defender for threat analytics reports
 
-- Monitor related incidents and alerts
-- Handle impacted assets
-- Track mitigations and their status, with options to investigate further and remediate weaknesses using threat and vulnerability management. 
+Microsoft published the following threat analytics reports specifically to help investigate after the Solarigate attack. 
+
+- [Sophisticated actor attacks FireEye](https://security.microsoft.com/threatanalytics3/a43fc0c6-120a-40c5-a948-a9f41eef0bf9/overview) provides information about the FireEye breach and compromised red team tools
+- [Solorigate supply chain attack](https://security.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview) provides a detailed analysis of the SolarWinds supply chain compromise
+
+These reports are available to all Microsoft Defender for Endpoint customers and Microsoft 365 Defender early adopters, and include a deep-dive analysis, MITRE techniques, detection details, recommended actions, updated lists of IOCs, and advanced hunting techniques to expand detection coverage. 
 
 For example:
 
@@ -165,7 +140,60 @@ For more information, see:
 - [Threat analytics for Microsoft 365 security](https://security.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview)
 - [Threat overview - Microsoft Defender for Endpoint](https://securitycenter.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview)
 
-### Advanced hunting with Microsoft Defender
+### Find devices with the compromised SolarWinds Orion application
+
+The threat analytics reports use insights from [threat and vulnerability management](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) to identify devices that have the compromised SolarWinds Orion Platform binaries or are exposed to the attack due to misconfiguration.
+
+From the **Vulnerability patching status** chart in threat analytics, view  mitigation details to see a list of devices with the vulnerability ID **TVM-2020-0002**. This vulnerability was added specifically to help with Solorigate investigations.
+
+Threat and vulnerability management provides more info about the vulnerability ID **TVM-2020-0002**, as well as all relevant applications, via the Software inventory view. There are also multiple security recommendations to address this specific threat, including instructions to update the software versions installed on exposed devices.
+
+**Related query**:
+
+To search for Threat and Vulnerability Management data and find SolarWinds Orion software, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAI2QywrCMBBF71rwH7pTP8JdN27cKN1KH5EKfUATLYof78lAsYiChGQmd2ZOJpPK6aaLSuwRr9VBvc4KGpVrQN2pQ3ecgciguzJd1XB33HIVVDfswHbySrTUQk_sqNpyHP4nNTNiZcREW1aiFdU9rJgxQotxj_oPb49tLeJRoxbwRuurNnZ86cLZzYien7Ss3GIPq6-YRY8e_7tWOpvP9MaGrII5_O7ize-tkyl_zj59ZcecOMVSL39fnZCaAQAA&runQuery=true&timeRangeId=month): 
+
+```kusto
+DeviceTvmSoftwareInventoryVulnerabilities| where SoftwareVendor == ‘solarwinds’| where SoftwareName startswith ‘orion’| summarize dcount(DeviceName) by SoftwareName| sort by dcount_DeviceName desc
+```
+
+Data returned will be organized by product name and sorted by the number of devices the software is installed on.
+
+
+### Investigate related alerts and incidents
+
+Use the threat analytics report to locate devices with alerts related to the attack. The **Devices with alerts** chart identifies devices with malicious components or activities known to be directly related to Solorigate. Click through to get the list of alerts and investigate.
+
+Alerts are collected into Microsoft 365 Defender incidents, which can help you see the relationship between detected activities.
+
+Review incidents in the [Incidents](/microsoft-365/security/mtp/investigate-incidents?view=o365-worldwide) queue and look for any relevant alerts. 
+
+
+- Some Solorigate activities may not be directly tied to this specific threat, but will trigger alerts due to generally suspicious or malicious behaviors. 
+
+- Microsoft Threat Expert customers with [Experts on demand subscriptions](/windows/security/threat-protection/microsoft-defender-atp/microsoft-threat-experts#collaborate-with-experts-on-demand) can reach out directly to our on-demand hunters for additional help in understanding the Solorigate threat and the scope of its impact in their environments.
+
+> [!Caution]
+> Some alerts are specially tagged with [Microsoft Threat Experts](https://aka.ms/threatexperts) to indicate malicious activities that Microsoft researchers found in customer environments during hunting, and sent [targeted attack notifications](/windows/security/threat-protection/microsoft-defender-atp/microsoft-threat-experts#targeted-attack-notification).   If you see an alert tagged with Microsoft Threat Experts, we strongly recommend that you give it immediate attention.
+> 
+
+For more information, see the threat analytics report, as well as the list of alerts to look for [below](#alerts-to-look-for).
+
+
+#### Alerts to look for
+
+We recommend that you check for the following alerts in the Microsoft Defender Security Center and the Microsoft 365 security center:
+
+|Alerts  |Titles  |
+|---------|---------|
+|May indicate threat activity on your network    | **SolarWinds Malicious binaries associated with a supply chain attack** <br><br>**SolarWinds Compromised binaries associated with a supply chain attack** <br><br>**Network traffic to domains associated with a supply chain attack**  |
+|May indicate that threat activity has occurred or may occur later.<br><br>These alerts may also be associated with other malicious threats.     |**ADFS private key extraction attempt** <br><br>**Masquerading Active Directory exploration tool**<br><br> **Suspicious mailbox export or access modification** <br><br>**Possible attempt to access ADFS key material** <br><br>**Suspicious ADFS adapter process created**         |
+|    |         |
+
+Each alert in Microsoft Defender for Endpoint provides a full description and recommended actions.
+
+
+
+### Hunt for related attacker activity
 
 Microsoft 365 Defender and Microsoft Defender for Endpoint customers can run the following advanced hunting queries to hunt for similar TTPs used in this attack:
 
@@ -222,17 +250,7 @@ To locate DNS lookups to a malicious actor’s domain, [run the following query]
 DeviceNetworkEvents| where RemoteUrl contains ‘avsvmcloud.com’| where InitiatingProcessFileName != “chrome.exe”| where InitiatingProcessFileName != “msedge.exe”| where InitiatingProcessFileName != “iexplore.exe”| where InitiatingProcessFileName != “firefox.exe”| where InitiatingProcessFileName != “opera.exe”
 ```
 
-### Find SolarWinds Orion software in your enterprise
-
-To search for Threat and Vulnerability Management data and find SolarWinds Orion software, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAI2QywrCMBBF71rwH7pTP8JdN27cKN1KH5EKfUATLYof78lAsYiChGQmd2ZOJpPK6aaLSuwRr9VBvc4KGpVrQN2pQ3ecgciguzJd1XB33HIVVDfswHbySrTUQk_sqNpyHP4nNTNiZcREW1aiFdU9rJgxQotxj_oPb49tLeJRoxbwRuurNnZ86cLZzYien7Ss3GIPq6-YRY8e_7tWOpvP9MaGrII5_O7ize-tkyl_zj59ZcecOMVSL39fnZCaAQAA&runQuery=true&timeRangeId=month): 
-
-```kusto
-DeviceTvmSoftwareInventoryVulnerabilities| where SoftwareVendor == ‘solarwinds’| where SoftwareName startswith ‘orion’| summarize dcount(DeviceName) by SoftwareName| sort by dcount_DeviceName desc
-```
-
-Data returned will be organized by product name and sorted by the number of devices the software is installed on.
-
-### ADFS adapter process spawning
+##### ADFS adapter process spawning
 
 <!--why no description in source?-->
 Use the following process to track ADFS adapter process spawning:
@@ -242,25 +260,316 @@ DeviceProcessEvents| where InitiatingProcessFileName =~”Microsoft.IdentityServ
 ```
  
 
+### Detect and block malware and malicious behavior on endpoints
+
+### Detect hands-on-keyboard activity in an on-premises environment
+
+### Detect hands-on-keyboard activity in the cloud environment
+
+
+
+
 ### MITRE ATT&CK techniques observed
 
 This threat makes use of the following attacker techniques documented in the [MITRE ATT&CK framework](https://attack.mitre.org/).
 
 |Technique  |Reference  |
 |---------|---------|
-|**Initial Access**     |  T1195.001 Supply Chain Compromise       |
-|**Execution**     |  T1072 Software Deployment Tools       |
-|**Command and Control**     |  T1071.004 Application Layer Protocol: DNS <br><br>T1017.001 Application Layer Protocol: Web Protocols <br><br>T1568.002 Dynamic Resolution: Domain Generation Algorithms <br><br>T1132 Data Encoding       |
-|**Persistence**     |    T1078 Valid Accounts      |
-|**Defense Evasion**     |   T1480.001 Execution Guardrails: Environmental Keying <br><br>T1562.001 Impair Defenses: Disable or Modify Tools      |
-|**Collection**     |  T1005 Data From Local System        |
+|**Initial Access**     |  [T1195.001 Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/001/)      |
+|**Execution**     |  [T1072 Software Deployment Tools](https://attack.mitre.org/techniques/T1072/)       |
+|**Command and Control**     |  [T1071.004 Application Layer Protocol: DNS](https://attack.mitre.org/techniques/T1071/004/) <br><br>[T1017.001 Application Layer Protocol: Web Protocols](https://attack.mitre.org/techniques/T1071/001/) <br><br>[T1568.002 Dynamic Resolution: Domain Generation Algorithms](https://attack.mitre.org/techniques/T1568/002/) <br><br>[T1132 Data Encoding](https://attack.mitre.org/techniques/T1132/)       |
+|**Persistence**     |    [T1078 Valid Accounts](https://attack.mitre.org/techniques/T1071/001/)     |
+|**Defense Evasion**     |   [T1480.001 Execution Guardrails: Environmental Keying](https://attack.mitre.org/techniques/T1480/001/) <br><br>[T1562.001 Impair Defenses: Disable or Modify Tools](https://attack.mitre.org/techniques/T1562/001/)      |
+|**Collection**     |  [T1005 Data From Local System](https://attack.mitre.org/techniques/T1005/)        |
 |     |         |
 
+
+### Microsoft Defender Antivirus detections for Solarigate
+
+Microsoft Defender Antivirus detects the following threats and quarrantines malware when found:
+    
+|Dections  |Threat descriptions  |
+|---------|---------|
+|**Detection for backdoored SolarWinds.Orion.Core.BusinessLayer.dll files**     |   [Trojan:MSIL/Solorigate.BR!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.BR!dha)      |
+|**Detection for Cobalt Strike fragments in process memory and stops the process**     | [Trojan:Win32/Solorigate.A!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:Win32/Solorigate.A!dha&threatId=-2147196107) <br>[Behavior:Win32/Solorigate.A!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Behavior:Win32/Solorigate.A!dha&threatId=-2147196108)       |
+|**Detection for the second-stage payload** <br>A cobalt strike beacon that might connect to `infinitysoftwares[.]com`|  [Trojan:Win64/Solorigate.SA!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:Win64/Solorigate.SA!dha)      |
+|**Detection for the PowerShell payload** that grabs hashes and SolarWinds passwords from the database along with machine information     |     [Trojan:PowerShell/Solorigate.H!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:PowerShell/Solorigate.H!dha&threatId=-2147196089)    |
+|     |         |
 
 ## Azure Defender for IoT
 
 ## Azure Sentinel
+This section describes how to use the Azure Sentinel [SolarWinds Post Compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json), created specifically to help hunt for environmental threats after having been compromised by Solarigate, as well as other data available by default or can be on-boarded to Sentinel. 
 
+Sentinel can collect data from across your environment including both cloud and on-premises resources, multiple security tools, and product logs, and helps you spot trends and attacks by displaying data in a single place. 
+
+> [!NOTE]
+> This section describes the tactics, techniques and procedures to investigate. 
+>
+> For more information on investigating specific IOCs, use the [Azure Active Directory workbook for the Solarigate threat](#azure-active-directory), and also see [Solarigate indicators of compromise (IOCs)](#solarigate-indicators-of-compromise-iocs).
+> 
+ 
+The SolarWinds Post Compromise hunting workbook is useful for threat hunters, and is complimentary to the hunting methods described below. If you have recently rotated ADFS key material, use the SolarWinds Post Compromise hunting workbook to identify attacker sign-in activity that uses legacy key material. 
+
+
+> [!TIP]
+> Since Azure Sentinel and the M365 Advanced Hunting portal share the same query language and similar data types, the queries listed below can be used directly or slightly modified to work in both.
+> 
+ 
+
+Gaining a foothold
+As shared in Microsoft’s technical blog – Customer Guidance on Recent Nation-state Cyber Attacks - attackers might have compromised the internal build systems or the update distribution systems of SolarWinds Orion software then modified a DLL component in the legitimate software and embedded backdoor code that would allow these attackers to remotely perform commands or deliver additional payloads. Below is a representation of various attack stages which you can also see in Microsoft Threat Protection (MTP) portal.  Note that if you do not have Microsoft Threat Protection this link will not work for you.
+
+ 
+
+thumbnail image 1 of blog post titled 
+	
+	
+	 
+	
+	
+	
+				
+		
+			
+				
+						
+							SolarWinds Post-Compromise Hunting with Azure Sentinel
+							
+						
+					
+			
+		
+	
+			
+	
+	
+	
+	
+	
+
+ 
+
+To hunt for similar TTPs used in this attack, a good place to start is to build an inventory of the machines that have SolarWinds Orion components. Organizations might already have a software inventory management system to indicate hosts where the SolarWinds application is installed. Alternatively, Azure Sentinel could be leveraged to run a simple query to gather similar details. Azure Sentinel collects data from multiple different logs that could be used to gather this information. For example, through the recently released Microsoft 365 Defender connector, security teams can now easily ingest Microsoft 365 raw data into Azure Sentinel. Using the ingested data, a simple query like below can be written that will pull the hosts with SolarWinds process running in last 30 days based on Process execution either via host on boarded to Sentinel or on boarded via Microsoft Defender for Endpoints (MDE). The query also leverages the Sysmon logs that a lot of customers are collecting from their environment to surface the machines that have SolarWinds running on them. Similar queries that leverage M365 raw data could also be run from the M365's Advanced hunting portal.
+
+ 
+
+SolarWinds Inventory check query
+
+Spoiler
+ 
+
+Privilege Escalation
+Once the adversary acquires an initial foothold on a system thru the SolarWinds process they will have System account level access, the attacker will then attempt to elevate to domain admin level access to the environment. The Microsoft Threat Intelligence Center (MSTIC) team has already delivered multiple queries into Azure Sentinel that identify similar TTPs and many are also available in M365. These methodologies are not specific to just this threat actor or this attack but have been seen in various attack campaigns.
+
+Identifying abnormal logon activities or additions to privileged groups is one way to identify privilege escalation.
+
+Updated 12/17/2020
+Checking for hosts with new logons to identify potential lateral movement by the attacker.
+Look for any new account being created and added to built-in administrators group.
+Look for any user account added to privileged built in domain local or global groups, including adding accounts to a domain privileged group such as Enterprise Admins, Cert Publishers or DnsAdmins.
+Monitor for rare activity by a high-value account carried out on a system or service.
+Related to this attack, in some environments service account credentials had been granted administrative privileges. The above queries can be modified to remove the condition of focusing “User” accounts by commenting the query to include service accounts in the scope where applicable:
+
+ 
+
+//| where AccountType == "User"
+
+ 
+
+Please see the Azure Sentinel Github for additional queries and hunting ideas related to Accounts under the Detections and Hunting Queries sections for AuditLogs, and SecurityEvents
+
+Microsoft 365 Defender team has also shared quite a few sample queries for use in their advanced hunting portal that could be leveraged to detect this part of the attack. Additionally, the logic for many of the Azure Sentinel queries can also be transformed to equivalent queries for Microsoft 365 Defender, that could be run in their Advanced Hunting Portal.
+
+Microsoft 365 Defender has an upcoming complimentary blog that will be updated here once available.
+
+ 
+
+Certificate Export
+The next step in the attack was stealing the certificate that signs SAML tokens from the federation server (ADFS) called a Token Signing Cert (TSC). SAML Tokens are basically XML representations of claims.  You can read more about ADFS in What is federation with Azure AD? | Microsoft Docs and SAML at Azure Single Sign On SAML Protocol - Microsoft identity platform | Microsoft Docs. The process is as follows:
+
+A client requests a SAML token from an ADFS Server by authenticating to that server using Windows credentials.
+The ADFS server issues a SAML token to the client.
+The SAML token is signed with a certificate associated with the server.
+The client then presents the SAML token to the application that it needs access to.
+The signature over the SAML token tells the application that the security token service issued the token and grants access to the client.
+ 
+
+ADFS Key Extraction
+Updated 12/17/2020
+
+The implication of stealing the TSC is that once the certificate has been acquired, the actor can forge SAML tokens with whatever claims and lifetime they choose, then sign it with the certificate that has been acquired. This enables the actor to forge SAML tokens that impersonate highly privileged accounts. There are many publicly available pen-testing tools like ADFSDump and ADFSpoof that help with extracting required information from ADFS configuration database to generate the forged security tokens.  Microsoft’s M365 Defender team has created several high-fidelity detections related to this. A few of them include:
+
+Possible attempt to access ADFS key material which detects when a suspicious LDAP query is searching for sensitive key material in AD.
+ADFS private key extraction which detects ADFS private key extraction patterns from tools such as ADFSDump.
+Note: These detections can be seen in Azure Sentinel Security Alerts or in the M365 security portal.
+
+Updated 12/20/2020
+
+This TTP observed in the Solorigate attacks is the creation of legitimate SAML token used to authenticate as any user. One way an attacker could achieve this is by compromising ADFS key material. MDE has developed a detection for this as stated above and MSTIC has also created a Windows Event Log based detection that indicates ADFS DKM Master Key Export. As part of the update for this query to the Azure Sentinel GitHub, there is a detailed write up of why this interesting.  This detection should not be considered reliable on its own but can identify suspicious activity that warrants further investigation.
+
+Updated 12/20/2020
+
+Spoiler
+Updated 12/19/2020
+
+MSTIC has developed another detection for ADFS server key export events. This detection leverages the visibility provided by Sysmon and provides a more reliable detection method than that covered in the Windows Event Log detection. For this detection to be effective you must be collecting Sysmon Event IDs 17 and 18 into your Azure Sentinel workspace.
+
+Spoiler
+Outside of directly looking for tools, this adversary may have used custom tooling so looking for anomalous process executions or anomalous accounts logging on to our ADFS server can give us some clue when such attacks happen. Azure Sentinel provides queries that can help to:
+
+Find rare anomalous process in your environment.
+Also look for rare processes run by service accounts
+Or uncommon processes that are in the bottom 5% of all the process.
+In some instances, there is a rare command line syntax related to DLL loading, you can adjust these queries to also look at rarity on the command line.
+Every environment is different and some of these queries being generic could be noisy. So, in the first step a good approach would be to limit this kind of hunting to our ADFS server.
+
+ 
+
+Azure Active Directory Hunting
+Having gained a significant foothold in the on prem environment, the actor also targeted the Azure AD of the compromised organizations and made modifications to Azure AD settings to facilitate long term access. The MSTIC team at Microsoft has shared many relevant queries through the Azure Sentinel GitHub to identify these actions.
+
+ 
+
+One such activity is related to modifying domain federation trust settings. In layperson terms, a federation trust signifies an agreement between two organizations so that users located in partner organization can send authentication requests successfully.
+
+The Azure Sentinel query for domain federation trust settings modification will alert when a user or application modifies the federation settings on the domain particularly when a new Active Directory Federated Service (ADFS) Trusted Realm object, such as a signing certificate, is added to the domain. Modification to domain federation settings should be rare hence this would be a high-fidelity alert that Azure Sentinel users should pay attention to.
+Updated 12/20/2020
+
+Active Directory Security Token Service (STS) refresh token modifications by Service Principals and Applications other than DirectorySync can also be interesting to be aware of. Refresh tokens are used to validate identification and obtain access tokens. While these types of events are most often generated when legitimate administrators troubleshoot frequent AAD user sign-ins it may also be generated because of malicious token extensions. Confirm that the activity is related to an administrator legitimately modifying STS refresh tokens and check the new token validation time-period for high values.
+
+ 
+
+Spoiler
+ 
+
+Another such activity is adding access to the Service Principal or Application.  If a threat actor obtains access to an Application Administrator account, they may configure alternate authentication mechanisms for direct access to any of the scopes and services available to the Service Principal. With these privileges, the actor can add alternative authentication material for direct access to resources using this credential.
+
+Identify where the verify KeyCredential has been updated with New access credential added to Application or Service Principal.
+Updated 12/20/2020
+
+Identify where the verify KeyCredential was not present and has now has had its First access credential added to Application or Service Principal where no credential was present.
+ 
+
+Spoiler
+ 
+
+Updated 12/19/2020
+This threat actor has been observed using applications to read users mailboxes within a target environment. To help identify this activity MSTIC has created a hunting query that looks for applications that have been granted mailbox read permissions followed by consent to this application. Whilst this may uncover legitimate applications hunters should validate applications granted mail read permissions genuinely require them.
+
+Spoiler
+It’s also advised to hunt for application consents for unexpected applications, particularly where they provide offline access to data or other high value access;
+
+Suspicious application consent similar to O365 Attack Toolkit
+Suspicious application consent for offline access
+Updated 12/17/2020 (moved location)
+In addition to Azure AD pre-compromise logon hunting it is also possible to monitor for logons attempting to use invalid key material. This can help identify attempted logons using stolen key material made after key material has been rotated. This can be done by querying SigninLogs in Azure Sentinel where the ResultType is 5000811. Please note that if you roll your token signing certificate, there will be expected activity when searching on the above.
+
+ 
+
+Recon and Remote Execution
+Updated 12/27/2020
+
+The adversary will often attempt to access on-prem systems to gain further insight and mapping of the environment.  As described in the Resulting hands-on-keyboard attack section of the Analyzing Solorigate blog by Microsoft, attackers renamed windows administrative tools like adfind.exe which were then used for domain enumeration. An example of the process execution command like can look like this:
+
+C:\Windows\system32\cmd.exe /C csrss.exe -h breached.contoso.com -f (name=”Domain Admins”) member -list | csrss.exe -h breached.contoso.com -f objectcategory=* > .\Mod\mod1.log
+
+We have provided a query in the Azure Sentinel Github which will help in detecting the command line patterns related to ADFind usage. You can customize this query to look at your specific DC/ADFS servers.
+
+ 
+
+Spoiler
+ 
+
+On the remote execution side, there is a pattern that can be identified related to using alternate credentials than the currently logged on user, such as when using the RUN AS feature on a Windows system and passing in explicit credentials.  We have released a query that will identify when execution is occurring via multiple explicit credentials against remote targets.  This requires that Windows Event 4648 is being collected as part of Azure Sentinel.
+
+ 
+
+Spoiler
+ 
+
+ 
+Data Access
+Accessing confidential data is one of the primary motives of this attack. Data access for the attacker here relied on leveraging minted SAML tokens to access user files/email stored in the cloud via compromised AppIds. One way to detect this is when a user or application signs in using Azure Active Directory PowerShell to access non-Active Directory resources.
+
+ 
+
+Microsoft Graph is one way that the attacker may be seen accessing resources and can help find what the attacker may have accessed using the Service principal Azure Active Directory sign-in logs. If you have data in your Log analytics you could easily plot a chart to see what anomalous activity is happening in your environment that is leveraging the graph. 
+
+Updated 12/17/2020
+
+Note that this data type in Azure Sentinel below is only available when additional Diagnostic Logging is enabled on the workspace.  Please see the instructions in the expandable section below.
+
+Spoiler
+Updated 12/21/2020
+
+Additionally, below is a sample query that brings out some of the logons to Azure AD where multi factor authentication was satisfied by token based logons versus MFA via phone auth or the like. It is possible this could produce many results, so additional tuning is suggested for your environment.
+
+Spoiler
+UPDATED 12/17/2020
+
+This attack also used Virtual Private Servers (VPS) hosts to access victim networks and can be used in conjunction with the query above. Both MSTIC and FireEye have reported attacker logon events coming from network ranges associated with VPS providers. In order to highlight these logons, MSTIC has created a new hunting query - Signins From VPS Providers - that looks for successful signins from network ranges associated with VPS providers. This is joined with the above query, the new query looks for IPs that only display sign-ins based on tokens and not other MFA options, although this could be removed if wanted. The list of VPS ranges in the query is not comprehensive and there is significant potential for false positives so results should be investigated before responding, however it can provide very effective signal. Combining the query below with data that list VPS server ranges will make this a high-confidence hunting query. 
+
+ 
+
+In relation to the VPS servers section above, the previously mentioned workbook has a section that shows successful user signins from VPS (Virtual Private Server) providers where only tokens were used to authenticate. This uses the new KQL operator ipv4_lookup to evaluate if a login came from a known VPS provider network range. This operator can alternatively be used to look for all logons not coming from known ranges should your environment have a common logon source.
+
+ 
+
+Data Exfiltration 
+Updated 12/20/2020
+
+Email data has been observed as a target for the Solorigate attackers, one way to monitor for potential suspicious access is to look for anomalous MailItemsAccessed volumes. MSTIC has created a specific hunting query to identify Anomolous User Accessing Other Users Mailbox which can help to identify malicious activity related to this attack. Additionally, MSTIC previously created a more generic detection - Exchange workflow MailItemsAccessed operation anomaly - which looks for time series based anomalies in MailItemsAccessed events in the OfficeActivity log. 
+
+Spoiler
+Updated 12/19/2020
+
+Targeting of email data has also been observed by other industry members including Volexity who reported attackers using PowerShell commands to export on premise Exchange mailboxes and then hosting those files on OWA servers in order to exfiltrate them.
+
+MSTIC has created detections to identify this activity at both the OWA server and attacking host level through IIS logs, and PowerShell command line logging.
+
+ 
+
+OWA exfiltration:
+
+Spoiler
+Host creating then removing mailbox export requests using PowerShell cmdlets:
+
+Spoiler
+Updated 12/28/2020
+
+Email Delegation and later delegate access is another tactic that has been observed to gain access to user's mailboxes.  We have a previously created a method to discover Non-owner mailbox login activity that can be applied here to help identify when delegates are inappropriately access email.
+
+ 
+
+Spoiler
+ 
+
+Domain Hunting
+Updated 12/17/2020
+
+Domain specific
+MSTIC has collated network based IoCs from MSTIC, FireEye and Volexity to create a network based IoC detection - Solorigate Network Beacon - that leverage multiple network focused data sources within Azure Sentinel.  
+
+Spoiler
+Domain DGA
+The avsvmcloud[.]com has been observed by several organizations as making DGA like subdomain queries as part of C2 activities. MSTIC have generated a hunting query - Solorigate DNS Pattern - to look for similar patterns of activity from other domains that might help identify other potential C2 sources.
+
+Spoiler
+Encoded Domain
+In addition we have another query - Solorigate Encoded Domain in URL- that takes the encoding pattern the DGA uses, encodes the domains seen in signin logs and then looks for those patterns in DNS logs. This can help identify other C2 domains using the same encoding scheme. 
+
+Spoiler
+ 
+
+Microsoft M365 Defender + Azure Sentinel detection correlation
+In addition we have created a query in Azure Sentinel - Solorigate Defender Detections - to collate the range of Defender detections that are now deployed. This query can be used to get an overview of such alerts and the hosts they relate to. 
+
+Spoiler
+ 
+
+Conclusion
+Additionally, as a cloud native SIEM Azure Sentinel can not only collect raw data from various disparate logs but it also gets alerts from various security products. For example, M365 Defender has a range of alerts for various attack components like SolarWinds malicious binaries, network traffic to the compromised domains, DNS queries for known patterns associated with SolarWinds compromise that can flow into Sentinel. Combining these alerts with other raw logs and additional data sources provides the security team with additional insights as well as a complete picture of nature and the scope of attack.
 
 
 ## Microsoft 365
