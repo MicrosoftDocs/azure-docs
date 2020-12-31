@@ -105,7 +105,7 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 
 - Try your own invoices and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
 - Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the language of your choice.
-- Or, follow the [Extract invoice data](./quickstarts/python-invoices.md) quickstart to implement invoice data extraction using Python and the REST API.
+
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
