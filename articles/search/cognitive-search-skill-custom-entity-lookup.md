@@ -39,7 +39,7 @@ Parameters are case-sensitive.
 |`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
 |`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
 |`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity is not specified, this value will become the `defaultAccentSensitive` value for that entity. |
-|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzze edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
+|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
 
 ## Skill inputs
 
