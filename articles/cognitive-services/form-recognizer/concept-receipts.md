@@ -457,7 +457,7 @@ The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-build
 
 ## Next steps
 
-- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
 
 ## See also
 

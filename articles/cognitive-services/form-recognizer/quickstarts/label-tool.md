@@ -328,4 +328,4 @@ In this quickstart, you've learned how to use the Form Recognizer sample labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](../overview.md)
-* [Form Recognizer client library quickstarts](client-library.md)
+* [Form Recognizer quickstart](client-library.md)
