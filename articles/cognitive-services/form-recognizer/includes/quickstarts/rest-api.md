@@ -11,6 +11,9 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ---
 
+> [!NOTE]
+> This guide uses cURL to execute REST API calls. There is also [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) that illustrates how to call the REST APIs with Python.
+
 ## Prerequisites
 
 * [cURL](https://curl.haxx.se/windows/) installed.
