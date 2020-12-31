@@ -63,7 +63,7 @@ Next, **add two dependencies to your project** that will be needed to work with 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure. Add version 1.2.2.
 
 >[!NOTE]
-> There is currently a [known issue](troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azure.identity-1.3.0) affecting the ability to use Azure.Identity version 1.3.0 with this tutorial. Please use version 1.2.2 while this issue persists.
+> There is currently a [known issue](troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130) affecting the ability to use Azure.Identity version 1.3.0 with this tutorial. Please use version 1.2.2 while this issue persists.
 
 ## Get started with project code
 
