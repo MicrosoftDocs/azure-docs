@@ -18,3 +18,9 @@ We will also be using [Node.js](https://nodejs.org/en/) to download the dependen
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token. You can use either [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
+### Installing Node.js
+
+Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects you can use Node.js for creting own backend, developing API. In this tutorial we will have our client side application working with the ACS API backend. You will need Node.js only for the development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService or any other hosting service, capable of hosting static files. 
+
+After you installed the Visual Studio Code, create a new Workspace and add a folder with name of your choice. We will use 'ACS/CallingSample'.
+
