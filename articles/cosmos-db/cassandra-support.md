@@ -192,7 +192,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | DESCRIBE | Yes |
 | cqlshExpand | No |
 | EXIT | Yes |
-| LOGIN | N/A (User function not supported) |
+| LOGIN | N/A (CQL function `USER` is not supported, hence LOGIN is redundant) |
 | PAGING | Yes |
 | SERIAL CONSISTENCY | N/A (consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md)) |
 | SHOW | Yes |
