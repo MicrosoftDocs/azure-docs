@@ -105,21 +105,21 @@ The Business Cards model enables you to extract information such as the person's
 
 Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-* [Client library quickstarts](./quickstarts/client-library.md) (all languages, multiple scenarios)
+* [Client library / REST API quickstart](./quickstarts/client-library.md) (all languages, multiple scenarios)
 * Web UI quickstarts
   * [Train with labels - sample labeling tool](quickstarts/label-tool.md)
-* REST quickstarts
+* REST samples (GitHub)
  * Extract text, selection marks and table structure from documents
-    * [Extract layout data - Python](quickstarts/python-layout.md)
+    * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Train custom models and extract form data
-    * [Train without labels - Python](quickstarts/python-train-extract.md)
-    * [Train with labels - Python](quickstarts/python-labeled-data.md)
+    * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extract data from invoices
-    * [Extract invoice data - Python](quickstarts/python-invoices.md)
+    * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extract data from sales receipts
-    * [Extract receipt data - Python](quickstarts/python-receipts.md)
+    * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extract data from business cards
-    * [Extract business card data - Python](quickstarts/python-business-cards.md)
+    * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### Review the REST APIs
 
@@ -157,4 +157,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
