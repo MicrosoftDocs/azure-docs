@@ -3,7 +3,7 @@
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-The goal of this tutorial is to give you knowledge of how to develop the web application with Azure Communication Services by building it step by step. We will also use Azure for hosting the applications we are building. 
+The goal of this tutorial is to give you knowledge of how to develop a real-time web application with Azure Communication Services by building it step by step. We will also use Azure for hosting the application. 
 We assume you have minimal knowledge of HTML, CSS and JavaScript. However, we will go in details of every step and point at the documentation or additional reading where you might need some help to ramp up.
 
 We will also walk you through various features available in the Azure Communication Services and how you can integrate your applications with other Azure services. 
