@@ -1,6 +1,6 @@
 ---
-title: Advanced features of Azure Metrics Explorer
-description: Learn about advanced features of Azure Monitor Metrics Explorer.
+title: Advanced features of the metrics explorer
+description: Learn about advanced uses of the metrics explorer feature in Azure Monitor.
 author: vgorbenko
 services: azure-monitor
 
@@ -10,22 +10,24 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Advanced features of Azure Metrics Explorer
+# Advanced features of the metrics explorer in Azure Monitor
 
 > [!NOTE]
-> This article assumes you're familiar with basic features of Azure Metrics Explorer. If you're a new user and want to learn how to create your first metric chart, see [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
+> This article assumes you're familiar with basic features of the metrics explorer in Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the metrics explorer](metrics-getting-started.md).
 
 In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (also called "platform") or custom. 
 
 Standard metrics are provided by the Azure platform. They reflect the health and usage statistics of your Azure resources. 
 
 ## Resource scope picker
-The resource scope picker allows you to view metrics across single and multiple resources. The following sections explain how to use the resource scope picker. 
+The resource scope picker allows you to view metrics across single resources and multiple resources. The following sections explain how to use the resource scope picker. 
 
 ### Select a single resource
-Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker. Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened Metrics Explorer from a resource's menu. 
+Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker. 
 
-![Screenshot showing the resource scope picker.](./media/metrics-charts/scope-picker.png)
+Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened the metrics explorer from a resource's menu. 
+
+![Screenshot showing how to open the resource scope picker.](./media/metrics-charts/scope-picker.png)
 
 For some resources, you can view only one resource's metrics at a time. In the **Resource types** menu, these resources are in the **All resource types** section.
 
@@ -43,15 +45,15 @@ When you're satisfied with your selection, select **Apply**.
 ### View metrics across multiple resources
 Some resource types can query for metrics over multiple resources. The resources must be within the same subscription and location. Find these resource types at the top of the **Resource types** menu. 
 
-For more information, see [Select multiple resources](metrics-dynamic-scope.md#selecting-multiple-resources).
+For more information, see [Select multiple resources](metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Screenshot showing cross-resource types.](./media/metrics-charts/multi-resource-scope.png)
 
-For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. For more information, see [Select a resource group or subscription](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription).
+For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. For more information, see [Select a resource group or subscription](metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## Multiple metric lines and charts
 
-In Azure Metrics Explorer, you can create charts that plot multiple metric lines or show multiple metric charts at the same time. This functionality allows you to:
+In the metrics explorer, you can create charts that plot multiple metric lines or show multiple metric charts at the same time. This functionality allows you to:
 
 - Correlate related metrics on the same graph to see how one value relates to another.
 - Display metrics that use different units of measure in close proximity.
@@ -66,7 +68,7 @@ To view multiple metrics on the same chart, first [create a new chart](metrics-g
 > [!NOTE]
 > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid mixing metrics whose scales differ significantly. 
 >
-> In these cases, consider using multiple charts instead. In Metrics Explorer, select **Add chart** to create a new chart.
+> In these cases, consider using multiple charts instead. In the metrics explorer, select **Add chart** to create a new chart.
 
 ### Multiple charts
 
@@ -76,18 +78,18 @@ To reorder or delete multiple charts, select the ellipsis (**...**) button to op
 
 ## Aggregation
 
-When you add a metric to a chart, Metrics Explorer automatically applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain more insights about the metric. 
+When you add a metric to a chart, the metrics explorer automatically applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain more insights about the metric. 
 
-Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. 
+Before you use different aggregations on a chart, you should understand how the metrics explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. 
 
-You select the size of the time grain by using the Metrics Explorer [time picker panel](metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+You select the size of the time grain by using the metrics explorer's [time picker panel](metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
 - If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, the line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
 - If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
 
-Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are irrelevant and can't be used.
+The metrics explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, the metrics explorer hides the aggregations that are irrelevant and can't be used.
 
 * **Sum**: The sum of all values captured during the aggregation interval.
 
