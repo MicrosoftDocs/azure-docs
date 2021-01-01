@@ -19,7 +19,35 @@ In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured v
 
 Standard metrics are provided by the Azure platform. They reflect the health and usage statistics of your Azure resources. 
 
-Custom metrics are sent to Azure by your applications by using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md), [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+## Resource scope picker
+The resource scope picker allows you to view metrics across single and multiple resources. The following sections explain how to use the resource scope picker. 
+
+### Select a single resource
+Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker. Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened Metrics Explorer from a resource's menu. 
+
+![Screenshot showing the resource scope picker.](./media/metrics-charts/scope-picker.png)
+
+For some resources, you can view only one resource's metrics at a time. In the **Resource types** menu, these resources are in the **All resource types** section.
+
+![Screenshot showing a single resource.](./media/metrics-charts/single-resource-scope.png)
+
+After selecting a resource, you see all subscriptions and resource groups that contain that resource.
+
+![Screenshot showing available resources.](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> If you want the capability to view the metrics for multiple resources at the same time, or to view metrics across a subscription or resource group, select **Upvote**.
+
+When you're satisfied with your selection, select **Apply**.
+
+### View metrics across multiple resources
+Some resource types can query for metrics over multiple resources. The resources must be within the same subscription and location. Find these resource types at the top of the **Resource types** menu. 
+
+For more information, see [Select multiple resources](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Screenshot showing cross-resource types.](./media/metrics-charts/multi-resource-scope.png)
+
+For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. For more information, see [Select a resource group or subscription](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription).
 
 ## Multiple metric lines and charts
 
