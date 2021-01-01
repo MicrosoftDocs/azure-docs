@@ -22,10 +22,11 @@ We will also be using [Node.js](https://nodejs.org/en/) to download the dependen
 
 Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects you can use Node.js for creting own backend or developing API. In this tutorial though we will have our client side application working with the ACS API backend. You will need Node.js only for the client development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService or any other hosting service, capable of hosting static files. 
 
-Please follow steps in this guidance to install Node.js, using the nvm version mananger. You can deploy directly from the Node.js site, however we recommend using the version mananger so you can switch between various node version in your developer envirionment. For windows please follow [this article to deploy the nvm for Windows](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows)
-Node.js does not guarantee work with all modules on the latest version. So having a version mananger, which allows you to switch betwen various versions is very handy and allows better troubleshooting your envrionment.
+Node.js does not guarantee work with all modules on the latest version. Solution is to have a version mananger, which allows you to switch betwen various Node.js versions and enables better troubleshooting in your envrionment.
+Please follow steps in this guidance to install Node.js, using the nvm [version mananger if you are on Widndows](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows)
 
-We tested this totrial using the LTS 12.20.0 version. After you installed the nvm, list the availble versions, using the PowerShell command and deploy the version that you want to use
+
+We tested this tutrial using the LTS 12.20.0 version. After you installed the nvm, list the availble versions, using the PowerShell command and deploy the version that you want to use
 
 ```PowerShell
 nvm list available
