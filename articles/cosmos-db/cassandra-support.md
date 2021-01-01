@@ -179,6 +179,28 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | TRUNCATE | No |
 | USE | Yes |
 
+## CQL Shell commands
+
+Azure Cosmos DB supports the following database commands on Cassandra API accounts.
+
+|Command  |Supported |
+|---------|---------|
+| CAPTURE | Yes |
+| CLEAR | Yes |
+| CONSISTENCY | N/A (consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md)) |
+| COPY | No |
+| DESCRIBE | Yes |
+| cqlshExpand | No |
+| EXIT | Yes |
+| LOGIN | N/A (Uer function not supported) |
+| PAGING | Yes |
+| SERIAL CONSISTENCY | N/A (consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md)) |
+| SHOW | Yes |
+| SOURCE | Yes |
+| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+
+
+
 ## JSON Support
 |Command  |Supported |
 |---------|---------|
