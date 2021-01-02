@@ -39,5 +39,6 @@ nvm use 12.20.0
 ### Configuring Visual Studio Code
 
 You can download the  [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-After you installed the Visual Studio Code, create a new floder, for example 'C:\Users\Documents\ACS'. in Visual Studio Code, save the workplace to that folder. 
+After you installed the Visual Studio Code, create a new folder, for example 'C:\Users\Documents\ACS\CallingApp'. In Visual Studio Code, click "File", "Add Folder to Workspace" and add the folder. 
 
+:::image type="content" source="../media/step-one-pic-three.png" alt-text="Creating new workplace":::
