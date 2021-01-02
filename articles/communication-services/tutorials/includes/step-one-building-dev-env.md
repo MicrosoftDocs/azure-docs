@@ -193,7 +193,7 @@ Source map options are listed [here](https://webpack.js.org/configuration/devtoo
 
 Now we have basic webpack configuration for development. To run the development server, let go to the package.json.js and add the following code under scripts.
 ```JavaScript
-    "build:dev": "webpack-dev-server"
+    "build:dev": "webpack-dev-server --config webpack.dev.js"
 ```
 Your file now should look like this:
 
@@ -273,7 +273,7 @@ The whole file should look like
 ```
 (Note I also modified the title of the document). 
 
-:::image type="content" source="../media/step-one-pic-thirteen.png" alt-text="HTML file":::
+:::image type="content" source="../media/step-one-pic-13.png" alt-text="HTML file":::
 
 To ensure everything works, let also add some JavaScript code in app.js and modify the font using the app.css
 
