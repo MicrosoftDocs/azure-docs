@@ -39,6 +39,8 @@ nvm use 12.20.0
 ### Configuring Visual Studio Code
 
 You can download the  [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
+#### Creating workspace for our Azure Communication Services projects
 After you installed the Visual Studio Code, create a new folder, for example 'C:\Users\Documents\ACS\CallingApp'. In Visual Studio Code, click "File", "Add Folder to Workspace" and add the folder. 
 
 :::image type="content" source="../media/step-one-pic-three.png" alt-text="Creating new workplace":::
@@ -60,3 +62,12 @@ node --version
 to validate the node.js version installed on the previous step. 
 
 :::image type="content" source="../media/step-one-pic-six.png" alt-text="Validating Node.js version":::
+
+#### Installing Azure Extensions for Visual Studio Code
+
+Now let install the extensions we will use in this tutorial to publish ourr applications in Azure.
+Let start from [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
+You can either open the link above and cleick "Install" or in Visual Studio Code, go to "View", select "Extensions" and type "Azure Storage".
+Click "Install".
+
+:::image type="content" source="../media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
