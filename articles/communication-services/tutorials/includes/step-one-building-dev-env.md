@@ -147,6 +147,117 @@ module.exports ={
 };
 ```
 
-By creting this configration we tell webpack to import our code (module.exports), analize it and prepeare for either prodcution or development server. Mode "development" tells webpoack not to minify the files and not to produce optimized files for production. Entry is app.js file, which we will create later and it will contain our code. Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
+By creting this configration we tell webpack to import our code (module.exports, file app.js), analize it, understnds that modules our application depends on (Azure Communication Services modules) and prepeare for either production or development server. Mode "development" tells webpoack not to minify the files and not to produce optimized files for production. Entry is app.js file, which we will create later and it will contain our code. Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
 
 :::image type="content" source="../media/step-one-pic-eleven.png" alt-text="Configuring webpack":::
+
+Now we have basic webpack cofiguration for development. In order to run the development server, let go to the package.json.js and add the following code under srcripts.
+```JavaScript
+    "build:dev": "webpack-dev-server"
+```
+Your file now should look like:
+
+```JavaScript
+
+{
+  "name": "CallingApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/communication-calling": "^1.0.0-beta.3",
+    "@azure/communication-common": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
+
+```
+You added the command that can be used from the npm. 
+
+:::image type="content" source="../media/step-one-pic-twelve.png" alt-text="Modyfying package-json.js":::
+
+### Testing the development server
+
+Now let test the development server and see of everything works as expected. 
+In Visual Studio Code under your project create three files:
+* index.html
+* app.js
+* app.css (optional, allows to apply stypes to your application easily)
+
+In index.html, type html:5 and hit enter. The Visual Studio will  create a basic html file for you.
+
+add the following between the body elements (<body></body>)
+
+```html
+<body>
+    <h1>Hello from ACS!</h1>
+</body>
+```
+Add the following code between <head></head> elements
+
+```html
+<link rel="stylesheet" href="./app.js" defer/>
+<script src="./app.js" defer></script>
+
+```
+
+The forst line will instruct our html page to download the app.js file, which we will use for our calling application and the second line pints at the CSS file, where we will add different stulles to our application as we proceed.
+
+The whole file should look like
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first ACS application</title>
+    <link rel="stylesheet" href="./app.js" defer/>
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <h1>Hello from ACS!</h1>
+</body>
+</html>
+```
+(Note I also modified the title of the document). 
+
+:::image type="content" source="../media/step-one-pic-thirteen.png" alt-text="Modyfying package-json.js":::
+
+To ensure everything works, let also add some JavaScript code in app.js and mdyfy the font using the app.css
+
+In app.js add the following code:
+
+```JavaScript
+alert('Hello world alert!');
+console.log('Hello world console!');
+```
+In app.css
+
+```CSS
+html {
+    font-family: sans-serif;
+  }
+ ```
+ :::image type="content" source="../media/step-one-pic-14.png" alt-text="App.js file with JS code":::
+ 
+ Now upon the start of your page, you will see an alert "Hello world alert!" and message in conole "Hello world console!" and the font of the header "Hello from ACS application" will be sans-serif
+ 
+Note, don't forget to save your files, before going to next step. The white dots next to the file name indicate that the changes not saved. You can either click "Ctrl+S" (on Windows) to save inidividual file, or "Ctrl + K S" to save all files, or you can select Save option from File menu. 
+
+
+Once you saved the white dtos should disappear. 
+
+ :::image type="content" source="../media/step-one-pic-15.png" alt-text="App.css file":::
+
