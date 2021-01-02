@@ -1,4 +1,4 @@
-# Building a development envirionment
+# Building a development envirionment and setting a Calling Application
 
 In this step we will walk you through building a development envirionment. 
 
@@ -74,3 +74,9 @@ Click "Install."
 :::image type="content" source="../media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
 
 Follow the same steps as above for ["Azure Functions"](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions
+
+## Obtaining the User Token
+
+Get the user token, using either a [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
+
+
