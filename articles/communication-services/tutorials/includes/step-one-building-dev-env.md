@@ -336,7 +336,7 @@ Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello
  
 Now let prepare our file for production deployment to publish it later in Azure. While preparation of the "Hello world" example is not necessary as we don't use modules, the tutorial's goal is to prepare the development environment to later work with the ACS modules such preparation is needed. 
 
-We need to modify two files. First, add the configuration for production in webpack.prod.js file and add a new comman in package.json.js file.
+We need to modify two files. First, add the configuration for production in webpack.prod.js file and add a new command in package.json file.
 
 Add the following code to the webpack.prod.js
 
@@ -348,9 +348,9 @@ const { merge } = require('webpack-merge');
    mode: 'production',
  });
  ```
- Not this configration will be merged with teh webpack.common.js (where we specified the input file and where to store the results) and set the mode "production". We don't need to set inline-source-map" as we did in webpack.dev.js as we are peaaring the code for production use.
+Note this configuration will be merged with the webpack.common.js (where we specified the input file and where to store the results) and set the mode "production." We don't need to set inline-source-map" as we did in webpack.dev.js as we are preparing the code for production use.
  
-In the package.json, after the "build:dev", set comma and add the following code:
+In the package.json, after the "build:dev," set comma and add the following code:
 
 ```JavaScript
 
@@ -358,7 +358,7 @@ In the package.json, after the "build:dev", set comma and add the following code
 
 ```
 
-You file should look like this:
+Your file should look like this:
 
 ```JavaScript
 {
@@ -394,14 +394,17 @@ Now time to test the creation of the production code. In the terminal run:
 ```Console
 npm run build:prod
 ```
-The command will create dist folder and production ready app.js static file in it. 
+The command will create dist folder and production-ready app.js static file in it. 
 
  :::image type="content" source="../media/step-one-pic-21.png" alt-text="Production build":::
  
- Great, now we have the developmnet envirionment, which you can use for development and create the production ready code. Time to deploy it in Azure.
+Great, now we have the development environment you can use to develop and create the production-ready code. Time to practice deploying in Azure.
  
  
  ## Deploying your Static WebSite in Azure Storage
  
+In this step, we will deploy our static "Hello World!" site to Azure to practice. In the next steps, you will be building calling, chat SMS, PSTN applications, and use the same steps to deploy them.
+ 
+
 
 
