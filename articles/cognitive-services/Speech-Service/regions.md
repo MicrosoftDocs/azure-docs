@@ -40,7 +40,7 @@ The Speech service is available in these regions for **speech recognition**, **t
 
 If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
-If you plan to train a custom model with audio data, use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) with dedicated hardware for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
+If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
 
 ### Intent recognition
 
