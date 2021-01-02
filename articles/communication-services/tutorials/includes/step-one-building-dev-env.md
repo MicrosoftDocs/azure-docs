@@ -42,3 +42,5 @@ You can download the  [Visual Studio Code](https://code.visualstudio.com/) on on
 After you installed the Visual Studio Code, create a new folder, for example 'C:\Users\Documents\ACS\CallingApp'. In Visual Studio Code, click "File", "Add Folder to Workspace" and add the folder. 
 
 :::image type="content" source="../media/step-one-pic-three.png" alt-text="Creating new workplace":::
+
+Now go to "Explorer" in Visual Studio Code on the left and you will see your "CallingApp" folder in "Untitled" workspace.
