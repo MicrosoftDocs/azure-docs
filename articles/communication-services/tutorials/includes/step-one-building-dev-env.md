@@ -257,7 +257,20 @@ html {
 Note, don't forget to save your files, before going to next step. The white dots next to the file name indicate that the changes not saved. You can either click "Ctrl+S" (on Windows) to save inidividual file, or "Ctrl + K S" to save all files, or you can select Save option from File menu. 
 
 
-Once you saved the white dtos should disappear. 
+Once you saved the white dots should disappear. 
 
  :::image type="content" source="../media/step-one-pic-15.png" alt-text="App.css file":::
+
+With that we are ready to test our development server. in the console type
+
+```Console
+
+npm run build:dev
+
+```
+
+The console will show you the address where server is running. By default it is http://localhost:8080. The build:dev is the commad we added to our package-json.js file and it will start webpack development server. You can run this simple file directly by going to your files and clicking on index.html, however once we start adding the modules to our code just running the file will not work due to CORS policy in browser. The goal of this exersize is to test the development server.
+
+ :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
+
 
