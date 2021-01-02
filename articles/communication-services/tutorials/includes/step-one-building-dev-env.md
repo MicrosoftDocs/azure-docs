@@ -335,8 +335,73 @@ Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello
  ### Creating configuration for production deployment
  
 Now let prepare our file for production deployment to publish it later in Azure. While preparation of the "Hello world" example is not necessary as we don't use modules, the tutorial's goal is to prepare the development environment to later work with the ACS modules such preparation is needed. 
+
+We need to modify two files. First, add the configuration for production in webpack.prod.js file and add a new comman in package.json.js file.
+
+Add the following code to the webpack.prod.js
+
+```JavaScript
+const { merge } = require('webpack-merge');
+ const common = require('./webpack.common.js');
+
+ module.exports = merge(common, {
+   mode: 'production',
+ });
+ ```
+ Not this configration will be merged with teh webpack.common.js (where we specified the input file and where to store the results) and set the mode "production". We don't need to set inline-source-map" as we did in webpack.dev.js as we are peaaring the code for production use.
+ 
+In the package.json, after the "build:dev", set comma and add the following code:
+
+```JavaScript
+
+"build:prod": "webpack --config webpack.prod.js" 
+
+```
+
+You file should look like this:
+
+```JavaScript
+{
+  "name": "CallingApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack-dev-server --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/communication-calling": "^1.0.0-beta.3",
+    "@azure/communication-common": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^5.7.3"
+  }
+}
+```
+ :::image type="content" source="../media/step-one-pic-20.png" alt-text="Configured files":::
+
+
+Now time to test the creation of the production code. In the terminal run:
+
+```Console
+npm run build:prod
+```
+The command will create dist folder and production ready app.js static file in it. 
+
+ :::image type="content" source="../media/step-one-pic-21.png" alt-text="Production build":::
+ 
+ Great, now we have the developmnet envirionment, which you can use for development and create the production ready code. Time to deploy it in Azure.
  
  
+ ## Deploying your Static WebSite in Azure Storage
  
 
 
