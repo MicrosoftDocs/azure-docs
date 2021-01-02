@@ -49,3 +49,14 @@ Now go to "Explorer" in Visual Studio Code on the left and you will see your "Ca
 
 Now save the workspace using any name of your choice, we will use "ACS" in this tutorial in the "C:\Users\Documents\ACS".
 Validate version of the Node.js by right click on your "CallingApp" folder and select "Open in Integrated Terminal"
+
+:::image type="content" source="../media/step-one-pic-five.png" alt-text="Opening a terminal":::
+
+In the terminal, type
+
+```JavaScript
+node --version
+```
+to validate the node.js version installed on the previous step. 
+
+:::image type="content" source="../media/step-one-pic-six.png" alt-text="Validating Node.js version":::
