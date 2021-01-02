@@ -15,6 +15,7 @@ We will also be using [Node.js](https://nodejs.org/en/) to download the dependen
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We also highly recommend to deploy the nvm to have ability to switch between various Node.js version for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows) on Windows
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. You can find more abut hosting static web sites in Azure Storage [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website)
+- The [Azure Function extension] to build your own serverless applications. For example, you can host your authentication application in Azure functions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token. You can use either [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
@@ -71,3 +72,5 @@ You can either open the link above and cleick "Install" or in Visual Studio Code
 Click "Install".
 
 :::image type="content" source="../media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
+
+follow the same steps as above for ["Azure Functions"](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions
