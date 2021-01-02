@@ -91,7 +91,7 @@ This command will initialize a new npm package and will add file package.json in
 
 :::image type="content" source="../media/step-one-pic-eight.png" alt-text="Installing Azure Storage Extension":::
 
-By running the command with "-y" we omit steps where you can specify the package name, version, description, author, license. You can run the command without "-y" and provide these parameters. 
+By running the command with "-y" we omit steps where you can specify the package name, version, description, author, license. You can run the command without "-y" and provide these parameters. Additional documentation on [npm init command](https://docs.npmjs.com/cli/v6/commands/npm-init)
 
 Now we need to export the Azure Communication Services packages into our application. 
 
@@ -104,8 +104,15 @@ npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
-This action will add the Azure Communication Serivces common and calling package as a dependency in your package. You will see two new packages added to the package.json file and the packages installed into "./CallingApp/node_modules/@azure/communication-calling" and "./CallingApp/node_modules/@azure/communication-common". 
+This action will add the Azure Communication Serivces common and calling package as a dependency in your package. You will see two new packages added to the package.json file and the packages installed into "./CallingApp/node_modules/@azure/communication-calling" and "./CallingApp/node_modules/@azure/communication-common". Link on the [documentation on npm install command](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
 
 :::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Storage Extension":::
+
+These packages provided by the Azure Communication Services team and inculdes the authentication and calling libruaries. 
+
+
+### Installing webpack
+
+[Webpack](https://webpack.js.org/) is a tool for bundling the code from various packages and creting static files, which can be used in your server. Webpack also has a development server, which we will configure to use with the calling sample. Let install and configure webpack, wbpack development server and CLI.
 
