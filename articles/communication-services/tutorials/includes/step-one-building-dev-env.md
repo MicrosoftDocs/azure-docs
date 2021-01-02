@@ -9,7 +9,7 @@ We will also be using [Node.js](https://nodejs.org/en/) to download the dependen
 
 :::image type="content" source="../media/step-one-pic-one.png" alt-text="Developer envirionment architecture":::
 
-By the end of this module, you will have configure development envirionment, a bsic "Hello World" sttic website, test the web stie in a development server and publish it in Azure.
+By the end of this module, you will complete the configuration of the development environment. Create a basic "Hello World" static website, test the web site in a development server, and publish it in Azure.
 
 Time to complete: 60 minutes.
 
