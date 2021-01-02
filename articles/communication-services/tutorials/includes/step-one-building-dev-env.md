@@ -79,7 +79,7 @@ Follow the same steps as above for ["Azure Functions"](https://marketplace.visua
 
 Get the user token, using either a [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
-## Deploying a Calling application
+## Initializing the application and adding the Azure Communication Services packages
 
 ### Creating new npm package
 
@@ -107,10 +107,11 @@ npm install @azure/communication-calling --save
 This action will add the Azure Communication Serivces common and calling package as a dependency in your package. You will see two new packages added to the package.json file and the packages installed into "./CallingApp/node_modules/@azure/communication-calling" and "./CallingApp/node_modules/@azure/communication-common". Link on the [documentation on npm install command](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
 
-:::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Communication Services packages":::
 
 These packages provided by the Azure Communication Services team and inculdes the authentication and calling libruaries. "--save" command signals that our application depends on these packages for production use and will be included in "dependencies" of our package-json.js file. When we build the application for production the packages will be included in our production code.
 
+## Installing webpack and configuring local development server
 
 ### Installing webpack
 
@@ -126,4 +127,26 @@ NOTE. Please use the version provided, the newer versions don't work properly wi
 By specifying -dev we signal that this dependency is only for development puroposes and should not be included in our final code, which we will deploy in Azure. 
 You will see two new packages added to the package.json file as "devDependencies" and the packages installed into "./CallingApp/node_modules/
 
-:::image type="content" source="../media/step-one-pic-ten.png" alt-text="Installing Azure Storage Extension":::
+:::image type="content" source="../media/step-one-pic-ten.png" alt-text="Webpack configuration":::
+
+### Configuring the development server
+
+Webpack also provides the development server which we will use in this tutorial. As you use modules from Azure Communication Services, just running a webpage with with third-party modules included will be prevented by Cross-Origin Resource Sharing Policy in your browser. The problem here is that running a static application (like index.html file) in browser will use the file:// protocol. For mdules to work properly we will need http protocol. Webpack contains a development server, which we can utilize. 
+
+We will create two configurations for webpack, one for development and the other for production. Files, prepeared for production will be minified, meaning that we will remove unused whitespace and characters. This is great for production as it reduces size of our files. But at the same time, code prepeared for production will not be easily readabale and modification will be difficult. To keep production code optimized but at the same time keep our development version readable we will need two envirionments.
+
+Let start from development envirionment.
+
+In your project folder, create a new file "webpack.config.js" and add the following code:
+
+```JavaScript
+module.exports ={
+    mode: 'development',
+    entry:'./app.js',
+  }
+};
+```
+
+Mode "development" tells webpoack not to minify the files and not to produce optimized files for production. Entry is app.js file, which we will create later. Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
+
+:::image type="content" source="../media/step-one-pic-eleven.png" alt-text="Configuring webpack":::
