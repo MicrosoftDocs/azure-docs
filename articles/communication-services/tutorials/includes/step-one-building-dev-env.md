@@ -9,6 +9,10 @@ We will also be using [Node.js](https://nodejs.org/en/) to download the dependen
 
 :::image type="content" source="../media/step-one-pic-one.png" alt-text="Developer envirionment architecture":::
 
+By the end of this module, you will have configure development envirionment, a bsic "Hello World" sttic website, test the web stie in a development server and publish it in Azure.
+
+Time to complete: 60 minutes.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Free account gives you $200 in Azure credits to try out any combination of services.
@@ -291,6 +295,11 @@ Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello
  You built the development server and environment. To stop your server, you can run Ctrl+C in your terminal and to start, type npm run build:dev at any time.
  
  Now let move on to create our envirionment to optimize the code for production when time comes and test it.
+ 
+ ### Creating configuration for production deployment
+ 
+Now let prepare our file for production deployment to publish it later in Azure. While preparation of the "Hello world" example is not necessary as we don't use modules, the tutorial's goal is to prepare the development environment to later work with the ACS modules such preparation is needed. 
+ 
  
  
 
