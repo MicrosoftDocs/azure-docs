@@ -292,11 +292,10 @@ html {
   }
  ```
  :::image type="content" source="../media/step-one-pic-14.png" alt-text="App.js file with JS code":::
- 
- Now upon the start of your page, you will see an alert "Hello world alert!" and message in console "Hello world console!" and the font of the header "Hello from ACS application" will be sans-serif
- 
-Note, don't forget to save your files before going to the next step. The white dots next to the file name indicate that the changes are not saved. You can click "Ctrl+S" (on Windows) to save an individual file, click "Ctrl + K S" to save all files, or you can select the Save option from the File menu. 
 
+Now upon the start of your page, you will see an alert "Hello world alert!" and message in console "Hello world console!" and the font of the header "Hello from ACS application" will be sans-serif
+
+Note, don't forget to save your files before going to the next step. The white dots, highligted in red on the picture above, next to the file name indicate that the changes are not saved. You can click "Ctrl+S" (on Windows) to save an individual file, click "Ctrl + K S" to save all files, or you can select the Save option from the File menu. 
 
 Once you saved, the white dots should disappear. 
 
