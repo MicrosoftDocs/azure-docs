@@ -137,20 +137,20 @@ You will see two new packages added to the package.json file as "devDependencies
 
 Webpack also provides the development server, which we will use in this tutorial. As you use Azure Communication Services modules, just running a web page with third-party modules included will be prevented by Cross-Origin Resource Sharing Policy in your browser. The problem here is that running a static application (like index.html file) in a browser will use the file:// protocol. For modules to work properly, we will need HTTP protocol. Webpack contains a development server, which we can utilize. 
 
-We will create two configurations for webpack, one for development and the other for production. Files prepared for production will be minified, meaning that we will remove unused whitespace and characters. Minification and optimization are great for production as it reduces the size of our files. Simultaneously, code prepared for production will not be easily readable, and modification will be difficult. To keep production code optimized but at the same time keep our development version readable, we will need two environments.
+We will create two configurations for webpack, one for development and the other for production. Files prepared for production will be minified, meaning that we will remove unused whitespace and characters. Minification and optimization are great for production as it reduces the size of our files. Simultaneously, code prepared for production will not be easily readable, and modification will be difficult. To keep production code optimized while keeping our development version readable, we will need two environments.
 
-Overall, we will create a common configuration file for webpack, add two files, one for development server, the other for production (in next section), add pointers to run the server in our package.json file and test it. We will use the webpack-merge tool to work with different configration files for webpack as described [here](https://webpack.js.org/guides/production/)
+Overall, we will create a common configuration file for webpack, add two files, one for the development server, the other for production (in next section), add pointers to run the server in our package.json file, and test it. We will use the webpack-merge tool to work with different configuration files for webpack as described [here](https://webpack.js.org/guides/production/)
 
 Let start from the development environment.
 
-First, we need to inastall webpack merge. In your terminal run the following:
+First, we need to install webpack merge. In your terminal, run the following:
 
 ```Console
 npm install --save-dev webpack-merge
 ```
-In youir package.json file you can see one more dependency added to the "devDependencies".
+In your package.json file, you can see one more dependency added to the "devDependencies."
 
-on next step we need to create a new file "webpack.common.js" and add the following code:
+In the next step, we need to create a new file "webpack.common.js" and add the following code:
 
 ```JavaScript
 const path = require('path');
@@ -162,18 +162,18 @@ module.exports ={
     }     
 }
 ```
-Also add two more files (we will need them later):
+Also, add two more files (we will need them later):
 * webpack.dev.js
 * webpack.prod.js
 
-By creating this configuration we tell webpack to import our code (module.exports, file app.js), analyze it, understand that modules our application depends on (Azure Communication Services modules), and prepare for either production or development server. Entry is app.js file, which we will create later, the file will contain our code.
-In output we specify where we want to store the JS file when we run prepearation for production. In this example we will use CallingApp/dist folder. The path specified via the "__ dirname", which points to current directory and subfolder "dist". We don't need to create such subfolder as webpack will create it once we run it for production.
+By creating this configuration, we tell webpack to import our code (module.exports, file app.js), analyze it, understand that modules our application depends on (Azure Communication Services modules), and prepare for either production or development server. Entry is app.js file, which we will create later. The file will contain our Azure Communication Services code.
+In the output, we specify where we want to store the JS file when we run preparation for production. In this example, we will use CallingApp/dist folder. The path is specified via the "__ dirname", which points to the current directory and subfolder "dist." We don't need to create such a subfolder as webpack will make it once we run it for production.
 
 :::image type="content" source="../media/step-one-pic-10_5.png" alt-text="Configuring webpack common":::
 
-Note on the picture you also see additioanl files, which we create on later steps in this tutrial.
+Note on the picture you also see additional files, which we create on later steps in this tutorial.
 
-On next step we need to modify the webpack.dev.js file. Add to the webpack.dev.js the following code:
+In the next step, we need to modify the webpack.dev.js file. Add to the webpack.dev.js the following code:
 
 ```JavaScript
 const { merge } = require('webpack-merge');
@@ -184,14 +184,15 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
 });
 ```
-In this configuration we import common parameters from the webpack.common.js, merge two files, set mode "development" and configure SourceMap as "inline-source-map'.
-Mode "development" tells webpoack not to minify the files and not produce optimized production files.  Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
-Source map options are listed [here](https://webpack.js.org/configuration/devtool/#root). If we do not set source map, a default map, which is used for production is used, which makes the code not readable in the browser deveploment tools and makes troubleshootingg more difficult.
+In this configuration, we import common parameters from the webpack.common.js, merge two files, set mode "development," and configure SourceMap as "inline-source-map'.
+Mode "development" tells webpack not to minify the files and not produce optimized production files.  Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
+Source map options are listed [here](https://webpack.js.org/configuration/devtool/#root). If we do not set the source map, a default map used for production is used, which makes the code not readable in the browser development tools and makes troubleshooting more difficult.
 
 :::image type="content" source="../media/step-one-pic-11.png" alt-text="Configuring webpack":::
 
 
-Now we have basic webpack configuration for development. To run the development server, let go to the package.json.js and add the following code under scripts.
+Now we have a basic webpack configuration for development. To run the development server, let go to the package.json.js and add the following code under scripts.
+
 ```JavaScript
     "build:dev": "webpack-dev-server --config webpack.dev.js"
 ```
