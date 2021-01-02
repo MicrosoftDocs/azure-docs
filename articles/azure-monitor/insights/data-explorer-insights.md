@@ -109,7 +109,7 @@ The **Usage** tab allows users to deep dive into the performance of the cluster'
 
 The **tables** tab shows the latest and historical properties of tables in the cluster. You can see which tables are consuming the most space, track growth history by table size, hot data, and the number of rows over time.
 
-The **cache** tab allows users to analyze their actual queries' look back patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get particular cache policy recommendations on specific tables in Azure Advisor, based on actual queries' look back in the past 30 days and an un-optimized cache policy for at least 95% of the queries. Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down). 
+The **cache** tab allows users to analyze their actual queries' look back patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get particular cache policy recommendations on specific tables in Azure Advisor (currently, cache recommendations are available only from the [main Azure Advisor dashbaord](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), based on actual queries' look back in the past 30 days and an un-optimized cache policy for at least 95% of the queries. Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down). 
 
 [![Screenshot of cache details](./media/data-explorer-insights/cache-tab.png)](./media/data-explorer-insights/cache-tab.png#lightbox)
 
@@ -145,10 +145,6 @@ This section will help you with the diagnosis and troubleshooting of some of the
 We only show subscriptions that contain Azure Data Explorer Clusters, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### I want to make changes or add additional visualizations to Azure Data Explorer Cluster Insights
-
-To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
 
 ### Why do I not see any data for my Azure Data Explorer Cluster under the Usage, Tables or Cache sections
 
