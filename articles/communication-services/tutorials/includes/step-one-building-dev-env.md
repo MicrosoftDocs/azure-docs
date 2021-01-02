@@ -147,6 +147,6 @@ module.exports ={
 };
 ```
 
-Mode "development" tells webpoack not to minify the files and not to produce optimized files for production. Entry is app.js file, which we will create later. Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
+By creting this configration we tell webpack to import our code (module.exports), analize it and prepeare for either prodcution or development server. Mode "development" tells webpoack not to minify the files and not to produce optimized files for production. Entry is app.js file, which we will create later and it will contain our code. Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
 
 :::image type="content" source="../media/step-one-pic-eleven.png" alt-text="Configuring webpack":::
