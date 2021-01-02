@@ -79,4 +79,33 @@ Follow the same steps as above for ["Azure Functions"](https://marketplace.visua
 
 Get the user token, using either a [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
+## Deploying a Calling application
+
+### Creating new npm package
+
+First, let create a package for our calling application. In your terminal, in the path if your folder, run:
+``` console
+npm init -y
+```
+This command will initialize a new npm package and will add file package.json into the root folder
+
+:::image type="content" source="../media/step-one-pic-eight.png" alt-text="Installing Azure Storage Extension":::
+
+By running the command with "-y" we omit steps where you can specify the package name, version, description, author, license. You can run the command without "-y" and provide these parameters. 
+
+Now we need to export the Azure Communication Services packages into our application. 
+
+### Add the Azure Communication Services packages
+
+Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+
+```console
+npm install @azure/communication-common --save
+npm install @azure/communication-calling --save
+```
+
+This action will add the Azure Communication Serivces common and calling package as a dependency in your package. You will see two new packages added to the package.json file and the packages installed into "./CallingApp/node_modules/@azure/communication-calling" and "./CallingApp/node_modules/@azure/communication-common". 
+
+
+:::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Storage Extension":::
 
