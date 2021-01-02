@@ -1,6 +1,6 @@
 ---
 title: Push Data Factory lineage data to Azure Purview
-description: Learn about how to push Data Factory lineage data to Azure Purview
+description: Learn about how to push Data Factory lineage data to Azure Preview
 
 services: data-factory
 ms.author: lle
@@ -18,7 +18,7 @@ ms.date: 12/3/2020
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Azure Purview account. Then you can view all the lineage information in your Azure Purview account.
+In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Azure Preview account. Then you can view all the lineage information in your Azure Purview account.
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
