@@ -72,6 +72,10 @@ Both base models and custom models will be retired after some time (see [Model l
 
 **A**: You can run a custom model locally in a [Docker container](speech-container-howto.md?tabs=cstt).
 
+**Q: Can I copy or move my datasets, models, and deployments to another region or subscription?**
+
+**A**: You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy a custom model to another region or subscription. Datasets or deployments cannot be copied. You can import a dataset again in another subscription and create endpoints there using the model copies.
+
 **Q: Are my requests logged?**
 
 **A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](./how-to-custom-speech-train-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
@@ -95,7 +99,7 @@ See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
-**A**: The limit is due to the restriction on the size of a file for HTTP upload. See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md) for the actual limit.
+**A**: The limit is due to the restriction on the size of a file for HTTP upload. See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md) for the actual limit. You can split your data into multiple datasets and select all of them to train the model.
 
 **Q: Can I zip my text files so I can upload a larger text file?**
 
@@ -121,17 +125,15 @@ See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **Q: Do I need to transcribe adaptation data myself?**
 
-**A**: Yes! You can transcribe it yourself or use a professional transcription service. Some users prefer professional transcribers and others use crowdsourcing or do the transcriptions themselves.
+**A**: Yes. You can transcribe it yourself or use a professional transcription service. Some users prefer professional transcribers and others use crowdsourcing or do the transcriptions themselves.
+
+**Q: How long will it take to train a custom model audio data?**
+
+**A**: Training a model with audio data is a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it cannot be finished within one week, the service might abort the training operation and report the model as failed. For faster results, use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. You can copy the fully trained model to another region using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with just text is much faster and typically finishes within minutes.
+
+Some base models cannot be customized with audio data. For them the service will just use the text of the transcription for training and discard the audio data. Training will then be finished much faster and results will be the same as training with just text.
 
 ## Accuracy testing
-
-**Q: Can I perform offline testing of my custom acoustic model by using a custom language model?**
-
-**A**: Yes, just select the custom language model in the drop-down menu when you set up the offline test.
-
-**Q: Can I perform offline testing of my custom language model by using a custom acoustic model?**
-
-**A**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
 
 **Q: What is word error rate (WER) and how is it computed?**
 
