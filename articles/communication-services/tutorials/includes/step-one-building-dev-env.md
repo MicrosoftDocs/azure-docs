@@ -207,7 +207,7 @@ add the following between the body elements (<body></body>)
 Add the following code between <head></head> elements
 
 ```html
-<link rel="stylesheet" href="./app.css" defer/>
+<link rel="stylesheet" href="./app.css"/>
 <script src="./app.js" defer></script>
 
 ```
@@ -223,7 +223,7 @@ The whole file should look like
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My first ACS application</title>
-    <link rel="stylesheet" href="./app.css" defer/>
+    <link rel="stylesheet" href="./app.css"/>
     <script src="./app.js" defer></script>
 </head>
 <body>
@@ -233,7 +233,7 @@ The whole file should look like
 ```
 (Note I also modified the title of the document). 
 
-:::image type="content" source="../media/step-one-pic-thirteen.png" alt-text="Modyfying package-json.js":::
+:::image type="content" source="../media/step-one-pic-thirteen.png" alt-text="HTML file":::
 
 To ensure everything works, let also add some JavaScript code in app.js and modify the font using the app.css
 
