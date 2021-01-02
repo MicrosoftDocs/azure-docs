@@ -272,5 +272,26 @@ npm run build:dev
 The console will show you the address where the server is running. By default, it is http://localhost:8080. The build:dev is the command we added to our package-json.js file, and it will start webpack development server. You can run this simple file directly by going to your files and clicking on index.html. Once we start adding the Azure Communication Services modules to our code, just running the file will not work due to the browser's CORS policy. The goal of this exercise is to test the development server.
 
  :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
+ 
+ Go to the address, provided os output of previous command and you should see the page and alert, configured on previous steps.
+ 
+  :::image type="content" source="../media/step-one-pic-17.png" alt-text="Html page":::
+  
+ Now open the development tools of your browser. In most browsers, it is Ctrl +Shift + I (for Windows). If you on Microsoft Edge or Chrome you can also use '...' - "More tools" - "Developer Tools."  
+ In the development tools, go to "Console," and you should see the "Hello world console!" message.
+ 
+ :::image type="content" source="../media/step-one-pic-18.png" alt-text="Console":::
+ 
+Congratulations, you deployed and tested your development server. While the server is running, you can change the code, and the server and the html page automatically reload. 
+Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello world alert!');". Click Ctrl +S, and you will see at the bottom of your terminal that the application reloaded and compiled. If you go to the http://localhost:8080 you will see the page also reloaded, and there is no more alert visible.
+ The area in red on the picture below is automatic recompiling of our application after you saved the modified app.js file
+ 
+ :::image type="content" source="../media/step-one-pic-19.png" alt-text="Recompiling":::
+ 
+ You built the development server and environment. To stop your server, you can run Ctrl+C in your terminal and to start, type npm run build:dev at any time.
+ 
+ Now let move on to create our envirionment to optimize the code for production when time comes and test it.
+ 
+ 
 
 
