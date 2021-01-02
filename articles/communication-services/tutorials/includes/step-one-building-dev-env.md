@@ -36,5 +36,8 @@ nvm use 12.20.0
 
 :::image type="content" source="../media/step-one-pic-two.png" alt-text="Working with nvm to deploy Node.js":::
 
-After you installed the Visual Studio Code, create a new Workspace and add a folder with name of your choice. We will use 'ACS/CallingSample'.
+### Configuring Visual Studio Code
+
+You can download the  [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+After you installed the Visual Studio Code, create a new floder, for example 'C:\Users\Documents\ACS'. in Visual Studio Code, save the workplace to that folder. 
 
