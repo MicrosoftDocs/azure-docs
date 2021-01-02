@@ -1,4 +1,4 @@
-# Building a development envirionment and setting a Calling Application
+# Building a development envirionment 
 
 In this step we will walk you through building a development envirionment. 
 
@@ -109,10 +109,21 @@ This action will add the Azure Communication Serivces common and calling package
 
 :::image type="content" source="../media/step-one-pic-nine.png" alt-text="Installing Azure Storage Extension":::
 
-These packages provided by the Azure Communication Services team and inculdes the authentication and calling libruaries. 
+These packages provided by the Azure Communication Services team and inculdes the authentication and calling libruaries. "--save" command signals that our application depends on these packages for production use and will be included in "dependencies" of our package-json.js file. When we build the application for production the packages will be included in our production code.
 
 
 ### Installing webpack
 
 [Webpack](https://webpack.js.org/) is a tool for bundling the code from various packages and creting static files, which can be used in your server. Webpack also has a development server, which we will configure to use with the calling sample. Let install and configure webpack, wbpack development server and CLI.
+To install webpack, type the following in your open terminal
 
+``` Console
+
+npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+
+```
+NOTE. Please use the version provided, the newer versions don't work properly with this tutorial. We will update once the new version will start working properly for this tutorial.
+By specifying -dev we signal that this dependency is only for development puroposes and should not be included in our final code, which we will deploy in Azure. 
+You will see two new packages added to the package.json file as "devDependencies" and the packages installed into "./CallingApp/node_modules/
+
+:::image type="content" source="../media/step-one-pic-ten.png" alt-text="Installing Azure Storage Extension":::
