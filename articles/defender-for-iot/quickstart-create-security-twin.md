@@ -62,10 +62,10 @@ To verify if a security module twin exists for a specific device:
 
 1. In your Azure IoT Hub, select **IoT devices** from the **Explorers** menu.
 1. Enter the device ID, or select an option in the **Query device field** and click **Query devices**.
-    ![Query devices](./media/quickstart/verify-security-module-twin.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Query devices":::
 1. Select the device or double click it to open the Device details page.
 1. Select the **Module identities** menu, and confirm existence of the **azureiotsecurity** module in the list of module identities associated with the device.
-    ![Modules associated with a device](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Modules associated with a device":::
 
 To learn more about customizing properties of Defender for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
 
