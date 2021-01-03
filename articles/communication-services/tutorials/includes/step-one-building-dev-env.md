@@ -485,3 +485,15 @@ If you go to the $web you will see your files you created in Visual Studio and d
 You can redeploy the application from your Visual Studio Code at any time when you work with the application. In the future, we will build a CI/CD pipeline using Azure App Services.
 
 Now you are fully ready to try writing your first Azure Communication Services Application. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+
+You may also want to:
+
+- [Add chat to your app](../quickstarts/chat/get-started.md)
+- [Creating user access tokens](../quickstarts/access-tokens.md)
+- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about authentication](../concepts/authentication.md)
