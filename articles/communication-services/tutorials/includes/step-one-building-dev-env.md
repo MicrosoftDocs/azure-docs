@@ -167,7 +167,7 @@ Also, add two more files (we will need them later):
 * webpack.dev.js
 * webpack.prod.js
 
-By creating this configuration, we tell webpack to import our code (module.exports, file app.js), analyze it, understand that modules our application depends on (Azure Communication Services modules), and prepare for either production or development server. Entry is app.js file, which we will create later. The file will contain our Azure Communication Services code.
+By creating this configuration, we tell webpack to import our code (module.exports, file app.js), analyze it, understand that modules our application depends on (Azure Communication Services modules), and prepare for either production or development server. Entry is app.js file, which we will create later. The app.js file will contain our "Hello world!" site, which we create in this document and Azure Communication Services code in next tutorials.
 In the output, we specify where we want to store the JS file when we run preparation for production. In this example, we will use CallingApp/dist folder. The path is specified via the "__ dirname", which points to the current directory and subfolder "dist." We don't need to create such a subfolder as webpack will make it once we run it for production.
 
 :::image type="content" source="../media/step-one-pic-10_5.png" alt-text="Configuring webpack common":::
