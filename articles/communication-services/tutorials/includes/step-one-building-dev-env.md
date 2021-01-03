@@ -331,11 +331,11 @@ Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello
  
  You built the development server and environment. To stop your server, you can run Ctrl+C in your terminal and to start, type npm run build:dev at any time.
  
- Now let move on to create our envirionment to optimize the code for production when time comes and test it.
+ Let move on to create our envirionment to optimize the code for production and test it.
  
  ### Creating configuration for production deployment
  
-Now let prepare our file for production deployment to publish it later in Azure. While preparation of the "Hello world" example is not necessary as we don't use modules, the tutorial's goal is to prepare the development environment to later work with the ACS modules such preparation is needed. 
+In this step, we prepare our file for production deployment to publish it later in Azure. While preparation of the "Hello world" example is not necessary as we don't use modules, the tutorial's goal is to prepare the development environment to later work with the ACS modules where such preparation is recommended. 
 
 We need to modify two files. First, add the configuration for production in webpack.prod.js file and add a new command in package.json file.
 
