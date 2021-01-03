@@ -18,7 +18,7 @@ In this article, you learn how to quantitatively measure and improve the accurac
 
 ## Evaluate Custom Speech accuracy
 
-The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, 
+The industry standard to measure model accuracy is [Word Error Rate](https://en.wikipedia.org/wiki/Word_error_rate) (WER). WER counts the number of incorrect words identified during recognition, 
 then divides by the total number of words provided in the human-labeled transcript (shown below as N). Finally, that number is multiplied by 100% to calculate the WER.
 
 ![WER formula](./media/custom-speech/custom-speech-wer-formula.png)
@@ -32,6 +32,8 @@ Incorrectly identified words fall into three categories:
 Here's an example:
 
 ![Example of incorrectly identified words](./media/custom-speech/custom-speech-dis-words.png)
+
+If you want to replicate WER measurements locally, you can use sclite from [SCTK](https://github.com/usnistgov/SCTK).
 
 ## Resolve errors and improve WER
 
