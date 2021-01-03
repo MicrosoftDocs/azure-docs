@@ -404,17 +404,17 @@ Great, now we have the development environment you can use to develop and create
  
  ## Deploying your Static WebSite in Azure Storage
  
-In this step, we will deploy our static "Hello World!" site to Azure to practice. In the next steps, you will be building calling, chat SMS, PSTN applications, and use the same steps to deploy them.
+We will deploy our static "Hello World!" site to Azure to practice in this step. In the next steps, you will be building calling, chat SMS, PSTN applications, and use the same method.
 
-You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage doesn't not allo building the managed  continuous integration and continuous delivery (CI/CD) and deplying own webservers. For the purpose of testing we will use the Azure Storage, but you can use similar steps to deploy in Azure App Service.
+You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage does not allow building the managed continuous integration and continuous delivery (CI/CD) and deploying webservers. We will use Azure Storage for testing, but you can use similar steps to deploy in Azure App Service.
 
-Copy indrx.html and app.css to the "dist" folder. 
+First, copy index.html and app.css to the "dist" folder. 
 
-On the dist folder, right click and select deploy to Static Website via Azure Storage
+On the dist folder, right-click and select deploy to Static Website via Azure Storage.
 
  :::image type="content" source="../media/step-one-pic-22.png" alt-text="Start deploying to Azure":::
  
- In Select subscription field select "Singn in to Azure (or "Create a Free Azure Account" if you haven't created a subscription before)
+ In the Select subscription field, select "Sign in to Azure (or "Create a Free Azure Account" if you haven't created a subscription before)
  
   :::image type="content" source="../media/step-one-pic-23.png" alt-text="Sign in to Azure":::
  
@@ -426,7 +426,7 @@ Create new Storage Account ... Advanced
  
  :::image type="content" source="../media/step-one-pic-25.png" alt-text="Creating the Stoirage Group":::
  
- Select if you want to deploy in an existing group or create a new. We will create a new resource group "acsdemo"
+ Select if you want to deploy in an existing group or create a new one. We will create a new resource group, "acsdemo"
  
   :::image type="content" source="../media/step-one-pic-26.png" alt-text="Creating the Stoirage Group":::
   
@@ -434,28 +434,30 @@ Create new Storage Account ... Advanced
   
   :::image type="content" source="../media/step-one-pic-27.png" alt-text="Creating the Stoirage Group":::
   
-  Accpet default file name in "Enter the index document name", as we created the file index.html.
-  Provide the 404.html for "Enter the 404 error document path". We didn't create this document, but you can add the file. 
+ Accept default file name in "Enter the index document name," as we created the file index.html.
+Type the 404.html for "Enter the 404 error document path". We didn't create this document, but you can add the file. 
   
-Select location of the appplication. Note location will difine which media processor will be used in your future calling application. The Azure Communicaiton Serrvices selects the Media Processoir, based on the application location. I'll go with the "East US", meaning the mddia will flow via the Media Processor in US East or US West. If you selecct European Datacenter, the media will flow via Amsterdam or Dublin.
+Select the location of the application. Note location will define which media processor will be used in your future calling application in group calls. The Azure Communication Services selects the Media Processor based on the application location. I'll go with the "East US," meaning the media will flow via the Media Processor in US East or US West. If you select a European datacenter, the media will flow via Amsterdam or Dublin.
 
   :::image type="content" source="../media/step-one-pic-28.png" alt-text="Select location":::
   
-  Wait until the resource and your website created. 
+ Wait until the resource and your website are created. 
  
- Once your website created you wil lsee notification, click "Browse to website"
+ Once your website is created, you will see the notification. Click "Browse to website."
  
    :::image type="content" source="../media/step-one-pic-29.png" alt-text="Deployment completed":::
  
- Now you can see your webstite ready, in the browser development tools you can inspect source and see our file, prepeared for production.
+In the browser development tools, you can inspect the source and see our file, prepared for production.
  
 :::image type="content" source="../media/step-one-pic-30.png" alt-text="Website":::
 
-Go to [Azure portal](https://portal.azure.com/#home), select your resource group and select the application you created, navigate to "Settings -> "Static website" you can see that stsic websites enabled and note the primary endpoint, Index document and Error path document files.
+Let inspect the application on Azure Portal. 
+
+Go to [Azure portal](https://portal.azure.com/#home), select your resource group and select the application you created, navigate to "Settings -> "Static website" you can see that static websites enabled and note the primary endpoint, Index document, and Error path document files.
 
 :::image type="content" source="../media/step-one-pic-31.png" alt-text="Website settings":::
 
-Under "Blob service" select the "Containers" and you will see two containers created, one for logs ($logs) and content of your website ($web)
+Under "Blob service," select the "Containers," and you will see two containers created, one for logs ($logs) and content of your website ($web)
 
 :::image type="content" source="../media/step-one-pic-32.png" alt-text="Website settings":::
 
@@ -463,16 +465,6 @@ If you go to the $web you will see your files you created in Visual Studio and d
 
 :::image type="content" source="../media/step-one-pic-33.png" alt-text="Website settings":::
 
-You can redeploy the application from your Visual Studio Code at any time when you work with the application. In the future we will build a CI/CD pipeline using Azure App Services.
+You can redeploy the application from your Visual Studio Code at any time when you work with the application. In the future, we will build a CI/CD pipeline using Azure App Services.
 
-Now you are fully ready to try writing your firrst Azure Communication Services Application.
-
-  
-  
- 
- 
- 
- 
- 
-
-
+Now you are fully ready to try writing your first Azure Communication Services Application. 
