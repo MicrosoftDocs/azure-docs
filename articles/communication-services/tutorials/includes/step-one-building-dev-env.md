@@ -1,6 +1,6 @@
 # Building a development envirionment 
 
-In this step we will walk you through building a development envirionment. 
+In this step we will walk you through building a development envirionment, which you can use to develop and publis the Azure Communication Services and other applications.
 
 ## Overview
 
