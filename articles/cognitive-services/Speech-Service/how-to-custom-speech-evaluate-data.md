@@ -92,7 +92,7 @@ The following sections describe how each kind of additional training data can re
 
 ### Add related text sentences
 
-Additional related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
+When you train a new custom model, start by adding related text to improve the recognition of domain-specific words and phrases. Related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
 
 > [!NOTE]
 > Avoid related text sentences that include noise such as unrecognizable characters or words.
@@ -107,6 +107,12 @@ Consider these details:
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
 * When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
+* The Speech service will automatically use the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
+* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by just using related text.
+* It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+
+> [!NOTE]
+> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio.
 
 ### Add new words with pronunciation
 
