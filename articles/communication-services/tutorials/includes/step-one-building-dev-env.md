@@ -51,11 +51,11 @@ After you installed the Visual Studio Code, create a new folder, for example 'C:
 
 :::image type="content" source="../media/step-one-pic-three.png" alt-text="Creating new workplace":::
 
-Now go to "Explorer" in Visual Studio Code on the left and you will see your "CallingApp" folder in "Untitled" workspace.
+Go to "Explorer" in Visual Studio Code on the left, and you will see your "CallingApp" folder in "Untitled" workspace.
 
 :::image type="content" source="../media/step-one-pic-four.png" alt-text="Explorer":::
 
-Now save the workspace using any name of your choice, we will use "ACS" in this tutorial in the "C:\Users\Documents\ACS".
+Save the workspace using any name of your choice, we will use "ACS" in this tutorial in the "C:\Users\Documents\ACS".
 Validate version of the Node.js by right click on your "CallingApp" folder and select "Open in Integrated Terminal"
 
 :::image type="content" source="../media/step-one-pic-five.png" alt-text="Opening a terminal":::
