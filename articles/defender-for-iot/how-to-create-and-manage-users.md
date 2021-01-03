@@ -4,7 +4,7 @@ description: Create and manage users of sensors and the on-premises management c
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -134,7 +134,6 @@ To disable the feature, change `infinity_session_expiration = true` to `infinity
 
 To update sign-out counting periods, adjust the `= <number>` value to the required time.
 
-
 ## Track user activity 
 
 You can track user activity in the event timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
@@ -192,6 +191,76 @@ To configure Active Directory:
 5. Select **Save**.
 
 6. To add a trusted server, select **Add Server** and configure another server.
+
+## Resetting a user's password for the sensor or on-premises management console
+
+### CyberX or Support user
+
+Only the **CyberX** and **Support** user have access to the **Password recovery** feature. If the **CyberX** or **Support** user forgot their password, they can be reset the password via the **Password recovery** option on the Defender for IoT sign in page.
+
+To reset the password for a CyberX or Support user:
+
+1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
+
+2. Select either **CyberX** or **Support**, and copy the unique identifier.
+
+3. Navigate to the Azure portal and select **Sites and Sensors**.  
+
+4. Select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  from the top toolbar, and select the subscription your sensor is connected to.
+
+5. Select the **Recover on-premises management console password** tab.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
+
+6. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+  > [!NOTE]
+  > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
+
+7. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Upload your recovery file to get a new password.":::
+
+8. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+
+  > [!NOTE]
+  > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.  
+
+9. Select **Next**, and your user, and system-generated password for your management console will then appear.
+
+### Administrator, Security analyst and Read only user
+
+Read only and Security analysts can‘t reset their own password and need to contact a user with either the Administrator, Support or CyberX roles, in order to reset their password. An Administrator user must contact the **CyberX** or **Support** user to reset their password.
+
+To reset a user's password on the Sensor:
+
+1. An Administrator, Support or CyberX role user should sign in to the sensor.
+
+2. Select **Users** from the left hand panel.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="On the left panel select the users option.":::
+
+3. Locate the user and select **Edit** from the **Actions** dropdown menu.
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="select edit from the actions dropdown menu.":::
+
+4. Enter the new password in the **New Password** and **Confirm New Password** fields.
+
+5. Select **Update**.
+
+To reset a user's password on the on-premises management console:
+
+1. An Administrator, Support or CyberX role user should sign in to the sensor.
+
+2. Select **Users** from the left hand panel.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="On the left panel select the users option.":::
+
+3. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+
+4. Enter the new password in the **New Password** and **Confirm New Password** fields.
+
+5. Select **Update**.
 
 ## See also
 

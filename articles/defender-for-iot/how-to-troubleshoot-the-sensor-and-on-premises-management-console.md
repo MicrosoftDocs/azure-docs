@@ -4,7 +4,7 @@ description: Troubleshoot your sensor and on-premises management console to elim
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -22,23 +22,35 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 
 ### Investigate password failure at initial sign-in
 
-When you're signing in to a preconfigured Arrow sensor for the first time, you'll need to perform the following password recovery:
+When signing into a preconfigured Arrow sensor for the first time, you'll need to perform password recovery.
 
-1. On the Defender for IoT sign-in screen, select the **Password Recovery** option. 
+To recover your password:
 
-   The **Password Recovery** screen opens. There, you're prompted to select the user and subscription, and you're given a unique identifier.
+1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
+2. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Enter the unique identifier that you received on the **Password Recovery** screen and select **Recover**. The `password_recovery.zip` file
- is downloaded.
+3. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-   > [!NOTE]
-   > Don't alter the activation file. It's a signed file and won't work if you tamper with it.
+5. Select the **Recover on-premises management console password** tab.
 
-1. On the **Password Recovery** screen, upload the `password_recovery.zip` file and select **Next**.
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
 
-You then receive your system-generated password for your management console. 
+6. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+  > [!NOTE]
+  > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
+
+7. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Upload your recovery file to get a new password.":::
+
+8. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+
+9. Select **Next**, and your user, and system-generated password for your management console will then appear.
+
+  > [!NOTE]
+  > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see (insert link to article below).
 
 ### Investigate a lack of traffic
 
