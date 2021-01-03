@@ -572,6 +572,8 @@
         items:
            - name: Overview
              href: platform/it-service-management-connector-secure-webhook-connections.md
+           - name: Secure Export Azure Configuration
+             href: platform/itsmc-secure-webhook-connections-azure-conf.md
            - name: BMC
              href: platform/itsmc-secure-webhook-connections-bmc.md
            - name: ServiceNow
