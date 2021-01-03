@@ -26,7 +26,7 @@ Time to complete: 60 minutes.
 
 ### Installing Node.js, nvm and npm
 
-Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects, you can use Node.js for creating your backend or developing API. In this tutorial, though, we will have our client-side application working with the ACS API backend. You will need Node.js only for client development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService, or any other hosting service capable of hosting static files. 
+Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects, you can use Node.js for creating your backend or developing APIs. In this tutorial, though, we will have our client-side application working with the ACS API backend. You will need Node.js only for client development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService, or any other hosting service capable of hosting static files. 
 
 Node.js does not guarantee work with all modules on the latest version. The solution is to have a version manager, which allows you to switch between various Node.js versions and enables better troubleshooting in your environment.
 Please follow the steps in this guide to install Node.js, using the nvm [version manager if you are on Widndows](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows)
