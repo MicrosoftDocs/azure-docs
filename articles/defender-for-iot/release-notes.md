@@ -43,7 +43,7 @@ For Fresh Installations:
 
 ### Password recovery
   
-Sensor and on-premises management console Administrative users can now recover power user (CyberX/Support) passwords from the Azure Defender for IoT portal and upload them directly to the Defender for IoT consoles. Previously password recovery required intervention by the support team.   
+Sensor and on-premises management console Administrative users can now recover passwords from the Azure Defender for IoT portal. Previously password recovery required intervention by the support team.
 
 ## Onboarding
 
@@ -51,10 +51,10 @@ Sensor and on-premises management console Administrative users can now recover p
 
 Following initial sign in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
 Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
-First-time users and users upgrading are required to upload the activation file. 
+First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
- 
-### Pricing Page Options
+
+### Pricing page options
 
 Pricing page lets you onboard new subscriptions to Azure Defender for IoT and define committed devices in your network.  
 Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
@@ -63,7 +63,7 @@ Additionally, the Pricing page now lets you manage existing subscriptions associ
 
 A new Site and Sensors portal page lets you:
 
-- Add descriptive information about the sensor. For example a zone associated with the sensor, or free-text tags. 
+- Add descriptive information about the sensor. For example a zone associated with the sensor, or free-text tags.
 - View and filter sensor information. For example, view details about sensors that are cloud connected or locally managed or view information about sensors in a specific zone.  
 
 ## Usability
@@ -74,7 +74,7 @@ The Azure Defender for IoT data connector page in Azure Sentinel has been redesi
 
 ### Azure Portal Permission Updates  
 
-Users now have access to the portal with varying levels of permissions dependent on their assigned roles.
+Security Reader and Security Administrator support has been added.
 
 ## Additional updates
 
@@ -89,4 +89,4 @@ In sensor and on-premises management console Alerts,  the term Manage this Event
 
 ## Next steps
 
-[Getting started with Azure Defender for IoT](../../../GitHub Repos/azure-docs-pr/articles/defender-for-iot/getting-started.md)
+[Getting started with Defender for IoT](getting-started.md)
