@@ -409,6 +409,22 @@ We will deploy our static "Hello World!" site to Azure to practice in this step.
 You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage does not allow building the managed continuous integration and continuous delivery (CI/CD) and deploying webservers. We will use Azure Storage for testing, but you can use similar steps to deploy in Azure App Service.
 
 First, copy index.html and app.css to the "dist" folder. 
+In the "dist"  folder, create a new file and name it "404.html". In the file type "html:5" and hit enter. In the bidy create the messsage, for example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The page you requestion doees not exists.</h1>
+</body>
+</html>
+```
+Save the file (Ctrl + S).
 
 On the dist folder, right-click and select deploy to Static Website via Azure Storage.
 
@@ -435,7 +451,7 @@ Create new Storage Account ... Advanced
   :::image type="content" source="../media/step-one-pic-27.png" alt-text="Creating the Stoirage Group":::
   
  Accept default file name in "Enter the index document name," as we created the file index.html.
-Type the 404.html for "Enter the 404 error document path". We didn't create this document, but you can add the file. 
+Type the 404.html for "Enter the 404 error document path".  
   
 Select the location of the application. Note location will define which media processor will be used in your future calling application in group calls. The Azure Communication Services selects the Media Processor based on the application location. I'll go with the "East US," meaning the media will flow via the Media Processor in US East or US West. If you select a European datacenter, the media will flow via Amsterdam or Dublin.
 
