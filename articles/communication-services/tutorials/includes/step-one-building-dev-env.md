@@ -78,7 +78,7 @@ Click "Install."
 
 :::image type="content" source="../media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension":::
 
-Follow the same steps as above for ["Azure Functions"](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions
+Follow the same steps as above for [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions
 
 ## Obtaining the User Token
 
