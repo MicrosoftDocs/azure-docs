@@ -88,7 +88,7 @@ Get the user token, using either a [QuickStart here](https://docs.microsoft.com/
 
 ### Creating new npm package
 
-First, let create a package for our calling application. In your terminal, in the path, if your folder, run:
+First, let create a package for our application. In your terminal, in the path, if your folder, run:
 ``` console
 npm init -y
 ```
