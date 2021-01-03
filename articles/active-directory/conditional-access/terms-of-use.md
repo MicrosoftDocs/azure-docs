@@ -71,11 +71,11 @@ Once you have finalized your terms of use document, use the following procedure 
 1. Sign in to Azure as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Conditional Access - Terms of use blade](./media/terms-of-use/tou-blade.png)
+    ![Conditional Access - Terms of use blade](./media/terms-of-use/tou-blade.png)
 
 1. Click **New terms**.
 
-   ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
+    ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
 
 1. In the **Name** box, enter a name for the terms of use that will be used in the Azure portal.
 1. In the **Display name** box, enter a title that users see when they sign in.
@@ -85,7 +85,7 @@ Once you have finalized your terms of use document, use the following procedure 
 1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. Users may be required to install additional applications if this option is enabled. For more information, see [Per-device terms of use](#per-device-terms-of-use).
 1. If you want to expire terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
-   ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
+    ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
 
 1. Use the **Expire starting on** and **Frequency** settings to specify the schedule for terms of use expirations. The following table shows the result for a couple of example settings:
 
@@ -112,7 +112,7 @@ Once you have finalized your terms of use document, use the following procedure 
 
 1. Under **Conditional Access**, use the **Enforce with Conditional Access policy template** list to select the template to enforce the terms of use.
 
-   ![Conditional Access drop-down list to select a policy template](./media/terms-of-use/conditional-access-templates.png)
+    ![Conditional Access drop-down list to select a policy template](./media/terms-of-use/conditional-access-templates.png)
 
    | Template | Description |
    | --- | --- |
@@ -128,7 +128,7 @@ Once you have finalized your terms of use document, use the following procedure 
 
 1. Click **Create**.
 
-   If you selected a custom Conditional Access template, then a new screen appears that allows you to create the custom Conditional Access policy.
+    If you selected a custom Conditional Access template, then a new screen appears that allows you to create the custom Conditional Access policy.
 
    ![New Conditional Access pane if you chose the custom Conditional Access policy template](./media/terms-of-use/custom-policy.png)
 
@@ -142,15 +142,15 @@ The Terms of use blade shows a count of the users who have accepted and declined
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Terms of use blade listing the number of user show have accepted and declined](./media/terms-of-use/view-tou.png)
+    ![Terms of use blade listing the number of user show have accepted and declined](./media/terms-of-use/view-tou.png)
 
 1. For a terms of use, click the numbers under **Accepted** or **Declined** to view the current state for users.
 
-   ![Terms of use consents pane listing the users that have accepted](./media/terms-of-use/accepted-tou.png)
+    ![Terms of use consents pane listing the users that have accepted](./media/terms-of-use/accepted-tou.png)
 
 1. To view the history for an individual user, click the ellipsis (**...**) and then **View History**.
 
-   ![View History context menu for a user](./media/terms-of-use/view-history-menu.png)
+    ![View History context menu for a user](./media/terms-of-use/view-history-menu.png)
 
    In the view history pane, you see a history of all the accepts, declines, and expirations.
 
@@ -166,11 +166,11 @@ To get started with Azure AD audit logs, use the following procedure:
 1. Select a terms of use.
 1. Click **View audit logs**.
 
-   ![Terms of use blade with the View audit logs option highlighted](./media/terms-of-use/audit-tou.png)
+    ![Terms of use blade with the View audit logs option highlighted](./media/terms-of-use/audit-tou.png)
 
 1. On the Azure AD audit logs screen, you can filter the information using the provided lists to target specific audit log information.
 
-   You can also click **Download** to download the information in a .csv file for use locally.
+    You can also click **Download** to download the information in a .csv file for use locally.
 
    ![Azure AD audit logs screen listing date, target policy, initiated by, and activity](./media/terms-of-use/audit-logs-tou.png)
 
@@ -201,11 +201,11 @@ Users can review and see the terms of use that they have accepted by using the f
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the upper right corner, click your name and select **Profile**.
 
-   ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
+    ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
 
 1. On your Profile page, click **Review terms of use**.
 
-   ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
+    ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
 
 1. From there, you can review the terms of use you have accepted.
 
@@ -217,11 +217,11 @@ You can edit some details of terms of use, but you can't modify an existing docu
 1. Select the terms of use you want to edit.
 1. Click **Edit terms**.
 1. In the Edit terms of use pane, you can change the following:
-     - **Name** – this is the internal name of the ToU that is not shared with end users
-     - **Display name** – this is the name that end users can see when viewing the ToU
-     - **Require users to expand the terms of use** – Setting this to **On** will force the end use to expand the terms of use document before accepting it.
-     - (Preview) You can **update an existing terms of use** document
-     - You can add a language to an existing ToU
+    - **Name** – this is the internal name of the ToU that is not shared with end users
+    - **Display name** – this is the name that end users can see when viewing the ToU
+    - **Require users to expand the terms of use** – Setting this to **On** will force the end use to expand the terms of use document before accepting it.
+    - (Preview) You can **update an existing terms of use** document
+    - You can add a language to an existing ToU
 
    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new terms of use.
 
@@ -235,8 +235,8 @@ You can edit some details of terms of use, but you can't modify an existing docu
 2.	Select the terms of use you want to edit.
 3.	Click **Edit terms**.
 4.	For the language that you would like to update a new version, click **Update** under the action column
- 
-     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
+
+    ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
 
 5.	In the pane on the right, upload the pdf for the new version
 6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
@@ -276,7 +276,7 @@ The following procedure describes how to add a terms of use language.
 1. Click **Add language** at the bottom of the page.
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
-   ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/select-language.png)
+    ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/select-language.png)
 
 1. Click **Add language**.
 1. Click **Save**
@@ -337,7 +337,7 @@ You can delete old terms of use using the following procedure.
 1. Click **Delete terms**.
 1. In the message that appears asking if you want to continue, click **Yes**.
 
-   ![Message asking for confirmation to delete terms of use](./media/terms-of-use/delete-tou.png)
+    ![Message asking for confirmation to delete terms of use](./media/terms-of-use/delete-tou.png)
 
    You should no longer see your terms of use.
 

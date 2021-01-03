@@ -147,6 +147,7 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 
 > [!NOTE]
 > VNET integration is not supported for Docker Compose scenarios in App Service.
+> Azure Functions Access Restrictions are ignored if their is a private endpoint present.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
