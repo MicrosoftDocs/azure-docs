@@ -238,7 +238,7 @@ To reset a user's password on the Sensor:
 
 2. Select **Users** from the left-hand panel.
 
-   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="On the left panel select the user's option.":::
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Select the user option from the left side pane.":::
 
 3. Locate the user and select **Edit** from the **Actions** dropdown menu.
 
