@@ -406,8 +406,16 @@ Great, now we have the development environment you can use to develop and create
  
 In this step, we will deploy our static "Hello World!" site to Azure to practice. In the next steps, you will be building calling, chat SMS, PSTN applications, and use the same steps to deploy them.
 
-You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage doesn't not allo building the managed  continuous integration and continuous delivery (CI/CD) and deplying own webservers. For the purpose of testing we will use the Azure Storage, but you can use similar steps to deploy in Azure App Service 
- 
+You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage doesn't not allo building the managed  continuous integration and continuous delivery (CI/CD) and deplying own webservers. For the purpose of testing we will use the Azure Storage, but you can use similar steps to deploy in Azure App Service..
 
+On the dist folder, right click and select deploy to Static Website via Azure Storage
+
+ :::image type="content" source="../media/step-one-pic-22.png" alt-text="Start deploying to Azure":::
+ 
+ In Select subscription field select "Singn in to Azure (or "Create a Free Azure Account" if you haven't created a subscription before)
+ 
+  :::image type="content" source="../media/step-one-pic-23.png" alt-text="Sign in to Azure":::
+ 
+Create a new Storage Group (advanced)
 
 
