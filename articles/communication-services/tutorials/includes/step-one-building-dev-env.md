@@ -314,7 +314,7 @@ The console will show you the address where the server is running. By default, i
 
  :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
  
- Go to the address, provided os output of previous command and you should see the page and alert, configured on previous steps.
+ Go to the address, provided as the output of previous command and you should see the page and alert, configured on previous steps.
  
   :::image type="content" source="../media/step-one-pic-17.png" alt-text="Html page":::
   
