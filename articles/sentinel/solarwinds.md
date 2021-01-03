@@ -10,7 +10,7 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: how-to
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2020
@@ -60,7 +60,7 @@ Azure Sentinel enables you to analyze data from across products, including both 
 
 For example, Microsoft 365 Defender has a range of alerts and queries for known patterns associated with the Solarigate attack, which can flow into Sentinel. Microsoft 365 Defender alerts, combined with raw logs from other data sources, can provide security teams with insights into the full nature and scope of the Solarigate attack on their organization.
 
-Use Azure Sentinel to hunt for attack activity, especially with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For example, if you have recently-rotated Active Directory Federated Service (ADFS) key material, use the [Sentinel hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) to identify attacker sign-in activity if they sign in with old key material. 
+Use Azure Sentinel to hunt for attack activity, especially with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For example, if you have recently rotated Active Directory Federated Service (ADFS) key material, use the [Sentinel hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) to identify attacker sign-in activity if they sign in with old key material. 
 
 > [!NOTE]
 > Azure Sentinel and the M365 Advanced Hunting portal share the same query language and similar data types. Therefore, all of the referenced queries can be used directly or slightly modified to work in both products.
@@ -85,7 +85,7 @@ Once you have the [Microsoft 365 Defender connector](connect-microsoft-365-defen
 
 Returned hosts will include hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoints (MDE). 
 
-The following query also uses the Sysmon logs collected by many customers to find machines with SolarWinds software installed. Similar queries that leverage Microsoft 365 raw data can also be run from the Microsoft 365 Advanced hunting portal.
+The following query also uses the Sysmon logs collected by many customers to find machines with SolarWinds software installed. Similar queries that use Microsoft 365 raw data can also be run from the Microsoft 365 Advanced hunting portal.
 
 For more information, see the [SolarWinds Inventory check query](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/SolarWindsInventory.yaml) on GitHub.
 
@@ -212,7 +212,7 @@ For more information, see the following linked queries:
  
 #### Find stolen certificates using Windows Event logs
 
-The following query finds evidence of exported ADFS DKM master keys using Windows Event logs. 
+The following query finds evidence of exported ADFS DKM keys using Windows Event logs. 
 
 For more information, see the [ADFS DKM Master Key Export](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ADFS-DKM-MasterKey-Export.yaml) query on GitHub.
 
@@ -249,7 +249,7 @@ For example, the [Azure Sentinel query for modified domain federation trust sett
  
 Since domain federation setting modifications should be rare, this would be a high-fidelity alert where Azure Sentinel users should pay careful attention.
 
-Use the following queries to hunt for additional unusual activity:
+Use the following queries to hunt for other unusual activity:
 
 - [Find modifications made to STS refresh tokens](#find-modifications-made-to-sts-refresh-tokens)
 - [Find access added to service principals or applications](#find-access-added-to-service-principals-or-applications)
@@ -300,10 +300,10 @@ AuditLogs
 
 Use the following Sentinel queries to find where new access credentials have been added to an application or service principal:
 
-- [Additional credentials added to applications or service principals](#additional-credentials-added-to-applications-or-service-principals)
+- [Extra credentials added to applications or service principals](#extra-credentials-added-to-applications-or-service-principals)
 - [First credentials added to applications or service principals](#first-credentials-added-to-applications-or-service-principals)
 
-##### Additional credentials added to applications or service principals
+##### Extra credentials added to applications or service principals
 
 Use the following Sentinel query to find new access credentials added to an application or service principal.
 
@@ -426,7 +426,7 @@ Search for such process executions, which may look as follows:
 C:\Windows\system32\cmd.exe /C csrss.exe -h breached.contoso.com -f (name=”Domain Admins”) member -list | csrss.exe -h breached.contoso.com -f objectcategory=* > .\Mod\mod1.log
 ```
 
-Customize the following query as needed to look at your specific DC/ADFS servers, and find command line patterns related to ADFind usage:
+Customize the following query as needed to look at your specific DC/ADFS servers, and find command-line patterns related to ADFind usage:
 
 For more information, see the [Suspicious_enumeration_using_adfind](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/Suspicious_enumeration_using_adfind.yaml) query on GitHub.
 
@@ -542,7 +542,7 @@ The Solarigate attack used VPS hosts to access affected networks. Use the follow
 Use the following Sentinel queries to monitor for suspicious access to email data:
 
 - [Find suspicious access to MailItemsAccessed volumes](#find-suspicious-access-to-mailitemsaccessed-volumes)
-- [Find time series-based anomolies in MailItemsAccessed events](#find-time-series-based-anomolies-in-mailitemsaccessed-events)
+- [Find time series-based anomalies in MailItemsAccessed events](#find-time-series-based-anomolies-in-mailitemsaccessed-events)
 - [Find OWA data exfiltrations](#find-owa-data-exfiltrations)
 - [Find non-owner mailbox sign-in activity](#find-non-owner-mailbox-sign-in-activity)
 -
@@ -572,7 +572,7 @@ OfficeActivity
 | project-reorder UserId, user_count, folder_count, set_MailboxOwnerUPN, set_ClientIP, set_ClientInfoString, set_folder
 ```
 
-#### Find time series-based anomolies in MailItemsAccessed events
+#### Find time series-based anomalies in MailItemsAccessed events
 
 Use the following Sentinel query to look for time series-based anomalies in **MailItemsAccessed** events in the **OfficeActivity** log.
 
@@ -775,7 +775,7 @@ DnsEvents
 
 #### Find suspicious encoded domain activity
 
-Use the following Sentinel query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. Results from this query can help identify other C2 domains that use the same enconding scheme.
+Use the following Sentinel query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. Results from this query can help identify other C2 domains that use the same encoding scheme.
 
 For more information, see the [Solorigate-Encoded-Domain-URL](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/DnsEvents/Solorigate-Encoded-Domain-URL.yaml) query on GitHub.
 
