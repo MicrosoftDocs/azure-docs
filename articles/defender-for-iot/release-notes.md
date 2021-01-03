@@ -49,7 +49,7 @@ Sensor and on-premises management console Administrative users can now recover p
 
 ### On-premises management console - committed devices
 
-Following initial sign in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
+Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
 Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
 First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
@@ -63,7 +63,7 @@ Additionally, the Pricing page now lets you manage existing subscriptions associ
 
 A new Site and Sensors portal page lets you:
 
-- Add descriptive information about the sensor. For example a zone associated with the sensor, or free-text tags.
+- Add descriptive information about the sensor. For example, a zone associated with the sensor, or free-text tags.
 - View and filter sensor information. For example, view details about sensors that are cloud connected or locally managed or view information about sensors in a specific zone.  
 
 ## Usability
@@ -72,20 +72,20 @@ A new Site and Sensors portal page lets you:
 
 The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
 
-### Azure Portal Permission Updates  
+### Azure portal Permission Updates  
 
 Security Reader and Security Administrator support has been added.
 
-## Additional updates
+## Other updates
 
 ### Access Group - zone permissions
   
-The on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones. 
+The on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones.
 
 ### Terminology changes
- 
-The term asset has been renamed device in the sensor and on-premises management console, reports and other solution interfaces. 
-In sensor and on-premises management console Alerts,  the term Manage this Event has been named Remediation Steps. 
+
+The term asset has been renamed device in the sensor and on-premises management console, reports and other solution interfaces.
+In sensor and on-premises management console Alerts,  the term Manage this Event has been named Remediation Steps.
 
 ## Next steps
 
