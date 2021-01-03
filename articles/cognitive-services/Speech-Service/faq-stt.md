@@ -138,7 +138,7 @@ Some base models cannot be customized with audio data. For them the service will
 **Q: What is word error rate (WER) and how is it computed?**
 
 **A**: WER is the evaluation metric for speech recognition. WER is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [word error rate](https://en.wikipedia.org/wiki/Word_error_rate).
+which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [Evaluate Custom Speech accuracy](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy).
 
 **Q: How do I determine whether the results of an accuracy test are good?**
 
