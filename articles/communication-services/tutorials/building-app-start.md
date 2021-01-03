@@ -1,4 +1,17 @@
-# Building a Real-Time Application using Azure Communication Services
+title: Build an Azure Communication Servces Real-Time Application step by step
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to create a real-time communication application using Azure Communication Services
+author: nmurav
+services: azure-communication-services
+
+ms.author: nmurav
+ms.date: 01/03/2012
+ms.topic: overview
+ms.service: azure-communication-services
+---
+
+
+# Building a Real-Time JavaScript Application using Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -12,7 +25,7 @@ In this tutorial, we use "vanilla" JS.
 
 In short, this course is right for someone who has none to minimal knowledge of development and wants to learn how to build applications and explore Azure offers. We tried to make it fun and easy. 
 
-We would appreciate feedback on [Azure Communication Services GitHub](https://github.com/Azure/communication)
+We would appreciate feedback on [Azure Communication Services GitHub](https://github.com/Azure/communication) or by sending email to mailto:acsfeedback@microsoft.com
 
 
 In the series of posts we will learn 
@@ -21,3 +34,5 @@ In the series of posts we will learn
 * Prepare the Calling QuickStart ode for publishing in Azure
 * Publish the call sample in Azure Static WebSites via Azure Storage and provide overview of additional publishing options in Azure
 * Enhance application with Chat, PSTN, SMS
+
+Let go. 
