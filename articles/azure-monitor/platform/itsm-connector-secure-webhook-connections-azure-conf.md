@@ -1,6 +1,6 @@
 ---
 title: IT Service Management Connector - Secure Export in Azure Monitor - Azure Configurations 
-description: This article shows you how to configure azure in order to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
+description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
@@ -12,16 +12,16 @@ ms.date: 01/03/2021
 
 # Connect Azure to ITSM tools by using Secure Export
 
-In order to start using the ITSM Connector tool with these steps:
+This article provides information about how to configure the Azure in order to use "Secure Export".
+In order to start using "Secure Export" follow these steps:
 
-1. Register your app with Azure AD.
-1. Define Service Principle.
-1. Create a Secure Webhook action group.
+1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-conf.md#register-with-azure-active-directory)
+1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-conf.md#define-service-principle)
+1. [Create a Secure Webhook action group.](./itsm-connector-secure-webhook-connections-azure-conf.md#create-a-secure-webhook-action-group)
 1. Configure your partner environment.
-
-Secure Export supports connections with the following ITSM tools:
-* [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
-* [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
+    Secure Export supports connections with the following ITSM tools:
+    * [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
+    * [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
 ## Register with Azure Active Directory
 
@@ -34,7 +34,7 @@ Follow these steps to register the application with Azure AD:
    [![Screenshot of the option for setting the U R I of the application I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
 4. Select **Save**.
 
-## Define Service Principle
+## Define service principal
 
 The Action Group service will need permission to acquire authentication tokens from your AAD application in order to authentication with Service now. To grant those permissions you will need to create a service principal for the Action Group service in your tenant. 
 You can use this [PowerShell commands](./action-groups.md#secure-webhook-powershell-script) for this purpose. (Requires tenant admin privileges).
@@ -73,6 +73,5 @@ The configuration contain 2 steps:
 
 ## Next steps
 
-* [ServiceNow Secure Export Configuration](./
-itsmc-secure-webhook-connections-servicenow.md)
+* [ServiceNow Secure Export Configuration](./itsmc-secure-webhook-connections-servicenow.md)
 * [BMC Secure Export Configuration](./itsmc-secure-webhook-connections-bmc.md)
