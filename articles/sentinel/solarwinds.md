@@ -72,7 +72,10 @@ We recommend that you use Sentinel to perform the following steps:
 - [Identify escalating privileges in your system](#identify-escalating-privileges-in-your-system)
 - [Find exported certificates](#find-exported-certificates)
 - [Find illicit data access](#find-illicit-data-access)
-
+- [Find mail data exfiltration](#find-mail-data-exfiltration)
+- [Find suspicious domain-related activity](#find-suspicious-domain-related-activity)
+- [Find security service tampering](#find-security-service-tampering)
+- [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
 ### Use Sentinel to find machines with SolarWinds Orion components
 
@@ -534,19 +537,18 @@ The Solarigate attack used VPS hosts to access affected networks. Use the follow
 
 - [Find sign-ins that come from known VPS provider network ranges](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/ipv4-lookup-plugin). This query can also be used to find all sign-ins that do not come from known ranges, especially if your environment has a common sign-in source.
 
-### Data exfiltration 
+### Find mail data exfiltration 
 
 Use the following Sentinel queries to monitor for suspicious access to email data:
 
 - [Find suspicious access to MailItemsAccessed volumes](#find-suspicious-access-to-mailitemsaccessed-volumes)
 - [Find time series-based anomolies in MailItemsAccessed events](#find-time-series-based-anomolies-in-mailitemsaccessed-events)
 - [Find OWA data exfiltrations](#find-owa-data-exfiltrations)
-- [Find hosts that created then removed mailbox export requests](#find-hosts-that-created-then-removed-mailbox-export-requests)
 - [Find non-owner mailbox sign-in activity](#find-non-owner-mailbox-sign-in-activity)
 -
 #### Find suspicious access to MailItemsAccessed volumes
 
-Use the following query to find suspicious access to other users' mailboxes:
+Use the following Sentinel query to find suspicious access to other users' mailboxes:
 
 For more information, see the [AnomolousUserAccessingOtherUsersMailbox](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/OfficeActivity/AnomolousUserAccessingOtherUsersMailbox.yaml) query on GitHub:
 
@@ -572,7 +574,7 @@ OfficeActivity
 
 #### Find time series-based anomolies in MailItemsAccessed events
 
-Use the following Sentinel query to look for time series-based anomalies in MailItemsAccessed events in the OfficeActivity log.
+Use the following Sentinel query to look for time series-based anomalies in **MailItemsAccessed** events in the **OfficeActivity** log.
 
 For more information, see the [MailItemsAccessedTimeSeries](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/OfficeActivity/MailItemsAccessedTimeSeries.yaml) query on GitHub.
 
@@ -607,37 +609,16 @@ OfficeActivity
 
 #### Find OWA data exfiltrations
 
-Targeting of email data has also been observed by other industry members including Volexity who reported attackers using PowerShell commands to export on premise Exchange mailboxes and then hosting those files on OWA servers in order to exfiltrate them.
+Use the following Sentinel queries to find instances of PowerShell commands being used to export on-premises Exchange mailboxes, and then hosting the files on OWA servers in order to exfiltrate them.
 
-MSTIC has created detections to identify this activity at both the OWA server and attacking host level through IIS logs, and PowerShell command line logging.
+- [Find hosts that created then removed mailbox export requests](#find-hosts-that-created-then-removed-mailbox-export-requests)
+- [Find exported mailboxes hosted on OWA](#find-exported-mailboxes-hosted-on-owa)
+
+##### Find hosts that created then removed mailbox export requests
+
+For more information, see the [HostExportingMailboxAndRemovingExport](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/HostExportingMailboxAndRemovingExport.yaml) query on GitHub.
 
 ```kusto
-let excludeIps = dynamic(["127.0.0.1", "::1"]);
-let scriptingExt = dynamic(["aspx", "ashx", "asp"]);
-W3CIISLog
-| where csUriStem contains "/owa/"
-//The actor pulls a file back but won't send it any URI params
-| where isempty(csUriQuery)
-| extend file_ext = tostring(split(csUriStem, ".")[-1])
-//Giving your file a known scripting extension will throw an error
-//rather than just serving the file as it will try to interpret the script
-| where file_ext !in~ (scriptingExt)
-//The actor was seen using image files, but we go wider in case they change this behaviour
-//| where file_ext in~ ("jpg", "jpeg", "png", "bmp")
-| extend file_name = tostring(split(csUriStem, "/")[-1])
-| where file_name != ""
-| where cIP !in~ (excludeIps)
-| project file_ext, csUriStem, file_name, Computer, cIP, sIP, TenantId, TimeGenerated
-| summarize dcount(cIP), AccessingIPs=make_set(cIP), AccessTimes=make_set(TimeGenerated), Access=count() by TenantId, file_name, Computer, csUriStem
-//Collection of the exfiltration will occur only once, lets check for 2 accesses in case they mess up
-//Tailor this for hunting
-| where Access <= 2 and dcount_cIP == 1
-```
-
-#### Find hosts that created then removed mailbox export requests
-
-Host creating then removing mailbox export requests using PowerShell cmdlets:
-
  // Adjust the timeframe to change the window events need to occur within to alert
 
   let timeframe = 1h;
@@ -665,27 +646,68 @@ Host creating then removing mailbox export requests using PowerShell cmdlets:
   | project-reorder timekey, Computer, SubjectUserName, ['commands']
 
   | extend HostCustomEntity = Computer, AccountCustomEntity = SubjectUserName
+```
+
+##### Find exported mailboxes hosted on OWA
+
+For more information, see the [SuspectedMailBoxExportHostonOWA](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/W3CIISLog/SuspectedMailBoxExportHostonOWA.yaml) query on GitHub.
+
+
+```kusto
+let excludeIps = dynamic(["127.0.0.1", "::1"]);
+let scriptingExt = dynamic(["aspx", "ashx", "asp"]);
+W3CIISLog
+| where csUriStem contains "/owa/"
+//The actor pulls a file back but won't send it any URI params
+| where isempty(csUriQuery)
+| extend file_ext = tostring(split(csUriStem, ".")[-1])
+//Giving your file a known scripting extension will throw an error
+//rather than just serving the file as it will try to interpret the script
+| where file_ext !in~ (scriptingExt)
+//The actor was seen using image files, but we go wider in case they change this behaviour
+//| where file_ext in~ ("jpg", "jpeg", "png", "bmp")
+| extend file_name = tostring(split(csUriStem, "/")[-1])
+| where file_name != ""
+| where cIP !in~ (excludeIps)
+| project file_ext, csUriStem, file_name, Computer, cIP, sIP, TenantId, TimeGenerated
+| summarize dcount(cIP), AccessingIPs=make_set(cIP), AccessTimes=make_set(TimeGenerated), Access=count() by TenantId, file_name, Computer, csUriStem
+//Collection of the exfiltration will occur only once, lets check for 2 accesses in case they mess up
+//Tailor this for hunting
+| where Access <= 2 and dcount_cIP == 1
+```
+
 
 
 #### Find non-owner mailbox sign-in activity
 
-Email Delegation and later delegate access is another tactic that has been observed to gain access to user's mailboxes.  We have a previously created a method to discover Non-owner mailbox login activity that can be applied here to help identify when delegates are inappropriately access email.
+Use the following Sentinel query to find non-owner sign-in activity, which can be used to delegate email access to other users. 
 
- 
+For more information, see the [nonowner_MailboxLogin](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/OfficeActivity/nonowner_MailboxLogin.yaml) query on GitHub.
 
+```kusto
 let timeframe = 1d;
 OfficeActivity
 | where TimeGenerated >= ago(timeframe)
 | where Operation == "MailboxLogin" and Logon_Type != "Owner"
 | summarize count(), min(TimeGenerated), max(TimeGenerated) by Operation, OrganizationName, UserType, UserId, MailboxOwnerUPN, Logon_Type
 | extend timestamp = min_TimeGenerated, AccountCustomEntity = UserId
- 
+``` 
 
-### Domain Hunting
+### Find suspicious domain-related activity
 
-#### Domain specific
-MSTIC has collated network based IoCs from MSTIC, FireEye and Volexity to create a network based IoC detection - Solorigate Network Beacon - that leverage multiple network focused data sources within Azure Sentinel.  
+Use the following queries to find suspicious domain activity related to the Solarigate attack:
 
+- [Find suspicious domain-specific activity](#find-suspicious-domain-specific-activity)
+- [Find suspicious domain DGA activity](#find-suspicious-domain-dga-activity)
+- [Find suspicious encoded domain activity](#find-suspicious-encoded-domain-activity)
+
+#### Find suspicious domain-specific activity
+
+Use the following Sentinel query to find IOCs collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
+
+For more information, see the [Solorigate-Network-Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/CommonSecurityLog/Solorigate-Network-Beacon.yaml) query on GitHub.
+
+```kusto
 let domains = dynamic(["incomeupdate.com","zupertech.com","databasegalore.com","panhardware.com","avsvmcloud.com","digitalcollege.org","freescanonline.com","deftsecurity.com","thedoccloud.com","virtualdataserver.com","lcomputers.com","webcodez.com","globalnetworkissues.com","kubecloud.com","seobundlekit.com","solartrackingsystem.net","virtualwebdata.com"]);
 let timeframe = 6h;
 (union isfuzzy=true
@@ -718,10 +740,17 @@ let timeframe = 6h;
 | extend HostCustomEntity = DeviceName
 )
 )
+```
 
-#### Domain DGA
-The avsvmcloud[.]com has been observed by several organizations as making DGA like subdomain queries as part of C2 activities. MSTIC have generated a hunting query - Solorigate DNS Pattern - to look for similar patterns of activity from other domains that might help identify other potential C2 sources.
+#### Find suspicious domain DGA activity
 
+The Solarigate attacker made several DGA-like subdomain queries as part of C2 activities.
+
+Use the following Sentinel query to find similar patterns of activity from other domains, which can help identify other potential C2 sources.
+
+For more information, see the [Solorigate-DNS-Pattern](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/DnsEvents/Solorigate-DNS-Pattern.yaml) query on GitHub.
+
+```kusto
 let cloudApiTerms = dynamic(["api", "east", "west"]);
 DnsEvents
 | where IPAddresses != "" and IPAddresses != "127.0.0.1"
@@ -742,10 +771,15 @@ DnsEvents
 | where percentage_numerical < 50 and percentage_numerical > 5
 | summarize count(), make_set(Name), FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated) by Name
 | order by count_ asc
+```
 
-#### Encoded Domain
-In addition we have another query - Solorigate Encoded Domain in URL- that takes the encoding pattern the DGA uses, encodes the domains seen in signin logs and then looks for those patterns in DNS logs. This can help identify other C2 domains using the same encoding scheme. 
+#### Find suspicious encoded domain activity
 
+Use the following Sentinel query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. Results from this query can help identify other C2 domains that use the same enconding scheme.
+
+For more information, see the [Solorigate-Encoded-Domain-URL](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/DnsEvents/Solorigate-Encoded-Domain-URL.yaml) query on GitHub.
+
+```kusto
 let dictionary = dynamic(["r","q","3","g","s","a","l","t","6","u","1","i","y","f","z","o","p","5","7","2","d","4","9","b","n","x","8","c","v","m","k","e","w","h","j"]);
 let regex_bad_domains = SigninLogs
 //Collect domains from tenant from signin logs
@@ -790,12 +824,15 @@ regex_bad_domains
 //IndexOf allows us to fuzzy match on the substring
 | extend match = indexof(Name, set_target_encoded)
 | where match > -1
+```
 
-### Security Service Tampering
-Updated 12/30/2020
+### Find security service tampering
 
-There has been additional indication that security services are being tampered with to hinder detection and investigation. While this is a common tactic, we felt that we should include this reference. The query is currently written specifically for Potential Microsoft Defender services tampering, but can easily be adapted to identify other security services.
+Use the following Sentinel query to detect any tampering with Microsoft Defender services. You can also adapt this query to identify tampering with other security services. 
 
+For more information, see the [PotentialMicrosoftDefenderTampering](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PotentialMicrosoftDefenderTampering.yaml) query on GitHub.
+
+```kusto
 let includeProc = dynamic(["sc.exe","net1.exe","net.exe", "taskkill.exe", "cmd.exe", "powershell.exe"]);
 let action = dynamic(["stop","disable", "delete"]);
 let service1 = dynamic(['sense', 'windefend', 'mssecflt']);
@@ -842,10 +879,15 @@ or (InitiatingProcessCommandLine has_any("start") and InitiatingProcessCommandLi
 )
 )
 | extend timestamp = TimeGenerated, AccountCustomEntity = Account, HostCustomEntity = Computer
+```
 
-### Microsoft M365 Defender + Azure Sentinel detection correlation
-In addition we have created a query in Azure Sentinel - Solorigate Defender Detections - to collate the range of Defender detections that are now deployed. This query can be used to get an overview of such alerts and the hosts they relate to. 
+### Find correlations between Microsoft 365 Defender and Azure Sentinel detections
 
+Use the following Sentinel query to collect the full range of Microsoft Defender detections currently deployed, which can provide an overview of such alerts and any hosts they're related to.
+
+For more information, see the [Solorigate-Defender-Detections](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/Solorigate-Defender-Detections.yaml) query on GitHub.
+
+```kusto
 DeviceInfo
 | extend DeviceName = tolower(DeviceName)
 | join (SecurityAlert
@@ -856,8 +898,7 @@ DeviceInfo
 | take 10) on $left.DeviceName == $right.HostCustomEntity
 | project TimeGenerated, DisplayName, ThreatName, CompromisedEntity, PublicIP, MachineGroup, AlertSeverity, Description, LoggedOnUsers, DeviceId, TenantId
 | extend timestamp = TimeGenerated, IPCustomEntity = PublicIP
- 
-
+```
 
 ## Azure Active Directory
 
