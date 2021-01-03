@@ -302,7 +302,7 @@ Once you saved, the white dots should disappear.
 
  :::image type="content" source="../media/step-one-pic-15.png" alt-text="App.css file":::
 
-With that, we are ready to test our development server. in the console type
+With that, we are ready to test our development server. In the console type
 
 ```Console
 
@@ -310,7 +310,7 @@ npm run build:dev
 
 ```
 
-The console will show you the address where the server is running. By default, it is http://localhost:8080. The build:dev is the command we added to our package-json.js file, and it will start webpack development server. You can run this simple file directly by going to your files and clicking on index.html. Once we start adding the Azure Communication Services modules to our code, just running the file will not work due to the browser's CORS policy. The goal of this exercise is to test the development server.
+The console will show you the address where the server is running. By default, it is http://localhost:8080. The build:dev is the command we added to our package-json.js file, and it will start webpack development server. Of cource, you can run this simple file directly by going to your files and clicking on index.html. Once we start adding the Azure Communication Services modules to our code, just running the file will not work due to the browser's CORS policy. The goal of this exercise is to test the development server.
 
  :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
  
