@@ -71,8 +71,8 @@ to validate the node.js version installed on the previous step.
 
 #### Installing Azure Extensions for Visual Studio Code
 
-Now let install the extensions, which we will use to publish our applications in Azure in this tutorial.
-Let start from [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
+Let install the extensions, which we will use to publish our applications in Azure in this tutorial.
+Start from [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
 You can either open the link above and click "Install" or in Visual Studio Code, go to "View," select "Extensions," and type "Azure Storage."
 Click "Install."
 
