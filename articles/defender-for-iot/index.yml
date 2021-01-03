@@ -28,7 +28,9 @@ landingContent:
           - text: Solution Architecture
             url: architecture.md
           - text: Setup Overview
-            url: getting-started.md        
+            url: getting-started.md
+          - text: What's new?
+            url: release-notes.md        
            
   - title: Set up and Onboard - Agentless solution  
     linkLists:
