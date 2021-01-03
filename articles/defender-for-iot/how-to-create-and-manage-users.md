@@ -15,7 +15,7 @@ This article describes how to create and manage users of sensors and the on-prem
 
 Features are also available to track user activity and enable Active Directory sign-in.
 
-By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create additional users for security analysts and read-only users.
+By default, each sensor and on-premises management console is installed with a *cyberx and support* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
 
 ## Role-based permissions
 The following user roles are available:
@@ -196,7 +196,7 @@ To configure Active Directory:
 
 ### CyberX or Support user
 
-Only the **CyberX** and **Support** user have access to the **Password recovery** feature. If the **CyberX** or **Support** user forgot their password, they can be reset the password via the **Password recovery** option on the Defender for IoT sign in page.
+Only the **CyberX** and **Support** user have access to the **Password recovery** feature. If the **CyberX** or **Support** user forgot their password, they can be reset the password via the **Password recovery** option on the Defender for IoT sign-in page.
 
 To reset the password for a CyberX or Support user:
 
@@ -230,15 +230,15 @@ To reset the password for a CyberX or Support user:
 
 ### Administrator, Security analyst and Read only user
 
-Read only and Security analysts can‘t reset their own password and need to contact a user with either the Administrator, Support or CyberX roles, in order to reset their password. An Administrator user must contact the **CyberX** or **Support** user to reset their password.
+Read only and Security analysts can‘t reset their own password and need to contact a user with either the Administrator, Support, or CyberX roles, in order to reset their password. An Administrator user must contact the **CyberX** or **Support** user to reset their password.
 
 To reset a user's password on the Sensor:
 
-1. An Administrator, Support or CyberX role user should sign in to the sensor.
+1. An Administrator, Support, or CyberX role user should sign in to the sensor.
 
-2. Select **Users** from the left hand panel.
+2. Select **Users** from the left-hand panel.
 
-   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="On the left panel select the users option.":::
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="On the left panel select the user's option.":::
 
 3. Locate the user and select **Edit** from the **Actions** dropdown menu.
 
@@ -250,13 +250,13 @@ To reset a user's password on the Sensor:
 
 To reset a user's password on the on-premises management console:
 
-1. An Administrator, Support or CyberX role user should sign in to the sensor.
+1. An Administrator, Support, or CyberX role user should sign in to the sensor.
 
-2. Select **Users** from the left hand panel.
+2. Select **Users** from the left-hand panel.
 
-   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="On the left panel select the users option.":::
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="On the left panel select the user's option.":::
 
-3. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+3. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
 
 4. Enter the new password in the **New Password** and **Confirm New Password** fields.
 

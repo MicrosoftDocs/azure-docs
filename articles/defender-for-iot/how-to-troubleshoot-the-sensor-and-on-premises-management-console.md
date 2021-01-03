@@ -268,7 +268,7 @@ To export logs:
     | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
     | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
     | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
-    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs assists in identifying system problems. |
+    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
     | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
 
 5. To select all the options, select **Select All** next to **Choose Categories**.
