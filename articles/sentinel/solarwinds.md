@@ -535,14 +535,14 @@ The Solarigate attack used VPS hosts to access affected networks. Use the follow
 
 - [Find successful sign-ins from network ranges associated with VPS providers](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/Signins-From-VPS-Providers.yaml). This query may return a large number of false positives. We recommend investigating any results before proceeding.
 
-- [Find sign-ins that come from known VPS provider network ranges](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/ipv4-lookup-plugin). This query can also be used to find all sign-ins that do not come from known ranges, especially if your environment has a common sign-in source.
+- [Find sign-ins that come from known VPS provider network ranges](/data-explorer/kusto/query/ipv4-lookup-plugin). This query can also be used to find all sign-ins that do not come from known ranges, especially if your environment has a common sign-in source.
 
 ### Find mail data exfiltration 
 
 Use the following Sentinel queries to monitor for suspicious access to email data:
 
 - [Find suspicious access to MailItemsAccessed volumes](#find-suspicious-access-to-mailitemsaccessed-volumes)
-- [Find time series-based anomalies in MailItemsAccessed events](#find-time-series-based-anomolies-in-mailitemsaccessed-events)
+- [Find time series-based anomalies in MailItemsAccessed events](#find-time-series-based-anomalies-in-mailitemsaccessed-events)
 - [Find OWA data exfiltrations](#find-owa-data-exfiltrations)
 - [Find non-owner mailbox sign-in activity](#find-non-owner-mailbox-sign-in-activity)
 -
@@ -933,7 +933,7 @@ For more information, see [How to integrate activity logs with Log Analytics](/a
 
 ### Data shown in the Microsoft Azure AD Solarigate workbook
 
-In your [workbook](#access-the-microsoft-azure-ad-workbook-for-the-solarigate-risk), expand each of the following areas to learn more about activity detected in your tenant:
+In your [workbook](#access-the-microsoft-azure-ad-solarigate-workbook), expand each of the following areas to learn more about activity detected in your tenant:
 
 |Area  |Description  |
 |---------|---------|
@@ -956,7 +956,7 @@ Microsoft Defender solutions provide the following coverage and visibility to he
 |**Microsoft Defender Antivirus**     |  The default anti-malware solution on Windows 10, detects and blocks the malicious DLL and its behaviors. It quarantines malware, even if the process is running.  <br><br>For more information, see [Microsoft Defender Antivirus detections for Solarigate](#microsoft-defender-antivirus-detections-for-solarigate).     |
 |     |         |
 
-We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#threat-analytics-reports) created by Microsoft specifically for Solarigate. 
+We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#microsoft-defender-for-threat-analytics-reports) created by Microsoft specifically for Solarigate. 
 
 Use these reports, and other alerts and queries to perform the following recommended steps:
 
@@ -1010,7 +1010,7 @@ Use the threat analytics report to locate devices with alerts related to the att
 
 Alerts are collected into Microsoft 365 Defender incidents, which can help you see the relationship between detected activities.
 
-Review incidents in the [Incidents](/microsoft-365/security/mtp/investigate-incidents?view=o365-worldwide) queue and look for any relevant alerts. 
+Review incidents in the [Incidents](/microsoft-365/security/mtp/investigate-incidents) queue and look for any relevant alerts. 
 
 
 - Some Solorigate activities may not be directly tied to this specific threat, but will trigger alerts due to suspicious or malicious behaviors. 
@@ -1082,7 +1082,7 @@ Additionally, run the following advanced queries to find tactics, threats, and p
 - [Find SolarWinds processes launching CMD with echo](#find-solarwinds-processes-launching-cmd-with-echo)
 - [Find C2 communications](#find-c2-communications)
 
-For more information, see [Advanced hunting query reference](#advanced-hunting-query-reference).
+For more information, see [Advanced query reference](#advanced-query-reference).
 
 #### Find and block malware and malicious behavior on endpoints
 
@@ -1678,7 +1678,7 @@ Microsoft also found the following types of attacker behaviors in affected tenan
 
 |Behavior  |Details  |
 |---------|---------|
-|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#microsoft-365-defender), to detect other anomalies.     |
+|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#microsoft-defender), to detect other anomalies.     |
 |**Attacker access to cloud resources**     |   For administrative access to the Microsoft 365 cloud, Microsoft found evidence of the following indicators: <br><br>    - **Forged SAML tokens**, which impersonated accounts with cloud administrative privileges. <br><br>- **Accounts with no MFA required**. Such accounts [easily compromised](https://aka.ms/yourpassworddoesntmatter).     <br><br>- Access allowed from **trusted, but compromised vendor accounts**.      |
 |   |         |
 
@@ -1691,7 +1691,7 @@ Microsoft also found the following types of attacker behaviors in affected tenan
 |**Microsoft Security Response Center**     |  [Solorigate Resource Center: https://aka.ms/solorigate](https://aka.ms/solorigate) <br><br>[Customer guidance on recent nation-state cyber attack](https://msrc-blog.microsoft.com/2020/12/13/customer-guidance-on-recent-nation-state-cyber-attacks/)       |
 |**Azure Active Directory Identity blog**     |  [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)       |
 |**TechCommunity**     |    [Azure AD workbook to help you assess Solarigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718) <br><br> [Solarwinds: Post compromise hunting with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095)      |
-|**Microsoft Security Intelligence**     |  [Malware encyclopedia definition: Solarigate](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.B!dha)       |
+|**Microsoft Security Intelligence**     |  [Malware encyclopedia definition: Solarigate](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.B!dha)       |
 |**Microsoft Security blog**     |   [Analyzing Solarigate: The compromised DLL file that started a sophisticated cyberattack and how Microsoft Defender helps protect](https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)<br><br> [Advice for incident responders on recovery from system identity compromises](https://www.microsoft.com/security/blog/2020/12/21/advice-for-incident-responders-on-recovery-from-systemic-identity-compromises/) from the Detection and Response Team (DART) <br><br>[Using Microsoft 365 Defender to coordinate protection against Solorigate](https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/)   <br><br>[Ensuring customers are protected from Solarigate](https://www.microsoft.com/security/blog/2020/12/15/ensuring-customers-are-protected-from-solorigate/)   |
 | **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced query reference](#advanced-query-reference)      |
 |     |         |
