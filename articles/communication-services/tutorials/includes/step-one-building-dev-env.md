@@ -239,7 +239,7 @@ In Visual Studio Code, under your project, create three files:
 
 In index.html, type html:5 and hit enter. The Visual Studio will create a basic Html file for you.
 
-add the following between the body elements (<body></body>)
+add the following between the body elements.
 
 ```html
 <body>
@@ -254,9 +254,9 @@ Add the following code between <head></head> elements
 
 ```
 
-The first line will instruct our Html page to download the app.js file, which we will use for our calling application, and the second line pints at the CSS file, where we will add different styles to our application as we proceed.
+The first line will instruct our Html page to download the app.js file, which we will use for our calling application, and the second line points at the CSS file, where we will add different styles to our application as we proceed.
 
-The whole file should look like
+The index.html file should look like
 
 ```html
 <!DOCTYPE html>
