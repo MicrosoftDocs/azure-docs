@@ -9,14 +9,13 @@ ms.date: 01/03/2021
 
 ---
 
-
-# Connect Azure to ITSM tools by using Secure Export
+# Configure Azure to connect ITSM tools using Secure Export
 
 This article provides information about how to configure the Azure in order to use "Secure Export".
 In order to start using "Secure Export" follow these steps:
 
 1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-conf.md#register-with-azure-active-directory)
-1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-conf.md#define-service-principle)
+1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-conf.md#define-service-principal)
 1. [Create a Secure Webhook action group.](./itsm-connector-secure-webhook-connections-azure-conf.md#create-a-secure-webhook-action-group)
 1. Configure your partner environment.
     Secure Export supports connections with the following ITSM tools:
