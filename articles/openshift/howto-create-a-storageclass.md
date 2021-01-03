@@ -48,14 +48,14 @@ az storage account create \
 ## Set permissions
 ### Set resource group permissions
 
-The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this. 
+The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this.
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### Set ARO cluster permissions
@@ -86,7 +86,7 @@ metadata:
 provisioner: kubernetes.io/azure-file
 parameters:
   location: $LOCATION
-  skuName: Standard_LRS 
+  skuName: Standard_LRS
   storageAccount: $AZURE_STORAGE_ACCOUNT_NAME
   resourceGroup: $AZURE_FILES_RESOURCE_GROUP
 reclaimPolicy: Delete
@@ -127,7 +127,7 @@ oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 oc exec $POD -- bash -c "cat /data/test.txt"
 azure file storage
 ```
-The test.txt file will also be visible via the Storage Explorer in the Azure portal. 
+The test.txt file will also be visible via the Storage Explorer in the Azure portal.
 
 ## Next steps
 
