@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
 ---
@@ -612,8 +612,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
-|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
+|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md). See |No Dimensions|
+|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md).|No Dimensions|
 |Data Disk Bandwidth Consumed Percentage|Yes|Data Disk Bandwidth Consumed Percentage|Percent|Average|Percentage of data disk bandwidth consumed per minute|LUN|
 |Data Disk IOPS Consumed Percentage|Yes|Data Disk IOPS Consumed Percentage|Percent|Average|Percentage of data disk I/Os consumed per minute|LUN|
 |Data Disk Queue Depth|Yes|Data Disk Queue Depth (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|LUN|
@@ -665,8 +665,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
-|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
+|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md).|No Dimensions|
+|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md).|No Dimensions|
 |Data Disk Queue Depth|Yes|Data Disk Queue Depth (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|LUN, VMName|
 |Data Disk Read Bytes/sec|Yes|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|LUN, VMName|
 |Data Disk Read Operations/Sec|Yes|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|LUN, VMName|
