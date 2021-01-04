@@ -84,8 +84,8 @@ This section describes how to define users. Cyberx, support, and administrator u
 To define a user:
 
 1. From the left pane for the sensor or the on-premises management console, select **Users**.
-2. In the **Users** window, select **Create User**.
-3. On the **Create User** pane, define the following parameters:
+1. In the **Users** window, select **Create User**.
+1. On the **Create User** pane, define the following parameters:
 
    - **Username**: Enter a username.
    - **Email**: Enter the user's email address.
@@ -117,7 +117,7 @@ To access the command:
 
 1. Sign in to the CLI for the sensor or on-premises management console by using Defender for IoT administrative credentials.
 
-2. Enter `sudo nano /var/cyberx/properties/authentication`.
+1. Enter `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -165,11 +165,11 @@ To configure Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="View your Active Directory system settings.":::
 
-2. On the **System Settings** pane, select **Active Directory**.
+1. On the **System Settings** pane, select **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
 
-3. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
+1. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
 
@@ -178,7 +178,7 @@ To configure Active Directory:
     > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
     > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-4. Set the Active Directory server parameters, as follows:
+1. Set the Active Directory server parameters, as follows:
 
    | Server parameter | Description |
    |--|--|
@@ -188,9 +188,9 @@ To configure Active Directory:
    | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. |
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
-5. Select **Save**.
+1. Select **Save**.
 
-6. To add a trusted server, select **Add Server** and configure another server.
+1. To add a trusted server, select **Add Server** and configure another server.
 
 ## Resetting a user's password for the sensor or on-premises management console
 
@@ -202,31 +202,31 @@ To reset the password for a CyberX or Support user:
 
 1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-2. Select either **CyberX** or **Support**, and copy the unique identifier.
+1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-3. Navigate to the Azure portal and select **Sites and Sensors**.  
+1. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-4. Select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  from the top toolbar, and select the subscription your sensor is connected to.
+1. Select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  from the top toolbar, and select the subscription your sensor is connected to.
 
-5. Select the **Recover on-premises management console password** tab.
+1. Select the **Recover on-premises management console password** tab.
 
    :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
 
-6. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-  > [!NOTE]
-  > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
+    > [!NOTE]
+    > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
 
-7. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
+1. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
    :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Upload your recovery file to get a new password.":::
 
-8. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
-  > [!NOTE]
-  > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.  
+    > [!NOTE]
+    > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.  
 
-9. Select **Next**, and your user, and system-generated password for your management console will then appear.
+1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
 ### Administrator, Security analyst and Read only user
 
@@ -236,31 +236,31 @@ To reset a user's password on the Sensor:
 
 1. An Administrator, Support, or CyberX role user should sign in to the sensor.
 
-2. Select **Users** from the left-hand panel.
+1. Select **Users** from the left-hand panel.
 
    :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Select the user option from the left side pane.":::
 
-3. Locate the user and select **Edit** from the **Actions** dropdown menu.
+1. Locate the user and select **Edit** from the **Actions** dropdown menu.
 
    :::image type="content" source="media/password-recovery-images/edit.png" alt-text="select edit from the actions dropdown menu.":::
 
-4. Enter the new password in the **New Password** and **Confirm New Password** fields.
+1. Enter the new password in the **New Password** and **Confirm New Password** fields.
 
-5. Select **Update**.
+1. Select **Update**.
 
 To reset a user's password on the on-premises management console:
 
 1. An Administrator, Support, or CyberX role user should sign in to the sensor.
 
-2. Select **Users** from the left-hand panel.
+1. Select **Users** from the left-hand panel.
 
    :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="On the left panel select the user's option.":::
 
-3. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
+1. Locate your user and select the edit icon :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
 
-4. Enter the new password in the **New Password** and **Confirm New Password** fields.
+1. Enter the new password in the **New Password** and **Confirm New Password** fields.
 
-5. Select **Update**.
+1. Select **Update**.
 
 ## See also
 
