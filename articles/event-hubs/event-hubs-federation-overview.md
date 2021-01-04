@@ -401,6 +401,7 @@ between Event Hubs and various other eventing and messaging systems:
 - [Event replicator applications in Azure Functions][1]
 - [Replicating events between Event Hubs][2]
 - [Replicating events to Azure Service Bus][3]
+- [Use Apache Kafka MirrorMaker with Event Hubs][11] 
 
 [1]: event-hubs-federation-replicator-functions.md
 [2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
@@ -412,3 +413,4 @@ between Event Hubs and various other eventing and messaging systems:
 [8]: event-hubs-federation-patterns.md#log-projection
 [9]: process-data-azure-stream-analytics.md
 [10]: event-hubs-federation-patterns.md#replication
+[11]: event-hubs-kafka-mirror-maker-tutorial.md
