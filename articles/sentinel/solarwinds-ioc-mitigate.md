@@ -29,7 +29,7 @@ This section provides details about anomalies found by Microsoft in tenants affe
 > We also recommend also reviewing the relevant IOCs listed by FireEye on the [FireEye Threat Research blog](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 > 
 
-## Overivew: System anomalies found in Solorigate
+## Overview
 
 System anomalies found in Solorigate included the following types:
 
@@ -38,13 +38,14 @@ System anomalies found in Solorigate included the following types:
 
 The following sections detail how specific attack patterns that might use these anomalies, and what to verify in your tenants to ensure your organization's security. 
 
-- [Forged SAML tokens](#forged-saml-tokens)
-- [Illegitimate SAML trust relationship registrations](#illegitimate-saml-trust-relationship-registrations)
-- [Added credentials to existing applications](#added-credentials-to-existing-applications)
+- [Forged SAML tokens](#attack-pattern-forged-saml-tokens)
+- [Illegitimate SAML trust relationship registrations](#attack-pattern-illegitimate-saml-trust-relationship-registrations)
+- [Added credentials to existing applications](#attack-pattern-added-credentials-to-existing-applications)
+- [Queries that impersonate existing applications](#attack-pattern-queries-that-impersonate-existing-applications)
 
 For more information, see:
 
-- [Solorigate attacker behaviors](#solorigate-attacker-behaviors)
+- [More Solorigate attacker behaviors](#more-solorigate-attacker-behaviors)
 - [MITRE ATT&CK techniques observed in Solorigate](#mitre-attck-techniques-observed-in-solorigate)
 
 ### Anomalies in SAML tokens being presented for access
@@ -70,7 +71,7 @@ Microsoft 365 APIs can be used to access email, documents, chats, configuration 
 Since you must have a highly privileged Azure Active Directory (AAD) administrative account to add credentials to service principals, changes at this level can imply that one or more such privileged accounts have been compromised. There may be other significant changes made in any impacted tenant.       
 
 
-## Forged SAML tokens
+## Attack pattern: Forged SAML tokens
 
 - [Anomalies found that indicate forged SAML tokens](#anomalies-found-that-indicate-forged-saml-tokens)
 - [How these anomalies indicate forged SAML tokens](#how-these-anomalies-indicate-forged-saml-tokens)
@@ -131,7 +132,7 @@ If you think that you've found forged SAML tokens, perform the following steps:
 
 - Consider using a Hardware Security Model (HSM) to manage your SAML Token Signing Certificates.
 
-## Illegitimate SAML trust relationship registrations
+## Attack pattern: Illegitimate SAML trust relationship registrations
 
 In some cases, the SAML token forgeries correspond to service principal configuration changes. 
 
@@ -178,7 +179,7 @@ If you think you've found an illegitimate SAML trust relationship registration, 
 - Determine how the administrative account was impersonated. For more information, see [below](#queries-that-impersonate-existing-applications).
 - Roll back any illegitimate administrative account credentials.
 
-## Added credentials to existing applications
+## Attack pattern: Added credentials to existing applications
 
 Once an actor has been able to impersonate a privileged Azure AD administrator, they can add credentials to existing applications or service principals, usually with the permissions that they wanted already associated and high traffic patterns, such as for mail archive applications.
 
@@ -235,7 +236,7 @@ If you think you've found added credentials the applications in your system, we 
 
 - Regularly roll credentials for all applications and service principals.
 
-## Queries that impersonate existing applications
+## Attack pattern: Queries that impersonate existing applications
 
 Once credentials were added to existing applications or service principals, the actor proceeded to acquire an OAUTH access token for the application using the forged credentials, and call APIs with the assigned permissions.
 
@@ -282,7 +283,7 @@ If you think you've found impersonating queries in your environment, we recommen
 
 - Roll administrative account credentials.
 
-## Solorigate attacker behaviors
+## More Solorigate attacker behaviors
 
 Microsoft also found the following types of attacker behaviors in tenants affected by Solorigate:
 

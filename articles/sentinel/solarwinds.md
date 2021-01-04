@@ -24,7 +24,33 @@ This section describes how to use Microsoft resources created specifically to re
 
 These resources can also be used to understand and mitigate risks in other similar supply chain attacks and system identity compromises.
 
-**Microsoft's response to the Solorigate attack**
+## Overview
+
+If you suspect that your organization has been affected by Solorigate or another similar attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
+
+Azure Sentinel users have the advantage of Azure Sentinel connectors for Microsoft Defender and Azure Active Directory, which provide all relevant data and checks through a single view. We therefore recommend that Azure Sentinel users with these connectors start responding to threats by [querying data found in Azure Sentinel](identity-compromise-azure-sentinel.md).
+
+You can also use [Microsoft Defender](identity-compromise-defender.md) and [Azure Active Directory](identity-compromise-aad.md) directly to perform similar checks and hardening activities. 
+
+For more information, see:
+
+- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
+
+- [MITRE ATT&CK techniques observed in Solorigate](solarwinds-ioc-mitigate.md#mitre-attck-techniques-observed-in-solorigate)
+
+- [Solorigate attacker behaviors](solarwinds-ioc-mitigate.md#more-solorigate-attacker-behaviors)
+
+- [About Solorigate and Microsoft's response](#about-solorigate-and-microsofts-response)
+
+- [Microsoft references for Solorigate](#microsoft-references-for-solorigate)
+
+> [!NOTE]
+> Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
+>
+> We recommend performing as many checks as possible with an informed understanding of your network estate.
+>
+
+## About Solorigate and Microsoft's response
 
 In December 2020, [FireEye discovered a nation-state cyber attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
@@ -49,30 +75,6 @@ The global administrator account or certificates enabled the attacker to forge S
 >
 > The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
 > 
-
-## Securing your network after a systemic identify compromise
-
-If you suspect that your organization has been affected by Solorigate or another similar attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
-
-Azure Sentinel users have the advantage of Azure Sentinel connectors for Microsoft Defender and Azure Active Directory, which provide all relevant data and checks through a single view. We therefore recommend that Azure Sentinel users with these connectors start responding to threats by [querying data found in Azure Sentinel](identity-compromise-azure-sentinel.md).
-
-You can also use [Microsoft Defender](identity-compromise-defender.md) and [Azure Active Directory](identity-compromise-aad.md) directly to perform similar checks and hardening activities. 
-
-For more information, see:
-
-- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
-
-- [MITRE ATT&CK techniques observed in Solorigate](solarwinds-ioc-mitigate.md#mitre-attck-techniques-observed-in-solorigate)
-
-- [Solorigate attacker behaviors](solarwinds-ioc-mitigate.md#solorigate-attacker-behaviors)
-
-- [Microsoft references for Solorigate](#microsoft-references-for-solorigate)
-
-> [!NOTE]
-> Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
->
-> We recommend performing as many checks as possible with an informed understanding of your network estate.
->
 
 ## Microsoft references for Solorigate
 

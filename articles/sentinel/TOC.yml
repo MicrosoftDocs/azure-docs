@@ -206,8 +206,9 @@
   - name: Remove Azure Sentinel
     href: offboard.md
   - name: Respond to supply chain and / or systemic identity compromise
-    href: solarwinds.md
     items:
+    - name: Overview
+      href: solarwinds.md
     - name: Respond with Azure Sentinel
       href: identity-compromise-azure-sentinel.md
     - name: Respond with Azure Defender for Endpoint
