@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is the Face service?
             url: Overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Face service?
+            url: releasenotes.md
 
   - title: Detect faces
     linkLists:

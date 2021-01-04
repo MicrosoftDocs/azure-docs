@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
 
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 #Customer intent: As an IT administrator or decision maker, I want to understand what Azure AD DS is and how it can benefit my organization.
 ---

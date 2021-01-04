@@ -40,7 +40,7 @@ To complete this tutorial's steps, you need to have access to a resource group f
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Open Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
 ## Create a dedicated SQL pool

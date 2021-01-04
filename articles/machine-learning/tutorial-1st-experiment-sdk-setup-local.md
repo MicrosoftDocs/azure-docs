@@ -61,6 +61,9 @@ tutorial
 - `tutorial`: Top-level directory of the project.
 - `.azureml`: Hidden subdirectory for storing Azure Machine Learning configuration files.
 
+> [!TIP]
+> If you're on a Mac, in a Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  Or use the command terminal to create the directory.
+
 
 > [!div class="nextstepaction"]
 > [I created a directory](?success=create-dir#workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-dir)

@@ -14,7 +14,7 @@ This article discusses issues that you might run into when deploying the Update 
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## Scenario: Linux updates shown as pending and those installed vary
+## <a name="updates-linux-installed-different"></a>Scenario: Linux updates shown as pending and those installed vary
 
 ### Issue
 

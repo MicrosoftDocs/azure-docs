@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet, contperfq2
+ms.custom: devx-track-dotnet, contperf-fy21q2
 
 ---
 

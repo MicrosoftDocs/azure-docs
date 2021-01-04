@@ -354,6 +354,9 @@ Access blob data via the parameter typed as [InputStream](/python/api/azure-func
 
 You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](./functions-bindings-expressions-patterns.md). The following sections provide examples.
 
+> [!TIP]
+> A container name can't contain a resolver in the name pattern.
+
 ### Get file name and extension
 
 The following example shows how to bind to the blob file name and extension separately:
