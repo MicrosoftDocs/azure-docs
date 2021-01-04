@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/04/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -127,7 +127,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
     * A Windows-based client that has joined the domain and has the root certificate installed 
     * Another machine in the domain containing the root certificate  
 
-3. Export the root certificate.  
+3. Export the root CA certificate.  
+    Root CA certificates can be exported from Personal or Trusted Root Certification Authorities.   
     Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
 
     ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
