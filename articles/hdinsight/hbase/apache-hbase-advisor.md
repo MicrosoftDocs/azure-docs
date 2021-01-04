@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight Apache HBase Cluster/Query Advisor
-description: Optimize Apache HBase for recommendations found by cluster advisor in Azure HDInsight.
-author: hrasheed-msft
+description: Optimize Apache HBase for cluster advisor recommendations in Azure HDInsight.
+author: ramkrish86
 ms.author: ramvasu
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 01/03/2021
 #Customer intent: The azure advisories help to tune the cluster/query. This doc gives a much deeper understanding of the various advisories including the recommended configuration tunings.
 ---
-
 # Apache HBase advisories in Azure HDInsight
 
 This article describes several advisories that help you optimize Apache HBase performance in Azure HDInsight. 
@@ -36,7 +35,7 @@ To optimize the recent data in cache, consider the following configuration setti
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
    ```
 
-5. Block cache can be turned off for a given family in a table. Ensure that it is turned **ON** for families that have most recent data reads. By default, block cache is turned ON for all families in a table. In case you have disabled the block cache for a family and need to turn it ON, use the alter command from the hbase shell.
+5. Block cache can be turned off for a given family in a table. Ensure that it's turned **ON** for families that have most recent data reads. By default, block cache is turned ON for all families in a table. In case you have disabled the block cache for a family and need to turn it ON, use the alter command from the hbase shell.
 
    These configurations help ensure that the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your scenario, then consider using date-tiered compaction. For more information, see [Apache HBase Reference Guide: Date Tiered Compaction](https://hbase.apache.org/book.html#ops.date.tiered)  
 
