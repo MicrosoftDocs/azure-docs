@@ -78,10 +78,11 @@ These steps create settings at directory level, which apply to all Microsoft 365
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Then update the usage guideline value:
+4. Then update the settings object with a new value. The two examples below change the usage guideline value and enable sensitivity labels. Set these or any other setting in the template as required:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. Then apply the setting:
   
@@ -112,7 +113,7 @@ To update the value for UsageGuideLinesUrl in the setting template, read the cur
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions
