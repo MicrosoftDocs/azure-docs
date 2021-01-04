@@ -127,7 +127,7 @@ This example shows how a Recurrence trigger definition might look in an underlyi
 
 <a name="daylight-saving-standard-time"></a>
 
-## Shift between daylight saving time and standard time
+## Trigger recurrence shift between daylight saving time and standard time
 
 Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
 
