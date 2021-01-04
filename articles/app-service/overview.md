@@ -50,7 +50,7 @@ If you need to create another web app with an outdated runtime version that is n
 
 1. Get the runtime of the site. Replace the name and resource group placeholders with the name and group for your web app. This will return a string with the runtime version.
   
-    ```she;;
+    ```shell
     az webapp config show --name <your-name> --resource-group <your-group> --query "linuxFxVersion"
     ```
   
