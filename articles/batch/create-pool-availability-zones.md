@@ -13,12 +13,11 @@ For example, you could create your pool with zonal policy in an Azure region whi
 
 ## Regional support and other requirements
 
-Batch maintains parity with Azure on supporting Availability Zones. To use the zonal option, your pool must be created in a [supported Azure region](../azure/availability-zones/az-region/md).
+Batch maintains parity with Azure on supporting Availability Zones. To use the zonal option, your pool must be created in a [supported Azure region](../availability-zones/az-region/md).
 
-In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU. Also note that you can't create a pool across Availability Zones if your pool uses the InfiniBand VM SKU and has with inter-node communication enabled option.
+In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU. Also note that you can't create a pool across Availability Zones if your pool uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md) and has inter-node communication enabled.
 
-For user subscription pools, Batch nodes are created inside your subscription. Therefore, it is customer's responsibility to ensure Customer account subscription 
-Make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list#resourceskurestrictions).If a zone restriction exists, you can submit a [support ticket](../azure/azure-portal/supportability/sku-series-unavailable.md) to remove the zone restriction.
+Make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). If a zone restriction exists, you can submit a [support ticket](../azure-portal/supportability/sku-series-unavailable.md) to remove the zone restriction.
 
 ## Create a Batch pool across Availability Zones
 
