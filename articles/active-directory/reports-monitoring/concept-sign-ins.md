@@ -60,7 +60,7 @@ On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Dire
 
 Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Sign-in activity](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
+![Screenshot shows Sign-ins selected from the Monitoring menu.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
 
 It may take up to two hours for some sign-in records to show up in the portal.
 
@@ -76,20 +76,20 @@ A sign-ins log has a default list view that shows:
 - The status of the risk detection
 - The status of the multi-factor authentication (MFA) requirement
 
-![Sign-in activity](./media/concept-sign-ins/sign-in-activity.png "Sign-in activity")
+![Screenshot shows the Office 365 SharePoint Online Sign-ins.](./media/concept-sign-ins/sign-in-activity.png "Sign-in activity")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
+![Screenshot shows the Columns option in the Sign-ins page.](./media/concept-sign-ins/19.png "Sign-in activity")
 
 The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can't have fields
 that have more than one value for a given sign-in request as column. This is, for example, true for authentication details, conditional access data and network location.   
 
-![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
+![Screenshot shows the Columns dialog box where you can select attributes.](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
-![Sign-in activity](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
+![Screenshot shows a detailed information view.](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
 > [!NOTE]
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
@@ -101,7 +101,7 @@ Select an item in the list view to get more detailed information.
 
 First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set:
 
-![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
+![Screenshot shows the Add filters option.](./media/concept-sign-ins/04.png "Sign-in activity")
 
 **Request ID** - The ID of the request you care about.
 
@@ -212,7 +212,7 @@ Azure AD and the Azure portal both provide you with additional entry points to s
 
 The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins. The default for the time period is 30 days.
 
-![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
+![Screenshot shows a graph of Sign-ins over a month.](./media/concept-sign-ins/06.png "Sign-in activity")
 
 When you click on a day in the sign-in graph, you get an overview of the sign-in activities for this day.
 
@@ -243,7 +243,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
-![Sign-in activity](./media/concept-sign-ins/08.png "Sign-in activity")
+![Screenshot shows the Activity section where you can select Sign-ins.](./media/concept-sign-ins/08.png "Sign-in activity")
 
 ## Usage of managed applications
 
@@ -255,11 +255,11 @@ With an application-centric view of your sign-in data, you can answer questions 
 
 The entry point to this data is the top three applications in your organization. The data is contained within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
-![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
+![Screenshot shows where you can select Overview.](./media/concept-sign-ins/10.png "Sign-in activity")
 
 The app-usage graphs weekly aggregations of sign-ins for your top three applications in a given time period. The default for the time period is 30 days.
 
-![Sign-in activity](./media/concept-sign-ins/graph-chart.png "Sign-in activity")
+![Screenshot shows the App usage for a one month period.](./media/concept-sign-ins/graph-chart.png "Sign-in activity")
 
 If you want to, you can set the focus on a specific application.
 

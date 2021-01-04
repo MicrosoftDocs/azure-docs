@@ -1,15 +1,9 @@
 ---
-title: Manage Azure portal settings and preferences | Microsoft Docs
+title: Manage Azure portal settings and preferences
 description: You can change Azure portal default settings to meet your own preferences. Settings include inactive session timeout, default view, menu mode, contrast, theme, notifications, and language and regional formats
-services: azure-portal
 keywords: settings, timeout, language, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-
-ms.service: azure-portal
-manager:  mtillman
 ---
 
 # Manage Azure portal settings and preferences
@@ -46,7 +40,7 @@ You can change the page that opens by default when you sign in to the Azure port
 
 The default mode for the portal menu controls how much space the portal menu takes up on the page.
 
-![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/menu-mode.png)
+![Screenshot that shows how to set the default mode for the portal menu.](./media/set-preferences/menu-mode.png)
 
 - When the portal menu is in **Flyout** mode, it's hidden until you need it. Select the menu icon to open or close the menu.
 

@@ -8,14 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Create an Azure Active Directory B2C tenant
 
-Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage.
+Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
+
+> [!NOTE]
+> You can create up to 20 tenants per subscription. This limit helps protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you need to create more than 20 tenants, please contact [Microsoft Support](support-options.md).
 
 In this article, you learn how to:
 
@@ -42,8 +45,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+
+   ![Select the Create a resource button](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Search for **Azure Active Directory B2C**, and then select **Create**.
-1. Select **Create a new Azure AD B2C Tenant**.
+2. Select **Create a new Azure AD B2C Tenant**.
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -53,7 +59,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - **Initial domain name** - Enter a domain name for your Azure AD B2C tenant.
    - **Country or region** - Select your country or region from the list. This selection can't be changed later.
    - **Subscription** - Select your subscription from the list.
-   - **Resource group** - Select a resource group that will contain the tenant. Or select **Create new**, enter a **Name** for the resource group, select the **Resource group location**, and then select **OK**.
+   - **Resource group** - Select or search for the resource group that will contain the tenant.
 
     ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 

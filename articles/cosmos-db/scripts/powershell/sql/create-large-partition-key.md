@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a container with a large partition key in an Azure Cosmos DB account using PowerShell
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

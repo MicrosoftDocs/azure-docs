@@ -18,7 +18,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../concepts/active-learning-suggestions.md) for your QnA Maker resource.
 
 ## View suggested questions
 

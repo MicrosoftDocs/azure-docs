@@ -74,6 +74,6 @@ Then you can run `sbt clean` and `sbt assembly` to build the shaded jar file.
 
 ## Next steps
 
-* [Use HDInsight IntelliJ Tools](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [Use HDInsight IntelliJ Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [Create a Scala Maven application for Spark in IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [Create a Scala Maven application for Spark in IntelliJ](./apache-spark-create-standalone-application.md)

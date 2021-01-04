@@ -4,7 +4,7 @@ description: Learn about the available protocols before creating an Azure file s
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Azure file share protocols
 
-Azure Files offers two protocols for connecting and mounting your Azure file shares. [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
+Azure Files offers two protocols for connecting and mounting your Azure file shares. [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
 
 ## Differences at a glance
 
@@ -21,7 +21,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Supported OS     |Linux kernel version 4.3+         |Windows 2008 R2+, Linux kernel version 4.11+         |
 |[Available tiers](storage-files-planning.md#storage-tiers)     |Premium storage         |Premium storage, transaction optimized, hot, cool         |
-|[Redundancy](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[Redundancy](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Host-based authentication only        |Identity-based authentication, user-based authentication         |
 |Permissions     |UNIX-style permissions         |NTFS-style permissions         |
 |File system semantics     |POSIX compliant         |Not POSIX compliant         |
@@ -59,7 +59,7 @@ All Azure Files data is encrypted at rest. For encryption in transit, Azure prov
 - [A private endpoint](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
-    - [Site-to-Site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Site-to-Site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
 

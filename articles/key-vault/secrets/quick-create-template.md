@@ -123,7 +123,7 @@ The output looks similar to:
 
 # [CLI](#tab/CLI)
 
-![ARM template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Screenshot that shows the deploy portal validation output in CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # [PowerShell](#tab/PowerShell)
 

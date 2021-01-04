@@ -68,6 +68,8 @@ This property indicates the relationship of the user to the host tenancy. This p
   > [!NOTE]
   > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
+For pricing related details please reference [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
+
 ### Source
 This property indicates how the user signs in.
 
@@ -105,7 +107,7 @@ Yes. By default, guest objects aren't visible in your organization's global addr
 
 ## Can I update a guest user's email address?
 
-If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). You can update the mail property via the Microsoft Graph API, the Exchange admin center, or [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). The change will be reflected in the Azure AD guest user object.
+If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](/graph/api/resources/user). You can update the mail property via the Microsoft Graph API, the Exchange admin center, or [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). The change will be reflected in the Azure AD guest user object.
 
 ## Next steps
 

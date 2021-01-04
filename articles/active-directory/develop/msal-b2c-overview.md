@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev devx-track-js
 # Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Step 3: Configure authentication
 
-1. Open the `config.json` file in the sample.
+1. Open the *config.json* file in the sample.
 
 2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with your tenant name, client ID, and policy name.
 
@@ -207,7 +207,7 @@ When a user selects **Forgot password**, your application throws an error which 
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Password reset flow screens showed by Azure AD B2C" border="false":::
 
-    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-handling-exceptions.md).
+    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-error-handling-js.md).
 
 ## Next steps
 
@@ -215,4 +215,4 @@ Learn more about these Azure AD B2C concepts:
 
 - [User flows](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Custom policies](../../active-directory-b2c/custom-policy-get-started.md)
-- [UX customization](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [UX customization](../../active-directory-b2c/configure-user-input.md)

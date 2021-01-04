@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 ## Prerequisites
 
-* [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
 
 ## Example utterances JSON file

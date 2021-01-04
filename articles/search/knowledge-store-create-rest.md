@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
+ms.date: 11/18/2020
 ---
 # Create a knowledge store using REST and Postman
 
@@ -79,7 +79,7 @@ To get the value for `admin-key`, go to the Azure Cognitive Search service and s
 | `index-name` | Leave as **hotel-reviews-ix**. | 
 | `search-service-name` | The name of the Azure Cognitive Search service. The URL is `https://{{search-service-name}}.search.windows.net`. | 
 | `skillset-name` | Leave as **hotel-reviews-ss**. | 
-| `storage-account-name` | The storage account name. | 
+| `storage-account-name` | The Azure storage account name. | 
 | `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. | 
 | `storage-container-name` | Leave as **hotel-reviews**. | 
 

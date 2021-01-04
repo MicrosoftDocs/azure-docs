@@ -151,6 +151,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
+### Autoscale
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
+
 ### Log queries and language
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
@@ -280,7 +284,11 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 ### Virtual Network Gateway limits
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### NAT Gateway limits
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### Virtual WAN limits
 
@@ -298,6 +306,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### Private Link limits
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## Purview limits
+
+The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md)
 
 ### Traffic Manager limits
 
@@ -387,8 +399,8 @@ For more information, see [Virtual machine sizes](../../virtual-machines/sizes.m
 
 There's a limitation of 50 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
-[Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) or
-[Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) virtual machines. If you
+[Linux](../../virtual-machines/disk-encryption.md#restrictions) or
+[Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
 need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks

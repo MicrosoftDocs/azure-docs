@@ -14,7 +14,7 @@ ms.date: 12/11/2018
 
 ---
 # Azure Government virtual machine extensions
-This document contains a list of available [virtual machine extensions](../virtual-machines/windows/extensions-features.md) in Azure Government. If you'd like to see other extensions in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
+This document contains a list of available [virtual machine extensions](../virtual-machines/extensions/features-windows.md) in Azure Government. If you'd like to see other extensions in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

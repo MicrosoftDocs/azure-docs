@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type *virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
+1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type **virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Search field" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
 
@@ -22,8 +22,6 @@
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Gateway fields":::
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Additional gateway fields":::
-
-   **Project details**
 
    * **Subscription**: Select the subscription you want to use from the dropdown.
    * **Resource Group**: This setting is autofilled when you select your virtual network on this page.
@@ -49,6 +47,6 @@
      * **Enable active-active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting **Disabled**.
      * Leave **Configure BGP** as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
 1. Select **Review + create** to run validation.
-1. Once validation passes, select **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
+1. Once validation passes, select **Create** to deploy the VPN gateway.
 
-After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.

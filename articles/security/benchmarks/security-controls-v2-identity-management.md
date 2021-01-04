@@ -16,7 +16,7 @@ Identity Management covers controls to establish a secure identity and access co
 
 ## IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
 
@@ -35,7 +35,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 - [Define Azure AD tenants](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Use external identity providers for an application](/azure/active-directory/b2b/identity-providers)
+- [Use external identity providers for an application](../../active-directory/external-identities/identity-providers.md)
 
 - [What is the identity secure score in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
@@ -53,7 +53,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 ## IM-2: Manage application identities securely and automatically
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
@@ -81,7 +81,7 @@ Use Azure Key Vault for security principal registration: authentication#authoriz
 
 ## IM-3: Use Azure AD single sign-on (SSO) for application access
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-3 | 4.4 | IA-2, IA-4 |
 
@@ -103,7 +103,7 @@ Use Azure AD single sign-on (SSO) to manage and secure access to your organizati
 
 ## IM-4: Use strong authentication controls for all Azure Active Directory based access
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
@@ -138,7 +138,7 @@ Note: Authentication based on password credentials alone is susceptible to popul
 
 ## IM-5: Monitor and alert on account anomalies
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
 
@@ -159,13 +159,13 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 - [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](/azure/security-center/alerts-reference)
+- [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md)
 
 - [How to integrate Azure activity logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -183,7 +183,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 ## IM-6: Restrict Azure resource access based on conditions
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-6 | N/A | AC-2, AC-3 |
 
@@ -209,7 +209,7 @@ Use Azure AD conditional access for more granular access control based on user-d
 
 ## IM-7: Eliminate unintended credential exposure
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-7 | 18.1, 18.7 | IA-5 |
 
@@ -231,7 +231,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 
 ## IM-8: Secure user access to legacy applications
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | IM-8 | 14.6 | AC-2, AC-3, SC-11 |
 

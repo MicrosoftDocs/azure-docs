@@ -1,6 +1,6 @@
 ---
 title: Data loading best practices
-description: Recommendations and performance optimizations for loading data into Synapse SQL
+description: Recommendations and performance optimizations for loading data into a dedicated SQL pool Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo 
 manager: craigg
@@ -13,13 +13,13 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data for data warehousing
+# Best practices for loading data into a dedicated SQL pool Azure Synapse Analytics
 
 In this article, you'll find recommendations and performance optimizations for loading data.
 
 ## Prepare data in Azure Storage
 
-To minimize latency, colocate your storage layer and your data warehouse.
+To minimize latency, colocate your storage layer and your dedicated SQL pool.
 
 When exporting data into an ORC File Format, you might get Java out-of-memory errors when there are large text columns. To work around this limitation, export only a subset of the columns.
 
@@ -31,7 +31,7 @@ Split large compressed files into smaller compressed files.
 
 ## Run loads with enough compute
 
-For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
+For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your dedicated SQL pool before the load.
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 

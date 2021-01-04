@@ -50,10 +50,10 @@ This page shows a visual representation of the steps required to publish this of
 
 It includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is a draft - Delete draft offer
 - If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
-- If you haven't completed publishing - [Cancel publishing](update-existing-offer.md#cancel-publishing)
+- If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -104,9 +104,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 #### Terms and conditions
 
-To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. If your terms and conditions require a longer description, enter a single web link to where they can be found. It will display to customers as an active link.
-
-Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
@@ -229,7 +227,7 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 ## Technical configuration
 
-Promote your app in Power BI Service to production and provide the Power BI app installer link that enables customers to install your app. For more information, see [Publish apps with dashboards and reports in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Promote your app in Power BI Service to production and provide the Power BI app installer link that enables customers to install your app. For more information, see [Publish apps with dashboards and reports in Power BI](/power-bi/service-create-distribute-apps).
 
 ## Supplemental content
 

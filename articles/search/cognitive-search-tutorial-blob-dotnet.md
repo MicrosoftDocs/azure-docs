@@ -124,7 +124,7 @@ To interact with your Azure Cognitive Search service you will need the service U
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-   ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 

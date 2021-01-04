@@ -22,7 +22,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 ## Recommended steps
 
-1. Download the [Storage Analytics logs](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Download the [Storage Analytics logs](./storage-analytics-logging.md#download-storage-logging-log-data).
 
 2. Use the following PowerShell script to convert the raw format logs into tabular format:
 
@@ -160,4 +160,3 @@ In a **PutBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max 
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
-

@@ -4,7 +4,7 @@ description: Learn about creating and managing servers and single databases in A
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -52,7 +52,7 @@ To manage an existing database, navigate to the **SQL databases** page and selec
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To create and manage servers, single and pooled databases, and server-level firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -68,7 +68,7 @@ To create and manage servers, single and pooled databases, and server-level fire
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Creates a resource group|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Creates a  server|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Returns information about servers|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifies properties of a server|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifies properties of a server|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Removes a server|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Creates a server-level firewall rule |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Gets firewall rules for a server|
@@ -78,7 +78,7 @@ To create and manage servers, single and pooled databases, and server-level fire
 
 ## The Azure CLI
 
-To create and manage the servers, databases, and firewalls with [the Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
+To create and manage the servers, databases, and firewalls with [the Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](../../cloud-shell/overview.md) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Create a single Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use CLI to create a database in Azure SQL Database and configure a SQL Database firewall rule](scripts/create-and-configure-database-cli.md) and [Use CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -117,10 +117,10 @@ To create and manage the servers, databases, and firewalls with Transact-SQL, us
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Creates a new single database. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies a database or elastic pool. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Creates a new single database. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifies a database or elastic pool. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for Azure SQL Database or an Azure Synapse Analytics SQL pool. If logged on to the master database in a server in SQL Database, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for Azure SQL Database or a dedicated SQL pool in Azure Synapse Analytics. If logged on to the master database in a server in SQL Database, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there's no activity in the database.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returns CPU usage and storage data for a database in Azure SQL Database. The data is collected and aggregated within five-minute intervals.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contains statistics for SQL Database connectivity events, providing an overview of database connection successes and failures. |
@@ -138,22 +138,22 @@ To create and manage the servers, databases, and firewalls, use these REST API r
 
 | Command | Description |
 | --- | --- |
-|[Servers - Create or update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Creates or updates a new server.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Deletes a SQL server.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Gets a server.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Returns a list of servers in a subscription.|
-|[Servers - List by resource group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Updates an existing server.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Deletes a database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Gets a database.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
-|[Firewall rules - Create or update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
-|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
-|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
-|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returns a list of firewall rules.|
+|[Servers - Create or update](/rest/api/sql/servers/createorupdate)|Creates or updates a new server.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Deletes a SQL server.|
+|[Servers - Get](/rest/api/sql/servers/get)|Gets a server.|
+|[Servers - List](/rest/api/sql/servers/list)|Returns a list of servers in a subscription.|
+|[Servers - List by resource group](/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
+|[Servers - Update](/rest/api/sql/servers/update)|Updates an existing server.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Delete](/rest/api/sql/databases/delete)|Deletes a database.|
+|[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
+|[Firewall rules - Create or update](/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
+|[Firewall rules - Delete](/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
+|[Firewall rules - Get](/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
+|[Firewall rules - List by server](/rest/api/sql/firewallrules/listbyserver)|Returns a list of firewall rules.|
 
 ## Next steps
 

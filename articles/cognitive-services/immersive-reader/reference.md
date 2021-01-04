@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
+ms.author: metang
 ---
 
 # Immersive Reader JavaScript SDK Reference (v1.1)

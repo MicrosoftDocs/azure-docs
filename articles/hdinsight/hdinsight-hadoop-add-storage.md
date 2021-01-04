@@ -21,7 +21,7 @@ Learn how to use script actions to add additional Azure Storage *accounts* to HD
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Storage account name and key. See [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
-* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](/powershell/azure/).
 
 ## How it works
 

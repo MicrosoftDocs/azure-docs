@@ -122,5 +122,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ## See also
 * [Monitor Azure Cloud Services apps with Application Insights](./cloudservices.md)
 * [Send Azure Diagnostics to Application Insights](../platform/diagnostics-extension-to-application-insights.md)
-* [Automate configuring alerts](powershell-alerts.md)
+
 

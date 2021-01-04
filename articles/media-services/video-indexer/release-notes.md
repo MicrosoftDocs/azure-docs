@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,21 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## October 2020
+
+### Animated character identification improvements  
+
+Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
+
+### Planned Video Indexer website authenticatication changes
+
+Starting January 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer](https://www.videoindexer.ai/) website (trial offering) using Facebook or LinkedIn.
+
+You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
+
+> [!NOTE]
+> You are advised to export your content before January 1st of 2021, since accounts connected to LinkedIn and Facebook will be deleted and the content will no longer be accessible.
 
 ## August 2020
 

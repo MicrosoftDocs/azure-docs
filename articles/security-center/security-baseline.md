@@ -105,7 +105,7 @@ Configure Security Center's data collection to send security data and events fro
 
 Alternatively, you can send data produced by Security Center to Azure Sentinel or a third-party SIEM.
 
-- [Export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
@@ -155,7 +155,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md) 
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -347,7 +347,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 By default Azure Security Center data is stored in the Security Center backend service. If your organization has added requirements to store this data in your own resources you can configure a Log Analytics workspace to store Security Center data, alerts, and recommendations. When using your own workspace you can add further separation by configuring different workspaces according to which environment the data originated in.
 
-- [Export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
@@ -665,7 +665,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use role-based access control to protect customer-managed keys.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use Azure role-based access control to protect customer-managed keys.
 
 Additionally, Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.  If Azure Storage is used to store Azure Resource Manager template backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
 

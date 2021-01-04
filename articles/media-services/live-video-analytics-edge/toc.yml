@@ -66,6 +66,7 @@
   - name: Media graph
     href: media-graph-concept.md
   - name: Media graph extension
+    displayName: AI
     href: media-graph-extension-concept.md
   - name: Video recording 
     href: video-recording-concept.md
@@ -94,9 +95,15 @@
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
   - name: Deploy on Azure Stack Edge
-    href: deploy-azure-stack-edge-how-to.md    
+    href: deploy-azure-stack-edge-how-to.md
+  - name: Configure a signal gate
+    href: configure-signal-gate-how-to.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
+  - name: Upgrading
+    href: upgrading-lva-module.md
+  - name: Develop and deploy a gRPC inference server
+    href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
   items:
   - name: HTTP extension protocol

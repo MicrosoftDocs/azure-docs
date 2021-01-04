@@ -79,7 +79,7 @@ Determine the kind of predictions you want to make based on data analysis to hel
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
 1. [Create a storage account](../../storage/common/storage-account-create.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
-2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
    * After you create the cluster, enable Remote Access to the head node of the cluster. Browse to the **Configuration** tab, and select **Enable Remote**. This step specifies the user credentials used for remote login.
@@ -93,7 +93,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 
 To copy the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
 
-Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy.md).
+Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy-v10.md).
 
 1. From a command prompt window, run the following AzCopy commands, replacing *\<path_to_data_folder>* with the desired destination:
 
@@ -138,7 +138,7 @@ The data should now be in Blob storage, and ready to be consumed within the HDIn
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](customize-hadoop-cluster.md).
+To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in '.hql' files. We then down-sample this data to be used within Machine Learning for building models.
 
@@ -929,5 +929,5 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

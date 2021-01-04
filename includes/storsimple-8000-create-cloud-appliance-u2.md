@@ -12,7 +12,7 @@ ms.author: alkohli
     ![StorSimple create cloud appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. In the **Create cloud appliance** blade, specify the following details.
    
-    ![StorSimple create cloud appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple create cloud appliance 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Name** – A unique name for your cloud appliance.
    2. **Model** - Choose the model of the cloud appliance. An 8010 device offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010 to deploy item level retrieval scenarios from backups. Select 8020 to deploy high performance, low latency workloads, or use as a secondary device for disaster recovery.
@@ -27,8 +27,7 @@ ms.author: alkohli
    7. Select the checkbox to indicate that you understand that the data stored on the cloud appliance is hosted in a Microsoft datacenter.
        * When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it.
 
-       * When you use a cloud appliance, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a cloud appliance](../articles/storsimple/storsimple-security.md).
+       * When you use a cloud appliance, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a cloud appliance](../articles/storsimple/storsimple-8000-security.md).
    8. Click **Create** to provision the cloud appliance. The device may take around 30 minutes to be provisioned. You are notified when the cloud appliance is successfully created. Go to Devices blade, and the list of devices refreshes to display the cloud appliance. The status of the appliance is **Ready to set up**.
       
       ![StorSimple Cloud Appliance ready to set up](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

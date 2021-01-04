@@ -250,7 +250,7 @@ The name passed to the **New-CACertsEdgeDevice** command should not be the same 
 2. Create the IoT Edge device CA certificate and private key with the following command. Provide a name for the CA certificate.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    This script command creates several certificate and key files. The following certificate and key pair needs to be copied over to an IoT Edge device and referenced in the config.yaml file:
@@ -258,7 +258,7 @@ The name passed to the **New-CACertsEdgeDevice** command should not be the same 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-The name passed to the **create_edge_device_certificate** command should not be the same as the hostname parameter in config.yaml, or the device's ID in IoT Hub.
+The name passed to the **create_edge_device_ca_certificate** command should not be the same as the hostname parameter in config.yaml, or the device's ID in IoT Hub.
 
 ## Create downstream device certificates
 

@@ -6,9 +6,9 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -48,8 +48,6 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 The following scenarios are not supported right now:  
 
-- Assign cloud groups to Azure AD custom roles
-- Assign cloud groups to Azure AD roles (built-in or custom) over an administrative unit or application scope.
 - Assign on-premises groups to Azure AD roles (built-in or custom)
 
 ## Known issues

@@ -10,9 +10,12 @@ ms.custom: github-actions-azure
 
 ---
 
-# Use GitHub Actions to connect to Azure MySQL
+# Quickstart: Use GitHub Actions to connect to Azure MySQL
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
+**APPLIES TO**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
+
+Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
+
 
 ## Prerequisites
 
@@ -35,7 +38,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholders `server-name` with the name of your MySQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your MySQL server.  
 
@@ -63,6 +66,11 @@ The output is a JSON object with the role assignment credentials that provide ac
 ## Copy the MySQL connection string 
 
 In the Azure portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this. 
+
+> [!IMPORTANT]
+> - For Single server use **Uid=adminusername@servername**. Note the **@servername** is required.
+> - For Flexible server , use **Uid= adminusername** without the @servername. Note that MySQL Flexible server is in preview. 
+
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -187,4 +195,4 @@ When your Azure MySQL database and repository are no longer needed, clean up the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn about Azure and GitHub integration](/azure/developer/github/)

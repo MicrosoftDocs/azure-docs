@@ -73,7 +73,7 @@ Workbooks support getting Azure resource health and combining it with other data
 
 To make a query control use this data source, use the **Query type** drop-down to choose Azure health and select the resources to target. Use the health filter drop downs to select an interesting subset of resource issues for your analytic needs.
 
-![Screenshot of alerts query](./media/workbooks-overview/resource-health.png)
+![Screenshot of alerts query that shows the health filter lists.](./media/workbooks-overview/resource-health.png)
 
 ## JSON
 

@@ -42,7 +42,7 @@ Standard tests you can perform include:
 One type of pen test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This test includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate, or simulate any type of DoS attack.
 
 >[!Note]
->Microsoft has partnered with BreakingPoint Cloud to build an interface where you can generate traffic against DDoS Protection-enabled public IP addresses for simulations. To learn more about the BreakPoint Cloud simulation, see [validate DDoS detection](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
+>Microsoft has partnered with BreakingPoint Cloud to build an interface where you can generate traffic against DDoS Protection-enabled public IP addresses for simulations. To learn more about the BreakPoint Cloud simulation, see [validate DDoS detection](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
 
 ## Next steps
 

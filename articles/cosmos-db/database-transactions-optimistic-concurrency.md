@@ -4,12 +4,14 @@ description: This article describes database transactions and optimistic concurr
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ---
 
 # Transactions and optimistic concurrency control
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Database transactions provide a safe and predictable programming model to deal with concurrent changes to the data. Traditional relational databases, like SQL Server, allow you to write the business logic using stored-procedures and/or triggers, send it to the server for execution directly within the database engine. With traditional relational databases, you are required to deal with two different programming languages the (non-transactional) application programming language such as JavaScript, Python, C#, Java, etc. and the transactional programming language (such as T-SQL) that is natively executed by the database.
 
@@ -59,4 +61,5 @@ Learn more about database transactions and optimistic concurrency control in the
 - [Working with Azure Cosmos databases, containers and items](account-databases-containers-items.md)
 - [Consistency levels](consistency-levels.md)
 - [Conflict types and resolution policies](conflict-resolution-policies.md)
+- [Using TransactionalBatch](transactional-batch.md)
 - [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)

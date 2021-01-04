@@ -61,9 +61,9 @@ DevOps Starter automatically configured a CI build and release trigger.  You're 
 
 DevOps Starter creates a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
-1. On the left of the DevOps Starter dashboard, select the link for your master branch. This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Starter dashboard, select the link for your main branch. This link opens a view to the newly created Git repository.
 
-1. To view the repository clone URL, select **Clone** on the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
+1. To view the repository clone URL, select **Clone** on the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the main branch.
 
 1. On the left side of the browser, go to the **src/main/webapp/index.html** file.
 

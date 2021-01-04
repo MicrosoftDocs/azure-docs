@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,6 +22,9 @@ Risk detections in Azure AD Identity Protection include any identified suspiciou
 Identity Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
 
 ![Security overview showing risky users and sign-ins](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
+> [!NOTE]
+> Identity Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
 
 ## Risk types and detection
 
@@ -68,9 +71,13 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 
 ### Risk levels
 
-Identity Protection categorizes risk into three tiers: low, medium, and high. 
+Identity Protection categorizes risk into three tiers: low, medium, and high. When configuring [custom Identity protection policies](./concept-identity-protection-policies.md#custom-conditional-access-policy), you can also configure it to trigger upon **No risk** level. No Risk means there is no active indication that the user's identity has been compromised.
 
 While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
+
+### Password hash synchronization
+
+Risk detections like leaked credentials and password spray require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### Leaked credentials
 

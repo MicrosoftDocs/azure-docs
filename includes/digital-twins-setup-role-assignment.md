@@ -11,6 +11,8 @@ Azure Digital Twins uses [Azure Active Directory (Azure AD)](../articles/active-
 
 For Azure Digital Twins, this role is _**Azure Digital Twins Data Owner**_. You can read more about roles and security in [*Concepts: Security for Azure Digital Twins solutions*](../articles/digital-twins/concepts-security.md).
 
+[!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
+
 This section will show you how to create a role assignment for a user in your Azure Digital Twins instance, using that user's email in the Azure AD tenant on your Azure subscription. Depending on your role in your organization, you might set up this permission for yourself, or set it up on behalf of someone else who will be managing the Azure Digital Twins instance.
 
 ### Assign the role

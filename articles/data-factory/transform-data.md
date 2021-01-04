@@ -44,7 +44,7 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 
 ### Wrangling data flows
 
-Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](https://docs.microsoft.com/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
+Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
 
 ## External transformations
 
@@ -73,7 +73,7 @@ Over time, the predictive models in the Studio (classic) scoring experiments nee
 See [Use Azure Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
 
 ### Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 

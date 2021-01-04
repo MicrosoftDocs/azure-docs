@@ -62,7 +62,7 @@ Built-in workbooks provide integrated data from your connected data sources to l
       ![Palo Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-You can customize the workbooks either by editing the main query ![query edit button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![Log Analytics button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the workbook.
+You can customize the workbooks either by editing the main query ![query edit button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![Log Analytics button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/log-analytics-tutorial.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the workbook.
 
 For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -76,10 +76,10 @@ If you want to add a new tile, you can add it to an existing workbook, either on
 You can create a new workbook from scratch or use a built-in workbook as the basis for your new workbook.
 
 1. To create a new workbook from scratch, select **Workbooks** and then **+New workbook**.
-2. Select the subscription the workbook is created in and give it a descriptive name. Each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
+2. Select the subscription the workbook is created in and give it a descriptive name. Each workbook is an Azure resource like any other, and you can assign it roles (Azure RBAC) to define and limit who can access. 
 3. To enable it to show up in your workbooks to pin visualizations to, you have to share it. Click **Share** and then **Manage users**. 
  
-1. Use the **Check access** and **Role assignments** as you would for any other Azure resource. For more information, see [Share Azure workbooks by using RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use the **Check access** and **Role assignments** as you would for any other Azure resource. For more information, see [Share Azure workbooks by using Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## New workbook examples
@@ -87,12 +87,11 @@ You can create a new workbook from scratch or use a built-in workbook as the bas
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
 ```console
- |where DeviceVendor == "Palo Alto Networks":
-  // week over week query
-  SecurityEvent
-  | where TimeGenerated > ago(14d)
-  | summarize count() by bin(TimeGenerated, 1d)
-  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+// week over week query
+SecurityEvent
+| where TimeGenerated > ago(14d)
+| summarize count() by bin(TimeGenerated, 1d)
+| extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 ```
 
 You might want to create a query that incorporates data from multiples sources. You can create a query that looks at Azure Active Directory audit logs for new users that were just created, and then checks your Azure logs to see if the user started making role assignment changes within 24 hours of creation. That suspicious activity would show up on this dashboard:
@@ -125,4 +124,3 @@ For more information about getting out-of-the-box detections, see [Tutorial: Get
 In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
 > [Create custom threat detection rules](tutorial-detect-threats-custom.md) to automate your responses to threats.
-

@@ -272,7 +272,7 @@ As a workaround to resolve this problem, do the following steps and retry the po
 
 #### Step 1 of workaround
 
-Sign in to PowerShell that appears on the MAB UI by using a different account with admin access on the subscription that will have the import or export job created.
+Sign in to PowerShell that appears on the MAB UI by using a different account with admin access on the subscription that will have the Data Box job created.
 
 #### Step 2 of workaround
 

@@ -15,7 +15,7 @@ ms.custom: subject-armqs
 
 # Quickstart: Create an Azure DNS zone and record using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a DNS zone with an A record in it.
+This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a DNS zone with an `A` record in it.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,20 +31,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-In this quickstart, you'll create a unique DNS zone with a suffix of *<span>azurequickstart.</span>org*. An *A* record pointing to two IP addresses will also be placed in the zone.
+In this quickstart, you'll create a unique DNS zone with a suffix of `azurequickstart.org`. An `A` record pointing to two IP addresses will also be placed in the zone.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 Two Azure resources have been defined in the template:
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (Used to create an A record in the zone)
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): Used to create an `A` record in the zone.
 
 To find more templates that are related to Azure Traffic Manager, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
-1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
+1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -67,7 +67,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a zone with one A record pointing to two IP addresses. The resource group name is the project name with **rg** appended.
+    The template deployment creates a zone with one `A` record pointing to two IP addresses. The resource group name is the project name with **rg** appended.
 
     It takes a couple seconds to deploy the template. When completed, the output is similar to:
 
@@ -87,7 +87,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="DNS zone deployment resource group":::
 
-1. Select the DNS zone with the suffix of **<span>azurequickstart.</span>org** to verify that the zone is created properly with an **A** record referencing the value of **1.2.3.4** and **1.2.3.5**.
+1. Select the DNS zone with the suffix of `azurequickstart.org` to verify that the zone is created properly with an `A` record referencing the value of `1.2.3.4` and `1.2.3.5`.
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS zone deployment":::
 
@@ -95,13 +95,13 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Open a command prompt, and run the following command:
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
    For example:
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
@@ -109,7 +109,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS zone nslookup":::
 
-The host name **www<span>.2lwynbseszpam.azurequickstart.</span>org** resolves to **1.2.3.4** and **1.2.3.5**, just as you configured it. This result verifies that name resolution is working correctly.
+The host name `www.2lwynbseszpam.azurequickstart.org` resolves to `1.2.3.4` and `1.2.3.5`, just as you configured it. This result verifies that name resolution is working correctly.
 
 ## Clean up resources
 
@@ -124,10 +124,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## Next steps
 
 In this quickstart, you created a:
-* DNS zone
-* A record
 
-Now that you've created your first DNS zone and record using Azure Resource Manager template, you can create records for a web app in a custom domain.
+- DNS zone
+- `A` record
+
+Now that you've created your first DNS zone and record using an ARM template, you can create records for a web app in a custom domain.
 
 > [!div class="nextstepaction"]
 > [Create DNS records for a web app in a custom domain](./dns-web-sites-custom-domain.md)

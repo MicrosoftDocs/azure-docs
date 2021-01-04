@@ -342,7 +342,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="spatial-reference"></a> **Spatial reference**: A coordinate-based local, regional, or global system used to precisely locate geographical entities. It defines the coordinate system used to relate map coordinates to locations in the real world. Spatial references ensure spatial data from different layers, or sources, can be integrated for accurate viewing or analysis. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system and WGS 84 for input geometry data.
 
-<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
+<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
 
 <a name="subscription-key"></a> **Subscription key**: See [Shared key authentication](#shared-key-authentication).
 
@@ -404,4 +404,3 @@ The following list describes common words used with the Azure Maps services.
 <a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
 
 <a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
-

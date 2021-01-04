@@ -54,7 +54,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 This command displays a dialog box that provides you with details about the join status.
 
-![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text that includes an email address states that a certain device is joined to a workplace." border="false":::
 
 ## Step 2: Evaluate the hybrid Azure AD join status 
 
@@ -64,7 +64,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
 
 - A misconfigured AD FS or Azure AD or Network issues
 
-    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports that an error occurred during account authentication." border="false":::
     
    - Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. This could be caused by missing or misconfigured AD FS (for federated domains) or missing or misconfigured Azure AD Seamless Single Sign-On (for managed domains) or network issues. 
    - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
@@ -75,7 +75,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
    - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings, and **Allow updates to status bar via script** is not enabled for the Intranet zone.
 - You are not signed on as a domain user
 
-   ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports that an error occurred during account verification." border="false":::
 
    There are a few different reasons why this can occur:
 
@@ -83,11 +83,11 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
    - The client is not able to connect to a domain controller.    
 - A quota has been reached
 
-    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports an error because the user has reached the maximum number of joined devices." border="false":::
 
 - The service is not responding 
 
-    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports that an error occurred because the server did not respond." border="false":::
 
 You can also find the status information in the event log under: **Applications and Services Log\Microsoft-Workplace Join**
   

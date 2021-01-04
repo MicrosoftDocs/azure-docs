@@ -38,7 +38,6 @@ The following table lists several common devices and related help:
 
 ## Next step
 
-[Azure Gateways settings](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
+[Azure Gateways settings](./vpn-gateway-about-vpn-devices.md)
 
-[Known compatible devices](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-
+[Known compatible devices](./vpn-gateway-about-vpn-devices.md)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ---
 
@@ -75,7 +75,7 @@ You now have the option to use version 3.0 of the Read API to extract printed or
 * Confidence score for each extracted word
 * Support for both Spanish and English languages with the additional language parameter
 
-Follow an [Extract text quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) to get starting using the 3.0 API.
+Follow an [Extract text quickstart](./quickstarts/csharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
 
 ## Cognitive Service updates
 

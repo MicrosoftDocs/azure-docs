@@ -4,7 +4,7 @@ description: Learn how to deploy containers in Azure Container Instances by pull
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Deploy to Azure Container Instances from Azure Container Registry

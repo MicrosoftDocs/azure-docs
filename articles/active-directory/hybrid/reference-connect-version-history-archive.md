@@ -161,7 +161,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 ### New features and improvements
 
 - The Ping Federate integration in Azure AD Connect is now available for General Availability. [Learn more about how to federated Azure AD with Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
-- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - New troubleshooting tooling helps troubleshoot changing primary email address and hiding account from global address list
 - Azure AD Connect was updated to include the latest SQL Server 2012 Native Client
 - When you switch user sign-in to Password Hash Synchronization or Pass-through Authentication in the "Change user sign-in" task, the Seamless Single Sign-On checkbox is enabled by default.
@@ -1018,7 +1018,7 @@ Released: February 2016
 **New features:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature for Express settings customers.
-* Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
+* Support for the global admin by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
   * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
   * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.

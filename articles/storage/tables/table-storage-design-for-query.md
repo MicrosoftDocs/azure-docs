@@ -38,7 +38,7 @@ The following examples assume the table service is storing employee entities wit
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-The article [Azure Table storage overview](table-storage-overview.md) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
+The article [Azure Table storage overview](table-storage-overview.md) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](/rest/api/storageservices/Query-Entities).  
 
 * A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity very efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
   $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  

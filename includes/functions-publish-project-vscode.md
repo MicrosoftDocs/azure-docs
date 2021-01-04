@@ -28,14 +28,6 @@ In this section, you create a function app and related resources in your Azure s
       
     - **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
     
-    ::: zone pivot="programming-language-python"
-    - **Select a runtime**: Choose the version of Python you've been running on locally. You can use the `python --version` command to check your version.
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    - **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
-    ::: zone-end
-
     - **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
     
 1.  When completed, the following Azure resources are created in your subscription, using names based on your function app name:

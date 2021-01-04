@@ -64,7 +64,7 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 
 | Source IP addresses | Source service tag | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/A | `BatchNodeManagement` [Service tag](../articles/virtual-network/security-overview.md#service-tags) (if using regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
+| N/A | `BatchNodeManagement` [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) (if using regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
 | User source IPs for remotely accessing compute nodes and/or compute node subnet for Linux multi-instance tasks, if required. | N/A | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
@@ -74,7 +74,7 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 
 | Source | Source ports | Destination | Destination service tag | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Any | * | [Service tag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
+| Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
 
 ### Pools in the Cloud Services configuration
 
