@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 01/04/2021git checkout -B public0104 master
+ms.date: 01/04/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
