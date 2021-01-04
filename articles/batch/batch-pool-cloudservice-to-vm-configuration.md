@@ -13,7 +13,7 @@ If you use 'cloudServiceConfiguration' pools, it is highly recommended that you 
 
 ## New pools are required
 
-Existing active pools cannot be updated from 'cloudServiceConfiguration' to 'virtualMachineConfiguration', new pools must be created. Creating pools using 'virtualMachineConfiguration' is supported by all Batch APIs, command line tools, Azure portal, and the Batch Explorer UI.
+Existing active pools cannot be updated from 'cloudServiceConfiguration' to 'virtualMachineConfiguration', new pools must be created. Creating pools using 'virtualMachineConfiguration' is supported by all Batch APIs, command-line tools, Azure portal, and the Batch Explorer UI.
 
 The [.NET](tutorial-parallel-dotnet.md) and [Python](tutorial-parallel-python.md) tutorials provide examples of pool creation using 'virtualMachineConfiguration'.
 
@@ -23,7 +23,7 @@ The following should be considered when updating pool configuration:
 
 - 'cloudServiceConfiguration' pool nodes are always Windows OS, 'virtualMachineConfiguration' pools can either be Linux or Windows OS.
 - Compared to 'cloudServiceConfiguration' pools, 'virtualMachineConfiguration' pools have a richer set of capabilities, such as container support, data disks, and disk encryption.
-- 'virtualMachineConfiguration' pool nodes utilize managed OS disks. The [managed disk type](../virtual-machines/disk-types.md) that is used for each node depends on the VM size chosen for the pool. If a 's' VM size is specified for the pool (e.g. 'Standard_D2s_v3'), then a premium SSD is used; if a 'non-s' VM size is specified (e.g. 'Standard_D2_v3'), then a standard HDD is used.
+- 'virtualMachineConfiguration' pool nodes utilize managed OS disks. The [managed disk type](../virtual-machines/disks-types.md) that is used for each node depends on the VM size chosen for the pool. If a 's' VM size is specified for the pool, for example 'Standard_D2s_v3', then a premium SSD is used. If a 'non-s' VM size is specified, for example 'Standard_D2_v3', then a standard HDD is used.
 
 > [!IMPORTANT]
 > As with Virtual Machines and Virtual Machine Scale Sets, the OS managed disk used for each node incurs a cost, which is additional to the cost of the VMs. There is no OS disk cost for 'cloudServiceConfiguration' nodes as the OS disk is created on the nodes local SSD. In the future, support for [ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md) will be added for 'virtualMachineConfiguration' pools, which will create the OS disk on the VM cache or temporary SSD and will avoid the extra cost associated with the managed disks.
