@@ -97,7 +97,7 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 
 * Distributed across regions. Some services are regional.
 
-* Distributed across Availability Zones (as well regions) in locations that have multiple Availability Zones.
+* Distributed across Availability Zones (as well as regions) in locations that have multiple Availability Zones.
 
 * Not dependent on a single logical data center.
 

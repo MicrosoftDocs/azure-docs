@@ -39,7 +39,7 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 
 You need to have an Azure account and Speech service subscription before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
 
-If you plan to train a custom model with audio data, pick one of the following regions. This will reduce the time it takes to train a model.
+If you plan to train a custom model with audio data, pick one of the following regions that have dedicated hardware available for training. This will reduce the time it takes to train a model.
 
 * Australia East
 * Canada Central

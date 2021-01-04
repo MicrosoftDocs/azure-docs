@@ -352,6 +352,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Storage account considerations**: 
 
 - Location: The storage account used must be in the same region as the NSG.
+- Performance Tier: Currently, only standard tier storage accounts are supported.
 - Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging means incurring separate storage costs for extended periods of time. If you do not require the retention policy feature, we recommend that you set this value to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
