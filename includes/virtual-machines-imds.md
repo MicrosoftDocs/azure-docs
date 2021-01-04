@@ -19,7 +19,7 @@ IMDS is available for running instances of virtual machines (VMs) and virtual ma
 the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
-Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Usage
 
@@ -54,7 +54,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](../../../includes/virtual-machines-imds-full-instance-response.md)]
+[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
 
 ## Security and authentication
 
@@ -322,7 +322,7 @@ This endpoint supports response filtering via [route parameters](#route-paramete
 
 #### Response
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](../../../includes/virtual-machines-imds-full-instance-response.md)]
+[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
 
 Schema breakdown:
 
@@ -341,27 +341,27 @@ Schema breakdown:
 | `osProfile.computerName` | Specifies the name of the computer | 2020-07-15
 | `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
 | `osType` | Linux or Windows | 2017-04-02
-| `placementGroupId` | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
+| `placementGroupId` | [Placement Group](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-| `platformUpdateDomain` |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
-| `platformFaultDomain` | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
+| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
+| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
-| `resourceGroupName` | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
+| `resourceGroupName` | [Resource group](../articles/azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 | `resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 | `sku` | Specific SKU for the VM image | 2017-04-02
 | `securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
 | `securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
 | `storageProfile` | See Storage Profile below | 2019-06-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
-| `tags` | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
+| `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `version` | Version of the VM image | 2017-04-02
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-| `vmScaleSetName` | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
-| `vmSize` | [VM size](../sizes.md) | 2017-04-02
-| `zone` | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+| `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
+| `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
+| `zone` | [Availability Zone](../articles/availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
 **Storage profile**
 
@@ -457,7 +457,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
-You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
+You can also use [Availability Zones](../articles/availability-zones/az-overview.md) for the instances to make these decisions.
 You can query this data directly via IMDS.
 
 **Request**
@@ -873,10 +873,10 @@ If you pinned the intermediate certificates for Azure China as part of a root ch
 A managed identity, assigned by the system, can be enabled on the VM. You can also assign one or more user-assigned managed identities to the VM.
 You can then request tokens for managed identities from IMDS. Use these tokens to authenticate with other Azure services, such as Azure Key Vault.
 
-For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+For detailed steps to enable this feature, see [Acquire an access token](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## Scheduled events
-You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events](scheduled-events.md).
+You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
 
 ## Sample code in different languages
 
@@ -921,11 +921,11 @@ Currently, IMDS only supports instances created with Azure Resource Manager.
 
 **I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?**
 
-If you created your VM after September 2016, add a [tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
 **Why am I not seeing all data populated for a new version?**
 
-If you created your VM after September 2016, add a [tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
 **Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?**
 
@@ -1051,6 +1051,8 @@ You can provide product feedback and ideas to our user feedback channel under Vi
 
 ## Next steps
 
-[Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+[Acquire an access token for the VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-[Scheduled events](scheduled-events.md)
+[Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md)
+
+[Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md)
