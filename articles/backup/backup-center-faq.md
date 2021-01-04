@@ -29,7 +29,9 @@ No. Backup Center comes ready out of the box. However, to view [Backup Reports](
 
 ### Do I need to have any special permissions to use Backup Center?
 
-Backup Center as such doesn't need any new permissions. As long as you have the right level of Azure RBAC access for the resources you're managing, you can use Backup Center for these resources. For example, to view information about your backups, you'll need **Reader** access to your vaults. To configure backup and perform other backup-related actions, you'll need **Backup Contributor** or **Backup Operator** roles. Learn more about [Azure roles for Azure Backup](./backup-rbac-rs-vault.md).
+Backup Center as such doesn't need any new permissions. As long as you have the right level of Azure RBAC access for the resources you're managing, you can use Backup Center for these resources. For example, to view information about your backups, you'll need **Reader** access to your vaults. To configure backup and perform other backup-related actions, you'll need **Backup Contributor** or **Backup Operator** roles. Learn more about [Azure roles for Azure Backup](./backup-rbac-rs-vault.md). 
+
+If you're using [Backup Reports](./configure-reports.md) under Backup Center, you will need access to the Log Analytics workspace(s) that your vault(s) are sending data to, to view reports for these vaults.
 
 ## Pricing
 
