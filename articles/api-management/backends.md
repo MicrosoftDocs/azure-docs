@@ -89,7 +89,7 @@ Add this policy to the **Inbound processing** seciton. In `backend-id`, substitu
 
 ## Test backend API
 
-
+:::image type="content" source="media/backends/test-backend-service.png" alt-text="Test Service Fabic backend":::
 
 ## Create backend - Azure PowerShell
 
