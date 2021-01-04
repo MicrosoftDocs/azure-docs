@@ -36,7 +36,7 @@ To optimize the recent data in cache, consider the following configuration setti
 
 These configurations help ensure that the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your usecase then mind considering Date tiered compaction. For more details on what Date Tiered compaction is, see [Apache HBase Reference Guide: Date Tiered Compaction](https://hbase.apache.org/book.html#ops.date.tiered)  
 
-# Flush queue tuning
+## Flush queue tuning
 
 The advisory may indicate that your flushes may need tuning. The flush handlers might not be enough.
 
@@ -44,7 +44,7 @@ In the region server UI keep an eye on the flush queue and if it grows beyond 10
 
 In addition, see if you have a recommendation for region count tuning. If so first try the region tuning to see if that helps in faster flushes. Tuning the flusher threads might help in multiple ways like 
 
-# Region count tuning
+## Region count tuning
 
 The most prominent reason why you have blocked updates is that the region count might be more than the optimally supported heap size. Generally how to tune the heap size, memstore size and the region count? Let's see an example:
 
@@ -57,7 +57,7 @@ With above settings in place and the number of regions is 100. The 4G global mem
 
 The advisory here means that it would be good to revisit the number of regions per server, the heap size and the global memstore size configuration along with the flush threads tuning so that such updates getting blocked can be avoided.
 
-# Compaction queue tuning
+## Compaction queue tuning
 
 The compaction queue grows to more than 2000 and this seems to happen periodically. This suggests that you can increase the compaction threads to a bigger value.
 
@@ -70,7 +70,7 @@ The configurations are `hbase.regionserver.thread.compaction.small` and `hbase.r
 Cap the max value for this configuration to be less than 3.
 
 
-# Full table scan
+## Full table scan
 
 If you have happen to see this advisory it indicates that over 75% of the scans issued are full table/region scans. Revisiting how the scan is formed might help in faster query performance like:
 
