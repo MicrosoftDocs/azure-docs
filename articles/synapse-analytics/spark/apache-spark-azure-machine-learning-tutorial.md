@@ -139,7 +139,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert a dataframe to an Azure Machine Learning dataset
-To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
+To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 
@@ -160,42 +160,44 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 ```
 ![Picture of uploaded dataset.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
-## Submit an automated ML experiment
+## Submit an automated experiment
 
-#### Define training settings
-1. To submit an experiment, we will need to define the experiment parameter and model settings for training. You can view the full list of settings [here](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
+The following sections walk you through the process of submitting an automated machine learning experiment.
 
-```python
-import logging
+### Define training settings
+1. To submit an experiment, you need to define the experiment parameter and model settings for training. For the full list of settings, see [Configure automated machine learning experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
 
-automl_settings = {
-    "iteration_timeout_minutes": 10,
-    "experiment_timeout_minutes": 30,
-    "enable_early_stopping": True,
-    "primary_metric": 'r2_score',
-    "featurization": 'auto',
-    "verbosity": logging.INFO,
-    "n_cross_validations": 2}
-```
+   ```python
+   import logging
 
-2. Now, we will pass the defined training settings as a **kwargs parameter to an AutoMLConfig object. Since we are training in Spark, we will also have to pass the Spark Context which is automatically accessible by the ```sc``` variable. Additionally, we will specify the training data and the type of model, which is regression in this case.
+   automl_settings = {
+       "iteration_timeout_minutes": 10,
+       "experiment_timeout_minutes": 30,
+       "enable_early_stopping": True,
+       "primary_metric": 'r2_score',
+       "featurization": 'auto',
+       "verbosity": logging.INFO,
+       "n_cross_validations": 2}
+   ```
 
-```python
-from azureml.train.automl import AutoMLConfig
+1. Pass the defined training settings as a `kwargs` parameter to an `AutoMLConfig` object. Because you're using Spark, you must also pass the Spark context, which is automatically accessible by the ```sc``` variable. Additionally, you specify the training data and the type of model, which is regression in this case.
 
-automl_config = AutoMLConfig(task='regression',
-                             debug_log='automated_ml_errors.log',
-                             training_data = dataset_training,
-                             spark_context = sc,
-                             model_explainability = False, 
-                             label_column_name ="fareAmount",**automl_settings)
-```
+   ```python
+   from azureml.train.automl import AutoMLConfig
+
+   automl_config = AutoMLConfig(task='regression',
+                                debug_log='automated_ml_errors.log',
+                                training_data = dataset_training,
+                                spark_context = sc,
+                                model_explainability = False, 
+                                label_column_name ="fareAmount",**automl_settings)
+   ```
 
 > [!NOTE]
->Automated machine learning pre-processing steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
+>Automated machine learning pre-processing steps become part of the underlying model. These steps include feature normalization, handling missing data, and converting text to numeric. When you're using the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
 
-#### Train the automatic regression model 
-Now, we will create an experiment object in your Azure Machine Learning workspace. An experiment acts as a container for your individual runs. 
+### Train the automatic regression model 
+Next, you create an experiment object in your Azure Machine Learning workspace. An experiment acts as a container for your individual runs. 
 
 ```python
 from azureml.core.experiment import Experiment
@@ -208,113 +210,113 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-Once the experiment has completed, the output will return details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The field BEST tracks the best running training score based on your metric type.
+When the experiment has completed, the output returns details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The **BEST** field tracks the best-running training score based on your metric type.
 
 ![Screenshot of model output.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> Once submitted, the automated ML experiment will run various iterations and model types. This run will typically take 1-1.5 hours. 
+> After you submit the automated machine learning experiment, it runs various iterations and model types. This run typically takes 60-90 minutes. 
 
-#### Retrieve the best model
-To select the best model from your iterations, we will use the ```get_output``` function to return the best run and fitted model. The code below will retrieve the best run and fitted model for any logged metric or a particular iteration.
+### Retrieve the best model
+To select the best model from your iterations, use the ```get_output``` function to return the best run and fitted model. The following code retrieves the best run and fitted model for any logged metric or a particular iteration.
 
 ```python
 # Get best model
 best_run, fitted_model = local_run.get_output()
 ```
 
-#### Test model accuracy
-1. To test the model accuracy, we will use the best model to run taxi fare predictions on the test data set. The ```predict``` function uses the best model and predicts the values of y (fare amount) from the validation dataset. 
+### Test model accuracy
+1. To test the model accuracy, use the best model to run taxi fare predictions on the test dataset. The ```predict``` function uses the best model and predicts the values of y (fare amount) from the validation dataset. 
 
-```python
-# Test best model accuracy
-validation_data_pd = validation_data.toPandas()
-y_test = validation_data_pd.pop("fareAmount").to_frame()
-y_predict = fitted_model.predict(validation_data_pd)
-```
+   ```python
+   # Test best model accuracy
+   validation_data_pd = validation_data.toPandas()
+   y_test = validation_data_pd.pop("fareAmount").to_frame()
+   y_predict = fitted_model.predict(validation_data_pd)
+   ```
 
-2. The root-mean-square error (RMSE) is a frequently used measure of the differences between sample values predicted by a model and the values observed. We will calculate the root mean squared error of the results by comparing the y_test dataframe to the values predicted by the model. 
+1. The root-mean-square error is a frequently used measure of the differences between sample values predicted by a model and the values observed. You calculate the root-mean-square error of the results by comparing the `y_test` dataframe to the values predicted by the model. 
 
-   The function ```mean_squared_error``` takes two arrays and calculates the average squared error between them. We then take the square root of the result. This metric indicates roughly how far the taxi fare predictions are from the actual fares values.
+   The function ```mean_squared_error``` takes two arrays and calculates the average squared error between them. You then take the square root of the result. This metric indicates roughly how far the taxi fare predictions are from the actual fares values.
 
-```python
-from sklearn.metrics import mean_squared_error
-from math import sqrt
+   ```python
+   from sklearn.metrics import mean_squared_error
+   from math import sqrt
 
-# Calculate Root Mean Square Error
-y_actual = y_test.values.flatten().tolist()
-rmse = sqrt(mean_squared_error(y_actual, y_predict))
+   # Calculate Root Mean Square Error
+   y_actual = y_test.values.flatten().tolist()
+   rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
-print("Root Mean Square Error:")
-print(rmse)
-```
+   print("Root Mean Square Error:")
+   print(rmse)
+   ```
 
-```Output
-Root Mean Square Error:
-2.309997102577151
-```
-The root-mean-square error is a good measure of how accurately the model predicts the response. From the results , you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $2.00
+   ```Output
+   Root Mean Square Error:
+   2.309997102577151
+   ```
+   The root-mean-square error is a good measure of how accurately the model predicts the response. From the results, you see that the model is fairly good at predicting taxi fares from the dataset's features, typically within $2.00.
 
-3. Run the following code to calculate mean absolute percent error (MAPE). This metric expresses accuracy as a percentage of the error. It does this by calculating an absolute difference between each predicted and actual value and then summing all the differences. Then, it expresses that sum as a percent of the total of the actual values.
+1. Run the following code to calculate the mean-absolute-percent error. This metric expresses accuracy as a percentage of the error. It does this by calculating an absolute difference between each predicted and actual value and then summing all the differences. Then, it expresses that sum as a percent of the total of the actual values.
 
-```python
-# Calculate MAPE and Model Accuracy 
-sum_actuals = sum_errors = 0
+   ```python
+   # Calculate MAPE and Model Accuracy 
+   sum_actuals = sum_errors = 0
 
-for actual_val, predict_val in zip(y_actual, y_predict):
-    abs_error = actual_val - predict_val
-    if abs_error < 0:
-        abs_error = abs_error * -1
+   for actual_val, predict_val in zip(y_actual, y_predict):
+       abs_error = actual_val - predict_val
+       if abs_error < 0:
+           abs_error = abs_error * -1
 
-    sum_errors = sum_errors + abs_error
-    sum_actuals = sum_actuals + actual_val
+       sum_errors = sum_errors + abs_error
+       sum_actuals = sum_actuals + actual_val
 
-mean_abs_percent_error = sum_errors / sum_actuals
+   mean_abs_percent_error = sum_errors / sum_actuals
 
-print("Model MAPE:")
-print(mean_abs_percent_error)
-print()
-print("Model Accuracy:")
-print(1 - mean_abs_percent_error)
-```
+   print("Model MAPE:")
+   print(mean_abs_percent_error)
+   print()
+   print("Model Accuracy:")
+   print(1 - mean_abs_percent_error)
+   ```
 
-```Output
-Model MAPE:
-0.03655071038487368
+   ```Output
+   Model MAPE:
+   0.03655071038487368
 
-Model Accuracy:
-0.9634492896151263
-```
-From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features. 
+   Model Accuracy:
+   0.9634492896151263
+   ```
+   From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the dataset's features. 
 
-4. After fitting a linear regression model, we will now need to determine how well the model fits the data. To do this, we will plot the actual fare values against the predicted output. In addition, we will also calculate the R-squared measure to understand how close the data is to the fitted regression line.
+1. After fitting a linear regression model, you now need to determine how well the model fits the data. To do this, you plot the actual fare values against the predicted output. In addition, you calculate the R-squared measure to understand how close the data is to the fitted regression line.
 
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.metrics import mean_squared_error, r2_score
+   ```python
+   import matplotlib.pyplot as plt
+   import numpy as np
+   from sklearn.metrics import mean_squared_error, r2_score
 
-# Calculate the R2 score using the predicted and actual fare prices
-y_test_actual = y_test["fareAmount"]
-r2 = r2_score(y_test_actual, y_predict)
+   # Calculate the R2 score using the predicted and actual fare prices
+   y_test_actual = y_test["fareAmount"]
+   r2 = r2_score(y_test_actual, y_predict)
 
-# Plot the Actual vs Predicted Fare Amount Values
-plt.style.use('ggplot')
-plt.figure(figsize=(10, 7))
-plt.scatter(y_test_actual,y_predict)
-plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
-plt.xlabel("Actual Fare Amount")
-plt.ylabel("Predicted Fare Amount")
-plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
-plt.show()
+   # Plot the Actual vs Predicted Fare Amount Values
+   plt.style.use('ggplot')
+   plt.figure(figsize=(10, 7))
+   plt.scatter(y_test_actual,y_predict)
+   plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
+   plt.xlabel("Actual Fare Amount")
+   plt.ylabel("Predicted Fare Amount")
+   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+   plt.show()
 
-```
-![Screenshot of regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
+   ```
+   ![Screenshot of regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
-   From the results, we can see that the R-squared measure accounts for 95% of our variance. This is also validated by the actual verses observed plot. The more variance that is accounted for by the regression model the closer the data points will fall to the fitted regression line.  
+   From the results, you can see that the R-squared measure accounts for 95 percent of the variance. This is also validated by the actual plot verses the observed plot. The more variance that's accounted for by the regression model, the closer the data points will fall to the fitted regression line.  
 
 ## Register model to Azure Machine Learning
-Once we have validated our best model, we can register the model to Azure Machine Learning. After you register the model, you can then download or deploy the registered model and receive all the files that you registered.
+After you've validated your best model, you can register it to Azure Machine Learning. Then, you can download or deploy the registered model and receive all the files that you registered.
 
 ```python
 description = 'My automated ML model'
@@ -326,10 +328,10 @@ print(model.name, model.version)
 NYCGreenTaxiModel 1
 ```
 ## View results in Azure Machine Learning
-Last, you can also access the results of the iterations by navigating to the experiment in your Azure Machine Learning Workspace. Here, you will be able to dig into additional details on the status of your run, attempted models, and other model metrics. 
+Last, you can also access the results of the iterations by going to the experiment in your Azure Machine Learning workspace. Here, you can dig into additional details on the status of your run, attempted models, and other model metrics. 
 
 ![Screenshot of Azure Machine Learning workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## Next steps
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark MLlib Tutorial](./apache-spark-machine-learning-mllib-notebook.md)
+- [Tutorial: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics](./apache-spark-machine-learning-mllib-notebook.md)
