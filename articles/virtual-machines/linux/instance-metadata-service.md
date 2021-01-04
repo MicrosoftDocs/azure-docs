@@ -205,6 +205,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+---
 
 In json responses, all primitives will be of type `string`, and missing or inapplicable values are always included but will be set to an empty string.
 
@@ -448,6 +449,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
+---
+
 **Response**
 
 ```text
@@ -475,6 +478,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
+---
+
 **Response**
 
 ```text
@@ -498,6 +503,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01"
 ```
+
+---
 
 **Response**
 
@@ -622,6 +629,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
+---
+
 **Response**
 
 ```text
@@ -653,6 +662,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
+
+---
 
 **Response**
 
@@ -696,6 +707,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
+
+---
 
 ## Attested data
 
@@ -934,6 +947,56 @@ Currently tags for virtual machine scale sets only show to the VM on a reboot, r
 
 Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
+#### [Windows](#tab/windows/)
+
+1. Dump your local routing table and look for the IMDS entry. For example:
+    ```console
+    > route print
+    IPv4 Route Table
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+            127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+            127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+      169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+    ... (continues) ...
+    ```
+1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (for example, `172.16.69.7`).
+1. Dump the interface configuration and find the interface that corresponds to the one referenced in the routing table, noting the MAC (physical) address.
+    ```console
+    > ipconfig /all
+    ... (continues) ...
+    Ethernet adapter Ethernet:
+
+       Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+       Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+       DHCP Enabled. . . . . . . . . . . : Yes
+       Autoconfiguration Enabled . . . . : Yes
+       Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+       IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+    ... (continues) ...
+    ```
+1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+    ```powershell
+    $ResourceGroup = '<Resource_Group>'
+    $VmName = '<VM_Name>'
+    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+    foreach($NicName in $NicNames)
+    {
+        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+        Write-Host $NicName, $Nic.primary, $Nic.macAddress
+    }
+    # Output: wintest767 True 00-0D-3A-E5-1C-C0
+    ```
+1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
+
+#### [Linux](#tab/linux/)
+
 1. Dump your local routing table and look for the IMDS entry. For example:         
     ```console
       > route print
@@ -980,6 +1043,8 @@ Metadata calls must be made from the primary IP address assigned to the primary 
     ```
 1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
 
+---
+
 ## Support
 
 If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
@@ -993,4 +1058,3 @@ You can provide product feedback and ideas to our user feedback channel under Vi
 [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
 [Scheduled events](scheduled-events.md)
-
