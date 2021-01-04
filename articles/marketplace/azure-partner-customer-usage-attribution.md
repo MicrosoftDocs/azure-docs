@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 
 # Customer usage attribution
 
-Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#Commercial-Marketplace-Azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
@@ -20,7 +20,7 @@ Customer usage attribution supports three deployment options:
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 - Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
-There are secondary use cases for customer usage attribution outside of Commercial Marketplace described [later in this article](#Other-use-cases).
+There are secondary use cases for customer usage attribution outside of Commercial Marketplace described [later in this article](#other-use-cases).
 
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure.
@@ -30,7 +30,7 @@ There are secondary use cases for customer usage attribution outside of Commerci
 ## Commercial Marketplace Azure applications
 Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure Application's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
-If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#Use-Resource-Manager-APIs) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
+If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
 
 > [!NOTE]
 > For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
@@ -99,7 +99,7 @@ Many partner solutions are deployed using Resource Manager templates. To add you
 
 1. Republish the template in the appropriate repositories.
 
-1. [Verify GUID success in the template deployment](#Verify-deployments-tracked-with-a-GUID).
+1. [Verify GUID success in the template deployment](#verify-deployments-tracked-with-a-guid).
 
 > [!TIP]
 > For more information on creating and publishing Resourse Manager templates, see: [create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
