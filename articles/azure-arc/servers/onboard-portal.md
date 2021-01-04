@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from the Azure portal.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ---
 
@@ -108,9 +108,9 @@ If the agent fails to start after setup is finished, check the logs for detailed
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The [shell script bundle `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) performs the following actions:
 
-- Configures the host machine to download the agent package from packages.microsoft.com.
-- Installs the Hybrid Resource Provider package.
-- Registers the machine with Azure Arc
+* Configures the host machine to download the agent package from packages.microsoft.com.
+
+* Installs the Hybrid Resource Provider package.
 
 Optionally, you can configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
@@ -126,15 +126,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
+1. To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. After installing the agent, you need to configure it to communicate with the Azure Arc service by running the following command:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### Install with the scripted method
+
+1. Log in to the server with an account that has root access.
+
+1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.sh` script.
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *var/opt/azcmagent/log*.
 
 ## Verify the connection with Azure Arc
 

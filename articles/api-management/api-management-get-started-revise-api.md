@@ -1,25 +1,24 @@
 ---
-title: Use revisions to make non-breaking changes safely in API Management
+title: Tutorial - Use revisions in API Management to make non-breaking API changes safely 
 titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
-
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/30/2020
 ms.author: apimpm
 
 ---
 
-# Use revisions to make non-breaking changes safely
-When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) and [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
+# Tutorial: Use revisions to make non-breaking API changes safely
+When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. 
+
+In Azure API Management, use *revisions* to make non-breaking API changes so you can model and test changes safely. When ready, you can make a revision current and replace your current API. 
+
+For background, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) and [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
 In this tutorial, you learn how to:
 
@@ -29,7 +28,7 @@ In this tutorial, you learn how to:
 > * Make your revision current and add a change log entry
 > * Browse the developer portal to see changes and change log
 
-![Change Log on the Developer Portal](media/api-management-getstarted-revise-api/azure_portal.PNG)
+:::image type="content" source="media/api-management-getstarted-revise-api/azure-portal.png" alt-text="API revisions in the Azure portal":::
 
 ## Prerequisites
 
@@ -39,18 +38,19 @@ In this tutorial, you learn how to:
 
 ## Add a new revision
 
-![Add API revision](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
+1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+1. Select **APIs**.
+2. Select **Demo Conference API** from the API list (or another API to which you want to add revisions).
+3. Select the **Revisions** tab.
+4. Select **+ Add revision**.
 
-1. Select **APIs** page.
-2. Select **Demo Conference API** from the API list (or other API to which you want to add revisions).
-3. Click the **Revisions** tab from the menu near the top of the page.
-4. Select **+ Add Revision**
+   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Add API revision":::
 
     > [!TIP]
-    > You can also choose **Add Revision** in the context menu (**...**) of the API.
+    > You can also select **Add revision** in the context menu (**...**) of the API.
 
 5. Provide a description for your new revision, to help remember what it will be used for.
-6. Select **Create**
+6. Select **Create**,
 7. Your new revision is now created.
 
     > [!NOTE]
@@ -58,40 +58,41 @@ In this tutorial, you learn how to:
 
 ## Make non-breaking changes to your revision
 
-![Modify revision](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
-
 1. Select **Demo Conference API** from the API list.
-2. Select the **Design** tab near the top of the screen.
-3. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
+1. Select the **Design** tab near the top of the screen.
+1. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
 
     > [!TIP]
     > Use the revision selector to switch between revisions that you wish to work on.
+1. Select **+ Add Operation**.
+1. Set your new operation to be **POST**, and the Name, Display Name and URL of the operation as **test**.
+1. **Save** your new operation.
 
-4. Select **+ Add Operation**.
-5. Set your new operation to be **POST**, and the Name, Display Name and URL of the operation as **test**.
-6. **Save** your new operation.
-7. We have now made a change to **Revision 2**. Use the **Revision Selector** near the top of the page to switch back to **Revision 1**.
-8. Notice that your new operation does not appear in **Revision 1**. 
+   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Modify revision":::
+1. You've now made a change to **Revision 2**. Use the **revision selector** near the top of the page to switch back to **Revision 1**.
+1. Notice that your new operation does not appear in **Revision 1**. 
 
 ## Make your revision current and add a change log entry
 
 1. Select the **Revisions** tab from the menu near the top of the page.
+1. Open the context menu (**...**) for **Revision 2**.
+1. Select **Make current**.
+1. Select the **Post to Public Change log for this API** checkbox, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**
+1. **Revision 2** is now current.
 
-    ![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Revision menu in Revisions window":::
 
-2. Open the context menu (**...**) for **Revision 2**.
-3. Select **Make Current**.
-4. Check **Post to Public Change log for this API**, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**
-5. **Revision 2** is now current.
 
 ## Browse the developer portal to see changes and change log
 
+If you've tried the [developer portal](api-management-howto-developer-portal-customize.md), you can review the API changes and change log there.
+
 1. In the Azure portal, select **APIs**.
-2. Select **Developer Portal** from the top menu.
-3. Select **APIs**, and then select **Demo Conference API**.
-4. Notice your new **test** operation is now available.
-5. Click on **Changelog** near the API name.
-6. Notice that your change log entry appears in this list.
+1. Select **Developer portal** from the top menu.
+1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
+1. Notice your new **test** operation is now available.
+1. Select **Changelog** near the API name.
+1. Notice that your change log entry appears in this list.
 
 ## Next steps
 

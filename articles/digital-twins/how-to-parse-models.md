@@ -131,10 +131,10 @@ async void ParseDemo(DigitalTwinsClient client)
 {
     try
     {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
+        AsyncPageable<DigitalTwinsModelData> mdata = client.GetModelsAsync(new GetModelsOptions { IncludeModelDefinition = true });
         List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
-            models.Add(md.Model);
+        await foreach (DigitalTwinsModelData md in mdata)
+            models.Add(md.DtdlModel);
         ModelParser parser = new ModelParser();
         IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);
 

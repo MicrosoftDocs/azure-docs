@@ -21,7 +21,7 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 You can create a new app in the portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
-* Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
+* Start with an empty app and add a [prebuilt domain](./howto-add-prebuilt-models.md).
 * Import a LUIS app from a `.lu` or `.json` file that already contains intents, utterances, and entities.
 
 ## Using the authoring APIs
@@ -72,4 +72,4 @@ The context toolbar provides other actions:
 
 ## Next steps
 
-If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](luis-how-to-add-example-utterances.md), and label the example utterances with those entities.
+If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](./luis-how-to-add-entities.md), and label the example utterances with those entities.

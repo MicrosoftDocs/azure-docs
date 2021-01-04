@@ -18,4 +18,4 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Next steps
 
-- [Write events to an event stream (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write events to an event stream (Output binding)](./functions-bindings-event-hubs-output.md)

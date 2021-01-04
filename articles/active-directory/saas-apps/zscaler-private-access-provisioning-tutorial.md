@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
 ---
@@ -73,7 +73,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Zscaler Private Access (ZPA) Create Token](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.	To locate the **Tenant URL** , navigate to **Administration > IdP Configuration**. Click on the name of the newly added IdP configuration listed on the page.
+8.	To locate the **Tenant URL**, navigate to **Administration > IdP Configuration**. Click on the name of the newly added IdP configuration listed on the page.
 
 	![Zscaler Private Access (ZPA) Idp Name](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 

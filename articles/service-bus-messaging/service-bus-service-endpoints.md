@@ -7,7 +7,6 @@ ms.custom: fasttrack-edit
 ---
 
 # Allow access to Azure Service Bus namespace from specific virtual networks
-
 The integration of Service Bus with [Virtual Network (VNet) service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
 Once configured to be bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace will no longer accept traffic from anywhere but authorized virtual network(s) and, optionally, specific internet IP addresses. From the virtual network perspective, binding a Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
@@ -15,24 +14,14 @@ Once configured to be bound to at least one virtual network subnet service endpo
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
 >[!WARNING]
-> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain trusted services even when network service endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented.
->
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Integration with Azure Event Grid
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
->
-> The below Microsoft services are required to be on a virtual network
+> The following Microsoft services are required to be on a virtual network
 > - Azure App Service
 > - Azure Functions
-> - Azure Monitor (diagnostic setting)
 
 > [!IMPORTANT]
-> Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces.
-> 
-> When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix Standard and Premium tier Service Bus namespaces. Because Standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
+> Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
 
 ## Advanced security scenarios enabled by VNet integration 
 
@@ -90,6 +79,8 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
 The following Resource Manager template enables adding a virtual network rule to an existing Service Bus 

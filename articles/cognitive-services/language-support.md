@@ -28,37 +28,37 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Form Recognizer (Preview)](./form-recognizer/language-support.md)
 * [Ink Recognizer (Preview)](./ink-recognizer/language-support.md)
-* [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
+* [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 
 * [Immersive Reader](./immersive-reader/language-support.md)
-* [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
-* [QnA Maker](./qnamaker/overview/languages-supported.md)
-* [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
-* [Translator](./translator/languages.md)
+* [Language Understanding (LUIS)](./luis/luis-language-support.md)
+* [QnA Maker](./qnamaker/overview/language-support.md)
+* [Text Analytics](./text-analytics/language-support.md)
+* [Translator](./translator/language-support.md)
 
 ## Speech
 
-* [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
-* [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
-* [Speech Service: Speech Translation](./speech-service/supported-languages.md#speech-translation)
+* [Speech Service: Speech-to-Text](./speech-service/language-support.md#speech-to-text)
+* [Speech Service:Text-to-Speech](./speech-service/language-support.md#text-to-speech)
+* [Speech Service: Speech Translation](./speech-service/language-support.md#speech-translation)
 
 ## Search
 
-* [Bing Custom Search](./bing-custom-search/supported-countries-markets.md)
-* [Bing Image Search](./bing-image-search/supported-countries-markets.md)
-* [Bing News Search](./bing-news-search/supported-countries-markets.md)
-* [Bing Autosuggest](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
-* [Bing Spell Check](./bing-spell-check/bing-spell-check-supported-languages.md)
-* [Bing Visual Search](./bing-visual-search/supported-countries-markets.md)
-* [Bing Web Search](./bing-web-search/supported-countries-markets.md)
+* [Bing Custom Search](./bing-custom-search/language-support.md)
+* [Bing Image Search](./bing-image-search/language-support.md)
+* [Bing News Search](./bing-news-search/language-support.md)
+* [Bing Autosuggest](./bing-autosuggest/language-support.md)
+* [Bing Spell Check](./bing-spell-check/language-support.md)
+* [Bing Visual Search](./bing-visual-search/language-support.md)
+* [Bing Web Search](./bing-web-search/language-support.md)
 
 ## Decision
 
-* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
+* [Content Moderator](./content-moderator/language-support.md)
 
 ## See also
 
-* [What are the Cognitive Services?](welcome.md)
+* [What are the Cognitive Services?](./what-are-cognitive-services.md)
 * [Create an account](cognitive-services-apis-create-account.md)

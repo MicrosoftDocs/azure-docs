@@ -10,6 +10,7 @@ ms.author: thvankra
 ---
 
 # Change feed in the Azure Cosmos DB API for Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 [Change feed](change-feed.md) support in the Azure Cosmos DB API for Cassandra is available through the query predicates in the Cassandra Query Language (CQL). Using these predicate conditions, you can query the change feed API. Applications can get the changes made to a table using the primary key (also known as the partition key) as is required in CQL. You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order per partition key.
 
@@ -20,38 +21,35 @@ In each iteration, the query resumes at the last point changes were read, using 
 # [Java](#tab/java)
 
 ```java
-        Session cassandraSession = utils.getSession();
+    Session cassandraSession = utils.getSession();
 
-        try {
-        	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-        	   LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-        	   String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
-        	   
-        	 byte[] token=null; 
-        	 System.out.println(query); 
-        	 while(true)
-        	 {
-        		 SimpleStatement st=new  SimpleStatement(query);
-        		 st.setFetchSize(100);
-        		 if(token!=null)
-        			 st.setPagingStateUnsafe(token);
-        		 
-        		 ResultSet result=cassandraSession.execute(st) ;
-        		 token=result.getExecutionInfo().getPagingState().toBytes();
-        		 
-        		 for(Row row:result)
-        		 {
-        			 System.out.println(row.getString("user_name"));
-        		 }
-        	 }
-                  	
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    try {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+        String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+            + dtf.format(now)+ "'";
+        
+        byte[] token=null; 
+        System.out.println(query); 
+        while(true)
+        {
+            SimpleStatement st=new  SimpleStatement(query);
+            st.setFetchSize(100);
+            if(token!=null)
+                st.setPagingStateUnsafe(token);
+            
+            ResultSet result=cassandraSession.execute(st) ;
+            token=result.getExecutionInfo().getPagingState().toBytes();
+            
+            for(Row row:result)
+            {
+                System.out.println(row.getString("user_name"));
+            }
         }
-
+    } finally {
+        utils.close();
+        LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    }
 ```
 
 # [C#](#tab/csharp)
@@ -121,7 +119,7 @@ In order to get the changes to a single row by primary key, you can add the prim
 
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
+                       + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
 ---

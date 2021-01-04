@@ -8,6 +8,7 @@ tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -41,7 +42,7 @@ The following sections describe how to configure storage for new SQL Server virt
 
 When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the Performance Optimized Storage Configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on your workload. 
 
-![SQL Server VM Storage Configuration During Provisioning](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Screenshot that highlights the SQL Server settings tab and the Change configuration option.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](performance-guidelines-best-practices.md). 
 
@@ -59,12 +60,12 @@ Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 
 
    > [!TIP]
-   > Be sure that your storage configuration matches the limitations imposed by the the selected VM size. Choosing storage parameters that exceed the performance cap of the VM size will result in error: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Either decrease the IOPs by changing the disk type, or increase the performance cap limitation by increasing the VM size. 
+   > Be sure that your storage configuration matches the limitations imposed by the the selected VM size. Choosing storage parameters that exceed the performance cap of the VM size will result in warning: `The desired performance might not be reached due to the maximum virtual machine disk performance cap`. Either decrease the IOPs by changing the disk type, or increase the performance cap limitation by increasing the VM size. This will not stop provisioning. 
 
 
 Based on your choices, Azure performs the following storage configuration tasks after creating the VM:
 
-* Creates and attaches premium SSDs to the virtual machine.
+* Creates and attaches Premium SSDs to the virtual machine.
 * Configures the data disks to be accessible to SQL Server.
 * Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
 * Associates the storage pool with a new drive on the virtual machine.
@@ -100,7 +101,7 @@ For existing SQL Server VMs, you can modify some storage settings in the Azure p
 
 To modify the storage settings, select **Configure** under **Settings**. 
 
-![Configure Storage for Existing SQL Server VM](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Screenshot that highlights the Configure option and the Storage Usage section.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Extend drive** opens the drive modification page, allowing you to change the disk type, as well as add additional disks. 
 

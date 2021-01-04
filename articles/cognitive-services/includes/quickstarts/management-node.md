@@ -10,9 +10,9 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
-## Prerequisites
+## JavaScript prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
@@ -71,6 +71,10 @@ Add the following code to the end of your `quickstart` function to list availabl
 
 ## Create a Cognitive Services resource
 
+To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
+
 ### Choose a service and pricing tier
 
 When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when creating the resource. The following function lists the available Cognitive Service "kinds."
@@ -80,12 +84,6 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## Create a Cognitive Services resource
-
-To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
 
 ## View your resources
 
@@ -113,7 +111,7 @@ node index.js
 
 ## See also
 
-* [Azure Management SDK reference documentation](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [What are Azure Cognitive Services?](../../Welcome.md)
+* [Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Authenticate requests to Azure Cognitive Services](../../authentication.md)
 * [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)

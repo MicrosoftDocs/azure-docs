@@ -21,7 +21,7 @@ A Key Vault access policy determines whether a given service principal, namely a
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-For more information on creating groups in Azure Active Directory through the Azure portal, see [Create a basic group and add members](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+For more information on creating groups in Azure Active Directory through the Azure portal, see [Create a basic group and add members](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 ## Assign an access policy
 

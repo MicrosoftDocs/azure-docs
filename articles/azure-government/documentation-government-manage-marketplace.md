@@ -23,7 +23,7 @@ The Azure Government Marketplace helps connect government agencies and partners 
 ## Variations
 The Azure Government Marketplace differs from the Azure Marketplace in the following ways:
 * Only Bring Your Own License (BYOL) and Pay-as-you-Go (PayGo) images are available.
-* A different set of images is available. You can find the list of available images [here](../azure-government-image-gallery.md) 
+* A different set of images is available. You can find the list of available images [here](./documentation-government-image-gallery.md) 
 
 > [!NOTE]
 > Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing. This is a special case exception to the above statement about license options in Azure Government.
@@ -66,4 +66,4 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

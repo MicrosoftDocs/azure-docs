@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB Attachments
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 

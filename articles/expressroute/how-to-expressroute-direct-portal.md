@@ -64,7 +64,7 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** or **[Azure CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** to obtain the letter of authorization.
+Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** to obtain the letter of authorization.
 
 ## <a name="state"></a>Change Admin State of links
 

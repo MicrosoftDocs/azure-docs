@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a database and collection for Azure Cosmos DB - MongoDB API
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

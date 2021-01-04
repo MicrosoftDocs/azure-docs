@@ -44,7 +44,7 @@ For information about publishing a Service Catalog managed application, see [Cre
 
 Vendors wishing to bill for their services can make a managed application available through the Azure marketplace. After the vendor publishes an application, it's available to users outside the organization. With this approach, managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs) can offer their solutions to all Azure customers.
 
-For information about publishing a managed application to the Marketplace, see [Create marketplace application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+For information about publishing a managed application to the Marketplace, see [Create marketplace application](../../marketplace/create-new-azure-apps-offer.md).
 
 ## Resource groups for managed applications
 
@@ -66,7 +66,7 @@ The consumer has full access to the resource group and uses it to manage the lif
 
 This resource group holds all the resources that are required by the managed application. For example, this resource group contains the virtual machines, storage accounts, and virtual networks for the solution. The consumer has limited access to this resource group because the consumer doesn't manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group. The access is either permanent or limited to a specific time.
 
-When publishing the [managed application to the marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), the publisher can grant consumers the ability to perform specific actions on resources in the managed resource group. For example, the publisher can specify that consumers can restart virtual machines. All other actions beyond read actions are still denied. Changes to resources in a managed resource group by a consumer with granted actions are subject to the [Azure Policy](../../governance/policy/overview.md) assignments within the consumers tenant scoped to include the managed resource group.
+When publishing the [managed application to the marketplace](../../marketplace/create-new-azure-apps-offer.md), the publisher can grant consumers the ability to perform specific actions on resources in the managed resource group. For example, the publisher can specify that consumers can restart virtual machines. All other actions beyond read actions are still denied. Changes to resources in a managed resource group by a consumer with granted actions are subject to the [Azure Policy](../../governance/policy/overview.md) assignments within the consumers tenant scoped to include the managed resource group.
 
 When the consumer deletes the managed application, the managed resource group is also deleted.
 

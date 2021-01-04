@@ -24,9 +24,9 @@ By default, the HDInsight RP uses an *inbound* connection to the cluster using p
 
 The basic load balancers used in the default virtual network architecture automatically provide public NAT (network address translation) to access the required outbound dependencies, such as the HDInsight RP. If you want to restrict outbound connectivity to the public internet, you can [configure a firewall](./hdinsight-restrict-outbound-traffic.md), but it's not a requirement.
 
-Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Azure Data Lake Storage Gen2 or external metastores, using private endpoints. You must configure the private endpoints and DNS entries before you create the HDInsight cluster. We recommend you create and provide all the external SQL databases you need, such as Apache Ranger, Ambari, Oozie and Hive metastores, during cluster creation.
+Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Azure Data Lake Storage Gen2 or external metastores, using private endpoints. Using private endpoints for these resources is not mandetory, but if you plan to have private endpoints for these resources, you must configure the private endpoints and DNS entries `before` you create the HDInsight cluster. We recommend you create and provide all of the external SQL databases you need, such as Apache Ranger, Ambari, Oozie and Hive metastores, at cluster creation time. The requirement is that all of these resources must be accessible from inside the cluster subnet, either through their own private endpoint or otherwise.
 
-Private endpoints for Azure Key Vault are not supported. If you're using Azure Key Vault for CMK encryption at rest, the Azure Key Vault endpoint must be accessible from within the HDInsight subnet with no private endpoint.
+Using private endpoints for Azure Key Vault is not supported. If you're using Azure Key Vault for CMK encryption at rest, the Azure Key Vault endpoint must be accessible from within the HDInsight subnet with no private endpoint.
 
 The following diagram shows what a potential HDInsight virtual network architecture could look like when `resourceProviderConnection` is set to outbound:
 
@@ -47,7 +47,7 @@ To access the cluster using cluster FQDNs, you can either use the internal load 
 
 ## Enable Private Link
 
-Private Link, which is disabled by default, requires extensive networking knowledge to setup User Defined Routes (UDR) and firewall rules  properly before you create a cluster. Private Link access to the cluster is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the previous section.
+Private Link, which is disabled by default, requires extensive networking knowledge to setup User Defined Routes (UDR) and firewall rules  properly before you create a cluster. Using this setting is optional but it is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the previous section.
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
@@ -81,7 +81,8 @@ The following image shows an example of the private DNS entries required to acce
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram of private link architecture":::
 
-## ARM template properties
+## How to Create Clusters?
+### Use ARM template properties
 
 The following JSON code snippet includes the two network properties you need to configure in your ARM template to create a private HDInsight cluster.
 
@@ -93,6 +94,13 @@ networkProperties: {
 ```
 
 For a complete template with many of the HDInsight enterprise security features, including Private Link, see [HDInsight enterprise security template](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+### Use Azure Powershell
+
+To use powershell see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+
+### Use Azure CLI
+To use Azure CLI, see the example [here](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## Next steps
 

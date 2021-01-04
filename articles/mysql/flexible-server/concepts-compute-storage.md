@@ -1,8 +1,8 @@
 ---
 title: Compute and storage options - Azure Database for MySQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020

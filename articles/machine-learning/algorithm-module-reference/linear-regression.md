@@ -64,7 +64,7 @@ This module supports two methods for fitting a regression model, with different 
 
 3. In **L2 regularization weight**, type the value to use as the weight for L2 regularization. We recommend that you use a non-zero value to avoid overfitting.
 
-     To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 4. Select the option, **Include intercept term**, if you want to view the term for the intercept.
 
@@ -114,7 +114,7 @@ After training is complete:
 
 7. In **L2 regularization weight**, type the value to use as the weight for L2 regularization. We recommend that you use a non-zero value to avoid overfitting.
 
-    To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
 9. Select the option, **Decrease learning rate**, if you want the learning rate to decrease as iterations progress.  
@@ -147,4 +147,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

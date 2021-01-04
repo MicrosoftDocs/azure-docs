@@ -15,7 +15,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 
 ### For Windows
 
-Windows OS disks are generalized with the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) tool. If you later update or reconfigure the OS, you must run sysprep again.
+Windows OS disks are generalized with the [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) tool. If you later update or reconfigure the OS, you must run sysprep again.
 
 > [!WARNING]
 > After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Steps to generalize a VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -48,35 +48,35 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 Use the following script to export the snapshot into a VHD in your storage account.
 
-```JSON
+```azurecli-interactive
 #Provide the subscription Id where the snapshot is created
-subscriptionId=yourSubscriptionId
+$subscriptionId=yourSubscriptionId
 
 #Provide the name of your resource group where the snapshot is created
-resourceGroupName=myResourceGroupName
+$resourceGroupName=myResourceGroupName
 
 #Provide the snapshot name
-snapshotName=mySnapshot
+$snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-sasExpiryDuration=3600
+$sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file. 
-storageAccountName=mystorageaccountname
+$storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
-storageContainerName=mystoragecontainername
+$storageContainerName=mystoragecontainername
 
 #Provide the key of the storage account where you want to copy the VHD 
-storageAccountKey=mystorageaccountkey
+$storageAccountKey=mystorageaccountkey
 
 #Give a name to the destination VHD file to which the VHD will be copied.
-destinationVHDFileName=myvhdfilename.vhd
+$destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```

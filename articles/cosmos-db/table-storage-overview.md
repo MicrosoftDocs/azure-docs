@@ -12,6 +12,7 @@ ms.reviewer: sngun
 
 ---
 # Azure Table storage overview
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 

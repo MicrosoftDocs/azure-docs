@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Reference for writing expressions for attribute mappings in Azure AD
@@ -721,7 +721,7 @@ Split([extensionAttribute5], ",")
 
 **Sample input/output:** 
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### Output date as a string in a certain format

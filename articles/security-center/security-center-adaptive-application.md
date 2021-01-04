@@ -131,7 +131,7 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the **Rule type** to 'Path'. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
    
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:

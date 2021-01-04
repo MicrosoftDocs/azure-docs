@@ -1,6 +1,6 @@
 ---
-title: How to author and sign an Azure Attestation policy
-description: An explanation of how to author and sign an attestation policy.
+title: How to author an Azure Attestation policy
+description: An explanation of how to author an attestation policy.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# How to author and sign an attestation policy
+# How to author an attestation policy
 
 Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence, which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
@@ -130,41 +130,6 @@ After creating a policy file, to upload a policy in JWS format, follow the below
 3. Upload the JWS and validate the policy.
      - If the policy file is free of syntax errors, the policy file is accepted by the service.
      - If the policy file contains syntax errors, the policy file is rejected by the service.
-
-## Signing the policy
-
-Below is a sample Python script on how to perform policy signing operation
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)

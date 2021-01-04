@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
 ---
 
@@ -48,7 +48,12 @@ The following are some reasons why you might want to transfer a subscription:
 - A portion of your business has been split into a separate company and you need to move some of your resources into a different Azure AD directory.
 - You want to manage some of your resources in a different Azure AD directory for security isolation purposes.
 
-Transferring a subscription does require downtime to complete the process. Depending on your scenario, it might be better to just re-create the resources and copy data to the target directory and subscription.
+### Alternate approaches
+
+Transferring a subscription requires downtime to complete the process. Depending on your scenario, you can consider the following alternate approaches:
+
+- Re-create the resources and copy data to the target directory and subscription.
+- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
 
 ### Understand the impact of transferring a subscription
 
@@ -82,7 +87,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 
 To complete these steps, you will need:
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
 - [Owner](built-in-roles.md#owner) role in the target directory
 
@@ -378,3 +383,4 @@ If your intent is to remove access from users in the source directory so that th
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)

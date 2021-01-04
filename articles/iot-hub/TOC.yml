@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
-    - name: Use metrics and diagnostic logs
+    - name: Use metrics and logs
       href: tutorial-use-metrics-and-diags.md
     - name: Perform manual failover
       href: tutorial-manual-failover.md
@@ -135,12 +135,12 @@
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Add queries to message routes
                   href: iot-hub-devguide-routing-query-syntax.md
-            - name: React to IoT Hub events
-              href: iot-hub-event-grid.md
             - name: Send cloud-to-device messages from IoT Hub
               href: iot-hub-devguide-messages-c2d.md
             - name: Choose a communication protocol
               href: iot-hub-devguide-protocols.md
+        - name: React to IoT Hub events with Event Grid
+          href: iot-hub-event-grid.md
         - name: Upload files from a device
           href: iot-hub-devguide-file-upload.md
         - name: Manage device identities
@@ -167,6 +167,12 @@
           href: iot-hub-devguide-sdks.md
         - name: MQTT support
           href: iot-hub-mqtt-support.md
+        - name: MQTT 5 support (preview)
+          items:
+            - name: MQTT 5 overview
+              href: iot-hub-mqtt-5.md
+            - name: MQTT 5 API reference
+              href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Glossary
@@ -176,15 +182,15 @@
         - name: Security baseline
           href: security-baseline.md
         - name: Recommendations
-          href: ../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security from the ground up
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Secure your IoT deployment
-          href: ../iot-fundamentals/iot-security-deployment.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -224,8 +230,6 @@
           href: iot-hub-devguide-no-sdk.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
-        - name: Order device connection state events from Event Grid
-          href: iot-hub-how-to-order-connection-state-events.md
         - name: Send cloud-to-device messages
           items:
             - name: .NET
@@ -343,6 +347,8 @@
           href: iot-hub-distributed-tracing.md
         - name: IoT Hub service and resource health
           href: iot-hub-azure-service-health-integration.md
+        - name: Order device connection state events from Event Grid
+          href: iot-hub-how-to-order-connection-state-events.md
     - name: Use real devices
       items:
         - name: Use an online simulator
@@ -471,7 +477,7 @@
       items:
         - name: Operations monitoring
           href: iot-hub-operations-monitoring.md
-        - name: Migrate to diagnostics settings
+        - name: Migrate to Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md

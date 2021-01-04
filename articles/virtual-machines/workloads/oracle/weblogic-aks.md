@@ -2,7 +2,8 @@
 title: What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service
 description: Learn how to run Oracle WebLogic Server on the Azure Kubernetes Service.
 author: rezar
-ms.service: container-service
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
@@ -13,7 +14,7 @@ ms.reviewer: cynthn
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS). These solutions are jointly developed and supported by Oracle and Microsoft.
 
-It's also possible to run WebLogic Server on Azure Virtual Machines. The solutions to do so are described in [this Microsoft article](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+It's also possible to run WebLogic Server on Azure Virtual Machines. The solutions to do so are described in [this Microsoft article](./oracle-weblogic.md).
 
 WebLogic Server is a leading Java application server running some of the most mission critical enterprise Java applications across the globe. WebLogic Server forms the middleware foundation for the Oracle software suite. Oracle and Microsoft are committed to empowering WebLogic Server customers with choice and flexibility to run workloads on Azure as a leading cloud platform.
 
@@ -24,6 +25,8 @@ WebLogic Server clusters are fully enabled to run on Kubernetes via the WebLogic
 
 ## Guidance, scripts, and samples for WLS on AKS
 Beyond certifying WebLogic Server on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts, and samples for running WebLogic Server on AKS. The guidance is incorporated into the Azure Kubernetes Service sample section of the [Operator documentation](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/). The guidance is aimed at making production WebLogic Server on AKS deployments as easy as possible. The guidance uses official WebLogic Server Docker images provided by Oracle. Failover is achieved via Azure Files accessed through Kubernetes persistent volume claims. Azure Load Balancers are supported when provisioned using a Kubernetes Service of type 'LoadBalancer'. The guidance allows a high degree of configuration and customization.
+
+:::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="You can use the sample scripts to deploy WebLogic Server on AKS":::
 
 The guidance currently assumes deploying the domain outside the Docker image and using the standard Docker images from Oracle. We'll add guidance for enabling custom images with your domain inside a Docker image. Further ease-of-use and Azure service integrations are possible in the future via Marketplace offerings mirroring Oracle WebLogic Server on Azure Virtual Machines solutions.
 

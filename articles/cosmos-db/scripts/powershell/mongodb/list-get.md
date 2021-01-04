@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # List and get databases and graphs for Azure Cosmos DB - MongoDB API
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

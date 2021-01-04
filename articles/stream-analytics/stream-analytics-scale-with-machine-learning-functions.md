@@ -35,7 +35,7 @@ Increasing the batch size will increase the latency of your Studio (classic) req
 
 Increasing the batch size allows the Stream Analytics job to process **more events** with the **same number** of Studio (classic) web service requests. The increase of Studio (classic) web service latency is usually sublinear to the increase of batch size. 
 
-It's important to consider the most cost-efficient batch size for a Studio (classic) web service in any given situation. The default batch size for web service requests is 1000. You can change this default size using the [Stream Analytics REST API](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "Stream Analytics REST API") or the [PowerShell client for Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+It's important to consider the most cost-efficient batch size for a Studio (classic) web service in any given situation. The default batch size for web service requests is 1000. You can change this default size using the [Stream Analytics REST API](/previous-versions/azure/mt653706(v=azure.100) "Stream Analytics REST API") or the [PowerShell client for Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Once you've decided on a batch size, you can set the number of streaming units (SUs), based on the number of events that the function needs to process per second. For more information about streaming units, see [Stream Analytics scale jobs](stream-analytics-scale-jobs.md).
 
@@ -135,12 +135,12 @@ To scale a Stream Analytics job with Studio (classic) functions, consider the fo
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Studio (classic) web service requests).
 3. The provisioned Stream Analytics SUs and the number of Studio (classic) web service requests (the additional function-related costs).
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:
 
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

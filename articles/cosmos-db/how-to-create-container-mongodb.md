@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article explains the different ways to create a container in Azure Cosmos DB API for MongoDB. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 

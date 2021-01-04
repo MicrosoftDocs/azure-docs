@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -43,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details** on the **SQL virtual machines** tile.
 1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image from the dropdown.
 
-   ![New search window](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Screenshot that shows where you select the Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016 image.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. Select **Create**.
 

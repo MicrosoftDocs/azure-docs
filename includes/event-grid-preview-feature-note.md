@@ -16,7 +16,7 @@ This feature is in preview. To use it, you must install a preview extension or m
 
 For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensions-list).
 
-In [CloudShell](/azure/cloud-shell/quickstart):
+In [CloudShell](../articles/cloud-shell/quickstart.md):
 
 * If you've installed the extension previously, update it `az extension update -n eventgrid`
 * If you haven't installed the extension previously, install it `az extension add -n eventgrid`
@@ -31,7 +31,7 @@ For a local installation:
 
 For PowerShell, you need the [AzureRM.EventGrid module](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
 
-In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+In [CloudShell](../articles/cloud-shell/quickstart-powershell.md):
 
 * Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 

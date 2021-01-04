@@ -71,7 +71,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### 2. Connect to your subscription and create a new resource group
-To use the Resource Manager cmdlets, Make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+To use the Resource Manager cmdlets, Make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 

@@ -15,17 +15,18 @@ ms.custom:
 
 
 # GROUP BY options in Synapse SQL
+
 Synapse SQL allows for developing solutions by implementing different GROUP BY options. 
 
-## What does GROUP BY do
+## What GROUP BY does
 
 The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL clause aggregates data to a summary set of rows.
 
-SQL on-demand supports the whole range of GROUP BY options. SQL pool supports a limited number of GROUP BY options.
+Serverless SQL pool supports the whole range of GROUP BY options. Dedicated SQL pool supports a limited number of GROUP BY options.
 
-## GROUP BY options supported in SQL pool
+## GROUP BY options supported in dedicated SQL pool
 
-GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
+GROUP BY has some options that dedicated SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS

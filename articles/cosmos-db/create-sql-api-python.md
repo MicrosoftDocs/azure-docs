@@ -11,6 +11,7 @@ ms.author: anfeldma
 ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python]
 ---
 # Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)

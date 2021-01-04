@@ -20,9 +20,9 @@ This document shows you how to back up secrets, keys, and certificates stored in
 
 Azure Key Vault automatically provides features to help you maintain availability and prevent data loss. Back up secrets only if you have a critical business justification. Backing up secrets in your key vault may introduce operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
 
-Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](./disaster-recovery-guidance.md).
 
-If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](./soft-delete-overview.md).
 
 ## Limitations
 
@@ -118,4 +118,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## Next steps
 
-Turn on [logging and monitoring](https://docs.microsoft.com/azure/key-vault/general/logging) for Key Vault.
+Turn on [logging and monitoring](./logging.md) for Key Vault.

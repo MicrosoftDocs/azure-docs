@@ -1,13 +1,13 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 10/21/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
 ---
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Arc enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Azure Arc enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Before uninstalling agent
 
@@ -33,7 +33,11 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 ## Upgrading agent
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. The following table describes the methods supported to perform the agent upgrade.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Arc enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements.
+
+The following table describes the methods supported to perform the agent upgrade.
 
 | Operating system | Upgrade method |
 |------------------|----------------|
@@ -52,7 +56,7 @@ Update package for the Connected Machine agent for Windows is available from:
 
 * [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
 
-The agent can be upgraded following a variety of methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
+The agent can be upgraded following various methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * To upgrade the agent, you must have *Administrator* permissions.
@@ -151,7 +155,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **-h or --help** - Shows available command-line parameters
 
-    For example, to see detailed help for the **Reconnect** parameter, type `azcmagent reconnect -h`. 
+    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`. 
 
 * **-v or --verbose** - Enable verbose logging
 
@@ -180,7 +184,7 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 ### Disconnect
 
-This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
+This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not remove the agent from the machine, you uninstall the agent separately. After the machine is disconnected, if you want to re-register it with Azure Arc enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
 
 > [!NOTE]
 > If you have deployed one or more of the Azure VM extensions to your Arc enabled server and you delete its registration in Azure, the extensions are still installed. It is important to understand that depending on the extension installed, it is actively performing its function. Machines that are intended to be retired or no longer managed by Arc enabled servers should first have the extensions removed before removing its registration from Azure.
@@ -199,7 +203,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. You need to perform those steps separately when you no longer need to manage the machine in Azure, and they should be completed prior to uninstalling the agent.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. Unregister the machine and remove the installed VM extensions separately when you no longer need to manage the machine in Azure, and those steps should be completed prior to uninstalling the agent.
 
 ### Windows agent
 
@@ -277,6 +281,10 @@ If you are planning to stop managing the machine with supporting services in Azu
 ## Update or remove proxy settings
 
 To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task.
+
+> [!NOTE]
+> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) as a proxy for the Connected Machine agent.
+>
 
 ### Windows
 
