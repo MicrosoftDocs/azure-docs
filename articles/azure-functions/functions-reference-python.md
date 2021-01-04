@@ -294,7 +294,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and Performance
 
-For scaling and performance best practices for Python function apps, please refer to the [Python scale and performance article](functions-python-scale-performance-reference.md).
+For scaling and performance best practices for Python function apps, please refer to the [Python scale and performance article](python-scale-performance-reference.md).
 
 ## Context
 
