@@ -51,7 +51,7 @@ Then add the following code to construct a **CognitiveServicesManagementClient**
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_auth)]
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (Python)
 
 To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 

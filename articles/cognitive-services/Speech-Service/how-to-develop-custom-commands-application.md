@@ -166,7 +166,7 @@ Start by editing the existing **TurnOn** command to turn on and turn off multipl
    1. Select **Update**.
 
        > [!div class="mx-imgBorder"]
-       > ![Create required parameter response](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Screenshot that shows the 'Add response for a required parameter' section with the 'Simple editor' tab selected.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the properties of the parameter as follows:
       
