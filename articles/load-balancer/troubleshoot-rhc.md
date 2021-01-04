@@ -24,8 +24,8 @@ The below table describes the RHC logic used to determine the health state of yo
 | Resource health status | Description |
 | --- | --- |
 | Available | Your standard load balancer resource is healthy and available. |
-| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing impacting your availability.
-| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events impacting your availability. |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. 
+| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. |
 | Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 
