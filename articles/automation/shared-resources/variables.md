@@ -76,7 +76,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ## Python functions to access variables
 
-The functions in the following table are used to access variables in a Python 2 and 3 runbook.
+The functions in the following table are used to access variables in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 |Python Functions|Description|
 |:---|:---|
@@ -175,7 +175,7 @@ except AutomationAssetNotFound:
 
 # [Python 3](#tab/python3)
 
-The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook.
+The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook (preview).
 
 ```python
 import automationassets

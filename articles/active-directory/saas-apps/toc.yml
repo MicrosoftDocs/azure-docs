@@ -1928,6 +1928,8 @@
         href: yardielearning-tutorial.md
       - name: YardiOne
         href: yardione-tutorial.md
+      - name: Yello Enterprise
+        href: yello-enterprise-tutorial.md
       - name: Yodeck
         href: yodeck-tutorial.md
       - name: Yonyx Interactive Guides
@@ -2062,7 +2064,7 @@
       - name: Foodee
         href: foodee-provisioning-tutorial.md
       - name: G Suite
-        href: google-apps-provisioning-tutorial.md
+        href: g-suite-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE
@@ -2134,7 +2136,7 @@
       - name: OpenText Directory Services
         href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console
-        href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
+        href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management

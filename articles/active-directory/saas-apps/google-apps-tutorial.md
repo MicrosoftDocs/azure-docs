@@ -77,7 +77,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Google Cloud (G Suite) Connector supports **SP** initiated SSO
 
-* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./google-apps-provisioning-tutorial.md)
+* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](g-suite-provisioning-tutorial.md)
 * Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Google Cloud (G Suite) Connector from the gallery
@@ -237,7 +237,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 The objective of this section is to [create a user in Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in Google Cloud (G Suite) Connector, the user will now be able to sign in using their Microsoft 365 login credentials.
 
-Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](./google-apps-provisioning-tutorial.md).
+Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](g-suite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Make sure that your user already exists in Google Cloud (G Suite) Connector if provisioning in Azure AD has not been turned on before testing Single Sign-on.
@@ -259,7 +259,7 @@ When you click the Google Cloud (G Suite) Connector tile in the Access Panel, yo
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Configure User Provisioning](./google-apps-provisioning-tutorial.md)
+- [Configure User Provisioning](g-suite-provisioning-tutorial.md)
 
 - [Try Google Cloud (G Suite) Connector with Azure AD](https://aad.portal.azure.com/)
 

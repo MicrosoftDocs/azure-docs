@@ -3,7 +3,7 @@ title: Manage credentials in Azure Automation
 description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ---
 
@@ -48,7 +48,7 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 
 ## Python functions that access credentials
 
-The function in the following table is used to access credentials in a Python 2 and 3 runbook.
+The function in the following table is used to access credentials in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 | Function | Description |
 |:---|:---|
@@ -139,7 +139,7 @@ print cred["password"]
 
 # [Python 3](#tab/python3)
 
-The following example shows an example of accessing credentials in Python 3 runbooks.
+The following example shows an example of accessing credentials in Python 3 runbooks (preview).
 
 ```python
 import automationassets
