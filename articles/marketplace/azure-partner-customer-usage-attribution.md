@@ -71,7 +71,7 @@ GUIDs must next be registered in Partner Center so that they can be associated w
 
 1. Select **Save**.
 
-### Add a GUID to a resource manager template
+### Add a GUID to a Resource Manager template
 Many partner solutions are deployed using Resource Manager templates. To add your registered GUID, you make a single modification to the main template file:
 
 1. Open the Resource Manager template.
