@@ -59,6 +59,9 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 
 There are two types of pool configurations available in Batch.
 
+> [!IMPORTANT]
+> Pools should be configured using 'Virtual Machine Configuration' and not 'Cloud Services Configuration'. All Batch features are supported by 'virtualMachineConfiguration' pools; some features are not supported and no new capabilities are being added for 'cloudServiceConfiguration' pools.
+
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
