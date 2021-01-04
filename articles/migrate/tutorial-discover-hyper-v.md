@@ -84,7 +84,7 @@ Set up an account with Administrator access on the Hyper-V hosts. The appliance 
 
 ## Set up a project
 
-et up a new Azure Migrate project.
+Set up a new Azure Migrate project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
