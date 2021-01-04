@@ -20,7 +20,7 @@ ms.author: bagol
 
 # Using Microsoft resources to respond to supply chain attacks and systemic identity compromise
 
-This section describes how to use Microsoft resources created specifically to respond to the SolarWinds attack (Solorigate), with clear action items for your to perform to help ensure your organization's continued security.
+This section describes how to use Microsoft resources created specifically to respond to the SolarWinds attack (Solorigate), with clear actions you can take to help ensure your organization's continued security.
 
 These resources can also be used to understand and mitigate risks in other similar supply chain attacks and system identity compromises.
 
@@ -28,7 +28,9 @@ These resources can also be used to understand and mitigate risks in other simil
 
 If you suspect that your organization has been affected by Solorigate or another similar attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
 
-Azure Sentinel users have the advantage of Azure Sentinel connectors for Microsoft Defender and Azure Active Directory, which provide all relevant data and checks through a single view. We therefore recommend that Azure Sentinel users with these connectors start responding to threats by [querying data found in Azure Sentinel](identity-compromise-azure-sentinel.md).
+Azure Sentinel enables you to view and analyze data from a single view, including both on-premises and cloud sources through a single pane of glass, makes it easier for you to spot trends and attacks, and helps you understand the full nature of an attack on your system.
+
+We therefore recommend that Azure Sentinel users with these Microsoft Defender and Azure Active Directory connectors start responding to threats by [querying data found in Azure Sentinel](identity-compromise-azure-sentinel.md).
 
 You can also use [Microsoft Defender](identity-compromise-defender.md) and [Azure Active Directory](identity-compromise-aad.md) directly to perform similar checks and hardening activities. 
 
@@ -52,11 +54,11 @@ For more information, see:
 
 ## About Solorigate and Microsoft's response
 
-In December 2020, [FireEye discovered a nation-state cyber attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
+In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
 Following this discovery, Microsoft swiftly took the following steps against the attack:
 
-1. **Disclosed a set of complex techniques** used by an advanced actor in the attack, affecting several key customers.
+1. **Disclosed a set of complex techniques** used by an attacker, affecting several key customers.
 
 1. **Removed the digital certificates used by the Trojaned files,** effectively telling all Windows systems overnight to stop trusting those compromised files. 
 
@@ -64,16 +66,16 @@ Following this discovery, Microsoft swiftly took the following steps against the
 
 1. **Sinkholed one of the domains used by the malware** to command and control affected systems.
 
-1. **Changed Windows Defender's default action for Solorigate from *Alert* to *Quarantine***, effectively killing the malware when found at the risk of crashing the system.
+1. **Changed Windows Defender's default action for Solorigate from *Alert* to *Quarantine***, effectively killing the malware when found, even at the risk of crashing the system.
 
 The SolarWinds attack provided the attacker with a foothold into affected networks, which the attacker then used to gain elevated credentials. The attacker then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
 The global administrator account or certificates enabled the attacker to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
 > [!IMPORTANT]
-> Microsoft has taken swift action to neutralize and then kill the malware in the SolarWinds attack, and then take control oer the malware infrastructure from the attackers.
+> Microsoft has taken swift action to neutralize and then kill the malware in the SolarWinds attack, and then take control over the malware infrastructure from the attackers.
 >
-> The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
+> The SolarWinds attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we'll issue updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
 > 
 
 ## Microsoft references for Solorigate

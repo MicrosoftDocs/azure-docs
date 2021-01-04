@@ -61,7 +61,7 @@ For more information, see:
 
 ## Use Microsoft Defender to find devices with the compromised SolarWinds Orion application
 
-The threat analytics reports use insights from [threat and vulnerability management](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) to identify devices that have the compromised SolarWinds Orion Platform binaries or are exposed to the attack due to misconfiguration.
+The threat analytics reports use insights from [threat and vulnerability management](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) to identify devices that have the compromised SolarWinds Orion platform binaries or are exposed to the attack due to misconfiguration.
 
 From the **Vulnerability patching status** chart in threat analytics, view  mitigation details to see a list of devices with the vulnerability ID **TVM-2020-0002**. This vulnerability was added specifically to help with Solorigate investigations.
 
@@ -113,7 +113,7 @@ We recommend searching your Microsoft 365 Defender solutions for any of the foll
 |**Command and control**     |    **Microsoft Defender for Endpoint**: <br>- An active ‘Solorigate’ high-severity malware was detected/ blocked/prevented ([Trojan:Win64/Cobaltstrike.RN!dha](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Trojan:Win64/Cobaltstrike.RN!dha))     |
 |**Defense evasion**     |   **Microsoft Defender for Endpoint** <br>- Suspicious audit policy tampering      |
 |**Reconnaissance**     |    **Microsoft Defender for Endpoint**: <br>- Masquerading Active Directory exploration tool<br>- Suspicious sequence of exploration activities <br>- Execution of suspicious known LDAP query fragments     |
-|**Credential access**     |    **Microsoft Defender for Endpoint**: <br>- Suspicious access to LSASS (credential access) <br>-AD FS private key extraction attempt <br>-Possible attempt to access ADFS key material <br>-Suspicious ADFS adapter process created<br><br>**Microsoft Defender for Identity**: <br>-Unusual addition of permissions to an OAuth app <br>-Active Directory attributes Reconnaissance using LDAP <br><br>**Microsoft Cloud App Security**: <br>-Unusual addition of credentials to an OAuth app     |
+|**Credential access**     |    **Microsoft Defender for Endpoint**: <br>- Suspicious access to LSASS (credential access) <br>-ADFS private key extraction attempt <br>-Possible attempt to access ADFS key material <br>-Suspicious ADFS adapter process created<br><br>**Microsoft Defender for Identity**: <br>-Unusual addition of permissions to an OAuth app <br>-Active Directory attributes Reconnaissance using LDAP <br><br>**Microsoft Cloud App Security**: <br>-Unusual addition of credentials to an OAuth app     |
 |**Lateral movement**     |    **Microsoft Defender for Endpoint** <br>- Suspicious file creation initiated remotely (lateral movement) <br>- Suspicious Remote WMI Execution (lateral movement)     |
 |**Exfiltration**     |  **Microsoft Defender for Endpoint** <br>- Suspicious mailbox export or access modification <br>-Suspicious archive creation       |
 |     |         |
@@ -151,7 +151,7 @@ Use Microsoft Defender for Endpoint, Microsoft 365 Defender, and Microsoft Defen
 1. [Find malicious DLLs created in the system or locally](#step-5-use-microsoft-defender-to-find-malicious-dlls-created-in-the-system-or-locally)
 1. [Find SolarWinds processes launching PowerShell with Base64](#step-6-use-microsoft-defender-to-find-solarwinds-processes-launching-powershell-with-base64)
 1. [Find SolarWinds processes launching CMD with echo](#step-7-use-microsoft-defender-to-find-solarwinds-processes-launching-cmd-with-echo)
-1. [Find C2 communications](#step-8-use-microsoft-defender-to-find-c2-communications)
+1. [Find command and control communications](#step-8-use-microsoft-defender-to-find-command-and-control-communications)
 
 For more information, see [Advanced query reference](#advanced-microsoft-defender-query-reference).
 
@@ -203,9 +203,9 @@ silentDevices
 
 ### Step 2: Use Microsoft Defender to find malicious activity in an on-premises environment
 
-Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (AD FS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
+Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (ADFS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
 
-To attack the AD FS server, attackers must first obtain domain permissions through on-premises activity. Use Microsoft Defender for Endpoint queries to find evidence of masked exploration tools used by an attacker to gain access to an on-premises system. For example:
+To attack the ADFS server, attackers must first obtain domain permissions through on-premises activity. Use Microsoft Defender for Endpoint queries to find evidence of masked exploration tools used by an attacker to gain access to an on-premises system. For example:
 
 :::image type="content" source="media/solarwinds/masqueradring-exploration-tools.png" alt-text="Microsoft Defender for Endpoint using queries to find usage of masked exploration tools":::
 
@@ -215,12 +215,12 @@ Microsoft Defender for Identity can also detect and block lateral moves between 
 - [Find searches for high-value DC assets followed by sign-in attempts to validate stolen credentials](#find-searches-for-high-value-dc-assets-followed-by-sign-in-attempts-to-validate-stolen-credentials)
 - [Find high numbers of LDAP queries in a short time that filter for non-DC devices](#find-high-numbers-of-ldap-queries-in-a-short-time-that-filter-for-non-dc-devices)
 
-Once attackers have access to an AD FS infrastructure, they often attempt to create valid SAML tokens to allow user impersonation in the cloud. Attackers may either steal the SAML signing certificate, or add or modify existing certificates as trusted entities. 
+After attackers have access to an ADFS infrastructure, they often attempt to create valid SAML tokens to allow user impersonation in the cloud. Attackers may either steal the SAML signing certificate, or add or modify existing certificates as trusted entities. 
 
 Both Microsoft Defender for Endpoint and Microsoft Defender for Identify detect actions used to steal encryption keys, used to decrypt the SAML signing certificate. For more information, see [Find malicious changes made in domain federation settings](#find-malicious-changes-made-in-domain-federation-settings).
 
 > [!IMPORTANT]
-> If any indications of malicious activity are found, take containment measures as needed to invalidate certificate rotation and prevent the attacker from further using and creating SAML tokens. Additionally, you may need to isolate and remediate affected AD FS servers to ensure that no attacker control or persistence remains.
+> If any indications of malicious activity are found, take containment measures as needed to invalidate certificate rotation and prevent the attacker from further using and creating SAML tokens. Additionally, you may need to isolate and remediate affected ADFS servers to ensure that no attacker control or persistence remains.
 >- Follow recommended actions in alerts to remove persistance and prevent an attacker's payload from loading again after rebooting. 
 > - Use the Microsoft 365 security center to isolate the devices involved, and block any remote activity, as well as mark suspected users as compromised.  
 > 
@@ -422,11 +422,11 @@ To locate SolarWinds processes launching CMD with echo, [run the following query
 DeviceProcessEvents| where InitiatingProcessFileName =~ “SolarWinds.BusinessLayerHost.exe”| where FileName == “cmd.exe” and ProcessCommandLine has “echo”
 ```
 
-### Step 8: Use Microsoft Defender to find C2 communications
+### Step 8: Use Microsoft Defender to find command and control communications
 
 The compromised SolarWinds files create a backdoor that allows attackers to remotely control and operate an affected device. 
 
-When the compromised SolarWinds binary files are loaded on a device, such as through regular updates, the backdoor verifies that it's running on an enterprise network, and then contacts a command and control (C2) server, allowing the attacker to remotely run commands on the device, and move to the next stage of the attack.
+When the compromised SolarWinds binary files are loaded on a device, such as through regular updates, the backdoor verifies that it's running on an enterprise network, and then contacts a command and control server, allowing the attacker to remotely run commands on the device, and move to the next stage of the attack.
 
 To locate DNS lookups to an attacker's domain, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAGWOSwrCQBQEay14hyEH0BO4EKJLwc8FghkwEI2YZCTg4S1noQtpHt00Bf1KIomGs74xRW4M9MyZ8SLw5GL38AJrqUG2kzkxcc_tSgUKStuePWPmJw56L9PlPkoElqpkx9H8I8Mf-1mvzHVerVXzXa5o2ZqjXksHP6yyFyxMyZy4-msrP8oUvAEb21tt5gAAAA&runQuery=true&timeRangeId=month):
 
@@ -434,7 +434,7 @@ To locate DNS lookups to an attacker's domain, [run the following query](https:/
 DeviceEvents| where ActionType == “DnsQueryResponse” //DNS Query Responseand AdditionalFields has “.avsvmcloud”
 ```
 
-To find C2 communications that may indicate malicious behavior, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEALWQPQ6CQBCFX23iHZDGjhvYqYmNMSYegCA_G4E1gEDh4f12KgtLCZmd3TfvZ5e9co1yyuhnatAkr04PHcBztSC9Iq210ps-qQLtqEhX1gb2QL-B1WAZ56BJ8WxNuWU_shvhZnC8XrorMWbD9JfzCa3DxaEdzKnUhZm3e_Z8R9Da7pziEjQb7VhjGJUxA5pQMxX_PaVhmvOOctEUZ85P-2vdokkFk-BSwJ4XzPG8JvikXxkfdzmn1oQCAAA&runQuery=true&timeRangeId=month):
+To find command and control communications that may indicate malicious behavior, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEALWQPQ6CQBCFX23iHZDGjhvYqYmNMSYegCA_G4E1gEDh4f12KgtLCZmd3TfvZ5e9co1yyuhnatAkr04PHcBztSC9Iq210ps-qQLtqEhX1gb2QL-B1WAZ56BJ8WxNuWU_shvhZnC8XrorMWbD9JfzCa3DxaEdzKnUhZm3e_Z8R9Da7pziEjQb7VhjGJUxA5pQMxX_PaVhmvOOctEUZ85P-2vdokkFk-BSwJ4XzPG8JvikXxkfdzmn1oQCAAA&runQuery=true&timeRangeId=month):
 
 ```kusto
 DeviceNetworkEvents| where RemoteUrl contains ‘avsvmcloud.com’| where InitiatingProcessFileName != “chrome.exe”| where InitiatingProcessFileName != “msedge.exe”| where InitiatingProcessFileName != “iexplore.exe”| where InitiatingProcessFileName != “firefox.exe”| where InitiatingProcessFileName != “opera.exe”
@@ -458,7 +458,7 @@ Run the following advanced queries, referenced from GitHub, to find tactics, thr
 |**General**     |    **Microsoft Defender for Endpoint Threat and Vulnerability Management**: <br>- [SolarWinds Orion software in your org](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/possible-affected-software-orion%5BSolorigate%5D.md)     |
 |**Initial access**     | **Microsoft Defender for Endpoint**: <br>- [Malicious DLLs loaded in memory](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/e4ff45064d58ebd352cff0bb6765ad87d54ab9a9/Campaigns/locate-dll-loaded-in-memory%5BSolorigate%5D.md) <br>- [Malicious DLLs created in the system or locally](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/locate-dll-created-locally%5BSolorigate%5D.md) <br>- [Compromised SolarWinds certificate](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/616f86b2767318577a0d9bccb379177d0dccdf2d/Campaigns/compromised-certificate%5BSolorigate%5D.md)        |
 |**Execution**     | **Microsoft Defender for Endpoint**: <br>- [SolarWinds processes launching PowerShell with Base64](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/launching-base64-powershell%5BSolorigate%5D.md) <br>- [SolarWinds processes launching CMD with echo](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/launching-cmd-echo%5BSolorigate%5D.md)       |
-|**Command and control**     |  **Microsoft Defender for Endpoint**: <br>- [C2 communications](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-response%5BSolorigate%5D.md) <br>- [C2 lookup](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-from-nonbrowser%5BSolorigate%5D..md)       |
+|**Command and control**     |  **Microsoft Defender for Endpoint**: <br>- [Command and control communications](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-response%5BSolorigate%5D.md) <br>- [Command and control lookup](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-from-nonbrowser%5BSolorigate%5D..md)       |
 |**Credential access**     |  **Azure Active Directory (Microsoft Cloud App Security)**: <br>- [Credentials added to AAD app after admin consent](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/CredentialsAddAfterAdminConsentedToApp%5BSolorigate%5D.md) <br>- [New access credential added to application or service principal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/NewAppOrServicePrincipalCredential%5BSolarigate%5D.md) <br>- [Domain federation trust settings modified](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Defense%20evasion/ADFSDomainTrustMods%5BSolarigate%5D.md) <br>- [Add uncommon credential type to application](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/Add%20uncommon%20credential%20type%20to%20application%20%5BSolorigate%5D.md) <br>- [Service Principal Added To Role](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/ServicePrincipalAddedToRole%20%5BSolorigate%5D.md)       |
 |**Exfiltration**     |    **Exchange Online (Microsoft Cloud App Security)**: <br>- [Mail Items Accessed Throttling Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/MailItemsAccessed%20Throttling%20%5BSolorigate%5D.md)<br>- [Mail Items Accessed Anomaly Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/Anomaly%20of%20MailItemAccess%20by%20GraphAPI%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail via GraphAPI anomaly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20via%20GraphAPI%20anomaly%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail both via GraphAPI and directly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20both%20via%20GraphAPI%20and%20directly%20%5BSolorigate%5D.md)     |
 |     |         |

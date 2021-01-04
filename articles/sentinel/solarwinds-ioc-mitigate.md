@@ -181,7 +181,7 @@ If you think you've found an illegitimate SAML trust relationship registration, 
 
 ## Attack pattern: Added credentials to existing applications
 
-Once an actor has been able to impersonate a privileged Azure AD administrator, they can add credentials to existing applications or service principals, usually with the permissions that they wanted already associated and high traffic patterns, such as for mail archive applications.
+After an actor has been able to impersonate a privileged Azure AD administrator, they can add credentials to existing applications or service principals, usually with the permissions that they wanted already associated and high traffic patterns, such as for mail archive applications.
 
 In some tenants affected by Solorigate, Microsoft found that the actor had added permissions for a new application or service principal for a short while, and used those permissions as another layer of indirection.
 
@@ -238,7 +238,7 @@ If you think you've found added credentials the applications in your system, we 
 
 ## Attack pattern: Queries that impersonate existing applications
 
-Once credentials were added to existing applications or service principals, the actor proceeded to acquire an OAUTH access token for the application using the forged credentials, and call APIs with the assigned permissions.
+After credentials were added to existing applications or service principals, the actor proceeded to acquire an OAUTH access token for the application using the forged credentials, and call APIs with the assigned permissions.
 
 Most of the relevant API calls found on affected tenants were focused on email and document extraction, although some API calls also added users, or added permissions for other applications or service principals. 
 
@@ -290,7 +290,7 @@ Microsoft also found the following types of attacker behaviors in tenants affect
 |Behavior  |Details  |
 |---------|---------|
 |**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), to detect other anomalies.     |
-|**Attacker access to cloud resources**     |   For administrative access to the Microsoft 365 cloud, Microsoft found evidence of the following indicators: <br><br>    - **Forged SAML tokens**, which impersonated accounts with cloud administrative privileges. <br><br>- **Accounts with no MFA required**. Such accounts [easily compromised](https://aka.ms/yourpassworddoesntmatter).     <br><br>- Access allowed from **trusted, but compromised vendor accounts**.      |
+|**Attacker access to cloud resources**     |   For administrative access to the Microsoft 365 cloud, Microsoft found evidence of the following indicators: <br><br>    - **Forged SAML tokens**, which impersonated accounts with cloud administrative privileges. <br><br>- **Accounts with no MFA required**. Such accounts are [easily compromised](https://aka.ms/yourpassworddoesntmatter).     <br><br>- Access allowed from **trusted, but compromised vendor accounts**.      |
 |   |         |
 
 ## MITRE ATT&CK techniques observed in Solorigate
