@@ -27,7 +27,7 @@ forwarded without making any modifications to the event payload.
 The implementation of this pattern is covered by the
 [Event replication between Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) and
 [Event replication between Event Hubs and Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
-samples.
+samples and the [Use Apache Kafka MirrorMaker with Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) tutorial for the specific case of replicating data from an Apache Kafka broker into Event Hubs.
 
 ### Streams and order preservation
 
