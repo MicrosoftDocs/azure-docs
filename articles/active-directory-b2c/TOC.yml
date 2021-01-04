@@ -163,8 +163,6 @@
       href: identity-provider-microsoft-account.md
     - name: QQ
       href: identity-provider-qq.md
-    - name: Salesforce
-      href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
     - name: Twitter
