@@ -420,7 +420,7 @@ module.exports = function (context, myBlob) {
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Metadata is available through the `$TriggerMetadata` parameter.
 
 # [Python](#tab/python)
 
