@@ -18,14 +18,14 @@ ms.date: 12/28/2020
 
 ## Objective
 
-The intention of this article is to provide instruction on understanding blocking in Azure SQL databases, and then troubleshooting and resolving blocking. 
+The article describes blocking in Azure SQL databases and demonstrates how to troubleshoot and resolve blocking. 
 
 In this article, the term connection refers to a single logged-on session of the database. Each connection appears as a Session ID (SPID). Each of these SPIDs is often referred to as a process, although it is not a separate process context in the usual sense. Rather, each SPID consists of the server resources and data structures necessary to service the requests of a single connection from a given client. A single client application may have one or more connections. From the perspective of Azure SQL Database, there is no difference between multiple connections from a single client application on a single client computer and multiple connections from multiple client applications or multiple client computers; they are atomic. One connection can block another connection, regardless of the source client.
 
 > [!NOTE]
-> This content is specific to Azure SQL Database. Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For SQL Server, [see here](/troubleshoot/sql/performance/understand-resolve-blocking).
+> **This content is specific to Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For SQL Server, [see here](/troubleshoot/sql/performance/understand-resolve-blocking).
 
-## What is blocking
+## Understand Blocking 
  
 Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. As mentioned previously, in SQL Server, blocking occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
 
@@ -47,7 +47,15 @@ When locking and blocking persists to the point where there is a detrimental eff
 
 In the first scenario above, the situation can be very fluid as different SPIDs cause blocking on different resources over time, creating a moving target. For this reason, these situations can be difficult to troubleshoot using SQL Server Management Studio to narrow down the issue to individual queries. In contrast, the second situation results in a consistent state that can be easier to diagnose.
 
-## Methodology for troubleshooting blocking
+## Applications and Blocking
+
+There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, this does not usually lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for business-critical OLTP environments. 
+
+It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
+
+With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
+
+## Troubleshoot blocking
 
 Regardless of which blocking situation we are in, the methodology for troubleshooting locking is the same. These logical separations are what will dictate the rest of the composition of this article. The concept is to find the head blocker and identify what that query is doing and why it is blocking. Once the problematic query is identified (that is, what is holding locks for the prolonged period), the next step is to analyze and determine why the blocking happening. After we understand the why, we can then make changes by redesigning the query and the transaction.
 
@@ -63,11 +71,11 @@ Steps in troubleshooting:
 
 Now let's dive in to discuss how to pinpoint the main blocking session with an appropriate data capture.
 
-## Gathering blocking information
+## Gather blocking information
 
 To counteract the difficulty of troubleshooting blocking problems, a database administrator can use SQL scripts that constantly monitor the state of locking and blocking in the Azure SQL database. To gather this data, there are essentially two methods. The first is to snapshot dynamic management objects (DMOs) and the second is to use XEvents to diagnose what was running. Some objects reference below are dynamic management views (DMVs) and some are dynamic management functions (DMFs).
 
-## Gathering DMV information
+## Gather information from DMVs
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
 
@@ -123,7 +131,7 @@ INNER JOIN sys.dm_os_waiting_tasks as t2 ON t1.lock_owner_address = t2.resource_
 
 * With DMVs, taking snapshots over time will provide data points that will allow you to review blocking over a specified time interval to identify persisted blocking or trends. 
 
-## Extended events
+## Gather information from Extended events
 
 In addition to the above information, it is often necessary to capture a trace of the activities on the server to thoroughly investigate a blocking problem on Azure SQL Database. For example, if a session executes multiple statements within a transaction, only the last statement that was submitted will be represented. However, one of the earlier statements may be the reason locks are still being held. A trace will enable you to see all the commands executed by a session within the current transaction.
 
@@ -163,11 +171,11 @@ Refer to the document that explains how to use the [Extended Events New Session 
     -   Login
     -   Logout
 
-## Identifying and resolving common blocking scenarios
+## Identify and resolve common blocking scenarios
 
 By examining the above information, you can determine the cause of most blocking problems. The rest of this article is a discussion of how to use this information to identify and resolve some common blocking scenarios. This discussion assumes you have used the blocking scripts (referenced earlier) to capture information on the blocking SPIDs and have made an XEvent with the events described above.
 
-## Viewing script output 
+## Analyze blocking data 
 
 * Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions to determine the heads of the blocking chains. Look for sessions that are blocked and the sessions blocking. Is there a common or root to the blocking chain?
 
@@ -178,11 +186,11 @@ By examining the above information, you can determine the cause of most blocking
 
       | Status | Meaning |
       |:-|:-|
-      | Background          | The SPID is running a background task, such as deadlock detection, log writer, or checkpoint. |
-      | Sleeping            | The SPID is not currently executing. This usually indicates that the SPID is awaiting a command from the application. |
-      | Running             | The SPID is currently running on a scheduler. |
-      | Runnable            | The SPID is in the runnable queue of a scheduler and waiting to get scheduler time. |
-      | Suspended           | The SPID is waiting for a resource, such as a lock or a latch. |    
+      | Background | The SPID is running a background task, such as deadlock detection, log writer, or checkpoint. |
+      | Sleeping | The SPID is not currently executing. This usually indicates that the SPID is awaiting a command from the application. |
+      | Running | The SPID is currently running on a scheduler. |
+      | Runnable | The SPID is in the runnable queue of a scheduler and waiting to get scheduler time. |
+      | Suspended | The SPID is waiting for a resource, such as a lock or a latch. |  |  
                        
     -    `sys.dm_exec_sessions.open_transaction_count`  
     This field tells you the number of open transactions in this session. If this value is greater than 0, the SPID is within an open transaction and may be holding locks acquired by any statement within the transaction.
@@ -209,34 +217,33 @@ By examining the above information, you can determine the cause of most blocking
         The remaining columns in [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) and [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) can provide insight into the root of a problem as well. Their usefulness varies depending on the circumstances of the problem. For example, you can determine if the problem happens only from certain clients (hostname), on certain network libraries (net_library), when the last batch submitted by a SPID was `last_request_start_time` in sys.dm_exec_sessions, and so on.
 
 
-## Categorizing common blocking scenarios
+## Common blocking scenarios
 
 The table below maps common symptoms to their probable causes. The number indicated in the Scenario column corresponds to the number in the [Common Blocking Scenarios and
 Resolutions](#common-blocking-scenarios-and-resolutions)
 section of this article below. The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The resolves? column indicates whether or not the blocking will resolve on its own.
 
-| Scenario | Waittype | Open_Tran | Status | Resolves? | Other Symptoms | 
-|:-|:-|:-|:-|:-|:-| 
+| Scenario | Waittype | Open_Tran | Status | Resolves? | Other Symptoms |  
+|:-|:-|:-|:-|:-|:-|--|
 | 1 | NOT NULL | >= 0 | runnable | Yes, when query finishes. | In sys.dm_exec_sessions, **reads**, **cpu_time**, and/or **memory_usage** columns will increase over time. Duration for the query will be high when completed. |
-| 2  | NULL | \>0 | sleeping | No, but SPID can be killed. | An attention signal may be seen in the Extended Event session for this SPID, indicating a query time-out or cancel has occurred. |
-| 3 |  NULL | \>= 0 | runnable | No. Will not resolve until client fetches all rows or closes connection. SPID can be killed, but it may take up to 30 seconds. | If open_transaction_count = 0, and the SPID holds locks while the transaction isolation level is default (READ COMMMITTED), this is a likely cause. | 
- | 4 | Varies | \>= 0 | runnable | No. Will not resolve until client cancels queries or closes connections. SPIDs can be killed, but may take up to 30 seconds. | The **hostname** column in sys.dm_exec_sessions for the SPID at the head of a blocking chain will be the same as one of the SPID it is blocking. | 
- | 5 | NULL  | \>0 | rollback | Yes. | An attention signal may be seen in the Extended Events session for this SPID, indicating a query time-out or cancel has occurred, or simply a rollback statement has been issued. | 
- | 6 | NULL | \>0 | sleeping | Eventually. When Windows NT determines the session is no longer active, the Azure SQL Database connection will be broken. | The `last_request_start_time` value in sys.dm_exec_sessions is much earlier than the current time. |
-
-## Common blocking scenarios and resolutions
+| 2 | NULL | \>0 | sleeping | No, but SPID can be killed. | An attention signal may be seen in the Extended Event session for this SPID, indicating a query time-out or cancel has occurred. |
+| 3 | NULL | \>= 0 | runnable | No. Will not resolve until client fetches all rows or closes connection. SPID can be killed, but it may take up to 30 seconds. | If open_transaction_count = 0, and the SPID holds locks while the transaction isolation level is default (READ COMMMITTED), this is a likely cause. |  
+| 4 | Varies | \>= 0 | runnable | No. Will not resolve until client cancels queries or closes connections. SPIDs can be killed, but may take up to 30 seconds. | The **hostname** column in sys.dm_exec_sessions for the SPID at the head of a blocking chain will be the same as one of the SPID it is blocking. |  
+| 5 | NULL | \>0 | rollback | Yes. | An attention signal may be seen in the Extended Events session for this SPID, indicating a query time-out or cancel has occurred, or simply a rollback statement has been issued. |  
+| 6 | NULL | \>0 | sleeping | Eventually. When Windows NT determines the session is no longer active, the Azure SQL Database connection will be broken. | The `last_request_start_time` value in sys.dm_exec_sessions is much earlier than the current time. |
 
 The scenarios listed below will have the characteristics listed in the table above. This section provides additional details when applicable, as well as paths to resolution.
 
 1.  Blocking caused by a normally running query with a long execution time
 
-    Resolution: The solution to this type of blocking problem is to look for ways to optimize the query. Actually, this class of blocking problem may just be a performance problem, and require you to pursue it as such. For information on troubleshooting a specific slow-running query, see [How to troubleshoot slow-running queries on SQL Server](/troubleshoot/sql/performance/troubleshoot-slow-running-queries). For more information, see [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance). 
+    **Resolution**: The solution to this type of blocking problem is to look for ways to optimize the query. Actually, this class of blocking problem may just be a performance problem, and require you to pursue it as such. For information on troubleshooting a specific slow-running query, see [How to troubleshoot slow-running queries on SQL Server](/troubleshoot/sql/performance/troubleshoot-slow-running-queries). For more information, see [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance). 
 
     The Query Store reports, accessible via SSMS, are also a highly recommended and valuable tool for identifying the most costly queries, suboptimal execution plans, as well as the Intelligent Performance section of the Azure portal for the Azure SQL database in question, including [Query Performance Insight](query-performance-insight-use.md).
 
     If you have a long-running query that is blocking other users and cannot be optimized, consider moving it from an OLTP environment to a dedicated reporting system, a [synchronous read-only replica of the database](read-scale-out.md).
 
-2.  Blocking caused by a sleeping SPID that has lost track of the transaction nesting level
+
+1.  Blocking caused by a sleeping SPID that has lost track of the transaction nesting level
 
     This type of blocking can often be identified by a SPID that is sleeping or awaiting a command, yet whose transaction nesting level (`@@TRANCOUNT`, `open_transaction_count` from sys.dm_exec_requests) is greater than zero. This can occur if the application experiences a query time-out, or issues a cancel without also issuing the required number of
     ROLLBACK and/or COMMIT statements. When a SPID receives a query time-out or a cancel, it will terminate the current query and batch, but does not automatically roll back or commit the transaction. The application is responsible for this, as Azure SQL Database cannot assume that an entire transaction must be rolled back due to a single query being canceled. The query time-out or cancel will appear as an ATTENTION signal event for the SPID in the Extended Event session.
@@ -245,21 +252,22 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     ```sql
     BEGIN TRAN
-    SELECT * FROM SYS.OBJECTS
+    SELECT * FROM SYS.OBJECTS;
     ```
 
     Then, execute this query in the same window:
     ```sql
-    SELECT @@TRANCOUNT
+    SELECT @@TRANCOUNT;
     ROLLBACK TRAN
     ```
 
     The output of the second query indicates that the transaction nesting level is one. Had this been a `DELETE` or an
     `UPDATE` query, or had `HOLDLOCK` been used on the `SELECT`, all the locks acquired would still be held. Even with the query above, if another query had acquired and held locks earlier in the transaction, they would still be held when the above `SELECT` was canceled.
 
-    Resolutions:
- -   Additionally, this class of blocking problem may also be a performance problem, and require you to pursue it as such. If the query execution time can be diminished, the query time-out or cancel would not occur. It is important that the application be able to handle the time-out or cancel scenarios should they arise, but you may also benefit from examining the performance of the query.
- -   Applications must properly manage transaction nesting levels, or they may cause a blocking problem following the cancellation of the query in this manner. This can be accomplished in one of several ways:
+    **Resolutions**:
+
+     -   Additionally, this class of blocking problem may also be a performance problem, and require you to pursue it as such. If the query execution time can be diminished, the query time-out or cancel would not occur. It is important that the application be able to handle the time-out or cancel scenarios should they arise, but you may also benefit from examining the performance of the query.
+     -   Applications must properly manage transaction nesting levels, or they may cause a blocking problem following the cancellation of the query in this manner. This can be accomplished in one of several ways:
      
         -    In the error handler of the client application, execute `IF @@TRANCOUNT > 0 ROLLBACK TRAN` following any error, even if the client application does not believe a transaction is open. This is required, because a stored procedure called during the batch could have started a transaction without the client application's knowledge. Certain conditions, such as canceling the query, prevent the procedure from executing past the current statement, so even if the procedure has logic to check `IF @@ERROR <> 0` and abort the transaction, this rollback code will not be executed in such cases.
         
@@ -275,16 +283,16 @@ The scenarios listed below will have the characteristics listed in the table abo
         > [!CAUTION]
         > Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
 
-3.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
+1.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
 
     After sending a query to the server, all applications must immediately fetch all result rows to completion. If an application does not fetch all result rows, locks can be left on the tables, blocking other users. If you are using an application that transparently submits SQL statements to the server, the application must fetch all result rows. If it does not (and if it cannot be configured to do so), you may be unable to resolve the blocking problem. To avoid the problem, you can restrict poorly behaved applications to a reporting or a decision-support database.
     
     > [!NOTE]
     > See [guidance for retry logic](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
     
-    Resolution: The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
+    **Resolution**: The application must be rewritten to fetch all rows of the result to completion. This does not rule out the use of [OFFSET and FETCH in the ORDER BY clause](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) of a query to perform server-side paging.
 
-4.  Blocking caused by a distributed client/server deadlock
+1.  Blocking caused by a distributed client/server deadlock
 
     Unlike a conventional deadlock, a distributed deadlock is not detectable using the RDBMS lock manager. This is because only one of the resources involved in the deadlock is a SQL Server lock. The other side of the deadlock is at the client application level, over which SQL Server has no control. The following are two examples of how this can happen, and possible ways the application can avoid it.
 
@@ -333,19 +341,19 @@ The scenarios listed below will have the characteristics listed in the table abo
         For more information, see also [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md) and [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling).
 
 
-5.  Blocking caused by a SPID that is in rollback state
+1.  Blocking caused by a SPID that is in rollback state
 
     A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting. Likewise, a query selected as the deadlock victim will be rolled back. A data modification query often cannot be rolled back any faster than the changes were initially applied. For example, if a `DELETE`, `INSERT`, or `UPDATE` statement had been running for an hour, it could take at least an hour to roll back. This is expected behavior, because the changes made must be rolled back, or transactional and physical integrity in the database would be compromised. Because this must happen, the database engine marks the SPID in a  rollback state (which means it cannot be KILLed or selected as a deadlock victim). This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
 
-    Resolution: You must wait for the SPID to finish rolling back the changes that were made. 
+    **Resolution**: You must wait for the SPID to finish rolling back the changes that were made. 
 
     To avoid this situation, do not perform large batch `INSERT`, `UPDATE`, or `DELETE` operations or index creation or maintenance operations during busy hours on OLTP systems. If possible, perform such operations during periods of low activity.
 
-6.  Blocking caused by an orphaned connection
+1.  Blocking caused by an orphaned connection
 
     If the client application traps errors or the client workstation is restarted, the network session to the server may not be immediately canceled under some conditions. From the Azure SQL Database perspective, the client still appears to be present, and any locks acquired may still be retained. For more information, see [How to troubleshoot orphaned connections in SQL Server](/sql/t-sql/language-elements/kill-transact-sql#remarks). 
 
-    Resolution: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 99, issue the following command 
+    **Resolution**: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 99, issue the following command 
 
     ```sql
     KILL 99
@@ -353,13 +361,7 @@ The scenarios listed below will have the characteristics listed in the table abo
     
     The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.
 
-## Application involvement in blocking problems
 
-There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, this does not usually lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for business-critical OLTP environments. 
-
-It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
-
-With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
 
 ## See Also
 
