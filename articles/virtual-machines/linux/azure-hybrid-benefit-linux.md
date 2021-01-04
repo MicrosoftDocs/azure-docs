@@ -205,6 +205,10 @@ A: No, you can't. Reserved instances aren't currently in the scope of Azure Hybr
 *Q: Can I use Azure Hybrid Benefit on a virtual machine deployed for SQL Server on RHEL images?*
 
 A: No, you can't. There is no plan for supporting these virtual machines.
+
+*Q: Can I use Azure Hybrid Benefit on my RHEL Virtual Data Center subscription?*
+
+A: No, you cannot. VDC is not supported on Azure at all, including AHB.  
  
 
 ## Common problems
