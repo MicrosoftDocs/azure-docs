@@ -51,7 +51,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 * JIRA also supports 6.0 to 7.12. For more details, click [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
 
 > [!NOTE]
-> Please note that our JIRA Plugin also works on Ubuntu Version 16.04
+> Please note that our JIRA Plugin also works on Ubuntu Version 16.04.
 
 ## Scenario description
 
@@ -182,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	i. Click **Save** button to save the settings.
 
 	> [!NOTE]
-	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](./ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](./ms-confluence-jira-plugin-adminguide.md) for your assistance
+	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](./ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](./ms-confluence-jira-plugin-adminguide.md) for your assistance.
 
 ### Create JIRA SAML SSO by Microsoft (V5.2) test user
 
