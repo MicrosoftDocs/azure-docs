@@ -20,9 +20,7 @@
   - name: Investigate incidents
     href: tutorial-investigate-cases.md 
   - name: Respond to threats
-    href: tutorial-respond-threats-playbook.md
-  - name: Respond to supply chain and / or systemic identity compromise
-    href: solarwinds.md   
+    href: tutorial-respond-threats-playbook.md  
 - name: Concepts
   items:
   - name: Assign permissions using roles
@@ -207,6 +205,17 @@
       href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
+  - name: Respond to supply chain and / or systemic identity compromise
+    href: solarwinds.md
+    items:
+    - name: Respond with Azure Sentinel
+      href: identity-compromise-azure-sentinel.md
+    - name: Respond with Azure Defender for Endpoint
+      href: identity-compromise-defender.md
+    - name: Respond with Azure Active Directory
+      href: identity-compromise-aad.md
+    - name: Solorigate indicators of compromise
+      href: solarwinds-ioc-mitigate.md
 - name: Reference (New!)
   items:
   - name: REST APIs
