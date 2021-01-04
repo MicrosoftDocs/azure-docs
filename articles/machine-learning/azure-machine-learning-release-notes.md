@@ -93,7 +93,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 ## 2020-11-30
 ### Azure Machine Learning Studio Notebooks Experience (November Update)
 + **New features**
-   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
   + Duplicate Folder 
   + Costing for Compute Drop Down 
   + Offline Compute Pylance 
