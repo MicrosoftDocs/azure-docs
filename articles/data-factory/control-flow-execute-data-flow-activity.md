@@ -95,7 +95,7 @@ If you do not require every pipeline execution of your data flow activities to f
 
 ## Sink properties
 
-The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinksin the same in parallel and you can also set the sink group to continue even after one of the sinks encounters an error.
+The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks, in the same group, in parallel. You can also set the sink group to continue even after one of the sinks encounters an error.
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
