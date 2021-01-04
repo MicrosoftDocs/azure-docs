@@ -23,7 +23,7 @@ The following article describes common errors and solutions for deployments usin
 | Code       | Error                | Description  | Solution  |
 |------------|----------------------|--------------|-----------|
 | 2 | The index path corresponding to the specified order-by item is excluded / The order by query does not have a corresponding composite index that it can be served from. | The query requests a sort on a field that is not indexed. | Create a matching index (or composite index) for the sort query being attempted. |
-| 13 | Unauthorized | The request lacks the permissions to complete. | Ensure that the proper permissions are set for your database and collection.  |
+| 13 | Unauthorized | The request lacks the permissions to complete. | Ensure that you set proper permissions for your database and collection.  |
 | 16 | InvalidLength | The request specified has an invalid length. | If you are using the explain() function, ensure that only one operation is being supplied. |
 | 26 | NamespaceNotFound | The database or collection being referenced in the query cannot be found. | Ensure your database/collection name precisely matches the name in your query.|
 | 50 | ExceededTimeLimit | The request has exceeded the timeout of 60 seconds of execution. |  There can be many causes for this error. One of the causes is when the current allocated request units capacity is not sufficient to complete the request. This can be solved by increasing the request units of that collection or database. In other cases, this error can be worked-around by splitting a large request into smaller ones.|
@@ -42,4 +42,3 @@ The following article describes common errors and solutions for deployments usin
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
-
