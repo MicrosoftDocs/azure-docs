@@ -78,7 +78,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max sessions | 30000 | 30000 |
 | Max concurrent workers (requests) | Gen4: 210 * number of vCores + 800<br>Gen5: 105 * number of vCores + 800 | Gen4: 210 * vCore count + 800<br>Gen5: 105 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
-| Compute isolation | Gen5:<br/>-supported for 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 60, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
+| Compute isolation | Gen5 is not supported as General Purpose instances may share physical hardware with other instances<br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 40, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
 
 
 A few additional considerations: 
@@ -102,7 +102,7 @@ In the General Purpose service tier every database file gets dedicated IOPS and 
 
 If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by [increasing the file size](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-There is also an instance-level limit on the max log write throughput (which is 22 MB/s), so you may not be able to reach the max file throughout on the log file because you are hitting the instance throughput limit.
+There is also an instance-level limit on the max log write throughput (see above for values e.g. 22 MB/s), so you may not be able to reach the max file throughout on the log file because you are hitting the instance throughput limit.
 
 ## Supported regions
 
@@ -144,7 +144,7 @@ The following table shows the **default regional limits** for supported subscrip
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional and MSDN Platforms|2|32|
 
-\* In planning deployments, please take into consideration that Business Critical (BC) service tier requires four (4) times more vCore capacity than General Purpose (GP) service tier. For example: 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where SQL Managed Instance is deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
+\* In planning deployments, please take into consideration that Business Critical (BC) service tier requires four (4) times more vCore capacity than General Purpose (GP) service tier. For example: 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where SQL Managed Instance is deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
 \*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 

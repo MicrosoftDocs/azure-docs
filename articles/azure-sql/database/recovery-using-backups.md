@@ -89,7 +89,7 @@ To recover a managed instance database to a point in time by using the Azure por
   ![Screenshot of database restore options for SQL managed instance.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
+> To programmatically restore a database from a backup, see [Programmatic recovery using automated backups](recovery-using-backups.md).
 
 ## Deleted database restore
 

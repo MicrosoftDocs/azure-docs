@@ -34,11 +34,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-
 * PrinterLogic SaaS supports **SP and IDP** initiated SSO
 * PrinterLogic SaaS supports **Just In Time** user provisioning
-
 
 ## Adding PrinterLogic SaaS from the gallery
 
@@ -50,7 +47,6 @@ To configure the integration of PrinterLogic SaaS into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **PrinterLogic SaaS** in the search box.
 1. Select **PrinterLogic SaaS** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for PrinterLogic SaaS
 
@@ -88,29 +84,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.<my_instance>printercloud.com`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [PrinterLogic SaaS Client support team](mailto:support@printerlogic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [PrinterLogic SaaS Client support team](mailto:support@printerlogic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. PrinterLogic SaaS application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. In addition to above, PrinterLogic SaaS application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	| Name | Source Attribute |
-	| ---------| ------------ |
-	| Role 	   | user.assignedroles |
+    | Name | Source Attribute |
+    | ---------| ------------ |
+    | Role | user.assignedroles |
 
-	> [!NOTE]
-	> Please click [here](../develop/active-directory-enterprise-app-role-management.md) to know how to configure Role in Azure AD
+    > [!NOTE]
+    > Please click [here](../develop/active-directory-enterprise-app-role-management.md) to know how to configure Role in Azure AD
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up PrinterLogic SaaS** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -136,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -158,9 +154,9 @@ When you click the PrinterLogic SaaS tile in the Access Panel, you should be aut
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
