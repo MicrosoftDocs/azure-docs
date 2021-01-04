@@ -13,7 +13,7 @@ ms.date: 09/02/2020
 
 # Supported publisher countries and regions
 
-To publish an offer to the Microsoft commercial marketplace, you must have your residence in one of the following countries or regions.
+To publish an offer to the Microsoft commercial marketplace, your company must legally reside in one of the following countries:
 
 - Afghanistan
 - Åland Islands
@@ -129,7 +129,6 @@ To publish an offer to the Microsoft commercial marketplace, you must have your 
 - Kazakhstan
 - Kenya
 - Kiribati
-- Korea
 - Kosovo
 - Kuwait
 - Kyrgyzstan
@@ -219,6 +218,7 @@ To publish an offer to the Microsoft commercial marketplace, you must have your 
 - Somalia
 - South Africa
 - South Georgia and South Sandwich Islands
+- South Korea
 - South Sudan
 - Spain
 - Sri Lanka
