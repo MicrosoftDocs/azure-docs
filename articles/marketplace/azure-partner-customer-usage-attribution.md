@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 
 # Customer usage attribution
 
-Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#Commercial-Marketplace), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#Commercial-Marketplace-Azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
@@ -20,7 +20,7 @@ Customer usage attribution supports three deployment options:
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 - Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
-There are secondary use cases for customer usage attribution outside of Commercial Marketplace described [later in this article](#Non-Commercial-Marketplace-use-cases).
+There are secondary use cases for customer usage attribution outside of Commercial Marketplace described [later in this article](#Other-use-cases).
 
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure.
@@ -99,7 +99,7 @@ Many partner solutions are deployed using Resource Manager templates. To add you
 
 1. Republish the template in the appropriate repositories.
 
-1. [Verify GUID success in the template deployment](#verify-the-guid-deployment).
+1. [Verify GUID success in the template deployment](#Verify-deployments-tracked-with-a-GUID).
 
 > [!TIP]
 > For more information on creating and publishing Resourse Manager templates, see: [create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
