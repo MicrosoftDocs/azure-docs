@@ -149,7 +149,7 @@ The recommendation "Web apps should request an SSL certificate for all incoming 
 
 Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Wish this change, the recommendation is now a recommended best practice which does not impact your score. 
+With this change, the recommendation is now a recommended best practice which does not impact your score. 
 
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 

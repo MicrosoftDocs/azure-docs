@@ -4,7 +4,7 @@ description: Learn about solution architecture, network preparation, prerequisit
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -49,7 +49,7 @@ Record site information such as:
 
 - Configuration workstation.
 
-- SSL certificates (optional).
+- SSL certificates (optional but recommended).
 
 - SMTP authentication (optional). To use the SMTP server with authentication, prepare the credentials required for your server.
 
@@ -564,7 +564,7 @@ An overview of the industrial network diagram will allow you to define the prope
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-2. Provide the approximate number of devices in the networks (optional).
+2. Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
 3. Provide a subnet list for the production networks and a description (optional). 
 
