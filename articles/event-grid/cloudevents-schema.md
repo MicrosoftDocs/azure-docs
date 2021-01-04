@@ -1,6 +1,6 @@
 ---
 title: Use Azure Event Grid with events in CloudEvents schema
-description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
+description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 # Use CloudEvents v1.0 schema with Event Grid
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
-CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
+CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud-based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
 CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
 
@@ -18,7 +18,7 @@ This article describes how to use the CloudEvents schema with Event Grid.
 
 ## CloudEvent schema
 
-Here is an example of an Azure Blob Storage event in CloudEvents format:
+Here is an example of an Azure Blob storage event in CloudEvents format:
 
 ``` JSON
 {
@@ -56,11 +56,11 @@ You can use Event Grid for both input and output of events in the CloudEvents sc
 
  Event Grid resource | Input schema       | Delivery schema
 |---------------------|-------------------|---------------------
-| System Topics       | Event Grid Schema | Event Grid Schema or CloudEvent Schema
-| User Topics/Domains | Event Grid Schema | Event Grid Schema
-| User Topics/Domains | CloudEvent Schema | CloudEvent Schema
-| User Topics/Domains | Custom Schema     | Custom Schema OR Event Grid Schema OR CloudEvent Schema
-| PartnerTopics       | CloudEvent Schema | CloudEvent Schema
+| System Topics       | Event Grid schema | Event Grid schema or CloudEvent schema
+| User Topics/Domains | Event Grid schema | Event Grid schema
+| User Topics/Domains | CloudEvent schema | CloudEvent schema
+| User Topics/Domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvent schema
+| PartnerTopics       | CloudEvent schema | CloudEvent schema
 
 
 For all event schemas, Event Grid requires validation when publishing to an Event Grid topic and when creating an event subscription.
@@ -122,7 +122,7 @@ New-AzEventGridSubscription `
 
  ## Endpoint Validation with CloudEvents v1.0
 
-If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
+If you are already familiar with Event Grid, you might be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 <a name="azure-functions"></a>
 
@@ -135,7 +135,7 @@ The [Azure Functions Event Grid binding](../azure-functions/functions-bindings-e
 
 For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](../azure-functions/functions-bindings-http-webhook.md)
 
-The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the CloudEvents schema.
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -197,5 +197,5 @@ module.exports = function (context, req) {
 ## Next steps
 
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* We encourage you to test, comment on, and [contribute](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) to CloudEvents.
+* We encourage you to test, comment on, and [contribute to CloudEvents](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
