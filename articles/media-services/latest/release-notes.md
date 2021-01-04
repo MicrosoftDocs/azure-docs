@@ -39,7 +39,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ### Regional availability
 
-Azure Media Services is now available in the “Norway East” region in the Azure portal.
+Azure Media Services is now available in the “Norway East” region in the Azure portal.  There is no restV2 in this region.
 
 ## October 2020
 
