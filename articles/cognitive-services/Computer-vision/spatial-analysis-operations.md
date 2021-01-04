@@ -63,6 +63,7 @@ These are the parameters required by each of these spatial analysis operations.
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to [camera placement](spatial-analysis-camera-placement.md) guide for more information |
+| INPUT_VIDEO_WIDTH | Set to `1920` when `ENABLE_FACE_MASK_CLASSIFIER` is `True`.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
