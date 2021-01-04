@@ -61,7 +61,7 @@ az aks create --resource-group java-liberty-project --name myAKSCluster --node-c
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](faq.md#why-are-two-resource-groups-created-with-aks)
 
 ### Connect to the cluster
 
@@ -137,7 +137,7 @@ You should see `Login Succeeded` at the end of command output if you log into th
 
 ### Attach the ACR to the AKS cluster
 
-In order to pull image from the ACR, the AKS cluster need to attach the ACR by running the [az aks update](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az_aks_update) command:
+In order to pull image from the ACR, the AKS cluster need to attach the ACR by running the [az aks update](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update) command:
 
 ```azurecli-interactive
 az aks update -n myAKSCluster -g java-liberty-project --attach-acr youruniqueacrname
@@ -213,8 +213,8 @@ Open a web browser to the external IP address and port of your service (`52.152.
 :::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="Java liberty application successfully deployed on AKS":::
 
 >[!NOTE]
-> - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
+> - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
+> - You can enable [HTTP routing](http-application-routing.md) for your cluster.
 
 ## Clean up the resources
 
@@ -225,7 +225,7 @@ az group delete --name java-liberty-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
