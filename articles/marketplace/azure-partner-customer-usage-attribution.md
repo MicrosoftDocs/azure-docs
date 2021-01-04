@@ -12,12 +12,12 @@ ms.custom: devx-track-terraform
 
 # Customer usage attribution
 
-Customer usage attribution is a method to associate Azure resources running in customer subscriptions, created due to a customer deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#Commercial-Marketplace), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#Commercial-Marketplace), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
-- Azure Resource Manager templates (the common underpinnings of Azure applications, also referred to as "solution templates"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent and repeatable state.
-- Azure Resource Manager APIs: Partners can call the Resource Manager APIs directly to deploy a Resource Manager template or to generate the API calls to directly provision Azure services.
+- Azure Resource Manager templates (the common underpinnings of Commercial Marketplace Azure applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent and repeatable state.
+- Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 - Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
 There are secondary use cases for customer usage attribution outside of Commercial Marketplace described [later in this article](#Non-Commercial-Marketplace-use-cases).
@@ -25,15 +25,13 @@ There are secondary use cases for customer usage attribution outside of Commerci
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure.
 >
->- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
+>- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
 >
 >- Customer usage attribution is required for [Azure Application](./create-new-azure-apps-offer.md) offers published to Azure Marketplace. [REMOVE?]
 >
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues today that cause under-reporting of usage.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## Commercial Marketplace
+## Commercial Marketplace Azure applications
 Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your offer](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to set your tracking ID per the instructions below. Instead of using a GUID as your tracking ID, you should format it as: **"pid-publisherid-offerid"**. For example: "pid-contosocorp-contosooffer".
@@ -138,8 +136,6 @@ Different SDKs interact with the Resource Manager APIs differently and will requ
 [REMOVE]
 ![Example GUID format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
-
-
 #### Example: Python SDK
 
 For Python, use the **config** attribute. You can only add the attribute to a UserAgent. Here's an example:
@@ -175,6 +171,8 @@ If you deploy resources via Azure PowerShell, append your GUID by using the foll
 ```powershell
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 ```
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 #### Example: Azure CLI
 
