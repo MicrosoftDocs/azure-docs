@@ -46,7 +46,7 @@ Any more than the minimum number of nodes should be based on the number of repli
 
 Ephemeral OS disks is not a specific Service Fabric feature, but rather a feature of the Azure *virtual machine scale sets* that are mapped to Service Fabric node types. Using them with Service Fabric requires the following in your cluster Azure Resource Manager template:
 
-1. Ensure your node types specify [supported Azure VM sizes](../virtual-machines/windows/ephemeral-os-disks.md) for  Ephemeral OS disks, and that the VM size has sufficient cache size to support its OS disk size (see *Note* below.) For example:
+1. Ensure your node types specify [supported Azure VM sizes](../virtual-machines/ephemeral-os-disks.md) for  Ephemeral OS disks, and that the VM size has sufficient cache size to support its OS disk size (see *Note* below.) For example:
 
     ```xml
     "vmNodeType1Size": {
@@ -84,15 +84,13 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
 
 > [!NOTE]
 > User applications should not have any dependency/file/artifact on the OS disk, as the OS disk would be lost in the case of an OS upgrade.
-> Hence, it is not recommended to use [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) with ephemeral disks.
->
 
 > [!NOTE]
 > Existing non-ephemeral VMSS can't be upgraded in-place to use ephemeral disks.
 > To migrate, users will have to [add](./virtual-machine-scale-set-scale-node-type-scale-out.md) a new nodeType with ephemeral disks, move the workloads to the new nodeType & [remove](./service-fabric-how-to-remove-node-type.md) the existing nodeType.
 >
 
-For more info and further configuration options, see [Ephemeral OS disks for Azure VMs](../virtual-machines/windows/ephemeral-os-disks.md) 
+For more info and further configuration options, see [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### Select the durability and reliability levels for the cluster

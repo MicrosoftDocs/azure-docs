@@ -12,7 +12,7 @@ ms.date: 01/08/2019
 In this example, we'll create an adaptor that takes data from Application Insights, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](./export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 
@@ -51,7 +51,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/export-stream-analytics/080.png)
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/platform/metrics-charts.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../platform/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -134,7 +134,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) clause groups the elements into time periods of one minute.
+* We use [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](/stream-analytics-query/group-by-azure-stream-analytics) clause groups the elements into time periods of one minute.
 
 ### Query to display metric values
 
@@ -182,7 +182,7 @@ Wait until the job is Running.
 
 ## See results in Power BI
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](./export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 
@@ -192,7 +192,7 @@ Open Power BI with your work or school account, and select the dataset and table
 
 Now you can use this dataset in reports and dashboards in [Power BI](https://powerbi.microsoft.com).
 
-![In Power BI, select your dataset and fields.](./media/export-stream-analytics/210.png)
+![Screenshot shows a report example made from a dataset in Power BI.](./media/export-stream-analytics/210.png)
 
 ## No data?
 * Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).
@@ -207,5 +207,5 @@ Noam Ben Zeev shows how to process exported data using Stream Analytics.
 ## Next steps
 * [Continuous export](export-telemetry.md)
 * [Detailed data model reference for the property types and values.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 

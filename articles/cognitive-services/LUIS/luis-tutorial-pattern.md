@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Patterns - LUIS"
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.

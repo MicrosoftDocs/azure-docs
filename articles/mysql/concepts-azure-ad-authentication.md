@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 07/23/2020
 ---
 
 # Use Azure Active Directory for authenticating with MySQL

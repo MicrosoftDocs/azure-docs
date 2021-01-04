@@ -1,6 +1,6 @@
 ---
 title: Upgrading your Log Analytics Dashboard visualizations
-description: Queries you can start from and modify for your needs 
+description: Learn how to upgrade your Log Analytics Dashboard visualizations with queries that can provide powerful insights. 
 ms.subservice: logs
 ms.topic: article
 author: rboucher
@@ -20,7 +20,7 @@ This new visualization technology is paving the way for new and improved experie
 
 Azure dashboards are a way to visualize the status of your entire Azure surface area. They are designed to provide a single pane of glass to your Azure estate status and allow a variety of shortcuts to common actions. 
 
-For more information, see [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+For more information, see [Azure dashboards](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## Upgrading Log Analytics dashboard parts
@@ -42,7 +42,7 @@ When a Log Analytics pinned part is able to be upgraded, a new *opt-in* notifica
  
 ![Sidebar](media/dashboard-upgrade/update-message-1.png)
  
-![Sidebar](media/dashboard-upgrade/update-message-2.png)
+![Screenshot that shows how to update the tile visualization.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
@@ -51,7 +51,7 @@ Once clicked, the visualization will be updated to the new technology. Subtle di
 
 After the visualizations are upgraded, you need to republish your dashboard for the change to take effect.
 
-![Sidebar](media/dashboard-upgrade/update-message-3.png)
+![Screenshot that shows upgraded visualizations.](media/dashboard-upgrade/update-message-3.png)
 
 ## Stage 2 - Migration of all dashboards
 
@@ -69,7 +69,7 @@ As dashboards may contain multiple visualizations from multiple queries, the tim
 
 Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. The following chart shows such a case.  
 
-![Sidebar](media/dashboard-upgrade/values-25-limit.png)
+![Screenshot that shows a dashboard with 25 different data types.](media/dashboard-upgrade/values-25-limit.png)
 
 ### Dashboard refresh on load
 

@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Use multiple caches for regional failover recovery

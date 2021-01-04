@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption for virtual machines and virtual machine scale sets
-description: This article provides an overview of Azure Disk Encryption
+description: Learn about Azure Disk encryption for virtual machines (VMs) and VM scale sets. Azure Disk encryption works for both Linux and Windows VMs.
 author: msmbaldwin
 ms.service: security
 ms.topic: article

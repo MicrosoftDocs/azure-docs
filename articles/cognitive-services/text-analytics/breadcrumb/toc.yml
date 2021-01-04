@@ -1,0 +1,22 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cognitive Services
+    tocHref: /azure/cognitive-services/
+    topicHref: /azure/cognitive-services/index
+    items:
+    - name: Text Analytics
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/text-analytics/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Cognitive Services                # Original doc set name
+    tocHref: /legal/cognitive-services/text-analytics    # Destination doc set route
+    topicHref: /azure/cognitive-services/index    # Original doc set route
+    items:
+    - name: Text Analytics           # Destination doc set name
+      tocHref: /legal/cognitive-services/text-analytics      # Destination doc set route
+      topicHref: /azure/cognitive-services/text-analytics/index    # Original doc set route

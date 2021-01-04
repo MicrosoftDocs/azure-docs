@@ -9,10 +9,11 @@ ms.date: 05/28/2019
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. 
+From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. This article lists the partners who have solutions or services that use Azure Cosmos DB. This list changes over time, Microsoft is not responsible to any changes or updates made to the solutions of these partners.
 
-## Systems Integrator partners
+## Systems Integrator and tooling partners
 
 |**Partner**  |**Capabilities & experience**  |**Supported countries/regions**  |
 |---------|---------|---------|
@@ -21,7 +22,6 @@ From NoSQL migration to application development, you can choose from a variety o
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architectures NoSQL migration, App development|   USA |
 |[Avanade](https://www.avanade.com/) | IoT, Retail (inventory), Serverless Architecture, App development | Austria, Germany, Switzerland, Italy, Norway, Spain, UK, Canada |
 |[Accenture](https://www.accenture.com/) | IoT, Retail (inventory), Serverless Architecture, App development |Global|
-|[Bluemetal](https://www.bluemetal.com/)     |  IoT, Personalization Retail (inventory), Operational Analytics for Enterprise & SMC, AI image annotation, Asset control, NoSQL migration, App development     |    North America, Asia-Pacific     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalization, Retail (inventory), Operational Analytics (Spark), Serverless architecture, App development|    USA     |  
 | [Capgemini](https://www.capgemini.com/) | Retail (inventory), IoT, Operational Analytics (Spark), App development | USA, France, UK, Netherlands, Finland  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics  (Spark), App development |USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
@@ -46,13 +46,12 @@ From NoSQL migration to application development, you can choose from a variety o
 
 ## Next steps
 
-To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
+To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[5]: ./media/partners-migration-cosmosdb/bluemetal_logo.png
 [6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
 [7]: ./media/partners-migration-cosmosdb/coeo_logo.png
 [8]: ./media/partners-migration-cosmosdb/infosys_logo.png

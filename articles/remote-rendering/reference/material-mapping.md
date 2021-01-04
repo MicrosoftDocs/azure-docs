@@ -108,7 +108,7 @@ The brightness formula is described in this [specification](http://www.itu.int/d
 
 `Roughness` is calculated from `Specular` and `ShininessExponent` using [this formula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). The formula is an approximation of roughness from the Phong specular exponent:
 
-```Cpp
+```cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
@@ -119,6 +119,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 The idea here is that we solve the equation: Ax<sup>2</sup> + Bx + C = 0.
 Basically, dielectric surfaces reflect around 4% of light in a specular way, and the rest is diffuse. Metallic surfaces reflect no light in a diffuse way, but all in a specular way.
 This formula has a few drawbacks, because there is no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and consequently glossy plastic/rubber surfaces may not look as expected.
+
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -138,7 +139,7 @@ Metalness = clamp(value, 0.0, 1.0);
 As described in the Metalness section, dielectric surfaces reflect around 4% of light.  
 The idea here is to linearly interpolate between `Dielectric` and `Metal` colors using `Metalness` value as a factor. If metalness is `0.0`, then depending on specular it will be either a dark color (if specular is high) or diffuse will not change (if no specular is present). If metalness is a large value, then the diffuse color will disappear in favor of specular color.
 
-```Cpp
+```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
 

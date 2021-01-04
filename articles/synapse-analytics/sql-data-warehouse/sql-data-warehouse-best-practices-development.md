@@ -117,6 +117,6 @@ If you don't find what you are looking for in this article, try using the "Searc
 
 The [Microsoft Q&A question page for Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
-If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
 Use the [Azure Synapse Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.

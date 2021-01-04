@@ -9,7 +9,7 @@ ms.reviewer: sergkanz
 
 # Request telemetry: Application Insights data model
 
-A request telemetry item (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
+A request telemetry item (in [Application Insights](./app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
 
@@ -23,7 +23,7 @@ Max length: 1024 characters
 
 ## ID
 
-Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](./correlation.md) page.
 
 Max length: 128 characters
 
@@ -35,7 +35,7 @@ Max length: 2048 characters
 
 ## Source
 
-Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](./correlation.md) page.
 
 Max length: 1024 characters
 
@@ -69,7 +69,8 @@ You can read more on request result code and status code in the [blog post](http
 
 ## Next steps
 
-- [Write custom request telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Write custom request telemetry](./api-custom-events-metrics.md#trackrequest)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Learn how to [configure ASP.NET Core](../../azure-monitor/app/asp-net.md) application with Application Insights.
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- Learn how to [configure ASP.NET Core](./asp-net.md) application with Application Insights.
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

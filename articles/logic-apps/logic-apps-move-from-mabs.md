@@ -83,7 +83,7 @@ A bridge can take data received from a connector,
 do some work with the data, and send the results to another system. 
 Logic Apps does the same by supporting the same pipeline-based 
 interaction patterns as BizTalk Services and also providing other integration patterns. 
-The [XML Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) 
+The [XML Request-Reply Bridge](/previous-versions/azure/hh689781(v=azure.100)) 
 in BizTalk Services is known as a VETER pipeline, which consists of stages that 
 perform these tasks:
 
@@ -172,9 +172,9 @@ as well as XPath using the xpath workflow definition language expression.
 
 ### Run custom code
 
-BizTalk Services lets you [run custom code](https://msdn.microsoft.com/library/azure/dn232389.aspx) 
+BizTalk Services lets you [run custom code](/previous-versions/azure/dn232389(v=azure.100)) 
 that is uploaded in your own assemblies. This functionality is implemented by the 
-[IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) interface. 
+[IMessageInspector]() interface. 
 Each stage in the bridge includes two properties (On Enter Inspector, and On Exit Inspector) 
 that provide the .NET type you created that implements this interface. 
 Custom code lets you perform more complex processing on data and lets you 

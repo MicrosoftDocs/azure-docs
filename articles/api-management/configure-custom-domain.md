@@ -16,7 +16,7 @@ ms.date: 01/13/2020
 ms.author: apimpm
 ---
 
-# Configure a custom domain name
+# Configure a custom domain name for your Azure API Management instance
 
 When you create an Azure API Management service instance, Azure assigns it a subdomain of `azure-api.net` (for example, `apim-service-name.azure-api.net`). However, you can expose your API Management endpoints using your own custom domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
 
@@ -47,10 +47,10 @@ To perform the steps described in this article, you must have:
     There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
-    - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal (legacy)** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal** (default is: `<apim-service-name>.developer.azure-api.net`).
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
-    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.

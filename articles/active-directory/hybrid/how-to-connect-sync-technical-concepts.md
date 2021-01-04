@@ -24,7 +24,7 @@ This article is a summary of the topic [Understanding architecture](how-to-conne
 
 Azure AD Connect sync builds upon a solid metadirectory synchronization platform.
 The following sections introduce the concepts for metadirectory synchronization.
-Building upon MIIS, ILM, and FIM, the Azure Active Directory Sync Services provides the next platform for connecting to data sources, synchronizing data between data sources, as well as the provisioning and deprovisioning of identities.
+Building upon MIIS (Microsoft Identity Integration Server), ILM (Identity Lifecycle Manager), and FIM (Forefront Identity Manager), the Azure Active Directory Sync Services provides the next platform for connecting to data sources, synchronizing data between data sources, as well as the provisioning and deprovisioning of identities.
 
 ![Technical Concepts](./media/how-to-connect-sync-technical-concepts/scenario.png)
 

@@ -4,7 +4,8 @@ description: Provides Azure CLI sample scripts to use when working with Azure Ma
 author: tfitzmac
 ms.topic: sample
 ms.date: 10/25/2017
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurecli
 ---
 # Azure CLI Samples for Azure Managed Applications
 

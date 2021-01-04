@@ -6,7 +6,7 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 author: lobrien
 ms.author: laobri
@@ -22,7 +22,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 ## Python (Windows Server 2016 edition)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Language versions supported | Python 2.7 and 3.7 |
 | Supported DSVM editions      | Windows Server 2016     |
@@ -66,13 +66,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 ## Python (Linux edition)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Language versions supported | Python 2.7 and 3.5 |
 | Supported DSVM editions      | Linux   |
 | How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
 | Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia      |
+
 ### How to use and run it    
 
 * Run in a terminal:
@@ -104,13 +105,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 ## R
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Language versions supported | Microsoft R Open 3.x (100% compatible with CRAN-R)<br /> Microsoft R Server 9.x Developer edition (a scalable enterprise-ready R platform)|
 | Supported DSVM editions      | Linux, Windows     |
 | How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links to samples      | Sample Jupyter notebooks for R are included.     |
 | Related tools on the DSVM      | SparkR, Python, Julia      |
+
 ### How to use and run it    
 
 **Windows**:
@@ -152,13 +154,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 ## Julia
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Language versions supported | 0.6 |
 | Supported DSVM editions      | Linux, Windows     |
 | How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
 | Links to samples      | Sample Jupyter notebooks for Julia are included.     |
 | Related tools on the DSVM      | Python, R      |
+
 ### How to use and run it    
 
 **Windows**:

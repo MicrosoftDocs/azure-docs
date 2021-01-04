@@ -1,7 +1,7 @@
 ---
 title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
 description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Review security audit events in Azure Active Directory Domain Services using Azure Monitor Workbooks
@@ -54,7 +54,7 @@ To access the workbook template for the security overview report, complete the f
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
-    ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot that hightlights where to select the Security Overview Report and the Account Activity Report.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choose the **Security Overview Report**.
 1. From the drop-down menus at the top of the workbook, select your Azure subscription and then an Azure Monitor workspace.
@@ -71,7 +71,7 @@ To access the workbook template for the security overview report, complete the f
 
 1. The lower part of the security overview report below the chart then breaks down the activity type selected. You can filter by usernames involved on the right-hand side, as shown in the following example report:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Details of account lockouts in Azure Monitor Workbooks.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## Use the account activity report workbook
 
@@ -89,7 +89,7 @@ To access the workbook template for the account activity report, complete the fo
 
     You can filter by **Account username**, such as *felix*, as shown in the following example report:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Account activity report in Azure Monitor Workbooks.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     The area below the chart shows individual sign-in events along with information such as the activity result and source workstation. This information can help determine repeated sources of sign-in events that may cause account lockouts or indicate a potential attack.
 
@@ -118,5 +118,5 @@ For problems with users, learn how to troubleshoot [account sign-in problems][tr
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
-[kusto-queries]: https://docs.microsoft.com/azure/kusto/query/tutorial?pivots=azuredataexplorer
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
+[kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

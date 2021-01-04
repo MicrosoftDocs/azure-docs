@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
+ms.custom: devx-track-js
 ---
 
 # Troubleshooting SDK load failure for JavaScript web apps
@@ -58,7 +59,7 @@ The same is also true when using the SDK via NPM packages solution. However, fro
 
 You can also try to use [NPM packages](#use-npm-packages-to-embed-the-application-insight-sdk) to embed the Application Insights SDK.
 
-To minimize intermittent network connectivity failure, we have implemented Cache-Control headers on all of the CDN files so that once the end user's browser has downloaded the current version of the SDK it will not need to download again and the browser will reuse the previously obtained copy (see [how caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). If the caching check fails or there has been a new release, then your end user's browser will need to download the updated version. So you may see a background level of _"noise"_ in the check failure scenario or a temporary spike when a new release occurs and is made generally available (deployed to the CDN).
+To minimize intermittent network connectivity failure, we have implemented Cache-Control headers on all of the CDN files so that once the end user's browser has downloaded the current version of the SDK it will not need to download again and the browser will reuse the previously obtained copy (see [how caching works](../../cdn/cdn-how-caching-works.md)). If the caching check fails or there has been a new release, then your end user's browser will need to download the updated version. So you may see a background level of _"noise"_ in the check failure scenario or a temporary spike when a new release occurs and is made generally available (deployed to the CDN).
  
 ## Application Insights CDN outage
 

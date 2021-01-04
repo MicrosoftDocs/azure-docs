@@ -1,13 +1,13 @@
 ---
 title: Pricing & billing model
-description: Overview about how the pricing and billing model works for Azure Logic Apps
+description: Overview about how the pricing and billing work for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 12/07/2020
 ---
 
 # Pricing model for Azure Logic Apps
@@ -60,11 +60,11 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
   * **Developer** ISE SKU: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can have more integration accounts, based on your ISE SKU:
+  For an additional cost, you can create more integration accounts for your ISE [up to the total limit](logic-apps-limits-and-config.md#integration-account-limits). 
 
-  * **Premium** ISE SKU: Up to four more Standard accounts. No Free or Basic accounts.
+  * **Premium** ISE SKU: Up to 19 more Standard accounts. No Free or Basic accounts are permitted.
 
-  * **Developer** ISE SKU: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
+  * **Developer** ISE SKU: Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted.
 
   For more information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
@@ -72,7 +72,7 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 
@@ -92,7 +92,7 @@ A trigger is always the first step in a logic app workflow and is a special acti
 
 ## Actions
 
-Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
+Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
 
 Azure Logic Apps meters all successful and unsuccessful actions as executions. However, Logic Apps doesn't meter these actions:
 
@@ -109,15 +109,15 @@ Disabled logic apps aren't charged because they can't create new instances while
 
 ## Integration accounts
 
-A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost. Each Azure subscription can have up to a [specific limit of integration accounts](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Each integration account can store up to specific [limit of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
+A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost. Each Azure subscription can have up to a [specific limit of integration accounts](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Each integration account can store up to a specific [limit of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
 
 Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on region availability, throughput, and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), either [Premium or Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have 5 total integration accounts. To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), your ISE can use a single integration account at no additional cost, although the included account type varies by [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). For an [additional cost](#fixed-pricing), you can create more integration accounts for your ISE up to the [total limit on integration accounts](logic-apps-limits-and-config.md#integration-account-limits). To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 
@@ -132,6 +132,7 @@ Except for logic apps that run in an integration service environment (ISE), all 
 To help you monitor your logic app's storage consumption, you can:
 
 * View the number of storage units in GB that your logic app uses monthly.
+
 * View the sizes for a specific action's inputs and outputs in your logic app's run history.
 
 <a name="storage-consumption"></a>
@@ -145,6 +146,9 @@ To help you monitor your logic app's storage consumption, you can:
 1. In the right-hand pane, under **Chart Title**, from the **Metric** list, select **Billing Usage for Storage Consumption Executions**.
 
    This metric gives you the number of storage consumption units in GB per month that are getting billed.
+
+   > [!NOTE]
+   > Runs that consume less than 500 MB in storage might not appear in the monitoring view, but they are still billed.
 
 <a name="input-output-sizes"></a>
 
@@ -160,7 +164,11 @@ To help you monitor your logic app's storage consumption, you can:
 
 1. In the **Logic app run details** pane, in the actions table, which lists each action's status and duration, select the action you want to view.
 
-1. In the **Logic app action** pane, find the sizes for that action's inputs and outputs appear respectively under **Inputs link** and **Outputs link**.
+1. In the **Logic app action** pane, find the sizes for that action's inputs and outputs. Under **Inputs link** and **Outputs link**, find the links to those inputs and outputs.
+
+   > [!NOTE]
+   > For loops, only the top-level actions show sizes for their inputs and outputs. 
+   > For actions inside nested loops, inputs and outputs show zero size and no links.
 
 ## Next steps
 

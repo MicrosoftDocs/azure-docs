@@ -4,12 +4,12 @@ description: Use an Azure CLI example script to create two elastic pools and mov
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 06/25/2019
 ---
 # Use the Azure CLI to move a database in SQL Database in a SQL elastic pool

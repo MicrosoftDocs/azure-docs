@@ -54,7 +54,7 @@ To illustrate the Autoscale setting schema, the following Autoscale setting is u
               "cooldown": "PT5M"
             }
           },
-	{
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -109,97 +109,104 @@ There are three types of Autoscale profiles:
 
 - **Regular profile:** The most common profile. If you don’t need to scale your resource based on the day of the week, or on a particular day, you can use a regular profile. This profile can then be configured with metric rules that dictate when to scale out and when to scale in. You should only have one regular profile defined.
 
-	The example profile used earlier in this article is an example of a regular profile. Note that it is also possible to set a profile to scale to a static instance count for your resource.
+    The example profile used earlier in this article is an example of a regular profile. Note that it is also possible to set a profile to scale to a static instance count for your resource.
 
 - **Fixed date profile:** This profile is for special cases. For example, let’s say you have an important event coming up on December 26, 2017 (PST). You want the minimum and maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s list of profiles. The profile is configured to run only on the event’s day. For any other day, Autoscale uses the regular profile.
 
-    ``` JSON
-    "profiles": [{
-	"name": " regularProfile",
-	"capacity": {
-	...
-	},
-	"rules": [{
-	...
-	},
-	{
-	...
-	}]
-	},
-	{
-	"name": "eventProfile",
-	"capacity": {
-	...
-	},
-	"rules": [{
-	...
-	}, {
-	...
-	}],
-	"fixedDate": {
-		"timeZone": "Pacific Standard Time",
-	           "start": "2017-12-26T00:00:00",
-      		   "end": "2017-12-26T23:59:00"
-	}}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
-	
+    
 - **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time. They run until the next recurrence profile or fixed date profile is set to start. An Autoscale setting with only one recurrence profile runs that profile, even if there is a regular profile defined in the same setting. The following two examples illustrate how this profile is used:
 
     **Example 1: Weekdays vs. weekends**
     
-	Let’s say that on weekends, you want your maximum capacity to be 4. On weekdays, because you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
+    Let’s say that on weekends, you want your maximum capacity to be 4. On weekdays, because you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
     The setting looks like this:
 
     ``` JSON
     "profiles": [
     {
-	"name": "weekdayProfile",
-	"capacity": {
-		...
-	},
-	"rules": [{
-		...
-	}],
-	"recurrence": {
-		"frequency": "Week",
-		"schedule": {
-			"timeZone": "Pacific Standard Time",
-			"days": [
-				"Monday"
-			],
-			"hours": [
-				0
-			],
-			"minutes": [
-				0
-			]
-		}
-	}}
+    "name": "weekdayProfile",
+    "capacity": {
+        ...
+    },
+    "rules": [{
+        ...
+    }],
+    "recurrence": {
+        "frequency": "Week",
+        "schedule": {
+            "timeZone": "Pacific Standard Time",
+            "days": [
+                "Monday"
+            ],
+            "hours": [
+                0
+            ],
+            "minutes": [
+                0
+            ]
+        }
+    }}
     },
     {
-	"name": "weekendProfile",
-	"capacity": {
-		...
-	},
-	"rules": [{
-		...
-	}]
-	"recurrence": {
-		"frequency": "Week",
-		"schedule": {
-			"timeZone": "Pacific Standard Time",
-			"days": [
-				"Saturday"
-			],
-			"hours": [
-				0
-			],
-			"minutes": [
-				0
-			]
-		}
-	}
+    "name": "weekendProfile",
+    "capacity": {
+        ...
+    },
+    "rules": [{
+        ...
+    }]
+    "recurrence": {
+        "frequency": "Week",
+        "schedule": {
+            "timeZone": "Pacific Standard Time",
+            "days": [
+                "Saturday"
+            ],
+            "hours": [
+                0
+            ],
+            "minutes": [
+                0
+            ]
+        }
+    }
     }]
     ```
 
@@ -209,65 +216,65 @@ There are three types of Autoscale profiles:
 
     **Example 2: Business hours**
     
-	Let's say you want to have one metric threshold during business hours (9:00 AM to 5:00 PM), and a different one for all other times. The setting would look like this:
-	
+    Let's say you want to have one metric threshold during business hours (9:00 AM to 5:00 PM), and a different one for all other times. The setting would look like this:
+    
     ``` JSON
     "profiles": [
     {
-	"name": "businessHoursProfile",
-	"capacity": {
-		...
-	},
-	"rules": [{
-		...
-	}],
-	"recurrence": {
-		"frequency": "Week",
-		"schedule": {
-			"timeZone": "Pacific Standard Time",
-			"days": [
-				"Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
-			],
-			"hours": [
-				9
-			],
-			"minutes": [
-				0
-			]
-		}
-	}
+    "name": "businessHoursProfile",
+    "capacity": {
+        ...
+    },
+    "rules": [{
+        ...
+    }],
+    "recurrence": {
+        "frequency": "Week",
+        "schedule": {
+            "timeZone": "Pacific Standard Time",
+            "days": [
+                "Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
+            ],
+            "hours": [
+                9
+            ],
+            "minutes": [
+                0
+            ]
+        }
+    }
     },
     {
-	"name": "nonBusinessHoursProfile",
-	"capacity": {
-		...
-	},
-	"rules": [{
-		...
-	}]
-	"recurrence": {
-		"frequency": "Week",
-		"schedule": {
-			"timeZone": "Pacific Standard Time",
-			"days": [
-				"Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
-			],
-			"hours": [
-				17
-			],
-			"minutes": [
-				0
-			]
-		}
-	}
+    "name": "nonBusinessHoursProfile",
+    "capacity": {
+        ...
+    },
+    "rules": [{
+        ...
+    }]
+    "recurrence": {
+        "frequency": "Week",
+        "schedule": {
+            "timeZone": "Pacific Standard Time",
+            "days": [
+                "Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
+            ],
+            "hours": [
+                17
+            ],
+            "minutes": [
+                0
+            ]
+        }
+    }
     }]
     ```
-	
+    
     The preceding setting shows that “businessHoursProfile” begins running on Monday at 9:00 AM, and continues to 5:00 PM. That’s when “nonBusinessHoursProfile” starts running. The “nonBusinessHoursProfile” runs until 9:00 AM Tuesday, and then the “businessHoursProfile” takes over again. This repeats until Friday at 5:00 PM. At that point, “nonBusinessHoursProfile” runs all the way to Monday at 9:00 AM.
-	
+    
 > [!Note]
 > The Autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the Autoscale setting's default profile in between recurrence profiles.
-	
+    
 ## Autoscale evaluation
 Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
 
@@ -295,9 +302,9 @@ For example, let's say there is a virtual machine scale set with a current capac
 ## Next steps
 Learn more about Autoscale by referring to the following:
 
-* [Overview of autoscale](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor autoscale common metrics](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Best practices for Azure Monitor autoscale](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Overview of autoscale](./autoscale-overview.md)
+* [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
+* [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
+* [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
+* [Autoscale REST API](/rest/api/monitor/autoscalesettings)
 

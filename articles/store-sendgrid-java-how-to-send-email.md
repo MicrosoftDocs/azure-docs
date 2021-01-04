@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-
+ms.custom: devx-track-java
 ---
+
 # How to Send Email Using SendGrid from Java
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in

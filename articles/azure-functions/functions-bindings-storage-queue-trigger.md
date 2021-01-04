@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, tracking-python
+ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
 # Azure Queue storage trigger for Azure Functions
@@ -93,6 +93,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
+# [Java](#tab/java)
+
+The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
@@ -138,6 +154,42 @@ module.exports = async function (context, message) {
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
+# [PowerShell](#tab/powershell)
+
+The following example demonstrates how to read a queue message passed to a function via a trigger.
+
+A Storage queue trigger is defined in *function.json* file where `type` is set to `queueTrigger`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+The code in the *Run.ps1* file declares a parameter as `$QueueItem`, which allows you to read the queue message in your function.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
+
 # [Python](#tab/python)
 
 The following example demonstrates how to read a queue message passed to a function via a trigger.
@@ -159,7 +211,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.QueueMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging
@@ -185,22 +237,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# [Java](#tab/java)
-
-The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -266,14 +302,6 @@ The storage account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
@@ -301,6 +329,18 @@ public class QueueTriggerDemo {
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
 ---
 
 ## Configuration
@@ -323,7 +363,7 @@ The following table explains the binding configuration properties that you set i
 
 Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
-* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -341,23 +381,27 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# [Java](#tab/java)
+
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) annotation gives you access to the queue message that triggered the function.
+
 # [JavaScript](#tab/javascript)
 
 The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 
+# [PowerShell](#tab/powershell)
+
+Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.
+
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# [Java](#tab/java)
-
-The [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 
 ## Message metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties are members of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties are members of the [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -384,7 +428,7 @@ The algorithm uses the following logic:
 - When a message is found, the runtime waits two seconds and then checks for another message
 - When no message is found, it waits about four seconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
-- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json.md#queues).
+- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
 For local development the maximum polling interval defaults to two seconds.
 
@@ -396,7 +440,7 @@ When there are multiple queue messages waiting, the queue trigger retrieves a ba
 
 The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). 
 
-The queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
+The queue trigger automatically prevents a function from processing a queue message multiple times simultaneously.
 
 ## host.json properties
 
@@ -404,7 +448,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 ## Next steps
 
-- [Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

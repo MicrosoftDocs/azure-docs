@@ -93,11 +93,11 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 19. In Sink Settings, Partition Key to ```\SalesOrderID``` and collection action to "recreate". Make sure your mapping tab looks like this:
 
-![Sink settings](media/data-flow/cosmosb7.png)
+![Screenshot shows the Mapping tab.](media/data-flow/cosmosb7.png)
 
 20. Click on data preview to make sure that you are seeing these 32 rows set to insert as new documents into your new container:
 
-![Sink settings](media/data-flow/cosmosb8.png)
+![Screenshot shows the Data preview tab.](media/data-flow/cosmosb8.png)
 
 If everything looks good, you are now ready to create a new pipeline, add this data flow activity to that pipeline and execute it. You can execute from debug or a triggered run. After a few minutes, you should have a new denormalized container of orders called "orders" in your CosmosDB database.
 

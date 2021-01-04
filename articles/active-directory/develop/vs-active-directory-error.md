@@ -90,4 +90,4 @@ To detect an old form of Organizational Account authentication, the connected se
 
 To change the authentication type, remove the incompatible authentication type and try adding the connected service again.
 
-For more information, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
+For more information, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).

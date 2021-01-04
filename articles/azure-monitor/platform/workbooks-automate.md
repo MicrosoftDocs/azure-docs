@@ -2,14 +2,10 @@
 title: Azure Monitor Workbooks and Azure Resource Manager Templates 
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks deployed via Azure Resource Manager Templates
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
 ---
 
 # Programmatically manage workbooks
@@ -74,7 +70,7 @@ There are two types of workbook resources that can be managed programmatically:
     }
     ```
 1. In the `galleries` object fill in the `name` and `category` keys with your values. Learn more about [parameters](#parameters) in the next section.
-2. Deploy this Azure Resource Manager template using either the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [command line interface](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+2. Deploy this Azure Resource Manager template using either the [Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), [command line interface](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), etc.
 3. Open the Azure portal and navigate to the workbook gallery chosen in the Azure Resource Manager template. In the example template, navigate to the Azure Monitor workbook gallery:
     1. Open the Azure portal and navigate to Azure Monitor
     2. Open `Workbooks` from the table of contents

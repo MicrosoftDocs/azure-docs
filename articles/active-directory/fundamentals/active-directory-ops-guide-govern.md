@@ -44,8 +44,8 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owner recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
+- [Governance in Azure](../../governance/index.yml)
 
 ### Configuration changes testing
 
@@ -53,7 +53,7 @@ There are changes that require special considerations when testing, from simple 
 
 | Scenario| Recommendation |
 |-|-|
-|Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) to test the impact of changing the authentication type.|
+|Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
 |Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new CA Policy and assign to test users.|
 |Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
 |Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
@@ -61,7 +61,7 @@ There are changes that require special considerations when testing, from simple 
 |Rolling out a new feature|If the feature supports roll out to a target set of users, identify pilot users and build out. For example, self-service password reset and multi-factor authentication can target specific users or groups.|
 |Cutover an application from an on-premises Identity provider (IdP), for example, Active Directory, to Azure AD|If the application supports multiple IdP configurations, for example, Salesforce, configure both and test Azure AD during a change window (in case the application introduces HRD page). If the application does not support multiple IdPs, schedule the testing during a change control window and program downtime.|
 |Update dynamic group rules|Create a parallel dynamic group with the new rule. Compare against the calculated outcome, for example, run PowerShell with the same condition.<br>If test pass, swap the places where the old group was used (if feasible).|
-|Migrate product licenses|Refer to [Change the license for a single user in a licensed group in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
+|Migrate product licenses|Refer to [Change the license for a single user in a licensed group in Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Change AD FS rules such as Authorization, Issuance, MFA|Use group claim to target subset of users.|
 |Change AD FS authentication experience or similar farm-wide changes|Create a parallel farm with same host name, implement config changes, test from clients using HOSTS file, NLB routing rules, or similar routing.<br>If the target platform does not support HOSTS files (for example mobile devices), control change.|
 
@@ -69,7 +69,7 @@ There are changes that require special considerations when testing, from simple 
 
 ### Access reviews to applications
 
-Over time, users may accumulate access to resources as they move throughout different teams and positions. It is important that resource owners review the access to applications on a regular basis and remove privileges that are no longer needed throughout the lifecycle of users. Azure AD [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. Resource owners should review users’ access on a regular basis to make sure only the right people have continued access. Ideally, you should consider using Azure AD access reviews for this task.
+Over time, users may accumulate access to resources as they move throughout different teams and positions. It is important that resource owners review the access to applications on a regular basis and remove privileges that are no longer needed throughout the lifecycle of users. Azure AD [access reviews](../governance/access-reviews-overview.md) enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. Resource owners should review users’ access on a regular basis to make sure only the right people have continued access. Ideally, you should consider using Azure AD access reviews for this task.
 
 ![Access reviews start page](./media/active-directory-ops-guide/active-directory-ops-img15.png)
 
@@ -78,7 +78,7 @@ Over time, users may accumulate access to resources as they move throughout diff
 
 ### Access reviews to external identities
 
-It is crucial to keep access to external identities constrained only to resources that are needed, during the time that is needed. Establish a regular automated access review process for all external identities and application access using Azure AD [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview). If a process already exists on-premises, consider using Azure AD access reviews. Once an application is retired or no longer used, remove all the external identities that had access to the application.
+It is crucial to keep access to external identities constrained only to resources that are needed, during the time that is needed. Establish a regular automated access review process for all external identities and application access using Azure AD [access reviews](../governance/access-reviews-overview.md). If a process already exists on-premises, consider using Azure AD access reviews. Once an application is retired or no longer used, remove all the external identities that had access to the application.
 
 > [!NOTE]
 > Each user who interacts with access reviews must have a paid Azure AD Premium P2 license.
@@ -89,22 +89,22 @@ It is crucial to keep access to external identities constrained only to resource
 
 Hackers often target admin accounts and other elements of privileged access to rapidly gain access to sensitive data and systems. Since users with privileged roles tend to accumulate over time, it is important to review and manage admin access on a regular basis and provide just-in-time privileged access to Azure AD and Azure resources.
 
-If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) if applicable.
+If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../roles/security-planning.md) if applicable.
 
-Another aspect of privileged account management that should be implemented is in defining [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) for those accounts, either manually or [automated through PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
+Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
 #### Privileged account management recommended reading
 
-- [Roles in Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
+- [Roles in Azure AD Privileged Identity Management](../privileged-identity-management/pim-roles.md)
 
 ### Emergency access accounts
 
-Organizations must create [emergency accounts](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) to be prepared to manage Azure AD for cases such as authentication outages like:
+Organizations must create [emergency accounts](../roles/security-emergency-access.md) to be prepared to manage Azure AD for cases such as authentication outages like:
 
 - Outage components of authentication infrastructures (AD FS, On-premises AD, MFA service)
 - Administrative staff turnover
 
-To prevent being inadvertently locked out of your tenant because you can't sign in or activate an existing individual user's account as an administrator, you should create two or more emergency accounts and ensure they are implemented and aligned with [Microsoft’s best practices](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) and [break glass procedures](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
+To prevent being inadvertently locked out of your tenant because you can't sign in or activate an existing individual user's account as an administrator, you should create two or more emergency accounts and ensure they are implemented and aligned with [Microsoft’s best practices](../roles/security-planning.md) and [break glass procedures](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### Privileged access to Azure EA portal
 
@@ -114,11 +114,11 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 #### Privileged access recommended reading
 
-- [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md)
 
 ## Entitlement management
 
-[Entitlement management (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. 
+[Entitlement management (EM)](../governance/entitlement-management-overview.md) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. 
 
 > [!NOTE]
 > Azure AD Entitlement Management requires Azure AD Premium P2 licenses.

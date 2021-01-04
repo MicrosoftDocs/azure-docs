@@ -12,6 +12,9 @@ manager: philmea
 
 # Run the OPC Vault certificate management service securely
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to run the OPC Vault certificate management service securely in Azure, and reviews other security guidelines to consider.
 
 ## Roles
@@ -87,10 +90,10 @@ All systems must be continuously monitored and updated with latest security upda
 
 ### Security monitoring
 
-Subscribe to or implement appropriate security monitoring. For example, subscribe to a central monitoring solution (such as Azure Security Center or Office 365 monitoring solution), and configure it appropriately to ensure that security events are transmitted to the monitoring solution.
+Subscribe to or implement appropriate security monitoring. For example, subscribe to a central monitoring solution (such as Azure Security Center or Microsoft 365 monitoring solution), and configure it appropriately to ensure that security events are transmitted to the monitoring solution.
 
 > [!IMPORTANT]
-> By default, the OPC Vault service is deployed with [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
+> By default, the OPC Vault service is deployed with [Azure Application Insights](../azure-monitor/app/devops.md) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
 
 ### Assess the security of open-source software components
 
@@ -141,7 +144,7 @@ Provide an exhaustive set of all certificates issued in the past 12 months.
 ### Document the standard operating procedure for securely deleting cryptographic keys
 
 During the lifetime of a CA, key deletion might happen only rarely. This is why no user has Key Vault Certificate Delete right assigned, and why there are no APIs exposed to delete an Issuer CA certificate. The manual standard operating procedure for securely deleting certification authority cryptographic keys is only available by directly accessing Key Vault in the Azure portal. You can also delete the certificate group in Key Vault. To ensure immediate deletion, disable the 
-[Key Vault soft delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) functionality.
+[Key Vault soft delete](../key-vault/general/soft-delete-overview.md) functionality.
 
 ## Certificates
 

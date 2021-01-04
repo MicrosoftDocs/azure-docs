@@ -53,7 +53,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
-* Install [Azure PowerShell](/powershell/azure/overview).  
+* Install [Azure PowerShell](/powershell/azure/).  
 * Launch **PowerShell** and do the following steps. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:

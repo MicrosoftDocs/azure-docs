@@ -7,7 +7,7 @@ ms.date: 07/07/2020
 
 # Azure Maps as an Event Grid source
 
-This article provides the properties and schema for Azure Maps events. For an introduction to event schemas, see [Azure Event Grid event schema](https://docs.microsoft.com/azure/event-grid/event-schema). It also gives you a list of quick starts and tutorials to use Azure Maps as an event source.
+This article provides the properties and schema for Azure Maps events. For an introduction to event schemas, see [Azure Event Grid event schema](./event-schema.md). It also gives you a list of quick starts and tutorials to use Azure Maps as an event source.
 
 ## Event Grid event schema
 

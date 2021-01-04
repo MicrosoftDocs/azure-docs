@@ -68,14 +68,14 @@ You should create this single table or view before running the wizard, and it mu
 
 ## Wizard output
 
-Behind the scenes, the wizard creates, configures, and invokes the following objects. After the wizard runs, you can find its output in the portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets. Index definitions can be viewed in full JSON in the portal. For other definitions, you can use the [REST API](https://docs.microsoft.com/rest/api/searchservice/) to GET specific objects.
+Behind the scenes, the wizard creates, configures, and invokes the following objects. After the wizard runs, you can find its output in the portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets. Index definitions can be viewed in full JSON in the portal. For other definitions, you can use the [REST API](/rest/api/searchservice/) to GET specific objects.
 
 | Object | Description | 
 |--------|-------------|
-| [Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | 
-| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
-| [Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. Optionally, it might also contain a knowledge store definition.  | 
-| [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
+| [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | 
+| [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. Optionally, it might also contain a knowledge store definition.  | 
+| [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
 
 
 ## How to start the wizard
@@ -98,7 +98,7 @@ The wizard generates an incomplete index, which will be populated with documents
 
 1. Is the field list complete? Add new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
+1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
 1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 

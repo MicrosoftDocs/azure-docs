@@ -37,7 +37,7 @@ Recent profiling sessions | Displays information about past profiling sessions.
 ## Profile Now
 This option allows you to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
 
-For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. In most cases, you get this access automatically and no additional work is needed. If you're having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. In most cases, you get this access automatically and no additional work is needed. If you're having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](./resources-roles-access-control.md).
 
 ## Trigger Settings
 ![Trigger Settings Flyout][trigger-settings-flyout]

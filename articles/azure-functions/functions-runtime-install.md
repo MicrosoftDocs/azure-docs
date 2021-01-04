@@ -67,7 +67,7 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
     ![Azure Functions Runtime preview configuration tool][7]
 
-1. Click the **Database** tab, enter the connection details for your SQL Server instance, including specifying a [Database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), and click **Apply**.  Connectivity to a SQL Server instance is required in order for the Azure Functions Runtime to create a database to support the Runtime.
+1. Click the **Database** tab, enter the connection details for your SQL Server instance, including specifying a [Database master key](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), and click **Apply**.  Connectivity to a SQL Server instance is required in order for the Azure Functions Runtime to create a database to support the Runtime.
 
     ![Azure Functions Runtime preview database configuration][8]
 

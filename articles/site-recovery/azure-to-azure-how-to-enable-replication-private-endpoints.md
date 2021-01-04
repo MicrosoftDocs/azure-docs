@@ -1,8 +1,8 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
@@ -12,11 +12,8 @@ ms.custom: references_regions
 
 Azure Site Recovery allows you to use
 [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating
-your machines from inside an isolated virtual network. Support for private endpoint access to
-a recovery vault is supported for the following regions:
-
-- Azure commercial: South Central US, West US 2, East US
-- Azure Government: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD East, US DoD Central
+your machines from inside an isolated virtual network. Private endpoint access to
+a recovery vault is supported in all Azure Commercial & Government regions.
 
 This article provides instructions for you to perform the following steps:
 
@@ -196,7 +193,7 @@ following requirements apply:
 > [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Follow the
-[guidance for creation of private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
+[guidance for creation of private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)
 to create a storage account with private endpoint. Ensure to select **Yes** to integration with
 private DNS zone. Select an already created DNS zone or create a new one.
 

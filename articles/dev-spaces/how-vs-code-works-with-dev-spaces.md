@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How Visual Studio Code works with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 You can use Visual Studio Code and the [Azure Dev Spaces extension][azds-extension] to prepare, run, and debug your services with Azure Dev Spaces. With Visual Studio Code and the Azure Dev Spaces extension, you can:
 
 * Generate assets for running and debugging services in AKS
@@ -38,19 +40,15 @@ For .NET Core projects, you must have the [C# extension][csharp-extension] insta
 
 After you launch your project, you can debug your Java, Node.js, and .NET Core services running in a dev space directly from Visual Studio Code. The launch configuration in the `.vscode` directory provides the additional debugging information for running a service with debugging enabled in a dev space. Visual Studio Code also attaches to the debug process in the running container in your dev spaces, allowing you to set break points, inspect variables, and perform other debugging operations.
 
-## Use Visual Studio Code with Azure Dev Spaces
+## Next steps
 
-You can see Visual Studio Code and the Azure Dev Spaces extension working with Azure Dev Spaces in the following quickstarts:
+Learn more about how Azure Dev Spaces works.
 
-* [Rapidly iterate and debug with Visual Studio Code and Java][quickstart-java]
-* [Rapidly iterate and debug with Visual Studio Code and .NET][quickstart-netcore]
-* [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

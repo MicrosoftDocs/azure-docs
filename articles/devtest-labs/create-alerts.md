@@ -59,7 +59,7 @@ In this example, you create an alert for all administrative operations on a lab 
 ## View alerts 
 1. You will see alerts on the **Alerts** for all administrative operations (in this example). Alerts may take sometime to show up. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Alerts":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Screen capture displays alerts in the Dashboard.":::
 1. If you select number in a column (for example: **Total alerts**), you see the alerts that were raised. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="All alerts":::

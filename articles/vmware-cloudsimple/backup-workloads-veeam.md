@@ -51,7 +51,7 @@ For environments with less than 30 TB to back up, CloudSimple recommends the fol
 * A Linux based primary backup repository in Azure configured as a target for backup jobs.
 * `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
 
-![Basic deployment scenarios](media/veeam-basicdeployment.png)
+![Diagram that shows basic Veeam deployment scenarios.](media/veeam-basicdeployment.png)
 
 **Advanced deployment**
 

@@ -83,4 +83,4 @@ To learn more about the application model:
 
 * See [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md) for more information on application objects and service principals in Microsoft identity platform.
 * See [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md) for more information on single-tenant apps and multi-tenant apps.
-* See [Azure Active Directory B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c) for more information on how Azure AD also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, using social identities like a Google account.
+* See [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml) for more information on how Azure AD also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, using social identities like a Google account.

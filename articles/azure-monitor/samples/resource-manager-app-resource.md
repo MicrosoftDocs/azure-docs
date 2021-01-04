@@ -17,7 +17,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Classic Application Insights resource
 
-The following sample creates a [classic Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). 
+The following sample creates a [classic Application Insights resource](../app/create-new-resource.md). 
 
 ### Template file
 
@@ -28,31 +28,31 @@ The following sample creates a [classic Application Insights resource](https://d
     "parameters": {
         "name": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Name of Application Insights resource."
           }
         },
         "type": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy."
           }
         },
         "regionId": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Which Azure Region to deploy the resource to. This must be a valid Azure regionId."
           }
         },
         "tagsArray": {
             "type": "object",
-			"metadata": {
+            "metadata": {
             "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
-		  }
+          }
         },
         "requestSource": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Source of Azure Resource Manager deployment"
         }
         }
@@ -103,7 +103,7 @@ The following sample creates a [classic Application Insights resource](https://d
 
 ## Workspace-based Application Insights resource 
 
-The following sample creates a [workspace-based Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource). Workspace-based Application Insights are currently in **preview**. 
+The following sample creates a [workspace-based Application Insights resource](../app/create-workspace-resource.md). Workspace-based Application Insights are currently in **preview**. 
 
 
 ### Template file
@@ -115,37 +115,37 @@ The following sample creates a [workspace-based Application Insights resource](h
     "parameters": {
         "name": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Name of Application Insights resource."
           }
         },
         "type": {
             "type": "string",
-	        "metadata": {
+            "metadata": {
             "description": "Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy."
           }
         },
         "regionId": {
             "type": "string",
-		    "metadata": {
+            "metadata": {
             "description": "Which Azure Region to deploy the resource to. This must be a valid Azure regionId."
           }
         },
         "tagsArray": {
             "type": "object",
-			"metadata": {
+            "metadata": {
             "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
-			}
+            }
         },
         "requestSource": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Source of Azure Resource Manager deployment"
         }
         },
         "workspaceResourceId": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Log Analytics workspace ID to associate with your Application Insights resource."
         }
         }

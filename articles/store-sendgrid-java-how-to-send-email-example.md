@@ -1,6 +1,6 @@
 ---
 title: store-sendgrid-java-how-to-send-email-example
-description: How to send email using SendGrid from Java in an Azure Deployment
+description: Send email using SendGrid from Java in an Azure Deployment. The resulting application prompts the user for email values.
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-
+ms.custom: devx-track-java
 ---
+
 # How to Send Email Using SendGrid from Java in an Azure Deployment
 The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure. The resulting application will prompt the user for email values, as shown in the following screenshot.
 
@@ -214,7 +215,7 @@ Deploy your application to the compute emulator and within a browser run emailfo
 
 This code was provided to show you how to use SendGrid in Java on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example: 
 
-* You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form. For information about using Azure storage blobs in Java, see [How to Use the Blob Storage Service from Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). For information about using SQL Database in Java, see [Using SQL Database in Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
+* You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form. For information about using Azure storage blobs in Java, see [How to Use the Blob Storage Service from Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). For information about using SQL Database in Java, see [Using SQL Database in Java](./azure-sql/database/connect-query-java.md).
 * For more information about using SendGrid in Java, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

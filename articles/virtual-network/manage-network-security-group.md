@@ -1,7 +1,7 @@
 ---
 title: Create, change, or delete an Azure network security group
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete a network security group.
+description: Learn where to find information about security rules and how to create, change, or delete a network security group.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -172,7 +172,7 @@ There's a limit to how many rules per network security group you can create for 
     | **Action** | **Allow** or **Deny** | This setting specifies whether this rule allows or denies access for the supplied source and destination configuration. |
     | **Priority** | A value between 100 and 4096 that's unique for all security rules within the network security group | Azure processes security rules in priority order. The lower the number, the higher the priority. We recommend that you leave a gap between priority numbers when you create rules, such as 100, 200, and 300. Leaving gaps makes it easier to add rules in the future, so that you can give them higher or lower priority than existing rules. |
     | **Name** | A unique name for the rule within the network security group | The name can be up to 80 characters. It must begin with a letter or number, and it must end with a letter, number, or underscore. The name may contain only letters, numbers, underscores, periods, or hyphens. |
-    | **Description** | A text description | You may optionally specify a text description for the security rule. |
+    | **Description** | A text description | You may optionally specify a text description for the security rule. The description cannot be longer than 140 characters. |
 
 #### Commands
 

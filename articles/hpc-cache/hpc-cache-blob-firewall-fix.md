@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Work around Blob storage account firewall settings

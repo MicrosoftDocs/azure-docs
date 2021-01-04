@@ -2,6 +2,7 @@
 title: Custom provider C# RESTful endpoint reference
 description: Provides basic reference for an Azure Custom Providers C# RESTful endpoint. The endpoint is provided through an Azure function app.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019

@@ -84,7 +84,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 ## Create an Azure Automation Account with run-as capability
 The first thing you need to do is create an Azure Automation account that hosts the runbooks used to scale the virtual machine scale set instances. Recently [Azure Automation](https://azure.microsoft.com/services/automation/) introduced the "Run As account" feature that makes setting up the Service Principal for automatically running the runbooks on a user's behalf. For more information, see:
 
-* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authenticate Runbooks with Azure Run As account](../automation/manage-runas-account.md)
 
 ## Import Azure Automation Vertical Scale runbooks into your subscription
 

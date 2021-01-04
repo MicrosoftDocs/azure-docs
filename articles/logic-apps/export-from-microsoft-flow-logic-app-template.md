@@ -19,10 +19,10 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 > supported for export and deployment as logic app templates.
 >
 > * To find which Power Automate connectors don't have Logic Apps equivalents, see 
-> [Power Automate connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
 > * To find which Logic Apps connectors don't have Power Automate equivalents, see 
-> [Logic Apps connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Logic Apps connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Screenshot that shows the "Add new" button selected on the Outlook "Connections" window.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 

@@ -77,7 +77,7 @@ $OAuthToken
 cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
 ```console
-curl -v -X POST
+curl -v -X POST \
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \
@@ -146,7 +146,7 @@ def get_token(subscription_key):
 
 The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can get a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
 
-Here's a sample HTTP request to the text-to-speech REST API:
+Here's a sample HTTP request to the Speech-to-text REST API for short audio:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

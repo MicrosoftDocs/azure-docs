@@ -23,7 +23,7 @@ This article provides steps to resolve issues where error code 0xC0000225 occurs
 
 ## Symptoms
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays a Windows failed to start error with the Status code *0xc0000225*.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you will see that the screenshot displays a Windows failed to start error with the Status code *0xc0000225*.
 
 The file associated with this error code will inform you which steps to take in order to resolve the issue. Locate the **File:** section’s text to determine the appropriate course of action.
 
@@ -86,7 +86,7 @@ A registry hive corruption could be due to:
 
 ### Create and Access a Repair VM
 
-1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 1. Using Remote Desktop Connection, connect to the Repair VM.
 
 ### Select a Solution
@@ -122,8 +122,8 @@ A registry hive corruption could be due to:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       This command will list all versions of the file that the machine has, giving you the path history of that component.
-	  
-	  For example, **dir cng.sys** would be renamed **dir cng.sys /s**
+
+      For example, **dir cng.sys** would be renamed **dir cng.sys /s**
 
    1. Choose the latest version of the file on the list (or any that you prefer) and copy the file to the **windows\system32** folder using previous path and the following command:
 
@@ -299,4 +299,4 @@ The **Registry File** error has a solution, but you will need to [create a suppo
    
 ### Rebuild the VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to rebuild the VM.
+Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.

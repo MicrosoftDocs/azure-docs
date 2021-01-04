@@ -4,7 +4,7 @@ description: Describes how to use Docker Machine to create Docker hosts in Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 

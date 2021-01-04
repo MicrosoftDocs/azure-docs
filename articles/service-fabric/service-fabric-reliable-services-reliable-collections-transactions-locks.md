@@ -3,7 +3,6 @@ title: Transactions And Lock Modes in Reliable Collections
 description: Azure Service Fabric Reliable State Manager and Reliable Collections Transactions and Locking.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.custom: sfrev
 ---
 # Transactions and lock modes in Azure Service Fabric Reliable Collections
 
@@ -73,7 +72,7 @@ The lock compatibility matrix can be found in the following table:
 The timeout argument in Reliable Collections APIs is used for deadlock detection.
 For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out. I this scenario, an Update lock could prevent such a deadlock.
+In this case, one or both of the operations will time out. In this scenario, an Update lock could prevent such a deadlock.
 
 ## Next steps
 

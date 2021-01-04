@@ -74,7 +74,7 @@ There are several ways to use Azure Batch, all of which also apply to Azure Batc
 * APIs:
   * Write code using the [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch), or other supported APIs.  Developers can integrate Azure Batch capabilities into their existing applications or workflow, whether cloud or based on-premises.  For example, the [Autodesk Maya plug-in](https://github.com/Azure/azure-batch-maya) utilizes the Batch Python API to invoke Batch, creating and managing pools, submitting jobs and tasks, and monitoring status.
 * Command-line tools:
-  * The [Azure command line](/cli/azure/) or [Azure PowerShell](/powershell/azure/overview) can be used to script Batch use.
+  * The [Azure command line](/cli/azure/) or [Azure PowerShell](/powershell/azure/) can be used to script Batch use.
   * In particular, the Batch CLI template support makes it much easier to create pools and submit jobs.
 * UIs:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) is a cross-platform client tool that also allows Batch accounts to be managed and monitored, but provides some richer capabilities compared to the Azure portal UI.  A set of pool and job templates are provided that are tailored for each supported application and can be used to easily create pools and to submit jobs.

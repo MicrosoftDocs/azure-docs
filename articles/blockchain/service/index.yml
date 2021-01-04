@@ -105,4 +105,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/blockchain
+            url: /rest/api/blockchain

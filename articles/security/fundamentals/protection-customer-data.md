@@ -1,6 +1,6 @@
 ---
 title: Protection of customer data in Azure
-description: This article addresses how Azure protects customer data.
+description: Learn how Azure protects customer data through data segregation, data redundancy, and data destruction.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/10/2020
 ms.author: terrylan
 
 ---

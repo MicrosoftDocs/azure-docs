@@ -1,7 +1,7 @@
 ---
 title: CloudSimple activity management
 titleSuffix: Azure VMware Solution by CloudSimple 
-description: Describes activity concepts on VMware Solution by CloudSimple
+description: Learn about the Activity pages, which summarize activity and allow you find additional details. Activities include alerts, events, tasks, and audit activity.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019

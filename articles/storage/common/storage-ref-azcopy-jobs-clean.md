@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy jobs cle
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -33,13 +33,13 @@ azcopy jobs clean [flags]
 
 ## Options
 
-**-h, --help**                Help for clean.
+**--help**                Help for clean.
 
-**--with-status** string   Only remove the jobs with this status, available values: Canceled, Completed, Failed, InProgress, All (default "All")
+**--with-status** string   Only remove the jobs with this status, available values: `Canceled`, `Completed`, `Failed`, `InProgress`, `All` (default `All`)
 
 ## Options inherited from parent commands
 
-**--cap-mbps uint32**      Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+**--cap-mbps float**      Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
 
 **--output-type** string   Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 

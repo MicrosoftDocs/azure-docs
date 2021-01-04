@@ -64,7 +64,7 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
      - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
      - You must create a webhook prior to entering it here.  
 
-       For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 ## View cost by resource 
 The monthly cost trend feature in labs allows you to see how much you have spent in the current calendar month. It also shows the projection of the spending until the end of the month, based on your spending in last seven days. To help you understand why the spending in the lab is meeting thresholds early on, you can use the **cost by resource** feature that shows you the month-to-date cost **per resource** in a table.
@@ -91,4 +91,3 @@ Here are some things to try next:
   illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
 * [Create a VM in a lab](devtest-lab-add-vm.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with
   artifacts in your VM.
-

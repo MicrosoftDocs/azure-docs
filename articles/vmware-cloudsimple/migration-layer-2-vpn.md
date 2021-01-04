@@ -113,7 +113,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 3. Open an SSH session to the management IP address of the Edge VM. Run the ```get logical-router``` command with username **admin** and password **CloudSimple 123!**.
 
-    ![get logical-router output](media/l2vpn-fetch03.png)
+    ![Screenshot that shows an open SSH session.](media/l2vpn-fetch03.png)
 
 4. If you don't see an entry 'DR-Provider-LR', complete the following steps.
 
@@ -127,7 +127,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 7. Run the `get logical-router` command again on the SSH session of the Edge VM. The UUID of the 'DR-Provider-LR' logical router is displayed. Make a note of the UUID, which is required when configuring the L2VPN.
 
-    ![get logical-router output](media/l2vpn-fetch06.png)
+    ![Screenshot that shows the UUID for the logical router.](media/l2vpn-fetch06.png)
 
 ## Fetch the logical-switch ID needed for L2VPN
 
@@ -427,7 +427,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 2. Go to the folder with all the extracted files. Select all the vmdks (NSX-l2t-client-large.mf and NSX-l2t-client-large.ovf for large appliance size or NSX-l2t-client-Xlarge.mf and NSX-l2t-client-Xlarge.ovf for extra large size appliance size). Click **Next**.
 
     ![Select template](media/l2vpn-deploy-client02.png)
-    ![Select template](media/l2vpn-deploy-client03.png)
+    ![Screenshot that shows the selected vmdks files.](media/l2vpn-deploy-client03.png)
 
 3. Enter a name for the NSX-T standalone client and click **Next**.
 

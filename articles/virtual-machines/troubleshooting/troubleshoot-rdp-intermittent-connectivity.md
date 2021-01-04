@@ -93,7 +93,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 
 ### Repair the VM offline
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. After the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 3. On the OS disk that you attached, navigate to the **\windows\system32\config** folder. Copy all the files in this folder as a backup, in case a rollback is required.
 4. Start Registry Editor (regedit.exe).
@@ -182,8 +182,3 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 
 ## Need help? 
 Contact support. If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
-
-
-
-
