@@ -125,7 +125,22 @@ Use the following procedure to create action groups:
 
 9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. Meaning there will be one work item per configuration item.
 
-    * In a case you select in the work item dropdown "Incident" or "Alert": If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
+    * In a case you select in the work item dropdown "Incident" or "Alert": 
+        * If you check the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system.
+
+            For example:
+            1) Alert 1 with 3 Configuration Items: A, B, C will create 3 work items.
+            2) Alert 2 with 1 Configuration Item: D will create 1 work item.
+
+                **By the end of this flow there will be 4 alerts**
+        * If you clear the **Create individual work items for each Configuration Item** check box, there will be alerts that will not create a new work item. work items will be merged according to alert rule.
+
+            For example:
+            1) Alert 1 with 3 Configuration Items: A, B, C will create 1 work item.
+            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D will be merged to the work item in phase 1.
+            3) Alert 3 for a different alert rule with 1 Configuration Item: E will create 1 work item.
+
+                **By the end of this flow there will be 2 alerts**
 
        ![Screenshot that shows the ITSM Incident window.](media/itsmc-overview/itsm-action-configuration.png)
 
