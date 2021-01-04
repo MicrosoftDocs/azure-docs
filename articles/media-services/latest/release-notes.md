@@ -35,6 +35,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 >
 > For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## December 2020
+
+### Regional availability
+
+Azure Media Services is now available in the “Norway East” region in the Azure portal.
+
 ## October 2020
 
 ### Basic Audio Analysis
