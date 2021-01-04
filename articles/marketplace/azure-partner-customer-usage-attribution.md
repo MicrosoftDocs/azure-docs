@@ -32,8 +32,8 @@ Starting January 2021, tracking Azure usage from Commercial Marketplace Azure ap
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#Use-Resource-Manager-APIs) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
 
->[!NOTE]
->For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
+> [!NOTE]
+> For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
 
 ## Other use cases 
 
