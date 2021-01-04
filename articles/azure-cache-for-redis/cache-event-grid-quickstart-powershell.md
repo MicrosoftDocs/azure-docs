@@ -134,7 +134,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```json
 [{
 "id": "e1ceb52d-575c-4ce4-8056-115dec723cff",
-  "eventType": "Microsoft.Cache.ExportRDBCompleted",
+  "eventType": "Microsoft.Cache.ImportRDBCompleted",
   "topic": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
   "data": {
     "name": "ImportRDBCompleted",
