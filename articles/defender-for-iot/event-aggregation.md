@@ -93,6 +93,6 @@ To continue getting started with Defender for IoT deployment, use the following 
 
 - Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - Select and deploy a [security agent](how-to-deploy-agent.md)
-- Review Defender for IoT [service prerequisites](service-prerequisites.md)
+- Review Defender for IoT [System prerequisites](quickstart-system-prerequisites.md)
 - Learn how to [Enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)

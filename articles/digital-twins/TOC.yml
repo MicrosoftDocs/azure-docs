@@ -138,7 +138,7 @@
       - name: Control plane
         items:
         - name: Swagger
-          href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins
+          href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/
         - name: .NET (C#) SDK - reference

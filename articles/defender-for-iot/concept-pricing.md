@@ -4,7 +4,7 @@ description: Learn about the costs associated with Defender for IoT, and how to 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
-ms.author: mlottner
+ms.date: 12/08/2020
+ms.author: shhazam
 ---
 
 # Pricing and associated costs

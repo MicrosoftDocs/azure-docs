@@ -164,7 +164,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Answer 2:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping. You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of text-to-speech.
+**Answer 2:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping.
 
 **Error 3:**
 

@@ -72,8 +72,6 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
-    - name: Manage BareMetal Instances through the Azure portal
-      href: baremetal-infrastructure-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
     - name: OS Backup for Type II SKUs
