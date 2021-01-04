@@ -13,24 +13,67 @@ ms.author: jpalma
 
 There are different ways to authenticate, control access/authorize and secure Kubernetes clusters. Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need. With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure by using Azure Active Directory and Azure RBAC. These approaches help you secure your cluster access and provide only the minimum required permissions to developers and operators.
 
-This article introduces the core concepts that help you authenticate and assign permissions in AKS:
+This article introduces the core concepts that help you authenticate and assign permissions in AKS.
 
-- [Kubernetes role-based access control (Kubernetes RBAC)](#kubernetes-role-based-access-control-kubernetes-rbac)
-  - [Roles and ClusterRoles](#roles-and-clusterroles)
-  - [RoleBindings and ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
-  - [Kubernetes service accounts](#kubernetes-service-accounts)
-- [Azure Active Directory integration](#azure-active-directory-integration)
-- [Azure RBAC](#azure-role-based-access-control-azure-rbac)
-  - [Azure RBAC to authorize access to the AKS resource](#azure-rbac-to-authorize-access-to-the-aks-resource)
-  - [Azure RBAC for Kubernetes Authorization (Preview)](#azure-rbac-for-kubernetes-authorization-preview)
+## AKS service permissions
 
+When creating a cluster, AKS creates or modifies resources it needs to create and run the cluster, such as VMs and NICs, on behalf of the user creating the cluster. This identity is distinct from the cluster's identity permission, which is created during cluster creation.
+
+### Identity creating and operating the cluster permissions
+
+The following permissions are needed by the identity creating and operating the cluster.
+
+| Permission | Reason |
+|---|---|
+| Microsoft.Compute/diskEncryptionSets/read | Required to read disk encryption set ID. |
+| Microsoft.Compute/proximityPlacementGroups/write | Required for updating proximity placement groups. |
+| Microsoft.Network/applicationGateways/read <br/> Microsoft.Network/applicationGateways/write <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Required to configure application gateways and join the subnet. |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Required to configure the Network Security Group for the subnet when using a custom VNET.|
+| Microsoft.Network/publicIPAddresses/join/action <br/> Microsoft.Network/publicIPPrefixes/join/action | Required to configure the outbound public IPs on the Standard Load Balancer. |
+| Microsoft.OperationalInsights/workspaces/sharedkeys/read <br/> Microsoft.OperationalInsights/workspaces/read <br/> Microsoft.OperationsManagement/solutions/write <br/> Microsoft.OperationsManagement/solutions/read <br/> Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | Required to create and update Log Analytics workspaces and Azure monitoring for containers. |
+
+### AKS cluster identity permissions
+
+The following permissions are used by the AKS cluster identity, which is created and associated with the AKS cluster when the cluster is created. Each permission is used for the reasons below:
+
+| Permission | Reason |
+|---|---|
+| Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Required to configure the load balancer for a LoadBalancer service. |
+| Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Required to find and configure public IPs for a LoadBalancer service. |
+| Microsoft.Network/publicIPAddresses/join/action | Required for configuring public IPs for a LoadBalancer service. |
+| Microsoft.Network/networkSecurityGroups/read <br/> Microsoft.Network/networkSecurityGroups/write | Required to create or delete security rules for a LoadBalancer service. |
+| Microsoft.Compute/disks/delete <br/> Microsoft.Compute/disks/read <br/> Microsoft.Compute/disks/write <br/> Microsoft.Compute/locations/DiskOperations/read | Required to configure AzureDisks. |
+| Microsoft.Storage/storageAccounts/delete <br/> Microsoft.Storage/storageAccounts/listKeys/action <br/> Microsoft.Storage/storageAccounts/read <br/> Microsoft.Storage/storageAccounts/write <br/> Microsoft.Storage/operations/read | Required to configure storage accounts for AzureFile or AzureDisk. |
+| Microsoft.Network/routeTables/read <br/> Microsoft.Network/routeTables/routes/delete <br/> Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write <br/> Microsoft.Network/routeTables/write | Required to configure route tables and routes for nodes. |
+| Microsoft.Compute/virtualMachines/read | Required to find information for virtual machines in a VMAS, such as zones, fault domain, size, and data disks. |
+| Microsoft.Compute/virtualMachines/write | Required to attach AzureDisks to a virtual machine in a VMAS. |
+| Microsoft.Compute/virtualMachineScaleSets/read <br/> Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read <br/> Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read | Required to find information for virtual machines in a virtual machine scale set, such as zones, fault domain, size, and data disks. |
+| Microsoft.Network/networkInterfaces/write | Required to add a virtual machine in a VMAS to a load balancer backend address pool. |
+| Microsoft.Compute/virtualMachineScaleSets/write | Required to add a virtual machine scale set to a load balancer backend address pools and scale out nodes in a virtual machine scale set. |
+| Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write | Required to attach AzureDisks and add a virtual machine from a virtual machine scale set to the load balancer. |
+| Microsoft.Network/networkInterfaces/read | Required to search internal IPs and load balancer backend address pools for virtual machines in a VMAS. |
+| Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | Required to search internal IPs and load balancer backend address pools for a virtual machine in a virtual machine scale set. |
+| Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ ipconfigurations/publicipaddresses/read | Required to find public IPs for a virtual machine in a virtual machine scale set. |
+| Microsoft.Network/virtualNetworks/read <br/> Microsoft.Network/virtualNetworks/subnets/read | Required to verify if a subnet exists for the internal load balancer in another resource group. |
+| Microsoft.Compute/snapshots/delete <br/> Microsoft.Compute/snapshots/read <br/> Microsoft.Compute/snapshots/write | Required to configure snapshots for AzureDisk. |
+| Microsoft.Compute/locations/vmSizes/read <br/> Microsoft.Compute/locations/operations/read | Required to find virtual machine sizes for finding AzureDisk volume limits. |
+
+### Additional cluster identity permissions
+
+The following additional permissions are needed by the cluster identity when creating a cluster with specific attributes. These permissions are not automatically assigned so you must add these permissions to the cluster identity after its created.
+
+| Permission | Reason |
+|---|---|
+| Microsoft.Network/networkSecurityGroups/write <br/> Microsoft.Network/networkSecurityGroups/read | Required if using a network security group in another resource group. Required to configure security rules for a LoadBalancer service. |
+| Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Required if using a subnet in another resource group such as a custom VNET. |
+| Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Required if using a subnet associated with a route table in another resource group such as a custom VNET with a custom route table. Required to verify if a subnet already exists for the subnet in the other resource group. |
+| Microsoft.Network/virtualNetworks/subnets/read | Required if using an internal load balancer in another resource group. Required to verify if a subnet already exists for the internal load balancer in the resource group. |
 
 ## Kubernetes role-based access control (Kubernetes RBAC)
 
 To provide granular filtering of the actions that users can do, Kubernetes uses Kubernetes role-based access control (Kubernetes RBAC). This control mechanism lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire AKS cluster. With Kubernetes RBAC, you create *roles* to define permissions, and then assign those roles to users with *role bindings*.
 
 For more information, see [Using Kubernetes RBAC authorization][kubernetes-rbac].
-
 
 ### Roles and ClusterRoles
 
@@ -80,11 +123,11 @@ As shown in the graphic above, the API server calls the AKS webhook server and p
 1. The Azure AD client application is used by kubectl to sign in users with [OAuth 2.0 device authorization grant flow](../active-directory/develop/v2-oauth2-device-code.md).
 2. Azure AD provides an access_token, id_token, and a refresh_token.
 3. The user makes a request to kubectl with an access_token from kubeconfig.
-4. Kubectl sends the access_token to APIServer.
+4. Kubectl sends the access_token to API Server.
 5. The API Server is configured with the Auth WebHook Server to perform validation.
 6. The authentication webhook server confirms the JSON Web Token signature is valid by checking the Azure AD public signing key.
 7. The server application uses user-provided credentials to query group memberships of the logged-in user from the MS Graph API.
-8. A response is sent to the APIServer with user information such as the user principal name (UPN) claim of the access token, and the group membership of the user based on the object ID.
+8. A response is sent to the API Server with user information such as the user principal name (UPN) claim of the access token, and the group membership of the user based on the object ID.
 9. The API performs an authorization decision based on the Kubernetes Role/RoleBinding.
 10. Once authorized, the API server returns a response to kubectl.
 11. Kubectl provides feedback to the user.
@@ -130,7 +173,7 @@ This feature will allow you to, for example, not only give users permissions to 
 
 #### Built-in roles
 
-AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) but with a few differences like supporting CRDs. For the full list of actions allowed by each built in role please see [here](../role-based-access-control/built-in-roles.md).
+AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) but with a few differences like supporting CRDs. For the full list of actions allowed by each built-in role, see [here](../role-based-access-control/built-in-roles.md).
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
@@ -188,3 +231,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
+[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

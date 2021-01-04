@@ -62,7 +62,7 @@ After your endpoint is deployed, the endpoint name appears as a link. Select the
 
 ## View logging data
 
-Logging data is available for download under **Endpoint** > **Details**.
+Logging data is available for export if you go to the endpoint's page under **Deployments**.
 > [!NOTE]
 >Logging data is available for 30 days on Microsoft-owned storage. It will be removed afterwards. If a customer-owned storage account is linked to the Cognitive Services subscription, the logging data won't be automatically deleted.
 

@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server

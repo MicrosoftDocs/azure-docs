@@ -111,6 +111,7 @@ Save the `appId`, `password`, and `tenant` values in an environment variable for
 SET SPN_CLIENT_ID=<appId>
 SET SPN_CLIENT_SECRET=<password>
 SET SPN_TENANT_ID=<tenant>
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 #### Save environment variables in Linux or macOS
@@ -119,6 +120,7 @@ SET SPN_TENANT_ID=<tenant>
 export SPN_CLIENT_ID='<appId>'
 export SPN_CLIENT_SECRET='<password>'
 export SPN_TENANT_ID='<tenant>'
+export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
 #### Save environment variables in PowerShell
@@ -127,6 +129,7 @@ export SPN_TENANT_ID='<tenant>'
 $Env:SPN_CLIENT_ID="<appId>"
 $Env:SPN_CLIENT_SECRET="<password>"
 $Env:SPN_TENANT_ID="<tenant>"
+$Env:SPN_AUTHORITY="https://login.microsoftonline.com"
 ```
 
 After you have created the service principal, assign the service principal to the appropriate role. 

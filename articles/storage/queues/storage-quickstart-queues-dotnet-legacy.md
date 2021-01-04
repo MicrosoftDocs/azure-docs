@@ -2,22 +2,21 @@
 title: "Quickstart: Use Azure Storage v11 for .NET to manage a queue"
 description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 author: mhopkins-msft
-
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue
 
-In this quickstart, you learn how to use the Azure Storage client library version 11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
+In this quickstart, you learn how to use the Azure Storage client library v11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 
 > [!NOTE]
-> This quickstart uses a legacy version of the Azure Queue storage client library. To get started with the latest version, see [Quickstart: Azure Queue storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
+> This quickstart uses a legacy version of the Azure Queue Storage client library. To get started with the latest version, see [Quickstart: Azure Queue Storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
 
 ## Prerequisites
 
@@ -46,13 +45,13 @@ For information about choosing between .NET Core and the .NET Framework, see [Ch
 
 The sample application used in this quickstart is a basic console application. You can explore the sample application on [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
+Use [Git](https://git-scm.com/) to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-queues-dotnet-quickstart* folder, open it, and double-click on *storage-queues-dotnet-quickstart.sln*.
+This command clones the repository to your local Git folder. To open the Visual Studio solution, look for the `storage-queues-dotnet-quickstart` folder, open it, and double-click on `storage-queues-dotnet-quickstart.sln`.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -94,7 +93,7 @@ The sample application creates a queue and adds a message to it. The application
 
 ### Windows
 
-If you are using Visual Studio as your editor, you can press **F5** to run.
+If you are using Visual Studio as your editor, you can press `F5` to run.
 
 Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
 
@@ -144,7 +143,7 @@ Next, explore the sample code so that you can understand how it works.
 
 ### Try parsing the connection string
 
-The sample first checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, the sample uses the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+The sample first checks that the environment variable contains a connection string that can be parsed to create a [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, the sample uses the [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If `TryParse` is successful, it initializes the `storageAccount` variable and returns `true`.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -200,7 +199,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -258,25 +257,25 @@ if (queue != null)
 
 ## Resources for developing .NET applications with queues
 
-See these additional resources for .NET development with Azure Queues:
+See these additional resources for .NET development with Azure Queue Storage:
 
 ### Binaries and source code
 
 - Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
-  - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Common](https://www.nuget.org/packages/microsoft.azure.storage.common/)
   - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
-### Client library reference and samples
+### Azure Storage client library reference and samples
 
-- See the [.NET API reference](/dotnet/api/overview/azure/storage) for more information about the .NET client library.
-- Explore [Queue storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) written using the .NET client library.
+- See the [Azure Storage client libraries for .NET reference](/dotnet/api/overview/azure/storage) for more information about the .NET client libraries.
+- Explore [Queue Storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) written using the .NET client library.
 
 ## Next steps
 
 In this quickstart, you learned how to add messages to a queue, peek messages from a queue, and dequeue and process messages using .NET.
 
 > [!div class="nextstepaction"]
-> [Communicate between applications with Azure Queue storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Communicate between applications with Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

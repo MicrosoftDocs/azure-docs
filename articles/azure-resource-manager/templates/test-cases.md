@@ -688,4 +688,5 @@ The following example **fails** because it uses a [list*](template-functions-res
 
 ## Next steps
 
-To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
+- To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
+- For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
