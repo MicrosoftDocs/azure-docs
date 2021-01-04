@@ -612,8 +612,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable). See |No Dimensions|
-|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable).|No Dimensions|
+|CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md). See |No Dimensions|
+|CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available on [B-series burstable VMs](../../virtual-machines/sizes-b-series-burstable.md).|No Dimensions|
 |Data Disk Bandwidth Consumed Percentage|Yes|Data Disk Bandwidth Consumed Percentage|Percent|Average|Percentage of data disk bandwidth consumed per minute|LUN|
 |Data Disk IOPS Consumed Percentage|Yes|Data Disk IOPS Consumed Percentage|Percent|Average|Percentage of data disk I/Os consumed per minute|LUN|
 |Data Disk Queue Depth|Yes|Data Disk Queue Depth (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|LUN|
