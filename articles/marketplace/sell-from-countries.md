@@ -8,12 +8,12 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/02/2020
+ms.date: 01/04/2021
 ---
 
 # Supported publisher countries and regions
 
-To publish an offer to the Microsoft commercial marketplace, your company must legally reside in one of the following countries:
+To publish an offer to the Microsoft commercial marketplace, your company must legally reside in one of the following countries or regions:
 
 - Afghanistan
 - Åland Islands
