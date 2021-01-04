@@ -6,6 +6,10 @@ ms.date: 12/31/2020
 ---
 # Update the existing VM backup policy using CLI
 
+You can use Azure CLI to update an existing VM backup policy. This article will explain how to export the existing policy to a JSON file, modify the file, and then use Azure CLI to update the policy with the modified policy.
+
+## Modify an existing policy
+
 To modify an existing VM backup policy, follow these steps:
 
 1. Execute the [az backup policy show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) command to retrieve the details of policy you want to update.
