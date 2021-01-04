@@ -4,52 +4,12 @@ description: Frequently asked cloud tiering questions and answers
 author: mtalasila
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 1/4/2021
 ms.author: mtalasila
 ms.subservice: files
 ---
 
 # Cloud tiering FAQ
-
-### How can I recall a tiered file to disk to use it locally?
-
-The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read from, such as multimedia or .zip files, opening a file doesn't download the entire file.
-
-You also can use PowerShell to force a file to be recalled. This option might be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
-    
-```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
-```
-Optional parameters:
-* `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
-	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
-	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
-* `-ThreadCount` determines how many files can be recalled in parallel.
-* `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
-* `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
-
-Example:
-```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
-``` 
-
-> [!Note]  
-> - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
->- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
-
-### How do I force a file or directory to be tiered?
-
-> [!NOTE]
-> When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
-
-When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
-
-```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-```
 
 ### Why are my tiered files not showing thumbnails or previews in Windows Explorer?
 
@@ -61,18 +21,51 @@ This behavior is not specific to Azure File Sync, Windows Explorer displays a "g
 
 There are two reasons why tiered files may exist in the server endpoint location:
 
-- When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally) cmdlet.
+- When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-cloud-tiering.md#how-to-recall-a-tiered-file-to-disk-to-use-it-locally) cmdlet.
 
 - If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
 
-### How do I exclude applications from cloud tiering last access time tracking?
+### Minimum file size for a file to tier
 
-With Azure File Sync agent version 11.1, you can now exclude applications from last access tracking. When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
+For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
 
-To exclude applications from last access time tracking, add the process name to the HeatTrackingProcessNameExclusionList registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+|Volume cluster size (Bytes) |Files of this size or larger can be tiered  |
+|----------------------------|---------|
+|4 KB or smaller (4096)      | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)    | 128 KB  |
 
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+Cluster sizes up to 64 KB are currently supported but, for larger sizes, cloud tiering does not work.
 
-> [!NOTE]
-> Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default (hard coded) and the process exclusion list is refreshed every 5 minutes.
+All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
+
+Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume with Windows Server 2019.
+
+|Volume size    |Windows Server 2019             |
+|---------------|--------------------------------|
+|7 MB – 16 TB   | 4 KB                |
+|16TB – 32 TB   | 8 KB                |
+|32TB – 64 TB   | 16 KB               |
+|64TB – 128 TB  | 32 KB               |
+|128TB – 256 TB | 64 KB (earlier max) |
+|256 TB – 512 TB| 128 KB              |
+|512 TB – 1 PB  | 256 KB              |
+|1 PB – 2 PB    | 512 KB              |
+|2 TB – 4 PB    | 1024 KB             |
+|4 TB – 8 TB    | 2048 KB (max size)  |
+|> 8 TB         | not supported       |
+
+It is possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KB, an 8 KB limit as the smallest file size that can be tiered, still applies. (Even if technically 2x cluster size would equate to less than 8 KB.)
+
+The reason for the absolute minimum is found in the way NTFS stores extremely small files - 1 KB to 4 KB sized files. Depending on other parameters of the volume, it is possible that small files are not stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier, is 8 KB on a 4 KB or smaller cluster size. 
+
+> [!IMPORTANT]
+> Cloud tiering is not supported on the Windows system volume.
+
+> [!Note]
+> To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
+
+For questions on how to manage tiered files, please see [How to manage tiered files](storage-sync-how-to-manage-tiered-files.md).
 

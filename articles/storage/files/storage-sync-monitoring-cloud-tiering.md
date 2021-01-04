@@ -4,20 +4,17 @@ description: Details on metrics to use to monitor your cloud tiering policies.
 author: mtalasila
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 1/4/2021
 ms.author: mtalasila
 ms.subservice: files
 ---
 
 # Monitoring cloud tiering
-There are two main ways you can monitor your cloud tiering policy: through the server endpoint and through Azure Monitor.
+There are two main ways you can monitor your cloud tiering policy: through the server endpoint properties blade and through Azure Monitor.
 
 ## Monitoring via server endpoint
 
-1. Go to your **Storage Sync Service**
-1. Select your sync group
-1. Select the server endpoint name who's cloud tiering policy you want to monitor
-1. Scroll down to the cloud tiering section.
+Go to the **server endpoint properties** blade for the server endpoint you would like to monitor and scroll down to the cloud tiering section. 
 
 ![A screenshot of the cloud tiering section in server endpoint properties](media/storage-sync-monitoring-cloud-tiering/cloud-tiering-monitoring-5.png)
 
@@ -38,8 +35,7 @@ There are two main ways you can monitor your cloud tiering policy: through the s
 
 ## Monitoring via Azure Monitor
 
-1. Go to your **Storage Sync Service**.
-1. In the table of contents, select **Metrics**. This should display a user interface to create charts. 
+Go to the **Storage Sync Service** and select **Metrics** on the side navigation. 
 
 There are three different metrics you can use to monitor your egress specifically from cloud tiering:
 
@@ -52,5 +48,5 @@ There are three different metrics you can use to monitor your egress specificall
 
 To be more specific on what you want your graphs to display, consider using **Add Filter** and **Apply Splitting**.
  
-For more information on the different types of metrics for Azure File Sync, see this link. To learn more about how to use metrics, see [Getting started with Azure Metrics Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) If you would like to change your cloud tiering policy, see [Choosing a cloud tiering policy](storage-sync-choosing-cloud-tiering-policy.md).
+For more information on the different types of metrics for Azure File Sync and how to use them, see [Monitor Azure File Sync](storage-sync-files-monitoring). To learn more about how to use metrics, see [Getting started with Azure Metrics Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) If you would like to change your cloud tiering policy, see [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policies.md).
 
