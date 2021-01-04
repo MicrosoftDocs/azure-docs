@@ -17,19 +17,19 @@ Time to complete: 60 minutes.
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We highly recommend deploying the nvm, a version control tool, if you are on Windows or use version managment tool of your choice on other platforms. The nvm provides ability to switch between various Node.js version for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows) on Windows
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. You can find more abut hosting static web sites in Azure Storage [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website)
+- Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We highly recommend deploying the nvm, a version control tool, if you are on Windows or use version managment tool of your choice on other platforms. The nvm provides ability to switch between various Node.js version for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) on Windows
+- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. You can find more abut hosting static web sites in Azure Storage [here](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token. You can use either [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
+- A user access token. You can use either [QuickStart here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
 ### Installing Node.js, nvm and npm
 
 Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects, you can use Node.js for creating your backend or developing APIs. In this tutorial, though, we will have our client-side application working with the ACS API backend. You will need Node.js only for client development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService, or any other hosting service capable of hosting static files. 
 
 Node.js does not guarantee work with all modules on the latest version. The solution is to have a version manager, which allows you to switch between various Node.js versions and enables better troubleshooting in your environment.
-Please follow the steps in this guide to install Node.js, using the nvm [version manager if you are on Widndows](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows)
+Please follow the steps in this guide to install Node.js, using the nvm [version manager if you are on Widndows](https://docs.microsoft.com/windows/nodejs/setup-on-windows)
 
 
 We tested this tutrial using the LTS 12.20.0 version. After you installed the nvm, list the availble versions, using the PowerShell command and deploy the version that you want to use
@@ -82,7 +82,7 @@ Follow the same steps as above for [Azure Functions](https://marketplace.visuals
 
 ## Obtaining the User Token
 
-Get the user token, using either a [QuickStart here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
+Get the user token, using either a [QuickStart here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
 
 ## Initializing the application and adding the Azure Communication Services packages
 
