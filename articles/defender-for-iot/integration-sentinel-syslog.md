@@ -1,31 +1,31 @@
 ---
 title: Sentinel syslog integration
-description: 
+description: Defender for IoT delivers out-of-the-box integration with Azure Sentinel to provide real-time threat information over encrypted connections in order to enhance security analytics and threat intelligence across the enterprise.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/11/2020
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---
 
-# About the Microsoft Azure Sentinel Integration
+# About the Microsoft Azure Sentinel integration
 
 ## AboutDefender for IoT
 
-Defender for IoT delivers the only OT and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure. Defender for IoT is the only platform with patented OT-aware threat analytics and machine learning.Defender for IoT provides:
+Defender for IoT delivers the only OT and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure. Defender for IoT is the only platform with patented OT-aware threat analytics and machine learning. Defender for IoT provides:
 
 - Immediate insights about the OT device landscape with an extensive range of details about attributes.
 
-- Deep embedded knowledge of OT protocols, devices, applications — and their behaviors
+- Deep embedded knowledge of OT protocols, devices, applications, and their behaviors
 
-- Immediate insights into vulnerabilities, as well as known and zero-day threats.
+- Immediate insights into vulnerabilities, and known and zero-day threats.
 
 - An automated OT threat modeling technology to predict the most likely paths of targeted OT attacks via proprietary analytics.
 
 ## About Microsoft Azure Sentinel
 
-Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 Azure Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.
 
@@ -53,11 +53,11 @@ These bridged platforms help SOC Administrators, IT teams, and analysts:
 
 ### Getting more Defender for IoT information
 
-- For White Papers, Webinars & Videos, Additional Product Information and Industrial Security News, go to [CyberX.io](https://cyberx-labs.com/).
+- For white papers, webinars, videos, more product information, and industrial security news, go to [CyberX.io](https://cyberx-labs.com/).
 
 - For technical support visit [https://cyberx-labs.zendesk.com](https://cyberx-labs.zendesk.com/)
 
-- For additional troubleshooting information, contact <support@cyberx-labs.com>.
+- For extra troubleshooting information, contact <support@cyberx-labs.com>.
 
 - To access the Defender for IoT User Guide from the Console, select :::image type="content" source="media/integration-sentinel-syslog/person-icon.png" alt-text="The icon used to select the user guide."::: and select **Download User Guide**.
 
@@ -67,7 +67,7 @@ These bridged platforms help SOC Administrators, IT teams, and analysts:
 
 - Data sent to Azure Sentinel servers can be encrypted using TLS1.2. If you want to encrypt, verify that you have a TLS certificate.
 
-- Azure Sentinel receives data from a network proxy. Verify that a proxy is set up. See [***Set Up a Proxy***](./set-up-a-proxy.md) if required.
+- Azure Sentinel receives data from a network proxy. Verify that a proxy is set up. For more information on how to set up a proxy see, [Set up a proxy](#set-up-a-proxy).
 
 ### Architecture
 
@@ -85,9 +85,9 @@ The system is composed of the following components:
 
 ### Defender for IoT sensors and on-premises management console
 
-You can send Defender for IoT alert information to more than one Azure Sentinel instance from a single Defender for IoT sensor or on-premises management console or from several sensors or on-premises management console. To do this, create more than one Defender for IoT *Forwarding* rule from a specific Defender for IoT sensor or on-premises management console. See [***Sending Threat Information to Multiple Sentinel***](./cyberx-setup.md) for details.
+You can send Defender for IoT alert information to more than one Azure Sentinel instance from a single Defender for IoT sensor or on-premises management console or from several sensors or on-premises management console. To do this, create more than one Defender for IoT *Forwarding* rule from a specific Defender for IoT sensor or on-premises management console. For more information, see [Sending threat information to multiple Sentinel instances](#sending-threat-information-to-multiple-sentinel-instances).
 
-## Defender for IoT Setup
+## Defender for IoT setup
 
 This article describes how to set up communication from the Defender for IoT platform to Azure Sentinel.
 
@@ -124,25 +124,25 @@ To define the Forwarding rule:
 
    :::image type="content" source="media/integration-sentinel-syslog/forwarding.png" alt-text="Create a forwarding rule by clicking th blue button.":::
 
-2. In the **Forwarding** pane, select **Create Forwarding Rule**.
+1. In the **Forwarding** pane, select **Create Forwarding Rule**.
 
-   :::image type="content" source="media/integration-sentinel-syslog/rule.png" alt-text="Fill in the fields needed for the forwarding rule..":::
+   :::image type="content" source="media/integration-sentinel-syslog/rule.png" alt-text="Fill in the fields needed for the forwarding rule.":::
 
-3. Add a rule name in the **Name** field.
+1. Add a rule name in the **Name** field.
 
-4. In the **Protocols** section:
+1. In the **Protocols** section:
 
     - Select **Specific** to forward threat information based on specific protocols. Select the required protocols.
 
     - Select **All** to forward threat information regardless of the protocol.
 
-5. In the **Engines** section, select the required Defender for IoT engines or choose **All**. Threat information detected by selected or all engines will be sent. Refer to the *Defender for IoT Platform User Guide* for more information about engines.
+1. In the **Engines** section, select the required Defender for IoT engines or choose **All**. Threat information detected by selected or all engines will be sent. Refer to the *Defender for IoT Platform User Guide* for more information about engines.
 
-6. Send threat information based on severity levels that you want to handle. Severity levels reflect the minimum-security level incident to forward. For example, if **Minor** is selected, information regarding minor threats and any threat alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT. Select the **Severity** drop-down arrow and choose a level.
+1. Send threat information based on severity levels that you want to handle. Severity levels reflect the minimum-security level incident to forward. For example, if **Minor** is selected, information regarding minor threats and any threat alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT. Select the **Severity** drop-down arrow and choose a level.
 
     :::image type="content" source="media/integration-sentinel-syslog/severity.png" alt-text="Select the pre-defined severity level.":::
 
-7. Select **Send to Sentinel** from the **Action** list.
+1. Select **Send to Sentinel** from the **Action** list.
 
     :::image type="content" source="media/integration-sentinel-syslog/send-to.png" alt-text="Select send to Sentinel from the Action list.":::
 
@@ -150,16 +150,16 @@ To define the Forwarding rule:
 
     :::image type="content" source="media/integration-sentinel-syslog/actions.png" alt-text="The actions pane for sentinel integration parameters.":::
 
-8. Enter the **Proxy**, **Host**, and **Port** that will receive the threat alert information.
+1. Enter the **Proxy**, **Host**, and **Port** that will receive the threat alert information.
 
-9. Enter the **Timezone**. This is the time stamp for the alert detection.
+1. Enter the **Timezone**. This is the time stamp for the alert detection.
 
-10. Enable encryption if required.
+1. Enable encryption if necessary.
 
     - Select the **Enable Encryption** checkbox. Encryption is carried out using TLS 1.2.
     - Upload the TLS certificate you generated by selecting **Upload Certificate**.
 
-11. Select **Submit**. The rule appears in the Forwarding Rule pane.
+1. Select **Submit**. The rule appears in the Forwarding Rule pane.
 
 ### Test the forwarding rule
 
@@ -169,11 +169,11 @@ To test:
 
 1. Select the rule you created from the **Forwarding Rule** pane.
 
-2. Select **More** and then select **Send Test Message**.
+1. Select **More** and then select **Send Test Message**.
 
     :::image type="content" source="media/integration-sentinel-syslog/send-test.png" alt-text="The dropdown menu showing options to manage messages.":::
 
-3. A test message is sent to the Proxy.
+1. A test message is sent to the Proxy.
 
 #### Sending threat information to multiple Sentinel instances
 
@@ -183,7 +183,7 @@ Support for dispersed distribution of alert threat information requires that you
 
 This means you should not use the *Add another action* option.
 
-## Set Up a Proxy
+## Set up a proxy
 
 Azure Sentinel receives data from a network proxy. Verify that a proxy is set up. If it is not, use the instructions in This article to set it up.
 
@@ -195,15 +195,15 @@ To set up:
 
 1. Make sure your proxy VM meets the prerequisites defined in the following [Microsoft manual](https://docs.microsoft.com/azure/sentinel/connect-common-event-format).
 
-2. Deploy the agent as described in [Step 1](https://docs.microsoft.com/azure/sentinel/connect-common-event-format#step-1-deploy-the-agent) in the same Microsoft manual.
+1. Deploy the agent as described in [Step 1](https://docs.microsoft.com/azure/sentinel/connect-common-event-format#step-1-deploy-the-agent) in the same Microsoft manual.
 
-3. Set up the system to receive TLS traffic.
+1. Set up the system to receive TLS traffic.
 
-4. Configure the Azure Sentinel forwarding in the sensor and on-premises management console. Use the ca.pem file generated in the server as the encryption certificate.
+1. Configure the Azure Sentinel forwarding in the sensor and on-premises management console. Use the ca.pem file generated in the server as the encryption certificate.
 
-5. Optional: Validate connectivity using [Step 3](https://docs.microsoft.com/azure/sentinel/connect-common-event-format#step-3-validate-connectivity) in the same Microsoft manual.
+1. Optional: Validate connectivity using [Step 3](https://docs.microsoft.com/azure/sentinel/connect-common-event-format#step-3-validate-connectivity) in the same Microsoft manual.
 
-### Setup system to receive TLS traffic
+### Set up system to receive TLS traffic
 
 1. Generate the CA private key:
 
@@ -211,31 +211,31 @@ To set up:
 sudo certtool --generate-privkey --outfile ca-key.pem
 ```
 
-2. Generate the CA (certificate authority) certificate:
+1. Generate the CA (certificate authority) certificate:
 
 ```azurecli
 sudo certtool --generate-self-signed --load-privkey ca-key.pem --outfile ca.pem
 ```
 
-3. Generate the machine private key:
+1. Generate the machine private key:
 
 ```azurecli
 sudo certtool --generate-privkey --outfile key.pem --bits 2048
 ```
 
-4. Generate the certificate request:
+1. Generate the certificate request:
 
 ```azurecli
 sudo certtool --generate-request --load-privkey key.pem --outfile request.pem
 ```
 
-5. Generate the certificate:
+1. Generate the certificate:
 
 ```azurecli
 sudo certtool --generate-certificate --load-request request.pem --outfile cert.pem --load-ca-certificate ca.pem --load-ca-privkey ca-key.pem
 ```
 
-6. Add the following lines to `/etc/rsyslog.conf` on the server machine (replace if exists):
+1. Add the following lines to `/etc/rsyslog.conf` on the server machine (replace if exists):
 
 ```azurecli
 module(load="imuxsock") # local messages
@@ -271,7 +271,7 @@ This article provides sample setup output files for the steps carried out above.
 Generating a 2048 bit RSA private key...
 ```
 
-2 Step 2
+1. Step 2
 
 ```azurecli
 [root@rgf9dev sample] certtool --generate-self-signed --load-privkey ca-key.pem --outfile ca.pem
@@ -347,14 +347,14 @@ total 8
 [root@rgf9dev sample]
 ```
 
-3. Step 3
+1. Step 3
 
 ```azurecli
 [root@rgf9dev sample] certtool --generate-privkey --outfile key.pem --bits 2048
 Generating a 2048 bit RSA private key...
 ```
 
-4. Step 4
+1. Step 4
 
 ```azurecli
 [root@rgf9dev sample] certtool --generate-request --load-privkey key.pem --outfile request.pem
@@ -377,7 +377,7 @@ Is this a TLS web client certificate? (y/N): y
 Is this also a TLS web server certificate? (y/N): y
 ```
 
-5. Step 5
+1. Step 5
 
 ```azurecli
 [root@rgf9dev sample] certtool --generate-certificate --load-request request.pem --outfile cert.pem --load-ca-certificate ca.pem --load-ca-privkey ca-key.pem

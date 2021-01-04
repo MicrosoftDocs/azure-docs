@@ -4,14 +4,14 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---
 
 # Defender for IoT and ICS threat monitoring application for Splunk
 
-Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats — in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
+Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
 To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS Threat Monitoring Application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
 
@@ -39,7 +39,7 @@ The integration of Defender for IoT and Splunk via the native application lets u
 
 The application allows Splunk administrators to analyze OT alerts that Defender for IoT sends, and monitor the entire OT security deployment, including details such as:
 
-- Which of the 5 analytics engines detected the alert.
+- Which of the five analytics engines detected the alert.
 
 - Which protocol generated the alert.
 
@@ -79,7 +79,7 @@ The following Splunk permission is required:
 
 ## Send Defender for IoT alerts to Splunk
 
-Defender for IoT alerts provide information about an extensive range of security events, including:
+Defender for IoT alerts provides information about an extensive range of security events, including:
 
 - Deviations from learned baseline network activity.
 
@@ -101,7 +101,7 @@ The following alert information is sent to the Splunk server.
 
 - The date and time of the alert.
 
-- The Defender for IoT engine that detected the event: Protocol Violation, Policy Violation, Malware, Anomaly or Operational engine.
+- The Defender for IoT engine that detected the event: Protocol Violation, Policy Violation, Malware, Anomaly, or Operational engine.
 
 - The alert title.
 
@@ -125,7 +125,7 @@ Sample output is shown below:
 
 | Time | Event |
 |--|--|
-| 7/23/15<br />9:28:31.000 PM | **Defender for IoT platform Alert**: A device was stopped by a PLC Command<br /><br />**Type**:Operational Violation <br /><br />**Severity**: Major <br /><br />**Source name**: my_device1 <br /><br />**Source IP**: 192.168.110.131 <br /><br />**Destination name**: my_device2<br /><br /> **Destination IP**: 10.140.33.238 <br /><br />**Message**: A network device was stopped using a Stop PLC command. This device will not operate until a Start command is sent. 192.168.110.131 was stopped by 10.140.33.238 (a Siemens S7 device), using a PLC Stop command.<br /><br />**Host**: 192.168.90.43 <br /><br />**Sourcetype**: Sensor_Agent |
+| 7/23/15<br />9:28:31.000 PM | **Defender for IoT platform Alert**: A device was stopped by a PLC Command<br /><br />**Type**: Operational Violation <br /><br />**Severity**: Major <br /><br />**Source name**: my_device1 <br /><br />**Source IP**: 192.168.110.131 <br /><br />**Destination name**: my_device2<br /><br /> **Destination IP**: 10.140.33.238 <br /><br />**Message**: A network device was stopped using a Stop PLC command. This device will not operate until a Start command is sent. 192.168.110.131 was stopped by 10.140.33.238 (a Siemens S7 device), using a PLC Stop command.<br /><br />**Host**: 192.168.90.43 <br /><br />**Sourcetype**: Sensor_Agent |
 
 ## Define alert forwarding rules
 
@@ -143,9 +143,9 @@ To create a forwarding rule:
 
 1. From the sensor or on-premises management console left pane, select **Forwarding.**
 
-  :::image type="content" source="media/integration-splunk/forwarding.png" alt-text="Select the blue button Create Forwarding Alert.":::
+    :::image type="content" source="media/integration-splunk/forwarding.png" alt-text="Select the blue button Create Forwarding Alert.":::
 
-2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window define the rule parameters.
+1. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window, define the rule parameters.
 
     :::image type="content" source="media/integration-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule.":::
 
@@ -157,17 +157,17 @@ To create a forwarding rule:
     | **Engines** | By default, all the security engines are involved. To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
     | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |                                            |
 
-3. To instruct Defender for IoT to send assert information to Splunk, select **Action** and then select **Send to Splunk Server**.
+1. To instruct Defender for IoT to send asset information to Splunk, select **Action**, and then select **Send to Splunk Server**.
 
-4. Enter the following Splunk parameters.
+1. Enter the following Splunk parameters.
 
-    :::image type="content" source="media/integration-splunk/parameters.png" alt-text="The Splunk parametersyou should enter on this screen.":::
+    :::image type="content" source="media/integration-splunk/parameters.png" alt-text="The Splunk parameters you should enter on this screen.":::
 
-        | Parameter | Description |
+    | Parameter | Description |
     |--|--|
     | **Host** | Splunk server address |
     | **Port** | 8089 |
     | **Username** | Splunk server username |
     | **Password** | Splunk server password |
 
-5. Select **Submit**
+1. Select **Submit**

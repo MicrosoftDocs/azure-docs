@@ -13,7 +13,7 @@ ms.service: azure
 
 Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure, and the only platform with patented ICS-aware threat analytics and machine learning. Defender for IoT provides:
 
-- Immediate insights about ICS devices, vulnerabilities, as well as known and zero-day threats.
+- Immediate insights about ICS devices, vulnerabilities, and known and zero-day threats.
 
 - ICS-aware deep embedded knowledge of OT protocols, devices, applications, and their behaviors.
 
@@ -51,7 +51,7 @@ Use powerful ISE policies based on Defender for IoT deep learning to handle ICS 
 
 Working with policies lets you close the security cycle and bring your network to compliance in real time.
 
-For example, customers can leverage Defender for IoT ICS and IoT attributes to create policies that handle the following use cases, such as:
+For example, customers can use Defender for IoT ICS and IoT attributes to create policies that handle the following use cases, such as:
 
 - Create an authorization policy to allow known and authorized devices into a sensitive zone based on allowed attributes - for example, specific firmware version for Rockwell Automation PLCs.
 
@@ -114,15 +114,15 @@ To set up communication:
 
 1. Sign in to Cisco ISE.
 
-2. Select **Administration**>**System** and **Deployment**.
+1. Select **Administration**>**System** and **Deployment**.
 
-3. Select the required node. In the General Settings tab, select the **pxGrid checkbox**.
+1. Select the required node. In the General Settings tab, select the **pxGrid checkbox**.
 
     :::image type="content" source="media/integration-cisco-isepxgrid-integration/pxgrid.png" alt-text="Ensure the pxgrid checkbox is selected.":::
 
-4. Select the **Profiling Configuration** tab.
+1. Select the **Profiling Configuration** tab.
 
-5. Select the **pxGrid checkbox**. Add a description.
+1. Select the **pxGrid checkbox**. Add a description.
 
     :::image type="content" source="media/integration-cisco-isepxgrid-integration/profile-configuration.png" alt-text="Screenshot of the add description":::
 
@@ -144,11 +144,11 @@ To generate:
 
     :::image type="content" source="media/integration-cisco-isepxgrid-integration/certificates.png" alt-text="Select the certificates tab in order to generate a certificate.":::
 
-2. In the **I Want To** field, select **Generate a single certificate (without a certificate signing request)**.
+1. In the **I Want To** field, select **Generate a single certificate (without a certificate signing request)**.
 
-3. Fill in the remaining fields and select **Create**.
+1. Fill in the remaining fields and select **Create**.
 
-4. Create the client certificate key and the server certificate, and then convert them to java keystore format. You’ll need to copy these to each Defender for IoT sensor in your network.
+1. Create the client certificate key and the server certificate, and then convert them to java keystore format. You’ll need to copy these to each Defender for IoT sensor in your network.
 
 ## Define pxGrid settings
 
@@ -156,7 +156,7 @@ To define settings:
 
 1. Select **Administration** > **pxGrid Services** and then select **Settings**.
 
-2. Enable the **Automatically approve new certificate-based accounts** and **Allow password-based account creation.**
+1. Enable the **Automatically approve new certificate-based accounts** and **Allow password-based account creation.**
 
   :::image type="content" source="media/integration-cisco-isepxgrid-integration/allow-these.png" alt-text="Ensure both checkboxes are selected.":::
 
@@ -168,9 +168,9 @@ To set up appliances:
 
 1. Sign in to the sensor CLI.
 
-2. Copy `trust.jks` and `key.jks` which were previously created on the sensor. It is recommended to copy to: `/var/cyberx/properties/`.
+1. Copy `trust.jks`, and  , which were previously created on the sensor. Copy them to: `/var/cyberx/properties/`.
 
-3. Edit `/var/cyberx/properties/pxgrid.properties`:
+1. Edit `/var/cyberx/properties/pxgrid.properties`:
 
     1. Add a key and trust, then store filenames and passwords.
 
@@ -178,17 +178,17 @@ To set up appliances:
 
     3. `Enabled=true`
 
-4. Restart the appliance.
+1. Restart the appliance.
 
-5. Repeat these steps for each appliance in your enterprise that will inject data.
+1. Repeat these steps for each appliance in your enterprise that will inject data.
 
 ## View and manage detections in Cisco ISE
 
 1. Endpoint detections are displayed in the ISE Context **Visibility** > **Endpoints** tab.
 
-2. Select **Policy** > **Profiling** > **Add** > **Rules** > **+ Condition** > **Create New Condition**.
+1. Select **Policy** > **Profiling** > **Add** > **Rules** > **+ Condition** > **Create New Condition**.
 
-3. Select **Attribute** and use the IOT device dictionaries to build a profiling rule based on the attributes injected. The following attributes are injected.
+1. Select **Attribute** and use the IOT device dictionaries to build a profiling rule based on the attributes injected. The following attributes are injected.
 
     - Device type
 

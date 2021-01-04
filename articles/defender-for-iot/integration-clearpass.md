@@ -1,19 +1,19 @@
 ---
 title: ClearPass integration
-description: 
+description: This Integration Guide covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/9/2020
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---
 
-# Introduction
+# ClearPass and Defender for IoT integration
 
 This Integration Guide covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling.
 
-This integration focuses on the ability of Defender for IoT to detect, discover and classify OT and ICS endpoints and share information directly with ClearPass using the ClearPass Security Exchange framework and the open API.
+This integration focuses on the ability of Defender for IoT to detect, discover, and classify OT and ICS endpoints and share information directly with ClearPass using the ClearPass Security Exchange framework and the open API.
 
 Defender for IoT automatically updates the ClearPass Policy Manager Endpoint Database with endpoint classification data and several custom security attributes.
 
@@ -29,7 +29,7 @@ The integration allows the following:
 
 Defender for IoT delivers the only industrial cybersecurity platform built by blue-team experts with a track record of defending critical national infrastructure. That difference is the foundation for the most widely deployed platform for continuously reducing IoT and ICS risk and preventing production outages, safety failures, and theft of intellectual property.
 
-Notable Defender for IoT customers include 2 of the top 5 US energy providers; a top 5 global pharmaceutical company; a top 5 US chemical company; and national electric and gas utilities across Europe and Asia-Pacific. Strategic partners include Palo Alto Networks, HP Aruba, Splunk, Optiv Security, McAfee, DXC Technology, and Deutsche-Telekom and T-Systems.
+Notable Defenders for IoT customers include 2 of the top five US energy providers; a top five global pharmaceutical companies; a top five US chemical company; and national electric and gas utilities across Europe and Asia-Pacific. Strategic partners include Palo Alto Networks, HP Aruba, Splunk, Optiv Security, McAfee, DXC Technology, and Deutsche-Telekom and T-Systems.
 
 Aruba ClearPass is a world-class Network Access Controller that provides agentless visibility and dynamic role-based access control for seamless security enforcement and response across your wired and wireless networks. Together with Defender for IoT, Aruba ClearPass extends network access controls to IoT and ICS networks. For example, relying on precise detail from the Defender for IoT platform, Aruba quarantines and blocks IoT and ICS devices based on zero-day threats. In addition, Aruba remediates machines with outdated or non-compliant software.
 
@@ -37,9 +37,9 @@ Aruba ClearPass is a world-class Network Access Controller that provides agentle
 
 This section covers:
 
-- **Aruba ClearPass Requirements**
+- **Aruba ClearPass requirements**
 
-- **Defender for IoT Requirements**
+- **Defender for IoT requirements**
 
 ### Aruba ClearPass requirements
 
@@ -69,7 +69,7 @@ Prior to creating and enabling the integration in Defender for IoT, carryout the
 
 ## Create a ClearPass ‘API’ user
 
-As part of the communications channel between the two products, Defender for IoT uses a number of API’s {both TIPS and REST}, access to the TIPS API’s is validated via username and password combination credentials. This user Id needs to have minimum levels of access. Do not use a Super Administrator profile, use API Administrator as shown below.
+As part of the communications channel between the two products, Defender for IoT uses many APIs {both TIPS and REST}, access to the TIPS APIs is validated via username and password combination credentials. This user ID needs to have minimum levels of access. Do not use a Super Administrator profile, use API Administrator as shown below.
 
 To create a ClearPass API user:
 
@@ -158,11 +158,11 @@ In addition to the standard data, Defender for IoT supplies other customer attri
 
 The "cyberx_authorized" flag is a way to distinguish known, recognized devices operating on the network from new, unexpected and potentially rogue devices that are detected.
 
-Devices that are imported into the system from the customer's inventory list, or discovered during the learning phase, would have `authorized=true`, and new devices that are seen on the network after the learning phase ended would be added with `authorized=false`, until an administrator reviewed the device, decided it's a valid device operating on the network, at which point he could set it to `authorized=true`.
+Devices that are imported into the system from the customer's inventory list, or discovered during the learning phase, would have `authorized=true`, and new devices that are seen on the network after the learning phase ended would be added with `authorized=false`, until an administrator reviewed the device, decided it's a valid device operating on the network, at which point you could set it to `authorized=true`.
 
 So the unauthorized devices are either unrecognized and potentially untrusted and malicious, or just haven't yet been handled by the administrator to authorize their presence on the network.
 
-Another special attribute is the “cyberx_engineeringStation”, used to signify the function of an node in an OT and ICS system that is monitoring and being used to query and control OT devices. Engineering Stations should be protected and access to these devices specifically controlled an monitored. Knowing which devices on the network are signified for this role is important.
+Another special attribute is the “cyberx_engineeringStation”, used to signify the function of a node in an OT and ICS system that is monitoring and being used to query and control OT devices. Engineering Stations should be protected and access to these devices controlled a monitored. Knowing which devices on the network are signified for this role is important.
 
 ## Configure Defender for IoT to integrate with ClearPass
 
@@ -234,7 +234,7 @@ To define the ClearPass forwarding rule on the Defender for IoT sensor:
 |--|--|
 | **Host** | Type the ClearPass server IP address. |
 | **Port** | Type the port of the ClearPass on which the forwarding is done. |
-| **Configure** | Set up the following options to allow viewing of Defender for IoT alerts in the ClearPass system: <br />- **Report illegal function codes:** Protocol violations - Illegal field value violating ICS protocol specification (potential exploit).<br />- **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.<br />- **Report unauthorized PLC stop:** PLC stop (downtime).<br />- **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya.<br />- **Report unauthorized scanning:** Unauthorized scanning (potential reconnaissance). |
+| **Configure** | Set-up the following options to allow viewing of Defender for IoT alerts in the ClearPass system: <br />- **Report illegal function codes:** Protocol violations - Illegal field value violating ICS protocol specification (potential exploit).<br />- **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.<br />- **Report unauthorized PLC stop:** PLC stop (downtime).<br />- **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya.<br />- **Report unauthorized scanning:** Unauthorized scanning (potential reconnaissance). |
 
 5. Select **Submit**.
 
@@ -246,7 +246,7 @@ Reviewing **Last Sync** time to ClearPass:
 
 :::image type="content" source="media/integration-clearpass/last-sync.png" alt-text="View the time and date of your last sync.":::
 
-If Sync is not working or shows an error then it’s likely you’ve missed capturing some of the information. Recheck the data recorded, additionally you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
+If Sync is not working or shows an error then, it’s likely you’ve missed capturing some of the information. Recheck the data recorded, additionally you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
 
 Example of API logs between Defender for IoT and ClearPass:
 

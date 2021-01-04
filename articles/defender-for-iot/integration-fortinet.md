@@ -1,10 +1,10 @@
 ---
 title: About the Fortinet integration
-description: 
+description: Defender for IoT and Fortinet has established a technology partnership in order to detect and stop attacks on IoT and ICS networks.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/23/2020
+ms.date: 1//4/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -13,7 +13,7 @@ ms.service: azure
 
 Defender for IoT mitigates IIoT and ICS and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
-Defender for IoT and Fortinet have established a technology partnership in order to detect and stop attacks on IoT and ICS networks.
+Defender for IoT and Fortinet has established a technology partnership in order to detect and stop attacks on IoT and ICS networks.
 
 Together, Fortinet and Defender for IoT prevent:
 
@@ -32,25 +32,25 @@ Defender for IoT detects anomalous behavior in IoT and ICS networks and delivers
 
 ## The Defender for IoT platform
 
-The Defender for IoT platform auto-discovers and fingerprints any non-managed IoT and ICS devices while continuously monitoring for targeted attacks and malware. Risk and vulnerability management capabilities include automated threat modeling as well as comprehensive reporting about both endpoint and network vulnerabilities, with risk-prioritized mitigation recommendations.  
+The Defender for IoT platform autodiscovers, and fingerprints any non-managed IoT and ICS devices while continuously monitoring for targeted attacks and malware. Risk and vulnerability management capabilities include automated threat modeling as well as comprehensive reporting about both endpoint and network vulnerabilities, with risk-prioritized mitigation recommendations.  
 
-The Defender for IoT platform is agentless, non-intrusive and easy to deploy, delivering actionable insights less than an hour after being connected to the network.
+The Defender for IoT platform is agentless, non-intrusive, and easy to deploy, delivering actionable insights less than an hour after being connected to the network.
 
 ## Fortinet FortiSIEM
 
-Effective security requires the visibility of all of the devices, and all the infrastructure in realtime, but also with context. What devices represent a threat, what is their capability to you to manage the threat that businesses face, and not the noise that multiple security tools create.
+Effective security requires the visibility of all of the devices, and all the infrastructure in real time, but also with context. What devices represent a threat, what is their capability to you to manage the threat that businesses face, and not the noise that multiple security tools create.
 
 Endpoints, IoT, Infrastructure, Security Tools, Applications, VM’s, and Cloud, are some of things administrators need to secure, and monitor constantly.
 
-FortiSIEM, and Fortinet’s Multivendor Security Incident and Events Management solution brings it all together, visibility, correlation, automated response and remediation in a single, scalable solution.
+FortiSIEM, and Fortinet’s multivendor security incident, and events management solution brings it all together, visibility, correlation, automated response, and remediation in a single, scalable solution.
 
 Using a Business Services view, the complexity of managing network and security operations is reduced, freeing resources, improving breach detection. FortiSIEM provides cross correlation while applying machine learning, and UEBA to improve response, in order to stop breaches before they occur.
 
 ## Fortinet FortiGate next-generation firewalls
 
-FortiGate's next-generation firewalls (NGFWs) utilize purpose-built security processors and threat intelligence security services from AI powered FortiGuard labs to deliver top rated protection, high performance inspection of clear texted and encrypted traffic.
+FortiGate's next-generation firewalls (NGFWs) utilize purpose-built security processors and threat intelligence security services from AI powered FortiGuard labs to deliver top rated protection, high-performance inspection of clear texted, and encrypted traffic.
 
-Next generation firewalls reduce cost and complexity with full visibility into applications, users and networks and provides best of breed security. As an integral part of the Fortinet Security Fabric next-generation firewalls can communicate within Fortinet’s comprehensive security portfolio as well as third-party security solutions in a multivendor environment to share threat intelligence and improve security posture.
+Next generation firewalls reduce cost and complexity with full visibility into applications, users, and networks and provides best of breed security. As an integral part of the Fortinet Security Fabric next-generation firewalls can communicate within Fortinet’s comprehensive security portfolio and partner security solutions in a multivendor environment to share threat intelligence and improve security posture.
 
 ## Use cases
 
@@ -58,15 +58,15 @@ Next generation firewalls reduce cost and complexity with full visibility into a
 
 Organizations use programmable logic controllers (PLCs) to manage physical processes such as robotic arms in factories, spinning turbines in wind farms, and centrifuges in nuclear power plants.
 
-An update to the ladder logic or firmware of a PLC can represent a legitimate activity or an attempt to compromise the device by inserting malicious code.  Defender for IoT can detect unauthorized changes to PLCs, and then deliver information about that change to both FortiSIEM and FortiGate. Armed with that information, FortSIEM administrators can decide how to best mitigate the solution. One mitigation option would be to create a rule in FortiGate that stops further communication to the effected device.
+An update to the ladder logic or firmware of a PLC can represent a legitimate activity or an attempt to compromise the device by inserting malicious code.  Defender for IoT can detect unauthorized changes to PLCs, and then deliver information about that change to both FortiSIEM and FortiGate. Armed with that information, FortSIEM administrators can decide how to best mitigate the solution. One mitigation option would be to create a rule in FortiGate that stops further communication to the affected device.
 
 ### Stop Ransomware before it damages IoT and ICS networks
 
-Defender for IoT continuously monitors IoT and ICS networks for behaviors that are caused by ransomware such as LockerGoga, WannaCry, and NotPetya. When integrated with FortiSIEM and FortiGate, Defender for IoT can deliver information about the presence of these types of ransomware so that ForiSIEM operators can see where the malware is, and FortiGate administrators can stop the ransomware from spreading and wreaking additional havoc.
+Defender for IoT continuously monitors IoT and ICS networks for behaviors that are caused by ransomware such as LockerGoga, WannaCry, and NotPetya. When integrated with FortiSIEM and FortiGate, Defender for IoT can deliver information about the presence of these types of ransomware so that ForiSIEM operators can see where the malware is, and FortiGate administrators can stop the ransomware from spreading and wreaking more havoc.
 
 ## Set sending Defender for IoT alerts to FortiSIEM
 
-Defender for IoT alerts provide information about an extensive range of security events, including:
+Defenders for IoT alerts provide information about an extensive range of security events, including:
 
 - Deviations from learned baseline network activity
 - Malware detections
@@ -80,7 +80,7 @@ You can configure Defender for IoT to send alerts to the FortiSIEM server, where
 
 :::image type="content" source="media/integration-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
 
-Each Defender for IoT alert is parsed without any additional configuration on the FortiSIEM side and they are presented in the FortiSIEM as security events. The following event details appear by default:
+Each Defender for IoT alert is parsed without any other configuration on the FortiSIEM side and they are presented in the FortiSIEM as security events. The following event details appear by default:
 
 :::image type="content" source="media/integration-fortinet/event-details.png" alt-text="View your event details in the Event Details window.":::
 
@@ -100,7 +100,7 @@ To create a forwarding rule
 
     :::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::
 
-2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window define rule parameters.
+2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window, define rule parameters.
 
     :::image type="content" source="media/integration-fortinet/new-rule.png" alt-text="Create a new Forwarding Rule window.":::
 
@@ -112,7 +112,7 @@ To create a forwarding rule
     | **Engines** | By default, all the security engines are involved.<br><br>To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
     | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the on-premises management console. |
 
-3. To instruct Defender for IoT to send alert information to FortiSIEM, select **Action** and then select **Send to FortiSIEM**.
+3. To instruct Defender for IoT to send,  alert information to FortiSIEM, select **Action** and then select **Send to FortiSIEM**.
 
     :::image type="content" source="media/integration-fortinet/forward-rule.png" alt-text="Create a Forwarding Rule and select send to Fortinet.":::
 
@@ -134,7 +134,7 @@ You can set blocking policies automatically in the FortiGate firewall based on D
 
 :::image type="content" source="media/integration-fortinet/firewall.png" alt-text="View of the FortiGate Firewall window view.":::
 
-For example, the following alert has an option to block the malicious source:
+For example, the following alert can block the malicious source:
 
 :::image type="content" source="media/integration-fortinet/suspicion.png" alt-text="The NotPetya Malware suspicion window":::
 
@@ -142,29 +142,29 @@ To set a FortiGate firewall rule that blocks this malicious source:
 
 1. In FortiGate, create an API key required for the Defender for IoT forwarding rule. For more information, see [Create an API key in FortiGate](#create-an-api-key-in-fortigate).
 
-1. In Defender for IoT **Forwarding**, set a forwarding rule that blocks malware related alerts. For more information, see [Configure a forwarding rule to block suspected traffic using the FortiGate firewall](#configure-a-forwarding-rule-to-block-suspected-traffic-using-the-fortigate-firewall).
+1. In Defender for IoT **Forwarding**, set a forwarding rule that blocks malware-related alerts. For more information, see [Configure a forwarding rule to block suspected traffic using the FortiGate firewall](#configure-a-forwarding-rule-to-block-suspected-traffic-using-the-fortigate-firewall).
 
 1. In Defender for IoT, **Alerts** block a malicious source. For more information, see [Block the suspicious source](#block-the-suspicious-source).
 
-The malicious source address appears in the FortiGage **Administrator** window.
+    The malicious source address appears in the FortiGage **Administrator** window.
 
-    :::image type="content" source="media/integration-fortinet/administrator.png" alt-text="The FortiGate Administrator window view.":::
+   :::image type="content" source="media/integration-fortinet/administrator.png" alt-text="The FortiGate Administrator window view.":::
 
-    The blocking policy was automatically created, and it appears in the FortiGate **IPv4 Policy** window.
+   The blocking policy was automatically created, and it appears in the FortiGate **IPv4 Policy** window.
 
-    :::image type="content" source="media/integration-fortinet/policy.png" alt-text="The FortiGate IPv4 Policy window view.":::
+   :::image type="content" source="media/integration-fortinet/policy.png" alt-text="The FortiGate IPv4 Policy window view.":::
 
-    :::image type="content" source="media/integration-fortinet/edit.png" alt-text="The FortiGate IPv4 Policy Edit view.":::
+   :::image type="content" source="media/integration-fortinet/edit.png" alt-text="The FortiGate IPv4 Policy Edit view.":::
 
 ## Create an API key in FortiGate
 
 1. In FortiGate, select **System** > **Admin Profiles**.
 
-2. Create a profile with the following permissions:
+1. Create a profile with the following permissions:
 
     :::image type="content" source="media/integration-fortinet/admin-profile.png" alt-text="Computer description automatically generated":::
 
-3. Select **System** > **Administrators** and create a new **REST API Admin**.
+1. Select **System** > **Administrators** and create a new **REST API Admin**.
 
     :::image type="content" source="media/integration-fortinet/cellphone.png" alt-text="Cell phone description automatically generated":::
 
@@ -172,22 +172,22 @@ The malicious source address appears in the FortiGage **Administrator** window.
     | --------- | ----------- |
     | **Username** | The forwarding rule name. |
     | **Comments** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Administrator Profile** | From the dropdown list select the profile name that you have defined in the previous step. |
+    | **Administrator Profile** | From the dropdown list, select the profile name that you have defined in the previous step. |
     | **PKI Group** | Disable. |
     | **CORS Allow Origin** | Enable. |
-    | **Restrict login to trusted hosts** | Adds an IP addresses of the sensors and CMs that will connect to the FortiGate. |
+    | **Restrict login to trusted hosts** | Adds an IP address of the sensors and CMs that will connect to the FortiGate. |
 
-4. Save the API key.
+1. Save the API key.
 
     :::image type="content" source="media/integration-fortinet/api-key.png" alt-text="Cell phone description automatically generates New API Key":::
 
 ## Configure a forwarding rule to block suspected traffic using the FortiGate firewall
 
-1. In the left pane, click **Forwarding**.
+1. In the left pane, select **Forwarding**.
 
     :::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="The Forwarding window option in a sensor.":::
 
-2. Select **Create Forwarding Rules** and define rule parameters.
+1. Select **Create Forwarding Rules** and define rule parameters.
 
     :::image type="content" source="media/integration-fortinet/new-rule.png" alt-text="Screenshot of Create Forwarding Rule window":::
 
@@ -199,15 +199,15 @@ The malicious source address appears in the FortiGage **Administrator** window.
     | **Engines** | By default, all the security engines are involved.<br><br>To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
     | **System Notifications** | Forward sensor *online and offline* status. This option is only available if you have logged into the on-premises management console. |
 
-3. To instruct Defender for IoT to send firewall rules to FortiGate, select **Action** and then select **Send to FortiGate**.
+1. To instruct Defender for IoT to send firewall rules to FortiGate, select **Action** and then select **Send to FortiGate**.
 
     :::image type="content" source="media/integration-fortinet/fortigate.png" alt-text="Create Forwarding Rule window and select send to FortiGate":::
 
-4. To configure the FortiGate forwarding rule:
+1. To configure the FortiGate forwarding rule:
 
     :::image type="content" source="media/integration-fortinet/configure.png" alt-text="Configure the Create Forwarding Rule window":::
 
-5. In the **Actions** pane, set the following parameters:
+1. In the **Actions** pane, set the following parameters:
 
 | Parameter | Description |
 |--|--|
@@ -217,18 +217,18 @@ The malicious source address appears in the FortiGage **Administrator** window.
 | API Key | Enter the API key that you created in FortiGate. |
 | Incoming Interface| Define how blocking is executed:<br /><br />**By IP Address**: Always creates blocking policies on Panorama based on IP address.<br /><br />**By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if exists, otherwise IP Address.| 
 | Outgoing Interface |Set the email address for the policy notification email. <br /><br /> **Note**: Make sure you have configured a Mail Server in XSense. If no email address is entered, XSense does not send a notification email.| 
-|Configure| Set up the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br /><br />**Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)<br /><br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes<br /><br />**Block unauthorized PLC stop**: PLC stop (downtime)<br /><br />**Block malware related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). You can select the option of **Automatic blocking**. In that case the blocking is executed automatically and immediately.<br /><br />*Block unauthorized scanning*: Unauthorized scanning (potential reconnaissance)
+|Configure| Set-up the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br /><br />**Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)<br /><br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes<br /><br />**Block unauthorized PLC stop**: PLC stop (downtime)<br /><br />**Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately.<br /><br />*Block unauthorized scanning*: Unauthorized scanning (potential reconnaissance)
 
-6. Click **Submit**.
+1. Select **Submit**.
 
 ## Block the suspicious source
 
-1. In the **Alerts** pane, click the alert related to Fortinet integration.
+1. In the **Alerts** pane, select the alert related to Fortinet integration.
 
     :::image type="content" source="media/integration-fortinet/unauthorized.png" alt-text="The Unauthorized PLC programming window":::
 
-2. To automatically block the suspicious source, click **Block Source**.
+1. To automatically block the suspicious source, select **Block Source**.
 
     :::image type="content" source="media/integration-fortinet/confirm.png" alt-text="The confirmation window.":::
 
-3. In the **Please Confirm** dialog box, click **OK**.
+1. In the **Please Confirm** dialog box, select **OK**.

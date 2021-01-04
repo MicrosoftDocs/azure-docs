@@ -4,7 +4,7 @@ description: Defender for IoT delivers the only ICS and IIoT cybersecurity platf
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/31/2020
+ms.date: 1/4/2021 
 ms.topic: article
 ms.service: azure
 ---
@@ -12,7 +12,7 @@ ms.service: azure
 
 Defender for IoT delivers the only ICS and IIoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure, and the only platform with patented ICS-aware threat analytics and machine learning.
 
-Threat actors are leveraging compromised remote access credentials to access critical infrastructure networks via remote desktop and VPN connections. By using trusted connections, this approach easily bypasses any OT perimeter security. Credentials are typically stolen from privileged users,  such as control engineers and third-party maintenance personnel — who require remote access to perform daily tasks.
+Threat actors are using compromised remote access credentials to access critical infrastructure networks via remote desktop and VPN connections. By using trusted connections, this approach easily bypasses any OT perimeter security. Credentials are typically stolen from privileged users,  such as control engineers and partner maintenance personnel, who require remote access to perform daily tasks.
 
 The Defender for IoT integration with CyberARK. These bridged platforms enable TBD
 
@@ -30,13 +30,13 @@ Whenever the Defender for IoT platform identifies remote sessions that have not 
 
 ### Event timeline
 
-Whenever PSM authorizes a remote connection, it will be documented and visible in the Defender for IoT **Event Log** page, which shows a timeline of all alerts and notifications. This acts as an additional audit trail, as seen below:
+Whenever PSM authorizes a remote connection, it will be documented and visible in the Defender for IoT **Event Log** page, which shows a timeline of all alerts and notifications. This acts as an extra audit trail, as seen below:
 
 :::image type="content" source="media/integration-cyberark/event.png" alt-text="A view of the Event Log screen.":::
 
 ### Auditing & forensics
 
-Administrators can also audit and investigate remote access sessions by querying the Defender for IoT platform via its built-in data mining interface. This can be used to identify all remote access connections that have occurred including forensic details such as from, or to devices, protocols (RDP or SSH), source and destination users, time-stamps, and whether the sessions were authorized using PSM.
+Administrators can also audit and investigate remote access sessions by querying the Defender for IoT platform via its built-in data mining interface. This can be used to identify all remote access connections that have occurred including forensic details such as from, or to devices, protocols (RDP or SSH), source, and destination users, time-stamps, and whether the sessions were authorized using PSM.
 
 :::image type="content" source="media/integration-cyberark/data-mining.png" alt-text="A view of the data mining interface.":::
 
@@ -110,9 +110,9 @@ To configure PSM:
 
    :::image type="content" source="media/integration-cyberark/server.png" alt-text="The server central administration.":::
 
-   - Click on **Stop Traffic Light** (Server Stop).
+   - Select the **Stop Traffic Light** (Server Stop).
 
-   - - Click on **Start Traffic Light** (Server Start).
+   - Select the **Start Traffic Light** (Server Start).
 
 ## Defender for IoT platform configuration
 
@@ -130,7 +130,7 @@ To configure the Defender for IoT platform:
 
 ### Changing the port
 
-If you want to change the port, log in to the system via the CLI, and navigate to `/var/cyberx/properties/syslog.properties`, and change the following: `listener: 514/udp`.
+If you want to change the port, sign in to the system via the CLI, and navigate to `/var/cyberx/properties/syslog.properties`, and change the following: `listener: 514/udp`.
 
 ### Halting the Integration
 
@@ -172,7 +172,7 @@ Logs can be found in:
 
 #### Phase 2 - Accessing recorded sessions from the recordings vault
 
-**Use case** - Defender for IoT will suggest the customer to view recorded session to devices in his network, retrieved from CyberArk vault.
+**Use case** - Defender for IoT will suggest the customer view recorded session to devices in the network, retrieved from CyberArk vault.
 
 **Integration Details** - Defender for IoT will use PACLI (CyberArk tool for communicating with their product) to gather the recording files from the CyberArk vault.
 

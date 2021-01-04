@@ -1,10 +1,10 @@
 ---
 title: About the Servicenow integration
-description:
+description: The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -13,23 +13,23 @@ ms.service: azure
 
 ## About Defender for IoT
 
-Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure — and the only platform with patented ICS-aware threat analytics and machine learning. Defender for IoT provides:
+Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure, and the only platform with patented ICS-aware threat analytics and machine learning. Defender for IoT provides:
 
 - Immediate insights about ICS the device landscape with an extensive range of details about attributes.
 
 - ICS-aware deep embedded knowledge of OT protocols, devices, applications, and their behaviors.
 
-- Immediate insights into vulnerabilities, as well as known zero-day threats.
+- Immediate insights into vulnerabilities, and known zero-day threats.
 
 - An automated ICS threat modeling technology to predict the most likely paths of targeted ICS attacks via proprietary analytics.
 
 ## About the integration
 
-The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
+The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
 ## About the Defender for IoT ICS management application for ServiceNow
 
-The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. This is an important evolution given the ongoing convergence of IT and OT to support new IoT initiatives, such as smart machines and real time intelligence.
+The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. This is an important evolution given the ongoing convergence of IT and OT to support new IoT initiatives, such as smart machines and real-time intelligence.
 
 The application also enables both IT and OT incident response from within one corporate SOC.
 
@@ -43,7 +43,7 @@ The Defender for IoT ICS Management application helps:
 
 - Correlate Defender for IoT alerts with ServiceNow threat monitoring and incident management workflows.
 
-- Trigger ServiceNow tickets as well as workflows with other services and applications on the ServiceNow platform.
+- Trigger ServiceNow tickets and workflows with other services and applications on the ServiceNow platform.
 
 ICS and SCADA security threats are identified by Defender for IoT security engines, which provide immediate alert response to malware attacks, network, and security policy deviations, as well as operational and protocol anomalies. For details about alert details sent to ServiceNow, see [Alert reporting](#alert-reporting).
 
@@ -73,9 +73,9 @@ This article describes:
 
 The on-premises management console provides a unified source for all the device and alert information sent to ServiceNow.
 
-You can set up a on-premises management console to communicate with one instance of ServiceNow. The on-premises management console pushes sensor data to the Defender for IoT application using REST API.
+You can set up an on-premises management console to communicate with one instance of ServiceNow. The on-premises management console pushes sensor data to the Defender for IoT application using REST API.
 
-If you are setting up your system to work with a on-premises management console, disable the ServiceNow Sync, Forwarding Rules and proxy configurations in sensors, if they were set up.
+If you are setting up your system to work with an on-premises management console, disable the ServiceNow Sync, Forwarding Rules and proxy configurations in sensors, if they were set up.
 
 These configurations should be set up for the on-premises management console. Configuration instructions are described in this guide.
 
@@ -83,15 +83,13 @@ These configurations should be set up for the on-premises management console. Co
 
 If you want to set up your environment to include direct communication between  sensors and ServiceNow, for each sensor define the ServiceNow Sync, Forwarding rules, and proxy configuration (if a proxy is needed).
 
-It recommended to set up your integration using the on-premises management console to communicate with ServiceNow.
+It recommended setting up your integration using the on-premises management console to communicate with ServiceNow.
 
 ## Create access tokens in ServiceNow
 
 This article describes how to create an access token in ServiceNow. The token is needed to communicate with Defender for IoT.
 
 You will need the **Client ID** and **Client Secret** when creating Defender for IoT Forwarding rules, which forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
-
-:::image type="content" source="media/integration-servicenow/application-registry.png" alt-text="Create access tokens in ServiceNow":::
 
 ## Set up Defender for IoT to communicate with ServiceNow
 
@@ -101,7 +99,7 @@ This article describes how to set up Defender for IoT to communicate with Servic
 
 This article describes how to configure Defender for IoT to push alert information to ServiceNow tables. For information about alert data sent, see [Alert reporting](#alert-reporting).
 
-Defender for IoT alerts appear in ServiceNow as security incidents.
+Defenders for IoT alerts appear in ServiceNow as security incidents.
 
 Define a Defender for IoT *Forwarding* rule to send alert information to ServiceNow.
 
@@ -142,9 +140,9 @@ To define the rule:
 | Password | Enter the ServiceNow server password. |
 | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
 | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-| Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the Source and Destination addresses and so on. The information is forwarded to the Defender for IoT on the ServiceNow application. |
+| Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
-1. Select **SAVE**. Defender for IoT alerts appear as incidents in ServiceNow.
+1. Select **SAVE**. Defenders for IoT alerts appear as incidents in ServiceNow.
 
 ### Send Defender for IoT device attributes
 
@@ -167,7 +165,7 @@ To add a ServiceNow instance:
   | Parameter | Description |
   |--|--|
   | Enable Sync | Enable and disable the sync after defining parameters. |
-  | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes . The minimum is 5 minutes. |
+  | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
   | ServiceNow Instance | Enter the ServiceNow instance URL. |
   | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
   | Client Secret | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
@@ -180,7 +178,7 @@ To add a ServiceNow instance:
 
 Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the *Last Sync* date.
 
-:::image type="content" source="media/integration-servicenow/sync-confirmation.png" alt-text="Verify the communication occured by looking at the last sync.":::
+:::image type="content" source="media/integration-servicenow/sync-confirmation.png" alt-text="Verify the communication occurred by looking at the last sync.":::
 
 ## Setting up Defender for IoT and ServiceNow integration using the HTTPS proxy
 
@@ -249,7 +247,7 @@ The Configuration Management Database (CMDB) is enriched and supplemented by dat
 
 The following information is available:
 
-- Device attributes, for example the device MAC, Operating System, Vendor or protocol detected.
+- Device attributes, for example the device MAC, OS, vendor, or protocol detected.
 
 - Firmware information, for example the firmware version and serial number.
 
@@ -265,7 +263,7 @@ This article describes the device attributes pushed to ServiceNow.
 | ID | The device ID assigned by Defender for IoT. |
 | Name | The device name. |
 | IP Address | The device IP address or addresses. |
-| Type | The device type, for example a Switch, PLC, Historian or Domain Controller. |
+| Type | The device type, for example a switch, PLC, historian, or Domain Controller. |
 | MAC Address | The device MAC address or addresses. |
 | Operating System | The device operating system. |
 | Vendor | The device vendor. |
@@ -281,7 +279,7 @@ To view connected devices:
 
   :::image type="content" source="media/integration-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
 
-1. In the **Device Details** dialog box select **Connected Devices**.
+1. In the **Device Details** dialog box, select **Connected Devices**.
 
 ### Firmware details
 
@@ -296,7 +294,7 @@ This article describes the device firmware information pushed to ServiceNow.
 | Serial | The device serial number. |
 | Model | The device model number. |
 | Version | The firmware version number. |
-| Additional Data | Additional data about the firmware as defined by the vendor, for example the device type. |
+| Additional Data | More data about the firmware as defined by the vendor, for example the device type. |
 
 ### Connection details
 
@@ -315,7 +313,7 @@ This article describes the device connection information pushed to ServiceNow.
 
 ## Alert reporting
 
-Alerts are triggered when Defender for IoT engines detect changes in network traffic and behavior that require your attention. For details on the kinds of alerts each engine generates, see [About alert engines](#about-alert-engines).
+Alerts are triggered when Defenders for IoT engines detect changes in network traffic and behavior that require your attention. For details on the kinds of alerts each engine generates, see [About alert engines](#about-alert-engines).
 
 This article describes the device alert information pushed to ServiceNow.
 
@@ -338,7 +336,7 @@ This article describes the device alert information pushed to ServiceNow.
 
 Select the entry in the created column to view alert information in a form. You can update alert details and assign the alert to an individual to review and handle.
 
-:::image type="content" source="media/alert.png" alt-text="View the alert's information.":::
+:::image type="content" source="media/integration-servicenow/alert.png" alt-text="View the alert's information.":::
 
 ### About alert engines
 
