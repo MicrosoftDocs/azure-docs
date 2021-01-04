@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -287,7 +289,7 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
-      - name: Cequence Application Security
+      - name: Cequence Application Security Platform
         href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
@@ -327,7 +329,7 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
-      - name: Citrix Netscaler
+      - name: Citrix ADC
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -818,6 +820,8 @@
         href: idrive-tutorial.md
       - name: Igloo Software
         href: igloo-software-tutorial.md
+      - name: Illusive Networks
+        href: illusive-networks-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
       - name: Image Relay
@@ -828,6 +832,8 @@
         href: imagineerwebVision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
+      - name: Imperva Data Security
+        href: imperva-data-security-tutorial.md
       - name: In Case of Crisis - Mobile
         href: in-case-of-crisis-mobile-tutorial.md
       - name: In Case of Crisis - Online Portal
@@ -1364,6 +1370,8 @@
         href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
+      - name: Proware
+        href: proware-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
@@ -1602,6 +1610,8 @@
         href: skyward-qmlativ-tutorial.md
       - name: Slack
         href: slack-tutorial.md
+      - name: Splan Visitor
+        href: splan-visitor-tutorial.md
       - name: Small Improvements
         href: smallimprovements-tutorial.md
       - name: SmartDraw
@@ -1678,6 +1688,8 @@
         href: syncplicity-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
+      - name: Synerise AI Growth Ecosystem
+        href: synerise-ai-growth-ecosystem-tutorial.md
       - name: Syxsense
         href: syxsense-tutorial.md
     - name: T - V
@@ -1740,6 +1752,8 @@
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
         href: tigertext-tutorial.md
+      - name: Timeclock 365 SAML
+        href: timeclock-365-saml-tutorial.md
       - name: TimeLive
         href: timelive-tutorial.md
       - name: TimeOffManager
@@ -1914,6 +1928,8 @@
         href: yardielearning-tutorial.md
       - name: YardiOne
         href: yardione-tutorial.md
+      - name: Yello Enterprise
+        href: yello-enterprise-tutorial.md
       - name: Yodeck
         href: yodeck-tutorial.md
       - name: Yonyx Interactive Guides
@@ -2048,7 +2064,7 @@
       - name: Foodee
         href: foodee-provisioning-tutorial.md
       - name: G Suite
-        href: google-apps-provisioning-tutorial.md
+        href: g-suite-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE
@@ -2057,6 +2073,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: GroupTalk
         href: grouptalk-provisioning-tutorial.md
+      - name: Gtmhub
+        href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
       - name: Hootsuite
@@ -2097,12 +2115,14 @@
         href: meta-networks-connector-provisioning-tutorial.md
       - name: Mixpanel
         href: mixpanel-provisioning-tutorial.md
-      - name: myPolicies
-        href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
         href: mindtickle-provisioning-tutorial.md
       - name: Miro
         href: miro-provisioning-tutorial.md
+      - name: monday.com
+        href: mondaycom-provisioning-tutorial.md
+      - name: myPolicies
+        href: mypolicies-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netskope User Authentication
@@ -2207,6 +2227,8 @@
         href: visitly-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
         href: webroot-security-awareness-training-provisioning-tutorial.md
+      - name: WEDO
+        href: wedo-provisioning-tutorial.md
       - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
       - name: Workday to Azure AD

@@ -238,23 +238,6 @@ Performance related bugs don't happen all the time, and they are very difficult 
 3. Restart OMI: <br/>
 `sudo scxadmin -restart`
 
-## Issue: You are not seeing any data in the Azure portal
-
-### Probable causes
-
-- Onboarding to Azure Monitor failed
-- Connection to Azure Monitor is blocked
-- Log Analytics agent for Linux data is backed up
-
-### Resolution
-1. Check if onboarding Azure Monitor was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard using the `omsadmin.sh` command-line instructions
-3. If using a proxy, refer to the proxy resolution steps provided earlier.
-4. In some cases, when the Log Analytics agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The agent should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-
-    >[!NOTE]
-    >This issue is fixed in agent version 1.1.0-28 and later.
-
 
 ## Issue: You are not seeing forwarded Syslog messages 
 
@@ -332,6 +315,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * Connection to Azure Monitor is blocked
 * Virtual machine was rebooted
 * OMI package was manually upgraded to a newer version compared to what was installed by Log Analytics agent for Linux package
+* OMI is frozen, blocking OMS agent
 * DSC resource logs *class not found* error in `omsconfig.log` log file
 * Log Analytics agent for data is backed up
 * DSC logs *Current configuration does not exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* in `omsconfig.log` log file, but no log message exists about `PerformRequiredConfigurationChecks` operations.
@@ -342,6 +326,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 4. If using a proxy, check proxy troubleshooting steps above.
 5. In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking, or UpdateManagement solution-related data. The workaround is to manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
 6. After OMI package is manually upgraded to a newer version, it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Run `sudo /opt/omi/bin/service_control restart` to restart OMI.
+* In some situations, OMI can become frozen. The OMS agent may enter a blocked state waiting for OMI, blocking all data collection. The OMS agent process will be running but there will be no activity, evidenced by no new log lines (such as sent heartbeats) present in `omsagent.log`. Restart OMI with `sudo /opt/omi/bin/service_control restart` to recover the agent.
 7. If you see DSC resource *class not found* error in omsconfig.log, run `sudo /opt/omi/bin/service_control restart`.
 8. In some cases, when the Log Analytics agent for Linux cannot talk to Azure Monitor, data on the agent is backed up to the full buffer size: 50 MB. The agent should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart`.
 
