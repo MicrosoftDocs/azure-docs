@@ -45,14 +45,14 @@ For this tutorial, you need a Spark table. The following notebook creates one.
 1. After the notebook run has completed, you see a new Spark table under the default Spark database. From **Data**, find the table named **nyc_taxi**.
 ![Screenshot of Azure Synapse Analytics Data tab, with new table highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## Launch automated machine language wizard
+## Launch automated machine learning wizard
 
 Here's how:
 
 1. Right-click the Spark table that you created in the previous step. To open the wizard, select **Machine Learning** > **Enrich with new model**.
 ![Screenshot of the Spark table, with Machine Learning and Enrich with new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-1. You can then provide your configuration details for creating an automated machine language experiment run in Azure Machine Learning. This run trains multiple models, and the best model from a successful run is registered in the Azure Machine Learning model registry.
+1. You can then provide your configuration details for creating an automated machine learning experiment run in Azure Machine Learning. This run trains multiple models, and the best model from a successful run is registered in the Azure Machine Learning model registry.
 
    ![Screenshot of Enrich with new model configuration specifications.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
