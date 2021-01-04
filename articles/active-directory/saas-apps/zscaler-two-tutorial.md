@@ -24,8 +24,8 @@ In this tutorial, you'll learn how to integrate Zscaler Two with Azure Active Di
 
 To configure Azure AD integration with Zscaler Two, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Zscaler Two single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Zscaler Two single sign-on enabled subscription.
 
 ## Scenario description
 
@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	f. Click **Save**.
 
 	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to know how to configure Role in Azure AD
+	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to know how to configure Role in Azure AD.
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
