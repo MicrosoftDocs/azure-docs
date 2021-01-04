@@ -10,7 +10,7 @@ ms.date: 1/4/2021
 ms.custom: devx-track-terraform
 ---
 
-# Customer usage attribution
+# Azure customer usage attribution
 
 Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
