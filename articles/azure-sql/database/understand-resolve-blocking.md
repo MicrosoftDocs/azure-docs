@@ -219,9 +219,9 @@ By examining the above information, you can determine the cause of most blocking
 
 ## Common blocking scenarios
 
-The table below maps common symptoms to their probable causes. The number indicated in the Scenario column corresponds to the number in the [Common Blocking Scenarios and
-Resolutions](#common-blocking-scenarios-and-resolutions)
-section of this article below. The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The resolves? column indicates whether or not the blocking will resolve on its own.
+The table below maps common symptoms to their probable causes.  
+
+The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The resolves? column indicates whether or not the blocking will resolve on its own.
 
 | Scenario | Waittype | Open_Tran | Status | Resolves? | Other Symptoms |  
 |:-|:-|:-|:-|:-|:-|--|
@@ -276,12 +276,12 @@ The scenarios listed below will have the characteristics listed in the table abo
         pooling may help alleviate the problem until the client application is modified to handle the errors appropriately.
         By disabling connection pooling, releasing the connection will cause a physical disconnect of the Azure SQL Database connection, resulting in the server rolling back any open transactions.
     
-        > [!NOTE]
-        > The connection is not reset until it is reused from the connection pool, so it is possible that a user could open a transaction and then release the connection to the connection pool, but it might not be reused for several seconds, during which time the transaction would remain open. If the connection is not reused, the transaction will be aborted when the connection times out and is removed from the connection pool. Thus, it is optimal for the client application to abort transactions in their error handler or use `SET XACT_ABORT ON` to avoid this potential delay.
-        -    Use `SET XACT_ABORT ON` for the connection, or in any stored procedures that begin transactions and are not cleaning up following an error. In the event of a run-time error, this setting will abort any open transactions and return control to the client.
-    
-        > [!CAUTION]
-        > Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
+    > [!NOTE]
+    > The connection is not reset until it is reused from the connection pool, so it is possible that a user could open a transaction and then release the connection to the connection pool, but it might not be reused for several seconds, during which time the transaction would remain open. If the connection is not reused, the transaction will be aborted when the connection times out and is removed from the connection pool. Thus, it is optimal for the client application to abort transactions in their error handler or use `SET XACT_ABORT ON` to avoid this potential delay.
+    -    Use `SET XACT_ABORT ON` for the connection, or in any stored procedures that begin transactions and are not cleaning up following an error. In the event of a run-time error, this setting will abort any open transactions and return control to the client.
+
+    > [!CAUTION]
+    > Following `SET XACT_ABORT ON`, T-SQL statements following a statement that causes an error will not be executed. This could affect the intended flow of existing code.
 
 1.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
 
@@ -294,7 +294,9 @@ The scenarios listed below will have the characteristics listed in the table abo
 
 1.  Blocking caused by a distributed client/server deadlock
 
-    Unlike a conventional deadlock, a distributed deadlock is not detectable using the RDBMS lock manager. This is because only one of the resources involved in the deadlock is a SQL Server lock. The other side of the deadlock is at the client application level, over which SQL Server has no control. The following are two examples of how this can happen, and possible ways the application can avoid it.
+    Unlike a conventional deadlock, a distributed deadlock is not detectable using the RDBMS lock manager. This is because only one of the resources involved in the deadlock is a SQL Server lock. The other side of the deadlock is at the client application level, over which SQL Server has no control. 
+
+    The following are two examples of how this can happen, and possible ways the application can avoid it.
 
     -   Client/Server Distributed Deadlock with a Single Client Thread
 
@@ -353,13 +355,13 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     If the client application traps errors or the client workstation is restarted, the network session to the server may not be immediately canceled under some conditions. From the Azure SQL Database perspective, the client still appears to be present, and any locks acquired may still be retained. For more information, see [How to troubleshoot orphaned connections in SQL Server](/sql/t-sql/language-elements/kill-transact-sql#remarks). 
 
-    **Resolution**: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 99, issue the following command 
+    **Resolution**: If the client application has disconnected without appropriately cleaning up its resources, you can terminate the SPID by using the `KILL` command. The `KILL` command takes the SPID value as input. For example, to kill SPID 99, issue the following command:
 
     ```sql
     KILL 99
     ```
     
-    The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.
+    The `KILL` command may take up to 30 seconds to complete, due to the interval between checks for the `KILL` command.  
 
 
 
