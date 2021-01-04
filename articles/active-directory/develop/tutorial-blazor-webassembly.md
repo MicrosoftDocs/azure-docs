@@ -23,7 +23,7 @@ In this tutorial:
 > * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
 > * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
-This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0) using ASP.NET Core 5.0. 
+This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) using ASP.NET Core 5.0. 
 
 We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
 
