@@ -7,6 +7,7 @@ ms.topic: include
 ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
+ms.custom: references_regions
 ---
 
 # Azure Instance Metadata Service (IMDS)

@@ -11,7 +11,6 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.custom: references_regions
 ---
 
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]
