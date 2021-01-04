@@ -218,8 +218,15 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Key Vault rotation functions for two sets of credentials
 
-- [Storage account](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
-- [Redis cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
+Rotation functions template for two sets of credentials and several ready to use functions:
+
+- [Function Template in PowerShell](https://github.com/Azure/KeyVault-Secrets-Rotation-Template-PowerShell)
+- [Redis cache](https://github.com/Azure/KeyVault-Secrets-Rotation-Redis-PowerShell)
+- [Storage account](https://github.com/Azure/KeyVault-Secrets-Rotation-StorageAccount-PowerShell)
+- [Cosmos DB](https://github.com/Azure/KeyVault-Secrets-Rotation-CosmosDB-PowerShell)
+
+> [!NOTE]
+> Above rotation functions are created by a member of the community and not by Microsoft. Community Azure Functions are not supported under any Microsoft support programme or service, and are made available AS IS without warranty of any kind.
 
 ## Next steps
 

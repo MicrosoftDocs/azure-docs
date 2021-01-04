@@ -2,7 +2,7 @@
 title: Frequently asked questions
 description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
-ms.date:  12/22/2020
+ms.date:  1/4/2020
 ---
 
 # Frequently asked questions about Azure VMware Solution
@@ -196,7 +196,7 @@ Azure Virtual WAN doesn't provide transitive routing between two connected Expre
 
 #### Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
 
-Currently, the only supported method for HCX is through ExpressRoute.
+Currently, the only supported method for VMware HCX is through ExpressRoute.
 
 ## Accounts and privileges
 
