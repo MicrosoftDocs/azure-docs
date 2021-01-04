@@ -48,7 +48,7 @@ Spatial analysis can also be run with [Live Video Analytics](../../media-service
 Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of the video frames and events
 
 > [!IMPORTANT]
-> The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to detect faces or discover the identities or demographics of individuals.
+> The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to discover the identities or demographics of individuals.
 
 These are the parameters required by each of these spatial analysis operations.
 
@@ -441,7 +441,7 @@ Sample JSON for detections output by this operation.
 
 
 > [!IMPORTANT]
-> The AI model detects a person irrespective of whether the person is facing towards or away from the camera. The AI model doesn't run face detection or recognition and doesn't emit any biometric information. 
+> The AI model detects a person irrespective of whether the person is facing towards or away from the camera. The AI model doesn't run face recognition and doesn't emit any biometric information. 
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI Insights
 
