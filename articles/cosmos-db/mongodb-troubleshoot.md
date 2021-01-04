@@ -35,8 +35,7 @@ The following article describes common errors and solutions for deployments usin
 | 16500 | TooManyRequests  | The total number of request units consumed is more than the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput assigned to a container or a set of containers from the Azure portal or you can retry the operation. Enabling SSR (server-side retry) will cause requests that fail due to this error to be automatically retried by Cosmos DB. |
 | 16501 | ExceededMemoryLimit | As a multi-tenant service, the operation has gone over the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Example: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Unrecognized pipeline stage name. | The stage name in your aggregation pipeline request was not recognized. | Ensure that all aggregation pipeline names are valid in your request. |
-
-| MongoDB wire version issues | - | The older versions of MongoDB drivers are unable to detect the Azure Cosmos account's name in the connection strings. | Append *appName=@**accountName**@* at the end of your Cosmos DB's API for MongoDB connection string, where ***accountName*** is your Cosmos DB account name. |
+| - | MongoDB wire version issues | The older versions of MongoDB drivers are unable to detect the Azure Cosmos account's name in the connection strings. | Append *appName=@**accountName**@* at the end of your Cosmos DB's API for MongoDB connection string, where ***accountName*** is your Cosmos DB account name. |
 
 ## Next steps
 
