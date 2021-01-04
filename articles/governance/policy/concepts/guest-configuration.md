@@ -1,6 +1,6 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
+description: Learn how Azure Policy uses the Guest Configuration client to audit settings inside virtual machines.
 ms.date: 10/14/2020
 ms.topic: conceptual
 ---
@@ -82,7 +82,7 @@ of the configuration within the machine.
 ## Supported client types
 
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
-systems available in Azure Marketplace are excluded if the Guest Configuration agent isn't
+systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
