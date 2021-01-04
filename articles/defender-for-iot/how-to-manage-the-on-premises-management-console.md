@@ -294,6 +294,26 @@ To reset your password:
 > [!NOTE]
 > The sensor is linked to the subscription that it was originally connected to. You can recover the password only by using the same subscription that it's attached to.
 
+## Update the software version
+
+The following procedure describes how to update the on-premises management console software version. The update process takes about 30 minutes.
+
+1. Go to the [Azure portal](https://portal.azure.com/).
+
+1. Go to Defender for IoT.
+
+1. Go to the **Updates** page.
+
+1. Select a version from the on-premises management console section.
+
+1. Select **Download** and save the file.
+
+1. Log into on-premises management console and select **System Settings** from the side menu.
+
+1. On the **Version Update** pane, select **Update**.
+
+1. Select the file that you downloaded from the Defender for IoT **Updates** page.
+
 ## See also
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
