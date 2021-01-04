@@ -20,7 +20,6 @@ Zone redundancy is a **preview** feature of the Premium container registry servi
 * Zone redundancy can't be disabled in a region.
 * [ACR Tasks](container-registry-tasks-overview.md) doesn't yet support availability zones.
 * Currently supported through Azure Resource Manager templates or the Azure portal. Azure CLI support will be enabled in a future release.
-* Currently, when you move a zone-redundant container registry to another resource group, the zone redundancy setting shows as `Disabled`.
 
 ## About zone redundancy
 
@@ -53,7 +52,7 @@ To create a zone-redundant replication:
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/az/group#az_group_create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*.
+If needed, run the [az group create](/cli/azure/group) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -159,7 +158,7 @@ Copy the following contents to a new file and save it using a filename such as `
   }
 ```
 
-Run the following [az deployment group create](/cli/az/deployment#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/deployment?view=azure-cli-latest) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*

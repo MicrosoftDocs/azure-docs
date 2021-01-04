@@ -43,18 +43,8 @@ Hosts used to build or scale clusters come from an isolated pool of hosts. Those
 
 ## VMware software versions
 
-The current software versions of the VMware software used in Azure VMware Solution private cloud clusters are:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Version   |
-| :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T                 |      2.5     |
-
-For any new cluster in a private cloud, the software version matches what's currently running. For any new private cloud in a subscription, the software stack's latest version gets installed.
-
-You can find the general upgrade policies and processes for the Azure VMware Solution platform software described in [Private cloud updates and upgrades](concepts-upgrades.md).
 
 ## Host maintenance and lifecycle management
 

@@ -19,6 +19,35 @@ ms.subservice: metrics
 
 [Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md),  [Windows Azure Diagnostics (WAD) extension](./diagnostics-extension-overview.md), or by [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
+## Resource scope picker
+The resource scope picker allows you to view metrics across single and multiple resources. Below are instructions on how to use the resource scope picker. 
+
+### Selecting a single resource
+Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Click on the "Select a scope" button to open the scope picker, which will allow you to select the resource(s) you want to see metrics for. This should already be populated if you opened metrics explorer from a resource's menu. 
+
+![Screenshot of the resource scope picker](./media/metrics-charts/scope-picker.png)
+
+For certain resources, you can only view a single resource’s metrics at a time. These resources are under the “All resource types” section in the Resource types dropdown.
+
+![Screenshot of single resource](./media/metrics-charts/single-resource-scope.png)
+
+After clicking your desired resource, you will see all subscriptions and resource groups that contain that resource.
+
+![Screenshot of available resources](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> If you’d like to view multiple resource’s metrics at the same time, or metrics across a subscription or resource group, click the Upvote button.
+
+Once you’re satisfied with your selection click “Apply”.
+
+### Viewing metrics across multiple resources
+Some resource types have enabled the ability to query for metrics over multiple resources, as long as they are within the same subscription and location. These resource types can be found at the top of the “Resource Types” dropdown. To get more details on how to view metrics across multiple resources view [this document](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Screenshot of cross resource types](./media/metrics-charts/multi-resource-scope.png)
+
+For multi-resource compatible types, you can also query for metrics across a subscription or multiple resource groups. To learn how to do this, view [this article](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
+
 ## Create views with multiple metrics and charts
 
 You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
@@ -57,11 +86,25 @@ For example, suppose the chart is showing the **Server Response Time** metric us
 
 There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
 
-- **Sum** – the sum of all values captured over the aggregation interval
-- **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
-- **Average** – the average of the metric values captured over the aggregation interval
-- **Min** – the smallest value captured over the aggregation interval
-- **Max** – the largest value captured over the aggregation interval
+**Sum** – the sum of all values captured over the aggregation interval
+
+![Screenshot of sum of request](./media/metrics-charts/request-sum.png)
+
+**Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+
+![Screenshot of count of request](./media/metrics-charts/request-count.png)
+
+**Average** – the average of the metric values captured over the aggregation interval
+
+![Screenshot of average request](./media/metrics-charts/request-avg.png)
+
+**Min** – the smallest value captured over the aggregation interval
+
+![Screenshot of minimum request](./media/metrics-charts/request-min.png)
+
+**Max** – the largest value captured over the aggregation interval
+
+![Screenshot of max request](./media/metrics-charts/request-max.png)
 
 ## Apply filters to charts
 
