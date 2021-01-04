@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Windows Virtual Desktop Agent Issues - Azure
-description: How to diagnose and resolve common agent and connectivity issues.
+description: How to resolve common agent and connectivity issues.
 author: Sefriend
 ms.topic: troubleshooting
 ms.date: 12/16/2020
@@ -52,7 +52,7 @@ Follow these instructions if you're having issues with the agent bootloader not 
 7. In the *Value data:* entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](media/isregistered.PNG)
+   > ![Screenshot of IsRegistered 0](media/isregistered1.PNG)
 
 **Stop and restart the RDAgentBootLoader.**
 
@@ -67,7 +67,7 @@ Follow these instructions if you're having issues with the agent bootloader not 
 13. Verify that *IsRegistered* is set to 1 and there is nothing in the data column for *RegistrationToken*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 1](media/isregistered1.PNG)
+   > ![Screenshot of IsRegistered 1](media/isregistered.PNG)
 
 ## Ensure that your VMs are able to connect to the broker and gateway
 
@@ -139,9 +139,9 @@ Follow these instructions if you have any group policies enabled. Some group pol
 
 ## Make Regkey changes
 
-Follow these instructions if you're having issues with the stack listener not working or your VMs are missing a heartbeat to the service.
+Follow these instructions if you're having issues with the stack listener not working, your VMs show as Unavailable, or your VMs are missing a heartbeat to the service.
 
-### Error: Stack listener is not working and you are running on Windows 10 2004.
+### Error: Stack listener is not working or your VM shows as Unavailable, and you are running on Windows 10 2004.
 
 **Cause:** If you are not seeing the two stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issue with the agent because it just had an update, but in this case the WVD listener is not working.
 
@@ -155,10 +155,14 @@ Follow these instructions if you're having issues with the stack listener not wo
    > ![Screenshot of fReverseConnectMode](media/freverseconnect.PNG)
 
 5. If *fReverseConnectMode* is not set to 1, double-click on *fReverseConnectMode* and enter the value 1 for its field. 
-6. If *fEnableWinStation* is not set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field. 
+6. If *fEnableWinStation* is not set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field.  
 
 >[!NOTE]
 >To change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at one time, you can either 1) export the registry key from the machine that you already have working and import it into all the other machines that need this change, or 2) create a GPO to set the registry key value for the machines that need the change.
+
+7. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings.
+8. Under *ClusterSettings*, scroll to find *SessionDirectoryListener* and verify that its data value is *rdp-sxs...*. 
+9. If *SessionDirectoryListener* is not set to *rdp-sxs...*, you need to follow steps to [reinstall the agent and bootloader](#re-register-your-vm-and-reinstall-the-agent-and-bootloader), and this will reinstall the side-by-side stack.
 
 ### Error: *CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy.*
 
