@@ -173,6 +173,30 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
+### Policy requirements
+
+The Policy definition `metadata` section must include two properties for the Guest Configuration
+service to automate provisioning and reporting of Guest Configuration assignments. The `category` property must
+be set to "Guest Configuration" and a section named `Guest Configuration` must contain information about the
+Guest Configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text automationcally.
+See the step-by-step instructions on this page.
+
+The following example demonstrates the `metadata` section.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
+
 ### Scaffolding a Guest Configuration project
 
 Developers who would like to accelerate the process of getting started and work from sample code can
