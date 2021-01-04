@@ -70,7 +70,7 @@ For more information, see:
 
 - [Solarigate indicators of compromise (IOCs)](#solarigate-indicators-of-compromise-iocs)
 
-- [Microsoft references for Solarigate](#microsoft-references-for-solorigate) 
+- [Microsoft references for Solarigate](#microsoft-references-for-solarigate)
 
 > [!NOTE]
 > Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
