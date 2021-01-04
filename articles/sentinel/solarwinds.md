@@ -1,6 +1,6 @@
 ---
-title: Microsoft resources for verifying your security against the SolarWinds attack | Microsoft Docs
-description: Learn about how to use resources created by Microsoft specifically to battle against the SolarWinds attack.
+title: Using Microsoft resources to respond to supply chain attacks and systemic identity compromise | Microsoft Docs
+description: Learn how to use Microsoft resources to respond to supply chain attacks and systemic identity compromises similar to the SolarWinds attack (Solarigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -18,9 +18,17 @@ ms.author: bagol
 
 ---
 
-# After SolarWinds: Apply Microsoft resources to verify your security
+# Using Microsoft resources to respond to supply chain attacks and systemic identity compromise
 
-This article describes how to use the Microsoft resources created specifically to counteract the SolarWinds attack (Soliargate), with clear action items for you to perform to help ensure your organization's security.
+This section describes how to use Microsoft resources created specifically to respond to the SolarWinds attack (Solarigate), with clear action items for your to perform to help ensure your organization's continued security.
+
+These resources can also be used to understand and mitigate risks in other similar supply chain attacks and system identity compromises.
+
+> [!IMPORTANT]
+> Microsoft has taken swift action to neutralize and then kill the malware in the SolarWinds attack, and then take control oer the malware infrastructure from the attackers.
+>
+> The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
+> 
 
 ## About the SolarWinds attack and Microsoft's response
 
@@ -38,23 +46,24 @@ Following this discovery, Microsoft swiftly took the following steps against the
 
 1. **Changed Windows Defender's default action for Solarigate from *Alert* to *Quarantine***, effectively killing the malware when found at the risk of crashing the system.
 
-These steps helped to neutralize and then kill the malware and then taking control over the malware infrastructure from the attackers.
+If you suspect that your organization has been affected by the SolarWinds attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
 
-Azure Sentinel enables you to view data from a single view, including both on-premises and cloud sources, makes it easier for you to spot trends and attacks, and understand the full nature of an attack on your system. Sentinel customers should start by [using Sentinel to review Solarigate-related alerts from across platforms and environments](#azure-sentinel).
+Azure Sentinel users have the advantage of Sentinel connectors for Microsoft Defender and Azure Active Directory, which provide all relevant data and checks through a single view. We therefore recommend that Sentinel users with these connectors start responding to threats by querying data found in Sentinel.
 
-Other instructions for customers performing system checks for the Solarigate attack include:
+You can also use Microsoft Defender and Azure Active Directory directly to perform similar checks and hardening activities.
+
+For more information, see:
+
+- [Use Microsoft Azure Sentinel to respond to supply chain attacks and systemic identity threats](#use-microsoft-azure-sentinel-to-respond-to-supply-chain-attacks-and-systemic-identity-threats)
 
 - [Use an Azure Active Directory workbook to help assess your organization's Solarigate risk](#azure-active-directory)
 
 - [Use Microsoft Defender solutions to identify malicious activity in your network](#microsoft-defender)
 
-For more information, see our reference of [Solarigate indicators of compromise (IOCs)](#solarigate-indicators-of-compromise-iocs) and the list of [blog references](#references) for this article.
+- [Solarigate indicators of compromise (IOCs)](#solarigate-indicators-of-compromise-iocs)
 
-> [!IMPORTANT]
-> The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
-> 
-
-## Azure Sentinel
+- [Additional blog references](#references) 
+## Use Microsoft Azure Sentinel to respond to supply chain attacks and systemic identity threats
 
 Azure Sentinel enables you to analyze data from across products, including both on-premises and cloud environments. 
 
@@ -68,16 +77,17 @@ Use Azure Sentinel to hunt for attack activity, especially with the [SolarWinds 
 
 We recommend that you use Sentinel to perform the following steps:
 
-- [Use Sentinel to find machines with SolarWinds Orion components](#use-sentinel-to-find-machines-with-solarwinds-orion-components)
-- [Identify escalating privileges in your system](#identify-escalating-privileges-in-your-system)
-- [Find exported certificates](#find-exported-certificates)
-- [Find illicit data access](#find-illicit-data-access)
-- [Find mail data exfiltration](#find-mail-data-exfiltration)
-- [Find suspicious domain-related activity](#find-suspicious-domain-related-activity)
-- [Find security service tampering](#find-security-service-tampering)
-- [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
+1. [Find machines with SolarWinds Orion components](#step-1-use-sentinel-to-find-machines-with-solarwinds-orion-components)
+1. [Identify escalating privileges in your system](#step-2-use-sentinel-to-identify-escalating-privileges-in-your-system)
+1. [Find exported certificates](#step-3-use-sentinel-to-find-exported-certificates)
+1. [Find reconnaissance and remote process execution](#step-4-use-sentinel-to-find-reconnaissance-and-remote-process-execution)
+1. [Find illicit data access](#step-5-use-sentinel-to-find-illicit-data-access)
+1. [Find mail data exfiltration](#step-6-use-sentinel-to-find-mail-data-exfiltration)
+1. [Find suspicious domain-related activity](#step-7-use-sentinel-to-find-suspicious-domain-related-activity)
+1. [Find evidence of security service tampering](#step-8-use-sentinel-to-find-evidence-of-security-service-tampering)
+1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-9-use-sentinel-to-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
-### Use Sentinel to find machines with SolarWinds Orion components
+### Step 1: Use Sentinel to find machines with SolarWinds Orion components
 
 Your organization may have a software inventory management system that indicates the hosts where the SolarWinds application is installed. Alternately, use Sentinel with the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md) to run a query and gather similar information.
 
@@ -161,7 +171,7 @@ SecurityEvent
 | extend timestamp = TimeGenerated, AccountCustomEntity = Account, HostCustomEntity = Computer
 ```
 
-### Identify escalating privileges in your system
+### Step 2: Use Sentinel to identify escalating privileges in your system
 
 Once an attacker has a system account level access, they will attempt to access domain administrator levels.
 
@@ -184,7 +194,7 @@ For more information, see:
 - [Microsoft 365 Defender advanced hunting portal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
 - [Use Microsoft Defender solutions to identify malicious activity in your network](#microsoft-defender), below
 
-### Find exported certificates
+### Step 3: Use Sentinel to find exported certificates
 
 Once an attacker has domain administrator access, they will steal the SAML token-signing certificate from the AD FS server. 
 
@@ -241,7 +251,7 @@ To use this query, you must be collecting Sysmon Event IDs 17 and 18 into your A
 For more information, see the [ADFSKeyExportSysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/ADFSKeyExportSysmon.yaml) query on GitHub.
 
 
-### Use Sentinel to hunt through Azure Active Directory logs
+### Step 4: Use Sentinel to hunt through Azure Active Directory logs
 
 The Solorigate attacker also targeted the Azure AD for affected systems, and modified Azure AD settings to provide themselves with long-term access. You can use queries in the [Azure Sentinel workbook](https://github.com/Azure/Azure-Sentinel) to identify such activities in Azure AD.
 
@@ -416,7 +426,7 @@ AuditLogs
 
  
 
-### Find reconnaissance and remote process execution
+### Step 5: Use Sentinel to find reconnaissance and remote process execution
 
 An attacker might attempt to access on-premises systems to gain further insight about the environment mapping. For example, in the Solarigate attack, the attacker renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
 
@@ -489,7 +499,7 @@ UncommonProtocol != 'NotApplicable', 3,
 
 
  
-### Find illicit data access
+### Step 6: Use Sentinel to find illicit data access
 
 Use the following Sentinel queries to find evidence of illicit data access in your system:
 
@@ -537,7 +547,7 @@ The Solarigate attack used VPS hosts to access affected networks. Use the follow
 
 - [Find sign-ins that come from known VPS provider network ranges](/data-explorer/kusto/query/ipv4-lookup-plugin). This query can also be used to find all sign-ins that do not come from known ranges, especially if your environment has a common sign-in source.
 
-### Find mail data exfiltration 
+### Step 7: Use Sentinel to find mail data exfiltration 
 
 Use the following Sentinel queries to monitor for suspicious access to email data:
 
@@ -545,7 +555,7 @@ Use the following Sentinel queries to monitor for suspicious access to email dat
 - [Find time series-based anomalies in MailItemsAccessed events](#find-time-series-based-anomalies-in-mailitemsaccessed-events)
 - [Find OWA data exfiltrations](#find-owa-data-exfiltrations)
 - [Find non-owner mailbox sign-in activity](#find-non-owner-mailbox-sign-in-activity)
--
+
 #### Find suspicious access to MailItemsAccessed volumes
 
 Use the following Sentinel query to find suspicious access to other users' mailboxes:
@@ -693,7 +703,7 @@ OfficeActivity
 | extend timestamp = min_TimeGenerated, AccountCustomEntity = UserId
 ``` 
 
-### Find suspicious domain-related activity
+### Step 8: Use Sentinel to find suspicious domain-related activity
 
 Use the following queries to find suspicious domain activity related to the Solarigate attack:
 
@@ -826,7 +836,7 @@ regex_bad_domains
 | where match > -1
 ```
 
-### Find security service tampering
+### Step 9: Use Sentinel to find evidence of security service tampering
 
 Use the following Sentinel query to detect any tampering with Microsoft Defender services. You can also adapt this query to identify tampering with other security services. 
 
@@ -881,7 +891,7 @@ or (InitiatingProcessCommandLine has_any("start") and InitiatingProcessCommandLi
 | extend timestamp = TimeGenerated, AccountCustomEntity = Account, HostCustomEntity = Computer
 ```
 
-### Find correlations between Microsoft 365 Defender and Azure Sentinel detections
+### Step 10: Use Sentinel to find correlations between Microsoft 365 Defender and Azure Sentinel detections
 
 Use the following Sentinel query to collect the full range of Microsoft Defender detections currently deployed, which can provide an overview of such alerts and any hosts they're related to.
 
@@ -900,7 +910,7 @@ DeviceInfo
 | extend timestamp = TimeGenerated, IPCustomEntity = PublicIP
 ```
 
-## Azure Active Directory
+## Use Azure Active Directory to respond to supply chain attacks and systemic identity threats
 
 Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any Identity-related indicators of compromise (IOCs) related to the attacks. 
 
@@ -944,7 +954,7 @@ In your [workbook](#access-the-microsoft-azure-ad-solarigate-workbook), expand e
 |**Directory role and group membership updates for service principals**     |This area of the workbook provides an overview of all changes made to service principal memberships. <br><br>**Tip**: We recommend that you review the information for any additions to highly privileged roles and groups, which is another step an attacker might take in attempting to gain access to an environment.         |
 |     |         |
 
-## Microsoft Defender
+## Use Microsoft Defender to respond to supply chain attacks and systemic identity threats
 
 Microsoft Defender solutions provide the following coverage and visibility to help protect against the Solorigate attack:
 
@@ -1004,7 +1014,7 @@ DeviceTvmSoftwareInventoryVulnerabilities| where SoftwareVendor == ‘solarwinds
 Data returned will be organized by product name and sorted by the number of devices the software is installed on.
 
 
-### Investigate related alerts and incidents
+### Investigate related Microsoft Defender alerts and incidents
 
 Use the threat analytics report to locate devices with alerts related to the attack. The **Devices with alerts** chart identifies devices with malicious components or activities known to be directly related to Solorigate. Navigate through to get the list of alerts and investigate.
 
@@ -1028,7 +1038,7 @@ For more information, see the [threat analytics](#microsoft-defender-for-threat-
 
 Each alert provides a full description and recommended actions. For more information, see [Microsoft Defender Antivirus detections for Solarigate](#microsoft-defender-antivirus-detections-for-solarigate).
 
-#### Alerts by attack stage
+#### Microsoft Defender alerts by attack stage
 
 We recommend searching your Microsoft 365 Defender solutions for any of the following alerts, which indicate a specific stage in a Solarigate attack:
 
@@ -1044,7 +1054,7 @@ We recommend searching your Microsoft 365 Defender solutions for any of the foll
 |**Exfiltration**     |  **Microsoft Defender for Endpoint** <br>- Suspicious mailbox export or access modification <br>-Suspicious archive creation       |
 |     |         |
 
-#### Alerts by threat type
+#### Microsoft Defender alerts by threat type
 
 We recommend searching  Microsoft Defender Security Center and the Microsoft 365 security center for any of the following alerts, which indicate a specific type of Solarigate-related threat:
 
@@ -1066,25 +1076,22 @@ Microsoft Defender Antivirus detects the following threats and quarantines malwa
 |**Detection for the PowerShell payload** that grabs hashes and SolarWinds passwords from the database along with machine information     |     [Trojan:PowerShell/Solorigate.H!dha](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:PowerShell/Solorigate.H!dha&threatId=-2147196089)    |
 |     |         |
 
-### Hunt for related attacker activity
+### Use Microsoft Defender to hunt for related attacker activity
 
 Use Microsoft Defender for Endpoint, Microsoft 365 Defender, and Microsoft Defender for Identity to hunt for malicious activity on your tenant that may be related to the Solarigate attack:
 
-- [Find and block malware and malicious behavior on endpoints](#find-and-block-malware-and-malicious-behavior-on-endpoints)
-- [Find malicious activity in an on-premises environment](#find-malicious-activity-in-an-on-premises-environment)
-- [Find malicious activity in the cloud environment](#find-malicious-activity-in-the-cloud-environment)
+1. [Find and block malware and malicious behavior on endpoints](#step-1-use-microsoft-defender-to-find-and-block-malware-and-malicious-behavior-on-endpoints)
+1. [Find malicious activity in an on-premises environment](#step-2-use-microsoft-defender-to-find-malicious-activity-in-an-on-premises-environment)
+1. [Find malicious activity in the cloud environment](#step-3-use-microsoft-defender-to-find-malicious-activity-in-the-cloud-environment)
+1. [Find malicious DLLs loaded into memory](#step-4-use-microsoft-defender-to-find-malicious-dlls-loaded-into-memory)
+1. [Find malicious DLLs created in the system or locally](#step-5-use-microsoft-defender-to-find-malicious-dlls-created-in-the-system-or-locally)
+1. [Find SolarWinds processes launching PowerShell with Base64](#step-6-use-microsoft-defender-to-find-solarwinds-processes-launching-powershell-with-base64)
+1. [Find SolarWinds processes launching CMD with echo](#step-7-use-microsoft-defender-to-find-solarwinds-processes-launching-cmd-with-echo)
+1. [Find C2 communications](#step-8-use-microsoft-defender-to-find-c2-communications)
 
-Additionally, run the following advanced queries to find tactics, threats, and procedures used in the attack:
+For more information, see [Advanced query reference](#advanced-microsoft-defender-query-reference).
 
-- [Find malicious DLLs loaded into memory](#find-malicious-dlls-loaded-into-memory)
-- [Find malicious DLLs created in the system or locally](#find-malicious-dlls-created-in-the-system-or-locally)
-- [Find SolarWinds processes launching PowerShell with Base64](#find-solarwinds-processes-launching-powershell-with-base64)
-- [Find SolarWinds processes launching CMD with echo](#find-solarwinds-processes-launching-cmd-with-echo)
-- [Find C2 communications](#find-c2-communications)
-
-For more information, see [Advanced query reference](#advanced-query-reference).
-
-#### Find and block malware and malicious behavior on endpoints
+#### Step 1: Use Microsoft Defender to find and block malware and malicious behavior on endpoints
 
 To evade security software and analysis tools, the Solorigate malware attempts to disable processes, drivers, and registry keys on the target system, including the Microsoft Defender for Endpoint sensor.
 
@@ -1130,7 +1137,7 @@ silentDevices
 > Microsoft is continuously developing additional measures to both block and alert on these types of tampering activities.
 > 
 
-#### Find malicious activity in an on-premises environment
+#### Step 2: Use Microsoft Defender to find malicious activity in an on-premises environment
 
 Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (AD FS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
 
@@ -1221,7 +1228,7 @@ let auditLookback = 1d; CloudAppEvents
 > We recommend verifying that any instances found are indeed the result of illegitimate administrative activity.
 > 
 
-#### Find malicious activity in the cloud environment
+#### Step 3: Use Microsoft Defender to find malicious activity in the cloud environment
 
 If an attacker has created illicit SAML tokens, they can access sensitive data without being limited to a compromised or on-premises device. 
 
@@ -1319,7 +1326,7 @@ appMailReadActivity(ago(1d),now()) // detection period
 on OAuthAppId
 ```
 
-#### Find malicious DLLs loaded into memory
+#### Step 4: Use Microsoft Defender to find malicious DLLs loaded into memory
 
 To locate the presence or distribution of malicious DLLs loaded into memory, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAE2XzQ7sNAyFs0biHa7uCiQWadL8LZFAAokdT5A0DdwFXAkQbHh4nM_uMBp1pm0S2zk-Ps585273t_vkLvn90f3muvtF7n5yn-Vuuu9l7Ha_u7_cn-6D-9J94f6V33_cr_L2D7k-uJ_dD-5bd8jdJ5n3wX3lPrrisnxO512Sq7oh47e8LfLc5C7JWOX5EC_JRXvf5Zo8RVmzWHVLZB_dN3JNeY5ib8jdtrQ9JBkN8hvls8RmFRuXzIn422-bzFmypsvqInNvecpEqFYPViyZeVis6jcy58LmjnbbGLI-ifeL6E88L_neMXR8PbHezNz-olgJYjnLuyafJe87cev7yP1emey72Pz9W_FZzWqW1VM-Vd4NGb_Y1SXXkhU3Ngv7TzK-PW_MTuwn9r_tphfCajWw405ce1eHfKbMPNirZ6yTidPWVr53fvdok0tz4dmvWh3idWDzBLFBdF7ug_x2spJZvSOrhuNiN0PWDL5vcrvRfrKV8aORDVkd5NqIePi6x_f9AusIFgEfJ9Yned3IbozLi1mV2VXmbbQnVvauh0SgbNiYLJiQ5HnAt0Lu9sxGvgdxNbOq3JsyuvNwwrELT09MaqGCeYSbHdZOq5SBtb3TJnPU6gUnCnhV8PasU4buCE84kfE42fEie4NZlSwoE3bNPRx4omi2021ryQrNqY5FYps8L7BqoF3gVoTNmew-VjfuWWztGCtVcpOHm5Wbq5HsX3Kv-ZuwalEpHS5eeNw5f6xuTHVvg0g91g6qp1OJB_hsmxrjoLZ2rCf6k8hFgZX_V-zBngocGWhRA7ELD1rfjfg8czSXO-oA7nt-t4yo1cVoQks8fFpYUyVRP5VVk5wltHLBlQWyASVTBu5YvxaN_Sza-yhvQAnf1Tfy7oA_FYZ6ailg68TLZuSNJm2NO8nB3s9tvJz8emo1oCrT6uE0nG5wbNSrZzyDaHnxVBV_ksMMkwoYdfjbiaeT6_nS0cN8FKI4iPAmwkAlTusQuidPTJWIDlhVqaf5UvfHWzJlb4w2U0fldyKaTPyTPVciiLwf9JWG5YKtiO5War4aRoU4VZEXmK03hd21p95UETcnM4qU4G2BxQGGdbwm0GrYG3x7Lk_-TubvHqe1l0BLu4VnteJ7wcRpUXTT1mCcu19KoLM92b9h4IVuV1C-rP5VZya6n9HlgWZm8A62n0k2NIeP-h7caxTaMTx4dupi8HuA4-ITqMJCbRWsTdYcxBLY7WUafbH7br0rMl7I1wkfGpo4WB3fVNRj8cRHpCKi-Uvo3039LdOMhV19Hqigcvokf5oFz24atXTDMe3-nbXap1XhywuLhbdCLqZpWiZzlfyqtmU7vzQwT6hopCdoBx6vU08Gha26jT1pP0_UUcd2gh0JZB52aie9qZYIut7i1S6vyHX8NOvZt0UdiSoYDyaR3RbXQgW00gYVtq0qnzI-jxc7lX_RunuioiMRqcKcMGuASICFjy4-3WmBi0eXOoqR7fmmdhRfVZlJZJkaXm89O5DdEwxvbEyr1GrnNtWmQe-57MSZQLBbpzis4w5yFfHeYMhBfaseelipfT4Rc3yr1Aj_Bva0V2vffphwma3CvADWJ-jrqe0gxhPGLTsTVfI0resNY2_ihKh9W09hTxQNNKZV3UStD8vqwwbtlsn6xYntaZqovPOmbZ4a0j7wKGUwfydRLJis_WbX5oOFKrpHYTJYBXDQk0hnX82y6MnaoFsW6x16hjzYQTVF1ZP3MCs3kTbQ015esLY9PafZar3iYvfKm8KuFkhqB59wJ7OPBmqqTXpeV96drAh0Fu2xep9NfwYM0v8di7zkl2pd5DG8VLahcTu7l3WZC72YpuKnxR1hWqc7-df5--RzmTqexkhP1Rx2IlGVrFTLc6ZZ2J_sVpkc0Kli1RTAJ8PPZXOUsXrCjm-9JZteTztBXPZPrdjZVnei_7cqu91noP8A9D6a0LYOAAA&runQuery=true&timeRangeId=week):
 
@@ -1327,7 +1334,7 @@ To locate the presence or distribution of malicious DLLs loaded into memory, [ru
 DeviceImageLoadEvents | where SHA1 in (“d130bd75645c2433f88ac03e73395fba172ef676″,”1acf3108bf1e376c8848fbb25dc87424f2c2a39c”,”e257236206e99f5a5c62035c9c59c57206728b28″,”6fdd82b7ca1c1f0ec67c05b36d14c9517065353b”,”2f1a5a7411d015d01aaee4535835400191645023″,”bcb5a4dcbc60d26a5f619518f2cfc1b4bb4e4387″,”16505d0b929d80ad1680f993c02954cfd3772207″,”d8938528d68aabe1e31df485eb3f75c8a925b5d9″,”395da6d4f3c890295f7584132ea73d759bd9d094″,”c8b7f28230ea8fbf441c64fdd3feeba88607069e”,”2841391dfbffa02341333dd34f5298071730366a”,”2546b0e82aecfe987c318c7ad1d00f9fa11cd305″,”e2152737bed988c0939c900037890d1244d9a30e”) or SHA256 in (“ce77d116a074dab7a22a0fd4f2c1ab475f16eec42e1ded3c0b0aa8211fe858d6″,”dab758bf98d9b36fa057a66cd0284737abf89857b73ca89280267ee7caf62f3b”,”eb6fab5a2964c5817fb239a7a5079cabca0a00464fb3e07155f28b0a57a2c0ed”,”ac1b2b89e60707a20e9eb1ca480bc3410ead40643b386d624c5d21b47c02917c”,”019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134″,”c09040d35630d75dfef0f804f320f8b3d16a481071076918e9b236a321c1ea77″,”0f5d7e6dfdd62c83eb096ba193b5ae394001bac036745495674156ead6557589″,”e0b9eda35f01c1540134aba9195e7e6393286dde3e001fce36fb661cc346b91d”,”20e35055113dac104d2bb02d4e7e33413fae0e5a426e0eea0dfd2c1dce692fd9″,”2b3445e42d64c85a5475bdbc88a50ba8c013febb53ea97119a11604b7595e53d”,”a3efbc07068606ba1c19a7ef21f4de15d15b41ef680832d7bcba485143668f2d”,”92bd1c3d2a11fc4aba2735d9547bd0261560fb20f36a0e7ca2f2d451f1b62690″,”a58d02465e26bdd3a839fd90e4b317eece431d28cab203bbdde569e11247d9e2″,”cc082d21b9e880ceb6c96db1c48a0375aaf06a5f444cb0144b70e01dc69048e6″)
 ```
 
-#### Find malicious DLLs created in the system or locally
+#### Step 5: Use Microsoft Defender to find malicious DLLs created in the system or locally
 
 To locate the presence or distribution of malicious DLLs created locally or elsewhere in the system, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAE2Xy87tNAyFO0biHX6dEUgM0twzRALEnCdImkYc6QgkQDDh4XE-u5utqru3xHaWl5ezfzju4-_j83HJ9Se5fpHrj_LmPn47_jr-PD6Or4-vjn_l-s_xq7z9Q86P45fj5-P745S7zzLu4_jm-HSUI8sRD3ckOesx5Pstb4s8N7lL8q3yfB5dnoK973JOnoLMWcy6JZ5Px3dyTnkOYm_I3ba0PST56uUa5Fhis4qNS8YE_O23TcYsmdNldpGxtzxlIlSrJzOWjDwtVvUbGHNhc0e7bQyZn8T7RfQRz0t-dwwdX0-sNyO3vyBWvFjO8q7JseR9J259H7jfM5P9Fhu_rxWf1axmmT3lqPJuyPeLVV1yLplxY7Ow_iTft-eNWcR-Yv3bbnohrFY9K-7EtVd1yjFl5MlaHd86mYg2t_K787u_Njk1F471qtUhXgc2I4gNonNy7-XayUpm9o6sGo6L1QyZM_i9ye1G-8lWxo9GNmS2l3Mj4sTm5Pu-X2AdwMLjI2J9kteN7Ma4vJhVGV1l3EZ7YmWvekgEyoaNyYIJSZ4HfCvkbo9s5HsQVzOryr0pX3ceIhy78PTEpBYqmAe42WHttEoZWNsrbTJGrV5wooBXBW_HPGXojjDCiYzHyYoX2RuMqmRBmbBr7uHAE0WzlW5bS2ZoTvVbILbJ8wKrBtoFbgXYnMnuY3XjnsXWjrFSJTd5uJm5uRrI_iX3mr8JqxaV0uHihced88fqxlTXNojUYe2kejqVeILPtqkxDmprxxrRn0QuCqz8v2JP1lTgyECLGohdeND6bsTnGKO53FF7cN_ju2VErS6-JrTEwaeFNVUS9VOZNclZQisXXFkg61EyZeCO9VvR2N9Fex_l9Sjhu_oG3p3wp8JQRy15bEW8bEbeaNLWuEgO9npu4-Xk6qhVj6pMq4doON3g2KhXx_cMouXFU1X8SQ4zTCpg1OFvJ55OrudLR0_zUYjiJMKbCD2VOK1D6JocMVUiOmFVpZ7mS90fb8mUvfG1mToqvxPRZOKfrLkSQeD9oK80LBdsBXS3UvPVMCrEqYq8wGy9KeyuPfWmirg5mVGkBG8LLPYwrOM1gVbD3uDXcTryFxm_e5zWXgIt7RaO2YrvBROnRdFNW71x7n4pgY52ZP-GgRe6XUH5svpXnZnofkaXB5qZwdvbeibZ0Bw-6ntyr1Fox3Dg2amLwfUEx8XhqcJCbRWsTeacxOJZ7WUafbH6br0r8L2QrwgfGpo4mB3eVNRhMeIjUBHB_CX076b-lmnGwq4-D1RQOR3Jn2bBsZpGLd1wTLt_Z672aVX48sJi4a2Qi2malslcJb-qbdn2Lw3MEyoa6Anagcdr15NBYatuY03azxN11LGdYEcCmYed2klvqiWArrN4tcsrch0_zXr2bVEHovLGg0lkt8W1UAGttEGFbavKp4zP88VO5V-w7p6o6EBEqjARZg0Q8bDw0cWnOy1wcehSRzGyPd_UjuKrKjOJLFPD661ne7IbwfDGxrRKrbZvU20a9J7LdpwJBLt1itM67iBXAe8NhpzUt-qhg5Xa5xMxh7dKDfBvYE97tfbthwmX2SqM82AdQV93bScxRhi3bE9UydO0rjeMvYkdovZt3YU9UTTQmFZ1E7U-LasPG7RbJusXEdvTNFF550zbHDWkfeBRSm_-IlEsmKz9Ztfmg4UqukNhMlh5cNCdSGddzbLoyNqgWxbrHbqHPFlBNUXVnfcwKzeRNtDTXl6wtj09u9lqveJi9cqbwqoWSGoHn3Ans44GaqpNul9X3kVmeDqL9li9z6Y_Awbp_45FXvJLtS7y6F8q29C4nd3LusyFXkxT8WhxB5jW6U7utf-OHJepYzRGOqrmtB2JqmSlWp49zcL-ZLXKZI9OFasmDz4Zfi4bo4zVHXZ46y3Z9HraDuKyf2rF9ra6Ev2_VVnt3gP9B3GMOb2sDgAA&runQuery=true&timeRangeId=week):
 
@@ -1335,7 +1342,7 @@ To locate the presence or distribution of malicious DLLs created locally or else
 DeviceFileEvents | where SHA1 in (“d130bd75645c2433f88ac03e73395fba172ef676″,”1acf3108bf1e376c8848fbb25dc87424f2c2a39c”,”e257236206e99f5a5c62035c9c59c57206728b28″,”6fdd82b7ca1c1f0ec67c05b36d14c9517065353b”,”2f1a5a7411d015d01aaee4535835400191645023″,”bcb5a4dcbc60d26a5f619518f2cfc1b4bb4e4387″,”16505d0b929d80ad1680f993c02954cfd3772207″,”d8938528d68aabe1e31df485eb3f75c8a925b5d9″,”395da6d4f3c890295f7584132ea73d759bd9d094″,”c8b7f28230ea8fbf441c64fdd3feeba88607069e”,”2841391dfbffa02341333dd34f5298071730366a”,”2546b0e82aecfe987c318c7ad1d00f9fa11cd305″,”e2152737bed988c0939c900037890d1244d9a30e”) or SHA256 in (“ce77d116a074dab7a22a0fd4f2c1ab475f16eec42e1ded3c0b0aa8211fe858d6″,”dab758bf98d9b36fa057a66cd0284737abf89857b73ca89280267ee7caf62f3b”,”eb6fab5a2964c5817fb239a7a5079cabca0a00464fb3e07155f28b0a57a2c0ed”,”ac1b2b89e60707a20e9eb1ca480bc3410ead40643b386d624c5d21b47c02917c”,”019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134″,”c09040d35630d75dfef0f804f320f8b3d16a481071076918e9b236a321c1ea77″,”0f5d7e6dfdd62c83eb096ba193b5ae394001bac036745495674156ead6557589″,”e0b9eda35f01c1540134aba9195e7e6393286dde3e001fce36fb661cc346b91d”,”20e35055113dac104d2bb02d4e7e33413fae0e5a426e0eea0dfd2c1dce692fd9″,”2b3445e42d64c85a5475bdbc88a50ba8c013febb53ea97119a11604b7595e53d”,”a3efbc07068606ba1c19a7ef21f4de15d15b41ef680832d7bcba485143668f2d”,”92bd1c3d2a11fc4aba2735d9547bd0261560fb20f36a0e7ca2f2d451f1b62690″,”a58d02465e26bdd3a839fd90e4b317eece431d28cab203bbdde569e11247d9e2″,”cc082d21b9e880ceb6c96db1c48a0375aaf06a5f444cb0144b70e01dc69048e6″)
 ```
 
-#### Find SolarWinds processes launching PowerShell with Base64
+#### Step 6: Use Microsoft Defender to find SolarWinds processes launching PowerShell with Base64
 
 To locate SolarWinds processes that are spawning suspected Base64-encoded PowerShell commands, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAK1TXUsCQRQ9z0H_YfHF3VKzkqAHoW8KJIIegkpEdxeVdlV2TO3zt3fu3VHcsloohpm5d-ac-zlzghAT9OFzv0KCoUqG45TnIQYYU17HGl7hYIoezxJOBxe86_O2j7auA3Q_WTjjaUT5kohYOXW8cy3gmqiIpwlulBkQXcERHrmLnvIbRDypv3PiDb1UqM04Cysj-t7fiPyp4oziI46srS0OhznP6CUh3-fuoEPJELOHGjWphk9LAaWAulFsmnnJ3hvmkEYzITfibfDFTqTILtm9RR6heg61Fll8y97No0p91xec-bmLIucdDlHGLc_KeEaV6z42mVsTL9ihXsIbMXXVRdul7pEp8W_rmu3hMeWYo62RNWx3vD_FLTXqZKrn_sqUyKq6upaZVvF3pkeO9Lam0oaV8sQvfV7ut8QuvR3p25UKuThg7e4ZWVrBot2lXg-8b_2Y5bL9FnFD_RGJvvo8eXk2D3m7q_7DgBYFGzPicU6bju10nl7G-vN99WhsbbqKlErMX2KT8n9aTd-0WP0AdbkD_LwEAAA&runQuery=true&timeRangeId=month): 
 
@@ -1343,7 +1350,7 @@ To locate SolarWinds processes that are spawning suspected Base64-encoded PowerS
 DeviceProcessEvents| where InitiatingProcessFileName =~ “SolarWinds.BusinessLayerHost.exe”| where FileName =~ “powershell.exe”// Extract base64 encoded string, ensure valid base64 length| extend base64_extracted = extract(‘([A-Za-z0-9+/]{20,}[=]{0,3})’, 1, ProcessCommandLine)| extend base64_extracted = substring(base64_extracted, 0, (strlen(base64_extracted) / 4) * 4)| extend base64_decoded = replace(@’\0′, ”, make_string(base64_decode_toarray(base64_extracted)))//| where notempty(base64_extracted) and base64_extracted matches regex ‘[A-Z]’ and base64_extracted matches regex ‘[0-9]’
 ```
 
-#### Find SolarWinds processes launching CMD with echo
+#### Step 7: Use Microsoft Defender to find SolarWinds processes launching CMD with echo
 
 To locate SolarWinds processes launching CMD with echo, [run the following query](https://securitycenter.windows.com/hunting?query=H4sIAAAAAAAEAG2OSwrCQBBEay14h2EOkBtk4w-FIIIL1yEZzEASIfEL4tl9M3EhITT9requXsnpLq-CfFCnS6x6bM3cqdWVeq6Z3jJ6qGLW4UY7MA_qlcfY6jy6sGFaU-9hNHEn1YdodYRVM-10ipsl7EQL3cihH_YzGK-ot4Xfo5LQPXE7-dGUXhr1Cvryb9vACKpm9PGSusEGNPv9YtDIQcMlB7eCZfUF5AwwqToBAAA&runQuery=true&timeRangeId=month):
 
@@ -1351,7 +1358,7 @@ To locate SolarWinds processes launching CMD with echo, [run the following query
 DeviceProcessEvents| where InitiatingProcessFileName =~ “SolarWinds.BusinessLayerHost.exe”| where FileName == “cmd.exe” and ProcessCommandLine has “echo”
 ```
 
-#### Find C2 communications
+#### Step 8: Use Microsoft Defender to find C2 communications
 
 The compromised SolarWinds files create a backdoor that allows attackers to remotely control and operate an affected device. 
 
@@ -1385,7 +1392,7 @@ DeviceProcessEvents| where InitiatingProcessFileName =~”Microsoft.IdentityServ
 
 
 
-### Advanced query reference
+### Advanced Microsoft Defender query reference
 
 Run the following advanced queries, referenced from GitHub, to find tactics, threats, and procedures used in the Solarigate attack:
 
@@ -1693,5 +1700,5 @@ Microsoft also found the following types of attacker behaviors in affected tenan
 |**TechCommunity**     |    [Azure AD workbook to help you assess Solarigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718) <br><br> [Solarwinds: Post compromise hunting with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095)      |
 |**Microsoft Security Intelligence**     |  [Malware encyclopedia definition: Solarigate](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.B!dha)       |
 |**Microsoft Security blog**     |   [Analyzing Solarigate: The compromised DLL file that started a sophisticated cyberattack and how Microsoft Defender helps protect](https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)<br><br> [Advice for incident responders on recovery from system identity compromises](https://www.microsoft.com/security/blog/2020/12/21/advice-for-incident-responders-on-recovery-from-systemic-identity-compromises/) from the Detection and Response Team (DART) <br><br>[Using Microsoft 365 Defender to coordinate protection against Solorigate](https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/)   <br><br>[Ensuring customers are protected from Solarigate](https://www.microsoft.com/security/blog/2020/12/15/ensuring-customers-are-protected-from-solorigate/)   |
-| **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced query reference](#advanced-query-reference)      |
+| **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced Microsoft Defender query reference](#advanced-microsoft-defender-query-reference)      |
 |     |         |

@@ -21,7 +21,7 @@
     href: tutorial-investigate-cases.md 
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Verify security after the SolarWinds attack 
+  - name: Respond to supply chain and / or systemic identity compromise
     href: solarwinds.md   
 - name: Concepts
   items:
