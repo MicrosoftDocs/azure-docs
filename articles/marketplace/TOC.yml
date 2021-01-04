@@ -41,7 +41,7 @@
         href: test-drive-hosted-detailed-config.md
       - name: Set up Azure subscription for hosted test drives
         href: test-drive-azure-subscription-setup.md
-  - name: Azure partner customer usage attribution
+  - name: Azure customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
     items:
