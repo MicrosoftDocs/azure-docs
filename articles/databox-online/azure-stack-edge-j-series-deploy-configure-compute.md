@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -52,7 +52,7 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
    |Field   |Value    |
    |--------|---------|
-   |Description       | Subscription used by the Azure Stack Edge resource. |
+   |Subscription      | Subscription used by the Azure Stack Edge resource. |
    |Resource group    | Resource group used by the Azure Stack Edge resource. |
    |IoT Hub           | Choose from **Create new** or **Use existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
    |Name              | If you don't want to use the default name provided for a new IoT Hub resource, enter a different name. |

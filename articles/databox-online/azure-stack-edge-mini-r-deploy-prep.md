@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -97,7 +97,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     [![Create a resource 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
-6. On the **Basics** tab, enter or select the following **Project details**.
+5. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
@@ -105,7 +105,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 
-7. Enter or select the following **Instance details**.
+6. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -115,7 +115,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     ![Create a resource 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-8. Select **Next: Shipping address**.
+7. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I already have a device**.
 
@@ -125,15 +125,15 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
         ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
+8. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
-10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+9. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
     ![Create a resource 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png) 
 
     You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
-8. Select **Create**.
+10. Select **Create**.
 
     The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
     

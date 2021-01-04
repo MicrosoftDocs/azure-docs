@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
@@ -41,7 +41,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
    |Field   |Value    |
    |--------|---------|
-   |Description       | Subscription used by the Azure Stack Edge resource. |
+   |Subscription      | Subscription used by the Azure Stack Edge resource. |
    |Resource group    | Resource group used by the Azure Stack Edge resource. |
    |IoT Hub           | Choose from **Create new** or **Use existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
    |Name              | If you don't want to use the default name provided for a new IoT Hub resource, enter a different name. |
@@ -54,29 +54,29 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
    ![Get started with compute 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-6. To confirm the Edge compute role has been configured, select **Properties**.
+5. To confirm the Edge compute role has been configured, select **Properties**.
 
    ![Get started with compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
-7. In the properties, select the link for **IoT Edge device**.<!--Replaces the nav pane method.-->
+6. In **Properties**, select the link for **IoT Edge device**.
 
    ![Configure module to use GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-   In the right pane, you see the IoT Edge device associated with your Azure Stack Edge Pro device - that. This device corresponds to the IoT Edge device you created <!-- NO LONGER TRUE; specific enough without a step reference? - in the previous step--> when creating the IoT Hub resource.
+   In the right pane, you see the IoT Edge device associated with your Azure Stack Edge Pro device. This device corresponds to the IoT Edge device you created <!-- NO LONGER TRUE; specific enough without a step reference? - in the previous step--> when creating the IoT Hub resource.
  
-8. Select this IoT Edge device.
+7. Select this IoT Edge device.
 
    ![Configure module to use GPU 7](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-3.png)
 
-9. Select **Set modules**.
+8. Select **Set modules**.
 
    ![Configure module to use GPU 8](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-4.png)
 
-10. Select **+ Add** and then select **+ IoT Edge module**. 
+9. Select **+ Add** and then select **+ IoT Edge module**. 
 
     ![Configure module to use GPU 9](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-5.png)
 
-11. In the **Add IoT Edge Module** tab:
+10. In the **Add IoT Edge Module** tab:
 
     1. Provide the **Image URI**. You will use the publicly available Nvidia module **Digits** here. 
     
@@ -86,7 +86,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
     
     ![Configure module to use GPU 10](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-6.png)
 
-12. In the **Environment variables** tab, provide the Name of the variable and the corresponding value. 
+11. In the **Environment variables** tab, provide the Name of the variable and the corresponding value. 
 
     1. To have the current module use one GPU on this device, use the NVIDIA_VISIBLE_DEVICES. 
 
@@ -99,19 +99,19 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
     > [!NOTE]
     > A GPU can only be mapped to one module. A module can however use one, both or no GPUs. 
 
-13. Enter a name for your module. At this point you can choose to provide container create option and modify module twin settings or if done, select **Add**. 
+12. Enter a name for your module. At this point you can choose to provide container create option and modify module twin settings or if done, select **Add**. 
 
     ![Configure module to use GPU 12](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-8.png)
 
-14. Make sure that the module is running and select **Review + Create**.    
+13. Make sure that the module is running and select **Review + Create**.    
 
     ![Configure module to use GPU 13](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-9.png)
 
-15. In the **Review + Create** tab, the deployment options that you selected are displayed. Review the options and select **Create**.
+14. In the **Review + Create** tab, the deployment options that you selected are displayed. Review the options and select **Create**.
     
     ![Configure module to use GPU 14](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-10.png)
 
-16. Make a note of the **runtime status** of the module. 
+15. Make a note of the **runtime status** of the module. 
     
     ![Configure module to use GPU 15](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-11.png)
 
