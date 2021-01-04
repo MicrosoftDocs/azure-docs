@@ -218,7 +218,7 @@ To publish an offer to the Microsoft commercial marketplace, your company must l
 - Somalia
 - South Africa
 - South Georgia and South Sandwich Islands
-- South Korea
+- South Korea (Republic of Korea)
 - South Sudan
 - Spain
 - Sri Lanka
