@@ -22,9 +22,9 @@ ms.author: yelevin
 
 These tables list and describe entity enrichments that can be used to focus and sharpen your investigation of security incidents.
 
-The first two tables - **User insights** and **Device insights** - contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+The first two tables, **User insights** and **Device insights**, contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-The third table, **Activity insights**, contains entity information that is the product of Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the **Baseline** column in this table.
+<a name="anchortext"></a>The third table, **Activity insights**, contains entity information that is the product of Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-table) column in this table.
 
 The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the **Behavior Analytics table**.
 
@@ -61,7 +61,7 @@ The **Enrichment name** field in all three tables displays two rows of informati
 
 For the sake of clarity and ease of reading, this table is broken up into sections, by activity type. The activity types are displayed in all caps and italics.
 
-| Enrichment name | [Baseline]() (days) | Description | Sample value |
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
 | ***ACTION PERFORMED***
 | **First time user performed action**<br>*(FirstTimeUserPerformedAction)* | 180 | The action was performed for the first time by the user. | True, False |
@@ -102,12 +102,6 @@ For the sake of clarity and ease of reading, this table is broken up into sectio
 | **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
 | **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
-| ***OPERATING SYSTEM USED***
-| **First time user used OS**<br>*(FirstTimeUserUsedOS)* | ? | The OS was used for the first time by the user. | True, False |
-| **OS uncommonly used by user**<br>*(OSUncommonlyUsedByUser)* | ? | The OS is not commonly used by the user. | True, False |
-| **OS uncommonly used among peers**<br>*(OSUncommonlyUsedAmongPeers)* | ? | The OS is not commonly used among user's peers. | True, False |
-| **First time OS observed in tenant**<br>*(FirstTimeOSObservedInTenant)* | ? | The OS was observed for the first time in the organization. | True, False |
-| **OS uncommonly used in tenant**<br>*(OSUncommonlyUsedInTenant)* | ? | The ISP is not commonly used in the organization. | True, False |
 | ***RESOURCE ACCESSED***
 | **First time user accessed resource**<br>*(FirstTimeUserAccessedResource)* | 180 | The resource was accessed for the first time by the user. | True, False |
 | **Resource uncommonly accessed by user**<br>*(ResourceUncommonlyAccessedByUser)* | 10 | The resource is not commonly accessed by the user. | True, False |
@@ -123,9 +117,4 @@ For the sake of clarity and ease of reading, this table is broken up into sectio
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
-| **Unusual number of users failed sign-in from IP address**<br>*(UnusualNumberOfUsersFailedSign-inFromIPAddress)* | ? | An unusual number of users failed to authenticate from a single IP address | True, False |
-| **Uncommon high volume of actions**<br>*(UncommonHighVolumeOfActions)* | -new- | Adversaries may repeat multiple similar actions for various reasons, mostly to cause impact. | For example - adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. |
-| **Uncommon high volume of same action across users**<br>*(UncommonHighVolumeOfSameActionAcrossUsers)* | -new- | The same operation being performed by the different users in a short timeframe can be an indication for a suspicious activity. | For example - multiple users logging of altogether can be an activity of an attacker trying to deny access of those users to a certain system. LockerGoga has been observed changing account passwords and logging off current users. |
-| **Uncommon session duration by user**<br>*(UncommonSessionDurationByUser)* | -new- | Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Access to remote services may be used as a redundant or persistent access mechanism during an operation. | Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. |
-| **Uncommon session duration in tenant**<br>*(UncommonSessionDurationInTenant)* | -new- | | |
 |
