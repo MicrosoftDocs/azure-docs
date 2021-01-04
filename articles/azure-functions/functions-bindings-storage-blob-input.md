@@ -324,7 +324,7 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 
 Attributes are not supported by JavaScript.
 
-# [Python](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 Attributes are not supported by PowerShell.
 
