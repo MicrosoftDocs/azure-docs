@@ -118,18 +118,18 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policy.md#are-my-files-being-tiered).
+  See [Choosing cloud tiering policies](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally).
+  See [Cloud tiering FAQ](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk-to-use-it-locally).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-do-I-force-a-file-or-directory-to-be-tiered).
+  See [Cloud tiering FAQ](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-  See [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policy.md#multiple-server-endpoints-on-local-volume).
+  See [Choosing cloud tiering policies](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
