@@ -168,7 +168,7 @@ Deploy your code into a new Function app using the `azure-functions:deploy` Mave
 mvn azure-functions:deploy
 ```
 
-When the deploy is complete, you see the URL you can use to access your Azure function app:
+When the deploy is complete, you see the URL you can use to access your Azure Function App:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
