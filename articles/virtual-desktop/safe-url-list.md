@@ -51,6 +51,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |*xt.blob.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+|*xt.queue.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
 |mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
