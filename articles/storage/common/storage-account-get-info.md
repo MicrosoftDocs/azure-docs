@@ -6,7 +6,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -17,8 +17,6 @@ ms.custom: devx-track-csharp
 
 This article shows how to get the Azure Storage account type and SKU name for a blob by using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-Account information is available on service versions beginning with version 2018-03-28.
-
 ## About account type and SKU name
 
 **Account type**: Valid account types include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
@@ -27,9 +25,17 @@ Account information is available on service versions beginning with version 2018
 
 ## Retrieve account information
 
-To get the storage account type and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) method.
-
 The following code example retrieves and displays the read-only account properties.
+
+# [.NET v12](#tab/dotnet)
+
+To get the storage account type and SKU name associated with a blob, call the [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) or [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) method.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
+
+# [.NET v11](#tab/dotnet11)
+
+To get the storage account type and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) method.
 
 ```csharp
 private static async Task GetAccountInfoAsync(CloudBlob blob)
@@ -54,6 +60,8 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

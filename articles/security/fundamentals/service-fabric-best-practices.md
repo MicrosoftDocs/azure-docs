@@ -54,7 +54,7 @@ There are three [scenarios](../../service-fabric/service-fabric-cluster-security
 -	Node-to-node security: This scenario secures communication between the VMs and the computers in the cluster. This form of security ensures that only those computers that are authorized to join the cluster can host applications and services in the cluster.
 In this scenario, the clusters that run on Azure, or standalone clusters that run on Windows, can use either [certificate security](../../service-fabric/service-fabric-windows-cluster-x509-security.md) or [Windows security](../../service-fabric/service-fabric-windows-cluster-windows-security.md) for Windows Server machines.
 -	Client-to-node security: This scenario secures communication between a Service Fabric client and the individual nodes in the cluster.
--	Role-Based Access Control (RBAC): This scenario uses separate identities (certificates, Azure AD, and so on) for each administrator and user client role that accesses the cluster. You specify the role identities when you create the cluster.
+-	Service Fabric role-based access control (Service Fabric RBAC): This scenario uses separate identities (certificates, Azure AD, and so on) for each administrator and user client role that accesses the cluster. You specify the role identities when you create the cluster.
 
 >[!NOTE]
 >**Security recommendation for Azure clusters:** Use Azure AD security to authenticate clients and certificates for node-to-node security.
@@ -168,7 +168,7 @@ To learn more about how to set up a key vault, see [What is Azure Key Vault?](..
 After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.
 
 >[!NOTE]
-> For more information about using roles in Service Fabric, see [Role-Based Access Control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md).
+> For more information about using roles in Service Fabric, see [Service Fabric role-based access control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
 

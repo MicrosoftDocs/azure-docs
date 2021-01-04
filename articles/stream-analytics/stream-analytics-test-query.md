@@ -96,8 +96,8 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 1.	Time policy is not supported in portal testing:
 
-   * Out-of-order: all incoming events will be ordered.
-   * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+    * Out-of-order: all incoming events will be ordered.
+    * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
    
 2.	C# UDF is not supported.
 
@@ -107,6 +107,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 5.	Machine learning is not supported.
 
+6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
 
 ## Troubleshooting
 

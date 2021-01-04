@@ -13,6 +13,9 @@ ms.topic: how-to
 
 ## Frequently asked questions
 
+### I am not able to list or get secrets/keys/certificate. I am seeing "something went wrong.." Error.
+If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+
 ### How can I identify how and when key vaults are accessed?
 
 After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do monitoring by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](./logging.md).
@@ -48,7 +51,7 @@ The application also needs at least one Identity and Access Management (IAM) rol
 
 Currently Key Vault redeployment deletes any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need to read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
-Another option that can help for this scenario is using RBAC roles as an alternative to access policies. With RBAC, you can re-deploy the key vault without specifying the policy again. You can read more this solution [here](./rbac-guide.md).
+Another option that can help for this scenario is using Azure RBAC and roles as an alternative to access policies. With Azure RBAC, you can re-deploy the key vault without specifying the policy again. You can read more this solution [here](./rbac-guide.md).
 
 ### Recommended troubleshooting Steps for following error types
 

@@ -18,20 +18,20 @@ By the end of this article, you'll learn how to perform the following operations
 >[!NOTE]
 > Azure Backup now supports restoring multiple files or folders to the original or an alternate location using Azure CLI. Refer to the [Restore multiple files or folders to original or alternate location](#restore-multiple-files-or-folders-to-original-or-alternate-location) section of this document to learn more.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
 ## Prerequisites
 
 This article assumes that you already have an Azure file share that's backed up by Azure Backup. If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file share. For this article, you use the following resources:
 
-| File share  | Storage account | Region | Details                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *azurefiles*  | *afsaccount*      | EastUS | Original source backed up by using Azure Backup                 |
-| *azurefiles1* | *afaccount1*      | EastUS | Destination source used for alternate location recovery |
+| File share | Storage account | Region | Details |
+|---|---|---|---|
+| *azurefiles* | *afsaccount* | EastUS | Original source backed up by using Azure Backup |
+| *azurefiles1* | *afaccount1* | EastUS | Destination source used for alternate location recovery |
 
 You can use a similar structure for your file shares to try out the different types of restores explained in this article.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+ - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Fetch recovery points for the Azure file share
 

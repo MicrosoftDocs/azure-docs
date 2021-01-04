@@ -48,6 +48,12 @@ This operation returns a series of key/value pairs:
 
 Copy the **appId** and **password** credentials for later use.
 
+## Flow for using Managed Identity
+
+This diagram illustrates the AKS–Key Vault integration flow for Managed Identity:
+
+![Diagram that shows the AKS–Key Vault integration flow for Managed Identity](../media/aks-key-vault-integration-flow.png)
+
 ## Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI
 
 You don't need to use Azure Cloud Shell. Your command prompt (terminal) with the Azure CLI installed will suffice. 
@@ -70,7 +76,7 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use. If the ASK cluster was not created with managed identities enabled, the **principalId** and **clientId** will be null. 
+1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use. If the AKS cluster was not created with managed identities enabled, the **principalId** and **clientId** will be null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -352,4 +358,4 @@ Verify that the contents of the secret are displayed.
 
 To help ensure that your key vault is recoverable, see:
 > [!div class="nextstepaction"]
-> [Turn on soft delete](./soft-delete-cli.md)
+> [Turn on soft delete](./key-vault-recovery.md)

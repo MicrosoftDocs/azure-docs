@@ -226,6 +226,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
 }
 ```
 
+An alternative approach is to add fields to an index directly. The following example shows just a few fields.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
+
 ### Field definitions
 
 Your data model in .NET and its corresponding index schema should support the search experience you'd like to give to your end user. Each top level object in .NET, such as a search document in a search index, corresponds to a search result you would present in your user interface. For example, in a hotel search application your end users may want to search by hotel name, features of the hotel, or the characteristics of a particular room. 

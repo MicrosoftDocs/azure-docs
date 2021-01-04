@@ -3,7 +3,9 @@ title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps

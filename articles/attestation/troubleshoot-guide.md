@@ -62,7 +62,7 @@ To verify the roles in PowerShell, run below:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Verify your RBAC role assignment settings
+b. Verify your Azure role assignment settings
 
 
   ```powershell
@@ -93,7 +93,7 @@ b. Verify your RBAC role assignment settings
  
   ```
 
-c. If you don't find an appropriate role assignment in the list, follow the instructions in [here](/azure/role-based-access-control/role-assignments-powershell)
+c. If you don't find an appropriate role assignment in the list, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 
 ## 2. HTTP – 400 errors
 
@@ -124,7 +124,7 @@ Users can evaluate enclave evidence against an SGX attestation policy before con
 
 Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. The attestation token generated when this field is present will be unsecured.
 
-See [attestation policy examples](/azure/attestation/policy-examples)
+See [attestation policy examples](./policy-examples.md)
 
 ### 2.2. Attestation failure due to invalid input
 
@@ -169,7 +169,7 @@ Ensure that the Basic Constraints extension of the root certificate is set to in
 
 Else the certificate chain is considered to be invalid.
 
-See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azure/attestation/policy-examples) examples 
+See [policy signer](./policy-signer-examples.md) and [policy](./policy-examples.md) examples 
 
 ### 2.4. Add/Delete policy signer failure
 
@@ -217,7 +217,7 @@ At line:1 char:1
 ```
 
 **Troubleshooting steps**
-To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
+To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](./policy-signer-examples.md).
 
 ### 2.5. Attestation policy configuration failure
 
@@ -268,7 +268,7 @@ To configure a policy in text format, specify policy text directly.
 
 In PowerShell, specify PolicyFormat as JWT to configure policy in JWT format. Default policy format is Text.
 
-See attestation [policy examples](/azure/attestation/policy-examples) and [how to author an attestation policy](/azure/attestation/author-sign-policy) 
+See attestation [policy examples](./policy-examples.md) and [how to author an attestation policy](./author-sign-policy.md) 
 
 ## 3. Az.Attestation installation issues in PowerShell
 
@@ -294,7 +294,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
 
 ### Error
-The client with object id <object Id>  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId>’ or the scope is invalid. If access was recently granted, please refresh your credentials
+The client with object id &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
 
 ### Troubleshooting steps
 
@@ -315,4 +315,3 @@ Get-InstalledModule
 If the versions are not matching with the minimum requirement, run Update-Module commands
 
 e.g. - Update-Module -Name Az.Attestation
-

@@ -43,6 +43,16 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 [Atlassian documentation for Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
 
+## BMC Helix
+
+![BMC Helix Logo](./media/partners/BMCHelix.png)
+
+BMC Helix is an autonomous enterprise service and operations SaaS platform. Integrated with 360-degree intelligence, it empowers businesses to proactively and predictively discover, monitor, service, remediate, optimize, and deliver omni-channel experiences for IT and lines-of-business.
+Furthermore, by seamlessly integrating ITSM and IT Operations Management (ITOM), BMC Helix enables IT and business users to eliminate IT silos, make data-driven business decisions, and deliver industry leading customer experiences.
+Customers can deploy the BMC Helix platform with the cloud deployment of their choice – public, private, or hybrid. Additionally, customers have a choice of AI/ML solutions to leverage from industry leading providers.
+
+[Learn more about BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## Botmetric
 
 [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)
@@ -297,6 +307,21 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate to ensure applications constantly get the resources they require to deliver their SLA and nothing more across compute, storage, and network for the IaaS and PaaS layer. Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on-time, within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 [Turbonomic introduction](https://turbonomic.com/)
+
+## Partner tools with Event Hub integration
+
+Using Azure Monitor to route monitoring data to an Azure Event Hub  allows you to easily integrate with some external SIEM and monitoring tools. The following partners are known to have integration via Event Hub. 
+
+| Tool | Hosted in Azure | Description |
+|:---|:---| :---|
+|  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [Microsoft Azure Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open source project available in Splunkbase. <br><br> If you cannot install an add-on in your Splunk instance, if for example you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
+| SumoLogic | No | Instructions for setting up SumoLogic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+
 
 ## Next steps
 

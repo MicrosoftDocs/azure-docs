@@ -4,8 +4,8 @@ description: Explains how to set up an Azure Marketplace subscription for Dynami
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 11/09/2020
 ---
 

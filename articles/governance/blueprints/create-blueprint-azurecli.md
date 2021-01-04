@@ -127,7 +127,7 @@ assignment on the resource group.
      > [!NOTE]
      > Use the filename _blueprint.json_ when importing your blueprint definitions.
      > This file name is used when calling
-     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **managementgroup**. To specify the subscription, use parameter

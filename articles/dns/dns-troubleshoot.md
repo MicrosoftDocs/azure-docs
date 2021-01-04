@@ -13,7 +13,7 @@ ms.author: rohink
 
 This article provides troubleshooting information for common Azure DNS questions.
 
-If these steps don't resolve your issue, you can also search for or post your issue on our [Microsoft Q&A question page for community support](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). Or, you can open an Azure support request.
+If these steps don't resolve your issue, you can also search for or post your issue on our [Microsoft Q&A question page for community support](/answers/topics/azure-virtual-network.html). Or, you can open an Azure support request.
 
 
 ## I can't create a DNS zone
@@ -29,7 +29,7 @@ To resolve common issues, try one or more of the following steps:
 ### Recommended articles
 
 * [DNS zones and records](dns-zones-records.md)
-* [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
+* [Create a DNS zone](./dns-getstarted-portal.md)
 
 ## I can't create a DNS record
 
@@ -45,7 +45,7 @@ To resolve common issues, try one or more of the following steps:
 ### Recommended articles
 
 * [DNS zones and records](dns-zones-records.md)
-* [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
+* [Create a DNS zone](./dns-getstarted-portal.md)
 
 
 
@@ -80,13 +80,12 @@ Example SRV record names (service name 'sip', protocol 'tcp'):
 ### Recommended articles
 
 * [DNS zones and records](dns-zones-records.md)
-* [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md)
+* [Create DNS record sets and records by using the Azure portal](./dns-getstarted-portal.md)
 * [SRV record type (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## Next steps
 
 * Learn about [Azure DNS zones and records](dns-zones-records.md)
-* To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
+* To start using Azure DNS, learn how to [create a DNS zone](./dns-getstarted-portal.md) and [create DNS records](./dns-getstarted-portal.md).
 * To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).
-

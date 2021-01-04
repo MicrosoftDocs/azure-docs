@@ -133,17 +133,17 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureFirewall |[Azure Diagnostics](../firewall/firewall-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | &#10003; | |
-| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | &#10003; | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
+| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | &#10003; | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks)  |
 | Syslog | [Connect Syslog](connect-syslog.md) | &#10003; | |
-| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](connect-microsoft-waf.md) | &#10003; | |
+| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [Connect threat intelligence](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Using On-boarding Via Policy](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | VM insights workbook  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/insights/vminsights-enable-portal.md)<br>  [Using On-boarding Via Policy](../azure-monitor/insights/vminsights-enable-policy.md)| &#10007; | VM insights workbook  |
 | DnsEvents | [Connect DNS](connect-dns.md) | &#10003; | |
 | W3CIISLog | [Connect IIS logs](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [Connect Wire Data](../azure-monitor/insights/wire-data.md) | &#10007; | |
@@ -153,7 +153,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | ASC SecurityAlert  | [Connect Azure Defender alerts](connect-azure-security-center.md) from Azure Security Center  | &#10003; | |
 | MCAS SecurityAlert  | [Connect Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automate VM inventory](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [Automate VM tracking](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |

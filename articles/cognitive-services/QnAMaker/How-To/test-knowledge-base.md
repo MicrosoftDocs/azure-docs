@@ -317,4 +317,4 @@ If you're not going to continue to use this knowledge base, delete the knowledge
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Publish a knowledge base](./publish-knowledge-base.md)
+> [Publish a knowledge base](../quickstarts/create-publish-knowledge-base.md)

@@ -13,12 +13,13 @@ ms.date: 07/24/2020
 
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
+As a C# developer, you may also be interested in one of the following articles:
+
+| Getting started | Concepts| Guided learning/samples |
+| -- | -- | -- | 
+| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
-
-This article assumes that you've already read the following articles:
-
-* [Azure Functions developers guide](functions-reference.md)
-* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## Supported versions
 
@@ -323,6 +324,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you are using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name may instead be based on `T`.  
+
 ### Structured logging
 
 The order of placeholders, not their names, determines which parameters are used in the log message. Suppose you have the following code:
@@ -508,14 +511,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -553,7 +556,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

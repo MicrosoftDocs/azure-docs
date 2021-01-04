@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -71,7 +71,9 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Go to **Data Discovery & Classification** under the Security heading in your Azure SQL Database pane. The Overview tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 4](#step-4).
+1. Go to **Data Discovery & Classification** under the **Security** heading in your Azure SQL Database pane. The Overview tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 4](#step-4).
+
+    ![Overview](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. To download a report in Excel format, select **Export** in the top menu of the pane.
 
@@ -87,6 +89,8 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    - To apply the selected recommendations, select **Accept selected recommendations**.
 
+   ![Recommendations for classification](./media/data-discovery-and-classification-overview/recommendation.png)
+
 1. You can also classify columns manually, as an alternative or in addition to the recommendation-based classification:
 
    1. Select **Add classification** in the top menu of the pane.
@@ -95,7 +99,10 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    1. Select **Add classification** at the bottom of the context window.
 
-1. To complete your classification and persistently label (tag) the database columns with the new classification metadata, select **Save** in the top menu of the window.
+   ![Manually add classification](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. To complete your classification and persistently label (tag) the database columns with the new classification metadata, select **Save** in the **Classification** page.
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 

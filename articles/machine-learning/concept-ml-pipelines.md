@@ -1,5 +1,6 @@
 ---
 title: 'What are Azure Machine Learning Pipelines'
+titleSuffix: Azure Machine Learning
 description: Learn how machine learning (ML) pipelines help you build, optimize, and manage machine learning workflows.
 services: machine-learning
 ms.service: machine-learning

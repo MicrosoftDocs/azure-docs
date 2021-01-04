@@ -75,7 +75,7 @@ To upgrade the QnA Maker management SKU:
 
  When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
 
-You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or scale out App Service.
+You can [scale up](../../../app-service/manage-scale-up.md) or scale out App Service.
 
 Go to the App Service resource in the Azure portal, and select the **Scale up** or **Scale out** option as required.
 
@@ -127,6 +127,7 @@ The App Service Environment can be used to host QnA Maker app service. If the Ap
 2. Expose the app service and allow QnA Maker availability as:
     * Publicly available - default
     * DNS service tag: `CognitiveServicesManagement`
+3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ### Network isolation for App Service
 
@@ -137,8 +138,6 @@ QnA Maker Cognitive Service uses the service tag: `CognitiveServicesManagement`.
 * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
 We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
-    
-1. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ### Business continuity with traffic manager
 
@@ -149,13 +148,13 @@ The primary objective of the business continuity plan is to create a resilient k
 
 The high-level idea as represented above is as follows:
 
-1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../best-practices-availability-paired-regions.md).
 
 1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/web-sites-restore.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
 
 1. Keep the primary and secondary Azure search indexes in sync. Use the GitHub sample [here](https://github.com/pchoudhari/QnAMakerBackupRestore) to see how to backup-restore Azure indexes.
 
-1. Back up the Application Insights using [continuous export](../../../application-insights/app-insights-export-telemetry.md).
+1. Back up the Application Insights using [continuous export](../../../azure-monitor/app/export-telemetry.md).
 
 1. Once the primary and secondary stacks have been set up, use [traffic manager](../../../traffic-manager/traffic-manager-overview.md) to configure the two endpoints and set up a routing method.
 
@@ -381,4 +380,4 @@ If you delete any of the Azure resources used for your QnA Maker knowledge bases
 Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Learn how to author with others](../how-to/collaborate-knowledge-base.md)
+> [Learn how to author with others](../index.yml)

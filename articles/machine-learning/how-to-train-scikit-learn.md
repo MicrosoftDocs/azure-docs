@@ -1,7 +1,7 @@
 ---
 title: Train scikit-learn machine learning models 
 titleSuffix: Azure Machine Learning
-description: Learn how to run your scikit-learn training scripts on Azure Machine Learning.
+description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -129,7 +129,7 @@ src = ScriptRunConfig(source_directory='.',
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-iris').submit(src)
+run = Experiment(ws,'Tutorial-TrainIRIS').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

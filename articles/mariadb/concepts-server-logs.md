@@ -1,8 +1,8 @@
 ---
 title: Slow query logs - Azure Database for MariaDB
 description: Describes the logs available in Azure Database for MariaDB, and the available parameters for enabling different logging levels.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020

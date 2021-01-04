@@ -4,7 +4,7 @@ description: Alert at scale using a single alert rule for multiple time series
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
 ---
 
@@ -158,6 +158,7 @@ For this alert rule, six metric time-series are being monitored separately:
 1.	**Selecting all current and future dimensions** – You can choose to monitor all possible values of a dimension, including future values. Such an alert rule will scale automatically to monitor all values of the dimension without you needing to modify the alert rule every time a dimension value is added or removed.
 2.	**Excluding dimensions** – Selecting the '≠' (exclude) operator for a dimension value is equivalent to selecting all other values of that dimension, including future values.
 3.	**New and custom dimensions** – The dimension values displayed in the Azure portal are based on metric data collected in the last three days. If the dimension value you’re looking for isn’t yet emitted, you can add a custom dimension value.
+4. **Matching dimensions with a prefix** - You can choose to monitor all dimension values that start with a specific pattern, by selecting the 'Starts with' operator and entering a custom prefix.
 
 ![Advanced multi-dimension features](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 
