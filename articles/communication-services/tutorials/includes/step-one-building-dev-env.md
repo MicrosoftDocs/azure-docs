@@ -1,13 +1,13 @@
-# Building a development envirionment 
+# Building a development environment
 
-In this step we will walk you through building a development envirionment, which you can use to develop and publish the Azure Communication Services and other applications.
+In this step we will walk you through building a development environment, which you can use to develop and publish the Azure Communication Services and other applications.
 
 ## Overview
 
 We will use the Visual Studio Code for working with our JavaScript files. [Webpack](https://webpack.js.org/) for optimization and bundling the code. WebPack also contains a local web server, which we will use for development. 
 We will also be using [Node.js](https://nodejs.org/en/) to download the dependencies, such as Azure Communication Services calling, chat, common modules, downloading and running the webpack. In the end we will be able to run code locally, using the webpack development server, or publish the application to Azure Static Websites via Azure Storage or in Azure AppService WebSites.
 
-:::image type="content" source="../media/step-one-pic-one.png" alt-text="Developer envirionment architecture":::
+:::image type="content" source="../media/step-one-pic-one.png" alt-text="Developer environment architecture":::
 
 By the end of this module, you will complete the configuration of the development environment. Create a basic "Hello World" static website, test the web site in a development server, and publish it in Azure.
 
@@ -17,7 +17,7 @@ Time to complete: 60 minutes.
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We highly recommend deploying the nvm, a version control tool, if you are on Windows or use version managment tool of your choice on other platforms. The nvm provides ability to switch between various Node.js version for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) on Windows
+- Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We highly recommend deploying the nvm, a version control tool, if you are on Windows or use version management tool of your choice on other platforms. The nvm provides ability to switch between various Node.js versions for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) on Windows
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. You can find more abut hosting static web sites in Azure Storage [here](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
@@ -29,10 +29,10 @@ Time to complete: 60 minutes.
 Node.js is a JavaScript runtime. We will use Node.js to download and install various dependencies and orchestrate the project. In many projects, you can use Node.js for creating your backend or developing APIs. In this tutorial, though, we will have our client-side application working with the ACS API backend. You will need Node.js only for client development and orchestration purposes. We do not need Node.js on the production server as we will create static files that can be hosted in Azure Storage, Azure AppService, or any other hosting service capable of hosting static files. 
 
 Node.js does not guarantee work with all modules on the latest version. The solution is to have a version manager, which allows you to switch between various Node.js versions and enables better troubleshooting in your environment.
-Please follow the steps in this guide to install Node.js, using the nvm [version manager if you are on Widndows](https://docs.microsoft.com/windows/nodejs/setup-on-windows)
+Please follow the steps in this guide to install Node.js, using the nvm [version manager if you are on Windows](https://docs.microsoft.com/windows/nodejs/setup-on-windows)
 
 
-We tested this tutrial using the LTS 12.20.0 version. After you installed the nvm, list the availble versions, using the PowerShell command and deploy the version that you want to use
+We tested this tutorial using the LTS 12.20.0 version. After you installed the nvm, list the available versions, using the PowerShell command and deploy the version that you want to use
 
 ```PowerShell
 nvm list available
@@ -187,7 +187,7 @@ module.exports = merge(common, {
 ```
 In this configuration, we import common parameters from the webpack.common.js, merge two files, set mode "development," and configure SourceMap as "inline-source-map'.
 Mode "development" tells webpack not to minify the files and not produce optimized production files.  Detailed documentation on [webpack modes](https://webpack.js.org/configuration/mode/)
-Source map options are listed [here](https://webpack.js.org/configuration/devtool/#root). If we do not set the source map, a default map used for production is used, which makes the code not readable in the browser development tools and makes troubleshooting more difficult.
+Source map options is listed [here](https://webpack.js.org/configuration/devtool/#root). If we do not set the source map, a default map used for production is used, which makes the code not readable in the browser development tools and makes troubleshooting more difficult.
 
 :::image type="content" source="../media/step-one-pic-11.png" alt-text="Configuring webpack":::
 
@@ -235,7 +235,7 @@ Now let test the development server and see if everything works as expected.
 In Visual Studio Code, under your project, create three files:
 * index.html
 * app.js
-* app.css (optional, allows to apply stypes to your application easily)
+* app.css (optional, allows applying styles to your application easily)
 
 In index.html, type html:5 and hit enter. The Visual Studio will create a basic Html file for you.
 
@@ -296,7 +296,7 @@ html {
 
 Now upon the start of your page, you will see an alert "Hello world alert!" and message in console "Hello world console!" and the font of the header "Hello from ACS application" will be sans-serif
 
-Note, don't forget to save your files before going to the next step. The white dots, highligted in red on the picture above, next to the file name indicate that the changes are not saved. You can click "Ctrl+S" (on Windows) to save an individual file, click "Ctrl + K S" to save all files, or you can select the Save option from the File menu. 
+Note, don't forget to save your files before going to the next step. The white dots, highlighted in red on the picture above, next to the file name indicate that the changes are not saved. You can click "Ctrl+S" (on Windows) to save an individual file, click "Ctrl + K S" to save all files, or you can select the Save option from the File menu. 
 
 Once you saved, the white dots should disappear. 
 
@@ -310,7 +310,7 @@ npm run build:dev
 
 ```
 
-The console will show you the address where the server is running. By default, it is http://localhost:8080. The build:dev is the command we added to our package-json.js file, and it will start webpack development server. Of cource, you can run this simple file directly by going to your files and clicking on index.html. Once we start adding the Azure Communication Services modules to our code, just running the file will not work due to the browser's CORS policy. The goal of this exercise is to test the development server.
+The console will show you the address where the server is running. By default, it is http://localhost:8080. The build:dev is the command we added to our package-json.js file, and it will start webpack development server. Of course, you can run this simple file directly by going to your files and clicking on index.html. Once we start adding the Azure Communication Services modules to our code, just running the file will not work due to the browser's CORS policy. The goal of this exercise is to test the development server.
 
  :::image type="content" source="../media/step-one-pic-16.png" alt-text="Starting a development server":::
  
@@ -331,7 +331,8 @@ Let try it. Go to the app.js file in Visual Studio Code and delete "alert('Hello
  
  You built the development server and environment. To stop your server, you can run Ctrl+C in your terminal and to start, type npm run build:dev at any time.
  
- Let move on to create our envirionment to optimize the code for production and test it.
+
+ Let move on to create our environment to optimize the code for production and test it.
  
  ### Creating configuration for production deployment
  
@@ -409,7 +410,7 @@ We will deploy our static "Hello World!" site to Azure to practice in this step.
 You can deploy your web application in Azure Storage or Azure App Service. Both options allow easy deployment from the Visual Studio Code and host the static websites. The difference is that Azure Storage does not allow building the managed continuous integration and continuous delivery (CI/CD) and deploying webservers. We will use Azure Storage for testing, but you can use similar steps to deploy in Azure App Service.
 
 First, copy index.html and app.css to the "dist" folder. 
-In the "dist"  folder, create a new file and name it "404.html". In the file type "html:5" and hit enter. In the bidy create the messsage, for example:
+In the "dist"  folder, create a new file and name it "404.html". In the file type "html:5" and hit enter. In the bidy create the message, for example:
 
 ```html
 <!DOCTYPE html>
@@ -437,19 +438,19 @@ On the dist folder, right-click and select deploy to Static Website via Azure St
  
 Create new Storage Account ... Advanced
 
- :::image type="content" source="../media/step-one-pic-24.png" alt-text="Creating the Stoirage Group":::
+ :::image type="content" source="../media/step-one-pic-24.png" alt-text="Creating the Storage Account Group":::
  
  Provide the name of the storage group
  
- :::image type="content" source="../media/step-one-pic-25.png" alt-text="Creating the Stoirage Group":::
+ :::image type="content" source="../media/step-one-pic-25.png" alt-text="Adding a name for the account":::
  
  Select if you want to deploy in an existing group or create a new one. We will create a new resource group, "acsdemo"
  
-  :::image type="content" source="../media/step-one-pic-26.png" alt-text="Creating the Stoirage Group":::
+  :::image type="content" source="../media/step-one-pic-26.png" alt-text="Creating new group":::
   
   Answer "Yes" to Would you like to enable static website hosting?"
   
-  :::image type="content" source="../media/step-one-pic-27.png" alt-text="Creating the Stoirage Group":::
+  :::image type="content" source="../media/step-one-pic-27.png" alt-text="Selecting option to enable static website hosting":::
   
  Accept default file name in "Enter the index document name," as we created the file index.html.
 Type the 404.html for "Enter the 404 error document path".  
@@ -468,7 +469,7 @@ In the browser development tools, you can inspect the source and see our file, p
  
 :::image type="content" source="../media/step-one-pic-30.png" alt-text="Website":::
 
-Let inspect the application on Azure Portal. 
+Let inspect the application on Azure portal. 
 
 Go to [Azure portal](https://portal.azure.com/#home), select your resource group and select the application you created, navigate to "Settings -> "Static website" you can see that static websites enabled and note the primary endpoint, Index document, and Error path document files.
 
