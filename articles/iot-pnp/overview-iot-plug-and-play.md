@@ -69,5 +69,5 @@ The [IoT Plug and Play device certification program](howto-certify-device.md) ve
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Connect a device to IoT Hub (C)](./quickstart-connect-device-c.md)
-- [Interact with a device from your solution (Node.js)](./quickstart-service-node.md)
+- [Connect a device to IoT Hub](./quickstart-connect-device.md)
+- [Interact with a device from your solution](./quickstart-service.md)

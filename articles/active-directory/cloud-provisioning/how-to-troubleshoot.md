@@ -120,40 +120,17 @@ To resolve this problem, change the PowerShell execution policies on the server.
 
 ### Log files
 
-By default, the agent emits minimal error messages and stack trace information. You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+By default, the agent emits minimal error messages and stack trace information. You can find these trace logs in the folder **C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace**.
 
 To gather additional details for troubleshooting agent-related problems, follow these steps.
 
-1. Stop the service **Microsoft Azure AD Connect Provisioning Agent**.
-1. Create a copy of the original config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-1. Replace the existing `<system.diagnostics>` section with the following, and all trace messages will go to the file *ProvAgentTrace.log*.
+1.  Install the AADCloudSyncTools PowerShell module as described [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine tune your data collection.
+      - SkipVerboseTrace to only export current logs without capturing verbose logs (default = false)
+      - TracingDurationMins to specify a different capture duration (default = 3 mins)
+      - OutputPath to specify a different output path (default = User’s Documents)
 
-   ```xml
-     <system.diagnostics>
-         <sources>
-         <source name="AAD Connect Provisioning Agent">
-             <listeners>
-             <add name="console"/>
-             <add name="etw"/>
-             <add name="textWriterListener"/>
-             </listeners>
-         </source>
-         </sources>
-         <sharedListeners>
-         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
-         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
-             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
-         </add>
-         <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
-         </sharedListeners>
-     </system.diagnostics>
-    
-   ```
-1. Start the service **Microsoft Azure AD Connect Provisioning Agent**.
-1. Use the following command to tail the file and debug problems. 
-    ```
-    Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
-    ```
+
 ## Object synchronization problems
 
 The following section contains information on troubleshooting object synchronization.
@@ -199,6 +176,22 @@ By selecting the status, you can see additional information about the quarantine
   Use the following request:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+
+## Repairing the the Cloud Sync service account
+If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
+
+
+   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+   2.  From a Windows PowerShell session with administrative privileges, type or copy and paste the following: 
+	```
+	Connect-AADCloudSyncTools
+	```  
+   3. Enter your Azure AD global admin credentials
+   4. Type or copy and paste the following: 
+	```
+	Repair-AADCloudSyncToolsAccount
+	```  
+   5. Once this completes it should say that the account was repaired successfully.
 
 ## Next steps 
 

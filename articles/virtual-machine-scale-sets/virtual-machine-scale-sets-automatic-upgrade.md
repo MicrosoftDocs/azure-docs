@@ -40,6 +40,9 @@ The upgrade process works as follows:
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
+> [!NOTE]
+>Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 16.04-LTS to 18.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
+
 ## Supported OS images
 Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Shared Image Gallery](shared-image-galleries.md).
 
@@ -49,16 +52,15 @@ The following platform SKUs are currently supported (and more are added periodic
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | Stable             |
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
+| OpenLogic               | CentOS        | 7.5                |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## Requirements for configuring automatic OS image upgrade

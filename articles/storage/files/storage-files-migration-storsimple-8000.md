@@ -155,7 +155,7 @@ You have the option to pick premium storage (SSD) for Azure file shares or stand
 
 Still not sure?
 
-* Choose premium storage if you need the [performance of a premium Azure file share](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-billing).
 * Choose standard storage for general-purpose file server workloads, which includes hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
 
 #### Account kind
@@ -443,7 +443,7 @@ At this point, there are differences between your on-premises Windows Server ins
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -470,6 +470,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Outputs to console window. Used in conjunction with output to a log file.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omits the logging of progress to keep the log readable.
    :::column-end:::
 :::row-end:::
 :::row:::

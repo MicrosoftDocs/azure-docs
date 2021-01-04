@@ -50,7 +50,7 @@ The following limitations apply during public preview of the Azure Monitor Agent
 
 - The Azure Monitor agent does not support solutions and insights such as Azure Monitor for VMs and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
 - Data collection rules must be created in the same region as any Log Analytics workspace used as a destination.
-- Only Azure virtual machines are currently supported. On-premises virtual machines, virtual machine scale sets, Arc for Servers, Azure Kubernetes Service, and other compute resource types are not currently supported.
+- Azure virtual machines and Azure Arc enabled servers are currently supported.Virtual machine scale sets, Azure Kubernetes Service, and other compute resource types are not currently supported.
 - The virtual machine must have access to the following HTTPS endpoints:
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com
@@ -90,50 +90,8 @@ The Azure Monitor agent doesn't require any keys but instead requires a [system-
 ## Networking
 The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes or direct proxies.
 
-## Install the Azure Monitor agent
-The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 
-
-| Property | Windows | Linux |
-|:---|:---|:---|
-| Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
-| Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
-
-Install the Azure Monitor agent using any of the methods to install virtual machine agents including the following using PowerShell or CLI. Alternatively, you can install the agent and configure data collection on virtual machines in your Azure subscription using the portal with the procedure described in [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
-
-### Windows
-
-# [CLI](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# [PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### Linux
-
-# [CLI](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# [PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
-```
----
 
 ## Next steps
 
+- [Install Azure Monitor agent](azure-monitor-agent-install.md) on Windows and Linux virtual machines.
 - [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.

@@ -10,6 +10,8 @@ ms.date: 08/01/2019
 
 # Troubleshooting Azure Data Catalog
 
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 This article describes common troubleshooting concerns for Azure Data Catalog resources. 
 
 ## Functionality limitations

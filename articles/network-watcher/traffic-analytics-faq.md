@@ -400,3 +400,6 @@ The virtual subnetworks topology page contains two main sections:
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
 - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+
+## Are Classic NSGs supported?
+No, Traffic Analytics does not support classic NSG. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Refer this article to understand [how to migrate](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).

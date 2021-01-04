@@ -1,6 +1,6 @@
 ---
-title: Query folders and multiple files using serverless SQL pool (preview)  
-description: Serverless SQL pool (preview) supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
+title: Query folders and multiple files using serverless SQL pool  
+description: Serverless SQL pool supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
 services: synapse analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Query folders and multiple files  
 
-In this article, you'll learn how to write a query using serverless SQL pool (preview) in Azure Synapse Analytics.
+In this article, you'll learn how to write a query using serverless SQL pool in Azure Synapse Analytics.
 
 Serverless SQL pool supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed.
 

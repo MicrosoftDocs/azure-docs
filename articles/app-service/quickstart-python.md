@@ -6,12 +6,16 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-
+adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-python-1
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+
+For **definitions of common terms**, see [Azure Terminology In Brief](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
 
 > [!TIP]
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
@@ -70,23 +74,11 @@ Clone the sample repository using the following command and navigate into the sa
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Then navigate into that folder:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Then navigate into that folder:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -97,7 +89,11 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ## Run the sample
 
 ::: zone pivot="python-framework-flask"
-1. Make sure you're in the *python-docs-hello-world* folder. 
+1. Navigate into in the *python-docs-hello-world* folder:
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Create a virtual environment and install dependencies:
 
@@ -111,7 +107,11 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
     flask run
     ```
     
-    By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. (If you use a different module name, set the `FLASK_APP` environment variable to that name.)
+    By default, the server assumes that the app's entry module is in *app.py*, as used in the sample.
+
+    If you use a different module name, set the `FLASK_APP` environment variable to that name.
+
+    If you encounter the error, "Could not locate a Flask application. You did not provide the 'FLASK_APP' environment variable, and a 'wsgi.py' or 'app.py' module was not found in the current directory.", make sure you're in the `python-docs-hello-world` folder that contains the sample.
 
 1. Open a web browser and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello, World!**.
 
@@ -121,7 +121,11 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Make sure you're in the *python-docs-hello-django* folder. 
+1. Navigate into the *python-docs-hello-django* folder:
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Create a virtual environment and install dependencies:
 

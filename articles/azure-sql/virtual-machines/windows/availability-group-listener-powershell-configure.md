@@ -7,7 +7,7 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
-
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -60,7 +60,7 @@ If you are restricting access with an Azure Network Security Group, ensure that 
 The current [Microsoft template](./availability-group-quickstart-template-configure.md) for an availability group uses a basic load balancer with basic IP addresses.
 
    > [!NOTE]
-   > You will need to configure a [service endpoint](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) if you use a standard load balancer and Azure Storage for the cloud witness. 
+   > You will need to configure a [service endpoint](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) if you use a standard load balancer and Azure Storage for the cloud witness. 
    > 
 
 The examples in this article specify a standard load balancer. In the examples, the script includes `-sku Standard`.
@@ -232,7 +232,7 @@ Note the following guidelines on availability group listener in Azure using inte
   - The load balancer floating IP addresses for the AG listener
   - The cluster core IP address, if applicable.
 
-* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## For more information
 

@@ -40,6 +40,8 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 ## Connect your GCP account
 
+Follow the steps below to create your GCP cloud connector. 
+
 ### Step 1. Set up GCP Security Command Center with Security Health Analytics
 
 For all the GCP projects in your organization, you must also:

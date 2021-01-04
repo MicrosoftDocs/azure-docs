@@ -260,7 +260,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 3. Roll back any other changes you made and documented during the disruption.
 4. If you used an emergency access account, remember to regenerate credentials and physically secure the new credentials details as part of your emergency access account procedures.
 5. Continue to [Triage all risk detections reported](../reports-monitoring/concept-sign-ins.md) after the disruption for suspicious activity.
-6. Revoke all refresh tokens that were issued [using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) to target a set of users. Revoking all refresh tokens is important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
+6. Revoke all refresh tokens that were issued [using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to target a set of users. Revoking all refresh tokens is important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
 
 ## Emergency options
 
@@ -281,7 +281,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

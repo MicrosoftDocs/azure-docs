@@ -77,10 +77,10 @@ The length and acceptable characters for metadata name and value are listed in t
 
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
-* Length of answer text: 25,000
-* Length of question text: 1,000
-* Length of metadata key text: 100
-* Length of metadata value text: 500
+* Length of answer text: 25,000 characters
+* Length of question text: 1,000 characters
+* Length of metadata key text: 100 characters
+* Length of metadata value text: 500 characters
 * Supported characters for metadata name: Alphabets, digits and `_`
 * Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200

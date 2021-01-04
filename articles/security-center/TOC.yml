@@ -3,15 +3,14 @@
 - name: Overview
   expanded: true
   items:
-
-  - name: About Security Center
+  - name: What is Azure Security Center?
+    href: security-center-introduction.md
+  - name: Availability
     items:
-    - name: What is Azure Security Center?
-      href: security-center-introduction.md
     - name: Supported platforms
       displayName: coverage
       href: security-center-os-coverage.md
-    - name: Feature coverage for VMs
+    - name: Coverage by OS, machine type, and cloud
       href: security-center-services.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
@@ -56,6 +55,12 @@
     - name: Azure Defender for Key Vault
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
+    - name: Azure Defender for Resource Manager
+      displayName: ARM
+      href: defender-for-resource-manager-introduction.md
+    - name: Azure Defender for DNS
+      displayName: domain
+      href: defender-for-dns-introduction.md
     - name: Azure Defender for Kubernetes
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
@@ -107,6 +112,9 @@
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
     href: security-center-compliance-dashboard.md
+  - name: Manage security policies
+    href: tutorial-security-policy.md
+
 
 - name: Concepts
   items:
@@ -118,11 +126,6 @@
       href: secure-score-security-controls.md
     - name: Overview of security recommendations
       href: security-center-recommendations.md
-    - name: Overview of security policies
-      href: tutorial-security-policy.md
-    - name: Built-in security policies
-      displayName: samples, policy
-      href: ./policy-reference.md
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
     - name: Security baseline
@@ -155,9 +158,9 @@
       href: security-center-network-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md
-  - name: Azure Defender alerts
+  - name: Learn about security alerts
     items:
-    - name: Azure Defender alerts overview
+    - name: Security alerts overview
       href: security-center-alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
@@ -223,14 +226,9 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Use Azure Defender for SQL
-    items:
-    - name: Configure Azure Defender for SQL on Azure VMs
+    - name: Use Azure Defender for SQL
       href: defender-for-sql-usage.md
       displayName: hybrid, arc
-    - name: Customize your SQL information protection policy
-      displayName: sql, database, data discovery
-      href: security-center-info-protection-policy.md
   - name: Use Azure Defender for container registries
     items:
     - name: Scan your registry images for vulnerabilities
@@ -249,7 +247,7 @@
       href: continuous-export.md
     - name: Download a CSV report of all alerts
       href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-  - name: Handle Azure Defender alerts
+  - name: Handle security alerts
     items:
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
@@ -258,6 +256,11 @@
     - name: Respond to Azure Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-usage.md
+    - name: Respond to Azure Defender for DNS alerts
+      href: defender-for-dns-usage.md
+    - name: Respond to Azure Defender for Resource Manager alerts
+      displayName: arm
+      href: defender-for-resource-manager-usage.md
     - name: Manage security incidents
       href: security-center-incident.md
     - name: Generate threat intelligence reports
@@ -275,6 +278,9 @@
     href: security-center-investigation-user-data.md
   - name: Gain tenant-wide visibility
     href: security-center-management-groups.md
+  - name: Customize your SQL information protection policy
+    displayName: sql, database, data discovery
+    href: security-center-info-protection-policy.md
 
 - name: Reference
   items:
@@ -284,8 +290,6 @@
     items:
     - name: General questions
       href: faq-general.md
-    - name: Billing questions
-      href: faq-billing.md
     - name: Permissions questions
       href: faq-permissions.md
     - name: Data collection and agent questions
@@ -294,6 +298,9 @@
       href: faq-vms.md
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md
+  - name: Built-in security policies
+    displayName: samples, policy
+    href: policy-reference.md
   - name: Azure roadmap blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations

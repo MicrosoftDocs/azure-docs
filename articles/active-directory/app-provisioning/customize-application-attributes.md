@@ -110,7 +110,7 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developer tools provided by an application or system.
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). 
 
 When editing the list of supported attributes, the following properties are provided:
 
@@ -234,7 +234,7 @@ Use the steps below to provision roles for a user to your application. Note that
    }
    ]
    ```  
-The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 

@@ -1,12 +1,14 @@
 ---
-title: Telemetry processors (preview) - Azure Monitor Application Insights Java
-description: Telemetry processors for Azure Monitor Application Insights Java
+title: Telemetry processors (preview) - Azure Monitor Application Insights for Java
+description: How to configure telemetry processors in Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Telemetry processors (preview) for Azure Monitor Application Insights Java
+# Telemetry processors (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
 > This feature is still under preview.

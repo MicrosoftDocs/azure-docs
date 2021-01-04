@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a HoloLens app with DirectX'
 description: In this quickstart, you learn how to build a HoloLens app using Spatial Anchors.
-author: craigktreasure
-manager: virivera
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---

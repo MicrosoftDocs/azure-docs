@@ -57,7 +57,7 @@ For detailed information about when and how policy evaluation happens, see
 ### Control the response to an evaluation
 
 Business rules for handling non-compliant resources vary widely between organizations. Examples of
-how an organization wants the platform to respond to a non-complaint resource include:
+how an organization wants the platform to respond to a non-compliant resource include:
 
 - Deny the resource change
 - Log the change to the resource

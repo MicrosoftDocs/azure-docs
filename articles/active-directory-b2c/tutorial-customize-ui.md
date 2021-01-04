@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Customize the interface of user experiences in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-with-html.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
@@ -162,4 +162,4 @@ In this article, you learned how to:
 > * Test the customized UI
 
 > [!div class="nextstepaction"]
-> [Customize the UI in Azure Active Directory B2C](customize-ui-overview.md)
+> [Customize the UI in Azure Active Directory B2C](customize-ui-with-html.md)
