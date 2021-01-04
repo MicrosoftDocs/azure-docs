@@ -76,15 +76,11 @@ Yes. You can set a customized alert on pre-determined set of behaviors such as I
 
 The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
-
-
-
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
 
 - Read the Defender for IoT [overview](overview.md)
-- Verify the [Service prerequisites](service-prerequisites.md)
-- Learn more about how to [Get started](getting-started.md)
+- Verify the [System prerequisites](quickstart-system-prerequisites.md)
+- Learn more about how to [Getting started with Defender for IoT](getting-started.md)
 - Understand [Defender for IoT security alerts](concept-security-alerts.md)
