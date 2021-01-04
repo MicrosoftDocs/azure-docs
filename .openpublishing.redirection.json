@@ -5181,18 +5181,8 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
-      "source_path": "articles/active-directory/develop/msal-logging.md",
-      "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
-      "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
-=======
       "source_path_from_root": "/articles/azure-arc/servers/quickstart-onboard-powershell.md",
       "redirect_url": "/azure/azure-arc/servers/onboard-service-principal",
->>>>>>> acf61c34e392e17903dce72cdab1bb8157665071
       "redirect_document_id": false
     },
     {
