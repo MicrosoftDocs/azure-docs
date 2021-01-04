@@ -42,6 +42,24 @@ App Service can also host web apps natively on Linux for supported application s
 
 App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core and Ruby. Run [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
 
+Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful. 
+
+When an outdated runtime is hidden from the Portal, any of your existing sites using that version will continue to run. If a runtime is fully removed from the App Service platform, your Azure subscription owner(s) will receive an email notice before the removal.
+
+If you need to create another web app with an outdated runtime version that is no longer shown on the Portal, follow these instructions.
+
+1. Get the runtime of the site. Replace the name and resource group placeholders with the name and group for your web app. This will return a string with the runtime version.
+  
+    ```she;;
+    az webapp config show --name <your-name> --resource-group <your-group> --query "linuxFxVersion"
+    ```
+  
+1. Next, create a new site using this runtime string. Replace the placeholders with your desired site name, resource group, and runtime.
+ 
+    ```shell
+    az webapp create --name <your-name> --resource-group <your-group> --runtime “EXAMPLE|1.0”
+    ```
+
 ### Limitations
 
 - App Service on Linux is not supported on [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) pricing tier. 
