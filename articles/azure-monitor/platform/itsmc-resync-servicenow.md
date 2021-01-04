@@ -36,7 +36,7 @@ If you're using Service Map, you can view the service desk items created in ITSM
 
 ## Troubleshoot ITSM connections
 
-- If a connection fails from the connected source's UI and you get an **Error in saving connection** message, take the following steps:
+- If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message, take the following steps:
    - For ServiceNow, Cherwell, and Provance connections:  
      - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
      - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
@@ -54,7 +54,7 @@ If you're using Service Map, you can view the service desk items created in ITSM
 -	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
 -	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
 
-### How to manually fix ServiceNow sync problems
+### How to manually fix sync problems
 
 Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers.
 
@@ -89,10 +89,4 @@ Use the following synchronization process to reactivate the connection and refre
 
         ![New connection](media/itsmc-resync-servicenow/save-8bit.png)
 
-f.    Review the notifications to see if the process finished with success
-
-## Next Steps
-
-* [ITSM Definition](./itsmc-definition.md)
-* [ITSM Connector Overview](./itsmc-overview.md)
-* [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
+f.    Review the notifications to see if the process started.

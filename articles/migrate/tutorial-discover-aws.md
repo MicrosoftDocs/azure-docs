@@ -38,7 +38,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 --- | ---
 **Appliance** | You need an EC2 VM on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed. Running the appliance on a machine with Windows Server 2019 isn't supported.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
 **Windows instances** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
-**Linux instances** | Allow inbound connections on port 22 (TCP).
+**Linux instances** | Allow inbound connections on port 22 (TCP).<br/><br/> The instances should use `bash` as the default shell, otherwise discovery will fail.
 
 ## Prepare an Azure user account
 

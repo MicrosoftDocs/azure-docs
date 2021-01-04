@@ -32,7 +32,7 @@ ITSMC supports connections with the following ITSM tools:
 
 With ITSMC, you can:
 
--  Create work items in your ITSM tool, based on your Azure alerts (metric alerts, activity log alerts, and Log Analytics alerts).
+-  Create work items in your ITSM tool, based on your Azure alerts (Metric Alerts, Activity Log Alerts, and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
 For information about legal terms and the privacy policy, see [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).

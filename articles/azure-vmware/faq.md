@@ -139,7 +139,8 @@ No. High-end ESXi hosts are reserved for use in production clusters.
 
 #### What versions of VMware software is used in private clouds?
 
-Private clouds use vSphere 6.7 U3, vSAN 6.7 U3, VMware HCX, and NSX-T 2.5.  For more information, see [the VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 #### Do private clouds use VMware NSX?
 
@@ -193,6 +194,9 @@ Yes.
 #### Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
 Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
 
+#### Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
+
+Currently, the only supported method for HCX is through ExpressRoute.
 
 ## Accounts and privileges
 

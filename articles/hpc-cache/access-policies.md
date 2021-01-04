@@ -4,7 +4,7 @@ description: How to create and apply custom access policies to limit client acce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 12/28/2020
 ms.author: v-erkel
 ---
 
@@ -85,6 +85,17 @@ If you turn on root squash, you must also set the anonymous ID user value to one
 * **-1** (no access)
 * **65535** (no access)
 * **0** (unprivileged root)
+
+## Update access policies
+
+You can edit or delete access policies from the table in the **Client access policies** page.
+
+Click the policy name to open it for editing.
+
+To delete a policy, mark the checkbox next to its name in the list, then click the **Delete** button at the top of the list. You can't delete the policy named "default".
+
+> [!NOTE]
+> You can't delete an access policy that is in use. Remove the policy from any namespace paths that include it before trying to delete it.
 
 ## Next steps
 

@@ -453,12 +453,11 @@ The Receipt output is also useful for general book-keeping for business or perso
 
 Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
 
-The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
+The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
 ## Next steps
 
-- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
-- Or, follow the [Receipt API Python quickstart](./quickstarts/python-receipts.md) to recognize receipts using the REST API.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
 
 ## See also
 

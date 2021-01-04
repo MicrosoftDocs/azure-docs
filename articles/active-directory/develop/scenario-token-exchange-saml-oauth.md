@@ -28,4 +28,4 @@ The general strategy is to add the OIDC/OAuth stack to your app. With your app t
 > The recommended library for adding OIDC/OAuth behavior is the Microsoft Authentication Library (MSAL). To learn more about MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md). The previous library was called Active Directory Authentication Library (ADAL), however it is not recommended as MSAL is replacing it.
 
 ## Next steps
-- [authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
