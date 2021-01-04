@@ -252,7 +252,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### Other optional parameters
 
-To learn about the other optional parameters for `AcquireTokenInteractive`, see the [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+To learn about the other optional parameters for `AcquireTokenInteractive`, see the  [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### Acquire tokens via the protocol
 
