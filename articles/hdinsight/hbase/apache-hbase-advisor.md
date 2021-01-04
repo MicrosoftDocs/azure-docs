@@ -38,11 +38,11 @@ To optimize the recent data in cache, consider the following configuration setti
 
 5. Block cache can be turned off for a given family in a table. Ensure that it is turned **ON** for families that have most recent data reads. By default, block cache is turned ON for all families in a table. In case you have disabled the block cache for a family and need to turn it ON, use the alter command from the hbase shell.
 
-These configurations help ensure that the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your scenario, then consider using date-tiered compaction. For more information, see [Apache HBase Reference Guide: Date Tiered Compaction](https://hbase.apache.org/book.html#ops.date.tiered)  
+   These configurations help ensure that the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your scenario, then consider using date-tiered compaction. For more information, see [Apache HBase Reference Guide: Date Tiered Compaction](https://hbase.apache.org/book.html#ops.date.tiered)  
 
-## Optimize the Flush queue
+## Optimize the flush queue
 
-The Optimize the Flush queue advisory may indicate that HBase flushes may need tuning. The flush handlers might not be high enough as configured.
+The optimize the flush queue advisory indicates that HBase flushes may need tuning. The flush handlers might not be high enough as configured.
 
 In the region server UI, notice if the flush queue grows beyond 100. This threshold indicates the flushes are slow and you may have to tune the   `hbase.hstore.flusher.count` configuration. By default, the value is 2. Ensure that the max flusher threads don't increase beyond 6.
 
