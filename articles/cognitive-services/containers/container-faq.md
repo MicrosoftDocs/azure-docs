@@ -17,7 +17,7 @@ ms.author: aahi
 
 **Q: What is available?**
 
-**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. You can also view the containers in the [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) article. You can also view the containers in the [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
@@ -159,7 +159,7 @@ Explore the following tags for potential questions and answers that align with y
  
 **Q: How do I discover the containers?**
 
-**A:** Cognitive Services containers are available in various locations, such as the Azure portal, Docker hub, and Azure container registries. For the most recent container locations, refer to [container repositories and images](../cognitive-services-container-support.md#container-repositories-and-images).
+**A:** Cognitive Services containers are available in various locations, such as the Azure portal, Docker hub, and Azure container registries. For the most recent container locations, refer to [container images](container-image-tags.md).
 
 **Q: How does Cognitive Services containers compare to AWS and Google offerings?**
 
