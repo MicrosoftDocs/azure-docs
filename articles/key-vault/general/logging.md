@@ -146,7 +146,6 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-
 | **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/getcertificate) |
 | **CertificateCreate** |[Create a certificate](/rest/api/keyvault/createcertificate) |
 | **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/importcertificate) |

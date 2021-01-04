@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -259,6 +259,23 @@ We recommend choosing an *Aggregation granularity (Period)* that is larger than 
 -	Metric alert rule that monitors multiple dimensions – When a new dimension value combination is added
 -	Metric alert rule that monitors multiple resources – When a new resource is added to the scope
 -	Metric alert rule that monitors a metric that isn’t emitted continuously (sparse metric) –  When the metric is emitted after a period longer than 24 hours in which it wasn’t emitted
+
+## The Dynamic Thresholds borders don't seem to fit the data
+
+If the behavior of a metric changed recently, the changes won't necessarily become reflected in the Dynamic Threshold borders (upper and lower bounds) immediately, as those are calculated based on metric data from the last 10 days. When viewing the Dynamic Threshold borders for a given metric, make sure to look at the metric trend in the last week, and not only for recent hours or days.
+
+## Why is weekly seasonality not detected by Dynamic Thresholds?
+
+To identify weekly seasonality, the Dynamic Thresholds model requires at least three weeks of historical data. Once enough historical data is available, any weekly seasonality that exists in the metric data will be identified and the model would be adjusted accordingly. 
+
+## Dynamic Thresholds shows a negative lower bound for a metric even though the metric always has positive values
+
+When a metric exhibits large fluctuation, Dynamic Thresholds will build a wider model around the metric values, which can result in the lower border being below zero. Specifically, this can happen in the following cases:
+1. The sensitivity is set to low 
+2. The median values are close to zero
+3. The metric exhibits an irregular behavior with high variance (there are spikes or dips in the data)
+
+When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregulaity from the historical data used to build the model.
 
 ## Next steps
 

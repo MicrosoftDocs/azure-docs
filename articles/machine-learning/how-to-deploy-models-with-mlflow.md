@@ -15,18 +15,18 @@ ms.custom: how-to, devx-track-python
 
 # Deploy MLflow models with Azure Machine Learning (preview)
 
-In this article, learn how to deploy your MLflow model as an Azure Machine Learning web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure Machine Learning web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
 
 Azure Machine Learning offers deployment configurations for:
 * Azure Container Instance (ACI) which is a suitable choice for a quick dev-test deployment.
 * Azure Kubernetes Service (AKS) which is recommended for scalable production deployments.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond the model training phase, to the  deployment phase of your production model.
+MLflow is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond the model training phase to the deployment phase of your production model.
 
 >[!NOTE]
 > As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
 
-The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow model as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
+The following diagram demonstrates that with the MLflow deploy API and Azure Machine Learning, you can deploy models created with popular frameworks, like PyTorch, Tensorflow, scikit-learn, etc., as Azure Machine Learning web services and manage them in your workspace. 
 
 ![ deploy mlflow models with azure machine learning](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
@@ -35,9 +35,11 @@ The following diagram demonstrates that with the MLflow deploy API you can deplo
 
 ## Prerequisites
 
-* [Set up the MLflow Tracking URI to connect Azure Machine Learning](how-to-use-mlflow.md).
+* A machine learning model. If you don't have a trained model, find the notebook example that best fits your compute scenario in [this repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) and follow its instructions. 
+* [Set up the MLflow Tracking URI to connect Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
 * Install the `azureml-mlflow` package. 
     * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
+* See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations). 
 
 ## Deploy to ACI
 
@@ -135,7 +137,7 @@ If you don't plan to use your deployed web service, use `service.delete()` to de
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
 > [!NOTE]
 > A community-driven repository of examples using mlflow can be found at https://github.com/Azure/azureml-examples.
@@ -145,3 +147,4 @@ The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNot
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](./how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
+
