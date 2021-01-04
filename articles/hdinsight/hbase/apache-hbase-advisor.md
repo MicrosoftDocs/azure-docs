@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Apache HBase Cluster/Query Advisor
+title: Optimize for cluster advisor recommendations
 description: Optimize Apache HBase for cluster advisor recommendations in Azure HDInsight.
 author: ramkrish86
 ms.author: ramvasu
@@ -76,13 +76,11 @@ Cap the max value for this configuration to be less than 3.
 
 The full table scan advisory indicates that over 75% of the scans issued are full table/region scans. You can revisit the way your code calls the scans to improve query performance. Consider the following practices:
 
-1. Set the proper start and stop row for each scan.
+* Set the proper start and stop row for each scan.
 
-2. Use the **MultiRowRangeFilter** API so that you can query different ranges in one scan call. For more information, see [MultiRowRangeFilter API documentation](https://hbase.apache.org/2.1/apidocs/org/apache/hadoop/hbase/filter/MultiRowRangeFilter.html).
+* Use the **MultiRowRangeFilter** API so that you can query different ranges in one scan call. For more information, see [MultiRowRangeFilter API documentation](https://hbase.apache.org/2.1/apidocs/org/apache/hadoop/hbase/filter/MultiRowRangeFilter.html).
 
-3. In cases where you need a full table or region scan, check if there's a possibility to avoid cache usage for those queries, so that other queries that use of the cache might not evict the blocks that are hot.
-
-   To ensure the scans do not use cache, use the **scan** API with the **setCaching(false)** option in your code: 
+* In cases where you need a full table or region scan, check if there's a possibility to avoid cache usage for those queries, so that other queries that use of the cache might not evict the blocks that are hot. To ensure the scans do not use cache, use the **scan** API with the **setCaching(false)** option in your code: 
 
    ```
    scan#setCaching(false)
