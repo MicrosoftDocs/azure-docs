@@ -142,12 +142,12 @@ In this section, a user called B.Simon is created in Palo Alto Networks - Global
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Palo Alto Networks - GlobalProtect Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Palo Alto Networks - GlobalProtect Sign-on URL where you can initiate the login flow. 
 
-2. Go to Palo Alto Networks - GlobalProtect Sign-on URL directly and initiate the login flow from there.
+* Go to Palo Alto Networks - GlobalProtect Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Palo Alto Networks - GlobalProtect tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks - GlobalProtect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Palo Alto Networks - GlobalProtect tile in the My Apps, you should be automatically signed in to the Palo Alto Networks - GlobalProtect for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
 Once you configure Palo Alto Networks  - GlobalProtect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
