@@ -175,10 +175,10 @@ Azure Resource Manager template (ARM template), must be the same.
 
 ### Policy requirements
 
-The Policy definition `metadata` section must include two properties for the Guest Configuration
+The policy definition `metadata` section must include two properties for the Guest Configuration
 service to automate provisioning and reporting of Guest Configuration assignments. The `category` property must
 be set to "Guest Configuration" and a section named `Guest Configuration` must contain information about the
-Guest Configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text automationcally.
+Guest Configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text automatically.
 See the step-by-step instructions on this page.
 
 The following example demonstrates the `metadata` section.
