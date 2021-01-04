@@ -49,7 +49,7 @@ or create service in the VNet
 ## Add SF certificate to API Management
 
 [should this be done through a KV secret named value?]
-https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates
+https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates
 
 :::image type="content" source="media/backends/add-cluster-certificate.png" alt-text="Add cluster certificate to API Management":::
 
@@ -73,7 +73,7 @@ To create a service fabric backend:
 
 Add a GET operation to the API:
 
-:::image type="content" source="media/backends/configure-get-operation.png" alt-text="":::
+:::image type="content" source="media/backends/configure-get-operation.png" alt-text="Add GET operation to API":::
 
 ## Configure `set-backend` policy
 
