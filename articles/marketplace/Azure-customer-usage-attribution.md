@@ -1,5 +1,5 @@
 ---
-title: Customer usage attribution
+title: Azure customer usage attribution
 description: Get an overview of tracking customer usage for Commercial Marketplace Azure applications and other deployable IP developed by partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
