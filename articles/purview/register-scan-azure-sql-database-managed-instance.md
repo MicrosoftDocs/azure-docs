@@ -1,7 +1,7 @@
 ---
 title: 'Register and scan Azure SQL Database Managed Instance'
 description: This tutorial describes how to scan Azure SQL Database Managed Instance 
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog

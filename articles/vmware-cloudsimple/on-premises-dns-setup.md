@@ -42,6 +42,9 @@ DNS setup.
 For example, for the default BIND server configuration, edit
 /etc/named.conf file on your DNS server and add the following zone information.
 
+> [!NOTE]
+>This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ```
 zone "az.cloudsimple.io"
 {

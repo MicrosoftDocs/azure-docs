@@ -100,7 +100,7 @@ The following table shows examples of supported context locations for ACR Tasks:
 | Context location | Description | Example |
 | ---------------- | ----------- | ------- |
 | Local filesystem | Files within a directory on the local filesystem. | `/home/user/projects/myapp` |
-| GitHub master branch | Files within the master (or other default) branch of a public or private GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub main branch | Files within the main (or other default) branch of a public or private GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub branch | Specific branch of a public or private GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub subfolder | Files within a subfolder in a public or private GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | GitHub commit | Specific commit in a public or private GitHub repo. Example shows combination of a commit hash (SHA) and subfolder specification. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
