@@ -54,7 +54,7 @@ After the Resource Provider returns a success code on a Resource Manager mode re
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine if additional compliance
 logging or action is required.
 
-Additionally, `PATCH` requests that only modify `tags` related fields will restrict policy evaluation to policies containing conditions that inspect `tags` related fields.
+Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to policies containing conditions that inspect `tags` related fields.
 
 ## Append
 
