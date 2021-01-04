@@ -227,8 +227,8 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     # Change to the app folder
     cd $APP_PATH
     
-    # Install packages
-    pip install -r requirements.txt
+    # Activate the venv (requirements.txt is installed automatically)
+    source /antenv/bin/activate
 
     # Run database migrations
     python manage.py migrate
@@ -385,10 +385,9 @@ Open an SSH session again in the browser by navigating to `https://<app-name>.sc
 
 ```
 cd $APP_PATH
+source /antenv/bin/activate
 python manage.py migrate
 ```
-
-If you see error "Could not import django", run `pip install -r requirements.txt` and the run `python manage.py migrate` again.
 
 Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
