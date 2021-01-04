@@ -3,13 +3,13 @@ title: Metrics Advisor glossary
 titleSuffix: Azure Cognitive Services
 description: Key ideas and concepts for the Metrics Advisor service
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Metrics Advisor glossary of common vocabulary and concepts
@@ -241,5 +241,4 @@ There are two roles to manage data feed permissions: *Administrator*, and *Viewe
 
 ## Next steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)

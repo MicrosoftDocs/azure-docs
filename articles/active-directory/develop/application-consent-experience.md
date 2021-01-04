@@ -61,13 +61,13 @@ Here are the consent experiences that a user may see in the common consent scena
     
     2. Users will see the traditional consent prompt.
 
-        ![Consent prompt for scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Screenshot that shows the traditional consent prompt.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
     1. Admins will see the same prompt as 1.i shown above.
     2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
                 
-        ![Consent prompt for scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Screenshot of the consent prompt telling the user to ask an admin for access to the app.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Individuals that navigate or are directed to the admin consent flow.
     1. Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.

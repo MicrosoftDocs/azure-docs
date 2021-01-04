@@ -1,5 +1,5 @@
 ---
-title: Tutorial to connect to, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
+title: Tutorial to connect, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
@@ -11,7 +11,7 @@ ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure device settings for Azure Stack Edge Pro with GPU
+# Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU
 
 This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
 
@@ -62,7 +62,7 @@ Follow these steps to configure device related settings:
 
     5. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## Configure update
 
@@ -74,7 +74,7 @@ Follow these steps to configure device related settings:
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Local web UI "Update Server" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md). 

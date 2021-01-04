@@ -1,6 +1,6 @@
 ---
 # This file is currently not connected to TOC. We are working on a new location Sept 2020
-title: How to Purchase Software on AppSource | Azure Marketplace
+title: How to purchase software on Microsoft AppSource
 description: Steps for one to purchase software on AppSource | Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,7 +14,7 @@ ms.date: 03/20/2020
 
 Microsoft [AppSource](https://appsource.microsoft.com/) now enables customers to subscribe to SaaS applications that are offered by Microsoft partners. Customers can find certified web applications on the store and can manage the charges, upgrades, downgrades, and cancellations in a single place using Microsoft's Admin Center. This article describes how you can purchase an app from the store.
 
-AppSource provides you a selection of apps to choose from, including free, trials and paid subscriptions. This article describes how paid subscriptions can be purchased via AppSource.
+AppSource provides you a selection of apps to choose from, including free trials and paid subscriptions. This article describes how paid subscriptions can be purchased via AppSource.
 
 ## Requirements
 
@@ -47,7 +47,7 @@ To purchase SaaS offers, you need:
 
 After your order is received, it can take several seconds to get confirmed. You will receive a link to configure your SaaS subscription on the page, as well as an email confirming the purchase and the link to complete the configuration.
 
-1. On the **Order Confirmation** page, select **Configure**. Alternatively, you can use the Configuration link sent to you in the confirmation email.
+1. On the **Order Confirmation** page, select **Configure**. Or you can use the Configuration link sent to you in the confirmation email, instead.
 1. Complete provisioning and set up on the software provider's website.
 
     > [!Note]
@@ -61,4 +61,4 @@ For business products, [contact help here](/office365/admin/contact-support-for-
 
 ## Next steps
 
-- See the [Commercial Marketplace documentation](partner-center-portal/commercial-marketplace-overview.md) for more information.
+- [Microsoft marketplace customer documentation](/marketplace/)

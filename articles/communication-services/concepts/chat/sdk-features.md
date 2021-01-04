@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -47,7 +47,7 @@ The following list presents the set of features which are currently available in
 | Events             | Use Event Grid to subscribe to user activity happening in chat threads and integrate custom notification services or business logic     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitoring        | Monitor usage in terms of messages sent                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitor the quality and status of API requests made by your app and configure alerts via the portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Additional features | Use [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services/) along with chat client library to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Additional features | Use [Cognitive Services APIs](../../../cognitive-services/index.yml) along with chat client library to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## Next steps
 

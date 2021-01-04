@@ -8,7 +8,7 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 ### Create a user-assigned identity
 

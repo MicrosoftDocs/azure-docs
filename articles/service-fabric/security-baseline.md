@@ -74,9 +74,9 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure Service Fabric cluster is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -142,7 +142,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure Service Fabric cluster. Use Azure Policy aliases in the "Microsoft.ServiceFabric" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Service Fabric cluster.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -486,7 +486,7 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -570,7 +570,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 * [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-* [How to configure customer-managed encryption keys](../storage/common/storage-encryption-keys-portal.md)
+* [How to configure customer-managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Enable disk encryption for Azure Service Fabric cluster nodes in Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -606,7 +606,7 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 * [Induce controlled Chaos in Service Fabric clusters](./service-fabric-controlled-chaos.md)
 
-* [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -624,7 +624,7 @@ Alternately, to test OS patches first before going to production, use the manual
 
 * [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation Update Management overview](../automation/update-management/update-mgmt-overview.md)
+* [Azure Automation Update Management overview](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -696,7 +696,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -1040,7 +1040,7 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 * [Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
-* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Currently not available
 

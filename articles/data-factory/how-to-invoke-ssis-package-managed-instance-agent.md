@@ -19,12 +19,12 @@ With this feature, you can run SSIS packages that are stored in SSISDB in a SQL 
 
 ## Prerequisites
 
-To use this feature, [download](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install latest SQL Server Management Studio (SSMS). Version support details as below:
+To use this feature, [download](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install latest SQL Server Management Studio (SSMS). Version support details as below:
 
 - To run packages in SSISDB or file system, install SSMS version 18.5 or above.
 - To run packages in package store, install SSMS version 18.6 or above.
 
-You also need to [provision an Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) in Azure Data Factory. It uses a SQL Managed Instance as an endpoint server.
+You also need to [provision an Azure-SSIS integration runtime](./tutorial-deploy-ssis-packages-azure.md) in Azure Data Factory. It uses a SQL Managed Instance as an endpoint server.
 
 ## Run an SSIS package in SSISDB
 
@@ -154,4 +154,4 @@ To cancel package execution from a SQL Managed Instance Agent job, take the foll
 1. Stop the corresponding operation based on **executionId**.
 
 ## Next steps
-You can also schedule SSIS packages by using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory event trigger](how-to-create-event-trigger.md). 
+You can also schedule SSIS packages by using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory event trigger](how-to-create-event-trigger.md).

@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 7/9/2020
+ms.date: 10/7/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -264,7 +264,7 @@ az login
 
 az deployment group create \
     --name AlertDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group ResourceGroupOfTargetResource \
     --template-file simplestaticmetricalert.json \
     --parameters @simplestaticmetricalert.parameters.json
 ```
@@ -371,7 +371,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-	"ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -455,7 +455,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
-			    "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -512,7 +512,7 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-	"ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -563,8 +563,7 @@ Please note the following constraints when using dimensions in an alert rule tha
 - You can only select one value per dimension within each criterion.
 - You cannot use "\*" as a dimension value.
 - When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant criterions).
-	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
-
+    - In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -970,7 +969,7 @@ Save and modify the json below as multidimensionalstaticmetricalert.parameters.j
                             "values": ["*"]
                         },
                         {
-			    "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -1405,7 +1404,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
                         {
                             "name" : "1st criterion",
                             "metricName": "[parameters('metricName')]",
-							"metricNamespace": "[parameters('metricNamespace')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
                             "dimensions":[],
                             "operator": "[parameters('operator')]",
                             "threshold" : "[parameters('threshold')]",
@@ -1451,7 +1450,7 @@ Save and modify the json below as customstaticmetricalert.parameters.json for th
         "metricName": {
             "value": "The custom metric name"
         },
-		"metricNamespace": {
+        "metricNamespace": {
             "value": "Azure.ApplicationInsights"
         },
         "operator": {
@@ -1630,7 +1629,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -1942,7 +1941,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2277,7 +2276,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2587,7 +2586,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2919,7 +2918,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3232,7 +3231,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {

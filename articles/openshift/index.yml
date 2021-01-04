@@ -45,6 +45,10 @@ landingContent:
             url: ./howto-create-private-cluster-3x.md
           - text: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
             url: dns-forwarding.md
+          - text: Configure built-in container registry for Azure Red Hat OpenShift 4
+            url: built-in-container-registry.md
+          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift 4 cluster
+            url: howto-deploy-java-liberty-app.md
 
   # Card
   - title: Reference

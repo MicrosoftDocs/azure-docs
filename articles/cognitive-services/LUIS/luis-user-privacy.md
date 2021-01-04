@@ -3,14 +3,14 @@ title: Export & delete data - LUIS
 titleSuffix: Azure Cognitive Services
 description: You have full control over viewing, exporting, and deleting their data. Delete customer data to ensure privacy and compliance.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.author: diberry
+ms.date: 12/08/2020
+
 ---
 
 # Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
@@ -47,7 +47,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 ## Location of active learning
 
-To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
+To enable [active learning](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
 
 * [Europe](#europe)
 * [Australia](#australia)

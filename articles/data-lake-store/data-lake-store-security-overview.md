@@ -27,7 +27,7 @@ Authentication is the process by which a user's identity is verified when the us
 Each Azure subscription can be associated with an instance of Azure Active Directory. Only users and service identities that are defined in your Azure Active Directory service can access your Data Lake Storage Gen1 account, by using the Azure portal, command-line tools, or through client applications your organization builds by using the Data Lake Storage Gen1 SDK. Key advantages of using Azure Active Directory as a centralized access control mechanism are:
 
 * Simplified identity lifecycle management. The identity of a user or a service (a service principal identity) can be quickly created and quickly revoked by simply deleting or disabling the account in the directory.
-* Multi-factor authentication. [Multi-factor authentication](../active-directory/authentication/multi-factor-authentication.md) provides an additional layer of security for user sign-ins and transactions.
+* Multi-factor authentication. [Multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides an additional layer of security for user sign-ins and transactions.
 * Authentication from any client through a standard open protocol, such as OAuth or OpenID.
 * Federation with enterprise directory services and cloud identity providers.
 
@@ -38,7 +38,7 @@ After Azure Active Directory authenticates a user so that the user can access Da
 * [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management
 * POSIX ACL for accessing data in the store
 
-### RBAC for account management
+### Azure RBAC for account management
 
 Four basic roles are defined for Data Lake Storage Gen1 by default. The roles permit different operations on a Data Lake Storage Gen1 account via the Azure portal, PowerShell cmdlets, and REST APIs. The Owner and Contributor roles can perform a variety of administration functions on the account. You can assign the Reader role to users who only view account management data.
 

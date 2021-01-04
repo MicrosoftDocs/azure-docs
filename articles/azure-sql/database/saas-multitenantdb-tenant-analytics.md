@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -38,7 +38,7 @@ SaaS applications you develop have access to a vast amount of tenant data stored
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse. You then query the data warehouse to gather insights from the tickets data of all tenants.
 
-This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics (formerly SQL Data Warehouse). For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
+This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
 
 Next, the aggregated data is shredded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -64,11 +64,11 @@ Understanding how consistently each tenant is using the service provides an oppo
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-- The Wingtip Tickets SaaS Multi-tenant Database application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- The Wingtip Tickets SaaS Multi-tenant Database application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](./saas-multitenantdb-get-started-deploy.md)
 - The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) are downloaded from GitHub. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](../../sql-database/saas-multitenantdb-provision-and-catalog.md).
-- A job agent and job agent database have been created. See the appropriate steps in the [**Schema management tutorial**](../../sql-database/saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](./saas-multitenantdb-provision-and-catalog.md).
+- A job agent and job agent database have been created. See the appropriate steps in the [**Schema management tutorial**](./saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### Create data for the demo
 
@@ -88,7 +88,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL Database with columnstore, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -235,6 +235,6 @@ Congratulations!
 
 ## Additional resources
 
-Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Elastic Jobs](../../sql-database/elastic-jobs-overview.md).
-- [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md) 
+Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
+- [Elastic Jobs](./elastic-jobs-overview.md).
+- [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md)

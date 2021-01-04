@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
 ---
@@ -25,7 +25,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Java Speech SDK package is available for these operating systems:
   - Windows: 64-bit only
   - Mac: macOS X version 10.13 or later
-  - Linux: 64-bit only on Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
+  - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
@@ -34,19 +34,14 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/) (requires Java already installed)
 - Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
-  - On Ubuntu, run the following commands to install the required packages:
+  - On Ubuntu/Debian, run the following commands to install the required packages:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - On Debian 9, run the following commands to install the required packages:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
   - On RHEL/CentOS, run the following commands to install the required packages:
 

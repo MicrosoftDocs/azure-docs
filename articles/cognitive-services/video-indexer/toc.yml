@@ -4,7 +4,7 @@
   - name: What is Video Indexer?
     href: ../../media-services/video-indexer/video-indexer-overview.md
   - name: Concepts
-    href: ../../media-services/video-indexer/video-indexer-concepts.md
+    href: ../../media-services/video-indexer/video-indexer-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -13,7 +13,7 @@
 - name: How to guides
   items:
   - name: Migrate from v1 to v2
-    href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
+    href: ../../media-services/video-indexer/video-indexer-overview.md
   - name: Connect to Azure
     href: ../../media-services/video-indexer/connect-to-azure.md
   - name: Manage account connected to Azure
@@ -29,7 +29,7 @@
   - name: View and edit Video Indexer insights
     href: ../../media-services/video-indexer/video-indexer-view-edit.md
   - name: Create video insights from existing videos
-    href: ../../media-services/video-indexer/video-indexer-create-new.md
+    href: ../../media-services/video-indexer/use-editor-create-project.md
   - name: Embed widgets into your application
     href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: Reference

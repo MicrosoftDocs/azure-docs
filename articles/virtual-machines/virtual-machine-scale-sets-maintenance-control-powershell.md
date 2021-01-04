@@ -40,7 +40,7 @@ You may also be asked to confirm that you want to install from an *untrusted rep
 
 ## Connect to an Azure account
 
-Connect to your desired Azure account using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) and [Set-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Connect to your desired Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) and [Set-AzAccount](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Connect-AzAccount

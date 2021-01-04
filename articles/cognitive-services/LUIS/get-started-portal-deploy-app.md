@@ -116,4 +116,4 @@ When you're done with this quickstart, select **My apps** from the top navigatio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Identify common intents and entities](luis-tutorial-prebuilt-intents-entities.md)
+> [Identify common intents and entities](./tutorial-machine-learned-entity.md)

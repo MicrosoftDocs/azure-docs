@@ -86,8 +86,7 @@
       href: dns-settings.md
     - name: Monitor diagnostic logs
       href: firewall-diagnostics.md
-    - name: Azure Monitor logs
-      href: log-analytics-samples.md
+      displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
 - name: Reference

@@ -25,7 +25,7 @@ To complete this tutorial, you need:
 
 - An Azure Analysis Services server. To learn more, see [Create a server - portal](analysis-services-create-server.md).
 - Server administrator permissions
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## Sign in to the Azure portal
@@ -69,5 +69,3 @@ In this tutorial, you learned how to add a basic, sample model to your server. N
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
-
-

@@ -76,6 +76,7 @@ Check the validity of the credentials you use for your scenario, or were provide
   * Password - service principal password (also called *client secret*)
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
 * If you ran `az acr login` with the `--expose-token` option, which enables registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
+* If your registry is configured for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), existing Docker credentials stored from a previous Docker login can prevent anonymous access. Run `docker logout` before attempting an anonymous pull operation on the registry.
 
 Related links:
 
@@ -90,15 +91,17 @@ Related links:
 
 ### Confirm credentials are authorized to access registry
 
-Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` RBAC role to pull images from the registry, or the `AcrPush` role to push images. 
+Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` Azure role to pull images from the registry, or the `AcrPush` role to push images. 
 
-Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role to perform Azure Resource Manager operations.
+Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role or equivalent permissions to perform Azure Resource Manager operations.
+
+If your permissions recently changed to allow registry access though the portal, you might need to try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 You or a registry owner must have sufficient privileges in the subscription to add or remove role assignments.
 
 Related links:
 
-* [RBAC roles and permissions - Azure Container Registry](container-registry-roles.md)
+* [Azure roles and permissions - Azure Container Registry](container-registry-roles.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 * [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -137,7 +140,5 @@ If you don't resolve your problem here, see the following options.
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/) - based on information you provide, a quick diagnostic might be run for authentication failures in your registry
-
-

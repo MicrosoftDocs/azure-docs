@@ -67,6 +67,12 @@ landingContent:
             url: backup-center-overview.md
           - text: Backup Azure Database for PostgreSQL 
             url: backup-azure-database-postgresql.md
+          - text: Selective disk backup and restore for Azure VMs
+            url: selective-disk-backup-restore.md
+          - text: Cross Region Restore for SQL Server databases on Azure VMs
+            url: restore-sql-database-azure-vm.md#cross-region-restore
+          - text: Support for backup of VM with up to 32 disks
+            url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files

@@ -5,13 +5,10 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
 ---
 
@@ -27,14 +24,12 @@ To create custom roles, you need:
 
 ## Step 1: Determine the permissions you need
 
-Azure has thousands of permissions that you can potentially include in your custom role. Here are four ways that you can determine the permissions you will want to add to your custom role:
+Azure has thousands of permissions that you can potentially include in your custom role. Here are some methods that can help you determine the permissions you will want to add to your custom role:
 
-| Method | Description |
-| --- | --- |
-| Look at existing roles | You can look at existing roles to see what permissions are being used. For more information, see [Azure built-in roles](built-in-roles.md). |
-| Search for permissions by keyword | When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions). |
-| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the **Add permissions** pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
-| View the permissions in the docs | You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md). |
+- Look at existing [built-in roles](built-in-roles.md).
+- List the Azure services you want to grant access to.
+- Determine the [resource providers that map to the Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). A search method is described later in [Step 4: Permissions](#step-4-permissions).
+- Search the [available permissions](resource-provider-operations.md) to find permissions you want to include. A search method is described later in [Step 4: Permissions](#step-4-permissions).
 
 ## Step 2: Choose how to start
 
@@ -327,7 +322,7 @@ Follow these steps to view your custom roles.
 
 1. Click the ellipsis (**...**) for the custom role you want to delete and then click **Delete**.
 
-    ![Custom role menu](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot that shows a list of custom roles that can be selected for deletion.](./media/custom-roles-portal/delete-menu.png)
 
     It can take a few minutes for your custom role to be completely deleted.
 
@@ -335,4 +330,4 @@ Follow these steps to view your custom roles.
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)

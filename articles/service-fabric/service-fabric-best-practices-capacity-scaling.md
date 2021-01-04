@@ -46,21 +46,11 @@ Using automatic scaling through virtual machine scale sets will make your versio
 > [!NOTE]
 > Your primary node type that hosts stateful Service Fabric system services must be Silver durability level or greater. After you enable Silver durability, cluster operations such as upgrades, adding or removing of nodes, and so on will be slower because the system optimizes for data safety over speed of operations.
 
-Vertical scaling a virtual machine scale set is a destructive operation. Instead, horizontally scale your cluster by adding a new scale set with the desired SKU. Then, migrate your services to your desired SKU to complete a safe vertical scaling operation. Changing a virtual machine scale set resource SKU is a destructive operation because it reimages your hosts, which removes all locally persisted state.
+Vertical scaling a virtual machine scale set by simply changing its resource SKU is a destructive operation, because it re-images your hosts thus removing all locally persisted state. Instead, you'll want to horizontally scale your cluster by adding a new scale set with the desired SKU and then migrate your services to the new scale set to complete a safe vertical scaling operation.
 
-Your cluster uses Service Fabric [node properties and placement constraints](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) to decide where to host your application's services. When you're vertically scaling your primary node type, declare identical property values for `"nodeTypeRef"`. You can find these values in the Service Fabric extension for virtual machine scale sets. 
-
-The following snippet of a Resource Manager template shows the properties you'll declare. It has the same value for the newly provisioned scale sets that you're scaling to, and it's supported only as a temporary stateful service for your cluster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+Your cluster uses Service Fabric [node properties and placement constraints](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) to decide where to host your application's services. When vertically scaling a primary node type, you'll deploy a second primary node type and then set (`"isPrimary": false`) on the original primary node type and proceed to disable its nodes and remove its scale set and its related resources. For details, see [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> Don't leave your cluster running with multiple scale sets that use the same `nodeTypeRef` property value longer than required to complete a successful vertical scaling operation.
->
 > Always validate operations in test environments before you attempt changes to the production environment. By default, Service Fabric cluster system services have a placement constraint to only the target primary node type.
 
 With the node properties and placement constraints declared, do the following steps one VM instance at a time. This allows the system services (and your stateful services) to be shut down gracefully on the VM instance you're removing as new replicas are created elsewhere.

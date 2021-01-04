@@ -7,9 +7,9 @@ author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
-
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -66,7 +66,7 @@ Extension packages are downloaded from the Azure Storage extension repository, a
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.16* using the guest firewall or with a proxy, extensions fail irrespective of the above. Ports 80, 443, and 32526 are required.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](../../virtual-network/security-overview.md#service-tags) to Storage or AzureActiveDirectory.
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) to Storage or AzureActiveDirectory.
 
 The Windows Guest Agent does not have proxy server support for you to redirect agent traffic requests through, which means that the Windows Guest Agent will rely on your custom proxy (if you have one) to access resources on the internet or on the Host through IP 168.63.129.16.
 
@@ -351,7 +351,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc.
 

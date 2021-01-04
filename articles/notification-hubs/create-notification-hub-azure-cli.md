@@ -28,21 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-## Install the Azure CLI extension
-
-When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that haven't shipped as part of the core CLI. To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-Install the Azure CLI extension for Notification Hubs.
-
-```azurecli
-az extension add --name notification-hub
-```
+> Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## Create a resource group
 
-Azure Notification Hubs, like all Azure resources, must be deployed into a resource group.  Resource groups allow you to organize and manage related Azure resources.  See [What is Azure Resource Manager](/azure/azure-resource-manager/management/overview) to learn more about resource groups.
+Azure Notification Hubs, like all Azure resources, must be deployed into a resource group.  Resource groups allow you to organize and manage related Azure resources.  See [What is Azure Resource Manager](../azure-resource-manager/management/overview.md) to learn more about resource groups.
 
 For this quickstart, create a resource group named **spnhubrg** in the **eastus** location with the following [az group create](/cli/azure/group#az-group-create) command.
 

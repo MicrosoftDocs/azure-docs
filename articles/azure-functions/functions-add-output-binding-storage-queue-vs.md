@@ -25,7 +25,7 @@ Before you start this article, you must:
 
 ## Download the function app settings
 
-In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. 
 
@@ -102,7 +102,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. To
 Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Enable Application Insights integration](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [previous quickstart article]: functions-create-your-first-function-visual-studio.md

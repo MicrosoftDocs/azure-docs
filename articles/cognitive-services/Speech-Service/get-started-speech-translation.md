@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: speech translation
 ---
 
@@ -29,16 +29,16 @@ keywords: speech translation
 [!INCLUDE [Java Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-more"
-[!INCLUDE [More languages include](includes/how-to/speech-translation-basics/more.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
 ::: zone-end
 
 ## Next steps

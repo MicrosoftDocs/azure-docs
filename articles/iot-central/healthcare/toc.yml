@@ -92,38 +92,38 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../../iot-fundamentals/iot-support-help.md
     - name: Azure IoT services
       items:
       - name: IoT Hub
-        href: /azure/iot-hub
+        href: ../../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
-        href: /azure/iot-dps
+        href: ../../iot-dps/index.yml
       - name: IoT Central
-        href: https://docs.microsoft.com/microsoft-iot-central/
+        href: /microsoft-iot-central/
       - name: IoT Edge
-        href: /azure/iot-edge
+        href: ../../iot-edge/index.yml
       - name: IoT solution accelerators
-        href: /azure/iot-accelerators
+        href: ../../iot-accelerators/index.yml
       - name: IoT Plug and Play
-        href: /azure/iot-pnp
+        href: ../../iot-pnp/index.yml
       - name: Azure Maps
-        href: /azure/azure-maps
+        href: ../../azure-maps/index.yml
       - name: Time Series Insights
-        href: /azure/time-series-insights
+        href: ../../time-series-insights/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Supported browsers
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Azure API for FHIR
-      href: https://docs.microsoft.com/azure/healthcare-apis/
+      href: ../../healthcare-apis/index.yml
     - name: Designing secure health solutions
-      href: https://docs.microsoft.com/azure/security/fundamentals/health-care-solution 
+      href: https://gallery.technet.microsoft.com/Azure-A-Practical-Guide-to-5ebdc8bd/file/155342/1/Azure%20A%20Practical%20Guide%20to%20Designing%20Secure%20Health%20Solutions%20using%20Microsoft%20Azure.pdf
     - name: Azure IoT Central (legacy templates)
       href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central

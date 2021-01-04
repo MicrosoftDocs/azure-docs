@@ -51,7 +51,7 @@ FROM [dbo].[vTargetMail]
 
 Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Follow the steps below to create a Datastore and a corresponding Dataset:
 
-1. Launch Azure Machine learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
+1. Launch Azure Machine Learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. Click on **Datastores** on the left pane in the **Manage** section and then click on **New Datastore**.
 

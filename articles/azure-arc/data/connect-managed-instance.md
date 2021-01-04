@@ -62,7 +62,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 If you are using an Azure virtual machine, then the endpoint IP address will not show the public IP address. To locate the external IP address, use the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -72,7 +72,7 @@ You may also need to expose the port of the sql instance through the network sec
 
 To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -80,7 +80,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `azdata sql instance list`F command above.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

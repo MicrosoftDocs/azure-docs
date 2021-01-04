@@ -179,7 +179,6 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 >[!IMPORTANT]
 > Before proceeding to configure protection, you must have **successfully** completed the following steps:
 >
->1. Enabled your subscription to use customer-managed keys for your Backup vault.
 >1. Created your Backup vault
 >1. Enabled the Backup vault’s system-assigned Managed Identity
 >1. Assigned permissions to your Backup Vault to access encryption keys from your Key Vault

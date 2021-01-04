@@ -41,7 +41,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 | **Open-source** | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Development language**    | C | C# |
 | **Supported Windows platforms?** | No | Yes |
-| **Windows prerequisites** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **Windows prerequisites** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **Supported Linux platforms?** | Yes, x64 and x86 | Yes, x64 only |
 | **Linux prerequisites** | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | **Disk footprint** | 10.5 MB | 90 MB |

@@ -3,12 +3,15 @@ title: RAND in Azure Cosmos DB query language
 description: Learn about SQL system function RAND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a randomly generated numeric value from [0,1).
  
 ## Syntax

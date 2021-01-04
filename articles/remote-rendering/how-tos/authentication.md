@@ -9,19 +9,22 @@ ms.topic: how-to
 
 # Configure authentication
 
-Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Clients need to set *one* of the following to call the REST APIs successfully:
+Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Clients need to set *one* of the following to call the REST APIs successfully:
 
 * **AccountKey**: can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. Account Keys are only recommend for development/prototyping.
     ![Account ID](./media/azure-account-primary-key.png)
 
-* **AuthenticationToken**: is an Azure AD token, which can be obtained by using the [MSAL library](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). There are multiple different flows available to accept user credentials and use those credentials to obtain an access token.
+* **AccountDomain**: can be obtained in the "Overview" tab for the Remote Rendering account on the Azure portal.
+    ![Account Domain](./media/azure-account-domain.png)
 
-* **MRAccessToken**: is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). Retrieved from the `https://sts.mixedreality.azure.com` endpoint using a REST call similar to the below call:
+* **AuthenticationToken**: is an Azure AD token, which can be obtained by using the [MSAL library](../../active-directory/develop/msal-overview.md). There are multiple different flows available to accept user credentials and use those credentials to obtain an access token.
+
+* **MRAccessToken**: is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). Retrieved from the `https://sts.<accountDomain>` endpoint using a REST call similar to the below:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK
@@ -39,11 +42,11 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
 
 Account keys are recommended for quick prototyping, during development only. It's recommended not to ship your application to production using an embedded account key in it. The recommended approach is to use a user-based or service-based Azure AD authentication approach.
 
- Azure AD authentication is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
+ Azure AD authentication is described in the [Azure AD user authentication](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](../../spatial-anchors/index.yml) service.
 
  For more information, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## Role-based access control
+## Azure role-based access control
 
 To help control the level of access granted your service, use the following roles when granting role-based access:
 

@@ -119,7 +119,7 @@ You can create a connection between virtual networks that are in different subsc
 
 To configure a connection between a classic virtual network and a Resource Manager virtual network, see [Connect virtual networks from different deployment models by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Classic virtual network connection to an Azure Resource Manager virtual network](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagram that shows a classic virtual network connection to an Azure Resource Manager virtual network.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 To check the configuration when you connect a classic virtual network to an Azure Resource Manager virtual network, follow these instructions.
 

@@ -1,14 +1,14 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 # Explore your Azure resources with Resource Graph
 
 Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
-about the properties that make up your Azure resources.
+about the properties that exist on your Azure resources.
 
 ## Explore virtual machines
 
@@ -105,8 +105,9 @@ The JSON results are structured similar to the following example:
 ]
 ```
 
-The properties tell us additional information about the virtual machine resource itself, everything
-from SKU, OS, disks, tags, and the resource group and subscription it's a member of.
+The properties tell us additional information about the virtual machine resource itself. These
+properties include: operating system, disks, tags, and the resource group and subscription it's
+a member of.
 
 ### Virtual machines by location
 
@@ -172,9 +173,8 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Virtual machines connected to premium-managed disks
 
-If we wanted to get the details of premium-managed disks that are attached to these
-**Standard_B2s** virtual machines, we can expand the query to give us the resource ID of those
-managed disks.
+To get the details of premium-managed disks that are attached to these **Standard_B2s** virtual
+machines, we expand the query to return the resource ID of those managed disks.
 
 ```kusto
 Resources

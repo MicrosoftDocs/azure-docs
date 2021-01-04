@@ -29,7 +29,7 @@ Azure Policy consists of the objects in the following table. See [Azure Policy o
 | Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or apply it to a subscription to apply it to all resources in that subscription.  For more details, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md). |
 
 ## Built-in policy definitions for Azure Monitor
-Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](samples/policy-samples.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](./samples/policy-reference.md).
 
 To view the built-in policy definitions related to monitoring, perform the following:
 
@@ -37,7 +37,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 2. Select **Definitions**.
 3. For **Type**, select *Built-in* and for **Category**, select *Monitoring*.
 
-  ![Built-in policy definitions](media/deploy-scale/builtin-policies.png)
+  ![Screenshot of the Azure Policy Definitions page in Azure portal showing a list of policy definitions for the Monitoring category and Built-in Type.](media/deploy-scale/builtin-policies.png)
 
 
 ## Diagnostic settings
@@ -50,7 +50,7 @@ There are two built-in policy definitions for each resource type, one to send to
 
 For example, the following image shows the built-in diagnostic setting policy definitions for Data Lake Analytics.
 
-  ![Built-in policy definitions](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### Custom policy definitions
 For resource types that don't have a built-in policy, you need to create a custom policy definition. You could do this manually in the Azure portal by copying an existing built-in policy and then modifying for your resource type. It's more efficient though to create the policy programatically using a script in the PowerShell Gallery.
@@ -105,7 +105,7 @@ See [Create and assign an initiative definition](../governance/policy/tutorials/
 ### Assignment 
 Assign the initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
-![Initiative assignment](media/deploy-scale/initiative-assignment.png)
+![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in Azure portal.](media/deploy-scale/initiative-assignment.png)
 
 By using initiative parameters, you can specify the workspace or any other details once for all of the policy definitions in the initiative. 
 
@@ -142,7 +142,7 @@ For details of this process, see [Enable Azure Monitor for VMs by using Azure Po
 ### Virtual machine scale sets
 To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
-![Initiative assignment](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for virtual machine scale sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in []().
 

@@ -1,15 +1,8 @@
 ---
-title: Capture a browser trace for troubleshooting | Microsoft Docs 
+title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-services: azure-portal
-keywords: 
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-
-ms.service: azure-portal
-manager:  mtillman
 ---
 
 # Capture a browser trace for troubleshooting
@@ -26,17 +19,17 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/chromium-icon-settings.png) > **More tools** > **Developer tools**.
+1. Press F12 or select ![Screenshot that shows the browser settings icon.](media/capture-browser-trace/chromium-icon-settings.png) > **More tools** > **Developer tools**.
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve log**.
 
-          ![Screenshot of "Preserve log"](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Screenshot that highlights the Preserve log option on the Network tab.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
     1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**. Select **Console settings** again to close the settings pane.
 
-          ![Screenshot of "Preserve Log"](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Screenshot that highlights the Preserve log option on the Console tab.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
 1. Select the **Network** tab, then select **Stop recording network log** and **Clear**.
 
@@ -44,21 +37,21 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
 1. Select **Record network log**, then reproduce the issue in the portal.
 
-    ![Screenshot of "Start profiling session"](media/capture-browser-trace/chromium-start-session.png)
+    ![Screenshot that shows how to record the network log.](media/capture-browser-trace/chromium-start-session.png)
 
     You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Screenshot that shows the session output.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Stop recording network log**, then select **Export HAR** and save the file.
 
-    ![Screenshot of "Export HAR"](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Screenshot that shows how to Export HAR on the Network tab.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Stop Steps Recorder, and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
-    ![Screenshot of console output](media/capture-browser-trace/chromium-console-select.png)
+    ![Screenshot that highlights the Console tab and the Save as... menu](media/capture-browser-trace/chromium-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
@@ -72,7 +65,7 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/edge-icon-settings.png) > **More tools** > **Developer tools**.
+1. Press F12 or select ![Screenshot of the browser settings icon.](media/capture-browser-trace/edge-icon-settings.png) > **More tools** > **Developer tools**.
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
@@ -94,7 +87,7 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
     You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Screenshot that shows the output for the profiling session.](media/capture-browser-trace/edge-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Stop profiling session**, then select **Export as HAR** and save the file.
 
@@ -104,7 +97,7 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Right-click, then select **Copy**, and save the console output to a text file.
 
-    ![Screenshot of console output](media/capture-browser-trace/edge-console-select.png)
+    ![Screenshot that highlights the Copy menu option.](media/capture-browser-trace/edge-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
@@ -136,11 +129,11 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
     1. Select the **Network** tab, then select **Preserve Log**.
 
-          ![Screenshot of "Preserve Log"](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Screenshot that shows the Preserve Log option.](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Select the **Console** tab, then select **Preserve Log**.
 
-          ![Screenshot of "Preserve Log"](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Screenshot that shows the Preserve Log on the Console tab.](media/capture-browser-trace/safari-console-preserve-log.png)
 
 1. Select the **Network** tab, then select **Clear Network Items**.
 
@@ -148,7 +141,7 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
 1. Reproduce the issue in the portal. You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Screenshot that shows the output after you've reproduced the issue.](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Export** and save the file.
 
@@ -158,7 +151,7 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Use Command-C to copy the output and save it to a text file.
 
-    ![Screenshot of console output](media/capture-browser-trace/safari-console-select.png)
+    ![Screenshot that highlights you can view and copy the output.](media/capture-browser-trace/safari-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
@@ -178,7 +171,7 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
     1. Select the **Network** tab, then select **Persist Logs**.
 
-          ![Screenshot of "Persist Logs"](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Screenshot that highlights the Persist Logs option.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
     1. Select the **Console** tab, select **Console settings**, then select **Persist Logs**.
 

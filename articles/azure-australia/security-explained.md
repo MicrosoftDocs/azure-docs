@@ -59,7 +59,7 @@ The infrastructure that supports Azure potentially serves data of multiple class
 
 To assure our customers that one tenant in Azure isn't at risk from other tenants, Microsoft implements comprehensive defence-in-depth controls.
 
-Beyond the capabilities implemented within the Microsoft Azure platform, additional customer configurable controls, such as encryption with customer-managed keys, nested virtualisation, and just-in-time administrative access, can further reduce the risk. Within the Azure Government Australia regions in Canberra, a process for formal whitelisting only Australian and New Zealand government and national critical infrastructure organisations is in place. This community cloud provides additional assurance to organisations that are sensitive to cotenant risks.
+Beyond the capabilities implemented within the Microsoft Azure platform, additional customer configurable controls, such as encryption with customer-managed keys, nested virtualisation, and just-in-time administrative access, can further reduce the risk. Within the Azure Government Australia regions in Canberra, a process for formal approving only Australian and New Zealand government and national critical infrastructure organisations is in place. This community cloud provides additional assurance to organisations that are sensitive to cotenant risks.
 
 The Microsoft Azure PROTECTED Certification Report confirms that these controls are effective for the storage and processing of PROTECTED classified data and their isolation.
 

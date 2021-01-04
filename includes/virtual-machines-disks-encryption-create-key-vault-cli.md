@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/15/2020
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 1. Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).
 
