@@ -75,7 +75,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Google Cloud (G Suite) Connector supports **SP** initiated SSO
 
-* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./google-apps-provisioning-tutorial.md)
+* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./g-suite-provisioning-tutorial.md)
 
 ## Adding Google Cloud (G Suite) Connector from the gallery
 
