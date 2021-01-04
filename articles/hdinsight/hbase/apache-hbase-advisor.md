@@ -91,4 +91,4 @@ The full table scan advisory indicates that over 75% of the scans issued are ful
    
 ## Next steps
 
-[Optimize Apache HBase using Ambari](optimize-hbase-ambari.md)
+[Optimize Apache HBase using Ambari](../optimize-hbase-ambari.md)
