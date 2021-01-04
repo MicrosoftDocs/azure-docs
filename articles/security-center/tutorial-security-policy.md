@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 ---
 
-# Working with security policies
+# Manage security policies
 
 This article explains how security policies are configured, and how to view them in Security Center. 
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Programmatically create Azure subscriptions with an Azure Resource Manager template

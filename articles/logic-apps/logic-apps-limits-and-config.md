@@ -303,12 +303,12 @@ Each Azure subscription has these integration account limits:
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to a total number of integration accounts, but [you can raise this limit for an additional cost](logic-apps-pricing.md#fixed-pricing):
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), can use a single integration account at no additional cost, although the included account type varies by ISE SKU. You can create more integration accounts for your ISE up to the total limit for an [additional cost](logic-apps-pricing.md#fixed-pricing):
 
   | ISE SKU | Integration account limits |
   |---------|----------------------------|
-  | **Premium** | 20 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. You can have [more integration accounts for an additional cost](logic-apps-pricing.md#fixed-pricing). No Free or Basic accounts are permitted. |
-  | **Developer** | 20 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. You can have [more integration accounts for an additional cost](logic-apps-pricing.md#fixed-pricing). No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
+  | **Premium** | 20 total accounts, including one Standard account at no additional cost. With this SKU, you can have only [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. No Free or Basic accounts are permitted. |
+  | **Developer** | 20 total accounts, including one [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) account (limited to 1). With this SKU, you can have either combination: <p>- A Free account and up to 19 [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts. <br>- No Free account and up to 20 Standard accounts. <p>No Basic or additional Free accounts are permitted. <p><p>**Important**: Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -317,8 +317,7 @@ To learn how pricing and billing work for ISEs, see the [Logic Apps pricing mode
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account tier.
-For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Here are the limits on the number of artifacts for each integration account tier. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Use the Free tier only for exploratory scenarios,
@@ -417,7 +416,10 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
 > rather than specify inbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available.
+> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
+> rather than specify inbound managed connector IP address prefixes for each region.
+> These tags work across the regions where the Logic Apps service is available.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -483,9 +485,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
 > rather than specify outbound Logic Apps IP address prefixes for each region.
-> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
-> rather than specify outbound managed connector IP address prefixes for each region. 
-> These tags work across the regions where the Logic Apps service is available. 
+> This tag works across the regions where the Logic Apps service is available. 
 
 <a name="multi-tenant-outbound"></a>
 
