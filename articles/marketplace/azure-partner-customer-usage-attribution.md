@@ -24,29 +24,20 @@ There are secondary use cases for customer usage attribution outside of Commerci
 
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure.
->
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
->
->- Customer usage attribution is required for [Azure Application](./create-new-azure-apps-offer.md) offers published to Azure Marketplace. [REMOVE?]
->
->- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues today that cause under-reporting of usage.
+>- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
 
 ## Commercial Marketplace Azure applications
-Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your offer](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure Application's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
-If you use Azure Resource Manager APIs, you will need to set your tracking ID per the instructions below. Instead of using a GUID as your tracking ID, you should format it as: **"pid-publisherid-offerid"**. For example: "pid-contosocorp-contosooffer".
+If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#Use-Resource-Manager-APIs) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
 
 >[!NOTE]
-For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each application's technical configuration. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
+For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
 
-> [!TIP]
->For more information on creating Azure application offers in Commercial Marketplace, explore these resources:
-> * Documentation: [Creating an Azure application offer](./create-new-azure-apps-offer.md).
-> * Video: [Building Solution Templates and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+## Other use cases 
 
-## Non-Commercial Marketplace use cases 
-
-You may use customer usage attribution to track Azure usage of solutions not avaialble in Commercial Marketplace. These solutions usually reside in the Quickstart repository, private GitHub repositories, or come from 1:1 customer engagements that create durable IP (such as a deployable and scalable app).
+You may use customer usage attribution to track Azure usage of solutions not available in Commercial Marketplace. These solutions usually reside in the Quickstart repository, private GitHub repositories, or come from 1:1 customer engagements that create durable IP (such as a deployable and scalable app).
 
 There are several manual steps required:
 1. Create one or more GUIDs to use as your tracking IDs
@@ -55,7 +46,7 @@ There are several manual steps required:
 
 ### Create GUIDs
 
-Unlike the tracking IDs that Partner Center creates on your behalf for Azure applications in Commercial Marketplace, non-Commercial Marketplace uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell:
+Unlike the tracking IDs that Partner Center creates on your behalf for Azure applications in Commercial Marketplace, other uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell:
 
 ```powershell
 [guid]::NewGuid()
@@ -113,8 +104,60 @@ Many partner solutions are deployed using Resource Manager templates. To add you
 > [!TIP]
 > For more information on creating and publishing Resourse Manager templates, see: [create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
+### Verify deployments tracked with a GUID
 
-## Track deployments with the Resource Manager APIs
+After you modify your template and run a test deployment, use the following PowerShell script to retrieve the resources that you deployed and tagged.
+
+You can use the script to verify that the GUID is successfully added to your Resource Manager template. The script doesn't apply to Resource Manager API or Terraform deployments.
+
+Sign in to Azure. Select the subscription with the deployment that you want to verify before you run the script. Run the script within the subscription context of the deployment.
+
+The **GUID** and **resourceGroup** name of the deployment are required parameters.
+
+You can get [the original script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) on GitHub.
+
+```powershell
+Param(
+    [GUID][Parameter(Mandatory=$true)]$guid,
+    [string][Parameter(Mandatory=$true)]$resourceGroupName
+)
+
+# Get the correlationId of the pid deployment
+
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
+$resourceGroupName -Name "pid-$guid").correlationId
+
+# Find all deployments with that correlationId
+
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+
+# Find all deploymentOperations in a deployment by name
+# PowerShell doesn't surface outputResources on the deployment
+# or correlationId on the deploymentOperation
+
+foreach ($deployment in $deployments){
+
+# Get deploymentOperations by deploymentName
+# then the resourceId for any create operation
+
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+
+}
+```
+### Notify your customers
+
+Partners should inform their customers about deployments that use customer usage attribution. Microsoft reports the Azure usage that's associated with these deployments to the partner. The following examples include content that you can use to notify your customers about these deployments. In the examples, replace \<PARTNER> with your company name. Partners should make sure the notification aligns with their data privacy and collection policies, including options for customers to be excluded from tracking.
+
+#### Notification for Resource Manager template deployments
+
+When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
+
+#### Notification for SDK or API deployments
+
+When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
+
+
+## Use Resource Manager APIs
 
 In some cases, you may make calls directly against the Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](../index.yml?pivot=sdkstools) to enable these calls. You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
@@ -122,19 +165,15 @@ To enable customer usage attribution, when you design your API calls, include yo
 
 ```xml
 //Commercial Marketplace Azure application
-pid-contoso-myoffer //enter your ID after the "pid-"
+pid-contoso-myoffer-partnercenter //copy your ID exactly as it appears from Partner Center
 
-//Non-Commercial Marketplace use case
-pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after the "pid-"
+//Other use cases
+pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after "pid-"
 ```
 > [!IMPORTANT]
-> - **If you are using the Resource Manager APIs with an Azure Application in Commercial Marketplace, use the tracking ID provided in Partner Center instead of a GUID.**
-> - The format of the string is important. If the `pid-` prefix isn't included, customer usage attribution will not function correctly.
+> - **If you are using the Resource Manager APIs with an Azure Application in Commercial Marketplace, use the tracking ID provided in Partner Center. Do NOT use a GUID.**
 
-Different SDKs interact with the Resource Manager APIs differently and will require some differences in your code. The examples below feature the non-Commercial Marketplace approach using a GUID and cover a variety of the more popular Azure SDKs.
-
-[REMOVE]
-![Example GUID format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
+Various SDKs interact with the Resource Manager APIs differently and will require some differences in your code. The examples below feature the non-Commercial Marketplace approach using a GUID and cover a variety of the more popular Azure SDKs.
 
 #### Example: Python SDK
 
@@ -146,10 +185,6 @@ client.config.add_user_agent("pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4")
 ```
 > [!IMPORTANT]
 > Add the attribute for each client. There's no global static configuration. You might tag a client factory to be sure every client is tracking. For more information, see this [client factory sample on GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
-
-[REMOVE]
-![Add the attribute to a user agent](media/marketplace-publishers-guide/python-for-lu.PNG)
-
 
 #### Example: .NET SDK
 
@@ -203,62 +238,9 @@ Partners who want to get their deployment via Terraform tracked by customer usag
 * Create a GUID (the GUID should be added for each Offer or SKU)
 * Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
 
-## Verify the GUID deployment
-
-After you modify your template and run a test deployment, use the following PowerShell script to retrieve the resources that you deployed and tagged.
-
-You can use the script to verify that the GUID is successfully added to your Resource Manager template. The script doesn't apply to Resource Manager API or Terraform deployments.
-
-Sign in to Azure. Select the subscription with the deployment that you want to verify before you run the script. Run the script within the subscription context of the deployment.
-
-The **GUID** and **resourceGroup** name of the deployment are required parameters.
-
-You can get [the original script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) on GitHub.
-
-```powershell
-Param(
-    [GUID][Parameter(Mandatory=$true)]$guid,
-    [string][Parameter(Mandatory=$true)]$resourceGroupName
-)
-
-# Get the correlationId of the pid deployment
-
-$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
-$resourceGroupName -Name "pid-$guid").correlationId
-
-# Find all deployments with that correlationId
-
-$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
-
-# Find all deploymentOperations in a deployment by name
-# PowerShell doesn't surface outputResources on the deployment
-# or correlationId on the deploymentOperation
-
-foreach ($deployment in $deployments){
-
-# Get deploymentOperations by deploymentName
-# then the resourceId for any create operation
-
-($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
-
-}
-```
-
 ## Report
 
 You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a [support request](#get-support).
-
-## Notify your customers
-
-Partners should inform their customers about deployments that use customer usage attribution. Microsoft reports the Azure usage that's associated with these deployments to the partner. The following examples include content that you can use to notify your customers about these deployments. In the examples, replace \<PARTNER> with your company name. Partners should make sure the notification aligns with their data privacy and collection policies, including options for customers to be excluded from tracking.
-
-### Notification for Resource Manager template deployments
-
-When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
-
-### Notification for SDK or API deployments
-
-When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ## Get support
 
@@ -278,23 +260,19 @@ Learn about the support options in the commercial marketplace at [Support for th
 
 View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
-### What's next
-
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 
 ## FAQ
 
-**What's the benefit of adding the GUID to the template?**
+**After a tracking ID is added, can it be changed?**
 
-Microsoft provides partners with a view of customer deployments of their solutions and insights on their influenced usage. Both Microsoft and the partner can use this information to drive closer engagement between sales teams. Both Microsoft and the partner can use the data to get a more consistent view of an individual partner's impact on Azure growth.
+Tracking IDs for Commercial Marketplace Azure applications are managed automatically by Partner Center.
 
-**After a GUID is added, can it be changed?**
-
-Yes, a customer or implementation partner may customize the template and can change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the GUID. Changing the GUID affects only new, not existing, deployments, and resources.
+It is possible for a customer to download the a template and change or remove the tracking ID. We suggest that partners proactively describe the role of the tracking ID to their customers to prevent removal or edits. Changing the tracking ID affects only new, not existing, deployments and resources.
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
-Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners must still register their GUIDs.
+Yes, as long as the tracking ID is present when the template is deployed, usage is tracked.
 
 **Does the customer receive reporting as well?**
 
@@ -303,16 +281,3 @@ Customers can track their usage of individual resources or customer-defined reso
 **Is this methodology similar to the Digital Partner of Record (DPOR)?**
 
 This new method of connecting the deployment and usage to a partner's solution provides a mechanism to link a partner solution to Azure usage. DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer's Azure subscription.
-
-**Failed to update *contentVersion* property for the main template?**
-
-This is likely a bug, in cases when the template is being deployed using a TemplateLink from another template that expects older contentVersion for some reason. The workaround is to use the metadata property:
-
-```
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "contentVersion": "1.0.1.0"
-    },
-    "parameters": {
-```
