@@ -24,12 +24,6 @@ This section describes how to use Microsoft resources created specifically to re
 
 These resources can also be used to understand and mitigate risks in other similar supply chain attacks and system identity compromises.
 
-> [!IMPORTANT]
-> Microsoft has taken swift action to neutralize and then kill the malware in the SolarWinds attack, and then take control oer the malware infrastructure from the attackers.
->
-> The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
-> 
-
 ## About the SolarWinds attack and Microsoft's response
 
 In December 2020, [FireEye discovered a nation-state cyber attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
@@ -46,7 +40,19 @@ Following this discovery, Microsoft swiftly took the following steps against the
 
 1. **Changed Windows Defender's default action for Solarigate from *Alert* to *Quarantine***, effectively killing the malware when found at the risk of crashing the system.
 
-If you suspect that your organization has been affected by the SolarWinds attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
+The SolarWinds attack provided the attacker with a foothold into affected networks, which the attacker then used to gain elevated credentials. The attacker then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
+
+The global administrator account or certificates enabled the attacker to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
+
+> [!IMPORTANT]
+> Microsoft has taken swift action to neutralize and then kill the malware in the SolarWinds attack, and then take control oer the malware infrastructure from the attackers.
+>
+> The Solarwinds attack is an ongoing investigation, and our teams continue to act as first responders to these attacks. As new information becomes available, we will make updates through our Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
+> 
+
+## Securing your network after a systemic identify compromise
+
+If you suspect that your organization has been affected by Solarigate or another similar attack, we recommend that you use Microsoft products such as Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and compromise, and then isolate resources and harden your system against attack.
 
 Azure Sentinel users have the advantage of Sentinel connectors for Microsoft Defender and Azure Active Directory, which provide all relevant data and checks through a single view. We therefore recommend that Sentinel users with these connectors start responding to threats by querying data found in Sentinel.
 
@@ -56,13 +62,21 @@ For more information, see:
 
 - [Use Microsoft Azure Sentinel to respond to supply chain attacks and systemic identity threats](#use-microsoft-azure-sentinel-to-respond-to-supply-chain-attacks-and-systemic-identity-threats)
 
-- [Use an Azure Active Directory workbook to help assess your organization's Solarigate risk](#azure-active-directory)
+- [Use Azure Active Directory to respond to supply chain attacks and systemic identity threats](#use-azure-active-directory-to-respond-to-supply-chain-attacks-and-systemic-identity-threats)
 
-- [Use Microsoft Defender solutions to identify malicious activity in your network](#microsoft-defender)
+- [Use Microsoft Defender to respond to supply chain attacks and systemic identity threats](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats)
+
+- [MITRE ATT&CK techniques observed in Solarigate](#mitre-attck-techniques-observed-in-solarigate).
 
 - [Solarigate indicators of compromise (IOCs)](#solarigate-indicators-of-compromise-iocs)
 
-- [Additional blog references](#references) 
+- [Microsoft references for Solarigate](#microsoft-references-for-solorigate) 
+
+> [!NOTE]
+> Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
+>
+> We recommend performing as many checks as possible with an informed understanding of your network estate.
+>
 ## Use Microsoft Azure Sentinel to respond to supply chain attacks and systemic identity threats
 
 Azure Sentinel enables you to analyze data from across products, including both on-premises and cloud environments. 
@@ -71,21 +85,23 @@ For example, Microsoft 365 Defender has a range of alerts and queries for known 
 
 Use Azure Sentinel to hunt for attack activity, especially with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For example, if you have recently rotated Active Directory Federated Service (ADFS) key material, use the [Sentinel hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) to identify attacker sign-in activity if they sign in with old key material. 
 
-> [!NOTE]
+> [!TIP]
 > Azure Sentinel and the M365 Advanced Hunting portal share the same query language and similar data types. Therefore, all of the referenced queries can be used directly or slightly modified to work in both products.
 >
+>
 
-We recommend that you use Sentinel to perform the following steps:
+We recommend that you use Sentinel to perform the following steps as needed in your organization:
 
 1. [Find machines with SolarWinds Orion components](#step-1-use-sentinel-to-find-machines-with-solarwinds-orion-components)
 1. [Identify escalating privileges in your system](#step-2-use-sentinel-to-identify-escalating-privileges-in-your-system)
 1. [Find exported certificates](#step-3-use-sentinel-to-find-exported-certificates)
-1. [Find reconnaissance and remote process execution](#step-4-use-sentinel-to-find-reconnaissance-and-remote-process-execution)
-1. [Find illicit data access](#step-5-use-sentinel-to-find-illicit-data-access)
-1. [Find mail data exfiltration](#step-6-use-sentinel-to-find-mail-data-exfiltration)
-1. [Find suspicious domain-related activity](#step-7-use-sentinel-to-find-suspicious-domain-related-activity)
-1. [Find evidence of security service tampering](#step-8-use-sentinel-to-find-evidence-of-security-service-tampering)
-1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-9-use-sentinel-to-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
+1. [Hunt through Azure Active Directory logs](#step-4-use-sentinel-to-hunt-through-azure-active-directory-logs)
+1. [Find reconnaissance and remote process execution](#step-5-use-sentinel-to-find-reconnaissance-and-remote-process-execution)
+1. [Find illicit data access](#step-6-use-sentinel-to-find-illicit-data-access)
+1. [Find mail data exfiltration](#step-7-use-sentinel-to-find-mail-data-exfiltration)
+1. [Find suspicious domain-related activity](#step-8-use-sentinel-to-find-suspicious-domain-related-activity)
+1. [Find evidence of security service tampering](#step-9-use-sentinel-to-find-evidence-of-security-service-tampering)
+1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-10-use-sentinel-to-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
 ### Step 1: Use Sentinel to find machines with SolarWinds Orion components
 
@@ -192,7 +208,7 @@ For more information, see:
 
 - [Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel)- **Detections** and **Hunting Queries** sections for AuditLogs and SecurityEvents
 - [Microsoft 365 Defender advanced hunting portal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
-- [Use Microsoft Defender solutions to identify malicious activity in your network](#microsoft-defender), below
+- [Use Microsoft Defender to respond to supply chain attacks and systemic identity threats](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), below
 
 ### Step 3: Use Sentinel to find exported certificates
 
@@ -971,10 +987,10 @@ We recommend that Microsoft 365 Defender customers to start their investigations
 Use these reports, and other alerts and queries to perform the following recommended steps:
 
 - [Use Microsoft Defender to find devices with the compromised SolarWinds Orion application](#use-microsoft-defender-to-find-devices-with-the-compromised-solarwinds-orion-application)
-- [Investigate related alerts and incidents](#investigate-related-alerts-and-incidents)
-- [Hunt for related attacker activity](#hunt-for-related-attacker-activity)
+- [Investigate related Microsoft Defender alerts and incidents](#investigate-related-microsoft-defender-alerts-and-incidents)
+- [Use Microsoft Defender to hunt for related attacker activity](#use-microsoft-defender-to-hunt-for-related-attacker-activity)
 
-For more information, see [Advanced query reference](#advanced-query-reference) and [MITRE ATT&CK techniques observed](#mitre-attck-techniques-observed).
+For more information, see [Advanced Microsoft Defender query reference](#advanced-microsoft-defender-query-reference).
 
 ### Microsoft Defender for threat analytics reports
 
@@ -1033,8 +1049,8 @@ Review incidents in the [Incidents](/microsoft-365/security/mtp/investigate-inci
 
 For more information, see the [threat analytics](#microsoft-defender-for-threat-analytics-reports) report, and any of the following alerts:
 
-- [Alerts by attack stage](#alerts-by-attack-stage)
-- [Alerts by threat type](#alerts-by-threat-type)
+- [Microsoft Defender alerts by attack stage](#microsoft-defender-alerts-by-attack-stage)
+- [Microsoft Defender alerts by threat type](#microsoft-defender-alerts-by-threat-type)
 
 Each alert provides a full description and recommended actions. For more information, see [Microsoft Defender Antivirus detections for Solarigate](#microsoft-defender-antivirus-detections-for-solarigate).
 
@@ -1406,7 +1422,7 @@ Run the following advanced queries, referenced from GitHub, to find tactics, thr
 |**Exfiltration**     |    **Exchange Online (Microsoft Cloud App Security)**: <br>- [Mail Items Accessed Throttling Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/MailItemsAccessed%20Throttling%20%5BSolorigate%5D.md)<br>- [Mail Items Accessed Anomaly Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/Anomaly%20of%20MailItemAccess%20by%20GraphAPI%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail via GraphAPI anomaly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20via%20GraphAPI%20anomaly%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail both via GraphAPI and directly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20both%20via%20GraphAPI%20and%20directly%20%5BSolorigate%5D.md)     |
 |     |         |
 
-### MITRE ATT&CK techniques observed
+## MITRE ATT&CK techniques observed in Solarigate
 
 This threat makes use of the following attacker techniques documented in the [MITRE ATT&CK framework](https://attack.mitre.org/).
 
@@ -1685,12 +1701,12 @@ Microsoft also found the following types of attacker behaviors in affected tenan
 
 |Behavior  |Details  |
 |---------|---------|
-|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#microsoft-defender), to detect other anomalies.     |
+|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), to detect other anomalies.     |
 |**Attacker access to cloud resources**     |   For administrative access to the Microsoft 365 cloud, Microsoft found evidence of the following indicators: <br><br>    - **Forged SAML tokens**, which impersonated accounts with cloud administrative privileges. <br><br>- **Accounts with no MFA required**. Such accounts [easily compromised](https://aka.ms/yourpassworddoesntmatter).     <br><br>- Access allowed from **trusted, but compromised vendor accounts**.      |
 |   |         |
 
 
-## References
+## Microsoft references for Solarigate
 
 |Source  |Links  |
 |---------|---------|
