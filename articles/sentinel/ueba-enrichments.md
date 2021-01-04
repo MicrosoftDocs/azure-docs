@@ -24,7 +24,7 @@ These tables list and describe entity enrichments that can be used to focus and 
 
 The first two tables, **User insights** and **Device insights**, contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-<a name="anchortext"></a>The third table, **Activity insights**, contains entity information that is the product of Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-table) column in this table.
+<a name="baseline-explained"></a>The third table, **Activity insights**, contains entity information that is the product of Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-table) column in this table.
 
 The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the **Behavior Analytics table**.
 
