@@ -85,7 +85,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
 
-2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
+2. In the left pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
 
 3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
@@ -117,13 +117,13 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 7. Select **Next: Shipping address**.
 
-    - If you already have a device, select the combo box for **I already have a device**.
+   - If you already have a device, select the combo box for **I already have a device**.
 
-        ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
+   - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
 8. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
@@ -157,7 +157,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
 
-    Once you've specified a key vault name, select **Generate key** to create an activation key.
+    Once you've specified a key vault name, select **Generate activation key** to create an activation key.
 
     [![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
