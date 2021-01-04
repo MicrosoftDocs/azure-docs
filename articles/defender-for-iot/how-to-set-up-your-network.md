@@ -566,7 +566,7 @@ An overview of the industrial network diagram will allow you to define the prope
 
 2. Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
-3. Provide a subnet list for the production networks and a description (optional).
+3. Provide a subnet list for the production networks and a description (optional). 
 
     |  **#**  | **Subnet name** | **Description** |
     |--| --------------- | --------------- |
