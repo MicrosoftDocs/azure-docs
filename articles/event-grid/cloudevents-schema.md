@@ -18,7 +18,7 @@ This article describes how to use the CloudEvents schema with Event Grid.
 
 ## CloudEvent schema
 
-Here is an example of an Azure Blob storage event in CloudEvents format:
+Here's an example of an Azure Blob storage event in CloudEvents format:
 
 ``` JSON
 {
@@ -46,7 +46,7 @@ Here is an example of an Azure Blob storage event in CloudEvents format:
 }
 ```
 
-A detailed description of the available fields, their types, and definitions in CloudEvents v1.0 is [available here](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+For a detailed description of the available fields, their types, and definitions, see [CloudEvents - Verion 1.0 ](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same except for `content-type`. For CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
@@ -63,7 +63,7 @@ You can use Event Grid for both input and output of events in the CloudEvents sc
 | PartnerTopics       | CloudEvent schema | CloudEvent schema
 
 
-For all event schemas, Event Grid requires validation when publishing to an Event Grid topic and when creating an event subscription.
+For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription.
 
 For more information, see [Event Grid security and authentication](security-authentication.md).
 
@@ -122,13 +122,13 @@ New-AzEventGridSubscription `
 
  ## Endpoint Validation with CloudEvents v1.0
 
-If you are already familiar with Event Grid, you might be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
+If you're already familiar with Event Grid, you might be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. To read more about it, see [HTTP 1.1 Web Hooks for event delivery - Version 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 <a name="azure-functions"></a>
 
 ## Use with Azure Functions
 
-The [Azure Functions Event Grid binding](../azure-functions/functions-bindings-event-grid.md) does not natively support CloudEvents, so HTTP-triggered functions are used to read CloudEvents messages. When using an HTTP trigger to read CloudEvents, you have to write code for what the Event Grid trigger does automatically:
+The [Azure Functions Event Grid binding](../azure-functions/functions-bindings-event-grid.md) doesn't natively support CloudEvents, so HTTP-triggered functions are used to read CloudEvents messages. When using an HTTP trigger to read CloudEvents, you have to write code for what the Event Grid trigger does automatically:
 
 * Sends a validation response to a [subscription validation request](../event-grid/webhook-event-delivery.md).
 * Invokes the function once per element of the event array contained in the request body.
@@ -155,7 +155,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
 
-    // The request is not for subscription validation, so it's for an event.
+    // The request isn't for subscription validation, so it's for an event.
     // CloudEvents schema delivers one event at a time.
     log.LogInformation($"Source: {message["source"]}");
     log.LogInformation($"Time: {message["eventTime"]}");
@@ -182,7 +182,7 @@ module.exports = function (context, req) {
     {
         var message = req.body;
         
-        // The request is not for subscription validation, so it's for an event.
+        // The request isn't for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
         var event = JSON.parse(message);
         context.log('Source: ' + event.source);
