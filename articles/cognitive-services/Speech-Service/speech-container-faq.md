@@ -164,7 +164,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Answer 2:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping. You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of text-to-speech.
+**Answer 2:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping.
 
 **Error 3:**
 
@@ -307,6 +307,8 @@ The workaround is either switch to using continuous recognition in your code, or
 For your code, set the endpoint to `host:port`/speech/recognition/interactive/cognitiveservices/v1
 
 For the various modes, see Speech modes - see below:
+
+## Speech modes - Interactive, conversation, dictation
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
@@ -557,6 +559,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 </summary>
 
 **Answer:** There are three endpoints on the Speech container for different usages, they're defined as Speech modes - see below:
+
+## Speech modes
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 

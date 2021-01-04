@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box (Preview)
+# Tutorial: Return Azure Data Box
 
 This tutorial describes how to return Azure Data Box and the data is erased once the device is received at the Azure data.
 
@@ -25,8 +25,6 @@ In this tutorial, you will learn about topics such as:
 > * Prepare to ship
 > * Ship Data Box to Microsoft
 > * Erasure of data from Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 

@@ -17,7 +17,6 @@ This article lists common problems that you might encounter when you configure a
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Certificate problems

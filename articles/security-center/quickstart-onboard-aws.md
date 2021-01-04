@@ -3,7 +3,7 @@ title: Connect your AWS account to Azure Security Center
 description: Monitoring your AWS resources from Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 12/29/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -37,7 +37,7 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
 |----|:----|
 |Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
-|Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
+|Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
