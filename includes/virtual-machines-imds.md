@@ -993,51 +993,46 @@ Metadata calls must be made from the primary IP address assigned to the primary 
 
 #### [Linux](#tab/linux/)
 
-1. Dump your local routing table and look for the IMDS entry. For example:         
+ 1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
     ```console
-      > route print
-      IPv4 Route Table
-      ===========================================================================
-      Active Routes:
-      Network Destination        Netmask          Gateway       Interface  Metric
-                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
-              127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-              127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-          168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-      ... (continues) ...
+    ~$ netstat -r
+    Kernel IP routing table
+    Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+    default         _gateway        0.0.0.0         UG        0 0          0 eth0
+    168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+    169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+    172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
     ```
-1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (example, `172.16.69.7`).
-1. Dump the interface configuration and find the interface that corresponds to the one referenced in routing table, noting the MAC (physical) address.
+1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (e.g. `eth0`).
+1. Dump the interface configuration for the corresponding interface in the routing table (note the exact name of the configuration file may vary)
     ```console
-      > ipconfig /all
-      ... (continues) ...
-      Ethernet adapter Ethernet:
-  
-                 Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-                 Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-                 Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-                 DHCP Enabled. . . . . . . . . . . : Yes
-                 Autoconfiguration Enabled . . . . : Yes
-                 Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-                 IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-                 Subnet Mask . . . . . . . . . . . : 255.255.255.0
-              ... (continues) ...
+    ~$ cat /etc/netplan/50-cloud-init.yaml
+    network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            dhcp4-overrides:
+                route-metric: 100
+            dhcp6: false
+            match:
+                macaddress: 00:0d:3a:e4:c7:2e
+            set-name: eth0
+    version: 2
     ```
-1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
+1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
     ```powershell
     $ResourceGroup = '<Resource_Group>'
     $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json |Foreach-Object { $_.  id.Split('/')[-1] }
+    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
     foreach($NicName in $NicNames)
     {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
+    	$Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+    	Write-Host $NicName, $Nic.primary, $Nic.macAddress
     }
-    # Output: wintest767 True 00-0D-3A-E5-1C-C0
+    # Output: ipexample606 True 00-0D-3A-E4-C7-2E
     ```
-1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
+1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
 
 ---
 
