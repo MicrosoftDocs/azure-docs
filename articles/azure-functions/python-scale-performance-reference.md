@@ -7,12 +7,12 @@ ms.custom: devx-track-python
 ---
 # Improve throughput performance of Python apps in Azure Functions
 
-When developing for Azure Functions using Python, you need to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly-performant apps. The main factors to consider when designing, writing and configuring your functions apps are horizontal scaling and throughput performance configurations.
+When developing for Azure Functions using Python, you need to understand how your functions perform and how that performance affects the way your function app gets scaled. The need is more important when designing highly performant apps. The main factors to consider when designing, writing, and configuring your functions apps are horizontal scaling and throughput performance configurations.
 
-## Horizontal Scaling
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+## Horizontal scaling
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Azure Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-## Improving Throughput Performance
+## Improving throughput performance
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
 
@@ -63,7 +63,7 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 
-A function without the `async` keyword is run automatically in an ThreadPoolExecutor threadpool:
+A function without the `async` keyword is run automatically in an ThreadPoolExecutor thread pool:
 
 ```python
 # Runs in an ThreadPoolExecutor threadpool. Number of threads is defined by PYTHON_THREADPOOL_THREAD_COUNT. 
@@ -73,7 +73,7 @@ def main():
     some_blocking_socket_io()
 ```
 
-In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance. If the libraries you are using do , you may still benefit from running your code asyncronously by [managing event loop](#managing-event-loop) in your app. 
+In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance. If the libraries you are using do not have async version implemented, you may still benefit from running your code asynchronously by [managing event loop](#managing-event-loop) in your app. 
 
 Here are a few examples of client libraries that has implemented async pattern:
 - [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
@@ -81,11 +81,11 @@ Here are a few examples of client libraries that has implemented async pattern:
 - [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
 - [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
  
-##### Understanding Async in Python Worker
+##### Understanding async in python worker
 
 When you define `async` in front of a function signature, Python will mark the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allow event loop to process next task during the wait time.
 
-In our Python Worker, the worker shares the event loop with the customer's `async` function and it is capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries (e.g. [aiohttp](https://pypi.org/project/aiohttp/), [pyzmq](https://pypi.org/project/pyzmq/)). This will greatly increase your function's throughput compared to those libraries implemented in synchronous fashion.
+In our Python Worker, the worker shares the event loop with the customer's `async` function and it is capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries (e.g. [aiohttp](https://pypi.org/project/aiohttp/), [pyzmq](https://pypi.org/project/pyzmq/)). Employing these recommendations will greatly increase your function's throughput compared to those libraries implemented in synchronous fashion.
 
 > [!NOTE]
 >  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibit the python worker to handle concurrent requests.
@@ -104,23 +104,23 @@ The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates w
 
 As mentioned in the async [section](#understanding-async-in-python-worker), the Python language worker treats functions and [coroutines](https://docs.python.org/3/library/asyncio-task.html#coroutines) differently. A coroutine is run within the same event loop that the language worker runs on. On the other hand, a function invocation is run within a [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor), that is maintained by the language worker, as a thread.
 
-You can set the value of maximum workers allowed for running sync functions using the [PYTHON_THREADPOOL_THREAD_COUNT](functions-app-settings.md#python_threadpool_thread_count) application setting. This value sets the `max_worker` argument of the ThreadPoolExecutor object, which lets Python use a pool of at most `max_worker` threads to execute calls asynchronously. The `PYTHON_THREADPOOL_THREAD_COUNT` applies to each worker that Functions host creates, and Python decides when to create a new thread or reuse the existing idle thread. For older Python versions(i.e. `3.8`, `3.7`, and `3.6`), `max_worker` value is set to 1. For Python version `3.9` , `max_worker` is  set to `None`.
+You can set the value of maximum workers allowed for running sync functions using the [PYTHON_THREADPOOL_THREAD_COUNT](functions-app-settings.md#python_threadpool_thread_count) application setting. This value sets the `max_worker` argument of the ThreadPoolExecutor object, which lets Python use a pool of at most `max_worker` threads to execute calls asynchronously. The `PYTHON_THREADPOOL_THREAD_COUNT` applies to each worker that Functions host creates, and Python decides when to create a new thread or reuse the existing idle thread. For older Python versions(that is, `3.8`, `3.7`, and `3.6`), `max_worker` value is set to 1. For Python version `3.9` , `max_worker` is  set to `None`.
 
 For CPU-bound apps, you should keep the setting to a low number, starting from 1 and increasing as you experiment with your workload. This suggestion is to reduce the time spent on context switches and allowing CPU-bound tasks to finish.
 
 For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default - the number of cores + 4 and then tweak based on the throughput values you are seeing.
 
-For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
+For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 
 > [!NOTE]
 >  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practices.md).
 
 
-#### Managing Event Loop
+#### Managing event loop
 
 You should use asyncio compatible third-party libraries. If none of the third-party libraries meet your needs, you can also manage the event loops in Azure Functions. Managing event loops give you more flexibility in compute resource management, and it also makes it possible to wrap synchronous I/O libraries into coroutines.
 
-There are many useful Python official documents discussing the [Coroutines and Tasks](https://docs.python.org/3/library/asyncio-task.html) and [Event Loop](https://docs.python.org/3.8/library/asyncio-eventloop.html) by leveraging the built in **asyncio** library.
+There are many useful Python official documents discussing the [Coroutines and Tasks](https://docs.python.org/3/library/asyncio-task.html) and [Event Loop](https://docs.python.org/3.8/library/asyncio-eventloop.html) by using the built in **asyncio** library.
 
 Take the following [requests](https://github.com/psf/requests) library as an example, this code snippet uses the **asyncio** library to wrap the `requests.get()` method into a coroutine, running multiple web requests to SAMPLE_URL concurrently.
 
@@ -162,10 +162,10 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(body=json.dumps(status_codes),
                              mimetype='application/json')
 ```
-#### Vertical Scaling
+#### Vertical scaling
 For more processing units especially in CPU-bound operation, you might be able to get this by upgrading to premium plan with higher specifications. With higher processing units, you can adjust the number of worker process count according to the number of cores available and achieve higher degree of parallelism. 
 
-## Next Steps
+## Next steps
 
 For more information about Azure Functions Python development, see the following resources:
 
