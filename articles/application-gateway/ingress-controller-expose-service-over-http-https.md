@@ -161,7 +161,7 @@ The following ingress will allow you to add additional paths into this ingress a
 
 ```yaml
 apiVersion: extensions/v1beta1
-  kind: Ingress
+kind: Ingress
 metadata:
   name: guestbook
   annotations:
