@@ -4,7 +4,7 @@ description: Defender for IoT and Fortinet has established a technology partners
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1//4/2021
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---

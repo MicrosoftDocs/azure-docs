@@ -4,7 +4,7 @@ description: Configure the Defender for IoT solution integration with QRadar.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/21/2020
+ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -17,7 +17,7 @@ To perform QRadar integration with Defender for IoT:
 
 1. [Define the Defender for IoT appliance name](#defining-defender-for-iot-appliance-name).
 1. [Configure Syslog Listener for QRadar](#configuring-syslog-listener-for-qradar).
-1. [Deploy appliance QID](#deploying-defender-for-iot-platform-qid), see [this page](deploying-cyberx-platform-qid.md).
+1. [Deploy appliance QID](#deploying-defender-for-iot-platform-qid).
 1. [Set up receiving QRadar notifications](#setting-up-qradar-forwarding-rules).
 1. [Add custom fields to alerts](#adding-custom-fields-to-alerts).
 

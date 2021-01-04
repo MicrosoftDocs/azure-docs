@@ -1,6 +1,6 @@
 ---
 title: About the Splunk integration
-description:
+description: To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -13,7 +13,7 @@ ms.service: azure
 
 Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
-To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS Threat Monitoring Application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
+To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
 
 ## About the Splunk application
 
