@@ -296,7 +296,7 @@ To reset your password:
 
 ## Update the software version
 
-The following procedure describes how to update the on-premises management console software verison. The update process takes about 30 minutes.
+The following procedure describes how to update the on-premises management console software version. The update process takes about 30 minutes.
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
