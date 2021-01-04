@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN | Microsoft Docs'
 description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 12/26/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN
@@ -26,8 +20,6 @@ In this tutorial, you'll learn how to integrate FortiGate SSL VPN with Azure Act
 * Use Azure AD to control who can access FortiGate SSL VPN.
 * Enable your users to be automatically signed in to FortiGate SSL VPN with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,13 +34,12 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 FortiGate SSL VPN supports SP-initiated SSO.
 
-After you configure FortiGate SSL VPN, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add FortiGate SSL VPN from the gallery
 
 To configure the integration of FortiGate SSL VPN into Azure AD, you need to add FortiGate SSL VPN from the gallery to your list of managed SaaS apps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a work or school account or with a personal Microsoft account.
+1. Sign in to the Azure portal with a work or school account or with a personal Microsoft account.
 1. In the left pane, select **Azure Active Directory**.
 1. Go to **Enterprise applications** and then select **All Applications**.
 1. To add an application, select **New application**.
@@ -72,7 +63,7 @@ To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **FortiGate SSL VPN** application integration page, in the **Manage** section, select **single sign-on**.
+1. In the Azure portal, on the **FortiGate SSL VPN** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
 
@@ -145,14 +136,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
 1. In the applications list, select **FortiGate SSL VPN**.
-1. On the app's overview page, in the **Manage** section, select **Users and groups**:
-
-   ![Screenshot that shows the Users and groups option.](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog box:
-
-	![Screenshot that shows the Add user button.](common/add-assign-user.png)
-
+1. On the app's overview page, in the **Manage** section, select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
@@ -257,22 +242,17 @@ In this section, you'll configure a FortiGate VPN Portals and Firewall Policy th
 
 Work with the [FortiGate support team](mailto:tac_amer@fortinet.com) to add the VPN Portals and Firewall Policy to the FortiGate VPN platform. You need to complete this step before you use single sign-on.
 
-### Test single sign-on 
+## Test SSO 
 
-In this section, you'll test your Azure AD single sign-on configuration by using Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the FortiGate SSL VPN tile in Access Panel, you should be automatically signed in to the FortiGate SSL VPN for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to FortiGate VPN Sign-on URL where you can initiate the login flow. 
 
-Microsoft and FortiGate recommend that you use the Fortinet VPN client, FortiClient, for the best end-user experience.
+* Go to FortiGate VPN Sign-on URL directly and initiate the login flow from there.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the FortiGate VPN tile in the My Apps, this will redirect to FortiGate VPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try FortiGate SSL VPN with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Once you configure FortiGate VPN you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
