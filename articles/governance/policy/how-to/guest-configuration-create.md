@@ -167,6 +167,11 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+If the resource has required properties, those must also be returned by `Get-TargetResource`
+in parallel with the `reasons` class. If `reasons` is not included, the service includes a
+"catch-all" behavior that will compare the values input to `Get-TargetResource` and the values
+returned, and provide the details as `reasons`.
+
 ### Configuration requirements
 
 The name of the custom configuration must be consistent everywhere. The name of the .zip file for
