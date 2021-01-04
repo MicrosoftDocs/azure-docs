@@ -36,8 +36,8 @@ As of January 2021, we differentiate between two different revisions of HANA Lar
 - "Revision 4" (Rev 4): New stamp design that is deployed in close proximity to Azure VM hosts and which so far are released in the Azure regions of:
 	-  West US2 
 	-  East US
-	-  East US2
-	-  South Central US 
+	-  East US2 (across two Availability Zones)
+	-  South Central US (across two Availability Zones)
 	-  West Europe
 	-  North Europe
 
