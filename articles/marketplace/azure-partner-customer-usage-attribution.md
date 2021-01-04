@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 11/4/2020
+ms.date: 1/4/2021
 ms.custom: devx-track-terraform
 ---
 
 # Commercial marketplace partner and customer usage attribution
 
-Customer usage attribution is a method to associate Azure resources running in customer subscriptions, deployed to run your solution, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. When you adopt this tracking capability, you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution is a method to associate Azure resources running in customer subscriptions, deployed to run your offer, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. When you adopt this tracking capability, you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
-You can form the association via Azure Marketplace, the Quickstart repository, private GitHub repositories, and 1:1 customer engagements that create durable IP (such as development of an app).
+You can form the association via Commercial Marketplace, the Quickstart repository, private GitHub repositories, and 1:1 customer engagements that create durable IP (such as development of an app).
 
 Customer usage attribution supports three deployment options:
 
@@ -33,41 +33,33 @@ Customer usage attribution supports three deployment options:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Create GUIDs
+## Commercial Marketplace
+Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you [upload the technical configuration of your offer](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will automatically add a tracking ID readable by Azure Resource Manager.
+
+For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each application's technical configuration.
+
+If you use Azure Resource Manager APIs, you will need to set your tracking ID per the instructions below. Instead of using a GUID as your tracking ID, you should format it as: **"pid-publisherid-offerid"**. For example: "pid-contosocorp-contosooffer". Microsoft systems will validate that the
+
+## Non-Commercial Marketplace Use Cases 
+
+To track the usage of deployments other than Azure applications available in Commercial Marketplace, you must create one or more GUIDs to use as your tracking IDs, register those GUIDs in Partner Center, and manually add your registered GUIDs to your Azure applications and/or user agent strings.
+
+### Create GUIDs
 
 A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell.
 
 ```powershell
 [guid]::NewGuid()
 ```
+We recommend you create a unique GUID for each product and distribution channel. You can use a single GUID for a product's multiple distribution channels if you do not want reporting to be split. Reporting is done by Microsoft Partner Network ID and GUID.
 
-We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
+### Register GUIDs
 
-If you deploy a product by using a template and it is available on both Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
-
-- Product A in Azure Marketplace
-- Product A on GitHub
-
-Reporting is done by Microsoft Partner Network ID and GUID.
-
-You can also track usage at a more granular level by registering additional GUIDs and changing GUIDs between plans, where plans are variants of an offer.
-
-## Register GUIDs
-
-The GUIDs must be registered in Partner Center to enable customer usage attribution.
-
-After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
-
-> [!NOTE]
-> If you are publishing your [Azure Application](./create-new-azure-apps-offer.md) offer to Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+The GUIDs must be registered in Partner Center to enable customer usage attribution. After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
 1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
-
-   * Partners are required to [have a profile in Partner Center](./partner-center-portal/create-account.md). You're encouraged to list the offer in Azure Marketplace or AppSource.
-   * Partners can register multiple GUIDs.
-   * Partners can register GUIDs for non-marketplace solution templates and offers.
 
 1. Select **Settings** (gear icon) in the top-right corner > **Account settings**.
 
@@ -79,8 +71,8 @@ After you add a GUID to your template or in the user agent, and register the GUI
 
 1. Select **Save**.
 
-## Use Resource Manager templates
-Many partner solutions are deployed using Azure Resource Manager templates. If you have a Resource Manager template that's available in Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution is straight forward.
+### Use Resource Manager templates
+Many partner solutions are deployed using Azure Resource Manager templates. If you have a Resource Manager template that is not an offer in Azure Marketplace, the process to add your tracking ID to enable customer usage attribution is straightforward.
 
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
@@ -89,9 +81,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 >* Video: [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
-To add a globally unique identifier (GUID), you make a single modification to the main template file:
-
-1. [Create a GUID](#create-guids) using the suggested method and [register the GUID](#register-guids).
+To add your registered GUID, you make a single modification to the main template file:
 
 1. Open the Resource Manager template.
 
