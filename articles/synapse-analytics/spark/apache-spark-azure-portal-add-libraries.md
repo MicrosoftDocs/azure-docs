@@ -33,7 +33,8 @@ Once you have identified the libraries that you would like to use for your Spark
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Packages which require compiler support at install time, such as GCC, are not supported.
 > - Packages can not be downgraded, only added or upgraded.
-> - To install libraries, you must have Storage Blob Data Contributor or Storage Blob Data Owner permissions on the primary Gen2 Storage account linked to the Synapse workspace.
+> - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
+
 
 ### Requirements format
 
@@ -47,6 +48,9 @@ alabaster==0.7.10
 
 ### Install Python packages
 As you develop your Spark application, you may find that you need to update existing or install new libraries. Libraries can be updated during or after pool creation.
+
+> [!IMPORTANT]
+> To install libraries, you must have Storage Blob Data Contributor or Storage Blob Data Owner permissions on the primary Gen2 Storage account linked to the Synapse workspace.
 
 #### Install packages during pool creation
 To install libraries onto a Spark pool during pool creation:
