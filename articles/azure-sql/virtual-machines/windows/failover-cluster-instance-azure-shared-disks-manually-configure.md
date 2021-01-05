@@ -24,7 +24,6 @@ This article explains how to create a failover cluster instance (FCI) by using A
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
-
 ## Prerequisites 
 
 Before you complete the instructions in this article, you should already have:
@@ -34,12 +33,10 @@ Before you complete the instructions in this article, you should already have:
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
-
 ## Add Azure shared disk
 Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
 
 Add an Azure shared disk by doing the following: 
-
 
 1. Save the following script as *SharedDiskConfig.json*: 
 
@@ -82,7 +79,6 @@ Add an Azure shared disk by doing the following:
    }
    ```
 
-
 2. Run *SharedDiskConfig.json* by using PowerShell: 
 
    ```powershell
@@ -116,7 +112,6 @@ To create the failover cluster, you need:
 - A name for the failover cluster.
 - An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
-
 # [Windows Server 2012-2016](#tab/windows2012)
 
 The following PowerShell script creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
@@ -136,7 +131,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ---
-
 
 ## Configure quorum
 
@@ -195,7 +189,6 @@ The FCI data directories need to be on the Azure Shared Disks.
 
 To manage your SQL Server VM from the portal, register it with the SQL IaaS Agent extension (RP) in [lightweight management mode](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), currently the only mode supported with FCI and SQL Server on Azure VMs. 
 
-
 Register a SQL Server VM in lightweight mode with PowerShell:  
 
 ```powershell-interactive
@@ -218,7 +211,6 @@ To route traffic appropriately to the current primary node, configure the connec
 ## Next steps
 
 If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
 
 If Azure shared disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 

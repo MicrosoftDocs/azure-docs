@@ -522,7 +522,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Tools to connect to Synapse workspaces
+    - name: Connect with tools and applications
       items:
       - name: Overview
         href: sql/connect-overview.md
@@ -530,14 +530,20 @@
         href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
-      - name: Query with sqlcmd
-        href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
         href: sql/get-started-ssms.md
-      - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
         href: sql/get-started-power-bi-professional.md
+      - name: Query with Visual Studio SSDT
+        href: sql/get-started-visual-studio.md
+      - name: Query using .NET Core
+        href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Visual Studio .NET
+        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Python
+        href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with sqlcmd
+        href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
   - name: Overview
@@ -686,6 +692,8 @@
       href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Integration runtime
       href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
     - name: Data flows
       items:
       - name: Data flow overview
@@ -706,8 +714,6 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Differences from Azure Data Factory
-        href: ./data-integration/concepts-data-factory-differences.md
   - name: How-to guides
     items:
     - name: Author
@@ -1135,6 +1141,10 @@
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Configure Cognitive Services for Azure Synapse
       href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: How-to
+  items:
+  - name: Plan and manage costs
+    href: plan-manage-costs.md
 - name: Reference
   items:
   - name: Azure CLI

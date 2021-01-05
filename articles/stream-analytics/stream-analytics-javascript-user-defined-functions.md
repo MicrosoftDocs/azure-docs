@@ -7,7 +7,7 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
+ms.date: 12/15/2020
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
 ---
@@ -212,7 +212,7 @@ The output of this query will be the input datetime in **de-DE** with the option
 Samstag, 28. Dezember 2019
 ```
 
-### User Logging
+## User Logging
 The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time. This mechanism is available through the Console.Log() method.
 
 ```javascript

@@ -43,7 +43,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 | Brazil South |191.233.201.8, 191.233.200.16	 |  | 104.41.11.5|
 | Canada Central |40.85.224.249	 | | |
 | Canada East | 40.86.226.166	 | | |
-| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 	 | | |
+| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | China East | 139.219.130.35	 | | |
 | China East 2 | 40.73.82.1	 | | |
 | China North | 139.219.15.17	 | | |
