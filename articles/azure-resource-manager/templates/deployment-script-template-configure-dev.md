@@ -150,7 +150,10 @@ The following ARM template creates a container instance and a file share, and th
 ```
 The default value for the mount path is **deploymentScript**.  This is the path in the container instance where it is mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.   See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
 
 The template suspends the container instance 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
 
@@ -195,7 +198,7 @@ You can also upload the file by using the Azure portal and Azure CLI.
 1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
 1. In the console pane, run the following commands:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -204,6 +207,14 @@ You can also upload the file by using the Azure portal and Azure CLI.
     The output is **Hello John Dole**.
 
     ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. If you use the AZ CLI container image, run this code:
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## Use Docker
 

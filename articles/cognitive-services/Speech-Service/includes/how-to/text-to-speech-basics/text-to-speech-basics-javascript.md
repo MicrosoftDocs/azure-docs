@@ -199,7 +199,8 @@ To change the audio format, you use the `speechSynthesisOutputFormat` property o
 There are various options for different file types depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
 
 > [!NOTE]
-> Voices **en-US-AriaRUS** and **en-US-GuyRUS** support the `Riff24Khz16BitMonoPcm` sample rate.
+> Voices **en-US-AriaRUS** and **en-US-GuyRUS** are created from samples
+> encoded in the `Riff24Khz16BitMonoPcm` sample rate.
 
 In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `speechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, get the audio `ArrayBuffer` data and interact with it.
 

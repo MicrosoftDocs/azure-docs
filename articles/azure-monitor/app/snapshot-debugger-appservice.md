@@ -17,6 +17,7 @@ Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are run
 To enable Snapshot Debugger for an app, follow the instructions below.
 
 If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

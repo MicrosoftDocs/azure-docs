@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Imperva Data Security supports **IDP** initiated SSO
+* Imperva Data Security supports **SP** initiated SSO
 
 ## Adding Imperva Data Security from the gallery
 
@@ -72,11 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<IMPERVA_DNS_NAME>:8443`
+    a. In the **Identifier** text box, type an identifier using the following pattern:
+    `application-name`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<IMPERVA_DNS_NAME>:8443`
+    
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<IMPERVA_DNS_NAME>:8443`
+    
+    d. In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<IMPERVA_DNS_NAME>:8443`    
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Imperva Data Security Client support team](mailto:support@jsonar.imperva.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

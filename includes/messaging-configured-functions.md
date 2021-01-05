@@ -214,13 +214,13 @@ The following table gives you the correct values for combinations of sources and
 ### Retry policy
 
 Refer to the [Azure Functions documentation on
-retries](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) to
+retries](/azure/azure-functions/functions-bindings-error-pages) to
 configure the retry policy. The policy settings chosen throughout the projects
 in this repository configure an exponential backoff strategy with retry
 intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
 
 For Service Bus, review the ["using retry support on top of trigger
-resilience"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
+resilience"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience)
 section to understand the interaction of triggers and the maximum delivery count
 defined for the queue.
 

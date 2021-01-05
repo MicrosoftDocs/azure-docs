@@ -41,6 +41,8 @@ The following default inbound and outbound security rules are applied to the net
 | 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
 | 65500    | DenyAllInBound | Any | Any | Any | Any | Deny |
+
+
 <sup>1</sup>Optional for debugging. Allow when required for advanced troubleshooting.
 
 > [!NOTE]

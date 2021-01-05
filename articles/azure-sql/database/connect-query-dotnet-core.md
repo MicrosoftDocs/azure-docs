@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 05/29/2020
 ---
-# Quickstart: Use .NET Core (C#) to query a database in Azure SQL Database or Azure SQL Managed Instance
+# Quickstart: Use .NET Core (C#) to query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
@@ -26,42 +26,10 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A database. You can use one of these quickstarts to create and then configure a database:
-
-  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM | Azure Synapse Analytics |
-  |:--- |:--- |:---|:---|:---|
-  | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) | [Portal](/azure/synapse-analytics/quickstart-create-workspace.md) |
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | | [CLI](/azure/synapse-analytics/quickstart-create-workspace-cli.md) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md) | [PowerShell](/azure/synapse-analytics/quickstart-create-workspace-powershell.md) |
-  || | | [Deployment template](/azure/azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md) | [Deployment template](/azure/synapse-analytics/quickstart-deployment-template-workspaces.md) | 
-  | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)| |
-  |||[Connectivity from on-premises](../managed-instance/point-to-site-p2s-configure.md) | [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) |
-  ||||
-
 - [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
+- A database where you can run your query. 
 
-## Get server connection information
-
-Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Navigate to the **SQL Databases**  or **SQL Managed Instances** page.
-
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for the database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
-
-> [!NOTE]
-> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
-## Get ADO.NET connection information (optional - SQL Database only)
-
-1. Navigate to the database blade in the Azure portal and, under **Settings**, select **Connection strings**.
-
-2. Review the complete **ADO.NET** connection string.
-
-    ![ADO.NET connection string](./media/connect-query-dotnet-core/adonet-connection-string2.png)
-
-3. Copy the **ADO.NET** connection string if you intend to use it.
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
   
 ## Create a new .NET Core project
 

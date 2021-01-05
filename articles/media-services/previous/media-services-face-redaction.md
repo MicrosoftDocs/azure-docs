@@ -381,4 +381,4 @@ namespace FaceRedaction
 
 [Azure Media Services Analytics Overview](./legacy-components.md)
 
-[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
