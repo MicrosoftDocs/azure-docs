@@ -47,7 +47,7 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
     - [Find reconnaissance and remote process execution](#find-reconnaissance-and-remote-process-execution)
     - [Find illicit data access](#find-illicit-data-access)
     - [Find mail data exfiltration](#find-mail-data-exfiltration)
-    - [Find suspicious domain-related activity](#find-suspicious-domain-related-activity)
+    - [Find suspicious domain-related activity](#find-suspicious-domain-related-activities)
     - [Find evidence of security service tampering](#find-evidence-of-security-service-tampering)
     - [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
@@ -503,7 +503,7 @@ UncommonProtocol != 'NotApplicable', 3,
 
 Use the following Sentinel queries to find evidence of illicit data access in your system:
 
-- [Find instances of sign-ins used to access non-AD resources](#find-instances-of-sign-ins-used-to-access-non-ad-resources)
+- [Find sign-ins used to access non-AD resources](#find-sign-ins-used-to-access-non-ad-resources)
 - [Find instances of MFA sign-ins using tokens](#find-instances-of-mfa-sign-ins-using-tokens)
 - [Find sign-ins from Virtual Private Servers (VPS)](#find-sign-ins-from-virtual-private-servers-vps)
 
