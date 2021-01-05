@@ -120,7 +120,7 @@ These packages are provided by the Azure Communication Services team and include
 
 ### Installing webpack
 
-[Webpack](https://webpack.js.org/) is a tool for bundling the code from various packages and creating static files, which can be used in your server. Webpack also has a development server, which we will configure to use with the calling sample. Let install and configure webpack, webpack development server, and CLI.
+[Webpack](https://webpack.js.org/) is a tool for bundling the code from various packages and creating static files, which can be used in your server. Webpack also has a development server, which we will configure to use with the calling sample. Let install and configure webpack, webpack development server, and its CLI.
 To install webpack, type the following in your open terminal:
 
 ``` Console
