@@ -15,9 +15,9 @@ ms.date: 12/31/2020
 # Automate management tasks using database jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Using SQL Agent in SQL Server and SQL Server Managed Instances, you can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
+Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
 
-It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent). SQL Agent is not available in Azure SQL Database or Azure Synapse Analytics.
+It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). SQL Agent is not available in Azure SQL Database or Azure Synapse Analytics. 
 
 ## When to use SQL Agent jobs 
 
@@ -37,11 +37,11 @@ There are several scenarios when you could use SQL Agent jobs:
 
 ## SQL Agent Jobs 
 
-SQL Agent Jobs are executed by the SQL Agent service that continues to be used for task automation in SQL Server and Azure SQL Managed Instances. 
+SQL Agent Jobs are executed by the SQL Agent service that continues to be used for task automation in SQL Server and SQL Managed Instance. 
 
 SQL Agent Jobs are a specified series of T-SQL scripts against your database. Use jobs to define an administrative task that can be run one or more times and monitored for success or failure. 
 
-A job can run on one local server or on multiple remote servers. SQL Agent Jobs are an internal Database Engine component that is executed within the Managed Instance service.
+A job can run on one local server or on multiple remote servers. SQL Agent Jobs are an internal Database Engine component that is executed within the SQL Managed Instance service.
 
 There are several key concepts in SQL Agent Jobs:
 
@@ -61,7 +61,7 @@ SQL Agent enables you to create different types of job steps, such as Transact-S
 - Snapshot.
 - Distributor.
 
-Other types of job steps are not currently supported, including:
+Other types of job steps are not currently supported in SQL Managed Instance, including:
 
 - Merge replication job step is not supported.
 - Queue Reader is not supported.
@@ -108,7 +108,7 @@ EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
     @sequence_number = 1;
 ```
 
-You would also need to enable Database Mail on Managed Instance:
+You would also need to enable Database Mail on Azure SQL Managed Instance:
 
 ```sql
 GO
@@ -141,12 +141,12 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
     @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
-### SQL Agent Job Limitations in Managed Instance
+### SQL Agent Job Limitations in Azure SQL Managed Instance
 
-Some of the SQL Agent features that are available in SQL Server are not supported in Managed Instance:
+Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
-- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.
-- Enabling/disabling SQL Agent is currently not supported in Managed Instance. SQL Agent is always running.
+- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in SQL Managed Instance.
+- Enabling/disabling SQL Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
 - Notifications are partially supported
   - Pager is not supported.
   - NetSend is not supported.
@@ -157,4 +157,4 @@ Some of the SQL Agent features that are available in SQL Server are not supporte
 ## Next steps
 
 - [What is SQL Server Agent](/sql/ssms/agent/sql-server-agent)
-- [Job automation with Elastic Jobs](job-automation-with-elastic-jobs.md)
+- [Job automation with Elastic Jobs](job-automation-overview.md)

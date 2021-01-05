@@ -1,9 +1,9 @@
 ---
-title: Job automation with Elastic Jobs
+title: Job automation overview with Elastic Jobs
 description: 'Use Elastic Jobs for Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more databases'
 services: sql-database
 ms.service: sql-database
-ms.subservice: features
+ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
@@ -12,15 +12,21 @@ ms.author: wiassaf
 ms.reviewer:
 ms.date: 12/31/2020
 ---
-# Automate management tasks using Elastic Jobs (preview)
+# Overview of task automation using Elastic Jobs (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. Elastic jobs can target Azure SQL Databases, [Azure SQL Database elastic pools](elastic-pool-overview.md), or Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
+You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
 
 You can define target database or groups of databases where the job will be executed, and also define schedules for running a job.
 A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of databases.
 
 Every job logs the status of execution and also automatically retries the operations if any failure occurs.
+
+## Automation on other platforms
+
+Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [Azure SQL Database elastic pools](elastic-pool-overview.md), and Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
+
+For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
 ## When to use elastic jobs
 
@@ -29,14 +35,12 @@ There are several scenarios when you could use elastic job automation:
 - Automate management tasks and schedule them to run every weekday, after hours, etc.
   - Deploy schema changes, credentials management, performance data collection or tenant (customer) telemetry collection.
   - Update reference data (information common across all databases), load data from Azure Blob storage.
-  - Common maintenance tasks including DBCC CHECKDB to ensure data integrity or index maintenance to improve query performance. Configure jobs to execute across a collection of databases on a recurring basis, such as during off-peak hours.
+- Configure jobs to execute across a collection of databases on a recurring basis, such as during off-peak hours.
   - Collect query results from a set of databases into a central table on an on-going basis. Performance queries can be continually executed and configured to trigger additional tasks to be executed.
 - Collect data for reporting
   - Aggregate data from a collection of databases into a single destination table.
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
-- Data movements
-  - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changes in the database.
-  - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
+- Data movements 
 
 ## Overview
 
