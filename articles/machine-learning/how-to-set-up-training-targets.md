@@ -203,6 +203,18 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
     Internally, Azure ML concatenates the blocks with the same metric name into a contiguous list.
 
+* **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
+    
+    Consider upgrading to the latest version of azureml-core: `pip install -U azureml-core`.
+    
+    If you are running into this issue for local runs, check the version of PyJWT installed in your environment where you are starting runs. The supported versions of PyJWT are < 2.0.0. Uninstall PyJWT from the environment if the version is >= 2.0.0. You may check the version of PyJWT, uninstall and install the right version as follows:
+    1. Start a command shell, activate conda environment where azureml-core is installed.
+    2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
+    3. If the listed version is not a supported version, `pip uninstall PyJWT` in the command shell and enter y for confirmation.
+    4. Install using `pip install 'PyJWT<2.0.0'`
+    
+    If you are submitting a user-created environment with your run, consider using the latest version of azureml-core in that environment. Versions >= 1.18.0 of azureml-core already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in the environment you submit, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
+
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.

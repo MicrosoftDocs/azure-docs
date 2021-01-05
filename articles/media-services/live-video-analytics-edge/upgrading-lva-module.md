@@ -165,7 +165,7 @@ With this release, Telegraf can be used to send metrics to Azure Monitor. From t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomy of events":::
 
-You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-using-telegraf) page.
+You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-via-telegraf) page.
 
 ## Next steps
 

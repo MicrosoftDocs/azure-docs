@@ -14,7 +14,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -80,6 +80,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- 01/05/2021: Changes in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), revising the recommended configuration to allow SAP Host Agent to manage the local port range  
 - 01/04/2021: Add new Azure regions supported by HLI into [What is SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - 12/29/2020: Add architecture recommendations for specific Azure regions in [SAP workload configurations with Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: Add new certifications to SKUs of HANA Large Instances in [Available SKUs for HLI](./hana-available-skus.md)
