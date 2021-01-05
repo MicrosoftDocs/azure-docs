@@ -182,6 +182,7 @@ Similarly, the function app restarts after the change is made to the site config
 > [!NOTE]
 > Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations.
 
+---
 
 ## Next steps
 
