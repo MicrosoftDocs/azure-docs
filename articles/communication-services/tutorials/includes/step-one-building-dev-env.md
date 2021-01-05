@@ -136,7 +136,7 @@ You will see two new packages added to the package.json file as "devDependencies
 
 ### Configuring the development server
 
-Webpack also provides the development server, which we will use in this tutorial. As you use Azure Communication Services modules, just running a web page with third-party modules included will be prevented by Cross-Origin Resource Sharing Policy in your browser. The problem here is that running a static application (like index.html file) in a browser will use the file:// protocol. For modules to work properly, we will need HTTP protocol. Webpack contains a development server, which we can utilize. 
+Webpack also provides the development server, which we will use in this tutorial. As you use Azure Communication Services modules, just running a web page with third-party modules included will be prevented by Cross-Origin Resource Sharing Policy in your browser. The problem here is that running a static application (like your index.html file) in a browser will use the file:// protocol. For modules to work properly, we will need the HTTP protocol. Webpack contains a development server, which we can utilize to achieve this. 
 
 We will create two configurations for webpack, one for development and the other for production. Files prepared for production will be minified, meaning that we will remove unused whitespace and characters. Minification and optimization are great for production as it reduces the size of our files. Simultaneously, code prepared for production will not be easily readable, and modification will be difficult. To keep production code optimized while keeping our development version readable, we will need two environments.
 
