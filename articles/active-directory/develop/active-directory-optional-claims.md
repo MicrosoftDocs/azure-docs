@@ -48,7 +48,6 @@ The set of optional claims available by default for applications to use are list
 | Name                       |  Description   | Token Type | User Type | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
-|`aud`                       | The audience of the token.  Always present in JWTs, but in v1 access tokens it can be emitted in a variety of ways, which can be hard to code against when performing token validation.  Use the [additional properties for this claim](#additional-properties-of-optional-claims) to ensure it's always set to a GUID in v1 access tokens. | v1 JWT access tokens|||
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
 | `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
 | `verified_primary_email`   | Sourced from the user's PrimaryAuthoritativeEmail      | JWT        |           |         |
@@ -82,7 +81,17 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD.  Requires the `profile` scope. |
-| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following ID token claims for displaying sign-in state to the user: `preferred_username` or `unique_name` for v1 tokens and `preferred_username` for v2 tokens. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
+| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following `preferred_username` claim for displaying sign-in state to the user. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
+
+
+**Table 4: v1.0-only optional claims**
+
+Some of the improvements of the v2 token format are available to apps that use the v1 token format, as they help improve security and reliability. These will not take effect for ID tokens requested from the v2 endpoint, nor access tokens for APIs that use the v2 token format. 
+
+| JWT Claim     | Name                            | Description | Notes |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Audience | Always present in JWTs, but in v1 access tokens it can be emitted in a variety of ways, which can be hard to code against when performing token validation.  Use the [additional properties for this claim](#additional-properties-of-optional-claims) to ensure it's always set to a GUID in v1 access tokens. | v1 JWT access tokens only|
+|`preferred_username` | Preferred username        | Provides the preferred username claim within v1 tokens. This makes it easier for apps to provide username hints and show human readable display names, regardless of their token type.  It's recommended that you use this optional claim instead of using e.g. `upn` or `unique_name`. | v1 ID tokens and access tokens |
 
 ### Additional properties of optional claims
 
