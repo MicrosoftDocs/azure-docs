@@ -68,4 +68,3 @@ For more information, see:
 
 - [Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md)
 - [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
-- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)

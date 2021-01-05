@@ -22,9 +22,9 @@ ms.author: bagol
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This section provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack, as well as the steps that you should take to make sure that your environment is clean and follows security best practices moving forward.
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack, as well as the steps that you should take to make sure that your environment is clean and follows security best practices moving forward.
 
-You can also use these resources described in this section to understand and mitigate risks from similar supply-chain attacks and systemic-identity compromises.
+You can also use these resources described in this article to understand and mitigate risks from similar supply-chain attacks and systemic-identity compromises.
 
 The SolarWinds attack provided the attackers with a foothold into affected networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
@@ -64,7 +64,7 @@ You can also use Microsoft Defender and Azure Active Directory directly to perfo
 
 ## Microsoft references for Solorigate
 
-The following links were used in building this section of the documentation, and can be used to learn more about the Solorigate attack and mitigation activities:
+The following links were used in building related articles in the documentation, and can be used to learn more about the Solorigate attack and mitigation activities:
 
 |Source  |Links  |
 |---------|---------|

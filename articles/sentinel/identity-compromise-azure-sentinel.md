@@ -28,9 +28,10 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
 
 **To use Azure Sentinel to hunt through Microsoft Defender for Endpoint and Azure AD data**:
 
-1. Connect the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns associated with the Solorigate attack into Azure Sentinel:
+1. Set up the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns associated with the Solorigate attack into Azure Sentinel:
 
     - [Microsoft Defender for Endpoint](connect-microsoft-365-defender.md)
+    - [Microsoft Defender for Identity](connect-azure-atp.md)
     - [Azure Active Directory](connect-azure-active-directory.md)
     
 1. Use Azure Sentinel to [hunt](hunting.md) for attack activity, especially  with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For more information, see:
@@ -260,7 +261,7 @@ Event
 
 The Solorigate attackers also targeted Azure AD for affected systems, and modified Azure AD settings to provide themselves with long-term access. You can use queries in the [Azure Sentinel workbook](https://github.com/Azure/Azure-Sentinel) to identify such activities in Azure AD.
 
-For example, the [Azure Sentinel query for modified domain federation trust settings](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ADFSDomainTrustMods.yaml) alerts when a user or application modifies the federation settings on the domain, particularly when a new AD FS Trusted Realm object, such as a signing certificate, is added to the domain.
+For example, run the [Azure Sentinel query for modified domain federation trust settings](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ADFSDomainTrustMods.yaml) to get alerts when a user or application modifies the federation settings on the domain, particularly when a new AD FS Trusted Realm object, such as a signing certificate, is added to the domain.
  
 Since domain federation setting modifications should be rare, this would be a high-fidelity alert where Azure Sentinel users should pay careful attention.
 
@@ -314,7 +315,7 @@ AuditLogs
 
 ### Find extra credentials added to applications or service principals
 
-Use the following Sentinel query to find new access credentials added to an application or service principal.
+Use the following Azure Sentinel query to find new access credentials added to an application or service principal.
 
 For more information, see the [NewAppOrServicePrincipalCredential](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml) query on GitHub.
 
@@ -351,7 +352,7 @@ AuditLogs
 
 ### Find first credentials added to applications or service principals
 
-Use the following Sentinel query to find a first access credential added to an application or service principal, where no credentials were already present:
+Use the following Azure Sentinel query to find a first-access credential added to an application or service principal, where no credentials were already present:
 
 For more information, see the [FirstAppOrServicePrincipalCredential](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/FirstAppOrServicePrincipalCredential.yaml) query on GitHub.
 
