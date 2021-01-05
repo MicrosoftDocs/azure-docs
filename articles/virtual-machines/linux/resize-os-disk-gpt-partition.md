@@ -396,7 +396,8 @@ When the VM has restarted, complete these steps:
 > To use the same procedure to resize any other logical volume, change the LV name in step 12.
 
 ### RHEL RAW
->[!NOTE] Always take a snapshot of the VM before increasing OS disk size.
+>[!NOTE] 
+>Always take a snapshot of the VM before increasing OS disk size.
 
 To increase the size of the OS disk in an RHEL RAW partition:
 
