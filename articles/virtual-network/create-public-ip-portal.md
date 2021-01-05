@@ -31,6 +31,7 @@ Use the following steps to create a standard zone-redundant public IP address na
     | ---                     | ---                         |
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Standard**         |
+    | Tier (if shown*)                  | Select **Regional**         |
     | Name                    | Enter *myStandardZRPublicIP*          |
     | IP address assignment   | Note this will be locked as "Static"                                        |
     | Idle Timeout (minutes)  | Leave the value at 4        |
@@ -41,6 +42,8 @@ Use the following steps to create a standard zone-redundant public IP address na
     | Availability Zone       | Select **Zone-Redundant** or pick specific Zone (see note below) |
 
 Note that these are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)
+
+\* = Tier relates to the [Cross-Region Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) functionality, currently in Preview.
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
@@ -56,7 +59,6 @@ Use the following steps to create a basic static public IP address named **myBas
     | ---                     | ---                         |
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Standard**         |
-    | Tier (if shown*)                  | Select **Regional**         |
     | Name                    | Enter *myBasicPublicIP*          |
     | IP address assignment   | Choose **Static** (see note below)                                     |
     | Idle Timeout (minutes)  | Leave the value at 4        |
@@ -66,8 +68,6 @@ Use the following steps to create a basic static public IP address named **myBas
     | Location                | Select **East US 2**      |
 
 If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
-
-\* = Tier relates to the [Cross-Region Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) functionality, currently in Preview.
 
 ---
 
