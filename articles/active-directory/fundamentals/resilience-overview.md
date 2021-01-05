@@ -44,4 +44,4 @@ To build more resilience in your systems, review the following articles:
 
 * [Build IAM resilience in your applications](resilience-app-development-overview.md)
 
-* [Build resilience in your CIAM systems](resilience-b2c.md)
+* [Build resilience in your Customer Identity and Access Management (CIAM) systems](resilience-b2c.md)

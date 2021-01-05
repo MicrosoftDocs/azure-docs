@@ -36,7 +36,7 @@ For example, track the following metrics, since a sudden drop in either will lea
 
   - **Success rate (%)**: Successful requests/Total number of requests.
 
-  Access the [key indicators](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) in [application insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) where Azure AD B2C policy-based logs, [audit logs](https://docs.microsoft.coms/azure/active-directory-b2c/analytics-with-application-insights), and sign-in logs are stored.  
+  Access the [key indicators](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) in [application insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) where Azure AD B2C policy-based logs, [audit logs](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights), and sign-in logs are stored.  
 
    - **Visualizations**: Using Log analytics build dashboards to visually monitor the key indicators.
 

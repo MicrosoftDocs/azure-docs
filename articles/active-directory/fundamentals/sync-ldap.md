@@ -48,13 +48,12 @@ You need to synchronize identity data between your on-premises LDAP v3 directori
 
 ## Implement LDAP synchronization with Azure AD
 
-* [Hybrid Identity directory integration tools](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Hybrid Identity directory integration tools](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Azure AD Connect installation roadmap](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap) 
+* [Azure AD Connect installation roadmap](../hybrid/how-to-connect-install-roadmap.md) 
 
-* [Overview and creation a LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
+* [Overview and creation a LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
    > LDAP Connectors are an advanced configuration requiring some familiarity with Forefront Identity Manager and/or Microsoft Identity Manager. If used in production, we advise questions about this configuration should go through [Premier Support](https://support.microsoft.com/premier) or Microsoft Partner Network.
 
- 

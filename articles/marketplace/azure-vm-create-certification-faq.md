@@ -198,7 +198,7 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 
 |OS|Recommended VHD size|
 |---|---|
-|Linux|30 GB to 1023 GB|
+|Linux|1 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
 
 Because VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime. Use a disk size from 30 GB to 50 GB.
@@ -469,7 +469,7 @@ If all images that are taken from Azure Marketplace are to be reused, the operat
 
 * For **Windows**, you generalize Windows images by using `sysreptool`.
 
-  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## DataDisk errors
 

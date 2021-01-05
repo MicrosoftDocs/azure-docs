@@ -46,17 +46,17 @@ If the Helm release is present and `STATUS: deployed` determine the status of th
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME										READY	UP-TO-DATE AVAILABLE AGE
-deployment.apps/cluster-metadata-operator	1/1		1			1		 16h
-deployment.apps/clusteridentityoperator		1/1		1			1	     16h
-deployment.apps/config-agent				1/1		1			1		 16h
-deployment.apps/controller-manager			1/1		1			1		 16h
-deployment.apps/flux-logs-agent				1/1		1			1		 16h
-deployment.apps/metrics-agent			    1/1     1           1        16h
-deployment.apps/resource-sync-agent			1/1		1			1		 16h
+NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
+deployment.apps/clusteridentityoperator     1/1       1          1       16h
+deployment.apps/config-agent                1/1       1          1       16h
+deployment.apps/cluster-metadata-operator   1/1       1          1       16h
+deployment.apps/controller-manager          1/1       1          1       16h
+deployment.apps/flux-logs-agent             1/1       1          1       16h
+deployment.apps/metrics-agent               1/1       1          1       16h
+deployment.apps/resource-sync-agent         1/1       1          1       16h
 
-NAME											READY	STATUS	 RESTART AGE
-pod/cluster-metadata-operator-7fb54d9986-g785b  2/2		Running  0		 16h
+NAME                                            READY   STATUS  RESTART  AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
 pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
 pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
 pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
@@ -65,7 +65,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-All Pods should show `STATUS` as `Running` and `READY` should be either `3/3` or `2/2`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`. If any of these pods are stuck in `Pending` state it could be because of insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) will get these pods to transition to `Running` state.
+All Pods should show `STATUS` as `Running` and `READY` should be either `3/3` or `2/2`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`. If any of these pods are stuck in `Pending` state it could be because of insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) will get these pods to transition to `Running` state.
 
 ## Connecting Kubernetes clusters to Azure Arc
 

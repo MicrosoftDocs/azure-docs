@@ -45,19 +45,19 @@ To configure the integration of Clarizen into Azure AD, you need to add Clarizen
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Clarizen**, select **Clarizen** from result panel then click **Add** button to add the application.
 
-	 ![Clarizen in the results list](common/search-new-app.png)
+    ![Clarizen in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,7 +89,7 @@ To configure Azure AD single sign-on with Clarizen, perform the following steps:
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
@@ -101,22 +101,22 @@ To configure Azure AD single sign-on with Clarizen, perform the following steps:
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
-	> [!NOTE]
-	> These are not the real values. You have to use the actual identifier and reply URL. Here we suggest that you use the unique value of a string as the identifier. To get the actual values, contact the [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new).
+    > [!NOTE]
+    > These are not the real values. You have to use the actual identifier and reply URL. Here we suggest that you use the unique value of a string as the identifier. To get the actual values, contact the [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new).
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 6. On the **Set up Clarizen** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure Clarizen Single Sign-On
 
@@ -124,27 +124,27 @@ To configure Azure AD single sign-on with Clarizen, perform the following steps:
 
 1. Click your username, and then click **Settings**.
 
-	![Clicking "Settings" under your username](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings")
+    ![Clicking "Settings" under your username](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings")
 
 1. Click the **Global Settings** tab. Then, next to **Federated Authentication**, click **edit**.
 
-	!["Global Settings" tab](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
+    !["Global Settings" tab](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
 
 1. In the **Federated Authentication** dialog box, perform the following steps:
 
-	!["Federated Authentication" dialog box](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
+    !["Federated Authentication" dialog box](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
-	a. Select **Enable Federated Authentication**.
+    a. Select **Enable Federated Authentication**.
 
-	b. Click **Upload** to upload your downloaded certificate.
+    b. Click **Upload** to upload your downloaded certificate.
 
-	c. In the **Sign-in URL** box, enter the value of **Login URL** from the Azure AD application configuration window.
+    c. In the **Sign-in URL** box, enter the value of **Login URL** from the Azure AD application configuration window.
 
-	d. In the **Sign-out URL** box, enter the value of **Logout URL** from the Azure AD application configuration window.
+    d. In the **Sign-out URL** box, enter the value of **Logout URL** from the Azure AD application configuration window.
 
-	e. Select **Use POST**.
+    e. Select **Use POST**.
 
-	f. Click **Save**.
+    f. Click **Save**.
 
 ### Create an Azure AD test user 
 
@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -177,11 +177,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Clarizen**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Clarizen**.
 
-	![The Clarizen link in the Applications list](common/all-applications.png)
+    ![The Clarizen link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -213,17 +213,17 @@ To enable Azure AD users to sign in to Clarizen, you must provision user account
 
 3. Click **Invite User**.
 
-	!["Invite User" button](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
+    !["Invite User" button](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
 
 1. In the **Invite People** dialog box, perform the following steps:
 
-	!["Invite People" dialog box](./media/clarizen-tutorial/create_aaduser_003.png "Invite People")
+    !["Invite People" dialog box](./media/clarizen-tutorial/create_aaduser_003.png "Invite People")
 
-	a. In the **Email** box, type the email address of the Britta Simon account.
+    a. In the **Email** box, type the email address of the Britta Simon account.
 
     b. Click **Invite**.
 
-	> [!NOTE]
+    > [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
 

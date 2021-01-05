@@ -69,7 +69,7 @@ With this, Azure storage will allow inbound connections from the added virtual n
 
 You can also choose to automate these steps to configure this setting for multiple labs. 
 
-[Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## Things to remember while using a lab in a network isolated mode
 

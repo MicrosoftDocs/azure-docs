@@ -31,7 +31,7 @@ Recommend restricting connectivity to your Azure resources (including Azure IoT 
 Keep open hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device.
 
 - [IoT virtual networks support](virtual-network-support.md)
-- [loT networking best practice](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
+- [loT networking best practice](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
 - [Azure Private Link overview](../private-link/private-link-overview.md)
 - [Azure network security group](../virtual-network/network-security-groups-overview.md)
 
@@ -71,7 +71,7 @@ Azure DDoS Protection Basic is already enabled and available for no additional c
 
 - [Azure Security Center for IoT suspicious IP address communication](../defender-for-iot/concept-security-alerts.md)
 
-- [Manage Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
+- [Manage Azure DDoS Protection Basic](../ddos-protection/ddos-protection-overview.md)
 
 - [Threat protection in Azure Security Center](../security-center/azure-defender.md)
 
@@ -218,7 +218,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 - [Monitor Azure IoT health](monitor-iot-hub.md)
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
    
 - [ How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

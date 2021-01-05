@@ -50,7 +50,9 @@
     - name: Co-sell partner engagement
       href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
-      href: partner-center-portal/commercial-marketplace-co-sell.md 
+      href: commercial-marketplace-co-sell.md 
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -382,9 +384,9 @@
   - name: Supported countries and regions
     href: sell-from-countries.md  
   - name: Co-sell country and region codes
-    href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
+    href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
-    href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    href: commercial-marketplace-co-sell-states.md
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags

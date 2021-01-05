@@ -25,7 +25,7 @@ Alert types:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
-* SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) Analysis
+* SQL Database and Azure Synapse Analytics Analysis
 * Contextual Information
 
 Depending on the alert types, customers can gather the necessary information to investigate the alert by using the following resources:

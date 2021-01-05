@@ -51,6 +51,9 @@ The **Knowledge center** allows you to do three things:
 1. Click **Run**
 1. This will create several tables for all of the NYC Taxi data and load them using the T-SQL COPY command.
 
+    > [!NOTE] 
+    > When using the sample gallery for SQL script with a dedicated SQL pool (formerly SQL DW), you will only be able to use an existing dedicated SQL pool (formerly SQL DW).
+
 ## Next steps
 
 * [Get started with Azure Synapse Analytics](get-started.md)

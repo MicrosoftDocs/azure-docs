@@ -28,7 +28,7 @@ Every block blob, append blob, or page blob that was written to Azure Storage af
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows VMs or [Server-side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux VMs.
+For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Windows VMs or [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Linux VMs.
 
 ## About encryption key management
 

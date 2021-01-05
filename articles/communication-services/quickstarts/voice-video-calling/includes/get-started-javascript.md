@@ -57,7 +57,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
 
 ```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
+npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
 
 Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a call to an Azure Communications Bot.

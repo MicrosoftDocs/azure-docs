@@ -25,11 +25,11 @@ If you’re just getting started, check out the [Microsoft identity platform doc
 Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](./index.yml).
 
 > [!TIP]
-> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal, and then select the **Integration assistant (preview)** menu item to get started with the assistant.
+> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal, and then select the **Integration assistant** menu item to get started with the assistant.
 
 ## Basics
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](/legal/microsoft-identity-platform/terms-of-use). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
 
 ## Ownership
 

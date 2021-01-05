@@ -129,7 +129,7 @@ See the following example of a successful JSON response:
 ### Read 3.2 preview adds text line style (Latin languages only)
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
 
-Get started with the [Computer Vision Read OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
+Get started with the [Computer Vision REST API or client library quickstarts](./quickstarts-sdk/client-library.md) to start integrating OCR capabilities into your applications.
 
 ## Supported languages for print text
 The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages.
@@ -143,7 +143,7 @@ The [Read 3.2 API public preview](https://westus.dev.cognitive.microsoft.com/doc
 The Read operation currently supports extracting handwritten text exclusively in English.
 
 ## Use the REST API and SDK
-The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
+The [Read 3.x REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
 ## Deploy on-premise with Docker containers
 The [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
@@ -193,7 +193,6 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 
 ## Next steps
 
-- Get started with the [Computer Vision Read SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
-- Use the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
+- Get started with the [Computer Vision REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
 - Learn about the [Read REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Learn about the [Read 3.2 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.

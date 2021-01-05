@@ -59,7 +59,7 @@ The above configuration ensures that requests to any route in the app returns th
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app deployed to Azure Static Web Apps.
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Name your repository **my-first-static-blazor-app**
 
 ## Create a static web app

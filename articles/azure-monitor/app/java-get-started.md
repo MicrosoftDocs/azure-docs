@@ -2,17 +2,17 @@
 title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
-author: lgayhardt
-ms.custom: devx-track-java
-ms.author: lagayhar
 ms.date: 11/22/2020
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Quickstart: Get started with Application Insights in a Java web project
 
 
 > [!CAUTION]
-> As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+> As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights Java 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
@@ -25,6 +25,8 @@ Application Insights is an extensible analytics service for web developers that 
 
 ## Get an Application Insights instrumentation key
 
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=java) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
