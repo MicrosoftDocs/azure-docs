@@ -24,15 +24,15 @@ These tables list and describe entity enrichments that can be used to focus and 
 
 The first two tables, **User insights** and **Device insights**, contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-<a name="baseline-explained"></a>The third table, **Activity insights**, contains entity information that is the product of Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-table) column in this table.
+<a name="baseline-explained"></a>The rest of the tables, under **Activity insights tables**, contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-table) column in this table.
 
-The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the **Behavior Analytics table**.
+> [!NOTE] The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](identify-threats-with-entity-behavior-analytics#data-schema).
 
 ## User insights table
 
 | Enrichment name | Description | Sample value |
 | --- | --- | --- | --- |
-| **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Nancy Davolio |
+| **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Hayden Cook |
 | **Account domain**<br>*(AccountDomain)* | The account domain name of the user. |  |
 | **Account object ID**<br>*(AccountObjectID)* | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
 | **Blast radius**<br>*(BlastRadius)* | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Azure Active Directory roles and permissions. | Low, Medium, High |
@@ -48,7 +48,7 @@ The **Enrichment name** field in all three tables displays two rows of informati
 | --- | --- | --- | --- |
 | **Browser**<br>*(Browser)* | The browser used in the action. | Edge, Chrome |
 | **Device family**<br>*(DeviceFamily)* | The device family used in the action. | Windows |
-| **Device type**<br>*(DeviceType)* | The client (?) device type used in the action | Desktop |
+| **Device type**<br>*(DeviceType)* | The client device type used in the action | Desktop |
 | **ISP**<br>*(ISP)* | The internet service provider used in the action. |  |
 | **Operating system**<br>*(OperatingSystem)* | The operating system used in the action. | Windows 10 |
 | **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
@@ -57,58 +57,97 @@ The **Enrichment name** field in all three tables displays two rows of informati
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Edge, Firefox |
 |
 
-## Activity insights table
+## Activity insights tables
 
-For the sake of clarity and ease of reading, this table is broken up into sections, by activity type. The activity types are displayed in all caps and italics.
+#### Action performed
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
-| ***ACTION PERFORMED***
 | **First time user performed action**<br>*(FirstTimeUserPerformedAction)* | 180 | The action was performed for the first time by the user. | True, False |
 | **Action uncommonly performed by user**<br>*(ActionUncommonlyPerformedByUser)* | 10 | The action is not commonly performed by the user. | True, False |
 | **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
 | **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
-| ***APP USED***
+|
+
+#### App used
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user used app**<br>*(FirstTimeUserUsedApp)* | 180 | The app was used for the first time by the user. | True, False |
 | **App uncommonly used by user**<br>*(AppUncommonlyUsedByUser)* | 10 | The app is not commonly used by the user. | True, False |
 | **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
 | **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
-| ***BROWSER USED***
+| 
+
+#### Browser used
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user connected via browser**<br>*(FirstTimeUserConnectedViaBrowser)* | 30 | The browser was observed for the first time by the user. | True, False |
 | **Browser uncommonly used by user**<br>*(BrowserUncommonlyUsedByUser)* | 10 | The browser is not commonly used by the user. | True, False |
 | **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
 | **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
-| ***COUNTRY CONNECTED FROM***
+| 
+
+#### Country connected from
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user connected from country**<br>*(FirstTimeUserConnectedFromCountry)* | 90 | The geo location, as resolved from the IP address, was connected from for the first time by the user. | True, False |
 | **Country uncommonly connected from by user**<br>*(CountryUncommonlyConnectedFromByUser)* | 10 | The geo location, as resolved from the IP address, is not commonly connected from by the user. | True, False |
 | **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
 | **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
-| ***DEVICE USED TO CONNECT***
+| 
+
+#### Device used to connect
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user connected from device**<br>*(FirstTimeUserConnectedFromDevice)* | 30 | The source device was connected from for the first time by the user. | True, False |
 | **Device uncommonly used by user**<br>*(DeviceUncommonlyUsedByUser)* | 10 | The device is not commonly used by the user. | True, False |
 | **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
 | **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
-| ***OTHER DEVICE-RELATED***
+| 
+
+#### Other device-related
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
-| ***INTERNET SERVICE PROVIDER USED TO CONNECT***
+| 
+
+#### Internet Service Provider used to connect
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user connected via ISP**<br>*(FirstTimeUserConnectedViaISP)* | 30 | The ISP was observed for the first time by the user. | True, False |
 | **ISP uncommonly used by user**<br>*(ISPUncommonlyUsedByUser)* | 10 | The ISP is not commonly used by the user. | True, False |
 | **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
 | **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
-| ***RESOURCE ACCESSED***
+| 
+
+#### Resource accessed
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **First time user accessed resource**<br>*(FirstTimeUserAccessedResource)* | 180 | The resource was accessed for the first time by the user. | True, False |
 | **Resource uncommonly accessed by user**<br>*(ResourceUncommonlyAccessedByUser)* | 10 | The resource is not commonly accessed by the user. | True, False |
 | **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
 | **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
-| ***MISCELLANEOUS***
+| 
+
+#### Miscellaneous
+
+| Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
+| --- | --- | --- | --- |
 | **Last time user performed action**<br>*(LastTimeUserPerformedAction)* | 180 | Last time the user performed the same action. | <Timestamp> |
 | **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | No action in the same resource provider was performed by the user. | True, False |
 | **Source IP location**<br>*(SourceIPLocation)* | *N/A* | The country resolved from the source IP of the action. | [Surrey, England] |
