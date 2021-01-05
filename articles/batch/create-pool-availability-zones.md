@@ -9,15 +9,17 @@ ms.date: 01/05/2021
 
 Azure regions which support [Availability Zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) have a minimum of three separate zones, each with their own independent power source, network, and cooling system. When you create an Azure Batch pool using Virtual Machine Configuration, you can choose to provision your Batch pool across Availability Zones. Creating your pool with this zonal policy helps protect your Batch compute nodes from Azure datacenter-level failures.
 
-For example, you could create your pool with zonal policy in an Azure region which supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool will still have at least 2/3 of the nodes healthy, and remain idle for task scheduling.
+For example, you could create your pool with zonal policy in an Azure region which supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool will still have healthy nodes in the other two Availability Zones, so the pool will remain available for task scheduling.
 
 ## Regional support and other requirements
 
 Batch maintains parity with Azure on supporting Availability Zones. To use the zonal option, your pool must be created in a [supported Azure region](../availability-zones/az-region/md).
 
-In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU. Also note that you can't create a pool across Availability Zones if your pool uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md) and has inter-node communication enabled.
+In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU.
 
 Make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). If a zone restriction exists, you can submit a [support ticket](../azure-portal/supportability/sku-series-unavailable.md) to remove the zone restriction.
+
+Also note that you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
 ## Create a Batch pool across Availability Zones
 
