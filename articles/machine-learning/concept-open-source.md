@@ -1,7 +1,7 @@
 ---
 title: Open-source machine learning integration
 titleSuffix: Azure Machine Learning
-description: Learn how to use open-source Python machine learning frameworks to train, deploy and manage end-to-end machine learning solutions in Azure Machine Learning.
+description: Learn how to use open-source Python machine learning frameworks to train, deploy, and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -47,7 +47,7 @@ Training a deep learning model from scratch often requires large amounts of time
 
 Reinforcement learning is an artificial intelligence technique that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
-The [Ray RLLib](https://github.com/ray-project/ray) project has a set features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
+The [Ray RLLib](https://github.com/ray-project/ray) project has a set of features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
 
 To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train a reinforcement learning model](how-to-use-reinforcement-learning.md).
 
