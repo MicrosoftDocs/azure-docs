@@ -14,6 +14,22 @@ ms.custom: references_regions
 
 This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
 
+## chgrp "<filename>" failed: Invalid argument (22)
+
+### Cause 1: idmapping is not disabled
+Azure Files disallows alphanumeric UID/GID. Hence it is mandatory to disable idmapping. 
+
+### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
+Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. List of unsupported characters on Azure Files on this link. Colon is one of the unsupported characters. 
+
+### Workaround
+Make sure that idmapping is indeed disabled and there is nothing known that is re-enabling it, perform the following steps below
+
+- Unmount the share
+- Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Mount the share back
+- If running rsync, run rsync with “—numeric-ids” argument from directory which do not have any bad dir/file name.
+
 ## Unable to create an NFS share
 
 ### Cause 1: Subscription is not enabled
