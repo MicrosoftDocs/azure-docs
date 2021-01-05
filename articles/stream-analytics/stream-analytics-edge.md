@@ -78,7 +78,18 @@ For both inputs and outputs, CSV and JSON formats are supported.
 
 For each input and output stream you create in your Stream Analytics job, a corresponding endpoint is created on your deployed module. These endpoints can be used in the routes of your deployment.
 
-The only supported stream input and stream output type is Edge Hub. Reference input supports reference file type. Other outputs can be reached using a cloud job downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
+Supported stream input types are:
+* Edge Hub
+* Event Hub
+* IoT Hub
+
+Supported stream output types are:
+* Edge Hub
+* SQL Database
+* Event Hub
+* Blob Storage/ADLS Gen2
+
+Reference input supports reference file type. Other outputs can be reached using a cloud job downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
 
 ## License and third-party notices
 * [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 

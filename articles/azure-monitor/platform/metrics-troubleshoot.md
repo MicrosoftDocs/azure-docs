@@ -14,18 +14,6 @@ ms.subservice: metrics
 
 Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
-## Can't find your resource to select it
-
-You clicked on the **Select a resource** button, but don't see your resource in the resource picker dialog.
-
-**Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see your resource:
-
-1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, click on the  **Directory + Subscription settings** and add a subscription with your resource.
-
-1. Ensure that you've selected the correct resource group.
-    > [!WARNING]
-    > For best performance, when you first open metrics explorer, the **Resource group** dropdown has no pre-selected resource groups. You must pick at least one group before you can see any resources.
-
 ## Chart shows no data
 
 Sometimes the charts might show no data after selecting correct resources and metrics. This behavior can be caused by several of the following reasons:

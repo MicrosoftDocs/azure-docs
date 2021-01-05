@@ -22,11 +22,11 @@ the existing state of a stream.
 
 This makes replication tasks different from aggregation tasks, which are
 generally stateful, and are the domain of analytics frameworks and services like
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction.md).
+[Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
 ## Replication applications and tasks in Azure Functions
 
-In Azure Functions, a replication task is implemented using a [trigger](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md) that acquires one or more input message from a configured source and an [output binding](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md#binding-direction) that forwards messages copied from the source to a configured target. 
+In Azure Functions, a replication task is implemented using a [trigger](/azure/azure-functions/functions-triggers-bindings) that acquires one or more input message from a configured source and an [output binding](/azure/azure-functions/functions-triggers-bindings#binding-direction) that forwards messages copied from the source to a configured target. 
 
 | Trigger  | Output |
 |----------|--------|
@@ -78,7 +78,7 @@ that is provided](https://github.com/Azure-Samples/azure-messaging-replication-d
 To avoid data loss during availability event on either side of a replication
 function, you need to configure the retry policy to be robust. Refer to the
 [Azure Functions documentation on
-retries](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) to
+retries](/azure/azure-functions/functions-bindings-error-pages) to
 configure the retry policy. 
 
 The policy settings chosen for the example projects in the [sample repository](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configure
@@ -86,7 +86,7 @@ an exponential backoff strategy with retry intervals from 5 seconds to 15 minute
 with infinite retries to avoid data loss. 
 
 For Service Bus, review the ["using retry support on top of trigger
-resilience"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
+resilience"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience)
 section to understand the interaction of triggers and the maximum delivery count
 defined for the queue.
 
@@ -94,7 +94,7 @@ defined for the queue.
 
 A replication application is an execution host for one or more replication tasks. 
 
-It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity.md). 
+It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](/azure/app-service/overview-managed-identity). 
 
 The linked Azure Resource Manager (ARM) templates create and configure a replication application with:
 
@@ -165,7 +165,7 @@ For immediate diagnostic insights, you can work with the [Live Metrics](https://
 
 ## Next steps
 
-* [Azure Functions Deployments](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies.md)
-* [Azure Functions Diagnostics](https://docs.microsoft.com/azure/azure-functions/functions-diagnostics.md)
-* [Azure Functions Networking Options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview.md)
+* [Azure Functions Deployments](/azure/azure-functions/functions-deployment-technologies)
+* [Azure Functions Diagnostics](/azure/azure-functions/functions-diagnostics)
+* [Azure Functions Networking Options](/azure/azure-functions/functions-networking-options)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)

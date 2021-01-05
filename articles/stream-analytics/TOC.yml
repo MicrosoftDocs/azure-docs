@@ -288,6 +288,8 @@
       href: debug-locally-using-job-diagram-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: Create and debug .NET custom deserializer
+      href: visual-studio-code-custom-deserializer.md
     - name: JobConfig.json fields
       href: job-config-json.md
   - name: Troubleshoot

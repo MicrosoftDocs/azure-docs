@@ -84,7 +84,7 @@ A: At this time, you must manually recreate your Azure Data Factory pipelines an
 
 ### Q: What is the difference between Apache Spark for Synapse and Apache Spark?
 
-A: Apache Spark for Synapse IS Apache Spark with added support for integrations with other services (AAD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+A: Apache Spark for Synapse is Apache Spark with added support for integrations with other services (AAD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
 
 Any workload that is currently running on Apache Spark will run on Apache Spark for Azure Synapse without change. 
 
