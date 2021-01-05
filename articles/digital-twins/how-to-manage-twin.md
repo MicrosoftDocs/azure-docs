@@ -120,27 +120,8 @@ To retrieve multiple twins using a single API call, see the query API examples i
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a *Moon*:
 
-```json
-{
-    "@id": "dtmi:example:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "contents": [
-        {
-            "@type": "Property",
-            "name": "radius",
-            "schema": "double",
-            "writable": true
-        },
-        {
-            "@type": "Property",
-            "name": "mass",
-            "schema": "double",
-            "writable": true
-        }
-    ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
+
 The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a *Moon*-type twin might look like this:
 
 ```json
@@ -205,20 +186,8 @@ A patch call can update as many properties on a single twin as you'd like (even 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/mass",
-    "value": 0.0799
-  },
-  {
-    "op": "replace",
-    "path": "/radius",
-    "value": 0.800
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
+
 You can create patches using a `JsonPatchDocument` in the [SDK](how-to-use-apis-sdks.md). Here is an example.
 
 ```csharp
@@ -233,15 +202,7 @@ Recall that a model may contain components, allowing it to be made up of other m
 
 To patch properties in a digital twin's components, you can use path syntax in JSON Patch:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/mycomponentname/mass",
-    "value": 0.0799
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
 
 ### Update a digital twin's model
 
@@ -249,15 +210,7 @@ The `UpdateDigitalTwin()` function can also be used to migrate a digital twin to
 
 For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` field:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/$metadata/$model",
-    "value": "dtmi:example:foo;1"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
 
 This operation will only succeed if the digital twin being modified by the patch conforms with the new model. 
 
@@ -268,20 +221,7 @@ Consider the following example:
 
 The patch for this situation needs to update both the model and the twin's temperature property, like this:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/$metadata/$model",
-    "value": "dtmi:example:foo_new;1"
-  },
-  {
-    "op": "add",
-    "path": "/temperature",
-    "value": 60
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-model-2.json":::
 
 ### Handle conflicting update calls
 

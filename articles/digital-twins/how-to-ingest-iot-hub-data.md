@@ -48,20 +48,7 @@ Whenever a temperature telemetry event is sent by the thermostat device, an Azur
 You can add/upload a model using the CLI command below, and then create a twin using this model that will be updated with information from IoT Hub.
 
 The model looks like this:
-```JSON
-{
-  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",
-  "@type": "Interface",
-  "@context": "dtmi:dtdl:context;2",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "Temperature",
-      "schema": "double"
-    }
-  ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
 
 To **upload this model to your twins instance**, open the Azure CLI and run the following command:
 

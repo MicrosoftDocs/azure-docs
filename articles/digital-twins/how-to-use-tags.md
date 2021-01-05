@@ -33,23 +33,7 @@ Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dt
 
 Here is an excerpt from a twin model implementing a marker tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### Add marker tags to digital twins
 
@@ -89,23 +73,7 @@ Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtd
 
 Here is an excerpt from a twin model implementing a value tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### Add value tags to digital twins
 

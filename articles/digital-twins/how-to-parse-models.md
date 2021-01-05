@@ -78,51 +78,7 @@ You can use the parser library directly, for things like validating models in yo
 
 To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
 
-```json
-[
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeMaker;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Component",
-        "name": "coffeeMaker",
-        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
-      }
-    ]
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "waterTemp",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:contoso:coffeeBar;1",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "foo",
-        "target": "dtmi:com:contoso:coffeeMaker;1"
-      },
-      {
-        "@type": "Property",
-        "name": "capacity",
-        "schema": "integer"
-      }
-    ]
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/coffeeMaker-coffeeMakerInterface-coffeeBar.json":::
 
 The following code shows an example of how to use the parser library to reflect on these definitions in C#:
 
