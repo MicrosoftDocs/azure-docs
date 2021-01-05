@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
 
-## chgrp "<filename>" failed: Invalid argument (22)
+## chgrp "filename" failed: Invalid argument (22)
 
 ### Cause 1: idmapping is not disabled
 Azure Files disallows alphanumeric UID/GID. Hence it is mandatory to disable idmapping. 
