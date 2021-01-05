@@ -3,7 +3,7 @@ title: Send an email from an Azure Automation runbook
 description: This article tells how to send an email from within a runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/15/2019
+ms.date: 01/05/2021
 ms.topic: conceptual
 ---
 
@@ -62,7 +62,7 @@ For other ways to create an Azure Key Vault and store a secret, see [Key Vault q
 
 To use Azure Key Vault within a runbook, you must import the following modules into your Automation account:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts)
 * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 For instructions, see [Import Az modules](shared-resources/modules.md#import-az-modules).
