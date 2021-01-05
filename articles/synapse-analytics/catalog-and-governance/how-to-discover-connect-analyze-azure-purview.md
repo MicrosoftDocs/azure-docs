@@ -1,5 +1,5 @@
 ---
-title: Discover, connect, & explore data in Synapse using Azure Purview
+title: Discover, connect, and explore data in Synapse using Azure Purview
 description: Guide on how to discover data, connect them and explore them in Synapse
 services: synapse-analytics 
 author: ArnoMicrosoft
@@ -10,7 +10,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Discover, connect, & explore data in Synapse using Azure Purview 
+# Discover, connect, and explore data in Synapse using Azure Purview 
 
 > [!IMPORTANT]
 > The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
@@ -53,21 +53,18 @@ We are not yet able to infer if there is an existing linked service or integrati
 
 There are three actions that you can perform: **New SQL Script**, **New Notebook**, and **New Data Flow**. 
 
-
-1. With **New SQL Script**, depending on the type of support, you will be able to: 
+With **New SQL Script**, depending on the type of support, you can: 
 - View the top 100 rows in order to understand the shape of the data. 
 - Create an external table from Synapse SQL database 
 - Load the data into a Synapse SQL database 
  
-
-2. With **New notebook**, you will be able to: 
+With **New notebook**, you can: 
 - Load data into a Spark DataFrame 
-- Create a Spark Table (if you do that over Parquet format, it will also create a serverless SQL pool table 
+- Create a Spark Table (if you do that over Parquet format, it also creates a serverless SQL pool table). 
  
-3. With **New data flow**, you will create an integration dataset that will be used a source in a data flow pipeline. Data flow is a no-code developer capability to perform data transformation. For more information about [using data flow in Synapse](../quickstart-data-flow.md).
+With **New data flow**, you can create an integration dataset that can be used a source in a data flow pipeline. Data flow is a no-code developer capability to perform data transformation. For more information about [using data flow in Synapse](../quickstart-data-flow.md).
 
 ##  Next steps 
 
-[Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
-
-[How to Search Data in Azure Purview Data Catalog](../../purview/how-to-search-catalog.md)
+- [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
+- [How to Search Data in Azure Purview Data Catalog](../../purview/how-to-search-catalog.md)
