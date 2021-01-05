@@ -23,6 +23,12 @@ Welcome to what's new in the Cognitive Services docs from December 1, 2020 throu
 
 - [Configure Azure Cognitive Services virtual networks](cognitive-services-virtual-networks.md)
 
+## Anomaly Detector
+
+### Updated articles
+
+- [Anomaly Detector REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+
 ## Bing Visual Search
 
 ### Updated articles
