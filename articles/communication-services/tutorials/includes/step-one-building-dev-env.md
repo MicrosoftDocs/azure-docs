@@ -18,11 +18,11 @@ Time to complete: 60 minutes.
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - Install [Node.js](https://nodejs.org/), nvm and npm.  Active LTS and Maintenance LTS versions of Node.js recommended (we tested this tutorial using version 12.20.0). We highly recommend deploying the nvm, a version control tool, if you are on Windows or use version management tool of your choice on other platforms. The nvm provides ability to switch between various Node.js versions for testing. This article provides a good reference on [how to deploy Node.js, nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) on Windows
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. You can find more abut hosting static web sites in Azure Storage [here](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token. You can use either [QuickStart here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
+- A user access token. You can use either [QuickStart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or you can build own Azure Application, running in Azure Functions, using this [tutorial](https://docs.microsoft.com/en-us/azure/communication-services/tutorials/trusted-service-tutorial)
 
 ### Installing Node.js, nvm and npm
 
@@ -82,7 +82,7 @@ Follow the same steps as above for [Azure Functions](https://marketplace.visuals
 
 ## Obtaining the User Token
 
-Get the user token, using either a [QuickStart here](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
+Get the user token, using either a [QuickStart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or deploy an application in [Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
 
 ## Initializing the application and adding the Azure Communication Services packages
 
@@ -140,7 +140,7 @@ Webpack also provides the development server, which we will use in this tutorial
 
 We will create two configurations for webpack, one for development and the other for production. Files prepared for production will be minified, meaning that we will remove unused whitespace and characters. Minification and optimization are great for production as it reduces the size of our files. Simultaneously, code prepared for production will not be easily readable, and modification will be difficult. To keep production code optimized while keeping our development version readable, we will need two environments.
 
-Overall, we will create a common configuration file for webpack, add two files, one for the development server, the other for production (in next section), add pointers to run the server in our package.json file, and test it. We will use the webpack-merge tool to work with different configuration files for webpack as described [here](https://webpack.js.org/guides/production/)
+Overall, we will create a common configuration file for webpack, add two files, one for the development server, the other for production (in next section), add pointers to run the server in our package.json file, and test it. We will use the webpack-merge tool to work with [different configuration files for webpack](https://webpack.js.org/guides/production/)
 
 Let start from the development environment.
 
