@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -41,40 +41,38 @@ Before you set up a compute role on your Azure Stack Edge Pro device, make sure 
 
 To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource via the Azure portal.
 
-1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
+1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**, and select **IoT Edge**.
 
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Get started with compute](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
 
-2. On the **Configure Edge compute** tile, select **Configure compute**.
+2. In **Enable IoT Edge service**, select **Add**.
 
-    ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configure compute](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
 
 3. On the **Configure Edge compute** blade, input the following:
-
    
-    |Field  |Value  |
-    |---------|---------|
-    |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
-    |Name     |Enter a name for your IoT Hub resource.         |
+   |Field  |Value  |
+   |---------|---------|
+   |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
+   |Name     |Enter a name for your IoT Hub resource.         |
 
-    ![Get started with compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+   ![Get started with compute 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
 
-4. Select **Create**. The IoT Hub resource creation takes several minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. 
+4. When you finish the settings, select **Review + Create**. Review the settings for your IoT Hub resource, and select **Create**.
 
-    ![Get started with compute 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the IoT Edge service is now running.
 
-5. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
-    
-    ![Get started with compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+   ![Get started with compute 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
 
-    > [!NOTE]
-    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge Pro device, the IoT Hub gets created but is not shown in the compute configuration. 
-    
-When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
+5. To confirm the Edge compute role has been configured, select **Properties**.
 
-It can take 20-30 minutes to configure compute since behind the scenes, virtual machines and Kubernetes cluster are being created. 
+   ![Get started with compute 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
 
-After you have successfully configured the compute in Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge Pro) exist. 
+   When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
+
+It can take 20-30 minutes to configure compute because, behind the scenes, virtual machines and a Kubernetes cluster are being created.
+
+After you have successfully configured compute in the Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge Pro) exist.
 
 ## Get Kubernetes endpoints
 

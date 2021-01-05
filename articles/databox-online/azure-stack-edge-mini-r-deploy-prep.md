@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -161,7 +161,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     [![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
-    Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
+    Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -42,11 +42,11 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
 1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**, and select **IoT Edge**.
 
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
 2. In **Enable IoT Edge service**, select **Add**.
 
-    ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
 3. In **Create IoT Edge service**, enter settings for your IoT Hub resource:
 
