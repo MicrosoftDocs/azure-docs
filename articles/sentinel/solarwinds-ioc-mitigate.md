@@ -68,7 +68,7 @@ Anomalous API access patterns indicate that attackers with administrative creden
 
 Microsoft 365 APIs can be used to access email, documents, chats, configuration settings (such as email forwarding), and more.  
 
-Since you must have a highly privileged Azure Active Directory (AAD) administrative account to add credentials to service principals, changes at this level can imply that one or more such privileged accounts have been compromised. There may be other significant changes made in any impacted tenant.       
+Since you must have a highly privileged Azure Active Directory (Azure AD) administrative account to add credentials to service principals, changes at this level can imply that one or more such privileged accounts have been compromised. There may be other significant changes made in any impacted tenant.       
 
 
 ## Attack pattern: Forged SAML tokens
@@ -92,7 +92,7 @@ Anomalous tokens found in tenants affected by Solorigate included the following 
 - Tokens that indicated that MFA was used when the token claimed to authenticate from within the corporate estate, where MFA is not required.
 
 > [!NOTE]
-> Microsoft generally retains token logs only for 30 days, and never logs complete token. For this reason, Microsoft cannot see every aspect of an SAML  token. Customers who want longer retention can configure additional storage in Azure monitor or other systems. 
+> Microsoft generally retains token logs only for 30 days, and never logs complete token data. For this reason, Microsoft cannot see every aspect of an SAML  token. Customers who want longer retention can configure additional storage in Azure monitor or other systems. 
 >
 > The token anomalies detected were anomalous in lifetime, usage location, or claims (particularly MFA claims). The anomalies were sufficiently convincing as forgeries. These patterns were not found in all cases.
 
@@ -126,7 +126,7 @@ If you think that you've found forged SAML tokens, perform the following steps:
 
 - Determine how the certificates were exfiltrated, and remediate as needed.
 
-- Roll all SAML token signing certificates.
+- Renew all SAML token signing certificates.
 
 - Where possible, consider reducing your reliance on on-premises SAML trust relationships.
 
@@ -157,7 +157,7 @@ Microsoft found the following types of illegitimate SAML trust relationship regi
 
 - **Token forgeries** consistent with the [patterns described above](#forged-saml-tokens). 
 
-Calls generally came from different IP addresses for each call and impersonated user, but generally tracked back to anonymous VPN servers.
+Calls generally came from different IP addresses for each call and impersonated user, but usually tracked back to anonymous VPN servers.
 
 ### Implications of illegitimate SAML trust relationship registrations 
 
@@ -177,7 +177,7 @@ If you think you've found an illegitimate SAML trust relationship registration, 
 
 - Review all federation trust relationships to ensure that they are all valid.
 - Determine how the administrative account was impersonated. For more information, see [below](#queries-that-impersonate-existing-applications).
-- Roll back any illegitimate administrative account credentials.
+- Revert any illegitimate administrative account credentials found.
 
 ## Attack pattern: Added credentials to existing applications
 
@@ -212,9 +212,9 @@ Additionally, no Microsoft 365 applications or service principals were used when
 
 ### Implications of added credentials to existing applications
 
-The addition of credentials to existing applications can enable an attacker to gain access to Azure AD. 
+The addition of credentials to existing applications can enable attackers to gain access to Azure AD. 
 
-The attacker can then perform extensive reconnaissance to find unique applications that could be used to obfuscate their activity.
+The attackers can then perform extensive reconnaissance to find unique applications that could be used to obfuscate their activity.
 
 ### How to find added credentials in your system
 
@@ -234,7 +234,7 @@ If you think you've found added credentials the applications in your system, we 
 
 - Remove all inactive service principals from your environment.
 
-- Regularly roll credentials for all applications and service principals.
+- Regularly renew credentials for all applications and service principals.
 
 ## Attack pattern: Queries that impersonate existing applications
 
@@ -281,7 +281,7 @@ If you think you've found impersonating queries in your environment, we recommen
 
 - Determine how the administrative account was impersonated. For more information, see [below](#queries-that-impersonate-existing-applications).
 
-- Roll administrative account credentials.
+- Renew administrative account credentials.
 
 ## More Solorigate attacker behaviors
 
@@ -316,8 +316,8 @@ If you think that your organization has been affected by a supply chain attack a
 
 For more information, see:
 
-- [Using Azure Sentinel to respond to supply chain attacks and systemic identity compromise](identity-compromise-azure-sentinel.md).
+- [Using Azure Sentinel to respond to supply-chain attacks and systemic identity compromise](identity-compromise-azure-sentinel.md).
 
-- [Using Azure Defender to respond to supply chain attacks and systemic identity compromise](identity-compromise-defender.md) 
+- [Using Azure Defender to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md) 
 
-- [Using Azure Active Directory to respond to supply chain attacks and systemic identity compromise](identity-compromise-aad.md)
+- [Using Azure Active Directory to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)

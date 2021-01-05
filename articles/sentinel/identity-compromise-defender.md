@@ -1,6 +1,6 @@
 ---
-title: Using Azure Defender to respond to supply chain attacks and systemic identity compromise | Microsoft Docs
-description: Learn how to use Azure Defender for Endpoint to respond to supply chain attacks and systemic identity compromises similar to the SolarWinds attack (Solorigate).
+title: Using Azure Defender to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+description: Learn how to use Azure Defender for Endpoint to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -18,7 +18,7 @@ ms.author: bagol
 
 ---
 
-# Using Microsoft Defender to respond to supply chain attacks and systemic identity threats
+# Using Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises
 
 Microsoft Defender solutions provide the following coverage and visibility to help protect against the Solorigate attack:
 
@@ -203,31 +203,31 @@ silentDevices
 
 ### Step 2: Use Microsoft Defender to find malicious activity in an on-premises environment
 
-Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (ADFS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
+Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (AD FS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
 
-To attack the ADFS server, attackers must first obtain domain permissions through on-premises activity. Use Microsoft Defender for Endpoint queries to find evidence of masked exploration tools used by an attacker to gain access to an on-premises system. For example:
+To attack the AD FS server, attackers must first obtain domain permissions through on-premises activity. Use Microsoft Defender for Endpoint queries to find evidence of masked exploration tools used by an attacker to gain access to an on-premises system. For example:
 
 :::image type="content" source="media/solarwinds/masqueradring-exploration-tools.png" alt-text="Microsoft Defender for Endpoint using queries to find usage of masked exploration tools":::
 
 
 Microsoft Defender for Identity can also detect and block lateral moves between devices and credential theft. In addition to watching for related alerts, use Microsoft 365 Defender to hunt for signs of identity compromise. For example, use the following queries:
 
-- [Find searches for high-value DC assets followed by sign-in attempts to validate stolen credentials](#find-searches-for-high-value-dc-assets-followed-by-sign-in-attempts-to-validate-stolen-credentials)
+- [Find searches for high-value Domain Controller assets followed by sign-in attempts to validate stolen credentials](#find-searches-for-high-value-domain-controller-assets-followed-by-sign-in-attempts-to-validate-stolen-credentials)
 - [Find high numbers of LDAP queries in a short time that filter for non-DC devices](#find-high-numbers-of-ldap-queries-in-a-short-time-that-filter-for-non-dc-devices)
 
-After attackers have access to an ADFS infrastructure, they often attempt to create valid SAML tokens to allow user impersonation in the cloud. Attackers may either steal the SAML signing certificate, or add or modify existing certificates as trusted entities. 
+After attackers have access to an AD FS infrastructure, they often attempt to create valid SAML tokens to allow user impersonation in the cloud. Attackers may either steal the SAML signing certificate, or add or modify existing certificates as trusted entities. 
 
 Both Microsoft Defender for Endpoint and Microsoft Defender for Identify detect actions used to steal encryption keys, used to decrypt the SAML signing certificate. For more information, see [Find malicious changes made in domain federation settings](#find-malicious-changes-made-in-domain-federation-settings).
 
 > [!IMPORTANT]
-> If any indications of malicious activity are found, take containment measures as needed to invalidate certificate rotation and prevent the attacker from further using and creating SAML tokens. Additionally, you may need to isolate and remediate affected ADFS servers to ensure that no attacker control or persistence remains.
->- Follow recommended actions in alerts to remove persistance and prevent an attacker's payload from loading again after rebooting. 
+> If any indications of malicious activity are found, take containment measures as needed to invalidate certificate rotation and prevent the attackers from further using and creating SAML tokens. Additionally, you may need to isolate and remediate affected AD FS servers to ensure that no attacker control or persistence remains.
+>- Follow recommended actions in alerts to remove persistence and prevent an attacker's payload from loading again after rebooting. 
 > - Use the Microsoft 365 security center to isolate the devices involved, and block any remote activity, as well as mark suspected users as compromised.  
 > 
 
-#### Find searches for high-value DC assets followed by sign-in attempts to validate stolen credentials
+#### Find searches for high-value Domain Controller assets followed by sign-in attempts to validate stolen credentials
 
-The following query finds searches for high-value DC assets, followed closely by sign-in attempts to validate stolen credentials:
+The following query finds searches for high-value Domain Controller (DC) assets, followed closely by sign-in attempts to validate stolen credentials:
 
 ```kusto
 let MaxTime = 1d;
@@ -440,10 +440,9 @@ To find command and control communications that may indicate malicious behavior,
 DeviceNetworkEvents| where RemoteUrl contains ‘avsvmcloud.com’| where InitiatingProcessFileName != “chrome.exe”| where InitiatingProcessFileName != “msedge.exe”| where InitiatingProcessFileName != “iexplore.exe”| where InitiatingProcessFileName != “firefox.exe”| where InitiatingProcessFileName != “opera.exe”
 ```
 
-#### ADFS adapter process spawning
+#### AD FS adapter process spawning
 
-<!--why no description in source?-->
-Use the following process to track ADFS adapter process spawning:
+Use the following process to track AD FS adapter process spawning:
 
 ```kusto
 DeviceProcessEvents| where InitiatingProcessFileName =~”Microsoft.IdentityServer.ServiceHost.exe”| where FileName in~(“werfault.exe”, “csc.exe”)| where ProcessCommandLine !contains (“nameId”)
@@ -459,6 +458,6 @@ Run the following advanced queries, referenced from GitHub, to find tactics, thr
 |**Initial access**     | **Microsoft Defender for Endpoint**: <br>- [Malicious DLLs loaded in memory](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/e4ff45064d58ebd352cff0bb6765ad87d54ab9a9/Campaigns/locate-dll-loaded-in-memory%5BSolorigate%5D.md) <br>- [Malicious DLLs created in the system or locally](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/locate-dll-created-locally%5BSolorigate%5D.md) <br>- [Compromised SolarWinds certificate](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/616f86b2767318577a0d9bccb379177d0dccdf2d/Campaigns/compromised-certificate%5BSolorigate%5D.md)        |
 |**Execution**     | **Microsoft Defender for Endpoint**: <br>- [SolarWinds processes launching PowerShell with Base64](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/launching-base64-powershell%5BSolorigate%5D.md) <br>- [SolarWinds processes launching CMD with echo](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/launching-cmd-echo%5BSolorigate%5D.md)       |
 |**Command and control**     |  **Microsoft Defender for Endpoint**: <br>- [Command and control communications](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-response%5BSolorigate%5D.md) <br>- [Command and control lookup](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/3cb633cee8332b5eb968b4ae1947b9ddb7a5958f/Campaigns/c2-lookup-from-nonbrowser%5BSolorigate%5D..md)       |
-|**Credential access**     |  **Azure Active Directory (Microsoft Cloud App Security)**: <br>- [Credentials added to AAD app after admin consent](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/CredentialsAddAfterAdminConsentedToApp%5BSolorigate%5D.md) <br>- [New access credential added to application or service principal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/NewAppOrServicePrincipalCredential%5BSolarigate%5D.md) <br>- [Domain federation trust settings modified](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Defense%20evasion/ADFSDomainTrustMods%5BSolarigate%5D.md) <br>- [Add uncommon credential type to application](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/Add%20uncommon%20credential%20type%20to%20application%20%5BSolorigate%5D.md) <br>- [Service Principal Added To Role](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/ServicePrincipalAddedToRole%20%5BSolorigate%5D.md)       |
+|**Credential access**     |  **Azure Active Directory (Microsoft Cloud App Security)**: <br>- [Credentials added to Azure AD app after admin consent](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/CredentialsAddAfterAdminConsentedToApp%5BSolorigate%5D.md) <br>- [New access credential added to application or service principal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/NewAppOrServicePrincipalCredential%5BSolarigate%5D.md) <br>- [Domain federation trust settings modified](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Defense%20evasion/ADFSDomainTrustMods%5BSolarigate%5D.md) <br>- [Add uncommon credential type to application](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/Add%20uncommon%20credential%20type%20to%20application%20%5BSolorigate%5D.md) <br>- [Service Principal Added To Role](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/ServicePrincipalAddedToRole%20%5BSolorigate%5D.md)       |
 |**Exfiltration**     |    **Exchange Online (Microsoft Cloud App Security)**: <br>- [Mail Items Accessed Throttling Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/MailItemsAccessed%20Throttling%20%5BSolorigate%5D.md)<br>- [Mail Items Accessed Anomaly Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/Anomaly%20of%20MailItemAccess%20by%20GraphAPI%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail via GraphAPI anomaly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20via%20GraphAPI%20anomaly%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail both via GraphAPI and directly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20both%20via%20GraphAPI%20and%20directly%20%5BSolorigate%5D.md)     |
 |     |         |

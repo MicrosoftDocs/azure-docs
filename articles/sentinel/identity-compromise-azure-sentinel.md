@@ -1,6 +1,6 @@
 ---
-title: Using Azure Sentinel to respond to supply chain attacks and systemic identity compromise | Microsoft Docs
-description: Learn how to use Azure Sentinel to respond to supply chain attacks and systemic identity compromises similar to the SolarWinds attack (Solorigate).
+title: Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+description: Learn how to use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -18,28 +18,33 @@ ms.author: bagol
 
 ---
 
-# Using Microsoft Azure Sentinel to respond to supply chain attacks and systemic identity threats
+# Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises
 
-Azure Sentinel enables you to view and analyze data from a single view, including both on-premises and cloud sources through a single pane of glass, makes it easier for you to spot trends and attacks, and helps you understand the full nature of an attack on your system.
+Microsoft recommends using Azure Sentinel to analyze data from across security products, including both on-premises and cloud environments, while protecting your environment.
 
-We recommend that Azure Sentinel users with Microsoft Defender and Azure Active Directory connectors start responding to threats by hunting for attack activity in data found in Azure Sentinel. 
+1. Connect the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns associated with the Solorigate attack into Azure Sentinel:
 
-For example, Microsoft 365 Defender has a range of alerts and queries for known patterns associated with the Solorigate attack, which can flow into Sentinel. Microsoft 365 Defender alerts, combined with raw logs from other data sources, can provide security teams with insights into the full nature and scope of the Solorigate attack on their organization.
+    - [Microsoft Defender for Endpoint](connect-microsoft-365-defender.md)
+    - [Azure AD](connect-azure-active-directory.md)
+    
+1. Use Azure Sentinel to [hunt](hunting.md) for attack activity, especially  with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). 
 
-You can use the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) to hunt through Azure Sentinel data. For example, if you have recently rotated Active Directory Federated Service (ADFS) key material, search for any attacker sign-in activity that uses old key material. 
+Microsoft Defender alerts, combined with raw logs from other data sources, provide security teams with insights into the full nature and scope of the Solorigate attack on the organization. 
 
-Use Azure Sentinel to perform the following steps as needed in your organization:
+Investigating a Microsoft Defender-sourced incident in Sentinel enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
 
-1. [Find machines with SolarWinds Orion components](#step-1-use-sentinel-to-find-machines-with-solarwinds-orion-components)
-1. [Identify escalating privileges in your system](#step-2-use-sentinel-to-identify-escalating-privileges-in-your-system)
-1. [Find exported certificates](#step-3-use-sentinel-to-find-exported-certificates)
-1. [Hunt through Azure Active Directory logs](#step-4-use-sentinel-to-hunt-through-azure-active-directory-logs)
-1. [Find reconnaissance and remote process execution](#step-5-use-sentinel-to-find-reconnaissance-and-remote-process-execution)
-1. [Find illicit data access](#step-6-use-sentinel-to-find-illicit-data-access)
-1. [Find mail data exfiltration](#step-7-use-sentinel-to-find-mail-data-exfiltration)
-1. [Find suspicious domain-related activity](#step-8-use-sentinel-to-find-suspicious-domain-related-activity)
-1. [Find evidence of security service tampering](#step-9-use-sentinel-to-find-evidence-of-security-service-tampering)
-1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-10-use-sentinel-to-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
+**Use Azure Sentinel to perform the following steps as needed in your organization**:
+
+1. [Find machines with SolarWinds Orion components](#step-1-detect-machines-with-solarwinds-orion-components)
+1. [Identify privilege escalations in your system](#step-2-identify-privilege-escalations-in-your-system)
+1. [Find exported certificates](#step-3-find-exported-certificates)
+1. [Hunt through Azure Active Directory logs](#step-4-hunt-through-azure-active-directory-logs)
+1. [Find reconnaissance and remote process execution](#step-5-find-reconnaissance-and-remote-process-execution)
+1. [Find illicit data access](#step-6-find-illicit-data-access)
+1. [Find mail data exfiltration](#step-7-find-mail-data-exfiltration)
+1. [Find suspicious domain-related activity](#step-8-find-suspicious-domain-related-activity)
+1. [Find evidence of security service tampering](#step-9-to-find-evidence-of-security-service-tampering)
+1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-10-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
 > [!NOTE]
 > Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
@@ -48,18 +53,20 @@ Use Azure Sentinel to perform the following steps as needed in your organization
 >
 
 > [!TIP]
-> Azure Sentinel and the M365 Advanced Hunting portal share the same query language and similar data types. Therefore, all the referenced queries can be used directly or slightly modified to work in both products.
+> Azure Sentinel and the Microsoft 365 advanced threat-hunting tools share the same query language and similar data types. Therefore, all the referenced queries can be used as-is or slightly modified to work in both products.
 >
 
-## Step 1: Use Sentinel to find machines with SolarWinds Orion components
+## Step 1: Detect machines with SolarWinds Orion components
 
-Your organization may have a software inventory management system that indicates the hosts where the SolarWinds application is installed. Alternately, use Sentinel with the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md) to run a query and gather similar information.
+After the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md) is running, run the following query to run a software inventory to identify any hosts that have run the SolarWinds process in the last 30 days.
 
-After you have the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md) configured with Sentinel, you can use the following query to pull data about any hosts that have run the SolarWinds process in the last 30 days.
+The script will return hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoint.
 
-THe script will return hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoint (MDE). 
+This query uses the Sysmon logs that were collected by many Microsoft customers to help identify machines that have SolarWinds software installed.
 
-The following query also uses the Sysmon logs collected by many customers to find machines with SolarWinds software installed. Similar queries that use Microsoft 365 raw data can also be run from the Microsoft 365 Advanced hunting portal.
+> [!NOTE]
+> Similar queries can also be run directly in the Microsoft 365 Advanced hunting portal using raw Microsoft 365 data.
+> 
 
 For more information, see the [SolarWinds Inventory check query](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/SolarWindsInventory.yaml) on GitHub.
 
@@ -94,18 +101,16 @@ Event
 ) 
 ```
 
-For more information, see [Finding hardcoded pipes in your environment](#step-1a-finding-hardcoded-pipes-in-your-environment).
-
 ### Step 1a: Finding hardcoded pipes in your environment
 
-The Solorigate attacker used a hardcoded pipe named **583da945-62af-10e8-4902-a8f205c72b2e** to verify that only one instance of the backdoor they created was running, among other checks.
+The Solorigate attackers used a hardcoded pipe named **583da945-62af-10e8-4902-a8f205c72b2e** to verify that only one instance of the backdoor they created was running.
 
-If you are collecting Sysmon logs (Event ID 17/18) or Security Events (ID 5145) to your Azure Sentinel workspace, use the following query to find evidence of this hardcoded pipe in your systems.
+If you are collecting Sysmon logs (Event ID 17/18) or Security Events (ID 5145) to your Azure Sentinel workspace, run the following query to find evidence of this hardcoded pipe in your systems.
 
 > [!IMPORTANT]
-> This query should not be considered reliable on its own. The creation of the hardcoded named pipe on its own does not indicate that the malicious code was completely triggered, and the machine many have beaconed out or received additional commands. 
+> This query should not be considered sufficient evidence of an attack on its own. The creation of the hardcoded named pipe alone does not indicate that the malicious code was completely triggered, and the machine may have beaconed out or received additional commands. 
 >
-> However, the presence of this named pipe is suspicious and should warrant a further, more in-dept investigation.
+> However, the presence of this named pipe is suspicious and should warrant a further, more in-depth investigation.
 
 For more information, see [Solorigate Named Pipe detection](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/SolorigateNamedPipe.yaml).
 
@@ -135,16 +140,16 @@ SecurityEvent
 | extend timestamp = TimeGenerated, AccountCustomEntity = Account, HostCustomEntity = Computer
 ```
 
-## Step 2: Use Sentinel to identify escalating privileges in your system
+## Step 2: Identify privilege escalations in your system
 
-After an attacker has a system account level access, they will attempt to access domain administrator levels.
+After an attacker has system account level access, they will attempt to access domain administrator levels.
 
 Use any of the following linked queries to identify unusual sign-in activities or additions to privileged groups:
 
 - [Check for hosts with new sign-ins to identify potential lateral movement by the attacker](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/HostsWithNewLogons.yaml).
 - [Check for new accounts created and added to a built-in administrators group](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/UserCreatedAddedToBuiltinAdmins_1d.yaml).
-- [Check for user accounts added to privileged, built-in domain local or global groups](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/UserAccountAddedToPrivlegeGroup_1h.yaml). This query includes accounts added to domain-privileged group, such as Enterprise Admins, Cert Publisher, or DnsAdmins. 
-- [Check for unusual activity performed by a high-value account on a system or service](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/TrackingPrivAccounts.yaml)
+- [Check for user accounts added to privileged, built-in domain local or global groups](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/UserAccountAddedToPrivlegeGroup_1h.yaml). This query includes accounts added to domain-privileged groups, such as Enterprise Admins, Cert Publisher, or DnsAdmins. 
+- [Check for unusual activity performed by a high-value account on a system or service](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/TrackingPrivAccounts.yaml).
 
 In some affected environments, service account credentials were granted administrative privileges. If needed, modify any of the queries listed above to remove the *user* focus by commenting out the following line where relevant:
 
@@ -156,22 +161,22 @@ For more information, see:
 
 - [Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel)- **Detections** and **Hunting Queries** sections for AuditLogs and SecurityEvents
 - [Microsoft 365 Defender advanced hunting portal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
-- [Use Microsoft Defender to respond to supply chain attacks and systemic identity threats](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), below
+- [Use Microsoft Defender to respond to supply-chain attacks and systemic identity threats](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), below
 
-## Step 3: Use Sentinel to find exported certificates
+## Step 3: Find exported certificates
 
-After an attacker has domain administrator access, they will steal the SAML token-signing certificate from the ADFS server. 
+After an attacker has domain administrator access, they will steal the SAML token-signing certificate from your AD FS server. 
 
-After the certificate has been acquired, the attacker can forge SAML tokens with any claims and lifetime they choose, and then sign it with the stolen certificate. The attacker can then forge SAML tokens and impersonate highly privileged accounts. 
+After the certificate is acquired, the attacker can forge SAML tokens with any claims and lifetime they choose, and then sign them with the stolen certificate. The attacker can then forge SAML tokens and impersonate highly privileged accounts. 
 
-Microsoft 365 Defender has added high-fidelity detections for the Solorigate attack, which you can view in the Azure Sentinel Security Alerts, or in the Microsoft 365 security portal.
+In the Azure Sentinel Security Alerts, review the new Microsoft 365 Defender high-fidelity detections for the Solorigate attack.
 
 For more information, see:
 
 - [Find stolen certificates using Windows Event logs](#step-3a-find-stolen-certificates-using-windows-event-logs)
 - [Find stolen certificates using Sysmon logs](#step-3b-find-stolen-certificates-using-sysmon-logs)
 
-The attacker may also have used custom tools, and so looking for unusual processes running or accounts signing into the ADFS server can provide insights about when attacks have happened.
+The attackers may also have used custom tools, and so looking for unusual processes running or accounts signing into the AD FS server can provide insights about when attacks have happened.
 
 For more information, see the following linked queries:
 
@@ -181,21 +186,21 @@ For more information, see the following linked queries:
 
 > [!NOTE]
 > Some environments have a rare command line syntax related to DLL loading. In such cases, adjust the queries linked above to also look at rarity on the command line.
-> In some cases, depending on your environment configuration, using these queries as generic queries can be noisy. Therefore, we recommend limiting this sort of hunting to the ADFS server, and then only expand it if needed.
+> In some cases, depending on your environment configuration, using these queries as generic queries can be noisy. Therefore, we recommend limiting this sort of hunting to the AD FS server, and then only expand it if needed.
 
  
 ### Step 3a: Find stolen certificates using Windows Event logs
 
-The following query finds evidence of exported ADFS DKM keys using Windows Event logs. 
+The following query finds evidence of exported AD FS DKM keys using Windows Event logs. 
 
-For more information, see the [ADFS DKM Master Key Export](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ADFS-DKM-MasterKey-Export.yaml) query on GitHub.
+For more information, see the [AD FS DKM Master Key Export](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ADFS-DKM-MasterKey-Export.yaml) query on GitHub.
 
 ```kusto
  (union isfuzzy=true (SecurityEvent
 | where EventID == 4662
 | where ObjectServer == 'DS'
 | where OperationType == 'Object Access'
-//| where ObjectName contains '<GUID of ADFS DKM Container>' This is unique to the domain.
+//| where ObjectName contains '<GUID of AD FS DKM Container>' This is unique to the domain.
 | where ObjectType contains '5cb41ed0-0e4c-11d0-a286-00aa003049e2' // Contact Class
 | where Properties contains '8d3bca50-1d7e-11d0-a081-00aa006c33ed' // Picture Attribute - Ldap-Display-Name: thumbnailPhoto
 | extend timestamp = TimeGenerated, HostCustomEntity = Computer, AccountCustomEntity = SubjectAccount),
@@ -215,11 +220,11 @@ To use this query, you must be collecting Sysmon Event IDs 17 and 18 into your A
 For more information, see the [ADFSKeyExportSysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/ADFSKeyExportSysmon.yaml) query on GitHub.
 
 
-## Step 4: Use Sentinel to hunt through Azure Active Directory logs
+## Step 4: Hunt through Azure Active Directory logs
 
-The Solorigate attacker also targeted the Azure AD for affected systems, and modified Azure AD settings to provide themselves with long-term access. You can use queries in the [Azure Sentinel workbook](https://github.com/Azure/Azure-Sentinel) to identify such activities in Azure AD.
+The Solorigate attackers also targeted Azure AD for affected systems, and modified Azure AD settings to provide themselves with long-term access. You can use queries in the [Azure Sentinel workbook](https://github.com/Azure/Azure-Sentinel) to identify such activities in Azure AD.
 
-For example, the [Azure Sentinel query for modified domain federation trust settings](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ADFSDomainTrustMods.yaml) alerts when a user or application modifies the federation settings on the domain, particularly when a new ADFS Trusted Realm object, such as a signing certificate, is added to the domain.
+For example, the [Azure Sentinel query for modified domain federation trust settings](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ADFSDomainTrustMods.yaml) alerts when a user or application modifies the federation settings on the domain, particularly when a new AD FS Trusted Realm object, such as a signing certificate, is added to the domain.
  
 Since domain federation setting modifications should be rare, this would be a high-fidelity alert where Azure Sentinel users should pay careful attention.
 
@@ -234,7 +239,7 @@ Use the following queries to hunt for other unusual activity:
 >
 > To do this, use Azure Sentinel to query **SignInLogs**, where the **ResultType**=**5000811**. 
 >
-> Note that if you roll your token-signing certificate, there will be expected activity for this query.
+> Note that if you renew your token-signing certificate, there will be expected activity for this query.
 >
 
 ### Step 4a: Find modifications made to STS refresh tokens
@@ -244,7 +249,7 @@ Use the following Sentinel query to check for modifications made to Active Direc
 > [!Note]
 > While these events are most often generated when legitimate administrators troubleshoot user sign-ins, it may also be generated for malicious token extensions.
 >
-> We recommend that you confirm whether any activity found is related to legitimate administrator activity, and check the new token's validation time period for high values.
+> We recommend that you confirm whether any activity found is related to legitimate administrator activity, and that you check the new token's validation time period for high values.
 >
 
 ```kusto
@@ -346,7 +351,7 @@ AuditLogs
 
 ### Step 4c: Find applications with permissions to read mailbox contents
 
-The Solorigate attacker used applications with access to users' mailboxes to read through privileged information.
+The Solorigate attackers used applications with access to users' mailboxes to read through privileged information.
 
 Use the following query to find such applications, and then verify that their access is legitimate and genuinely required:
 
@@ -385,9 +390,9 @@ AuditLogs
 
  
 
-## Step 5: Use Sentinel to find reconnaissance and remote process execution
+## Step 5: Find reconnaissance and remote process execution
 
-An attacker might attempt to access on-premises systems to gain further insight about the environment mapping. For example, in the Solorigate attack, the attacker renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
+An attacker might attempt to access on-premises systems to gain further insight about the environment mapping. For example, in the Solorigate attack, the attackers renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
 
 Search for such process executions, which may look as follows:
 
@@ -395,7 +400,7 @@ Search for such process executions, which may look as follows:
 C:\Windows\system32\cmd.exe /C csrss.exe -h breached.contoso.com -f (name=”Domain Admins”) member -list | csrss.exe -h breached.contoso.com -f objectcategory=* > .\Mod\mod1.log
 ```
 
-Customize the following query as needed to look at your specific DC/ADFS servers, and find command-line patterns related to ADFind usage:
+Customize the following query as needed to look at your specific DC/AD FS servers, and find command-line patterns related to ADFind usage:
 
 For more information, see the [Suspicious_enumeration_using_adfind](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/Suspicious_enumeration_using_adfind.yaml) query on GitHub.
 
@@ -406,7 +411,7 @@ let threshold = 3; //number of commandlines in the set below
 let DCADFSServersList = dynamic (["DCServer01", "DCServer02", "ADFSServer01"]); // Enter a reference list of hostnames for your DC/ADFS servers
 let tokens = dynamic(["objectcategory","domainlist","dcmodes","adinfo","trustdmp","computers_pwdnotreqd","Domain Admins", "objectcategory=person", "objectcategory=computer", "objectcategory=*"]);
 SecurityEvent
-//| where Computer in (DCADFSServersList) // Uncomment to limit it to your DC/ADFS servers list if specified above or any pattern in hostnames (startswith, matches regex, etc).
+//| where Computer in (DCADFSServersList) // Uncomment to limit it to your DC/AD FS servers list if specified above or any pattern in hostnames (startswith, matches regex, etc).
 | where TimeGenerated between (ago(startdate) .. now())
 | where EventID == 4688
 | where CommandLine has_any (tokens)
@@ -455,7 +460,7 @@ UncommonProtocol != 'NotApplicable', 3,
 | order by Score desc
 ```
 
-## Step 6: Use Sentinel to find illicit data access
+## Step 6: Find illicit data access
 
 Use the following Sentinel queries to find evidence of illicit data access in your system:
 
@@ -480,7 +485,7 @@ AADServicePrincipalSignInLogs
 
 ### Step 6b: Find instances of MFA sign-ins using tokens
 
-The following query can return sign-ins to Azure AD, where MFA was satisfied using a token-based sign-in instead of phone or other similar authentication. 
+The following query can return sign-ins to Azure AD, where MFA was satisfied using a token-based sign-in instead of phone or other similar authentications. 
 
 To slim down the results returned, we recommend that you use the following query as an example and fine-tune it for your environment.
 
@@ -503,7 +508,7 @@ The Solorigate attack used VPS hosts to access affected networks. Use the follow
 
 - [Find sign-ins that come from known VPS provider network ranges](/data-explorer/kusto/query/ipv4-lookup-plugin). This query can also be used to find all sign-ins that do not come from known ranges, especially if your environment has a common sign-in source.
 
-## Step 7: Use Sentinel to find mail data exfiltration 
+## Step 7: Find mail data exfiltration 
 
 Use the following Sentinel queries to monitor for suspicious access to email data:
 
@@ -659,7 +664,7 @@ OfficeActivity
 | extend timestamp = min_TimeGenerated, AccountCustomEntity = UserId
 ``` 
 
-## Step 8: Use Sentinel to find suspicious domain-related activity
+## Step 8: Find suspicious domain-related activity
 
 Use the following queries to find suspicious domain activity related to the Solorigate attack:
 
@@ -710,7 +715,7 @@ let timeframe = 6h;
 
 ### Step 8b: Find suspicious domain DGA activity
 
-The Solorigate attacker made several DGA-like subdomain queries as part of command and control activities.
+The Solorigate attackers made several DGA-like subdomain queries as part of command and control activities.
 
 Use the following Sentinel query to find similar patterns of activity from other domains, which can help identify other potential command and control sources.
 
@@ -792,7 +797,7 @@ regex_bad_domains
 | where match > -1
 ```
 
-## Step 9: Use Sentinel to find evidence of security service tampering
+## Step 9: Find evidence of security service tampering
 
 Use the following Sentinel query to detect any tampering with Microsoft Defender services. You can also adapt this query to identify tampering with other security services. 
 
@@ -847,7 +852,7 @@ or (InitiatingProcessCommandLine has_any("start") and InitiatingProcessCommandLi
 | extend timestamp = TimeGenerated, AccountCustomEntity = Account, HostCustomEntity = Computer
 ```
 
-## Step 10: Use Sentinel to find correlations between Microsoft 365 Defender and Azure Sentinel detections
+## Step 10: Find correlations between Microsoft 365 Defender and Azure Sentinel detections
 
 Use the following Sentinel query to collect the full range of Microsoft Defender detections currently deployed, which can provide an overview of such alerts and any hosts they're related to.
 
@@ -870,9 +875,9 @@ DeviceInfo
 
 If you want to dive deeper using Azure Defender for Endpoint and Azure Active Directory, see:
 
-- [Using Microsoft resources to respond to supply chain attacks and systemic identity compromise](identity-compromise-defender.md)
-- [Using Microsoft resources to respond to supply chain attacks and systemic identity compromise](identity-compromise-aad.md)
+- [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md)
+- [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)
 
 **See also**:
-- [Using Microsoft resources to respond to supply chain attacks and systemic identity compromise](solarwinds.md)
+- [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](solarwinds.md)
 - [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
