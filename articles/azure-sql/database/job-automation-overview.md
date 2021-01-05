@@ -12,7 +12,7 @@ ms.author: wiassaf
 ms.reviewer:
 ms.date: 12/31/2020
 ---
-# Overview of task automation using Elastic Jobs (preview)
+# Overview
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
@@ -42,12 +42,12 @@ There are several scenarios when you could use elastic job automation:
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements 
 
-## Overview
+## Elastic Database Jobs Preview
 
 The following job scheduling technologies are available:
 
-- **SQL Agent Jobs** are executed by the SQL Agent service that continues to be used for task automation in SQL Server and is also included with Azure SQL Managed Instances. SQL Agent Jobs are not available in Azure SQL Database.
 - **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
+- **SQL Agent Jobs** are executed by the SQL Agent service that continues to be used for task automation in SQL Server and is also included with Azure SQL Managed Instances. SQL Agent Jobs are not available in Azure SQL Database.
 
 It is worth noting differences between SQL Agent (available in SQL Server and as part of SQL Managed Instance), and the Database Elastic Job agent (which can execute T-SQL on Azure SQL Databases or databases in SQL Server and Azure SQL Managed Instance, Azure Synapse Analytics).
 
@@ -56,7 +56,7 @@ It is worth noting differences between SQL Agent (available in SQL Server and as
 |**Scope** | Any number of databases in Azure SQL Database and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shard map (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. The Multi Server Administration feature of SQL Server Agent allows for master/target instances to coordinate job execution. |
 |**Supported APIs and Tools** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
  
-## Elastic Database Jobs
+## Elastic Database Job Targets
 
 **Elastic Database Jobs** provide the ability to run one or more T-SQL scripts in parallel, across a large number of databases, on a schedule or on-demand.
 
