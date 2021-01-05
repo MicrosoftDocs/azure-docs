@@ -46,21 +46,7 @@ Outdated runtimes are periodically removed from the Web Apps Create and Configur
 
 When an outdated runtime is hidden from the Portal, any of your existing sites using that version will continue to run. If a runtime is fully removed from the App Service platform, your Azure subscription owner(s) will receive an email notice before the removal.
 
-If you need to create another web app with an outdated runtime version that is no longer shown on the Portal, follow these instructions.
-
-1. Get the runtime of the site. Replace the name and resource group placeholders with the name and group for your web app. This will return a string with the runtime version.
-  
-    ```shell
-    az webapp config show --name <your-name> --resource-group <your-group> --query "linuxFxVersion"
-    ```
-  
-1. Next, create a new site using this runtime string. Replace the placeholders with your desired site name, resource group, and runtime.
- 
-    ```shell
-    az webapp create --name <your-name> --resource-group <your-group> --runtime "EXAMPLE|1.0"
-    ```
-    
-You can also use the **Export Template** button on the web app blade in the Portal to export an ARM template of the site. You can re-use this template to deploy a new site with the same runtime and configuration.
+If you need to create another web app with an outdated runtime version that is no longer shown on the Portal, follow these instructions. See the language configuration guides for instructions on how to get the runtime version of your site. You can use the Azure CLI to create another site with the same runtime. Alternatively, you can use the **Export Template** button on the web app blade in the Portal to export an ARM template of the site. You can re-use this template to deploy a new site with the same runtime and configuration.
 
 ### Limitations
 
