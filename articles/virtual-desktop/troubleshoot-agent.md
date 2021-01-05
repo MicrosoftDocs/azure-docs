@@ -52,7 +52,7 @@ Follow these instructions if you're having issues with the agent bootloader not 
 7. In the *Value data:* entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](media/isregistered1.PNG)
+   > ![Screenshot of IsRegistered 0](media/isregisteredCopy.PNG)
 
 **Stop and restart the RDAgentBootLoader.**
 
@@ -83,23 +83,29 @@ Follow these instructions if you're having issues with service connectivity beca
 3. Make note of the values for *BrokerURI* and *BrokerURIGlobal*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](media/broker-uris.PNG)
+   > ![Screenshot of broker uri and broker uri global](media/brokeruri.PNG)
 
  
 4. Open a browser and go to *\<BrokerURI\>api/health*. 
-   - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. 
+   - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. In this case it would be https://rdbroker-g-us-r0.wvd.microsoft.com/api/health.
 5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
-   - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. 
-6. Both pages should load as shown below. 
+   - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. In this case it would be https://rdbroker.wvd.microsoft.com/api/health.
+6. If the network is not blocking broker connection, both pages will load successfully and will show *RDBroker is Healthy*, as shown below. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker access](media/successful-broker-uri.PNG)
+   > ![Screenshot of successfully loaded broker uri access](media/brokuri.PNG)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.PNG)
  
 
-7. If the network is blocking, the pages will not load as shown below. 
+7. If the network is blocking broker connection, the pages will not load, as shown below. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.PNG)
+   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.PNG)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokerglobal.PNG)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. See [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list) for more detailed information.
 
@@ -143,16 +149,16 @@ Follow these instructions if you're having issues with the stack listener not wo
 
 ### Error: Stack listener is not working or your VM shows as Unavailable, and you are running on Windows 10 2004.
 
-**Cause:** If you are not seeing the two stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issue with the agent because it just had an update, but in this case the WVD listener is not working.
+**Cause:** Run *qwinsta* in your Command Prompt and make note of the version number that is shown next to *rdp-sxs*. If you are not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the WVD listener will not work.
 
 **Fix:** Change fEnableWinStation and fReverseConnectMode to 1.
 1. Open the Registry Editor (in Start menu, type *regedit*).
 2. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations. 
-3. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information that you made note of in part 3 under the Diagnosis section. 
+3. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information that you made note of when running *qwinsta* in your Command Prompt. 
 4. Scroll to find *fReverseConnectMode* and verify that its data value is 1. Also verify that *fEnableWinStation* is set to 1.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of fReverseConnectMode](media/freverseconnect.PNG)
+   > ![Screenshot of fReverseConnectMode](media/fenable2.PNG)
 
 5. If *fReverseConnectMode* is not set to 1, double-click on *fReverseConnectMode* and enter the value 1 for its field. 
 6. If *fEnableWinStation* is not set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field.  
@@ -224,7 +230,7 @@ Follow these instructions if one or more of the following apply to you:
 >You may see multiple instances of these programs, remove all of them.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of uninstalling programs](media/programs-and-features.PNG)
+   > ![Screenshot of uninstalling programs](media/uninstall.PNG)
 
 ### Remove the session host from the host pool.
 
@@ -234,7 +240,7 @@ Follow these instructions if one or more of the following apply to you:
 4. Select *Remove* from the options along the top.  
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of removing VM from host pool](media/remove-host.PNG)
+   > ![Screenshot of removing VM from host pool](media/remove.PNG)
 
 ### Generate a new registration key for the VM.
 
@@ -242,7 +248,7 @@ Follow these instructions if one or more of the following apply to you:
 2. Select *Registration key*, just to the right of the search bar.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of registration key in portal](media/reg-key-button.PNG)
+   > ![Screenshot of registration key in portal](media/regkey.PNG)
 
 3. Select *Generate new key* in the *Registration key* blade.
 4. Enter the expiration date and then select *Ok*.  
@@ -258,7 +264,7 @@ Follow these instructions if one or more of the following apply to you:
 2. Download the *Windows Virtual Desktop Agent* and the *Windows Virtual Desktop Agent Bootloader* that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of agent and bootloader download page](media/agent-bootloader-download.PNG)
+   > ![Screenshot of agent and bootloader download page](media/downloads.PNG)
 
 3. Right-click the downloaded installers (both the agent and the bootloader).
 4. Select *Properties*.
@@ -276,7 +282,7 @@ Follow these instructions if one or more of the following apply to you:
 12. You should now see the session host registered in the host pool with the status *Available*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/host-available.PNG)
+   > ![Screenshot of available session host](media/hostpool.PNG)
 
 ## Recreate the VM.
 
@@ -307,7 +313,7 @@ Follow these instructions if you're operating an unsupported VM OS or if you are
 1. Wait for 5-10 minutes for the session host to show *Available*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/host-available.PNG)
+   > ![Screenshot of available session host](media/hostpool.PNG)
 
 ## Next steps
 
