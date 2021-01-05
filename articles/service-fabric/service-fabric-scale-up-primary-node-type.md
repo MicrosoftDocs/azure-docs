@@ -1,7 +1,6 @@
 ---
 title: Scale up an Azure Service Fabric primary node type 
 description: Vertically scale your Service Fabric cluster by adding a new node type and removing the previous one.
-ms.topic: article
 ms.date: 12/11/2020
 ms.author: pepogors
 ms.topic: how-to
@@ -16,7 +15,7 @@ This article describes how to scale up a Service Fabric cluster primary node typ
 
 1. Verify the cluster and new nodes are healthy, then remove the original scale set (and related resources) and node state for the deleted nodes.
 
-The following will walk you through the process for updating the VM size and operating system of primary node type VMs of a sample cluster of [Bronze durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes. We'll be upgrading the primary node type:
+The following will walk you through the process for updating the VM size and operating system of primary node type VMs of a sample cluster of [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes. We'll be upgrading the primary node type:
 
 - VM size from *Standard_D2_V2* -> *Standard D4_V2*, and
 - VM operating system from *Windows Server 2016 Datacenter with Containers* -> *Windows Server 2019 Datacenter with Containers*.
@@ -335,7 +334,7 @@ New-AzResourceGroupDeployment `
 
 ```powershell
 # Disable the nodes in the original scale set.
-$nodeNames = @("_NTvm0_0","_NTvm0_1","_NTvm0_2","_NTvm0_3","_NTvm0_4")
+$nodeNames = @("_nt0vm_0","_nt0vm_1","_nt0vm_2","_nt0vm_3","_nt0vm_4")
 
 Write-Host "Disabling nodes..."
 foreach($name in $nodeNames){
@@ -345,10 +344,10 @@ foreach($name in $nodeNames){
 
 Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set and the progression of nodes in the original scale set from *Disabling* to *Disabled* status.
 
-:::image type="content" source="./media/upgrade-managed-disks/service-fabric-explorer-node-status.png" alt-text="Service Fabric Explorer showing status of disabled nodes":::
+:::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status.png" alt-text="Service Fabric Explorer showing status of disabled nodes":::
 
 > [!Note]
-> It may take some time to complete the disabling operation across all the nodes of the original scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
+> It will take some time to complete the disabling operation across all the nodes of the original scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
 
 If your cluster is Bronze durability, wait for all nodes to reach *Disabled* state.
 
@@ -368,6 +367,9 @@ foreach($node in $nodes)
 }
 ```
 
+## Remove the original node type and cleanup its resources
+
+
 ### Remove the original scale set
 
 ```powershell
@@ -377,8 +379,7 @@ $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
 
-## Remove the original node type and its resources
-
+### Delete the original IP and load balancer resources
 > [!Note]
 > This step is optional if you're already using a *Standard* SKU public IP and load balancer. In this case you could have multiple scale sets / node types under the same load balancer.
 
@@ -473,20 +474,23 @@ Only for Silver and higher durability clusters, update the cluster resource in t
  } 
 }
 ```
-10. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) for a template with all of these original resources removed.
+10. Remove all other resources related to the original node type from the ARM template.
 
 11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService; therefore, a node restart is needed. In this case, forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 Then validate that the Service Fabric resource in Portal shows as ready. 
 
 ```powershell
 # deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-4.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+$templateFilePath = "C:\Step3-CleanupOriginalPrimaryNodeType"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
     -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
 ```
 
 The cluster's primary node type has now been upgraded. Verify that any deployed applications function properly and cluster health is ok.
