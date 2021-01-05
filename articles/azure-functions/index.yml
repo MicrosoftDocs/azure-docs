@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Functions documentation 
-summary: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Its "compute on-demand" capabilities enable lightweight integration and one-off supporting functionality. You can also use it to provide web APIs, respond to database changes, process IoT data streams, and manage message queues. 
+summary: Azure Functions is a cloud service available on-demand that provides all the continually-updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Azure Functions handles the rest. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
 
 metadata:
   title: Azure Functions documentation 
-  description: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Its "compute on-demand" capabilities enable lightweight integration and one-off supporting functionality. You can also use it to provide web APIs, respond to database changes, process IoT data streams, and manage message queues.
+  description: Azure Functions is a cloud service available on-demand that provides all the continually-updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Azure Functions handles the rest. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions 
   ms.topic: landing-page # Required
   author: ggailey777 
