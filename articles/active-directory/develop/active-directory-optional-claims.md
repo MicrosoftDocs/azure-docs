@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -48,6 +48,7 @@ The set of optional claims available by default for applications to use are list
 | Name                       |  Description   | Token Type | User Type | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
+|`aud`                       | The audience of the token.  Always present in JWTs, but in v1 access tokens it can be emitted in a variety of ways, which can be hard to code against when performing token validation.  Use the [additional properties for this claim](#additional-properties-of-optional-claims) to ensure it's always set to a GUID in v1 access tokens. | v1 JWT access tokens|||
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
 | `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
 | `verified_primary_email`   | Sourced from the user's PrimaryAuthoritativeEmail      | JWT        |           |         |
@@ -93,7 +94,9 @@ Some optional claims can be configured to change the way the claim is returned. 
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Can be used for both SAML and JWT responses, and for v1.0 and v2.0 tokens. |
 |                | `include_externally_authenticated_upn`  | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | In v1 access tokens, this is used to change the format of the `aud` claim.  This has no effect in v2 tokens or ID tokens, where the `aud` claim is always the client ID. Use this to ensure that your API  can more easily perform audience validation. Like all optional claims that affect the access token, the resource in the request must set this optional claim, since resources own the access token.|
+|                | `use_guid`               | Emits the client ID of the resource (API) in GUID format as the `aud` claim instead of an appid URI or GUID. So if a resource's client ID is `bb0a297b-6a42-4a55-ac40-09a501456577`, any app that requests an access token for that resource wil recieve an access token with `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577`.|
 
 #### Additional properties example
 
