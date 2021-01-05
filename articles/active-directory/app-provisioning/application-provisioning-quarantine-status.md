@@ -58,7 +58,7 @@ There are three ways to check whether an application is in quarantine:
 - `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 60% of provisioning events failed. For more information, see escrow threshold details below.
 - `QuarantineOnDemand` means that we've detected an issue with your application and have manually set it to quarantine.
 
-### Escrow thresholds
+**Escrow thresholds**
 If the proportional escrow threshold is met, the provisioning job will go into quarantine. This logic is subject to change, but works roughly as described below: 
 
 5,000 failures are the minimum to start evaluating whether to quarantine because of too many failures. For example, a job with 4,000 failures wouldn't go into quarantine. But a job with 5,000 failures would trigger an evaluation. An evaluation uses the following criteria:  
