@@ -956,61 +956,65 @@
           href: cassandra-consistency.md
     - name: How-to guides
       items:
-      - name: Migrate to Cassandra API
-        items:
-        - name: Migrate - Oracle DB to Cassandra API using Striim
-          href: cosmosdb-cassandra-api-migrate-data-striim.md
-        - name: Migrate - Oracle DB to Cassandra API using Blitzz
-          href: oracle-migrate-cosmos-db-blitzz.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-          href: cassandra-migrate-cosmos-db-blitzz.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-          href: cassandra-migrate-cosmos-db-databricks.md          
-      - name: Change feed
-        href: cassandra-change-feed.md
-      - name: Create a container - Cassandra API
-        href: how-to-create-container-cassandra.md
-      - name: Provision throughput- Cassandra API
-        displayName: request units, RUs, RU, collection level
-        href: how-to-provision-throughput-cassandra.md
-      - name: Find request unit charge
-        displayName: request units, RUs, RU, charge, consumption
-        href: find-request-unit-charge-cassandra.md
-      - name: Store and manage Spring Data 
-        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
-      - name: Troubleshoot common issues
-        href: cassandra-troubleshoot.md
-      - name: Cassandra and Spark
-        items:
-        - name: Introduction
-          href: cassandra-spark-generic.md
-        - name: Connect using Databricks
-          href: cassandra-spark-databricks.md
-        - name: Connect using HDInsight
-          href: cassandra-spark-hdinsight.md
-        - name: Create keyspace and table
-          href: cassandra-spark-ddl-ops.md
-        - name: Insert data
-          href: cassandra-spark-create-ops.md
-        - name: Read data
-          href: cassandra-spark-read-ops.md
-        - name: Upsert data
-          href: cassandra-spark-upsert-ops.md
-        - name: Delete data
-          href: cassandra-spark-delete-ops.md
-        - name: Aggregation operations
-          href: cassandra-spark-aggregation-ops.md
-        - name: Copy table data
-          href: cassandra-spark-table-copy-ops.md
-      - name: Cassandra and Kafka
-        href: cassandra-kafka-connect.md
-      - name: Manage using Resource Manager templates
-        href: templates-samples-cassandra.md
-        displayName: ARM
-      - name: Manage using PowerShell
-        href: powershell-samples-cassandra.md
-      - name: Manage using Azure CLI
-        href: cli-samples-cassandra.md
+        - name: Migrate to Cassandra API
+          items:
+            - name: Migrate - Oracle DB to Cassandra API using Striim
+              href: cosmosdb-cassandra-api-migrate-data-striim.md
+            - name: Migrate - Oracle DB to Cassandra API using Blitzz
+              href: oracle-migrate-cosmos-db-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+              href: cassandra-migrate-cosmos-db-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+              href: cassandra-migrate-cosmos-db-databricks.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+              href: cassandra-migrate-cosmos-db-databricks.md
+            - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
+              href: postgres-migrate-cosmos-db-kafka.md
+        - name: Change feed
+          href: cassandra-change-feed.md
+        - name: Create a container - Cassandra API
+          href: how-to-create-container-cassandra.md
+        - name: Provision throughput- Cassandra API
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-throughput-cassandra.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-cassandra.md
+        - name: Store and manage Spring Data
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+        - name: Troubleshoot common issues
+          href: cassandra-troubleshoot.md
+        - name: Cassandra and Spark
+          items:
+            - name: Introduction
+              href: cassandra-spark-generic.md
+            - name: Connect using Databricks
+              href: cassandra-spark-databricks.md
+            - name: Connect using HDInsight
+              href: cassandra-spark-hdinsight.md
+            - name: Create keyspace and table
+              href: cassandra-spark-ddl-ops.md
+            - name: Insert data
+              href: cassandra-spark-create-ops.md
+            - name: Read data
+              href: cassandra-spark-read-ops.md
+            - name: Upsert data
+              href: cassandra-spark-upsert-ops.md
+            - name: Delete data
+              href: cassandra-spark-delete-ops.md
+            - name: Aggregation operations
+              href: cassandra-spark-aggregation-ops.md
+            - name: Copy table data
+              href: cassandra-spark-table-copy-ops.md
+        - name: Cassandra and Kafka
+          href: cassandra-kafka-connect.md
+        - name: Manage using Resource Manager templates
+          href: templates-samples-cassandra.md
+          displayName: ARM
+        - name: Manage using PowerShell
+          href: powershell-samples-cassandra.md
+        - name: Manage using Azure CLI
+          href: cli-samples-cassandra.md
     - name: Reference
       items:
         - name: REST resource provider
