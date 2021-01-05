@@ -1198,6 +1198,8 @@
         href: nomadesk-tutorial.md
       - name: Nomadic
         href: nomadic-tutorial.md
+      - name: Notion
+        href: notion-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
       - name: NS1 SSO for Azure
