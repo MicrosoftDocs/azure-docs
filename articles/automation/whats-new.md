@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/04/2020
+ms.date: 01/06/2021
 ---
 
 # What's new in Azure Automation?
