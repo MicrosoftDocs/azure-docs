@@ -25,7 +25,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 ## Use SUSE Studio
 [SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
-As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
+As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## Prepare SUSE Linux Enterprise Server for Azure
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -111,8 +111,8 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ```
 
     If you want mount, format and create swap you can either:
-    * Pass this in as a cloud-init config everytime you create a VM
-    * Use a cloud-init directive baked into the image that will do this everytime the VM is created:
+    * Pass this in as a cloud-init config every time you create a VM.
+    * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
         ```console
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
