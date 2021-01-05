@@ -22,6 +22,12 @@ ms.author: bagol
 
 Microsoft recommends using Azure Sentinel to analyze data from across security products, including both on-premises and cloud environments, while protecting your environment.
 
+Microsoft Defender alerts, combined with raw logs from other data sources, provide security teams with insights into the full nature and scope of the Solorigate attack on the organization. 
+
+Investigating a Microsoft Defender-sourced incident in Sentinel enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
+
+**To use Azure Sentinel to hunt through Microsoft Defender for Endpoint and Azure AD data**:
+
 1. Connect the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns associated with the Solorigate attack into Azure Sentinel:
 
     - [Microsoft Defender for Endpoint](connect-microsoft-365-defender.md)
@@ -29,9 +35,11 @@ Microsoft recommends using Azure Sentinel to analyze data from across security p
     
 1. Use Azure Sentinel to [hunt](hunting.md) for attack activity, especially  with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). 
 
-Microsoft Defender alerts, combined with raw logs from other data sources, provide security teams with insights into the full nature and scope of the Solorigate attack on the organization. 
+    For more information, see each of the steps detailed below.
 
-Investigating a Microsoft Defender-sourced incident in Sentinel enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
+> [!TIP]
+> Azure Sentinel and the Microsoft 365 advanced threat-hunting tools share the same query language and similar data types. Therefore, all the referenced queries can be used as-is or slightly modified to work in both products.
+>
 
 > [!NOTE]
 > Depending on your configurations and identified risk, there may be steps described in this article that are not relevant for your organization, or should be performed in a different order than listed. 
@@ -39,9 +47,6 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
 > We recommend performing as many checks as possible with an informed understanding of your network estate.
 >
 
-> [!TIP]
-> Azure Sentinel and the Microsoft 365 advanced threat-hunting tools share the same query language and similar data types. Therefore, all the referenced queries can be used as-is or slightly modified to work in both products.
->
 
 ## Step 1: Detect machines with SolarWinds Orion components
 

@@ -98,7 +98,7 @@ Anomalous tokens found in tenants affected by Solorigate included the following 
 
 ### How these anomalies indicate forged SAML tokens
 
-The token anomalies found in in tenants affected by Solorigate may indicate any of the following scenarios:
+The token anomalies found in tenants affected by Solorigate may indicate any of the following scenarios:
 
 - **The SAML token-signing certificate was exfiltrated** from the customer environment, and used to forge tokens by the actor.
 
@@ -242,7 +242,7 @@ After credentials were added to existing applications or service principals, the
 
 Most of the relevant API calls found on affected tenants were focused on email and document extraction, although some API calls also added users, or added permissions for other applications or service principals. 
 
-Calls were generally very targeted, synchronizing, and then monitoring emails for specific users.
+API calls generally targeted, synchronized, and then monitored emails for specific users.
 
 For more information, see:
 
@@ -267,7 +267,7 @@ The actor used impersonating queries primarily to obfuscate their persistence an
 
 ### How to look for impersonating queries in your system
 
-Search for the following in your systems:
+Search for the following queries in your systems:
 
 - Anomalous requests to your resources from trusted applications or service principals.
 
