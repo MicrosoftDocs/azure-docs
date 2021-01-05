@@ -104,7 +104,7 @@ To configure or review the *Remain signed-in* option, complete the following ste
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
-To remember Multi-factor authentication settings, complete the following steps:
+To remember Multi-factor authentication settings on trusted devices, complete the following steps:
 
 1. In the Azure AD portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.

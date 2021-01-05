@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/05/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -34,7 +34,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
-* Ensure that a certificate authority (CA)  is created on the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
+* Ensure that a certificate authority (CA)  is created for the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 * Dual-protocol volumes do not currently support Azure Active Directory Domain Services (AADDS).  
 * The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
@@ -128,7 +128,10 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
     * Another machine in the domain containing the root certificate  
 
 3. Export the root CA certificate.  
-    Root CA certificates can be exported from Personal or Trusted Root Certification Authorities.   
+    Root CA certificates can be exported from the Personal or Trusted Root Certification Authorities directory, as shown in the following examples:   
+    ![screenshot that shows personal certificates](../media/azure-netapp-files/personal-certificates.png)   
+    ![screenshot that shows trusted root certification authorities](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
 
     ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
