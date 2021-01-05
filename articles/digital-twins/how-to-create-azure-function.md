@@ -185,7 +185,7 @@ For your Functions app to be able to access Azure Digital Twins, it needs to hav
 Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
 
 ## Set up security access for the function app
-You can set up security access for the Azure Function App using one of these options:
+You can set up security access for the function app using one of these options:
 
 ### Option 1: Set up security access for the function app using CLI
 
