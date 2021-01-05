@@ -109,7 +109,7 @@ You've now created your Azure data share. The recipient of your data share can a
 
 ## Receive data
 
-The following sections describe how to set up your storage account to receive data.
+The following sections describe how to receive shared data.
 ### Prerequisites to receive data
 Before you accept a data share invitation, make sure you have the following prerequisites: 
 
