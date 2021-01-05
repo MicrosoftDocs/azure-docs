@@ -18,7 +18,7 @@ In this article, you'll use the Azure portal to create a new Azure Cognitive Sea
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons. As an alternative to the portal, you can use the [VS Code Extension](https://aka.ms/vscode-search) to interact with the various components in the service.
 
 ## Why use a Private Endpoint for secure access?
 

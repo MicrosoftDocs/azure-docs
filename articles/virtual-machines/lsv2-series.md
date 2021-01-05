@@ -46,7 +46,7 @@ Bursting: Supported<br>
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.
 
-<sup>5</sup> Lsv2-series VMs can [burst](linux/disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
 
 <sup>6</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 

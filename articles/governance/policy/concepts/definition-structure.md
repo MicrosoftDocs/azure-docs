@@ -823,25 +823,6 @@ Policy, use one of the following methods:
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
 
-- Azure Resource Graph
-
-  Use the `project` operator to display the **alias** of a resource.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-
 - Azure PowerShell
 
   ```azurepowershell-interactive

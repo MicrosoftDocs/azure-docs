@@ -9,6 +9,7 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma

@@ -2,6 +2,9 @@
 title: Dependency analysis in Azure Migrate Server Assessment
 description: Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.date: 09/15/2020
 ---
 

@@ -38,6 +38,14 @@ The tasks described in this article should take about 20 minutes to complete.
 
 The real-world equivalent to the work in this step would likely be performed by device developers and cloud developers.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Incorporate an external project into your development environment.
+> * Use the sample DeviceHarness project to generate simulated IoT device data.
+> * View generated data in your IoT Hub.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
@@ -152,6 +160,10 @@ The data we just sent to your IoT hub was routed to the storage container that w
 1. The files are written in [Avro](https://avro.apache.org/) format. Double-click on one of these files to open another browser tab and partially render the data. If you're prompted to open the file in a program, you can choose VS Code and it will render correctly.
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
+
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
 
 ## Next steps
 

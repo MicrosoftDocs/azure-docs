@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 10/10/2019
+  ms.date: 12/04/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,6 +41,8 @@ landingContent:
       links:
         - text: What are security partner providers?
           url: trusted-security-partners.md
+        - text: Secure virtual hubs using Check Point Cloudguard Connect
+          url: check-point-overview.md
     - linkListType: how-to-guide
       links:
        - text: Deploy a security partner provider

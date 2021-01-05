@@ -100,7 +100,7 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
-If you are working with functions v3.x, you need a refernce to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
+If you are working with functions v3.x, you need a reference to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
 
 ```cs
 #r "Microsoft.Azure.DocumentDB.Core"

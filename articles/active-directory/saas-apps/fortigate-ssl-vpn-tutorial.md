@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     `https://<FQDN>/remote/saml/logout`.
 
 	> [!NOTE]
-	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact the [FortiGate SSL VPN client support team](mailto:tac_amer@fortinet.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact [Fortinet support](https://support.fortinet.com) for guidance. You can also refer to the example patterns shown in the Fortinet documentation and the **Basic SAML Configuration** section in the Azure portal.
 
 1. The FortiGate SSL VPN application expects SAML assertions in a specific format, which requires you to add custom attribute mappings to the configuration. The following screenshot shows the list of default attributes.
 

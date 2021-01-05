@@ -296,7 +296,7 @@ Run the following in PowerShell:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

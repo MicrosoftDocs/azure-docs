@@ -2,11 +2,11 @@
 title: Azure Data Lake Storage Gen1 performance tuning - MapReduce
 description: Learn about performance tuning for MapReduce in Azure Data Lake Storage Gen1, including parameters, guidance, an example calculation, and limitations.
 
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
+ms.author: twooley
 
 ---
 # Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage Gen1

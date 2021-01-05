@@ -10,6 +10,7 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql 
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: migration
 
 ms.topic: how-to
 ms.date: 08/18/2018

@@ -25,15 +25,14 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
 
 To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open the **Metrics** tab and follow these steps:
 
-1. Using the resource picker, select the resource for which you want to see metrics. (The resource is pre-selected if you opened **Metrics** in the context of a specific resource).
-
-    > ![Select a resource](./media/metrics-getting-started/resource-picker.png)
+1. Click on the "Select a scope" button to open the resource scope picker. This will allow you to select the resource(s) you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, [read this article](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+    > ![Select a resource](./media/metrics-getting-started/scope-picker.png)
 
 2. For some resources, you must pick a namespace. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
 
 3. Select a metric from a list of available metrics.
 
-    > ![Select a metric](./media/metrics-getting-started/metric-picker.png)
+    > ![Select a metric](./media/metrics-getting-started/metrics-dropdown.png)
 
 4. Optionally, you can [change the metric aggregation](metrics-charts.md#changing-aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
@@ -47,7 +46,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart. 
 
-![Change time range panel](./media/metrics-getting-started/time-picker.png)
+![Change time range panel](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Use the **time brush** to investigate an interesting area of the chart (spike or a dip). Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area and then release the button. The chart will zoom in on that time range. 
@@ -69,6 +68,7 @@ You can customize chart style, title, and modify advanced chart settings. When d
 ## Next steps
 
 * [Learn about advanced features of Metrics Explorer](metrics-charts.md)
+* [Viewing multiple resources in Metrics Explorer](metrics-dynamic-scope.md)
 * [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
 * [See examples of configured charts](metric-chart-samples.md)

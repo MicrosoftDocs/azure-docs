@@ -37,6 +37,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 
 ## Start the Kubernetes dashboard
 
+> [!WARNING]
+> The AKS dashboard add-on is deprecated for versions 1.19+. Please use the [Kubernetes resource view in the Azure portal (preview)][kubernetes-portal] instead. 
+> * The following command will now open the Azure Portal resource view instead of the kubernetes dashboard for versions 1.19 and above.
+
 To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster, which is included by default on clusters running any version older than Kubernetes 1.18.
 
 The following example opens the dashboard for the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:

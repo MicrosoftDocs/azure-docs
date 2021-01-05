@@ -67,6 +67,7 @@ Otherwise, you can install the local Azure CLI with these steps:
 1. Follow the process at [this installation link](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS.
 1. Open a console window on your machine.
 1. Run `az login`, and follow the authentication prompts to sign in to your Azure account.
+1. Possible last step: If you use multiple Azure subscriptions under this account, set the authentication context to the Azure subscription that contains your Azure Digital Twins instance by running `az account set --subscription "<your-subscription-name-or-ID>"` (either the name or ID value of the subscription will work).
 
 After you sign in, ADT Explorer should pick up your Azure credentials automatically when you run it in the next section.
 
@@ -91,7 +92,7 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Prerequisites](#prerequisites) section, in the format *https://{instance host name}*.
+1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://{instance host name}*.
 
 >[!NOTE]
 > You can revisit or edit this information at any time by selecting the same icon to open the **Sign In** box again. It will keep the values that you passed in.

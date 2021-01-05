@@ -12,7 +12,7 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 

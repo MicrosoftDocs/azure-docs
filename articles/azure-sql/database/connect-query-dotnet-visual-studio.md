@@ -13,46 +13,20 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 08/10/2020
 ---
-# Quickstart: Use .NET and C# in Visual Studio to connect to and query a database in Azure SQL Database or Azure SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# Quickstart: Use .NET and C# in Visual Studio to connect to and query a database
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL Database with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL or Synapse SQL with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
-
-  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
-  |:--- |:--- |:---|:---|
-  | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Connectivity from on-premises](../managed-instance/point-to-site-p2s-configure.md) | [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a SQL Managed Instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
-
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
+- A database where you can run a query.
 
-## Get server connection information
-
-Get the connection information you need to connect to the database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Navigate to the **SQL databases**  or **SQL Managed Instances** page.
-
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
-
-> [!NOTE]
-> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 ## Create code to query the database in Azure SQL Database
 
@@ -73,9 +47,6 @@ Get the connection information you need to connect to the database. You'll need 
 1. When the install completes, you can close **NuGet Package Manager**. 
    
 1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<your_server>`, `<your_username>`, `<your_password>`, and `<your_database>`.
-   
-   >[!IMPORTANT]
-   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
    
    ```csharp
    using System;
@@ -101,12 +72,7 @@ Get the connection information you need to connect to the database. You'll need 
                        Console.WriteLine("\nQuery data example:");
                        Console.WriteLine("=========================================\n");
                        
-                       StringBuilder sb = new StringBuilder();
-                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                       sb.Append("JOIN [SalesLT].[Product] p ");
-                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                       String sql = sb.ToString();
+                       String sql = "SELECT name, collation_name FROM sys.databases";
    
                        using (SqlCommand command = new SqlCommand(sql, connection))
                        {
@@ -134,7 +100,7 @@ Get the connection information you need to connect to the database. You'll need 
 ## Run the code
 
 1. To run the app, select **Debug** > **Start Debugging**, or select **Start** on the toolbar, or press **F5**.
-1. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
+1. Verify that the database names and collations are returned, and then close the app window.
 
 ## Next steps
 

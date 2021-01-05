@@ -132,4 +132,4 @@ external_table("HBTest","map") | take 10000
 
 ## Next steps
 
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Learn to [write queries in Azure Data Explorer](/azure/data-explorer/write-queries)
