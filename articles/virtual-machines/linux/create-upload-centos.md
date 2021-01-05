@@ -411,8 +411,8 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     ```
 
     If you want mount, format and create swap you can either:
-    * Pass this in as a cloud-init config everytime you create a VM
-    * Use a cloud-init directive baked into the image that will do this everytime the VM is created:
+    * Pass this in as a cloud-init config every time you create a VM
+    * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
         ```console
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
