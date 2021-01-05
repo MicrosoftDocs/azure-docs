@@ -56,6 +56,7 @@ Use the following steps to create a basic static public IP address named **myBas
     | ---                     | ---                         |
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Standard**         |
+    | Tier (if shown*)                  | Select **Regional**         |
     | Name                    | Enter *myBasicPublicIP*          |
     | IP address assignment   | Choose **Static** (see note below)                                     |
     | Idle Timeout (minutes)  | Leave the value at 4        |
@@ -65,6 +66,8 @@ Use the following steps to create a basic static public IP address named **myBas
     | Location                | Select **East US 2**      |
 
 If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
+
+\* = Tier relates to the [Cross-Region Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) functionality, currently in Preview.
 
 ---
 
