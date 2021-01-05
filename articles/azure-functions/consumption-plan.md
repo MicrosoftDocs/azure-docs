@@ -16,6 +16,12 @@ The Consumption plan scales automatically, even even during periods of high load
 
 For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
+## Billing
+
+Billing is based on number of executions, execution time, and memory used. Usage is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+
+To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
+
 ## Create a Consumption plan function app
 
 When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create you function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
@@ -27,12 +33,6 @@ Use the following links to learn how to create a serverless function app in a Co
 + [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 
 You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
-
-## Billing
-
-Billing is based on number of executions, execution time, and memory used. Usage is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
-
-To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
 ## Multiple apps in the same plan
 

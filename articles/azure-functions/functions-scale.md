@@ -63,8 +63,8 @@ The following table compares the scaling behaviors of the various hosting plans.
 
 | | Scale out | Max # instances |
 | --- | --- | --- |
-| **[Consumption plan](consumption-plan.md)** | Event driven. Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | 200 |
-| **[Premium plan](functions-premium-plan.md)** | Event driven. Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. |100|
+| **[Consumption plan](consumption-plan.md)** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | 200 |
+| **[Premium plan](functions-premium-plan.md)** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. |100|
 | **[Dedicated plan](dedicated-plan.md)**<sup>1</sup> | Manual/autoscale |10-20|
 | **[ASE](dedicated-plan.md)**<sup>1</sup> | Manual/autoscale |100 |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | Event-driven autoscale for Kubernetes clusters using [KEDA](https://keda.sh). | Varies&nbsp;by&nbsp;cluster&nbsp;&nbsp;|
