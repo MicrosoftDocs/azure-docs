@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy a Azure Stack Edge Mini R device. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Mini R device. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -32,7 +32,7 @@ To deploy Azure Stack Edge Mini R, refer to the following tutorials in the presc
 | --- | --- |
 | **Preparation** |These steps must be completed in preparation for the upcoming deployment. |
 | **[Deployment configuration checklist](#deployment-configuration-checklist)** |Use this checklist to gather and record information before and during the deployment. |
-| **[Deployment prerequisites](#prerequisites)** |These validate that the environment is ready for deployment. |
+| **[Deployment prerequisites](#prerequisites)** |These validate the environment is ready for deployment. |
 |  | |
 |**Deployment tutorials** |These tutorials are required to deploy your Azure Stack Edge Mini R device in production. |
 |**[1. Prepare the Azure portal for device](azure-stack-edge-mini-r-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install the physical device. |
