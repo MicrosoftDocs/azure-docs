@@ -1,9 +1,8 @@
 ---
 title: Azure Stream Analytics preview features
 description: This article lists the Azure Stream Analytics features that are currently in preview.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ebnkruma
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020

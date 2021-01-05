@@ -3,7 +3,7 @@ title: Use the Azure Stream Analytics CI/CD NuGet package
 description: This article describes how to use Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
