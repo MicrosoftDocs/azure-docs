@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -62,7 +62,7 @@ The set of optional claims available by default for applications to use are list
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant.  For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Users account status in tenant | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
-| `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Optional formatting for group claims |JWT, SAML| |Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following ID token claims for displaying sign-in state to the user: `preferred_username` or `unique_name` for v1 tokens and `preferred_username` for v2 tokens. Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
 | `idtyp`                    | Token type   | JWT access tokens | Special: only in app-only access tokens |  Value is `app` when the token is an app-only token. This is the most accurate way for an API to determine if a token is an app token or an app+user token.|
 
@@ -81,7 +81,17 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD.  Requires the `profile` scope. |
-| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following ID token claims for displaying sign-in state to the user: `preferred_username` or `unique_name` for v1 tokens and `preferred_username` for v2 tokens. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
+| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following `preferred_username` claim for displaying sign-in state to the user. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
+
+
+**Table 4: v1.0-only optional claims**
+
+Some of the improvements of the v2 token format are available to apps that use the v1 token format, as they help improve security and reliability. These will not take effect for ID tokens requested from the v2 endpoint, nor access tokens for APIs that use the v2 token format. 
+
+| JWT Claim     | Name                            | Description | Notes |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Audience | Always present in JWTs, but in v1 access tokens it can be emitted in a variety of ways, which can be hard to code against when performing token validation.  Use the [additional properties for this claim](#additional-properties-of-optional-claims) to ensure it's always set to a GUID in v1 access tokens. | v1 JWT access tokens only|
+|`preferred_username` | Preferred username        | Provides the preferred username claim within v1 tokens. This makes it easier for apps to provide username hints and show human readable display names, regardless of their token type.  It's recommended that you use this optional claim instead of using e.g. `upn` or `unique_name`. | v1 ID tokens and access tokens |
 
 ### Additional properties of optional claims
 
@@ -93,7 +103,9 @@ Some optional claims can be configured to change the way the claim is returned. 
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Can be used for both SAML and JWT responses, and for v1.0 and v2.0 tokens. |
 |                | `include_externally_authenticated_upn`  | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`), for example `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | In v1 access tokens, this is used to change the format of the `aud` claim.  This has no effect in v2 tokens or ID tokens, where the `aud` claim is always the client ID. Use this to ensure that your API  can more easily perform audience validation. Like all optional claims that affect the access token, the resource in the request must set this optional claim, since resources own the access token.|
+|                | `use_guid`               | Emits the client ID of the resource (API) in GUID format as the `aud` claim instead of an appid URI or GUID. So if a resource's client ID is `bb0a297b-6a42-4a55-ac40-09a501456577`, any app that requests an access token for that resource will receive an access token with `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577`.|
 
 #### Additional properties example
 

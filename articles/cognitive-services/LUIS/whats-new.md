@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 01/05/2021
 ---
 
 # What's new in Language Understanding
@@ -15,7 +15,8 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### December 2020
 
-* All LUIS users are required to [migrate to a LUIS authorint resource](luis-migration-authoring.md)
+* All LUIS users are required to [migrate to a LUIS authoring resource](luis-migration-authoring.md)
+* New [evaluation endpoints](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) which allow you to submit batch tests usting the REST API, and get accuracy results for your intents and entities. Available starting with the v3.0-preview LUIS Endpoint.
 
 ### June 2020
 
