@@ -229,7 +229,7 @@ In the _Select Azure Function_ page that opens up, verify the below details.
  2. **Resource group**: Your resource group
  3. **Function app**: Your function app name
  4. **Slot**: _Production_
- 5. **Function**: Select your Azure Function from the dropdown.
+ 5. **Function**: Select your function from the dropdown.
 
 Save your details by selecting _Confirm Selection_ button.            
       
