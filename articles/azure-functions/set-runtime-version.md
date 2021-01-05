@@ -134,7 +134,7 @@ For **linux consumption apps** -
 Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10`.
 
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azurecli-linux)
 
 You can view and set the `LinuxFxVersion` from the Azure CLI.  
 
