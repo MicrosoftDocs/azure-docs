@@ -332,12 +332,12 @@ The following properties are supported in copy activity for data type conversion
             "type": "TabularTranslator",
             "typeConversion": true,
             "typeConversionSettings": {
-            	"allowDataTruncation": true,
-              	"treatBooleanAsNumber": true,
-              	"dateTimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
-              	"dateTimeOffsetFormat": "yyyy-MM-dd HH:mm:ss.fff zzz",
-              	"timeSpanFormat": "dd\.hh\:mm",
-              	"culture": "en-gb"
+                "allowDataTruncation": true,
+                "treatBooleanAsNumber": true,
+                "dateTimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+                "dateTimeOffsetFormat": "yyyy-MM-dd HH:mm:ss.fff zzz",
+                "timeSpanFormat": "dd\.hh\:mm",
+                "culture": "en-gb"
             }
         }
 	},

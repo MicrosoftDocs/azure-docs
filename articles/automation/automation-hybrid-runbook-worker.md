@@ -86,7 +86,7 @@ Azure Automation Hybrid Runbook Worker can be used in Azure Government to suppor
 
 * [Isolated virtual machine](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). When deployed, they consume the entire physical host for that machine providing the necessary level of isolation required to support IL5 workloads.
 
-* [Azure Dedicated Hosts](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), which provides physical servers that are able to host one or more virtual machines, dedicated to one Azure subscription.
+* [Azure Dedicated Hosts](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), which provides physical servers that are able to host one or more virtual machines, dedicated to one Azure subscription.
 
 >[!NOTE]
 >Compute isolation through the Hybrid Runbook Worker role is available for Azure Commercial and US Government clouds. 

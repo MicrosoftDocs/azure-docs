@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Browse assets in Azure Purview and view their lineage'
 description: This tutorial describes how to browse for assets in the catalog and view data lineage. 
-author: hophan
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial

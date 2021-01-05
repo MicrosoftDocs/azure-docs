@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
+ms.date: 12/18/2020
 ---
 
 # Data transformation expressions in mapping data flow
@@ -1237,6 +1237,30 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## Cached lookup functions
+The following functions are only available when using a cached lookup when you've included a cached sink.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Returns the first row of the results of the cache sink
+* ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Returns the entire output row set of the results of the cache sink
+* ``cacheSink#outputs()``
+___
 
 ## Window functions
 The following functions are only available in window transformations.

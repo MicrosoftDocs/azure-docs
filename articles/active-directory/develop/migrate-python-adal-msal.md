@@ -48,7 +48,7 @@ For more details about the different types of scopes, refer
 
 ### Error handling
 
-Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see  [MSAL for Python error handling](./msal-handling-exceptions.md?tabs=python).
+Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see [MSAL for Python error handling](msal-error-handling-python.md).
 
 ### API changes
 

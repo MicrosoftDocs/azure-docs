@@ -58,12 +58,12 @@ Usually the default values of the client are sufficient. You can fine-tune the o
   * Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
   * Use multiple `ConnectionMultiplexer` instances for custom workloads.
-	  * You can follow this model if you have varying load in your application. For example:
-	  * You can have one multiplexer for dealing with large keys.
-	  * You can have one multiplexer for dealing with small keys.
-	  * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
-	  * Set the `ClientName` property on each multiplexer to help with diagnostics.
-	  * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
+    * You can follow this model if you have varying load in your application. For example:
+    * You can have one multiplexer for dealing with large keys.
+    * You can have one multiplexer for dealing with small keys.
+    * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+    * Set the `ClientName` property on each multiplexer to help with diagnostics.
+    * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
 
 ### What Azure Cache for Redis clients can I use?
 One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.

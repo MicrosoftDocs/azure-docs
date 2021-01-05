@@ -151,7 +151,7 @@ The Execute Python Script module contains sample Python code that you can use as
     1. Bundle the script and other custom resources to a zip file.
     1. Upload the zip file as a **File Dataset** to the studio. 
     1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
-    1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
+    1. Connect the dataset module to the **Script Bundle** port of **Execute Python Script** module.
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
  
