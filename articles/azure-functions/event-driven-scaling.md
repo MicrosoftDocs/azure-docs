@@ -60,3 +60,6 @@ Useful queries and information on how to understand your consumption bill can be
 [Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
 
 ## Next steps
+
++ [Azure Functions hosting options](functions-scale.md)
+

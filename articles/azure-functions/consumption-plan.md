@@ -37,3 +37,8 @@ You can also create function apps in a Consumption plan when you publish a Funct
 ## Multiple apps in the same plan
 
 Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same Consumption plan has no impact on resilience, scalability, or reliability of each app.
+
+## Next steps
+
++ [Azure Functions hosting options](functions-scale.md)
++ [Event-driven scaling in Azure Functions](event-driven-scaling.md)

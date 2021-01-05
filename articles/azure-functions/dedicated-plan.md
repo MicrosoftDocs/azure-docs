@@ -18,7 +18,7 @@ Consider an App Service plan in the following situations:
 
 ## Billing
 
-You pay for function apps in an App Service Plan as you would for other App Service resources. This differs from Azure Functions [Consumption plan](consumption-plan.md) or [Premium plan](functions-premium-plan.md) hosting, which have consumption-based cost components. You are billed ony for the plan, regardless of how many function apps or web apps run in the plan. To learn more, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
+You pay for function apps in an App Service Plan as you would for other App Service resources. This differs from Azure Functions [Consumption plan](consumption-plan.md) or [Premium plan](functions-premium-plan.md) hosting, which have consumption-based cost components. You are billed only for the plan, regardless of how many function apps or web apps run in the plan. To learn more, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
 
 ## <a name="always-on"></a> Always On
 
@@ -39,3 +39,8 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see .
 
 If you just want to run your function app in a virtual network, you can do this using the [Premium plan](functions-premium-plan.md). To learn more, see [Establish Azure Functions private site access](functions-create-private-site-access.md). 
+
+## Next steps
+
++ [Azure Functions hosting options](functions-scale.md)
++ [Azure App Service plan overview](../app-service/overview-hosting-plans.md)
