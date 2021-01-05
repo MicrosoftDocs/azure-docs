@@ -88,7 +88,7 @@ To sync the storage account access key, take the following steps:
 
 2. When prompted for confirmation, select **Yes**.
 
-    ![Select sync storage key](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
+    ![Select sync storage key 2](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Set up sign-in for a single-page app (SPA)"
+title: "Quickstart: Set up sign in for a single-page app (SPA)"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Quickstart: Set up sign-in for a single-page app using Azure Active Directory B2C
+# Quickstart: Set up sign in for a single-page app using Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts, and enterprise accounts using open standard protocols. In this quickstart, you use a single-page application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
@@ -25,12 +25,12 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Social account from Facebook, Google, or Microsoft
-- Code sample from GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Code sample from GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    You can [download the zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the repository:
+    You can [download the zip archive](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) or clone the repository:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## Run the application
@@ -38,7 +38,6 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 1. Start the server by running the following commands from the Node.js command prompt:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -56,7 +55,7 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 ## Sign in using your account
 
 1. Select **Sign In** to start the user journey.
-1. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, select the button of the identity provider you want to use.
+1. Azure AD B2C presents a sign-in page for a fictitious company called "Fabrikam" for the sample web application. To sign up using a social identity provider, select the button of the identity provider you want to use.
 
     ![Sign In or Sign Up page showing identity provider buttons](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 

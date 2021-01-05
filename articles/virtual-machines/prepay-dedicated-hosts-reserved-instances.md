@@ -14,7 +14,7 @@ ms.author: banders
 # Save costs with Azure Dedicated Host reservations
 
 When you commit to a reserved instance of Azure Dedicated Hosts, you can save money. The reservation discount is applied automatically to the number of running dedicated hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
-include software licensing costs. See the [Overview of Azure Dedicated Hosts for virtual machines](./windows/dedicated-hosts.md).
+include software licensing costs. See the [Overview of Azure Dedicated Hosts for virtual machines](./dedicated-hosts.md).
 
 ## Determine the right dedicated host SKU before you buy
 
@@ -127,7 +127,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts](./windows/dedicated-hosts.md)
+- [Using Azure Dedicated Hosts](./dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

@@ -6,94 +6,140 @@ ms.date: 06/26/2020
 ---
 
 # Lab account setup guide
+If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 
-As a first step, administrators should set up a lab account within your Azure subscription. A lab account is a container for your classroom labs, and only takes a few minutes to set up.
+This guide includes three sections:
+-  Prerequisites
+-  Plan your lab account settings
+-  Set up your lab account
 
-## Understand your school's lab account requirements
+## Prerequisites
+The following sections outline what you need to do before you can set up a lab account.
 
-To understand how to configure your lab account based on your school's needs, you should consider these questions.
 
-### Do I have access to an Azure subscription?
+### Access your Azure subscription
+To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#subscription).
 
-To create a lab account, you need access to an Azure subscription that is configured for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.
+### Estimate how many VMs and VM sizes you need
+It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide.md#vm-sizing) your school lab requires. 
 
-### How many lab accounts need to be created?
+For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
-To get started quickly, create a single lab account, and then later create additional lab accounts as needed. For example, you might eventually have one lab account per department.
+For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab).
 
-### Who should be owners and contributors of the lab account?
+### Understand subscription VM limits and regional VM capacity
+After you've estimated the number of VMs and the VM sizes for your labs, you need to:
 
-Your administrators are typically the owners and contributors for a lab account. They are responsible for managing the policies that apply to all the labs contained within the lab account. The person that creates the lab account is automatically an owner. You can add additional owners and contributors, typically from the Azure Active Directory (Azure AD) tenant associated with your subscription. This can be useful to help manage a lab account by assigning either the owner or contributor role at the lab account level.
+- Ensure that your Azure subscription's capacity limit allows for the number of VMs and the VM size that you plan to use in your labs.
+- Create your lab account within a region that has sufficient available VM capacity.
 
-### Who will be allowed to create and manage labs?
+For more information, see [VM subscription limits and regional capacity](https://techcommunity.microsoft.com/t5/azure-lab-services/vm-subscription-limits-and-regional-capacity/ba-p/1845553).
 
-You might choose to have your administrators and faculty members create and manage labs. These users (typically from the Azure AD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.
+### Decide how many lab accounts to create
 
-### Do you want to give lab creators the ability to save images that can be shared across labs?
+To get started quickly, create a single lab account within its own resource group.  Later, you can create additional lab accounts and resource groups, as needed. For example, you might eventually have one lab account and resource group per department as a way to clearly separate costs. 
 
-A shared image gallery is a repository that you can use for saving and sharing images. If you have several classes that need the same images, lab creators can create the image once, and share it across labs. However, to get started, you don't necessarily need a shared image gallery, because you can always add one later.
+For more information about lab accounts, resource groups, and separating costs, see:
+- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#resource-group)
+- The "Lab account" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab-account) 
+- [Cost management for Azure Lab Services](./cost-management-guide.md)
 
-If you answered "yes" to this question, you need to create or attach a shared image gallery to your lab account. If you answered "I don't know," you can postpone this decision until later.
+## Plan your lab account settings
 
-### Which images in Azure Marketplace will your classroom labs use?
+To plan your lab account settings, consider the following questions.
 
-Azure Marketplace provides hundreds of images that you can enable so that lab creators can use the image for creating their lab. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the lab creator can customize it by installing additional applications or tools.
+### Who should be the Owners and Contributors of the lab account?
 
-If you don't know which images you will need to use, you can always come back to this later to enable them. Also, the best way to see which images are available is to first create a lab account. This gives you access, so that you can review the list of available images and their contents.
+Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription. 
+
+For more information about the lab account Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Lab users see only a single list of the VMs that they have access to across Azure AD tenants in Azure Lab Services.
+
+### Who will be allowed to create labs?
+
+You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
+
+For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+
+### Who will be allowed to own and manage labs?
+
+You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs.  In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
+
+For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+
+### Do you want to save images and share them across labs?
+
+Shared Image Gallery is a service that you can use for saving and sharing images. For classes that need to use the same image, Lab Creators can create the image and then export it to a shared image gallery.  After an image is exported to the shared image gallery, it can be used to create new labs.
+
+You might want to create your images in your physical environment and then import them to a shared image gallery. For more information, see the blog post [Import a custom image to a shared image gallery](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353).
+
+If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab account. You can postpone this decision for now, because a shared image gallery can be attached to a lab account at any time.  
+
+For more information, see:
+- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
+- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
+
+### Which images in Azure Marketplace will your labs use?
+
+Azure Marketplace provides hundreds of images that you can enable so that Lab Creators can use them for creating their labs. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the Lab Creator can customize it by installing additional applications or tools.
+
+If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. This gives you access so that you can review the list of available images and their contents.  
+
+For more information, see [Specify the Azure Marketplace images that are available to Lab Creators](./specify-marketplace-images.md).
   
-### Do the lab's virtual machines need to have access to other Azure or on-premises resources?
+### Do the lab VMs need access to other Azure or on-premises resources?
 
-When you set up a lab account, you also have the option to peer with a virtual network. To decide whether you need this, consider the following questions:
+When you set up a lab account, you also can peer your lab account with a virtual network.  Keep in mind that both your virtual network and the lab account must be located in the same region.  To decide whether you need to peer with a virtual network, consider the following scenarios:
 
-- **Do you need to provide access to a licensing server?**
+- **Access to a license server**
   
-   If you plan to use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. Therefore, you don't need to provide licenses for the operating system itself. However, for additional software and applications that are installed, you do need to provide a license as appropriate.
+   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For additional software and applications that are installed, you do need to provide a license, as appropriate.  To access a license server:
+   - You may choose to connect to an on-premises license server.  Connecting to an on-premises license server requires additional setup.
+   - Another option, which is faster to set up, is to create a license server that you host on an Azure VM.  The Azure VM is located within a virtual network that you peer with your lab account.
 
-- **Do the lab VMs need access to other on-premises resources such as a file share or database?**
+- **Access to other on-premises resources such as a file share or database**
 
-   You create a virtual network to provide access to on-premises resources, typically by using a site-to-site virtual network gateway. If you don't have a virtual network configured, you need to invest additional time for this.
+   You ordinarily create a virtual network to provide access to on-premises resources by using a site-to-site virtual network gateway. Setting up this type of environment will take additional time.
 
-- **Do the lab VMs need access to other Azure resources that are located within a virtual network?**
+- **Access to other Azure resources that are located outside a virtual network**
 
-   If you need access to Azure resources that are *not* secured within a virtual network, then you can access these resources through the public internet, without doing any peering.
+   If you need access to Azure resources that are *not* secured within a virtual network, you can access them through the public internet, without having to do any peering.
 
-If you answered "yes" to one or more questions, then you will need to peer the lab account to a virtual network. If you answered "I don't know," then you can postpone this decision until later. You can always choose to peer a virtual network after you create the lab account.
+   For more information about virtual networks, see:
+   - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
+   - [Connect your lab network with a peer virtual network in Azure Lab Services](./how-to-connect-peer-virtual-network.md)
+   - [Create a lab with a shared resource in Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
 
 ## Set up your lab account
 
-After you understand the requirements for your lab account, you're ready to set it up.
+After you've finished planning, you're ready to set up your lab account. You can apply the same steps to setting up [Azure Lab Services in Teams](./lab-services-within-teams-overview.md).
 
-1. **Create your lab account.** Refer to the tutorial on [creating a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) for instructions.
+1. **Create your lab account**. For instructions, see [Create a lab account](./tutorial-setup-lab-account.md#create-a-lab-account).
+   
+    For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#naming).
 
-   When you're creating a lab account, you might find it helpful to familiarize yourself with the Azure resources involved. For more information, see the following articles:
+1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
-   - [Subscription](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
-   - [Resource group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
-   - [Lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
-   - [Classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [Selecting a region and location](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
-   - [Naming guidance for resources](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
+1. **Connect to a peer virtual network**. For instructions, see [Connect your lab network with a peer virtual network](./how-to-connect-peer-virtual-network.md).
 
-2. **Add users to the lab creator role.** For instructions, see [adding users to the lab creator role](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role).
+   You might also need to refer to instructions for [configuring the lab VMs address range](./how-to-configure-lab-accounts.md).
 
-   Also, for more information on the different roles that can be assigned to users who will manage lab accounts and labs, see the [guide on managing identity](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#manage-identity).
+1. **Enable and review images**. For instructions, see [Specify which Azure Marketplace images are available to Lab Creators](./specify-marketplace-images.md).
 
-3. **Connect to a peer virtual network.** For instructions, see [connecting your lab's network with a peer virtual network](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network).
+   To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details of the Ubuntu Data Science VM image:
 
-   You might also need to refer to instructions on [configuring the lab VMs address range](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
+   ![Screenshot of a list of images available for review in Azure Marketplace.](./media/setup-guide/review-marketplace-images.png)
 
-4. **Enable and review images.** For instructions, see [enabling Azure Marketplace images for lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+   If a shared image gallery is attached to your lab account, and you want to enable custom images to be shared by Lab Creators, complete similar steps as shown in the following screenshot:
 
-   To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details for the Ubuntu Data Science VM image:
-
-   ![Screenshot of Review Azure Marketplace images](./media/setup-guide/review-marketplace-images.png)
-
-   If you have a shared image gallery attached to your lab account, and you want to enable custom images to be shared by lab creators, complete steps similar to those shown in the following screenshot:
-
-   ![Screenshot of Enabling custom images in a shared image gallery](./media/setup-guide/enable-sig-custom-images.png)
+   ![Screenshot of a list of enabled custom images in a shared image gallery.](./media/setup-guide/enable-sig-custom-images.png)
 
 ## Next steps
 
-- [Manage lab accounts](how-to-manage-lab-accounts.md)
+For more information about setting up and managing labs, see:
 
-- [Classroom lab setup guide](setup-guide.md)
+- [Manage lab accounts](how-to-manage-lab-accounts.md)  
+- [Lab setup guide](setup-guide.md)

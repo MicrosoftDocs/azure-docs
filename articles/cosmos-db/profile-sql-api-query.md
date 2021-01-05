@@ -11,17 +11,18 @@ ms.custom: devx-track-csharp
 
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
+This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](./sql-api-query-metrics.md) article.
 
 ## Set the FeedOptions parameter
 
-All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) take in an optional [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) parameter. This option is what allows query execution to be tuned and parameterized. 
+All the overloads for [DocumentClient.CreateDocumentQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) take in an optional [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) parameter. This option is what allows query execution to be tuned and parameterized. 
 
-To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
+To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
 
 ## Get query metrics with AsDocumentQuery()
-The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) method:
+The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) method:
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -58,7 +59,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## Aggregating QueryMetrics
 
-In the previous section, notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) method. Each call returned a `FeedResponse` object that has a dictionary of `QueryMetrics`; one for every continuation of the query. The following example shows how to aggregate these `QueryMetrics` using LINQ:
+In the previous section, notice that there were multiple calls to [ExecuteNextAsync](/dotnet/api/microsoft.azure.documents.linq.idocumentquery-1.executenextasync) method. Each call returned a `FeedResponse` object that has a dictionary of `QueryMetrics`; one for every continuation of the query. The following example shows how to aggregate these `QueryMetrics` using LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -125,7 +126,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## Expensive Queries
 
-You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
+You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the [RequestCharge](/dotnet/api/microsoft.azure.documents.client.feedresponse-1.requestcharge) property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -227,11 +228,11 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 This query is now able to be served from the index.
 
-To learn more about tuning query performance, see the [Tune Query Performance](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
+To learn more about tuning query performance, see the [Tune Query Performance](./sql-api-query-metrics.md) article.
 
 ## <a id="References"></a>References
 
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Azure Cosmos DB SQL specification](./sql-query-getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 

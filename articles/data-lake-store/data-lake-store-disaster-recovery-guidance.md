@@ -17,8 +17,8 @@ Data Lake Storage Gen1 provides locally redundant storage (LRS). Therefore, the 
 
 It's critical for you to prepare a disaster recovery plan. Review the information in this article and these additional resources to help you create your own plan.
 
-* [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md)
+* [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Azure resiliency technical guidance](/azure/architecture/framework/resiliency/overview)
 
 ### Best practice recommendations
 
@@ -33,8 +33,6 @@ While Data Lake Storage Gen1 provides data resiliency through automated replicas
 To prevent accidental deletion, we recommend that you first set the correct access policies for your Data Lake Storage Gen1 account. This includes applying [Azure resource locks](../azure-resource-manager/management/lock-resources.md) to lock down important resources and applying account and file level access control using the available [Data Lake Storage Gen1 security features](data-lake-store-security-overview.md). We also recommend that you routinely create copies of your critical data using [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) or [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) in another Data Lake Storage Gen1 account, folder, or Azure subscription. This can be used to recover from a data corruption or deletion incident. Azure Data Factory is a useful service for creating and deploying data movement pipelines on a recurring basis.
 
 You can also enable [diagnostic logging](data-lake-store-diagnostic-logs.md) for a Data Lake Storage Gen1 account to collect data access audit trails. The audit trails provide information about who might have deleted or updated a file.
-
-You can try to restore a deleted item by using the [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell module for Data Lake Storage Gen 1. Specifically, see the [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) command. Make sure to review the [Description](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) section before you try to use this command.
 
 ## Next steps
 

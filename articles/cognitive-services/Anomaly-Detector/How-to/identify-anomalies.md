@@ -3,13 +3,13 @@ title: How to use the Anomaly Detector API on your time series data
 titleSuffix: Azure Cognitive Services
 description: Learn how to detect anomalies in your data either as a batch, or on streaming data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How to: Use the Anomaly Detector API on your time series data  
@@ -67,4 +67,4 @@ The following examples show an Anomaly Detector API result at different sensitiv
 ## Next Steps
 
 * [What is the Anomaly Detector API?](../overview.md)
-* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](../quickstarts/client-libraries.md)

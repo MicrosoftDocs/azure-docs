@@ -56,5 +56,5 @@ Keep in mind the following considerations when you build a mobile app on Microso
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-mobile-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-mobile-app-registration.md).

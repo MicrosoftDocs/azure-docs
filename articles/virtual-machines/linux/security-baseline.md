@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](../../security/ben
 
 Alternatively, if you have a specific use case for a centralized firewall, Azure Firewall can also be used to meet those requirements.
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -62,7 +62,7 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 * [Create an application gateway with a Web Application Firewall using the Azure portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Information on Network Security Groups](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -76,11 +76,11 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Linux Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -276,7 +276,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -304,9 +304,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
-* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quick-onboard-linux-computer.md)
+* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
-* [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](./security-recommendations.md)
+* [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](../security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -456,7 +456,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on auth syslog data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -512,7 +512,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -584,7 +584,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Virtual disks on Linux Virtual Machines(VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the DM-Crypt feature of Linux to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure managed disks](../windows/disk-encryption.md)
+* [Server side encryption of Azure managed disks](../disk-encryption.md)
 
 * [Azure Disk Encryption for Linux VMs](./disk-encryption-overview.md)
 
@@ -614,9 +614,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
-* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quick-onboard-linux-computer.md)
+* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
-* [Microsoft recommended security guidelines](./security-recommendations.md)
+* [Microsoft recommended security guidelines](../security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -626,9 +626,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -638,9 +638,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -698,7 +698,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -758,7 +758,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Understanding Change Tracking](../../automation/change-tracking.md)
+* [Understanding Change Tracking](../../automation/change-tracking/overview.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -782,7 +782,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -822,13 +822,13 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual networks, subnets, subscriptions, management groups and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Azure Firewall overview](../../firewall/overview.md)
 
 * [Web Application Firewall overview](../../web-application-firewall/overview.md)
 
-* [Network security overview](../../virtual-network/security-overview.md)
+* [Network security overview](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 
@@ -976,7 +976,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to integrate with Azure Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
 
@@ -1014,7 +1014,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine.
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](./security-recommendations.md)
+* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1032,7 +1032,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine.
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](./security-recommendations.md)
+* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 

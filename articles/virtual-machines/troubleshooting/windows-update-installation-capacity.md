@@ -58,8 +58,6 @@ To solve the issue:
 
 1. Check if the disk is full. If the disk size is below 1 TB, expand it up to a maximum of 1 TB [using PowerShell](../windows/expand-os-disk.md).
 1. If the disk is already 1 TB, you will need to perform a disk cleanup.
-   1. Detach the data disk [from the broken VM](../windows/detach-disk.md).
-   1. Attach the data disk [to a functioning VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
 1. Once resizing and clean-up are finished, de-fragment the drive using the following command:
 

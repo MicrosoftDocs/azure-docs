@@ -2,13 +2,12 @@
 title: Tutorial - New policy assignment with Azure portal
 description: In this tutorial, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 10/07/2020
 ---
 
 # Tutorial: Create a policy assignment to identify non-compliant resources
 
-The first step in understanding compliance in Azure is to identify the status of your resources.
-This tutorial steps you through the process of creating a policy assignment to identify your Azure Arc enabled servers machines and them to identify machines that do not have the Log Analytics agent installed on your Azure Arc enabled machines.
+The first step in understanding compliance in Azure is to identify the status of your resources. Azure Policy supports auditing the state of your Arc enabled server with Guest Configuration policies. Guest Configuration policies do not apply configurations, they only audit settings inside the machine. This tutorial steps you through the process of creating and assigning a policy, identifying which of your Arc enabled servers don't have the Log Analytics agent installed.
 
 At the end of this process, you'll successfully identify machines that don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
 
@@ -19,8 +18,7 @@ before you begin.
 
 ## Create a policy assignment
 
-In this tutorial, you create a policy assignment and assign the _Audit VMs that do not use managed
-disks_ policy definition.
+In this tutorial, you create a policy assignment and assign the _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.

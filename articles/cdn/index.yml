@@ -51,7 +51,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create a Content Delivery Network for your Website with Azure CDN and Blob Services
-            url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+            url: /learn/modules/create-cdn-static-resources-blob-storage/
 
   # Card
   - title: Monitoring

@@ -1,6 +1,6 @@
 ---
-title: Resolve Database corruption - Azure Database for MySQL
-description: Learn about how to fix database corruption issues for Azure Database for MySQL
+title: Resolve database corruption - Azure Database for MySQL
+description: In this article, you'll learn about how to fix database corruption problems in Azure Database for MySQL.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -8,79 +8,82 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Troubleshoot database corruption on Azure Database for MySQL
+# Troubleshoot database corruption in Azure Database for MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-Database corruption can cause downtime for your application and it is also critical to resolve the issue in time to avoid data loss. When database corruption occurs you will see in your server logs this error **InnoDB: Database page corruption on disk or a failed**.
+Database corruption can cause downtime for your application. It's also critical to resolve corruption problems in time to avoid data loss. When database corruption occurs, you'll see this error in your server logs: `InnoDB: Database page corruption on disk or a failed.`
 
-In this guide you will learn how to fix if database or table is corrupted. Azure Database for MySQL uses InnoDB engine and it features automated corruption checking and repair operations. InnoDB checks for corrupted pages by performing checksums on every page it reads, and if it finds a checksum discrepancy it will automatically stop the MySQL server.
+In this article, you'll learn how to resolve database or table corruption problems. Azure Database for MySQL uses the InnoDB engine. It features automated corruption checking and repair operations. InnoDB checks for corrupt pages by running checksums on every page it reads. If it finds a checksum discrepancy, it will automatically stop the MySQL server.
 
-Try any of these options below to help quickly mitigate your database corruption issues.
+Try the following options to quickly mitigate your database corruption problems.
 
 ## Restart your MySQL server
 
-You typically notice that a database or table is corrupted when your application access that table ro database. Since InnoDB features a crash recovery mechanism that can resolve most issues when the server is restarted. Hence restarting the server should help the server recover from a crash that caused the database to be in bad state.
+You typically notice a database or table is corrupt when your application accesses the table or database. InnoDB features a crash recovery mechanism that can resolve most problems when the server is restarted. So restarting the server can help the server recover from a crash that caused the database to be in bad state.
 
-##  Resolve data corruption with Dump and restore method
+## Use the dump and restore method
 
-It is recommended to resolve the corruption issue with a **dump and restore method**. This involves getting access to the corrupted table, using the **mysqldump** utility to create a logical backup of the table, which will retain the table structure and the data within it, and then reloading the table back into the database.
+We recommend that you resolve corruption problems by using a *dump and restore* method. This method involves:
+1. Accessing the corrupt table.
+1. Using the mysqldump utility to create a logical backup of the table. The backup will retain the table structure and the data within it.
+1. Reloading the table into the database.
 
-### Backup your database or tables
+### Back up your database or tables
 
 > [!Important]
-> - Make your have configured a firewall rule in order to access the server from your client machine. See how to configure [firewall rule on single server](howto-manage-firewall-using-portal.md) and [firewall rule on flexible server](flexible-server/how-to-connect-tls-ssl.md).
-> - Use SSL option ```--ssl-cert``` for **mysqldump** if SSL enabled
+> - Make sure you have configured a firewall rule to access the server from your client machine. For more information, see [configure a firewall rule on Single Server](howto-manage-firewall-using-portal.md) and [configure a firewall rule on Flexible Server](flexible-server/how-to-connect-tls-ssl.md).
+> - Use SSL option `--ssl-cert` for mysqldump if you have SSL enabled.
 
-Create a backup file from the command-line using mysqldump using this command
+Create a backup file from the command line by using mysqldump. Use this command:
 
 ```
 $ mysqldump [--ssl-cert=/path/to/pem] -h [host] -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
 
-The parameters to provide are:
-- [ssl-cert=/path/to/pem] Download the SSL cert on your client machine and set the path in it in the command. DO NOT use this is SSL is disabled.
-- [host] is your Azure Database for MySQL server
-- [uname] is your server admin username
-- [pass]  is the password for your admin user
-- [dbname] is the name of your database
-- [backupfile.sql] if the filename for your database backup
+Parameter descriptions:
+- `[ssl-cert=/path/to/pem]`: The path to the SSL certificate. Download the SSL certificate on your client machine and set the path in it in the command. Don't use this parameter if SSL is disabled.
+- `[host]`: Your Azure Database for MySQL server.
+- `[uname]`: Your server admin user name.
+- `[pass]`: The password for your admin user.
+- `[dbname]`: The name of your database.
+- `[backupfile.sql]`: The file name of your database backup.
 
 > [!Important]
-> - For Single server use the format ```admin-user@servername``` to replace ```myserveradmin``` in the commands below.
-> - For Flexible server use the format ```admin-user``` to replace ```myserveradmin``` in the commands below.
+> - For Single Server, use the format `admin-user@servername` to replace `myserveradmin` in the following commands.
+> - For Flexible Server, use the format `admin-user` to replace `myserveradmin` in the following commands.
 
-If a specific table is corrupted, then select specific tables in your database to back up using this example
+If a specific table is corrupt, select specific tables in your database to back up:
 ```
 $ mysqldump --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb table1 table2 > testdb_tables_backup.sql
 ```
 
-To back up one or more databases, use the --database switch and list the database names separated by spaces.
+To back up one or more databases, use the `--database` switch and list the database names, separated by spaces:
 
 ```
 $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com -u myserveradmin -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
-###  Restore your database or tables
+### Restore your database or tables
 
-The following steps show you how tp restore your database or tables. Once the backup file is created, you can restore the table or databases using ***mysql** utility. Run the command as shown below:
+The following steps show how to restore your database or tables. After you create the backup file, you can restore the tables or databases by using the mysql utility. Run this command:
 
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-Here is an example of the restoring ```testdb``` from backup file created with **mysqldump**. 
+Here's an example that restores `testdb` from a backup file created with mysqldump: 
 
 > [!Important]
-> - For Single server use the format ```admin-user@servername``` to replace ```myserveradmin``` in the command below.
-> - For Flexible server use the format ```admin-user``` to replace ```myserveradmin``` in the command below. 
+> - For Single Server, use the format `admin-user@servername` to replace `myserveradmin` in the following command.
+> - For Flexible Server, use the format ```admin-user``` to replace `myserveradmin` in the following command. 
 
 ```
 $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb < testdb_backup.sql
 ```
 
-## Next Steps
-If the above steps do not help resolve the issue, you can always restore the entire server.
-- [Restore a  Azure Database for MySQL Single Server](howto-restore-server-portal.md)
-- [Restore a Azure Database for MySQL Flexible Server](flexible-server/how-to-restore-server-portal.md)
+## Next steps
+If the preceding steps don't resolve the problem, you can always restore the entire server:
+- [Restore server in Azure Database for MySQL - Single Server](howto-restore-server-portal.md)
+- [Restore server in Azure Database for MySQL - Flexible Server](flexible-server/how-to-restore-server-portal.md)
 
 
 

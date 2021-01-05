@@ -44,7 +44,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### Writing run()
+### Writing run()
 
 `run()` is executed every time your model receives a scoring request, and expects the body of the request to be a JSON document with the following structure:
 

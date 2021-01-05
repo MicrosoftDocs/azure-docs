@@ -21,7 +21,7 @@ Integrating Degreed with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Degreed (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Degreed supports **Just In Time** user provisioning
 
-* Once you configure Degreed you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Degreed you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Degreed from the gallery
 
@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Degreed SSO
 
-To configure single sign-on on **Degreed** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Degreed support team](mailto:admin@degreed.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Degreed** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Degreed support team](mailto:sso@degreed.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Degreed test user
 
@@ -150,20 +150,19 @@ The objective of this section is to create a user called Britta Simon in Degreed
 There is no action item for you in this section. A new user is created during an attempt to access Degreed if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create a user manually, you need to contact the [Degreed support team](mailto:admin@degreed.com).
+> If you need to create a user manually, you need to contact the [Degreed support team](mailto:sso@degreed.com).
 
 
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Degreed tile in the Access Panel, you should be automatically signed in to the Degreed for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Degreed tile in the Access Panel, you should be automatically signed in to the Degreed for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -266,7 +266,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
     
 8. Once the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders. 
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Data Box Disk contents 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 

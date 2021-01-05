@@ -35,6 +35,16 @@ When you complete the steps below, you will have used Live Video Analytics on Io
 
 You can use the module to analyze live video streams by invoking direct methods. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by the module. 
 
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+
 ### Invoke GraphTopologyList
 This step enumerates all the [graph topologies](media-graph-concept.md#media-graph-topologies-and-instances) in the module.
 
@@ -44,7 +54,7 @@ This step enumerates all the [graph topologies](media-graph-concept.md#media-gra
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -69,7 +79,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -316,7 +326,7 @@ Now invoke GraphTopologyGet with the following payload
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -459,7 +469,7 @@ Now invoke the GraphInstanceSet direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -541,7 +551,7 @@ Now activate the graph instance - which starts the flow of live video through th
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -565,7 +575,7 @@ Now invoke the GraphInstanceGet direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -744,7 +754,7 @@ Invoke the GraphInstanceDeactivate direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -772,7 +782,7 @@ Invoke the direct method GraphInstanceDelete with the following payload
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -796,7 +806,7 @@ Invoke the GraphTopologyDelete direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

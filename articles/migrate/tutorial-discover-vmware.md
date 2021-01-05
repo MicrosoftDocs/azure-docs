@@ -1,6 +1,9 @@
 ---
 title: Discover VMware VMs with Azure Migrate Server Assessment 
 description: Learn how to discover on-premises VMware VMs with the Azure Migrate Server Assessment tool
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
@@ -170,7 +173,7 @@ Check that the OVA file is secure, before you deploy it:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - For Azure Government:
     
@@ -230,12 +233,17 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, sign in by using your Azure username and password.
+1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+
+    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+
+1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, paste the device code and sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
-3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-vmware.md#prepare-azure) on the Azure resources created during key generation, the appliance registration will be initiated.
+3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
+1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 
@@ -245,7 +253,7 @@ Set up the appliance for the first time.
 The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
 1. In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for the vCenter Server account that the appliance will use to discover VMs on the vCenter Server instance.
-    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - You should have set up an account with the required permissions in the previous tutorial.
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server instance. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
 1. On clicking Save, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
@@ -265,5 +273,5 @@ Discovery works as follows:
 
 ## Next steps
 
-- [Assess VMware VMs](tutorial-assess-vmware.md) for migration to Azure VMs.
+- [Assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) for migration to Azure VMs.
 - [Review the data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery.

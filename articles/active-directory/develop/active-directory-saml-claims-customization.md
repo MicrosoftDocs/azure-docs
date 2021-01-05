@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -55,7 +55,6 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
 | **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
 | **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
-| **Windows domain qualified name** | Microsoft identity platform will use WindowsDomainQualifiedName as the NameID format. |
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
@@ -162,7 +161,7 @@ To add a claim condition:
 3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
+The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. The last value which matches the expression will be emitted in the claim.
 
 For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Microsoft identity platform will evaluate the conditions as follow.
 
@@ -173,5 +172,5 @@ First, Microsoft identity platform verifies if Britta's user type is `All guests
 ## Next steps
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Troubleshoot SAML-based single sign-on](../manage-apps/debug-saml-sso-issues.md)

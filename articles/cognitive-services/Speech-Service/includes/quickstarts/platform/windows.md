@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 10/15/2020
 ms.author: erhopf
 ---
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.
 
 > [!NOTE]
-> .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
+> .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](/dotnet/standard/net-standard) specification.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 

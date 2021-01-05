@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Dropbox Business with Azure Acti
 * Enable your users to be automatically signed-in to Dropbox Business with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To get started, you need the following items:
 * In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO
 
 * Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md)
-* Once you configure Dropbox you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Dropbox you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Dropbox Business from the gallery
 
@@ -141,27 +141,27 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 3. If you want to setup Dropbox Business manually, open a new web browser window and go on your Dropbox Business tenant and sign on to your Dropbox Business tenant. and perform the following steps:
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
+	![Screenshot that shows the "Dropbox Business Sign in" page.](./media/dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
 
 4. Click on the **User Icon** and select **Settings** tab.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure1.png "Configure single sign-on")
+	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/configure1.png "Configure single sign-on")
 
 5. In the navigation pane on the left side, click **Admin console**.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure2.png "Configure single sign-on")
+	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/configure2.png "Configure single sign-on")
 
 6. On the **Admin console**, click **Settings** in the left navigation pane.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure3.png "Configure single sign-on")
+	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/configure3.png "Configure single sign-on")
 
 7. Select **Single sign-on** option under the **Authentication** section.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure4.png "Configure single sign-on")
+	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/configure4.png "Configure single sign-on")
 
 8. In the **Single sign-on** section, perform the following steps:  
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
+	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
 
 	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 
@@ -184,16 +184,16 @@ In this section, a user called B.Simon is created in Dropbox Business. Dropbox B
 
 ### Test SSO
 
-When you select the Dropbox Business tile in the Access Panel, you should be automatically signed in to the Dropbox Business for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Dropbox Business tile in the Access Panel, you should be automatically signed in to the Dropbox Business for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is Conditional Access in Azure Active Directory?](/cloud-app-security/proxy-intro-aad)
 
 - [Try Dropbox Business with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

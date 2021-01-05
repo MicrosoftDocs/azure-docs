@@ -1,8 +1,8 @@
 ---
 title: Audit logs - Azure Database for MySQL
 description: Describes the audit logs available in Azure Database for MySQL, and the available parameters for enabling logging levels.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020

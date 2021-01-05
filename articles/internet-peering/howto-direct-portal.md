@@ -32,7 +32,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
 
 
-    ![Register Peering Service](./media/setup-basics-tab.png)
+    ![Screenshot shows the Create a Peering page Basics tab with the Create new link called out.](./media/setup-basics-tab.png)
 
 2. Select your Azure Subscription.
 
@@ -54,7 +54,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 
 
-    ![Register Peering Service](./media/setup-direct-basics-filled-tab.png)
+    ![Screenshot shows the Create a Peering page Basics tab with all values entered.](./media/setup-direct-basics-filled-tab.png)
 
 
 #### Configure connections and submit

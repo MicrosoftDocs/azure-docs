@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Confluence SAML SSO by Microsoft
 * Enable your users to be automatically signed-in to Confluence SAML SSO by Microsoft with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Description:
 
@@ -58,7 +58,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.7.2
+- Confluence: 7.0.1 to 7.9.3
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -114,12 +114,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<domain:port>/plugins/servlet/saml/auth`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -157,69 +157,69 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Hover on cog and click the **Add-ons**.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Screenshot that shows the "Cog" icon selected, and "Add-ons" highlighted in the drop-down menu.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Screenshot that shows the "Manage add-ons" page with the "Upload add-on" action selected.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. For running the Confluence reverse proxy scenario or load balancer scenario perform the following steps:
 
-	> [!NOTE]
-	> You should be configuring the server first with the below instructions and then install the plugin.
+    > [!NOTE]
+    > You should be configuring the server first with the below instructions and then install the plugin.
 
-	a. Add below attribute in **connector** port in **server.xml** file of JIRA server application.
+    a. Add below attribute in **connector** port in **server.xml** file of JIRA server application.
 
-	`scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Screenshot that shows the "server.xml" file with the attribute added to the "connector" port.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
-	b. Change **Base URL** in **System Settings** according to proxy/load balancer.
+    b. Change **Base URL** in **System Settings** according to proxy/load balancer.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Screenshot that shows the "Administration - Settings" page with "Base URL" highlighted.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Screenshot that shows the "User Installed" section with the "Configure" button highlighted.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/addon54.png)
 
-	> [!TIP]
-	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
+    > [!TIP]
+    > Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
 
-	1. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+    1. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
-	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Basic SAML Configuration** section on Azure portal.
+    1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Basic SAML Configuration** section on Azure portal.
 
-	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
-	
-	1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
+    1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	1. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
+    1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
 
-	   > [!Note]
-	   > Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+    1. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 
-	1. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
+       > [!Note]
+       > Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 
-	1. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
+    1. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
 
-	1. In **Domain Name** type the domain name here in case of the ADFS-based login.
+    1. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 
-	1. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from Confluence. 
+    1. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+    1. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from Confluence. 
 
-	   > [!Note]
-	   > To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
-	   > `https://<domain:port>/login.action?force_azure_login=false`
+    1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
 
-	1. Click **Save** button to save the settings.
+       > [!Note]
+       > To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
+       > `https://<domain:port>/login.action?force_azure_login=false`
 
-	   > [!NOTE]
-	   > For more information about installation and troubleshooting, visit [MS Confluence SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance.
+    1. Click **Save** button to save the settings.
+
+       > [!NOTE]
+       > For more information about installation and troubleshooting, visit [MS Confluence SSO Connector Admin Guide](./ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](./ms-confluence-jira-plugin-adminguide.md) for your assistance.
 
 ### Create Confluence SAML SSO by Microsoft test user
 
@@ -235,32 +235,32 @@ To enable Azure AD users to sign in to Confluence on-premises server, they must 
 
 1. Under Users section, click **Add users** tab. On the **Add a User** dialog page, perform the following steps:
 
-	![Add Employee](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Screenshot that shows the "Confluence administration" with the "Add Users" tab selected and "Add a User" information entered.](./media/confluencemicrosoft-tutorial/user2.png)
 
-	a. In the **Username** textbox, type the email of user like B.Simon.
+    a. In the **Username** textbox, type the email of user like B.Simon.
 
-	b. In the **Full Name** textbox, type the full name of user like B.Simon.
+    b. In the **Full Name** textbox, type the full name of user like B.Simon.
 
-	c. In the **Email** textbox, type the email address of user like B.Simon@contoso.com.
+    c. In the **Email** textbox, type the email address of user like B.Simon@contoso.com.
 
-	d. In the **Password** textbox, type the password for B.Simon.
+    d. In the **Password** textbox, type the password for B.Simon.
 
-	e. Click **Confirm Password** reenter the password.
+    e. Click **Confirm Password** reenter the password.
 
-	f. Click **Add** button.
+    f. Click **Add** button.
 
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Confluence SAML SSO by Microsoft tile in the Access Panel, you should be automatically signed in to the Confluence SAML SSO by Microsoft for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Confluence SAML SSO by Microsoft tile in the Access Panel, you should be automatically signed in to the Confluence SAML SSO by Microsoft for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Confluence SAML SSO by Microsoft with Azure AD](https://aad.portal.azure.com/)

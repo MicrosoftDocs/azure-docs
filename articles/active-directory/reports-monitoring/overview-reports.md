@@ -15,9 +15,9 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk  
+ms.reviewer: sarbar  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 
 ms.collection: M365-identity-device-management
@@ -65,6 +65,12 @@ Activity reports help you understand the behavior of users in your organization.
 - **Audit logs** - The [audit logs activity report](concept-audit-logs.md) provides you with access to the history of every task performed in your tenant.
 
 - **Sign-ins** -  With the [sign-ins activity report](concept-sign-ins.md), you can determine, who has performed the tasks reported by the audit logs report.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
 
 
 ### Audit logs report 

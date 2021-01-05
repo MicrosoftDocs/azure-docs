@@ -59,7 +59,7 @@ It is not unusual to configure the NSG and corresponding Azure endpoint or Acces
 The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Cognitive Search endpoint based on its IP address.
 
 > [!NOTE]
-> For background, see [What is a Network Security Group?](../virtual-network/security-overview.md)
+> For background, see [What is a Network Security Group?](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 

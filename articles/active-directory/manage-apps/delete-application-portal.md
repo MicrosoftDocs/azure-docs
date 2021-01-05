@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
 ---
 
@@ -40,7 +40,7 @@ To delete an application from your Azure AD tenant:
 1. Select **Delete**, and then select **Yes** to confirm you want to delete the app from your Azure AD tenant.
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## Clean up resources
 
@@ -48,6 +48,6 @@ When your done with this quickstart series, consider deleting the app to clean u
 
 ## Next steps
 
-You have completed the quickstart series! As a next step, read about best practices in app management.
+You have completed the quickstart series! Next, learn about Single Sign-On (SSO), see [What is SSO?](what-is-single-sign-on.md) Or read about best practices in app management.
 > [!div class="nextstepaction"]
 > [Application management best practices](application-management-fundamentals.md)

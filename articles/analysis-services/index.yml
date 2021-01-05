@@ -69,7 +69,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: PowerShell
-            url: /azure/analysis-services/analysis-services-powershell
+            url: ./analysis-services-powershell.md
           - text: REST API
             url: /rest/api/analysisservices/
           - text: Tabular Model Scripting Language (TMSL)

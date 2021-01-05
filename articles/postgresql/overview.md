@@ -38,7 +38,7 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 
 Azure Database for PostgreSQL Single Server is a fully managed database service with minimal requirements for customizations of database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.5, 9,6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
-The Single Server deployment option offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different resource capabilities to support your database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) for details.
+The Single Server deployment option offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different resource capabilities to support your database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](./concepts-pricing-tiers.md) for details.
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
@@ -67,7 +67,7 @@ The Hyperscale (Citus) deployment option delivers:
 - Query parallelization across these servers for faster responses on large datasets
 - Excellent support for multi-tenant applications, real time operational analytics, and high throughput transactional workloads
   
-Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) and minimal changes.
+Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -46,5 +46,4 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
-[Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
-
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

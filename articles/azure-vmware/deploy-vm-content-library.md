@@ -13,7 +13,7 @@ In this article, we'll walk through the procedure for creating a content library
 
 ## Prerequisites
 
-An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  For more information, see the [How to manage DHCP in Azure VMWare Solution](manage-dhcp.md) article.
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  For more information, see the [How to manage DHCP in Azure VMware Solution](manage-dhcp.md) article.
 
 ## Create a content library
 
@@ -87,7 +87,7 @@ Now that the content library has been created, you can add an ISO image to deplo
 
 ## Next steps
 
-If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](hybrid-cloud-extension-installation.md) procedure.
+If you plan to use VMware HCX to migrate VM workloads to your private cloud, use the [Deploy and configure VMware HCX](tutorial-deploy-vmware-hcx.md) procedure.
 
 <!-- LINKS - external-->
 
