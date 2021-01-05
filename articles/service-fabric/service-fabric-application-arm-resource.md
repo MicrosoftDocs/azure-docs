@@ -238,7 +238,7 @@ The following snippet shows the different kinds of resources that can be managed
    ```
 
    > [!NOTE] 
-   > Refer to the Service Fabric [Azure Resource Manager reference](../templates/microsoft.servicefabric/clusters/applicationtypes) to find usage and details on individual template properties.
+   > Refer to the Service Fabric [Azure Resource Manager reference](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) to find usage and details on individual template properties.
 
 5. Deploy! 
 
