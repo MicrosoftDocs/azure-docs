@@ -49,7 +49,7 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
    ![Configure compute](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
 
-3. On the **Configure Edge compute** blade, input the following:
+3. On the **Configure Edge compute** blade, input the following information:
    
    |Field  |Value  |
    |---------|---------|
@@ -83,15 +83,15 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
     ![Device page in local UI](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
-3. Save the endpoint string. You will use this later when configuring a client to access the Kubernetes cluster via kubectl.
+3. Save the endpoint string. You will use this endpoint string later when configuring a client to access the Kubernetes cluster via kubectl.
 
 4. While you are in the local web UI, you can:
 
-    - Go to Kubernetes API, select **advanced settings** and download an advanced configuration file for Kubernetes. 
+    - Go to Kubernetes API, select **advanced settings**, and download an advanced configuration file for Kubernetes. 
 
         ![Device page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-        If you have been provided a key from Microsoft (select users may have this), then you can use this config file.
+        If you have been provided a key from Microsoft (select users may have a key), then you can use this config file.
 
         ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 
