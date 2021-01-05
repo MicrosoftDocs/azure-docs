@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/09/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -303,12 +303,13 @@ To add more [authentication protocols](../active-directory/develop/authenticatio
 
 Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
-> [!NOTE]
-> Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 <a name="restrict-inbound-ip-portal"></a>
 
 #### Restrict inbound IP ranges in Azure portal
+
+When you use the portal to restrict inbound IP addresses for your logic app, these restrictions affect both triggers *and* actions, despite the description in the portal under **Allowed inbound IP addresses**. To set up restrictions on triggers separately from actions, use the [`accessControl` object in your logic app's Azure Resource Manager template](#restrict-inbound-ip-template) or the [Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
