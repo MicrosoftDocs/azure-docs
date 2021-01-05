@@ -17,20 +17,6 @@ ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable access token lifetimes in Microsoft identity platform (preview)
 
-
-
-## Configurable access token lifetime properties after the retirement
-Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration, Azure AD will only honor the default value described below, regardless of whether policies have custom values configured configured custom values. You can still configure access token lifetimes after the retirement. 
-
-|Property   |Policy property string    |Affects |Default |
-|----------|-----------|------------|------------|
-|Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
-|Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
-|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
-|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
-|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |180 days |
-
-
 You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
@@ -123,10 +109,10 @@ Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have
 
 You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. (To do this, use the Session Token Max Age property.) You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials, instead of being silently authenticated, when using a web application.
 
-### Token lifetime policy properties
+### Refresh and session token lifetime policy properties
 A token lifetime policy is a type of policy object that contains token lifetime rules. Use the properties of the policy to control specified token lifetimes. If no policy is set, the system enforces the default lifetime value.
 
-### Configurable token lifetime properties
+#### Configurable token lifetime properties
 | Property | Policy property string | Affects | Default | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
@@ -137,7 +123,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
 
-### Exceptions
+#### Exceptions
 | Property | Affects | Default |
 | --- | --- | --- |
 | Refresh Token Max Age (issued for federated users who have insufficient revocation information<sup>1</sup>) |Refresh tokens (issued for federated users who have insufficient revocation information<sup>1</sup>) |12 hours |
@@ -202,6 +188,17 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 **Summary:** This policy controls how long a user can use a session token to get a new ID and session token after the last time they authenticated successfully by using multiple factors. After a user authenticates and receives a new session token, the user can use the session token flow for the specified period of time. (This is true as long as the current session token is not revoked and has not expired.) After the specified period of time, the user is forced to reauthenticate to receive a new session token.
 
 Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or greater than the Single-Factor Session Token Max Age property.
+
+## Configurable token lifetime properties after the retirement
+Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use Conditional Access to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
+
+|Property   |Policy property string    |Affects |Default |
+|----------|-----------|------------|------------|
+|Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
+|Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
+|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
+|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
+|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |180 days |
 
 ## Policy evaluation and prioritization
 You can create and then assign a token lifetime policy to a specific application, to your organization, and to service principals. Multiple policies might apply to a specific application. The token lifetime policy that takes effect follows these rules:
