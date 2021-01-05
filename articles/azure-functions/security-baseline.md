@@ -52,16 +52,16 @@ If using Network Security groups (NSGs) with your Azure Functions implementation
 
 ### 1.3: Protect critical web applications
 
-**Guidance**: To fully secure your Azure Function endpoints in production, you should consider implementing one of the following function app-level security options:
+**Guidance**: To fully secure your Azure Functions endpoints in production, you should consider implementing one of the following function app-level security options:
 - Turn on App Service Authentication / Authorization for your function app,
 - Use Azure API Management (APIM) to authenticate requests, or
 - Deploy your function app to an Azure App Service Environment.
 
-In addition, ensure remote debugging has been disabled for your production Azure Functions. Furthermore, Cross-Origin Resource Sharing (CORS) should not allow all domains to access your function app in Azure. Allow only required domains to interact with your Azure Function App.
+In addition, ensure remote debugging has been disabled for your production Azure Functions. Furthermore, Cross-Origin Resource Sharing (CORS) should not allow all domains to access your function app in Azure. Allow only required domains to interact with your function app.
 
 Consider deploying Azure Web Application Firewall (WAF) as part of the networking configuration for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
 
-- [How to secure Azure Function endpoints in production](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
+- [How to secure Azure Functions endpoints in production](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -171,9 +171,9 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 ### 1.9: Maintain standard security configurations for network devices
 
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure Functions. Use Azure Policy aliases in the "Microsoft.Web" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Functions. You may also make use of built-in policy definitions for Azure Functions, such as:
-- CORS should not allow every resource to access your Function Apps
-- Function App should only be accessible over HTTPS
-- Latest TLS version should be used in your Function App
+- CORS should not allow every resource to access your function apps
+- Function app should only be accessible over HTTPS
+- Latest TLS version should be used in your function app
 
 You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
@@ -269,7 +269,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 ### 2.5: Configure security log storage retention
 
-**Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Functions apps according to your organization's compliance regulations.
+**Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your function apps according to your organization's compliance regulations.
 
 - [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -279,9 +279,9 @@ If you have built-in custom security/audit logging within your function app, ena
 
 ### 2.6: Monitor and review Logs
 
-**Guidance**: Enable Azure Activity Log diagnostic settings as well as the diagnostic settings for your Azure Functions app and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data.
+**Guidance**: Enable Azure Activity Log diagnostic settings as well as the diagnostic settings for your function app and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data.
 
-Enable Application Insights for your Azure Functions apps to collect log, performance, and error data. You can view the telemetry data collected by Application Insights within the Azure portal.
+Enable Application Insights for your function apps to collect log, performance, and error data. You can view the telemetry data collected by Application Insights within the Azure portal.
 
 If you have built-in custom security/audit logging within your function app, enable the diagnostics setting "FunctionAppLogs" and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. 
 
@@ -301,9 +301,9 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 ### 2.7: Enable alerts for anomalous activity
 
-**Guidance**: Enable Azure Activity Log diagnostic settings as well as the diagnostic settings for your Azure Functions app and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. You can create alerts based on your Log Analytics workspace queries.
+**Guidance**: Enable Azure Activity Log diagnostic settings as well as the diagnostic settings for your function app and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. You can create alerts based on your Log Analytics workspace queries.
 
-Enable Application Insights for your Azure Functions apps to collect log, performance, and error data. You can view the telemetry data collected by Application Insights and create alerts within the Azure portal.
+Enable Application Insights for your function apps to collect log, performance, and error data. You can view the telemetry data collected by Application Insights and create alerts within the Azure portal.
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
@@ -323,7 +323,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; Azure Functions apps do not process or produce anti-malware related logs.
+**Guidance**: Not applicable; function apps do not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -331,7 +331,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 ### 2.9: Enable DNS query logging
 
-**Guidance**: Not applicable; Azure Functions apps do not process or produce user accessible DNS-related logs.
+**Guidance**: Not applicable; function apps do not process or produce user accessible DNS-related logs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -398,7 +398,7 @@ External accounts with owner permissions should be removed from your subscriptio
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
-**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials for data access to your function app. Use Azure Security Center Identity and Access Management recommendations. Implement single sign-on for your Azure Functions apps using the App Service Authentication / Authorization feature.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials for data access to your function app. Use Azure Security Center Identity and Access Management recommendations. Implement single sign-on for your function apps using the App Service Authentication / Authorization feature.
 
 - [Understand authentication and authorization in Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
@@ -458,9 +458,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Functions apps. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your function apps. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-- [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
+- [How to configure your function app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -488,7 +488,7 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
+- [How to configure your function app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -500,7 +500,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 3.12: Alert on account login behavior deviation
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Functions apps. For account login behavior deviation on the control plane (the Azure portal), use Azure Active Directory (AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your function apps. For account login behavior deviation on the control plane (the Azure portal), use Azure Active Directory (AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 - [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -540,7 +540,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. function apps should be separated by virtual network (VNet)/subnet and tagged appropriately.
 
-You may also use Private Endpoints to perform network isolation. An Azure Private Endpoint is a network interface that connects you privately and securely to a service (for example: Azure Functions app HTTPs endpoint) powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. Private endpoints are in (Preview) for function apps running in the Premium plan. Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
+You may also use Private Endpoints to perform network isolation. An Azure Private Endpoint is a network interface that connects you privately and securely to a service (for example: function app HTTPs endpoint) powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. Private endpoints are in (Preview) for function apps running in the Premium plan. Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -594,7 +594,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Function control plane (the Azure portal). 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the function control plane (the Azure portal). 
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -642,9 +642,9 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Adopt a DevSecOps practice to ensure your Azure Functions applications are secure and remain as secure as possible throughout the duration of their life-cycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
+**Guidance**: Adopt a DevSecOps practice to ensure your function applications are secure and remain as secure as possible throughout the duration of their life-cycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
 
-In addition, follow recommendations from Azure Security Center to help secure your Azure Function Apps.
+In addition, follow recommendations from Azure Security Center to help secure your function apps.
 
 - [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
@@ -824,9 +824,9 @@ Allowed resource types
 
 ### 6.13: Physically or logically segregate high risk applications
 
-**Guidance**: For sensitive or high risk Azure Function Apps, implement separate subscriptions and/or management groups to provide isolation.
+**Guidance**: For sensitive or high risk function apps, implement separate subscriptions and/or management groups to provide isolation.
 
-Deploy high risk Azure Function Apps into their own Virtual Network (VNet). Perimeter security in Azure Functions is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
+Deploy high risk function apps into their own Virtual Network (VNet). Perimeter security for functions is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
@@ -852,10 +852,10 @@ How to create an internal ASE:
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Define and implement standard security configurations for your Azure Function App with Azure Policy. Use Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to audit or enforce the configuration of your Azure Functions apps. You may also make use of built-in policy definitions such as:
-- Managed identity should be used in your Function App
-- Remote debugging should be turned off for Function Apps
-- Function App should only be accessible over HTTPS
+**Guidance**: Define and implement standard security configurations for your function app with Azure Policy. Use Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to audit or enforce the configuration of your function apps. You may also make use of built-in policy definitions such as:
+- Managed identity should be used in your function App
+- Remote debugging should be turned off for function apps
+- Function app should only be accessible over HTTPS
 
 - [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -975,7 +975,7 @@ How to create an internal ASE:
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Use Managed Identities to provide your Azure Function App with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+**Guidance**: Use Managed Identities to provide your function app with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 - [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
