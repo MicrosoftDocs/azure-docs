@@ -4,7 +4,7 @@ description: This sample shows how to add disks to a virtual machine scale set, 
 author: use the name of the CLI writer for the Azure service
 ms.author: use the name of the CLI writer for the Azure service
 manager: 
-ms.date: 12/31/2020
+ms.date: 01/15/2021
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli 
@@ -25,12 +25,9 @@ This sample demonstrates three operations:
 
 ## Sample commands
 
-```azurecli-interactive
-#!/bin/bash
-# <anything the reader needs to know that is not already in prerequisites
-
+```azurecli
 # Create a resource group
-az group create --name MyResourceGroup --location location
+az group create --name MyResourceGroup --location eastus
 
 # Create virtual machine scale set
 az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-count 2 --image UbuntuLTS --upgrade-policy-mode automatic --admin-username azureuser --generate-ssh-keys
@@ -44,7 +41,7 @@ az vmss disk attach --resource-group MyResourceGroup --disk myDataDisk --vmss-na
 # See the instances for your VM scale set
 az vmss list-instances --resource-group MyResourceGroup  --name myScaleSet  --output table
 
-# See the disks for your virtual machine (untested)
+# See the disks for your virtual machine
 az disk list --resource-group MyResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 
 # Deallocate the virtual machine
@@ -58,6 +55,9 @@ az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-id
 
 # Remove an incorrect partition
 
+# Enable managed service identity on your scale set. This is required to authenticate and interact with other Azure services using bearer tokens. (untested)
+az vmss identity assign --resource-group MyResourceGroup --name MyScaleSet --role Owner --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup
+
 # Connect to Azure AD authentication (failed on my machine)
 az vmss extension set --resource-group MyResourceGroup --name AADLoginForWindows --publisher Microsoft.Azure.ActiveDirectory --vmss-name myScaleSet
 
@@ -70,12 +70,14 @@ az vmss disk detach --resource-group MyResourceGroup --vmss-name myScaleSet --lu
 # Remove a managed disk from an instance
 az vmss disk detach --resource-group MyResourceGroup --vmss-name myScaleSet --instance-id 1 --lun 0
 
+# Delete the pre-existing disk
+az disk delete --resource-group MyResourceGroup --disk myDataDisk
 
 ```
 
 ## Clean up resources
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+After using these commands, run the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup
@@ -84,6 +86,7 @@ az group delete --name MyResourceGroup
 ## Azure CLI references used in this article
 
 * [az disk list](/cli/azure/disk#az_disk_list)
+* [az disk delete](/cli/azure/disk#az_disk_delete)
 * [az disk update](/cli/azure/disk#az_disk_update)
 * [az group create](/cli/azure/group#az_group_create)
 * [az vmss create](/cli/azure/vmss#az_vmss_create)
@@ -91,6 +94,7 @@ az group delete --name MyResourceGroup
 * [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach)
 * [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach)
 * [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)
+* [az vmss identity assign](/cli/azure/vmss/identity#az_vmss_identity_assign)
 * [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)
 * [az vmss restart](/cli/azure/vmss#az_vmss_restart)
 * [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
