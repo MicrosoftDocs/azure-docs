@@ -30,7 +30,7 @@ There are three ways to check whether an application is in quarantine:
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- In the Azure portal, navigate to **Azure Active Directory** > **Audit Logs** > filter on **Activity: Quarantine** and review the quarantine history. The view in the progress bar as described above shows whether provisioning is currently in quarantine. The audit logs shows the quarantine history for an application. 
+- In the Azure portal, navigate to **Azure Active Directory** > **Audit Logs** > filter on **Activity: Quarantine** and review the quarantine history. The view in the progress bar as described above shows whether provisioning is currently in quarantine. The audit logs show the quarantine history for an application. 
 
 - Use the Microsoft Graph request [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta&preserve-view=true) to programmatically get the status of the provisioning job:
 
@@ -55,7 +55,7 @@ There are three ways to check whether an application is in quarantine:
 
  A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
-- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 60% of provisioning events failed. For more information, see escrow threshold details below.
+- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 40% of provisioning events failed. For more information, see escrow threshold details below.
 - `QuarantineOnDemand` means that we've detected an issue with your application and have manually set it to quarantine.
 
 **Escrow thresholds**
