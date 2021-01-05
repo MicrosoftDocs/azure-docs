@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU 
