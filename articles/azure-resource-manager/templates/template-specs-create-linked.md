@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/05/2021
 
 ---
 
