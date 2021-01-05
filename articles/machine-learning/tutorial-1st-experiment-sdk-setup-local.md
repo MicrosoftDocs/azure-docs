@@ -47,7 +47,10 @@ You can use the tools most familiar to you (for example, Conda and pip) to set u
 pip install azureml-sdk
 ```
 
-## Create a directory structure for code
+> [!div class="nextstepaction"]
+> [I installed the SDK](?success=install-sdk#dir) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="dir"></a>Create a directory structure for code
 We recommend that you set up the following simple directory structure for this tutorial:
 
 ```markdown
@@ -58,7 +61,16 @@ tutorial
 - `tutorial`: Top-level directory of the project.
 - `.azureml`: Hidden subdirectory for storing Azure Machine Learning configuration files.
 
-## Create an Azure Machine Learning workspace
+> [!TIP]
+> You can create the hidden .azureml subdirectory in a terminal window.  Or use the following:
+> * In a Mac Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  
+> * In Windows 10, see [how to view hidden files and folders](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * In the Linux Graphical Interface, use **Ctrl + h** or the **View** menu and check the box to **Show hidden files**.
+
+> [!div class="nextstepaction"]
+> [I created a directory](?success=create-dir#workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="workspace"></a>Create an Azure Machine Learning workspace
 
 A workspace is a top-level resource for Azure Machine Learning and is a centralized place to:
 
@@ -115,7 +127,10 @@ workspace. Namely, it contains your subscription ID, resource group, and workspa
 >
 > Authentication is still required to interact with your Azure Machine Learning workspace.
 
-## Create an Azure Machine Learning compute cluster
+> [!div class="nextstepaction"]
+> [I created a workspace](?success=create-workspace#cluster) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="cluster"></a> Create an Azure Machine Learning compute cluster
 
 Create a Python script in the `tutorial` top-level directory called `02-create-compute.py`. Populate it with the following code to create an Azure Machine Learning compute cluster that will autoscale between zero and four nodes:
 
@@ -163,6 +178,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [I created a compute cluster](?success=create-compute-cluster#next-steps) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## Next steps
 

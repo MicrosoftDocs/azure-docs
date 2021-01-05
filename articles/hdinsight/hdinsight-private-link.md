@@ -97,10 +97,10 @@ For a complete template with many of the HDInsight enterprise security features,
 
 ### Use Azure Powershell
 
-To use powershell see the example [here](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+To use powershell see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### Use Azure CLI
-To use Azure CLI, see the example [here](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+To use Azure CLI, see the example [here](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## Next steps
 

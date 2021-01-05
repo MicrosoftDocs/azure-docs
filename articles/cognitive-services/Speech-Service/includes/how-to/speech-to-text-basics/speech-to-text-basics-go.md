@@ -25,6 +25,8 @@ Before you can do anything, you'll need to install the [Speech SDK for Go](../..
 Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your subscription and region keys. Running the script will start a recognition session on your default microphone and output text.
 
 ```go
+package main
+
 import (
 	"bufio"
 	"fmt"
@@ -99,6 +101,8 @@ See the reference docs for detailed information on the [`SpeechConfig`](https://
 Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your subscription and region keys. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
 
 ```go
+package main
+
 import (
 	"fmt"
 	"time"

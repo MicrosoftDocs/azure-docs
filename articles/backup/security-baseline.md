@@ -533,7 +533,7 @@ When backing up with the MARS agent or using a Recovery Services vault encrypted
 
 Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available for Azure Backup](./backup-security-controls.md)
+- [Understanding security controls available for Azure Backup]()
 
 **Azure Security Center monitoring**: Currently not available
 

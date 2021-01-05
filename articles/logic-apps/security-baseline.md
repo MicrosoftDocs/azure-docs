@@ -96,7 +96,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 - [How to restrict inbound IP addresses](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 

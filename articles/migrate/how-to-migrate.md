@@ -1,7 +1,10 @@
 ---
 title: Add migration tools in Azure Migrate 
 description: Learn how to add migration tools in Azure Migrate. 
-ms.topic: article
+author: anvar-ms 
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 11/23/2020
 ---
 

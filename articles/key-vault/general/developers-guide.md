@@ -16,7 +16,7 @@ Key Vault allows you to securely access sensitive information from within your a
 - Keys, secrets, and certificates are protected without having to write the code yourself and you're easily able to use them from your applications.
 - You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application. For more information about keys, see [About Keys](../keys/about-keys.md)
-- You can manage credentials like passwords, access keys,sas tokens storing them in Key Vault as secrets, see [About Secrets](../secrets/about-secrets.md)
+- You can manage credentials like passwords, access keys, and sas tokens by storing them in Key Vault as secrets, see [About Secrets](../secrets/about-secrets.md)
 - Manage certificates. For more information, see [About Certificates](../certificates/about-certificates.md)
 
 For more general information on Azure Key Vault, see [What is Key Vault](overview.md).
@@ -114,7 +114,7 @@ The following articles and scenarios provide task-specific guidance for working 
 - How to deploy Certificates to VMs from Key Vault - [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
 - [Deploying Azure Web App Certificate through Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Assign an access policy ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Portal](assign-access-policy-portal.md)). 
-- [How to use Key Vault soft-delete with CLI](soft-delete-cli.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
+- [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
 - [How to pass secure values (such as passwords) during deployment](../../azure-resource-manager/templates/key-vault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
 
 ## Integrated with Key Vault

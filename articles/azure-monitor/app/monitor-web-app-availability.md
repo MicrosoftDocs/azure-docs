@@ -82,20 +82,6 @@ The following population tags can be used for the geo-location attribute when de
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-#### US Sec
-
-| Display Name | Population Name |
-|--------------|-----------------|
-| USSec West   | ussec-west-azr  |
-| USSec East   | ussec-east-azr  |
-
-#### US Nat
-
-| Display Name | Population Name |
-|--------------|-----------------|
-| USNat East   | usnat-east-azr  |
-| USNat West   | usnat-west-azr  |
-
 #### Azure
 
 | Display Name                           | Population Name   |

@@ -14,7 +14,7 @@ ms.author: pafarley
 #Customer intent: use workflows from the REST API
 ---
 
-# Define and use moderation workflows (REST)
+# Define and use moderation workflows (API console)
 
 Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the workflow REST APIs, through the API console, to create and use workflows. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
@@ -24,7 +24,7 @@ Workflows are cloud-based customized filters that you can use to handle content 
 
 ## Create a workflow
 
-To create or update a workflow, go to the **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API reference page and select the button for your key region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
+To create or update a workflow, go to the **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API reference page and select the button for your key region. You can find your region in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/). This starts the API console, where you can easily construct and run REST API calls.
 
 ![Workflow - Create Or Update page region selection](images/test-drive-region.png)
 
@@ -34,7 +34,7 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key**:
 
 - **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
 - **workflowname**: The name of a new workflow to add (or an existing name, if you want to update an existing workflow).
-- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this key on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
 
 ![Workflow - Create Or Update console query parameters and headers](images/workflow-console-parameters.PNG)
 
@@ -99,7 +99,7 @@ Enter the REST call parameters as in the above section. Make sure that this time
 
 ![Get query parameters and headers](images/workflow-get-default.PNG)
 
-Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the workflow in JSON format, like the following:
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the workflow in JSON format, like the following example:
 
 ```json
 {

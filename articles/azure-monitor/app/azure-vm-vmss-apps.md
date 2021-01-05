@@ -13,8 +13,8 @@ Enabling monitoring on your .NET based web applications running on [Azure virtua
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
 
 > [!IMPORTANT]
-> Azure Application Insights Agent for .NET is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> Azure Application Insights Agent for ASP.NET applications running on **Azure VMs and VMSS** is currently in public preview. For monitoring your ASP.Net applications running **on-premises**, use the [Azure Application Insights Agent for on-premises servers](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), which is generally available and fully supported.
+> The preview version for Azure VMs and VMSS is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Enable Application Insights

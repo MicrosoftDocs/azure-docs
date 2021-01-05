@@ -120,10 +120,10 @@ To create this environment, you need the latest [Azure CLI](/cli/azure/install-a
 az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment). When prompted, enter your own unique values for *newStorageAccountName*, *dnsNameForPublicIP*, and admin username and password:
+Next, deploy the MongoDB template with [az deployment group create](/cli/azure/deployment/group). When prompted, enter your own unique values for *newStorageAccountName*, *dnsNameForPublicIP*, and admin username and password:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -171,10 +171,10 @@ To create this environment, you need the latest [Azure CLI](/cli/azure/install-a
 az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment). Define your own resource names and sizes where needed such as for *mongoAdminUsername*, *sizeOfDataDiskInGB*, and *configNodeVmSize*:
+Next, deploy the MongoDB template with [az deployment group create](/cli/azure/deployment/group). Define your own resource names and sizes where needed such as for *mongoAdminUsername*, *sizeOfDataDiskInGB*, and *configNodeVmSize*:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --parameters '{"adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "mongoAdminUsername": {"value": "mongoadmin"},
@@ -193,10 +193,10 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control to the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az group deployment show](/cli/azure/group/deployment). The following example views the status for the *myMongoDBCluster* deployment in the *myResourceGroup* resource group:
+This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control to the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az deployment group show](/cli/azure/deployment/group). The following example views the status for the *myMongoDBCluster* deployment in the *myResourceGroup* resource group:
 
 ```azurecli
-az group deployment show \
+az deployment group show \
     --resource-group myResourceGroup \
     --name myMongoDBCluster \
     --query [properties.provisioningState] \

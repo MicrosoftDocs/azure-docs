@@ -25,15 +25,15 @@ You can now use Table service in the Azure portal to create a table.
 
 1. Click Overview > Tables.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![On vmamcgestorage, a Storage Account, the Overview tab is highlighted. On the Overview pane, under Services, Tables is highlighted.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
 2. Click **+ Table**.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![On Table service for vmamcgestorage, the + Table option is highlighted.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
 3. Type a name for your table in the **Table name** box, then click **OK**. 
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![On the Add Table tab of Table service, My Table is entered into Table name and is highlighted. The OK button is selected and highlighted.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## Next steps
 
