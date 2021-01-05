@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
 ---
 # Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNet)
@@ -35,7 +35,7 @@ Your jobs can connect to the following Azure services using this technique:
 1. [Blob Storage or Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) - can be your job's storage account, streaming input or output.
 2. [Azure Event Hubs](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) - can be your job's streaming input or output.
 
-If your jobs need to connect to other input or output types, then the only option is to use private endpoints in Stream Analytics clusters.
+If your jobs need to connect to other input or output types, you could write from Stream Analytics to Event Hubs output first and then to any destination of your choice using Azure Functions. If you want to directly write from Stream Analytics to other output types secured in a VNet or firewall, then the only option is to use private endpoints in Stream Analytics clusters.
 
 ## Next steps
 
