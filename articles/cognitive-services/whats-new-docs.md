@@ -39,7 +39,7 @@ Welcome to what's new in the Cognitive Services docs from December 1, 2020 throu
 
 ### Updated articles
 
-- [Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.](/azure/cognitive-services/form-recognizer/index.yml)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/index.yml)
 - [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
 
 ## Text Analytics
