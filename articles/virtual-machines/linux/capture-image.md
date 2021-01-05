@@ -54,8 +54,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az vm deallocate \
-	  --resource-group myResourceGroup \
-	  --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 	
 	Wait for the VM to completely deallocate before moving on. This may take a few minutes to complete.  The VM is shut down during deallocation.
@@ -64,8 +64,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az vm generalize \
-	  --resource-group myResourceGroup \
-	  --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
 	A VM that has been generalized can no longer be restarted.
@@ -74,8 +74,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az image create \
-	  --resource-group myResourceGroup \
-	  --name myImage --source myVM
+        --resource-group myResourceGroup \
+        --name myImage --source myVM
     ```
    
    > [!NOTE]

@@ -8,6 +8,8 @@ ms.date: 11/09/2020
 ---
 # Authoring and publishing regions and the associated keys
 
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
+
 Three authoring regions are supported by corresponding LUIS portals. To publish a LUIS app to more than one region, you need at least one key per region.
 
 <a name="luis-website"></a>

@@ -371,7 +371,7 @@ The "readResults" node contains all of the recognized text. Text is organized by
 }
 ```
 
-Follow the [Extract business card data](./QuickStarts/python-business-cards.md) quickstart to implement business card data extraction using Python and the REST API.
+Follow the [quickstart](./QuickStarts/client-library.md) quickstart to implement business card data extraction using Python and the REST API.
 
 ## Customer Scenarios  
 
@@ -382,11 +382,11 @@ The data extracted with the Business Card API can be used to perform a variety o
 * Keep track of sales leads.  
 * Extract contact info in bulk from existing business card images. 
 
-The Business Card API also powers the [AIBuilder Business Card Processing feature](/ai-builder/prebuilt-business-card).
+The Business Card API also powers the [AI Builder Business Card Processing feature](/ai-builder/prebuilt-business-card).
 
 ## Next steps
 
-- Follow the [Business Cards API Python quickstart](./quickstarts/python-business-cards.md) to get started recognizing business cards.
+- Follow the [quickstart](./quickstarts/client-library.md) to get started recognizing business cards.
 
 ## See also
 

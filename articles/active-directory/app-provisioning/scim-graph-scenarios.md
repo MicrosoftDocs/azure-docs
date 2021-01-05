@@ -41,24 +41,24 @@ Today, IT admins provision users by manually creating user accounts or periodica
 ```json
 POST /Users
 {
-	"schemas": [
-	    "urn:ietf:params:scim:schemas:core:2.0:User",
-	    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-	"externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
-	"userName": "BillG",
-	"active": true,
-	"meta": {
-		"resourceType": "User"
-	},
-	"name": {
-		"formatted": "Bill Gates",
-		"familyName": "Gates",
-		"givenName": "Bill"
-	},
-	"roles": []
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "userName": "BillG",
+    "active": true,
+    "meta": {
+        "resourceType": "User"
+    },
+    "name": {
+        "formatted": "Bill Gates",
+        "familyName": "Gates",
+        "givenName": "Bill"
+    },
+    "roles": []
 }
 ```
-    
+
 ## Scenario 2: Automatically remove users from my app
 The customers using my application are security focused and have governance requirements to remove accounts when employees don't need them anymore. How can I automate deprovisioning from my application?
 

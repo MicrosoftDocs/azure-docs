@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
 ---
 
@@ -63,7 +63,8 @@ Directory extensions, appRoleAssignments, userType, and accountExpires are not s
 
 - Provisioning passwords isn't supported. 
 - Provisioning nested groups isn't supported. 
-- Provisioning to B2C tenants isn't supported because of the size of the tenants. 
+- Provisioning to B2C tenants isn't supported because of the size of the tenants.
+- Not all provisioning apps are available in all clouds. For example, Atlassian is not yet available in the Government Cloud. We are working with app developers to onboard their apps to all clouds.
 
 **Automatic provisioning is not available on my OIDC based application**
 
@@ -76,6 +77,10 @@ The [time](./application-provisioning-when-will-provisioning-finish-specific-use
 **Changes not moving from target app to Azure AD**
 
 The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD. 
+
+**Switching from sync all to sync assigned not working**
+
+After changing scope from 'Sync All' to 'Sync Assigned', please make sure to also perform a restart to ensure that the change takes effect. You can do the restart from the UI.
 
 **Provisioning cycle continues until completion**
 

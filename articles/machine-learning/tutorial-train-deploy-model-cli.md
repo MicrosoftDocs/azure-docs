@@ -302,10 +302,10 @@ For more information on run configuration files, see [Use compute targets for mo
 To start a training run on the `cpu-cluster` compute target, use the following command:
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-This command specifies a name for the experiment (`myexperiment`). The experiment stores information about this run in the workspace.
+This command specifies a name for the experiment (`tutorial-cli`). The experiment stores information about this run in the workspace.
 
 The `-c mnist` parameter specifies the `.azureml/mnist.runconfig` file.
 
@@ -322,7 +322,7 @@ This text is logged from the training script and displays the accuracy of the mo
 
 If you inspect the training script, you'll notice that it also uses the alpha value when it stores the trained model to `outputs/sklearn_mnist_model.pkl`.
 
-The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`tutorial-cli` in this example).
 
 ## Register the model
 
@@ -340,13 +340,13 @@ The output of this command is similar to the following JSON:
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

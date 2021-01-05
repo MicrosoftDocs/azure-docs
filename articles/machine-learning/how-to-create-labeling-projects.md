@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-
+ms.custom: data4ml
 ---
 
 # Create a data labeling project and export labels 
@@ -252,6 +252,17 @@ You can export the label data for Machine Learning experimentation at any time. 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## Troubleshooting
+
+Use these tips if you see any of these issues.
+
+|Issue  |Resolution  |
+|---------|---------|
+|Only datasets created on blob datastores can be used.     |  This is a known limitation of the current release.       |
+|After creation, the project shows "Initializing" for a long time.     | Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue.         |
+|When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
+|Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
 ## Next steps
 

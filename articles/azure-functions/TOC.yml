@@ -417,6 +417,8 @@
           href: functions-recover-storage-account.md
         - name: Troubleshoot Python functions
           href: recover-python-functions.md
+        - name: Scale and performance for Python functions
+          href: python-scale-performance-reference.md
 - name: Reference
   items:
     - name: API references
@@ -533,7 +535,16 @@
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
         - name: RabbitMQ
-          href: https://github.com/azure/azure-functions-rabbitmq-extension
+          items:
+            - name: Overview
+              href: functions-bindings-rabbitmq.md
+              displayName: RabbitMQ
+            - name: Trigger
+              href: functions-bindings-rabbitmq-trigger.md
+              displayName: RabbitMQ
+            - name: Output
+              href: functions-bindings-rabbitmq-output.md
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
