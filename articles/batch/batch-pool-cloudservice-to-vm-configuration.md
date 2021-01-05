@@ -7,7 +7,7 @@ ms.date: 1/4/2021
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machines
 
-Batch pools can be created using either [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all the latest Batch capabilities and provides a superset of 'cloudServiceConfiguration' capabilities. No new features are planned for 'cloudServiceConfiguration' pools.
+Batch pools can be created using either [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
 
 If you use 'cloudServiceConfiguration' pools, it is highly recommended that you move to use 'virtualMachineConfiguration' pools. This article describes how to migrate to the recommended 'virtualMachineConfiguration' configuration.
 
@@ -34,4 +34,4 @@ The following should be considered when updating pool configuration:
 
 - Learn more about [pool configurations](nodes-and-pools.md#configurations).
 - Learn more about [pool best practices](best-practices.md#pools).
-- Reference REST API for [pool addition](https://docs.microsoft.com/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+- REST API reference for [pool addition](https://docs.microsoft.com/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
