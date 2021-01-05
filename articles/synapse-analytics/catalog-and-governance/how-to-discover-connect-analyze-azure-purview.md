@@ -1,8 +1,8 @@
 ---
-title: Ingest into Azure Data Lake Storage Gen2
+title: Discover, connect, & explore data in Synapse using Azure Purview
 description: Guide on how to discover data, connect them and explore them in Synapse
 services: synapse-analytics 
-author:  acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.date: 12/16/2020
@@ -10,7 +10,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Discover, connect and explore data in Synapse using Azure Purview 
+# Discover, connect, & explore data in Synapse using Azure Purview 
 
 > [!IMPORTANT]
 > The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
@@ -36,7 +36,7 @@ To discover data registered and scanned by Azure Purview, you can use the Search
 Here is a list of the Azure Purview features that are available in Synapse: 
 - **Overview** of the metadata 
 - View and edit **schema** of the metadata with classifications, glossary terms, data types, and descriptions 
-- View **lineage** to understand dependencies and do impact analysis. For more information about [lineage](../../purview/catalog-lineage-user-guide)
+- View **lineage** to understand dependencies and do impact analysis. For more information about, see [lineage](../../purview/catalog-lineage-user-guide.md)
 - View and edit **Contacts** to know who is an owner or expert over a dataset 
 - **Related** to understand the hierarchical dependencies of a specific dataset. This experience is helpful to browse through data hierarchy.
 
