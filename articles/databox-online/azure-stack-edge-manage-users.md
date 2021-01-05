@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/11/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Azure Stack Edge Pro
@@ -34,7 +34,7 @@ The user permissions are first defined when the user is created during share cre
 
 Do the following steps in the Azure portal to add a user.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**. Select **+ Add user** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**. Select **+ Add user** on the command bar.
 
     ![Select add user](media/azure-stack-edge-manage-users/add-user-1.png)
 
@@ -60,7 +60,7 @@ You can change the password associated with a user once the user is created. Sel
 Do the following steps in the Azure portal to delete a user.
 
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**.
 
     ![Select user to delete](media/azure-stack-edge-manage-users/delete-user-1.png)
 
