@@ -180,7 +180,7 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 Similarly, the function app restarts after the change is made to the site config.
 
 > [!NOTE]
-> Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations. So apps should only be pinned to an older host version in case of a regression in the latest functions host version.
+> Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations.
 
 
 ## Next steps
