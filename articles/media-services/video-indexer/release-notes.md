@@ -26,6 +26,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+##  December 2020? 
+
+### Video Indexer deployed in the Switzerland West and Switzerland North
+
+You can now create a Video Indexer paid account in the Switzerland West and Switzerland North regions.
+
 ## October 2020
 
 ### Animated character identification improvements  
