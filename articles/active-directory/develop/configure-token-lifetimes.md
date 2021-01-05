@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
@@ -36,24 +36,29 @@ In the examples, you can learn how to:
 * Create a policy for a native app that calls a web API
 * Manage an advanced policy
 
-## Prerequisites
-In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.  
-
+## Get started
 To get started, do the following steps:
 
 1. Download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Run the `Connect` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+1. Run the `Connect` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 
     ```powershell
     Connect-AzureAD -Confirm
     ```
 
-3. To see all policies that have been created in your organization, run the following command. Run this command after most operations in the following scenarios. Running the command also helps you get the **
-** of your policies.
+1. To see all policies that have been created in your organization, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet.  Any results with defined property values that differ from the defaults listed above are in scope of the retirement.
 
     ```powershell
-    Get-AzureADPolicy
+    Get-AzureADPolicy -All
     ```
+
+1. To see which apps and service principals are linked to a specific policy you identified run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy ids. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values. 
 
 ## Manage an organization's default policy
 In this example, you create a policy that lets your users' sign in less frequently across your entire organization. To do this, create a token lifetime policy for single-factor refresh tokens, which is applied across your organization. The policy is applied to every application in your organization, and to each service principal that doesn’t already have a policy set.
