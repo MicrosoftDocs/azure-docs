@@ -167,7 +167,7 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
-To use Azure Hybrid Benefit for your SLES VMs, you must first be registered with the [SUSE Public Cloud Program](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). After you've purchased SUSE subscriptions, you must register your VMs that use those subscriptions to your own source of updates. Use SUSE Customer Center, the Subscription Management Tool server, or SUSE Manager for this registration.
+To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## Frequently asked questions
 *Q: Can I use a license type of `RHEL_BYOS` with a SLES image, or vice versa?*
@@ -205,6 +205,10 @@ A: No, you can't. Reserved instances aren't currently in the scope of Azure Hybr
 *Q: Can I use Azure Hybrid Benefit on a virtual machine deployed for SQL Server on RHEL images?*
 
 A: No, you can't. There is no plan for supporting these virtual machines.
+
+*Q: Can I use Azure Hybrid Benefit on my RHEL Virtual Data Center subscription?*
+
+A: No, you cannot. VDC is not supported on Azure at all, including AHB.  
  
 
 ## Common problems

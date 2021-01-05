@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/18/2020
+ms.date: 12/30/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -19,7 +19,7 @@ This article explores common troubleshooting methods for connectors in Azure Dat
   
 ## Azure Blob Storage
 
-### Error code:  AzureBlobOperationFailed
+### Error code: AzureBlobOperationFailed
 
 - **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
@@ -28,24 +28,9 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 - **Recommendation**:  Check the error in details. Refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
 
 
-### Error code:  AzureBlobServiceNotReturnExpectedDataLength
-
-- **Message**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
-
-
-### Error code:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
-
-- **Message**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
-
-
-### Error code:  AzureStorageOperationFailedConcurrentWrite
-
-- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
 ### Invalid property during copy activity
 
-- **Message**:  `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
+- **Message**: `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
 
 - **Cause**: The type defined in dataset is inconsistent with the source/sink type defined in copy activity.
 
@@ -74,7 +59,6 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 - **Cause**: There are two possible causes:
 
     - If you use **Insert** as write behavior, this error means you source data have rows/objects with same ID.
-
     - If you use **Upsert** as write behavior and you set another unique key to the container, this error means you source data have rows/objects with different IDs but same value for the defined unique key.
 
 - **Resolution**: 
@@ -96,9 +80,8 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Resolution**: Here are two solutions:
 
-    1. **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB. 
-
-    2. Decrease **writeBatchSize** to smaller value (such as 1000) and set **parallelCopies** to smaller value such as 1, which will make copy run performance worse than current but will not incur more cost in Cosmos DB.
+    - **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB. 
+    - Decrease **writeBatchSize** to smaller value (such as 1000) and set **parallelCopies** to smaller value such as 1, which will make copy run performance worse than current but will not incur more cost in Cosmos DB.
 
 ### Column missing in column mapping
 
@@ -126,70 +109,15 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 			
+## Azure Cosmos DB (SQL API)
 
-## Azure Data Lake Storage Gen2
+### Error code:  CosmosDbSqlApiOperationFailed
 
-### Error code:  AdlsGen2OperationFailed
+- **Message**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
-- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Cause**: CosmosDbSqlApi operation hit problem.
 
-- **Cause**: ADLS Gen2 throws the error indicating operation failed.
-
-- **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
-
-- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
-
-- **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
-
-- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
-
-- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
-
-
-### Error code:  AdlsGen2InvalidUrl
-
-- **Message**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
-
-
-### Error code:  AdlsGen2InvalidFolderPath
-
-- **Message**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
-
-
-### Error code:  AdlsGen2OperationFailedConcurrentWrite
-
-- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
-### Error code: AdlsGen2TimeoutError
-
-- **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
-
-
-### Request to ADLS Gen2 account met timeout error
-
-- **Message**: Error Code = `UserErrorFailedBlobFSOperation`, Error Message = `BlobFS operation failed for: A task was canceled`.
-
-- **Cause**: The issue is caused by the ADLS Gen2 sink timeout error, which mostly happens on the self-hosted IR machine.
-
-- **Recommendation**: 
-
-    1. Place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
-
-    1. Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
-
-    1. Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Please refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
-
-       To specify the custom block size, you can edit the property in .json editor:
-    ```
-    "sink": {
-        "type": "DelimitedTextSink",
-        "storeSettings": {
-            "type": "AzureBlobFSWriteSettings",
-            "blockSizeInMB": 8
-        }
-    }
-    ```
+- **Recommendation**:  Check the error in details. Refer to [CosmosDb help document](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Contact CosmosDb team if need help.
 
 
 ## Azure Data Lake Storage Gen1
@@ -199,7 +127,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Symptoms**: Copy activity fails with the following error: 
 
     ```
-    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    Message: ErrorCode = `UserErrorFailedFileOperation`, Error Message = `The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`.
     ```
 
 - **Cause**: The certificate validation failed during TLS handshake.
@@ -235,7 +163,62 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 busy to handle requests, it returns an HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
+
+
+## Azure Data Lake Storage Gen2
+
+### Error code: ADLSGen2OperationFailed
+
+- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+
+- **Cause**: ADLS Gen2 throws the error indicating operation failed.
+
+- **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
+
+- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
+
+- **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+
+- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
+
+- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
+
+### Request to ADLS Gen2 account met timeout error
+
+- **Message**: Error Code = `UserErrorFailedBlobFSOperation`, Error Message = `BlobFS operation failed for: A task was canceled`.
+
+- **Cause**: The issue is caused by the ADLS Gen2 sink timeout error, which mostly happens on the self-hosted IR machine.
+
+- **Recommendation**: 
+
+    - Place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
+
+    - Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
+
+    - Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
+
+       To specify the custom block size, you can edit the property in .json editor:
+        ```
+        "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+                "type": "AzureBlobFSWriteSettings",
+                "blockSizeInMB": 8
+            }
+        }
+        ```
+
 			      
+## Azure File Storage
+
+### Error code:  AzureFileOperationFailed
+
+- **Message**: `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
+
+- **Cause**: Azure File storage operation hit problem.
+
+- **Recommendation**:  Check the error in details. Refer to Azure File help document: https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes. Contact the storage team if you need help.
+
 
 ## Azure Synapse Analytics/Azure SQL Database/SQL Server
 
@@ -243,13 +226,29 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
+- **Cause**: Azure SQL: If the error message contains "SqlErrorNumber=47073", it means public network access is denied in connectivity setting.
+
+- **Recommendation**: On Azure SQL firewall, set "Deny public network access" option to "No". Learn more from https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access.
+
+- **Cause**: Azure SQL: If the error message contains SQL error code, like "SqlErrorNumber=[errorcode]", please refer to Azure SQL troubleshooting guide.
+
+- **Recommendation**: Learn more from https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues.
+
+- **Cause**: Check if port 1433 is in the firewall allow list.
+
+- **Recommendation**: Follow with this reference doc: https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-.
+
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
 - **Recommendation**:  Search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
+- **Cause**: If this is a transient issue (e.g., instable network connection), please add retry in activity policy to mitigate.
+
+- **Recommendation**:  Follow this reference doc: https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy.
+
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
-- **Recommendation**:  In logical SQL server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### Error code:  SqlOperationFailed
@@ -269,7 +268,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
 - **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
-
 
 
 ### Error code:  SqlUnauthorizedAccess
@@ -339,11 +337,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Recommendation**:  Verify the column in the query, 'structure' in dataset, and 'mappings' in activity.
 
 
-### Error code:  SqlColumnNameMismatchByCaseSensitive
-
-- **Message**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
-
-
 ### Error code:  SqlBatchWriteTimeout
 
 - **Message**: `Timeouts in SQL write operation.`
@@ -382,11 +375,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: SQL connection is closed by SQL Database when high concurrent run and server terminate connection.
 
 - **Recommendation**:  Remote server closed the SQL connection. Retry. If problem repro, contact Azure SQL support.
-
-
-### Error code:  SqlCreateTableFailedUnsupportedType
-
-- **Message**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
 
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
@@ -451,9 +439,9 @@ busy to handle requests, it returns an HTTP error 503.
     - Time -> 12 bytes
     - Tinyint -> 1 byte
 
-- **Resolution**: Reduce column width to be less than 1 MB
-
-- Or use bulk insert approach by disabling Polybase
+- **Resolution**: 
+    - Reduce column width to be less than 1 MB.
+    - Or use bulk insert approach by disabling Polybase.
 
 
 ### Error message: The condition specified using HTTP conditional header(s) is not met
@@ -475,17 +463,17 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: The root cause of the issue is mostly triggered by the bottleneck of Azure SQL side. Following are some possible causes:
 
-    1. Azure DB tier is not high enough.
+    - Azure DB tier is not high enough.
 
-    1. Azure DB DTU usage is close to 100%. You can [monitor the performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the DB tier.
+    - Azure DB DTU usage is close to 100%. You can [monitor the performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the DB tier.
 
-    1. Indexes are not set properly. Please remove all the indexes before data load and recreate them after load complete.
+    - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
 
-    1. WriteBatchSize is not large enough to fit schema row size. Please try to enlarge the property for the issue.
+    - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
 
-    1. Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
 
-- **Resolution**: Please refer to the TSG for [copy activity performance](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
+- **Resolution**: Refer to the TSG for [copy activity performance](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### Performance tier is low and leads to copy failure
@@ -494,7 +482,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Azure SQL s1 is being used, which hit IO limits in such case.
 
-- **Resolution**: Please upgrade the Azure SQL performance tier to fix the issue. 
+- **Resolution**: Upgrade the Azure SQL performance tier to fix the issue. 
 
 
 ### SQL Table cannot be found 
@@ -503,22 +491,47 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: The current SQL account does not have enough permission to execute requests issued by .NET SqlBulkCopy.WriteToServer.
 
-- **Resolution**: Please switch to a more privileged SQL account.
+- **Resolution**: Switch to a more privileged SQL account.
 
 
-### String or binary data would be truncated
+### Error message: String or binary data would be truncated
 
 - **Symptoms**: Error occurred when copying data into On-prem/Azure SQL Server table: 
 
 - **Cause**: Cx Sql table schema definition has one or more columns with less length than expectation.
 
-- **Resolution**: Please try following steps to fix the issue:
+- **Resolution**: Try following steps to fix the issue:
 
-    1. Apply [fault tolerance](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), especially "redirectIncompatibleRowSettings" to troubleshoot which rows have the issue.
+    1. Apply SQL sink [fault tolerance](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), especially "redirectIncompatibleRowSettings" to troubleshoot which rows have the issue.
 
-    1. Double check the redirected data with SQL table schema column length to see which column(s) need to be updated.
+    	> [!NOTE]
+    	> Please be noticed that fault tolerance might introduce additional execution time, which could lead to higher cost.
 
-    1. Update table schema accordingly.
+    2. Double check the redirected data with SQL table schema column length to see which column(s) need to be updated.
+
+    3. Update table schema accordingly.
+
+
+## Azure Table Storage
+
+### Error code:  AzureTableDuplicateColumnsFromSource
+
+- **Message**: `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink`
+
+- **Cause**: It could be common for sql query with join, or unstructured csv files
+
+- **Recommendation**:  double check the source columns and fix accordingly.
+
+
+## DB2
+
+### Error code:  DB2DriverRunFailed
+
+- **Message**: `Error thrown from driver. Sql code: '%code;'`
+
+- **Cause**: If the error message contains "SQLSTATE=51002 SQLCODE=-805", please refer to the Tip in this document: https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties
+
+- **Recommendation**:  Try to set "NULLID" in property "packageCollection"
 
 
 ## Delimited Text Format
@@ -534,7 +547,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error code:  DelimitedTextMoreColumnsThanDefined
 
-- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
 - **Cause**: The problematic row's column count is larger than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
@@ -547,22 +560,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
 
 - **Recommendation**:  Make sure the files under the given folder have identical schema.
-
-
-### Error code:  DelimitedTextIncorrectRowDelimiter
-
-- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### Error code:  DelimitedTextTooLargeColumnCount
-
-- **Message**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
-
-
-### Error code:  DelimitedTextInvalidSettings
-
-- **Message**: `%settingIssues;`
-
 
 
 ## Dynamics 365/Common Data Service/Dynamics CRM
@@ -580,9 +577,45 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Symptoms**: Some of the columns turn out to be missing when importing schema or previewing data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **Cause**: This issue is basically by-design, as ADF is not able to show columns that have no value in the first 10 records. Please make sure the columns you added is with correct format. 
+- **Cause**: This issue is basically by-design, as ADF is not able to show columns that have no value in the first 10 records. Make sure the columns you added is with correct format. 
 
 - **Recommendation**: Manually add the columns in mapping tab.
+
+
+### Error code:  DynamicsMissingTargetForMultiTargetLookupField
+
+- **Message**: `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
+
+- **Cause**: The target column does not exist in source or in column mapping.
+
+- **Recommendation**:  1. Make sure the source contains the target column. 2. Add the target column in the column mapping. Ensure the sink column is in pattern of "{fieldName}@EntityReference".
+
+
+### Error code:  DynamicsInvalidTargetForMultiTargetLookupField
+
+- **Message**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;"`
+
+- **Cause**: A wrong entity name is provided as target entity of a multi-target lookup field.
+
+- **Recommendation**:  Provide a valid entity name for the multi-target lookup field.
+
+
+### Error code:  DynamicsInvalidTypeForMultiTargetLookupField
+
+- **Message**: `The provided target type is not a valid string. Field: '%fieldName;'.`
+
+- **Cause**: The value in target column is not a string
+
+- **Recommendation**:  Provide a valid string in the multi-target lookup target column.
+
+
+### Error code:  DynamicsFailedToRequetServer
+
+- **Message**: `The dynamics server or the network is experiencing issues. Check network connectivity or check dynamics server log for more details.`
+
+- **Cause**: The dynamics server is instable or inaccessible or the network is experiencing issues.
+
+- **Recommendation**:  Check network connectivity or check dynamics server log for more details. Contact dynamics support for further help.
 
 
 ## Excel Format
@@ -591,73 +624,45 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Symptoms**:
 
-    1. When you create Excel dataset and import schema from connection/store, preview data, list or refresh worksheets, you may hit timeout error if the excel file is large in size.
+    - When you create Excel dataset and import schema from connection/store, preview data, list, or refresh worksheets, you may hit timeout error if the excel file is large in size.
 
-    1. When you use copy activity to copy data from large Excel file (>= 100MB) into other data store, you may experience slow performance or OOM issue.
+    - When you use copy activity to copy data from large Excel file (>= 100 MB) into other data store, you may experience slow performance or OOM issue.
 
 - **Cause**: 
 
-    1. For operations like importing schema, previewing data and listing worksheets on excel dataset, the timeout is 100s and static. For large Excel file, these operations may not finish within the timeout value.
+    - For operations like importing schema, previewing data, and listing worksheets on excel dataset, the timeout is 100 s and static. For large Excel file, these operations may not finish within the timeout value.
 
-    2. ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
+    - ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
 
 - **Resolution**: 
 
-    1. For importing schema, you can generate a smaller sample file which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
+    - For importing schema, you can generate a smaller sample file, which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
 
-    2. For listing worksheet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
+    - For listing worksheet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
 
-    3. To copy large excel file (>100MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
+    - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
+    
 
+## FTP
 
-## HDInsight
+### Error code:  FtpFailedToConnectToFtpServer
 
-### SSL error when ADF linked service using HDInsight ESP cluster
+- **Message**: `Failed to connect to FTP server. Please make sure the provided server informantion is correct, and try again.`
 
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Cause**: Incorrect linked service type might be used for FTP server, like using SFTP Linked Service to connect to an FTP server.
 
-- **Cause**: The issue is most likely related with System Trust Store.
-
-- **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
-
-    ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+- **Recommendation**:  Check the port of the target server. By default FTP uses port 21.
 
 
-## JSON Format
+## Http
 
-### Error code:  JsonInvalidArrayPathDefinition
+### Error code:  HttpFileFailedToRead
 
-- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+- **Message**: `Failed to read data from http server. Check the error from http server：%message;`
 
+- **Cause**: This error happens when Azure Data Factory talk to http server, but http request operation fail.
 
-### Error code:  JsonEmptyJObjectData
-
-- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### Error code:  JsonNullValueInPathDefinition
-
-- **Message**: `Null JSONPath detected in JsonPathDefinition.`
-
-
-### Error code:  JsonUnsupportedHierarchicalComplexValue
-
-- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
-
-
-### Error code:  JsonConflictPartitionDiscoverySchema
-
-- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
-
-
-### Error code:  JsonInvalidDataFormat
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
-
-
-### Error code:  JsonInvalidDataMixedArrayAndObject
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+- **Recommendation**:  Check the http status code \ message in error message and fix the remote server issue.
 
 
 ## Oracle
@@ -670,9 +675,44 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**: 
 
-    Please run `select dump(<column name>)` to check if the value in Oracle is in ADF's range. 
+    Run `select dump(<column name>)` to check if the value in Oracle is in ADF's range. 
 
     If you wish to know the byte sequence in the result, please check https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle.
+
+
+## Orc Format
+
+### Error code:  OrcJavaInvocationException
+
+- **Message**: `An error occurred when invoking java, message: %javaException;.`
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
+
+- **Recommendation**:  If you are using Self-hosted Integration Runtime, suggest upgrading to the latest version.
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
+
+- **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, scale up to a powerful machine with memory equal to or larger than 8 GB.
+
+- **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
+
+- **Recommendation**:  Retry. If the problem persists, please contact support.
+
+- **Cause**: When error message contains 'BufferOverflowException', it possible is a transient error.
+
+- **Recommendation**:  Retry. If the problem persists, please contact support.
+
+- **Cause**: When error message contains "java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable cannot be cast to org.apache.hadoop.io.Text", this is the type conversion issue inside Java Runtime. Usually, it caused by source data cannot be well handled in Java runtime.
+
+- **Recommendation**:  This is data issue. Try to use string instead of char/varchar in orc format data.
+
+### Error code:  OrcDateTimeExceedLimit
+
+- **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be caused by the difference between Julian Calendar and Gregorian Calendar. https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates.
+
+- **Recommendation**:  Check the ticks value and avoid using the datetime value '0001-01-01 00:00:00'.
 
 
 ## Parquet Format
@@ -817,7 +857,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: 
 
-    The issue could be caused by white spaces or unsupported characters (such as ,;{}()\n\t=) in column name, as Parquet doesn't support such format. 
+    The issue could be caused by white spaces or unsupported characters (such as,;{}()\n\t=) in column name, as Parquet doesn't support such format. 
 
     For example, column name like *contoso(test)* will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error will be raised as there is no such "test" type.
 
@@ -825,14 +865,22 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Resolution**: 
 
-    1. Double check if there are white spaces in sink column name.
+    - Double check if there are white spaces in sink column name.
 
-    1. Double check if the first row with white spaces is used as column name.
+    - Double check if the first row with white spaces is used as column name.
 
-    1. Double check the type OriginalType is supported or not. Try to avoid these special symbols `,;{}()\n\t=`. 
+    - Double check the type OriginalType is supported or not. Try to avoid these special symbols `,;{}()\n\t=`. 
 
 
 ## REST
+
+### Error code:  RestSinkCallFailed
+
+- **Message**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
+
+- **Cause**: This error happens when Azure Data Factory talk to Rest Endpoint over http protocol, and request operation fail.
+
+- **Recommendation**:  Check the http status code \ message in error message and fix the remote server issue.
 
 ### Unexpected network response from REST connector
 
@@ -847,7 +895,7 @@ busy to handle requests, it returns an HTTP error 503.
         ```
       If the command returns the same unexpected response, please fix above parameters with 'curl' until it returns the expected response. 
 
-      Also you can use 'curl --help' for more advanced usage of the command.
+      Also you can use 'curl--help' for more advanced usage of the command.
 
     - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
     
@@ -858,75 +906,76 @@ busy to handle requests, it returns an HTTP error 503.
 
 ## SFTP
 
-### Invalid SFTP credential provided for 'SSHPublicKey' authentication type
+#### Error code:  SftpOperationFail
 
-- **Symptoms**: SSH public key authentication is being used while Invalid SFTP credential is provided for 'SshPublicKey' authentication type.
+- **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
-- **Cause**: This error could be caused by three possible reasons:
+- **Cause**: Sftp operation hit problem.
 
-    1. Private key content is fetched from AKV/SDK but it is not encoded correctly.
-
-    1. Wrong key content format is chosen.
-
-    1. Invalid credential or private key content.
-
-- **Resolution**: 
-
-    1. For **Cause 1**:
-
-       If private key content is from AKV and original key file can work if customer upload it directly to SFTP linked service
-
-       Refer to https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication, the privateKey content is a Base64 encoded SSH private key content.
-
-       Please encode **the whole content of original private key file** with base64 encoding and store the encoded string to AKV. Original private key file is the one that can work on SFTP linked service if you click on Upload from file.
-
-       Here's some samples used for generating the string:
-
-       - Use C# code:
-       ```
-       byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
-       string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-       ```
-
-       - Use Python code：
-       ```
-       import base64
-       rfd = open(r'{Private Key Path}', 'rb')
-       keyContent = rfd.read()
-       rfd.close()
-       print base64.b64encode(Key Content)
-       ```
-
-       - Use third-party base64 convert tool
-
-         Tools like https://www.base64encode.org/ are recommended.
-
-    1. For **Cause 2**:
-
-       If PKCS#8 format SSH private key is being used
-
-       PKCS#8 format SSH private key (start with "-----BEGIN ENCRYPTED PRIVATE KEY-----") is currently not supported to access SFTP server in ADF. 
-
-       Run below commands to convert the key to traditional SSH key format (start with "-----BEGIN RSA PRIVATE KEY-----"):
-
-       ```
-       openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
-       chmod 600 traditional_format_key_file
-       ssh-keygen -f traditional_format_key_file -p
-       ```
-    1. For **Cause 3**:
-
-       Please double check with tools like WinSCP to see if your key file or password is correct.
+- **Recommendation**:  Check detailed error from SFTP.
 
 
-### Incorrect linked service type is used
+### Error code:  SftpRenameOperationFail
 
-- **Symptoms**: FTP/SFTP server cannot be reached.
+- **Message**: `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, please set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
-- **Cause**: Incorrect linked service type is used for FTP or SFTP server, like using FTP Linked Service to connect to an SFTP server or in reverse.
+- **Cause**: Your SFTP server doesn't support renaming temp file.
 
-- **Resolution**: Please check the port of the target server. By default FTP uses port 21 and SFTP uses port 22.
+- **Recommendation**:  Set "useTempFileRename" as false in copy sink to disable uploading to temp file.
 
+
+### Error code:  SftpInvalidSftpCredential
+
+- **Message**: `Invalid Sftp credential provided for '%type;' authentication type.`
+
+- **Cause**: Private key content is fetched from AKV/SDK but it is not encoded correctly.
+
+- **Recommendation**:  
+
+    If private key content is from AKV and original key file can work if customer upload it directly to SFTP linked service
+
+    Refer to https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication, the privateKey content is a Base64 encoded SSH private key content.
+
+    Please encode **the whole content of original private key file** with base64 encoding and store the encoded string to AKV. Original private key file is the one that can work on SFTP linked service if you click on Upload from file.
+
+    Here's some samples used for generating the string:
+
+    - Use C# code:
+    ```
+    byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
+    string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+    ```
+
+    - Use Python code：
+    ```
+    import base64
+    rfd = open(r'{Private Key Path}', 'rb')
+    keyContent = rfd.read()
+    rfd.close()
+    print base64.b64encode(Key Content)
+    ```
+
+    - Use third-party base64 convert tool
+
+        Tools like https://www.base64encode.org/ are recommended.
+
+- **Cause**: Wrong key content format is chosen
+
+- **Recommendation**:  
+
+    PKCS#8 format SSH private key (start with "-----BEGIN ENCRYPTED PRIVATE KEY-----") is currently not supported to access SFTP server in ADF. 
+
+    Run below commands to convert the key to traditional SSH key format (start with "-----BEGIN RSA PRIVATE KEY-----"):
+
+    ```
+    openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    chmod 600 traditional_format_key_file
+    ssh-keygen -f traditional_format_key_file -p
+    ```
+
+- **Cause**: Invalid credential or private key content
+
+- **Recommendation**:  Double check with tools like WinSCP to see if your key file or password is correct.
 
 ### SFTP Copy Activity failed
 
@@ -937,15 +986,19 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Double check how your dataset configured by mapping the destination dataset column to confirm if there's such "AccMngr" column.
 
 
-### SFTP server connection throttling
+### Error code:  SftpFailedToConnectToSftpServer
 
-- **Symptoms**: Server response does not contain SSH protocol identification and failed to copy.
+- **Message**: `Failed to connect to Sftp server '%server;'.`
 
-- **Cause**: ADF will create multiple connections to download from SFTP server in parallel, and sometimes it will hit SFTP server throttling. Practically, Different server will return different error when hit throttling.
+- **Cause**: If error message contains 'Socket read operation has timed out after 30000 milliseconds', one possible cause is that incorrect linked service type is used for SFTP server, like using FTP Linked Service to connect to an SFTP server.
 
-- **Resolution**: 
+- **Recommendation**:  Check the port of the target server. By default SFTP uses port 22.
 
-    Please specify the max concurrent connection of SFTP dataset to 1 and rerun the copy. If it succeeds to pass, we can be sure that throttling is the cause.
+- **Cause**: If error message contains 'Server response does not contain SSH protocol identification', one possible cause is that SFTP server throttled the connection. ADF will create multiple connections to download from SFTP server in parallel, and sometimes it will hit SFTP server throttling. Practically, different server will return different error when hit throttling.
+
+- **Recommendation**:  
+
+    Specify the max concurrent connection of SFTP dataset to 1 and rerun the copy. If it succeeds to pass, we can be sure that throttling is the cause.
 
     If you want to promote the low throughput, please contact SFTP administrator to increase the concurrent connection count limit, or add below IP to allow list:
 
@@ -955,13 +1008,53 @@ busy to handle requests, it returns an HTTP error 503.
     - If you're using Self-hosted IR, please add the machine IP that installed SHIR to allow list.
 
 
-### Error code: SftpRenameOperationFail
+## SharePoint Online List
 
-- **Symptoms**: Pipeline failed to copy data from Blob to SFTP with following error: `Operation on target Copy_5xe failed: Failure happened on 'Sink' side. ErrorCode=SftpRenameOperationFail,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException`.
+### Error code:  SharePointOnlineAuthFailed
 
-- **Cause**: The option useTempFileRename was set as True when copying the data. This allows the process to use temp files. The error will be triggered if one or more temp files were deleted before the entire data is copied.
+- **Message**: `The access token generated failed, status code: %code;, error message: %message;.`
 
-- **Resolution**: Set the option of useTempFileName to False.
+- **Cause**: The service principal ID and Key may not correctly set.
+
+- **Recommendation**:  Check your registered application (service principal ID) and key whether it's correctly set.
+
+
+## Xml Format
+
+### Error code:  XmlSinkNotSupported
+
+- **Message**: `Write data in xml format is not supported yet, please choose a different format!`
+
+- **Cause**: Used an Xml dataset as sink dataset in your copy activity
+
+- **Recommendation**:  Use a dataset in different format as copy sink.
+
+
+### Error code:  XmlAttributeColumnNameConflict
+
+- **Message**: `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
+
+- **Cause**: Used an attribute prefix, which caused the conflict.
+
+- **Recommendation**:  Set a different value of the "attributePrefix" property.
+
+
+### Error code:  XmlValueColumnNameConflict
+
+- **Message**: `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
+
+- **Cause**: Used one of the child element names as the column name for the element value.
+
+- **Recommendation**:  Set a different value of the "valueColumn" property.
+
+
+### Error code:  XmlInvalid
+
+- **Message**: `Input XML file '%file;' is invalid with parsing error '%error;'.`
+
+- **Cause**: The input xml file is not well formed.
+
+- **Recommendation**:  Correct the xml file to make it well formed.
 
 
 ## General Copy Activity Error
@@ -984,25 +1077,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Recommendation**:  Check the sink dataset and fix the path without wildcard value.
 
 
-### Error code:  MappingInvalidPropertyWithEmptyValue
-
-- **Message**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
-
-
-### Error code:  MappingInvalidPropertyWithNamePathAndOrdinal
-
-- **Message**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
-
-
-### Error code:  MappingDuplicatedOrdinal
-
-- **Message**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
-
-
-### Error code:  MappingInvalidOrdinalForSinkColumn
-
-- **Message**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
-
 ### FIPS issue
 
 - **Symptoms**: Copy activity fails on FIPS-enabled Self-hosted Integration Runtime machine with error message `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.`. This may happen when copying data with connectors like Azure Blob, SFTP, etc.
@@ -1020,6 +1094,7 @@ busy to handle requests, it returns an HTTP error 503.
         ![Disable FIPS](./media/connector-troubleshoot-guide/disable-fips-policy.png)
 
     3. Restart the Self-hosted Integration Runtime machine.
+
 
 ## Next steps
 
