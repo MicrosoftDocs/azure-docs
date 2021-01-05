@@ -2809,7 +2809,7 @@ If the string or substring value is empty, the following behavior occurs:
 
 * If only the string value is empty, `-1` is returned:
 
-* If the string and substring values are both empty, `0` is returned.
+* If the string and substring values are both empty, the function returns `0`.
 
 * If only the substring value is empty, the length of the string, minus 1 is returned.
 
