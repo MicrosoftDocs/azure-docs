@@ -51,12 +51,20 @@ There are three ways to check whether an application is in quarantine:
 |**Duplicate roles:** Roles imported from certain applications like Salesforce and Zendesk must be unique. |Navigate to the application [manifest](../develop/reference-app-manifest.md) in the Azure portal and remove the duplicate role.|
 
  A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
-
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
-
-- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 60% of provisioning events failed.
-
+- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 60% of provisioning events failed. See escrow threshold details below for more information.
 - `QuarantineOnDemand` means that we've detected an issue with your application and have manually set it to quarantine.
+
+### Escrow thresholds
+If the proportional escrow threshold is met, the provisioning job will go into quarantine. This logic is subject to change, but works roughly as described below: 
+
+5K failures are the minimum to start evaluating whether to quarantine because of too many failures. For example, a job with 4K failures would not go into quarantine but a job with 5K failures would be evaluated to determine if it should go into quarantine based on the criteria below.  
+- If more than 40% of provisioning events fail, or there are more than 40K failures, the provisioning job will go into quarantine. Reference failures, such as failure to update a manager or a group member, will not be counted as part of the 40% threshold or 40K threshold.
+- A job where 45K users were unsuccessfully provisioned would lead to quarantine as it exceeds the 40K threshold.
+- A job where 30K users were unsuccessfully provisioned and 5 K were successfully provisioned would lead to quarantine as it exceeds the 40% threshold and 5K minimum.
+- A job with 20K failures and 100K success would not go into quarantine because it doe not exceed the 40% failure threshold or the 40K failure max.  
+- There is an absolute threshold of 60K failures that accounts for both reference and non-reference failures. For example: 40K users failed to be provisioned and 21K manager updates failed. This would be 61K failures and exceed the 60K limit.
+
 
 ## How do I get my application out of quarantine?
 
