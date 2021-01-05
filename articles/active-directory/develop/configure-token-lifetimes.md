@@ -16,25 +16,14 @@ ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
-Many scenarios are possible in Azure AD when you can create and manage token lifetimes for apps, service principals, and your overall organization.  
+You can specify the lifetime of an access, SAML, or ID token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. 
 
-> [!IMPORTANT]
-> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation.  To learn more, read [Configurable token lifetimes in Microsoft identity platform](active-directory-configurable-token-lifetimes.md).
-> We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency.
-
-
-In this section, we walk through a few common policy scenarios that can help you impose new rules for:
+In this section, we walk through a common policy scenario that can help you impose new rules for:
 
 * Token lifetime
-* Token max inactive time
 * Token max age
 
-In the examples, you can learn how to:
-
-* Manage an organization's default policy
-* Create a policy for web sign-in
-* Create a policy for a native app that calls a web API
-* Manage an advanced policy
+In the example, you learn how to create a policy that requires users to authenticate more frequently in your web app.
 
 ## Get started
 To get started, do the following steps:
@@ -58,9 +47,51 @@ To get started, do the following steps:
     Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
     ```
 
-If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values. 
+If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
 
-## Manage an organization's default policy
+## Create a policy for web sign-in
+
+In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens and the max age of a multi-factor session token to the service principal of your web app.
+
+1. Create a token lifetime policy.
+
+    This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
+
+    1. To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+
+        ```powershell
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        ```
+
+    1. To see your new policy, and to get the policy **ObjectId**, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+
+        ```powershell
+        Get-AzureADPolicy -Id $policy.Id
+        ```
+
+1. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
+
+    1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+        ```
+
+    1. When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
+## Create token lifetime policies for refresh and session tokens
+> [!IMPORTANT]
+> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
+>
+> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+>
+> If you do not want to use Conditional Access after the retirement date, your refresh and session tokens will be set to the [default configuration](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) on that date and you will no longer be able to change their lifetimes.
+
+### Manage an organization's default policy
 In this example, you create a policy that lets your users' sign in less frequently across your entire organization. To do this, create a token lifetime policy for single-factor refresh tokens, which is applied across your organization. The policy is applied to every application in your organization, and to each service principal that doesn’t already have a policy set.
 
 1. Create a token lifetime policy.
@@ -103,41 +134,7 @@ In this example, you create a policy that lets your users' sign in less frequent
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-## Create a policy for web sign-in
-
-In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens and the max age of a multi-factor session token to the service principal of your web app.
-
-1. Create a token lifetime policy.
-
-    This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
-
-    1. To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-        ```
-
-    1. To see your new policy, and to get the policy **ObjectId**, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
-
-    1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
-        ```powershell
-        # Get ID of the service principal
-        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
-        ```
-
-    1. When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
-        ```powershell
-        # Assign policy to a service principal
-        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-        ```
-
-## Create a policy for a native app that calls a web API
+### Create a policy for a native app that calls a web API
 In this example, you create a policy that requires users to authenticate less frequently. The policy also lengthens the amount of time a user can be inactive before the user must reauthenticate. The policy is applied to the web API. When the native app requests the web API as a resource, this policy is applied.
 
 1. Create a token lifetime policy.
@@ -166,7 +163,7 @@ In this example, you create a policy that requires users to authenticate less fr
     Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
     ```
 
-## Manage an advanced policy
+### Manage an advanced policy
 In this example, you create a few policies to learn how the priority system works. You also learn how to manage multiple policies that are applied to several objects.
 
 1. Create a token lifetime policy.

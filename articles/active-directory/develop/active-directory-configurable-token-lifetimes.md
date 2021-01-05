@@ -1,7 +1,7 @@
 ---
-title: Configurable access token lifetimes
+title: Configurable token lifetimes
 titleSuffix: Microsoft identity platform
-description: Learn how to set lifetimes for access tokens issued by Microsoft identity platform.
+description: Learn how to set lifetimes for access, SAML, and ID tokens issued by Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,9 +15,9 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
 ---
-# Configurable access token lifetimes in Microsoft identity platform (preview)
+# Configurable token lifetimes in Microsoft identity platform (preview)
 
-You can specify the lifetime of a access token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
+You can specify the lifetime of a access, ID, or SAML token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -75,11 +75,11 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 You can set token lifetime policies for refresh tokens and session tokens.
 
 > [!IMPORTANT]
-> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access token lifetimes after the deprecation.
+> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
 >
-> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, visit the [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
-> For tenants that do not want to use Conditional Access after the retirement date, they can expect that Azure AD will honor the default configuration outlined in the next section.
+> If you do not want to use Conditional Access after the retirement date, your refresh and session tokens will be set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement) on that date and you will no longer be able to change their lifetimes.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Retirement information":::
 
