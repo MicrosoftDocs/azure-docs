@@ -140,6 +140,8 @@
       href: tutorial-set-up-iot-edge-modules.md
     - name: Deploy model to SQL Edge 
       href: tutorial-run-ml-model-on-sql-edge.md 
+  - name: Renewable energy - wind turbine analytics
+    href: tutorial-renewable-energy-demo.md
 - name: Reference
   items:
   - name: Transact-SQL (T-SQL) Reference

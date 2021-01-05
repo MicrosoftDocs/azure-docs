@@ -53,7 +53,7 @@ Some service principals (users and applications) are bound to a specific tenant.
 You can check existing roles using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli), or [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
 
 
-## Moving Key Vault to a new subscription
+## Moving a key vault to a new subscription
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 2. Navigate to your [key vault](overview.md)
@@ -64,9 +64,11 @@ You can check existing roles using [Azure portal](https://docs.microsoft.com/azu
 7. Acknowledge the warning regarding moving resources
 8. Select "OK"
 
-## Update the tenant ID in Key Vault when moving to new tenant
+## Additional steps when subscription is in a new tenant
 
 If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command documented below to allow you to see resources outside your current selected scope. 
+
+### Update tenant ID in a key vault
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

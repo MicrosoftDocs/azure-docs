@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
-   ![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
 
@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your ServiceNow admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
- 	![Screenshot shows the Service Provisioning page, where you can enter Admin Credentials.](./media/servicenow-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Service Provisioning page, where you can enter Admin Credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -137,11 +137,16 @@ Once you've configured provisioning, use the following resources to monitor your
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   This error indicates an issue communicating with the ServiceNow instance. Double-check to make sure that the following settings are *disabled* in ServiceNow:
+   This error indicates an issue communicating with the ServiceNow instance. 
+   
+   If you are having test connection issues try making the following settings as **disabled** in ServiceNow:
    
    1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
    2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
 
+   ![Authorizing SOAP request](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   If it resolves your issues then contact ServiceNow support and ask them to turn on SOAP debugging to help troubleshoot. 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

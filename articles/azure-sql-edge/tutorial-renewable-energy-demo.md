@@ -25,5 +25,5 @@ Git will be used to copy all files from the demo to your local computer.
 1. Install git from [here](https://git-scm.com/download).
 2. Open a command prompt and navigate to a folder where the repo should be downloaded. 
 3. Issue the command https://github.com/microsoft/sql-server-samples.git.
-4. Navigate to 'sql-server-samples\samples\demos\azure-sql-edge-demos\Wind Turbine Demo' in the location where the repository is cloned.
+4. Navigate to **'sql-server-samples\samples\demos\azure-sql-edge-demos\Wind Turbine Demo'** in the location where the repository is cloned.
 5. Follow the instructions in README.md to set up the demo environment and execute the demo.

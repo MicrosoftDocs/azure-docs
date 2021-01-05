@@ -15,7 +15,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### December 2020
 
-* All LUIS users are required to [migrate to a LUIS authorint resouurce](luis-migration-authoring.md)
+* All LUIS users are required to [migrate to a LUIS authorint resource](luis-migration-authoring.md)
 
 ### June 2020
 

@@ -116,7 +116,7 @@ Log files are an essential resource for debugging the Azure ML workloads. Drill 
 The tables below show the contents of the log files in the folders you'll see in this section.
 
 > [!NOTE]
-> Information the user should notice even if skimmingYou will not necessarily see every file for every run. For example, the 20_image_build_log*.txt only appears when a new image is built (e.g. when you change you environment).
+> You will not necessarily see every file for every run. For example, the 20_image_build_log*.txt only appears when a new image is built (e.g. when you change you environment).
 
 #### `azureml-logs` folder
 
