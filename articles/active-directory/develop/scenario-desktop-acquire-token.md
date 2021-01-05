@@ -180,7 +180,7 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appear on the screen. This would be applicable for applications which are command line based, used to pass calls to any other backend service and do not need any windows for user interaction.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appears on the screen. This would be applicable for applications which are command line based, used to pass calls to any other backend service and do not need any windows for user interaction.
 
 ```csharp
 // net45
@@ -1177,7 +1177,7 @@ The customization of token cache serialization to share the SSO state between AD
 
 ### Simple token cache serialization (MSAL only)
 
-The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a local storage, in the case where the app is a [packaged desktop application](https://developer.microsoft.com/windows/bridges/desktop/). For the full code, see the [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2) sample.
+The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a local storage, in the case where the app is a [packaged desktop application](https://developer.microsoft.com/windows/bridges/desktop/). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` and passing the application `UserTokenCache`.
 
