@@ -25,7 +25,7 @@ This article walks you through creating a function in Azure for use with Azure D
 
 Here is an overview of the steps it contains:
 
-1. Create an Azure Functions app in Visual Studio
+1. Create an Azure Functions project in Visual Studio
 2. Write an function with an [Event Grid](../event-grid/overview.md) trigger
 3. Add authentication code to the function (to be able to access Azure Digital Twins)
 4. Publish the function app to Azure
@@ -160,7 +160,7 @@ namespace adtIngestFunctionSample
 
 ## Publish the function app to Azure
 
-To publish the function app to Azure, right-select the function project (not the solution) in Solution Explorer, and choose **Publish**.
+To publish the project to a function app in Azure, right-select the function project (not the solution) in Solution Explorer, and choose **Publish**.
 
 > [!IMPORTANT] 
 > Publishing to a function app in Azure incurs additional charges on your subscription, independent of Azure Digital Twins.
