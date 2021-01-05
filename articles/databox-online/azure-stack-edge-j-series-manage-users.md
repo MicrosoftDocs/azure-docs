@@ -25,12 +25,12 @@ In this article, you learn how to:
 
 ## About users
 
-Users can be read-only or full privilege. As the names indicate, the read-only users can only view the share data. The full privilege users can read share data, write to these shares, and modify or delete the share data.
+Users can be read-only or full privilege. Read-only users can only view the share data. Full privilege users can read share data, write to these shares, and modify or delete the share data.
 
  - **Full privilege user** - A local user with full access.
  - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read-only operations.
 
-The user permissions are first defined when the user is created during share creation. After they are defined, the user permissions can be modified by using File Explorer.
+The user permissions are first defined when the user is created during share creation. They can be modified by using File Explorer.
 
 
 ## Add a user
