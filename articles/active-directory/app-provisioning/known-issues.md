@@ -78,7 +78,7 @@ The [time](./application-provisioning-when-will-provisioning-finish-specific-use
 
 The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD. 
 
-**Switching from sync all to syn assigned not working**
+**Switching from sync all to sync assigned not working**
 
 After changing scope from 'Sync All' to 'Sync Assigned', please make sure to also perform a restart to ensure that the change takes effect. You can do the restart from the UI.
 
