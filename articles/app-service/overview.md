@@ -57,7 +57,7 @@ If you need to create another web app with an outdated runtime version that is n
 1. Next, create a new site using this runtime string. Replace the placeholders with your desired site name, resource group, and runtime.
  
     ```shell
-    az webapp create --name <your-name> --resource-group <your-group> --runtime “EXAMPLE|1.0”
+    az webapp create --name <your-name> --resource-group <your-group> --runtime "EXAMPLE|1.0"
     ```
     
 You can also use the **Export Template** button on the web app blade in the Portal to export an ARM template of the site. You can re-use this template to deploy a new site with the same runtime and configuration.
