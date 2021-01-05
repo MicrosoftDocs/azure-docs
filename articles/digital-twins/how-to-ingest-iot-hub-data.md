@@ -19,27 +19,27 @@ ms.service: digital-twins
 
 Azure Digital Twins is driven with data from IoT devices and other sources. A common source for device data to use in Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md).
 
-The process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as an [Azure Function](../azure-functions/functions-overview.md), that receives the data and uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
+The process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as [Azure Functions](../azure-functions/functions-overview.md), that receives the data and uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
 
-This how-to document walks through the process for writing an Azure Function that can ingest telemetry from IoT Hub.
+This how-to document walks through the process for writing a function that can ingest telemetry from IoT Hub.
 
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up an Azure Function for processing data*](how-to-create-azure-function.md). 
+* **An Azure Function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up a function in Azure for processing data*](how-to-create-azure-function.md). 
 * **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
 
-This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure Function. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
+This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using Azure Functions. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
 * A thermometer device in IoT Hub, with a known device ID
 * A digital twin to represent the device, with a matching ID
 
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermostat device, an Azure Function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
+Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
@@ -94,7 +94,7 @@ Output of a successful twin create command should look like this:
 }
 ```
 
-## Create an Azure Function
+## Create a function
 
 This section uses the same Visual Studio startup steps and Azure Function skeleton from [*How-to: Set up an Azure Function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
