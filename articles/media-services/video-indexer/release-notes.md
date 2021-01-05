@@ -26,7 +26,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-##  December 2020? 
+##  December 2020
 
 ### Video Indexer deployed in the Switzerland West and Switzerland North
 

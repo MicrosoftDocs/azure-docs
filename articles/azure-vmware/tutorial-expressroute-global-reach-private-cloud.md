@@ -2,7 +2,7 @@
 title: Tutorial - Peer on-premises environments to a private cloud
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in an Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 1/5/2021
 ---
 
 # Tutorial: Peer on-premises environments to a private cloud
