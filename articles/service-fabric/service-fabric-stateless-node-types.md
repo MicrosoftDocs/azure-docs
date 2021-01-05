@@ -32,14 +32,14 @@ To set one or more node types as stateless in a cluster resource, set the **isSt
             "startPort": "[parameters('nt0applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Bronze",
+        "durabilityLevel": "Silver",
         "ephemeralPorts": {
             "endPort": "[parameters('nt0ephemeralEndPort')]",
             "startPort": "[parameters('nt0ephemeralStartPort')]"
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -49,7 +49,7 @@ To set one or more node types as stateless in a cluster resource, set the **isSt
             "startPort": "[parameters('nt1applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
+        "durabilityLevel": "Bronze",
         "ephemeralPorts": {
             "endPort": "[parameters('nt1ephemeralEndPort')]",
             "startPort": "[parameters('nt1ephemeralStartPort')]"
@@ -66,9 +66,9 @@ To set one or more node types as stateless in a cluster resource, set the **isSt
 ## Configuring virtual machine scale set for stateless node types
 To enable stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
 
-* The value  **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
-* The Scale set's **upgradeMode** which should be set to Rolling.
-* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the nodetype, Health Probe/Health extension ports can be changed to monitor application health.
+* The value  **singlePlacementGroup** property, which should be set to **false** if you require to scale to more than 100 VMs.
+* The Scale set's **upgradePolicy** which **mode** should be set to **Rolling**.
+* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor application health.
 
 ```json
 {
@@ -98,7 +98,7 @@ To enable stateless node types, you should configure the underlying virtual mach
             "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",
             "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
+            "durabilityLevel": "Bronze",
             "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"

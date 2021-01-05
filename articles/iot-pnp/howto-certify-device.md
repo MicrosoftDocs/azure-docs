@@ -36,7 +36,7 @@ To meet the certification requirements, your device must:
 - Connects to Azure IoT Hub using the [DPS](../iot-dps/about-iot-dps.md).
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
-- Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
+- Publish the model, and all required interfaces, in the Azure IoT Public Model Repository
 - Send the model ID during [DPS registration](./concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
 - Announce the model ID during the [MQTT connection](./concepts-developer-guide-device.md#model-id-announcement).
 - All device models must be compatible with [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md).
@@ -169,7 +169,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 To use the [certification portal](https://aka.ms/acdp), you must use an Azure Active Directory from your work or school tenant.
 
-To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
+To publish the models to the [Azure IoT Public Model Repository](https://github.com/Azure/iot-plugandplay-models), your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 
 ### Company profile
 

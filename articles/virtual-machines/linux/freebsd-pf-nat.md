@@ -30,10 +30,10 @@ You need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged
 az group create --name myResourceGroup --location westus
 ```
 
-Next, deploy the template pf-freebsd-setup with [az group deployment create](/cli/azure/group/deployment). Download azuredeploy.parameters.json under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
+Next, deploy the template pf-freebsd-setup with [az deployment group create](/cli/azure/deployment/group). Download azuredeploy.parameters.json under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+az deployment group create --resource-group myResourceGroup --name myDeploymentName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
     --parameters '@azuredeploy.parameters.json' --verbose
 ```

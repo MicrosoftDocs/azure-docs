@@ -98,7 +98,7 @@ You can use any of the following ways to enable Azure Defender for your subscrip
 |REST API|[Pricings API](/rest/api/securitycenter/pricings)|
 |Azure CLI|[az security pricing](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
+|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
 |||
 
 ### Can I enable Azure Defender for servers on a subset of servers in my subscription?

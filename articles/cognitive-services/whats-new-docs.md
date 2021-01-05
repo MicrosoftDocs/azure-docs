@@ -28,35 +28,35 @@ Welcome to what's new in the Cognitive Services docs from November 1, 2020 throu
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
 ### New articles
 
-- [Form Recognizer prebuilt invoice model](/azure/cognitive-services/form-recognizer/concept-invoices.md)
-- [Form Recognizer Layout service](/azure/cognitive-services/form-recognizer/concept-layout.md)
-- [Quickstart: Extract invoice data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices.md)
+- [Form Recognizer prebuilt invoice model](/azure/cognitive-services/form-recognizer/concept-invoices)
+- [Form Recognizer Layout service](/azure/cognitive-services/form-recognizer/concept-layout)
+- [Quickstart: Extract invoice data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
 
 ### Updated articles
 
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards.md)
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
+- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
+- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new)
 
 ## Metrics Advisor
 
 ### New articles
 
-- [Metrics Advisor: what's new in the docs](/azure/cognitive-services/metrics-advisor/whats-new.md)
+- [Metrics Advisor: what's new in the docs](/azure/cognitive-services/metrics-advisor/whats-new)
 
 ### Updated articles
 
-- [Provide anomaly feedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq.md)
-- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
+- [Provide anomaly feedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
+- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq)
+- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
 
 ## QnA Maker 
 
@@ -70,12 +70,12 @@ Welcome to what's new in the Cognitive Services docs from November 1, 2020 throu
 
 ### Updated articles
 
-- [Data and rate limits for the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/data-limits.md)
-- [How to: Use Text Analytics for health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health.md)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [How to: Sentiment analysis and Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new.md)
-- [Example: Detect language with Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)
+- [Data and rate limits for the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/data-limits)
+- [How to: Use Text Analytics for health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [How to: Sentiment analysis and Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
+- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
+- [Example: Detect language with Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

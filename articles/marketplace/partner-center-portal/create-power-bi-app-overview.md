@@ -28,7 +28,7 @@ Benefits of publishing to the commercial marketplace:
 
 These are the key publishing steps:
 
-1. Create your application in Power BI. You'll receive a package install link, which is the main technical asset for the offer. Send the test package to pre-production before creating the offer in Partner Center. For details, see [What are Power BI apps?](/power-bi/service-template-apps-overview).
+1. Create your application in Power BI. You'll receive a package install link, which is the main technical asset for the offer. Send the test package to pre-production before creating the offer in Partner Center. For details, see [What are Power BI apps?](/power-bi/service-template-apps-overview)
 2. Add the marketing materials, such as official name, description, and logos.
 3. Include the offer's legal and support documents, such as terms of use, privacy policy, support policy, and user help.
 4. Create the offer – Use Partner Center to edit the details, including the offer description, marketing materials, legal information, support information, and asset specifications.

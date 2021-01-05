@@ -28,7 +28,9 @@ To open the SAML-based single sign-on configuration page:
 1.  Type **“Azure Active Directory"** in the filter search box and select the **Azure Active Directory** item.
 1.  Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 1.  Select **All Applications** to view a list of all your applications.
-	If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications**.
+
+    If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications**.
+
 1.  Select the application you want to configure for single sign-on.
 1. Once the application loads, select **Single sign-on** from the application’s left-hand navigation menu.
 1. Select SAML-based SSO.
@@ -58,7 +60,7 @@ The `AssertionConsumerServiceURL` value in the SAML request doesn't match the Re
 Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. 
 
 Verify or update the value in the Reply URL textbox to match the `AssertionConsumerServiceURL` value in the SAML request. 	
-	
+
 After you've updated the Reply URL value in Azure AD, and it matches the value sent by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role

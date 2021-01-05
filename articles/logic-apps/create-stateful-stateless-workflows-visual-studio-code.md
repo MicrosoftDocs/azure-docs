@@ -788,7 +788,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       1. Select either an existing Application Insights resource or **Create new Application Insights resource**.
 
-      1. In the [Azure portal](htpps://portal.azure.com), go to your Application Insights resource.
+      1. In the [Azure portal](https://portal.azure.com), go to your Application Insights resource.
 
       1. On the resource menu, select **Overview**. Find and copy the **Instrumentation Key** value.
 
