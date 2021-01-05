@@ -2807,7 +2807,7 @@ lastIndexOf('<text>', '<searchText>')
 
 If the string or substring value is empty, the following behavior occurs:
 
-* If only the string value is empty, `-1` is returned:
+* If only the string value is empty, the function returns `-1`.
 
 * If the string and substring values are both empty, the function returns `0`.
 
