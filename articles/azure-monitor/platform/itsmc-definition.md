@@ -123,9 +123,9 @@ Use the following procedure to create action groups:
 
 8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#template-definitions) in the **Template** list and enter the fixed values in the template fields.
 
-9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. Meaning there will be one work item per configuration item.
+9. In the last section of the action ITSM group definition you can define how many alerts will be created from each alert. This section is relevant only to Log Search Alerts.
 
-    * In a case you select in the work item dropdown "Incident" or "Alert": 
+    * In a case you select in the work item dropdown "Incident" or "Alert":
         * If you check the **Create individual work items for each Configuration Item** check box, every configuration item in every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system.
 
             For example:
@@ -144,8 +144,9 @@ Use the following procedure to create action groups:
 
        ![Screenshot that shows the ITSM Incident window.](media/itsmc-overview/itsm-action-configuration.png)
 
-    * In a case you select in the work item dropdown "Event": If you select **Create individual work items for each Log Entry** in the radio buttons selection, every
-   alert will create a new work item. If you select **Create individual work items for each Configuration Item** in the radio buttons selection, every configuration item will have its own work item.
+    * In a case you select in the work item dropdown "Event":
+        * If you select **Create individual work items for each Log Entry** in the radio buttons selection, an alert will be created per each row in the search results of the log search alert query. In the payload of the alert the description property will have the row from the search results.
+        * If you select **Create individual work items for each Configuration Item** in the radio buttons selection, every configuration item in every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system. This will be the same as the checking the checkbox in Incident/Alert section.
     ![Screenshot that shows the ITSM Event window.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Select **OK**.
