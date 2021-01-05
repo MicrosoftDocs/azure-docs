@@ -50,13 +50,13 @@
     href: basic-concepts.md
   - name: Security
     items:
+    - name: Security overview
+      href: security-overview.md
     - name: Key Vault Authentication Fundamentals
       href: authentication-fundamentals.md
-    - name: Azure Key Vault security
-      href: overview-security.md
     - name: Best Practices to use Key Vault - Azure Key Vault
       href: best-practices.md
-    - name: Azure Key Vault security worlds
+    - name: Security worlds and geographic boundaries
       href: overview-security-worlds.md
     - name: Network Security
       href: network-security.md
