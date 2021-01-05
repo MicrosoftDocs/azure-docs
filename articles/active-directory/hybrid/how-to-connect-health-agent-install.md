@@ -278,6 +278,17 @@ After you install the appropriate agent *setup.exe* file, you can register the a
 
 ```
 
+> [!NOTE]
+> To register against sovereign clouds, use the following command lines:
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
+
 These commands accept `Credential` as a parameter to complete the registration noninteractively or to complete the registration on a machine that runs Server Core. Keep in mind that:
 * You can capture `Credential` in a PowerShell variable that's passed as a parameter.
 * You can provide any Azure AD identity that has permissions to register the agents and that does *not* have multifactor authentication enabled.

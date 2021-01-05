@@ -123,7 +123,7 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 
 For Azure DNS resolution, there are two options available:
 
--   Use the Azure Active Directory (Azure AD) domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
+-   Use the domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
 
 -   Deploy and configure an Azure DNS private zone.
 
@@ -131,7 +131,7 @@ The best approach is to combine both to provide reliable name resolution for Azu
 
 As a general design recommendation, use the existing Azure DNS infrastructure (in this case, Active Directory-integrated DNS) deployed onto at least two Azure VMs deployed in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
 
-You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS leveraging customer Azure Private DNS infrastructure. 
+You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure. 
 
 To automatically manage the DNS records' lifecycle for the VMs deployed within the Spoke virtual networks, enable autoregistration. When enabled, the maximum number of private DNS zones is only one. If disabled, then the maximum number is 1000.
 
@@ -139,7 +139,7 @@ On-premises and Azure VMware Solution servers can be configured with conditional
 
 ## Identity considerations
 
-For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub. Use two shared service subnets in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
+For identity purposes, the best approach is to deploy at least one domain controller on the Hub. Use two shared service subnets in zone-distributed fashion or a VM availability set. For more information on extending your on-premises Active Directory (AD) domain to Azure, see [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
