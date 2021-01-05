@@ -80,7 +80,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
-* In **CCreateIntLBQS-rg **.
+* In **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -95,7 +95,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.1.1.0/24**.
 * In virtual network **myVNet**.
-* In resource group **CreateIntLBQS-rg **.
+* In resource group **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -110,7 +110,7 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
 
 * Named **myBastionHost**.
-* In **CreateIntLBQS-rg **.
+* In **CreateIntLBQS-rg**.
 * Associated with public IP **myBastionIP**.
 * Associated with virtual network **myVNet**.
 * In **eastus** location.
