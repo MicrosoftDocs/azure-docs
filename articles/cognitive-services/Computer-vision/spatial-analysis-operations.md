@@ -281,7 +281,7 @@ Sample JSON for an event output by this operation.
         "height": 342,
         "frameId": "1400",
         "cameraCalibrationInfo": {
-            "status": "Complete",
+            "status": "Calibrated",
             "cameraHeight": 10.306597709655762,
             "focalLength": 385.3199462890625,
             "tiltupAngle": 1.0969393253326416
@@ -379,7 +379,7 @@ Sample JSON for an event output by this operation.
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
 | `cameraCallibrationInfo` | collection | Collection of values|
-| `status` | string | Indicates if camera calibration to ground plane is "Complete"|
+| `status` | string | The status of the calibration in the format of `state[;progress description]`. The state can be `Calibrating`, `Recalibrating` (if recalibration is enabled), or `Calibrated`. The progress description part is only valid when it is in `Calibrating` and `Recalibrating` state, which is used to show the progress of current calibration process.|
 | `cameraHeight` | float | The height of the camera above the ground in feet. This is inferred from auto-calibration. |
 | `focalLength` | float | The focal length of the camera in pixels. This is inferred from auto-calibration. |
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from auto-calibration.|
@@ -484,14 +484,14 @@ Sample JSON for detections output by this operation.
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI Insights
 
-Sample JSON for detections output by this operation.
+Sample JSON for detections output by this operation with `zonecrossing` type SPACEANALYTICS_CONFIG.
 
 ```json
 {
     "events": [
         {
             "id": "f095d6fe8cfb4ffaa8c934882fb257a5",
-            "type": "personZoneEvent",
+            "type": "personZoneEnterExitEvent",
             "detectionIds": [
                 "afcc2e2a32a6480288e24381f9c5d00e"
             ],
@@ -529,11 +529,65 @@ Sample JSON for detections output by this operation.
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadata": {
-	        "attributes": {
-	            "face_Mask": 0.99
-	        }
+	    "metadata": {
+	    "attributes": {
+	    "face_Mask": 0.99
 	    }
+	    }
+           
+        }
+    ],
+    "schemaVersion": "1.0"
+}
+```
+
+Sample JSON for detections output by this operation with `zonedwelltime` type SPACEANALYTICS_CONFIG.
+
+```json
+{
+    "events": [
+        {
+            "id": "f095d6fe8cfb4ffaa8c934882fb257a5",
+            "type": "personZoneDwellTimeEvent",
+            "detectionIds": [
+                "afcc2e2a32a6480288e24381f9c5d00e"
+            ],
+            "properties": {
+                "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
+                "status": "Exit",
+                "side": "1",
+                "duration_franes": 1000 
+            },
+            "zone": "queuecamera"
+        }
+    ],
+    "sourceInfo": {
+        "id": "camera_id",
+        "timestamp": "2020-08-24T06:15:09.680Z",
+        "width": 608,
+        "height": 342,
+        "frameId": "428",
+        "imagePath": ""
+    },
+    "detections": [
+        {
+            "type": "person",
+            "id": "afcc2e2a32a6480288e24381f9c5d00e",
+            "region": {
+                "type": "RECTANGLE",
+                "points": [
+                    {
+                        "x": 0.8135572734631991,
+                        "y": 0.6653949670624315
+                    },
+                    {
+                        "x": 0.9937645761590255,
+                        "y": 0.9925406829655519
+                    }
+                ]
+            },
+            "confidence": 0.6267998814582825,
+            "metadataType": ""
         }
     ],
     "schemaVersion": "1.0"
@@ -545,7 +599,7 @@ Sample JSON for detections output by this operation.
 | `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
-| `properties` | collection| Collection of values|
+| `properties` | collection| Collection of values, for `PersonZoneDwellTimeEvent`, `duration_frames` means the person stays in zone for that number of frames.|
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
@@ -594,7 +648,7 @@ Sample JSON for detections output by this operation.
         "height": 342,
         "frameId": "1199",
         "cameraCalibrationInfo": {
-            "status": "Complete",
+            "status": "Calibrated",
             "cameraHeight": 12.9940824508667,
             "focalLength": 401.2800598144531,
             "tiltupAngle": 1.057669997215271
@@ -686,7 +740,7 @@ Sample JSON for detections output by this operation.
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
 | `cameraCallibrationInfo` | collection | Collection of values|
-| `status` | string | Indicates if camera calibration to ground plane is "Complete"|
+| `status` | string | The status of the calibration in the format of `state[;progress description]`. The state can be `Calibrating`, `Recalibrating` (if recalibration is enabled), or `Calibrated`. The progress description part is only valid when it is in `Calibrating` and `Recalibrating` state, which is used to show the progress of current calibration process.|
 | `cameraHeight` | float | The height of the camera above the ground in feet. This is inferred from auto-calibration. |
 | `focalLength` | float | The focal length of the camera in pixels. This is inferred from auto-calibration. |
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from auto-calibration.|
