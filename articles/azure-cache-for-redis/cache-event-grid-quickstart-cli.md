@@ -1,30 +1,30 @@
 ---
-title: Send Azure Cache for Redis events to web endpoint - Azure CLI 
-description: Use Azure Event Grid to subscribe to Azure Cache for Redis events. Send the events to a Webhook. Handle the events in a web application.
+title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI'
+description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application.
 author: curib
 ms.author: cauribeg
-ms.date: 12/21/2020
+ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Azure Cache for Redis events, trigger an event, and view the result.
+Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure CLI to subscribe to Azure Cache for Redis events, trigger an event, and view the results.
 
-Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages. When you complete the steps described in this article, you see that the event data has been sent to the web app.
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages. When you complete the steps described in this quickstart, you'll see that the event data has been sent to the web app.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
 ## Create a resource group
 
-Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
+Event Grid topics are deployed as individual Azure resources and must be provisioned under an Azure resource group. A resource group is a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
@@ -67,7 +67,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to your Azure Cache for Redis instance
 
-You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the Azure Cache for Redis instance you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<cache_name>`, use the values you created earlier.
+In this step, you'll subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the Azure Cache for Redis instance you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<cache_name>`, use the values you created earlier.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
@@ -117,7 +117,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
-If you plan to continue working with this Azure Cache for Redis instance and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this Azure Cache for Redis instance and event subscription, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following command to delete the resources you created in this quickstart.
 
 Replace `<resource_group_name>` with the resource group you created above.
 

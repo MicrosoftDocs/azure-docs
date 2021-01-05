@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Send Azure Cache for Redis events to web endpoint - portal'
-description: 'Quickstart: Use Azure Event Grid and Azure portal to create an Azure Cache for Redis instance, and subscribe its events. Send the events to a Webhook.'
-ms.date: 12/21/2020
+title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal'
+description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application
+ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
 author: curib
@@ -10,11 +10,11 @@ ms.author: cauribeg
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create an Azure Cache for Redis instance, subscribe to events for that instance, trigger an event, and view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure portal to create an Azure Cache for Redis instance, subscribe to events for that instance, trigger an event, and view the results. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-When you're finished, you see that the event data has been sent to the web app.
+When you're finished, you'll see that the event data has been sent to the web app.
 
 :::image type="content" source="media/cache-event-grid-portal/event-grid-scaling.png" alt-text="Azure Event Grid Viewer scaling in JSON format.":::
 
@@ -24,7 +24,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Create a message endpoint
 
-Before subscribing to the events for the cache instance, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the events for the cache instance, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you'll deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** in GitHub README to deploy the solution to your subscription. 
 
@@ -48,7 +48,7 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
     :::image type="content" source="media/cache-event-grid-portal/deployment-notification.png" alt-text="Azure Portal deployment notification.":::
 
-4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the cache instance in this list. 
+4. On the **Resource group** page, in the list of resources, select the web app that you created. You'll also see the App Service plan and the cache instance in this list. 
 
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
 
@@ -60,7 +60,7 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
 ## Subscribe to the Azure Cache for Redis instance
 
-You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
+In this step, you'll subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
 1. In the portal, navigate to your cache instance that you created earlier. 
 2. On the **Azure Cache for Redis** page, select **Events** on the left menu. 
@@ -73,7 +73,7 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Enter a name for the event subscription. | The value must be between 3 and 64 characters long. It can only contain letters, numbers, and dashes. | 
-    | **Event Types** | Drop down and select which event type(s) you want to get pushed to your destination. | Patching, scaling, import and export are the available options. | 
+    | **Event Types** | Drop down and select which event type(s) you want to get pushed to your destination. For this quickstart, we'll be scaling our cache instance. | Patching, scaling, import and export are the available options. | 
     | **Endpoint Type** | Select **Web Hook**. | Event handler to receive your events. | 
     | **Endpoint** | Click **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://cache.azurewebsites.net/api/updates`), and then select **Confirm Selection**. | This is the URL of your web app that you created earlier. | 
 
@@ -83,11 +83,9 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
     :::image type="content" source="media/cache-event-grid-portal/subscription-event.png" alt-text="Azure Event Grid Viewer.":::
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
-
 ## Send an event to your endpoint
 
-Let's scale your Azure Cache for Redis instance.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. We'll be scaling your Azure Cache for Redis instance.
 
 1. In the Azure portal, navigate to your Azure Cache for Redis instance and select **Scale** on the left menu.
 
@@ -110,7 +108,7 @@ Let's scale your Azure Cache for Redis instance.
 
 ## Clean up resources
 
-If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, delete the resources you created in this article.
+If you plan to continue working with this event, don't clean up the resources created in this quickstart. Otherwise, delete the resources you created in this quickstart.
 
 Select the resource group, and select **Delete resource group**.
 

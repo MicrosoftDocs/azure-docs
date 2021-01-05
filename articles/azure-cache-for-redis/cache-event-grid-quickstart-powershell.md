@@ -1,7 +1,7 @@
 ---
-title: Send Azure Cache for Redis events to web endpoint - PowerShell
-description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, trigger an event, and view the result. Use Azure PowerShell to route Azure Cache for Redis events to a web endpoint.
-ms.date: 12/21/2020
+title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell'
+description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application.
+ms.date: 1/5/2021
 author: curib
 ms.author: cauribeg
 ms.topic: quickstart
@@ -10,13 +10,13 @@ ms.service: cache
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Azure Cache for Redis events, trigger an event, and view the result. 
+Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use Azure PowerShell to subscribe to Azure Cache for Redis events, trigger an event, and view the results. 
 
-Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages. When you're finished, you see that the event data has been sent to the web app.
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages. When you complete the steps described in this quickstart, you'll see that the event data has been sent to the web app.
 
 ## Setup
 
-This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+This quickstart requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Sign in to Azure
 
@@ -34,7 +34,7 @@ $location = "westus2"
 
 ## Create a resource group
 
-Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
+Event Grid topics are deployed as individual Azure resources and must be provisioned under an Azure resource group. A resource group is a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
@@ -94,7 +94,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to your Azure Cache for Redis event
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the cache instance you created, and passes the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`.
+In this step, you'll subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the cache instance you created, and passes the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```powershell
 $cacheId = (Get-AzRedisCache -ResourceGroupName $resourceGroup -Name $cacheName).Id
@@ -150,7 +150,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
-If you plan to continue working with this Azure Cache for Redis instance and event subscription, don't clean up the resources created in this article. If you don't plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this Azure Cache for Redis instance and event subscription, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following command to delete the resources you created in this quickstart.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
