@@ -53,15 +53,11 @@ Once tags have been added to digital twins, the tags can be used to filter the t
 
 Here is a query to get all twins that have been tagged as "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags-1":::
 
 You can also combine tags for more complex queries. Here is a query to get all twins that are round, and not red: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags-2":::
 
 ## Value tags 
 
@@ -93,17 +89,13 @@ Note that `red` and `purple` are used as marker tags in this example.
 
 As with marker tags, you can use value tags to filter the twins in queries. You can also use value tags and marker tags together.
 
-From the example above, `red` is being used as a marker tag. Here is a query to get all twins that have been tagged as "red": 
+From the example above, `red` is being used as a marker tag. Remember that this is a query to get all twins that have been tagged as "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags-1":::
 
 Here is a query to get all entities that are small (value tag), and not red: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## Next steps
 
