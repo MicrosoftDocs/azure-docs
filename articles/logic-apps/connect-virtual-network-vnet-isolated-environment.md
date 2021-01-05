@@ -161,14 +161,14 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 * Service endpoints
 
-  You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hubs because you can't send traffic through a firewall to these services.
+  You need to enable service endpoints for Azure SQL, Storage, Service Bus, KeyVault, and Event Hubs because you can't send traffic through a firewall to these services.
 
 *  Other inbound and outbound dependencies
 
    Your firewall *must* allow the following inbound and outbound dependencies:
    
    * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
-   * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
    * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>

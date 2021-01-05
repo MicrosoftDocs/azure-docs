@@ -41,7 +41,7 @@ The following examples show how bursting works with various virtual machine and 
     - Provisioned MB/s: 25
     - Max burst MB/s: 170 
 - 2 P10 Data Disks 
-    - Provisioned MB/s: 25
+    - Provisioned MB/s: 100
     - Max burst MB/s: 170
 
  When the VM boots up it will retrieve data from the OS disk. Since the OS disk is part of a VM that is getting started, the OS disk will be full of bursting credits. These credits will allow the OS disk burst its startup at 170 MB/s second as seen below:

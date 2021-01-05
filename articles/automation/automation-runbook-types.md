@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ---
 
@@ -95,7 +95,7 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ## Python runbooks
 
-Python runbooks compile under Python 2 and Python 3. You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+Python runbooks compile under Python 2 and Python 3. Python 3 runbooks are currently in preview. You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 ### Advantages
 
@@ -110,14 +110,14 @@ Python runbooks compile under Python 2 and Python 3. You can directly edit the c
 
 * You must be familiar with Python scripting.
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
-* Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook does not work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
-* Python 3 runbooks and packages do not work with PowerShell.
+* Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) does not work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
+* Python 3 runbooks (preview) and packages do not work with PowerShell.
 * Using a webhook to start a Python runbook is not supported.
 * Azure Automation does not support **sys.stderr**.
 
 ### Known issues
 
-Python 3 job sometimes fails with an exception message *invalid interpreter executable path*. You might see this exception if a job is delayed, starting more than 10 minutes or using **Start-AutomationRunbook** to start Python 3 runbooks. If the job is delayed, restarting the runbook should be sufficient.
+Python 3 jobs sometimes fails with an exception message *invalid interpreter executable path*. You might see this exception if a job is delayed, starting more than 10 minutes or using **Start-AutomationRunbook** to start Python 3 runbooks. If the job is delayed, restarting the runbook should be sufficient.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Manage connections in Azure Automation
 description: This article tells how to manage Azure Automation connections to external services or applications and how to work with them in runbooks.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ---
@@ -56,7 +56,7 @@ The internal cmdlet in the following table is used to access connections in your
 
 ## Python functions to access connections
 
-The function in the following table is used to access connections in a Python 2 and 3 runbook.
+The function in the following table is used to access connections in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 | Function | Description |
 |:---|:---|
