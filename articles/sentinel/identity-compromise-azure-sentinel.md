@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 01/05/2021
 ms.author: bagol
 
 ---
@@ -33,21 +33,8 @@ Microsoft Defender alerts, combined with raw logs from other data sources, provi
 
 Investigating a Microsoft Defender-sourced incident in Sentinel enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
 
-**Use Azure Sentinel to perform the following steps as needed in your organization**:
-
-1. [Find machines with SolarWinds Orion components](#step-1-detect-machines-with-solarwinds-orion-components)
-1. [Identify privilege escalations in your system](#step-2-identify-privilege-escalations-in-your-system)
-1. [Find exported certificates](#step-3-find-exported-certificates)
-1. [Hunt through Azure Active Directory logs](#step-4-hunt-through-azure-active-directory-logs)
-1. [Find reconnaissance and remote process execution](#step-5-find-reconnaissance-and-remote-process-execution)
-1. [Find illicit data access](#step-6-find-illicit-data-access)
-1. [Find mail data exfiltration](#step-7-find-mail-data-exfiltration)
-1. [Find suspicious domain-related activity](#step-8-find-suspicious-domain-related-activity)
-1. [Find evidence of security service tampering](#step-9-to-find-evidence-of-security-service-tampering)
-1. [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#step-10-find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
-
 > [!NOTE]
-> Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or should be performed in a different order than listed. 
+> Depending on your configurations and identified risk, there may be steps described in this article that are not relevant for your organization, or should be performed in a different order than listed. 
 >
 > We recommend performing as many checks as possible with an informed understanding of your network estate.
 >
@@ -101,7 +88,7 @@ Event
 ) 
 ```
 
-### Step 1a: Finding hardcoded pipes in your environment
+### Step 1a: Find hardcoded pipes in your environment
 
 The Solorigate attackers used a hardcoded pipe named **583da945-62af-10e8-4902-a8f205c72b2e** to verify that only one instance of the backdoor they created was running.
 
@@ -272,8 +259,9 @@ Since domain federation setting modifications should be rare, this would be a hi
 Use the following queries to hunt for other unusual activity:
 
 - [Find modifications made to STS refresh tokens](#step-4a-find-modifications-made-to-sts-refresh-tokens)
-- [Find access added to service principals or applications](#step-4b-find-access-added-to-service-principals-or-applications)
-- [Find applications with permissions to read mailbox contents](#step-4c-find-applications-with-permissions-to-read-mailbox-contents)
+- [Find extra credentials added to applications or service principals](#step-4b-find-extra-credentials-added-to-applications-or-service-principals)
+- [Find first credentials added to applications or service principals](#step-4c-find-first-credentials-added-to-applications-or-service-principals)
+- [Find applications with permissions to read mailbox contents](#step-4d-find-applications-with-permissions-to-read-mailbox-contents)
 
 > [!TIP]
 > You can also monitor Azure AD for sign-ins that attempt to use invalid key material. For example, this may occur when an attacker attempts to use a stolen key after the key material has already been rotated. 
@@ -316,9 +304,7 @@ AuditLogs
 | extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress
 ```
 
-### Step 4b: Find access added to service principals or applications
-
-**Find extra credentials added to applications or service principals**
+### Step 4b: Find extra credentials added to applications or service principals
 
 Use the following Sentinel query to find new access credentials added to an application or service principal.
 
@@ -355,7 +341,7 @@ AuditLogs
 | extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress
 ```
 
-**Find first credentials added to applications or service principals**
+### Step 4c: Find first credentials added to applications or service principals
 
 Use the following Sentinel query to find a first access credential added to an application or service principal, where no credentials were already present:
 
@@ -390,7 +376,7 @@ AuditLogs
 | extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress
 ```
 
-### Step 4c: Find applications with permissions to read mailbox contents
+### Step 4d: Find applications with permissions to read mailbox contents
 
 The Solorigate attackers used applications with access to users' mailboxes to read through privileged information.
 
@@ -431,7 +417,7 @@ AuditLogs
 
  
 
-## Step 5: Find reconnaissance and remote process execution
+## Step 5:Find reconnaissance and remote process execution
 
 An attacker might attempt to access on-premises systems to gain further insight about the environment mapping. For example, in the Solorigate attack, the attackers renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
 
@@ -914,7 +900,7 @@ DeviceInfo
 
 ## Next steps
 
-If you want to dive deeper using Azure Defender for Endpoint and Azure Active Directory, see:
+If you want to dive deeper directly with Azure Defender for Endpoint and Azure Active Directory, see:
 
 - [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md)
 - [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 01/05/2021
 ms.author: bagol
 
 ---
@@ -461,3 +461,13 @@ Run the following advanced queries, referenced from GitHub, to find tactics, thr
 |**Credential access**     |  **Azure Active Directory (Microsoft Cloud App Security)**: <br>- [Credentials added to Azure AD app after admin consent](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/CredentialsAddAfterAdminConsentedToApp%5BSolorigate%5D.md) <br>- [New access credential added to application or service principal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/NewAppOrServicePrincipalCredential%5BSolarigate%5D.md) <br>- [Domain federation trust settings modified](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Defense%20evasion/ADFSDomainTrustMods%5BSolarigate%5D.md) <br>- [Add uncommon credential type to application](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/Add%20uncommon%20credential%20type%20to%20application%20%5BSolorigate%5D.md) <br>- [Service Principal Added To Role](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Privilege%20escalation/ServicePrincipalAddedToRole%20%5BSolorigate%5D.md)       |
 |**Exfiltration**     |    **Exchange Online (Microsoft Cloud App Security)**: <br>- [Mail Items Accessed Throttling Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/MailItemsAccessed%20Throttling%20%5BSolorigate%5D.md)<br>- [Mail Items Accessed Anomaly Analytic](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/Anomaly%20of%20MailItemAccess%20by%20GraphAPI%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail via GraphAPI anomaly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20via%20GraphAPI%20anomaly%20%5BSolorigate%5D.md) <br>- [OAuth Apps reading mail both via GraphAPI and directly](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20both%20via%20GraphAPI%20and%20directly%20%5BSolorigate%5D.md)     |
 |     |         |
+
+## Next steps
+
+We recommend that you also review Azure AD data to investigate further. Azure Sentinel users can view both Microsoft Defender and Azure AD data in a single view in Azure Sentinel.
+
+For more information, see:
+
+- [Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md)
+- [Using Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
+- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)

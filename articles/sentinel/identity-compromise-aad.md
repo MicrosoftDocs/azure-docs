@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 01/05/2021
 ms.author: bagol
 
 ---
@@ -62,4 +62,12 @@ In your [workbook](#access-the-microsoft-azure-ad-solorigate-workbook), expand e
 |**Directory role and group membership updates for service principals**     |This area of the workbook provides an overview of all changes made to service principal memberships. <br><br>**Tip**: We recommend that you review the information for any additions to highly privileged roles and groups, which is another step an attacker might take in attempting to gain access to an environment.         |
 |     |         |
 
-## Next steps
+## Next steps 
+
+We recommend that you also review Microsoft Defender data to investigate further. Azure Sentinel users can view both Microsoft Defender and Azure AD data in a single view in Azure Sentinel.
+
+For more information, see:
+
+- [Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md)
+- [Using Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
+- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
