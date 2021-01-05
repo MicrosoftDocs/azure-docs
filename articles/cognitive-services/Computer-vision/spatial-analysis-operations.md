@@ -74,12 +74,12 @@ These are the parameters required by each of these spatial analysis operations.
 "zones":[{
 	"name": "lobbycamera"
 	"polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-	"threshold": 50.00,
 	"events":[{
 		"type": "count",
 		"config":{
 			"trigger": "event",
-			"output_frequency": 1
+            "threshold": 16.00,
+            "focus": "footprint"
       }
 	}]
 }
@@ -102,20 +102,31 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 ```json
 {
-"lines":[{
-	"name": "doorcamera" 
-	"line": {
-        "start": {"x": 0, "y": 0.5},
-        "end": {"x": 1, "y": 0.5}
-            },
-	"threshold": 50.00,
-	"events":[{
-		"type": "linecrossing",
-		"config":{
-			"trigger": "event"
-            }
-        }]
-	}]
+   "lines": [
+       {
+           "name": "doorcamera",
+           "line": {
+               "start": {
+                   "x": 0,
+                   "y": 0.5
+               },
+               "end": {
+                   "x": 1,
+                   "y": 0.5
+               }
+           },
+           "events": [
+               {
+                   "type": "linecrossing",
+                   "config": {
+                       "trigger": "event",
+                       "threshold": 16.00,
+                       "focus": "footprint"
+                   }
+               }
+           ]
+       }
+   ]
 }
 ```
 
@@ -137,17 +148,31 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
  ```json
 {
-"zones":[{
-	"name": "queuecamera"
-	"polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-	"threshold": 50.00,
-	"events":[{
-		"type": "zone_crossing",
-		"config":{
-			"trigger": "event"
-            }
-		}]
-	}]
+"zones":[
+   {
+       "name": "queuecamera"
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+           "type": "zonecrossing",
+           "config":{
+               "trigger": "event",
+               "threshold": 48.00,
+               "focus": "footprint"
+               }
+           }]
+   },
+   {
+       "name": "queuecamera1"
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+           "type": "zonedwelltime",
+           "config":{
+               "trigger": "event",
+               "threshold": 16.00,
+               "focus": "footprint"
+               }
+           }]
+   }]
 }
 ```
 
@@ -157,7 +182,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
-| `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `enter` or `exit`.|
+| `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
 
@@ -168,19 +193,20 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 ```json
 {
 "zones":[{
-	"name": "lobbycamera",
-	"polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-	"threshold": 35.00,
-	"events":[{
-		"type": "persondistance",
-		"config":{
-			"trigger": "event",
-			"output_frequency":1,
-			"minimum_distance_threshold":6.0,
-			"maximum_distance_threshold":35.0
-      		}
-		}]
-	}]
+   "name": "lobbycamera",
+   "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+   "events":[{
+   	"type": "persondistance",
+   	"config":{
+   		"trigger": "event",
+   		"output_frequency":1,
+   		"minimum_distance_threshold":6.0,
+   		"maximum_distance_threshold":35.0，
+           "threshold": 16.00,
+           "focus": "footprint"
+     		}
+   	}]
+   }]
 }
 ```
 
