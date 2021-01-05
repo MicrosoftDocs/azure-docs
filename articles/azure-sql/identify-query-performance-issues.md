@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
 ---
 

@@ -6,7 +6,7 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
 
 ---
@@ -157,7 +157,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 <sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
 > [!NOTE]
-> The A8 – A11 VMs are planned for retirement on 3/2021. We strongly recommend not creating any new A8 – A11 VMs. Please migrate any existing A8 – A11 VMs to newer and powerful high-performance computing VM sizes such as H, HB, HC, HBv2 as well as general purpose compute VM sizes such as D, E, and F for better price-performance. 
+> The [A8 – A11 VMs are planned for retirement on 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). We strongly recommend not creating any new A8 – A11 VMs. Please migrate any existing A8 – A11 VMs to newer and powerful high-performance computing VM sizes such as H, HB, HC, HBv2 as well as general purpose compute VM sizes such as D, E, and F for better price-performance. 
 > For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
@@ -221,7 +221,7 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 
 > [!IMPORTANT]
 >
-> DC-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+> DC-series VMs are [generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 
 
 ### DS-series  

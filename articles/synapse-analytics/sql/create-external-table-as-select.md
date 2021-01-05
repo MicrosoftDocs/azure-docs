@@ -1,6 +1,6 @@
 ---
 title: Store query results from serverless SQL pool
-description: In this article, you'll learn how to store query results to storage using serverless SQL pool (preview).
+description: In this article, you'll learn how to store query results to storage using serverless SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick 
 ---
 
-# Store query results to storage using serverless SQL pool (preview) in Azure Synapse Analytics
+# Store query results to storage using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to store query results to storage using serverless SQL pool (preview).
+In this article, you'll learn how to store query results to storage using serverless SQL pool.
 
 ## Prerequisites
 

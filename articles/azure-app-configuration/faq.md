@@ -2,12 +2,11 @@
 title: Azure App Configuration FAQ
 description: Read answers to frequently asked questions (FAQ) about Azure App Configuration, such as how it's different from Azure Key Vault.
 services: azure-app-configuration
-author: lisaguthrie
-
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
+ms.author: alkemper
 ---
 
 # Azure App Configuration FAQ

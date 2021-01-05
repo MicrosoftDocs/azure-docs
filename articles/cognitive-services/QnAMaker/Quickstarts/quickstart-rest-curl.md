@@ -11,7 +11,7 @@ ms.topic: quickstart
 
 # Quickstart: Use cURL and REST to manage knowledge base
 
-This quickstart walks you through creating, publishing, and querying your knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
+This quickstart walks you through creating, publishing, and querying your knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../index.yml). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -49,7 +49,7 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 |--|--|--|
 |QnA Maker resource name|URL|used to construct URL|
 |QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
-|JSON describing knowledge base|`-d` param|[Examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
+|JSON describing knowledge base|`-d` param|[Examples](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
@@ -84,7 +84,7 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 |--|--|--|
 |QnA Maker resource name|URL|used to construct URL|
 |QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
-|JSON describing knowledge base|`-d` param|[Examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
+|JSON describing knowledge base|`-d` param|[Examples](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
@@ -317,7 +317,7 @@ Getting an answer from the knowledge is done from a separate runtime than managi
 |QnA Maker resource name|URL|used to construct URL|
 |QnA Maker runtime key|`-h` param for `Authorization` header|The key is part of a string that includes the word `Endpointkey `. Authenticate to QnA Maker service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON describing query|`-d` param|[Request body parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
+|JSON describing query|`-d` param|[Request body parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
@@ -342,7 +342,7 @@ Getting an answer from the knowledge is done from a separate runtime than managi
 |QnA Maker resource name|URL|used to construct URL|
 |QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON describing query|`-d` param|[Request body parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
+|JSON describing query|`-d` param|[Request body parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
@@ -409,11 +409,11 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 ## Additional resources
 
-* [Authoring](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Reference documentation
-* [Runtime](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) Reference documentation
+* [Authoring](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Reference documentation
+* [Runtime](/rest/api/cognitiveservices/qnamaker4.0/runtime) Reference documentation
 * [Sample BASH scripts using cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker (V4) REST API Reference](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

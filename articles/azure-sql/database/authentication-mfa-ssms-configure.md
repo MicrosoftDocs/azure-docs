@@ -17,10 +17,10 @@ ms.date: 08/27/2019
 # Configure multi-factor authentication for SQL Server Management Studio and Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article shows you how to use Azure Active Directory (Azure AD) multi-factor authentication (MFA) with SQL Server Management Studio (SSMS). Azure AD MFA can be used when connecting SSMS or SqlPackage.exe to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md).
+This article shows you how to use Azure Active Directory (Azure AD) multi-factor authentication (MFA) with SQL Server Management Studio (SSMS). Azure AD MFA can be used when connecting SSMS or SqlPackage.exe to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse (formerly SQL Data Warehouse) are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that hosts databases for Azure SQL Database and Azure Synapse.
+> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that hosts databases for Azure SQL Database and Azure Synapse.
 
 ## Configuration steps
 

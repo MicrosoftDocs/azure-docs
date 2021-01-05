@@ -1,16 +1,16 @@
 ---
 title: Deploy VM extensions with template
-description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
+description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
 
-Learn how to use [Azure virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager (ARM) template to run a PowerShell script on a Windows VM.  The script installs Web Server on the VM.
+Learn how to use [Azure virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager template (ARM template) to run a PowerShell script on a Windows VM. The script installs Web Server on the VM.
 
 This tutorial covers the following tasks:
 
@@ -26,18 +26,18 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in your ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
 
 ## Prepare a PowerShell script
 
-You can use inline PowerShell script or a script file.  This tutorial shows how to use a script file. A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+You can use an inline PowerShell script or a script file. This tutorial shows how to use a script file. A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,22 +100,22 @@ Add a virtual machine extension resource to the existing template with the follo
 
 For more information about this resource definition, see the [extension reference](/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
-* **dependsOn**: Create the extension resource after you've created the virtual machine.
-* **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
-* **commandToExecute**: This command invokes the script.
+* `name`: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
+* `dependsOn`: Create the extension resource after you've created the virtual machine.
+* `fileUris`: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
+* `commandToExecute`: This command invokes the script.
 
-To use inline script, remove **fileUris**, and update **commandToExecute** to:
+To use an inline script, remove `fileUris`, and update `commandToExecute` to:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-This inline script also update the iisstart.html content.
+This inline script also updates the _iisstart.html_ content.
 
-You must also open the HTTP port so that you would be able to access the web server.
+You must also open the HTTP port so that you can access the web server.
 
-1. Find **securityRules** in the template.
+1. Find `securityRules` in the template.
 1. Add the following rule next to **default-allow-3389**.
 
     ```json
@@ -136,7 +136,7 @@ You must also open the HTTP port so that you would be able to access the web ser
 
 ## Deploy the template
 
-For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
+For the deployment procedure, see the **Deploy the template** section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
 
 From the Cloud Shell, run the following command to retrieve the public IP address of the VM:
 

@@ -21,7 +21,7 @@ The analytics resources available to data science teams using the TDSP include:
 
 - Data Science Virtual Machines (both Windows and Linux CentOS)
 - HDInsight Spark Clusters
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - HDInsight Hive Clusters
 - Azure File Storage

@@ -70,4 +70,4 @@ For a more comprehensive explanation of the different services and platforms, an
 
 To learn more about the key attributes of successful IoT solutions, see the [8 attributes of successful IoT solutions](https://aka.ms/8attributes) white paper.
 
-For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
+For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot).

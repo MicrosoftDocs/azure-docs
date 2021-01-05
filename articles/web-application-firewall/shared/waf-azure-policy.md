@@ -25,30 +25,24 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
 
 4. **Web Application Firewall (WAF) should use the specified mode for Application Gateway**: Mandates the use of 'Detection' or 'Prevention' mode to be active on all Web Application Firewall policies for Application Gateway. The policy has three effects: Audit, Deny, and Disable. Audit tracks when a WAF does not fit the specified mode. Deny prevents any WAF from being created if it is not in the correct mode. Disabled turns off this policy.
 
-
 ## Launch an Azure Policy
-
 
 1.	On the Azure home page, type Policy in the search bar and click the Azure Policy icon
 
 2.	On the Azure Policy service, under **Authoring**, select **Assignments**.
 
-[!div class="mx-imgBorder"]
-![Azure web application firewall](../media/waf-azure-policy/policy-home.png)
+:::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Assignments tab within Azure Policy":::
 
 3.	On the Assignments page, select the **Assign policy** icon at the top.
 
-[!div class="mx-imgBorder"]
-![Screenshot that shows the Basics tab on the Assign policy page.](../media/waf-azure-policy/assign-policy.png)
+:::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Basics tab on the Assign Policy page":::
 
 4.	On the Assign Policy page basics tab, update the following fields:
     1.	**Scope**: Select what Azure subscriptions and resource groups should be impacted by the policy definition.
     2.	**Exclusions**: Select any resources from the scope to exclude from the policy assignment.
     3.	**Policy Definition**: Select the policy definition to apply to the scope with exclusions. Type "Web Application Firewall" in the search bar to choose the relevant Web Application Firewall Azure Policy.
 
-[!div class="mx-imgBorder"]
-![Screenshot that shows the available policy definitions.](../media/waf-azure-policy/policy-listing.png)
-
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Screenshot that shows the 'Policy Definitions' tab on the 'Available Definitions' page.":::
 
 5.	Select the **Parameters** tab and update the policy assignment parameters. To further clarify what the parameter does, hover over the info icon next to the parameter name for further clarification.
 

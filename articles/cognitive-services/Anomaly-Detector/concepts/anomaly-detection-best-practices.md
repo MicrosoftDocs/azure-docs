@@ -99,4 +99,4 @@ If your streaming data is sampled at a short interval (for example seconds or mi
 ## Next steps
 
 * [What is the Anomaly Detector API?](../overview.md)
-* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](../quickstarts/client-libraries.md)

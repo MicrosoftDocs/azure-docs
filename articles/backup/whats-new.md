@@ -14,6 +14,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2020
+  - [Azure Resource Manager template for Azure file share (AFS) backup](#azure-resource-manager-template-for-afs-backup)
   - [Incremental backups for SAP HANA databases on Azure VMs](#incremental-backups-for-sap-hana-databases)
 - September 2020
   - [Backup Center](#backup-center)
@@ -25,6 +26,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Azure Resource Manager template for AFS backup
+
+Azure Backup now supports configuring backup for existing Azure file shares using an Azure Resource Manager (ARM) template. The template configures protection for an existing Azure file share by specifying appropriate details for the Recovery Services vault and backup policy. It optionally creates a new Recovery Services vault and backup policy, and registers the storage account containing the file share to the Recovery Services vault.
+
+For more information, see [Azure Resource Manager templates for Azure Backup](backup-rm-template-samples.md).
 
 ## Incremental backups for SAP HANA databases
 

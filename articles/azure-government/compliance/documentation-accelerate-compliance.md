@@ -75,7 +75,7 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
  * Are you a partner and want to join our program? Fill out the [form](https://aka.ms/partnerazcl).
- * Learn more about [Azure Blueprints](https://docs.microsoft.com/azure/governance/blueprints/overview) and review [samples](https://docs.microsoft.com/azure/governance/blueprints/samples/).
+ * Learn more about [Azure Blueprints](../../governance/blueprints/overview.md) and review [samples](../../governance/blueprints/samples/index.md).
  * To learn how Azure Blueprints help you when using Azure Policy review the [blog post](https://azure.microsoft.com/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/).
  
 ## Next steps

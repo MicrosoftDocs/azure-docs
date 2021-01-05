@@ -49,7 +49,7 @@ When you use *b2clogin.com* as your redirect URL:
 
 * Space consumed in the cookie header by Microsoft services is reduced.
 * Your redirect URLs no longer need to include a reference to Microsoft.
-* JavaScript client-side code is supported (currently in [preview](user-flow-javascript-overview.md)) in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
+* JavaScript client-side code is supported (currently in [preview](javascript-and-page-layout.md)) in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
 
 ## Overview of required changes
 
@@ -57,7 +57,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references. This may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
 
 An old endpoint may look like:
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>

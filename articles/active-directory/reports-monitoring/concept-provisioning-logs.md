@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -40,6 +40,7 @@ This topic gives you an overview of the provisioning report.
 ### Who can access the data?
 * Application owners can view logs for applications they own
 * Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Administrator roles
+* Users in a custom role with the [provisioningLogs permission](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Global Administrators
 
 
@@ -52,7 +53,7 @@ Your tenant must have an Azure AD Premium license associated with it to see the 
 The provisioning logs provide answers to the following questions:
 
 * What groups were successfully created in ServiceNow?
-* What roles were imported from Amazon Web Services?
+* What users were successfully removed from Adobe?
 * What users were unsuccessfully created in DropBox?
 
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
@@ -207,7 +208,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## What you should know
 
-- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to [log analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) for retention beyond 30 days. 
+- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to [log analytics](../app-provisioning/application-provisioning-log-analytics.md) for retention beyond 30 days. 
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 
@@ -215,7 +216,9 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 - You may see skipped events for users that are not in scope. This is expected, especially when the sync scope is set to all users and groups. Our service will evaluate all the objects in the tenant, even the ones that are out of scope. 
 
-- The provisioning logs are currently unavailable in the government cloud. If you're unable to access the provisioning logs, please use the audit logs as a temporary workaround.  
+- The provisioning logs are currently unavailable in the government cloud. If you're unable to access the provisioning logs, please use the audit logs as a temporary workaround. 
+
+- The provisioning logs do not show role imports (applies to AWS, SalesForce, and ZenDesk). The logs for role imports can be found in the audit logs. 
 
 ## Error Codes
 

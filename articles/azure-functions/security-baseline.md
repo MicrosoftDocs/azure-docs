@@ -82,7 +82,7 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 - [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 

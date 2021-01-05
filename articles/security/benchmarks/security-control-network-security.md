@@ -72,7 +72,7 @@ Use Azure Security Center Just In Time Network access to configure NSGs to limit
 
 Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-- [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 

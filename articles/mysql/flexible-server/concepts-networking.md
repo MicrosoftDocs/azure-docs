@@ -105,6 +105,8 @@ Consider the following points when access to the Microsoft Azure Database for My
 
    * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for MySQL Server, and then add the IP address range as a firewall rule.
    * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
+  
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 
 ## Hostname
