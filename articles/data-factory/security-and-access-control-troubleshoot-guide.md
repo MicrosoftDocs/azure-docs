@@ -5,7 +5,7 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
 ---
@@ -146,6 +146,16 @@ To resolve the issue, go to [Azure Private Link for Azure Data Factory](https://
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 ![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### Pipeline runtime varies when basing on different IR
+
+#### Symptoms
+
+Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more than 2 minutes on average to complete the run, but it takes approximately 20 seconds to complete when based on the Default Integration Runtime.
+
+#### Cause
+
+Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per data factory, so there is a warm up around 2 minutes for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR.
 
 ## Next steps
 
