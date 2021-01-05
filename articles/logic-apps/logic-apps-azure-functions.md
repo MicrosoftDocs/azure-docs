@@ -1,6 +1,6 @@
 ---
-title: Add and call a function from Azure Logic Apps
-description: Call and run custom code in a function in Azure from automated tasks and workflows in Azure Logic Apps
+title: Add and call functions from Azure Logic Apps
+description: Call and run custom code in functions made in Azure from automated tasks and workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,9 +9,9 @@ ms.date: 10/01/2019
 ms.custom: devx-track-js
 ---
 
-# Call a function from Azure Logic Apps
+# Call functions from Azure Logic Apps
 
-When you want to run code that performs a specific job in your logic apps, you can create your own function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic apps from inside Azure Functions](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing tasks such as these examples:
+When you want to run code that performs a specific job in your logic apps, you can create your own function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic apps from inside functions](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing tasks such as these examples:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
@@ -190,13 +190,13 @@ To call existing functions from your logic apps, you can add functions like any 
 
 <a name="call-logic-app"></a>
 
-## Call logic apps from a function
+## Call logic apps from functions
 
 When you want to trigger a logic app from inside a function, the logic app must start with a trigger that provides a callable endpoint. For example, you can start the logic app with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that logic app to process. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md).
 
 <a name="enable-authentication-functions"></a>
 
-## Enable authentication for a function
+## Enable authentication for functions
 
 To easily authenticate access to other resources that are protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
