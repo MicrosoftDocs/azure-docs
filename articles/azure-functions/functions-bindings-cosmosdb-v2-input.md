@@ -1677,7 +1677,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 
 # [JavaScript](#tab/javascript)
 
-Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the JavaScript example.
+Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#example) for more detail.
 
 # [PowerShell](#tab/powershell)
 
