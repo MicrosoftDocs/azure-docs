@@ -107,14 +107,8 @@ module.exports = async function (context, req) {
 
     const userToken = await tokenClient.issueToken(user, ["voip"]);
 
-    const response = {
-        "User" : userToken.user,
-        "Token": userToken.token,
-        "ExpiresOn": userToken.expiresOn
-    }
-
     context.res = {
-        body: response
+        body: userToken
     };
 }
 ```
