@@ -32,7 +32,7 @@ We would appreciate feedback on [Azure Communication Services GitHub](https://gi
 In the series of posts, we will learn 
 * How to create a development environment
 * Set up a local webserver with automatic reloading when your code is updated
-* Prepare the Calling QuickStart ode for publishing in Azure
+* Prepare the Calling QuickStart code for publishing in Azure
 * Publish the call sample in Azure Static WebSites via Azure Storage and provide overview of other publishing options in Azure
 * Enhance application with Chat, PSTN, SMS
 
