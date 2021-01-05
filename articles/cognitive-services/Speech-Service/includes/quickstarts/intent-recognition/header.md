@@ -22,5 +22,5 @@ After satisfying a few prerequisites, recognizing speech and identifying intents
 > You can create a LanguageUnderstandingModel using the FromEndpoint method with a URL parameter to an endpoint.
 > Speech SDK only supports LUIS v2.0 endpoints.
 > LUIS v2.0 endpoints always follow one of these two patterns:
-* `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
-* `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
