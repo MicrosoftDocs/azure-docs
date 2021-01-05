@@ -2811,7 +2811,7 @@ If the string or substring value is empty, the following behavior occurs:
 
 * If the string and substring values are both empty, the function returns `0`.
 
-* If only the substring value is empty, the length of the string, minus 1 is returned.
+* If only the substring value is empty, the function returns the string length minus 1.
 
 *Examples*
 
