@@ -1177,7 +1177,7 @@ The customization of token cache serialization to share the SSO state between AD
 
 ### Simple token cache serialization (MSAL only)
 
-The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application.
+The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a local storage, in the case where the app is a [packaged desktop application](https://developer.microsoft.com/windows/bridges/desktop/).
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` and passing the application `UserTokenCache`.
 
@@ -1196,15 +1196,27 @@ static class TokenCacheHelper
   {
    tokenCache.SetBeforeAccess(BeforeAccessNotification);
    tokenCache.SetAfterAccess(AfterAccessNotification);
+   try
+   {
+    // For packaged desktop apps (MSIX packages, also called desktop bridge) the executing assembly folder is read-only. 
+    // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
+    // which is a per-app read/write folder for packaged apps.
+    // See https://developer.microsoft.com/windows/bridges/desktop/
+    CacheFilePath = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + ".msalcache.bin3";
+   }
+   catch (System.InvalidOperationException)
+   {
+    // Fall back for an un-packaged desktop app
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+   }
   }
 
   /// <summary>
   /// Path to the token cache
   /// </summary>
-  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+  public static string CacheFilePath { get; private set; }
 
   private static readonly object FileLock = new object();
-
 
   private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
   {
