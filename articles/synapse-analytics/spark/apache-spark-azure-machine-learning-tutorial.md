@@ -313,7 +313,7 @@ best_run, fitted_model = local_run.get_output()
    ```
    ![Screenshot of regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
-   From the results, you can see that the R-squared measure accounts for 95 percent of the variance. This is also validated by the actual plot verses the observed plot. The more variance that's accounted for by the regression model, the closer the data points will fall to the fitted regression line.  
+   From the results, you can see that the R-squared measure accounts for 95 percent of the variance. This is also validated by the actual plot versus the observed plot. The more variance that's accounted for by the regression model, the closer the data points will fall to the fitted regression line.  
 
 ## Register model to Azure Machine Learning
 After you've validated your best model, you can register it to Azure Machine Learning. Then, you can download or deploy the registered model and receive all the files that you registered.
