@@ -17,7 +17,7 @@ ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable access token lifetimes in Microsoft identity platform (preview)
 
-You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
+You can specify the lifetime of a access token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -194,6 +194,7 @@ Refresh and session token configuration are affected by the following properties
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|
+|Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
 |Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
 |Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
 |Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
@@ -206,7 +207,7 @@ You can create and then assign a token lifetime policy to a specific application
 * If a policy is explicitly assigned to the service principal, it is enforced.
 * If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent organization of the service principal is enforced.
 * If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
-* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
+* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties-after-the-retirement).)
 
 For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
