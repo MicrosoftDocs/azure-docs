@@ -124,7 +124,7 @@ First, create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.da
 
 This example uses a [BinaryReader](/dotnet/api/system.io.binaryreader) and a [FileStream](/dotnet/api/system.io.filestream) to save bytes to a file. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DownloadFromDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DownloadBinaryFromDirectory":::
 
 ## List directory contents
 
