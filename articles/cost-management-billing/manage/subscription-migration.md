@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 01/05/2020
 ms.author: banders
 ms.custom:
 ---
@@ -87,9 +87,9 @@ The following table describes subscription migration support between the differe
 | CSP v2 (Azure Plan/MPA) | MOSP Dev/Test (PAYG Dev/Test) | Yes | Resource | The migration requires resources to migrate from the existing CSP v2 (Azure Plan/MPA) subscription to a newly created or an existing MOSP Dev/Test (PAYG (Dev/Test)) subscription. Use the information in the [Perform resource migrations](#perform-resource-migrations) section. There may be downtime involved in the migration process. |
 | MOSP (PAYG) | MCA | Yes | Billing | The migration has no downtime. Changing an MOSP (PAYG) subscription to an MCA subscription offer requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
 | MOSP (PAYG) | MCA Dev/Test | Yes | Billing | The migration has no downtime. Changing an MOSP (PAYG) subscription to an MCA Dev/Test subscription offer requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| MOSP (PAYG) | EA | Yes | Billing | The migration has no downtime because it's just a billing change, however there is detailed process to follow as documented at [MOSP to EA Subscription Migration](mosp-ea-migration.md). |
-| MOSP (PAYG) | EA Dev/Test | Yes | Billing | The migration has no downtime, but it requires multiple steps. First, migrate from MOSP (PAYG) to a normal EA subscription type. Then migrate from an EA subscription to an EA Dev/Test subscription type. |
-| MOSP Dev/Test (PAYG Dev/Test) | EA | Yes | Billing | The migration has no downtime, but it requires multiple steps. First, migrate from MOSP Dev/Test (PAYG) to a normal MOSP (PAYG) subscription type. Then migrate from an MOSP (PAYG) subscription to an EA subscription type. |
+| MOSP (PAYG) | EA | Yes | Billing | The migration has no downtime because it's just a billing change, however there is a detailed process to follow as documented at [MOSP to EA Subscription Migration](mosp-ea-migration.md). |
+| MOSP (PAYG) | EA Dev/Test | Yes | Billing | The migration has no downtime, but it requires multiple steps. First, migrate from MOSP (PAYG) to a normal EA subscription type as documented at [MOSP to EA Subscription Migration](mosp-ea-migration.md). Then migrate from an EA subscription to an EA Dev/Test subscription type. |
+| MOSP Dev/Test (PAYG Dev/Test) | EA | Yes | Billing | The migration has no downtime, but it requires multiple steps. First, migrate from MOSP Dev/Test (PAYG) to a normal MOSP (PAYG) subscription type as documented at [MOSP to EA Subscription Migration](mosp-ea-migration.md). Then migrate from an MOSP (PAYG) subscription to an EA subscription type. |
 | MOSP (PAYG) | MOSP (PAYG) | Yes | Billing | The migration has no downtime. If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). If you're changing a payment method, see [Add or update a credit card for Azure](change-credit-card.md). |
 | MOSP Dev/Test (PAYG Dev/Test) | MOSP (PAYG) | Yes | Billing | The migration has no downtime because it's just an offer change. For more information, see [Change your Azure subscription to a different offer](switch-azure-offer.md). |
 | MOSP (PAYG) | MOSP Dev/Test (PAYG Dev/Test) | Yes | Billing | The migration has no downtime because it's just an offer change. For more information, see [Change your Azure subscription to a different offer](switch-azure-offer.md). |
