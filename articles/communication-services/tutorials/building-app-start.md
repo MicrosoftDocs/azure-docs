@@ -34,6 +34,6 @@ In the series of posts, we will learn
 * Set up a local webserver with automatic reloading when your code is updated
 * Prepare the Calling QuickStart code for publishing in Azure
 * Publish the call sample in Azure Static WebSites via Azure Storage and provide overview of other publishing options in Azure
-* Enhance application with Chat, PSTN, SMS
+* Enhance the application with Chat, PSTN, and SMS
 
 Let go. 
