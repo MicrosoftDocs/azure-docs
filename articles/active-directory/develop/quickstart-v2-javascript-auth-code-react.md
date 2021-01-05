@@ -34,7 +34,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > ## Register and download your quickstart application
 > To start your quickstart application, use either of the following options.
 <!--
-##The azure portal dows not have an option to auto-configure the auth code flow. Only implicit flow.
+##The azure portal does not have an option to auto-configure the auth code flow. Only implicit flow.
 ## For the reason above, this section has been excluded.
 
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
@@ -59,7 +59,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > 1. When the **Register an application** page appears, enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Under **Redirect URI** select `Single-page application (SPA)`.
-> 1. Set the **Redirect URI** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user 
+> 1. Set the **Redirect URI** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user. 
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. In the left pane of the registered application, select **Authentication**.
 > 1. Under **Platform Configurations** expand **Single-page application**.
@@ -133,7 +133,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >
 > Scroll down in the same file and update the `graphMeEndpoint`. 
 > - Replace the string `Enter_the_Graph_Endpoint_Herev1.0/me` with `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](https://docs.microsoft.com/en-us/graph/deployments))
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](https://docs.microsoft.com/en-us/graph/deployments).
 
 
 >
@@ -172,7 +172,7 @@ The MSAL.js library signs in users and requests the tokens that are used to acce
 If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 
 ```console
-npm install @azure/msal-browser
+npm install @azure/msal-browser @azure/msal-react
 ```
 
 ## Next steps
