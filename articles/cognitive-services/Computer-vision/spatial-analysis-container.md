@@ -419,7 +419,8 @@ The following table shows the various Environment Variables used by the IoT Edge
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
 | ARCHON_GRAPH_READY_TIMEOUT | 600 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
 | ORT_TENSORRT_ENGINE_CACHE_ENABLE | 0 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
-
+| KEY_ENV | ASE Encryption key | Add this environment variable if Video_URL is an obfuscated string |
+| IV_ENV | Initialization vector | Add this environment variable if Video_URL is an obfuscated string|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
