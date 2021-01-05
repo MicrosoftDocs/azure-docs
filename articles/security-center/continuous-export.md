@@ -51,6 +51,9 @@ Continuous export can export the following data types whenever they change:
 - Secure score (per subscription or per control)
 - Regulatory compliance data
 
+> [!NOTE]
+> The exporting of secure score and regulatory compliance data is a preview feature and isn't available on government clouds. 
+
 ## Set up a continuous export 
 
 You can configure continuous export from the Security Center pages in Azure portal, via the Security Center REST API, or at scale using the supplied Azure Policy templates. Select the appropriate tab below for details of each.

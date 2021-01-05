@@ -925,7 +925,9 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
-          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md"
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md",
+          "articles/event-hubs/event-hubs-kafka-connect-debezium.md",
+          "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md"
         ]
       }
     }
