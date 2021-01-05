@@ -62,7 +62,7 @@ There are three ways to check whether an application is in quarantine:
 
 If the proportional escrow threshold is met, the provisioning job will go into quarantine. This logic is subject to change, but works roughly as described below: 
 
-5,000 failures are the minimum to start evaluating whether to quarantine because of too many failures. For example, a job with 4,000 failures wouldn't go into quarantine. But a job with 5,000 failures would trigger an evaluation. An evaluation uses the following criteria:  
+A job can go into quarantine regardless of failure counts for issues such as admin credentials or SCIM compliance. However, in general, 5,000 failures are the minimum to start evaluating whether to quarantine because of too many failures. For example, a job with 4,000 failures wouldn't go into quarantine. But, a job with 5,000 failures would trigger an evaluation. An evaluation uses the following criteria:  
 - If more than 40% of provisioning events fail, or there are more than 40,000 failures, the provisioning job will go into quarantine. Reference failures won't be counted as part of the 40% threshold or 40,000 threshold. For example, failure to update a manager or a group member is a reference failure.
 - A job where 45,000 users were unsuccessfully provisioned would lead to quarantine as it exceeds the 40,000 threshold.
 - A job where 30,000 users failed provisioning and 5,000 were successful would lead to quarantine as it exceeds the 40% threshold and 5,000 minimum.
