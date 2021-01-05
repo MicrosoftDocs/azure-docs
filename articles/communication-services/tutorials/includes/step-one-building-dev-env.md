@@ -116,7 +116,7 @@ This action will add the Azure Communication Services common and calling package
 
 These packages are provided by the Azure Communication Services team and include the authentication and calling libraries. "--save" command signals that our application depends on these packages for production use and will be included in the "dependencies" of our package-json.js file. When we build the application for production, the packages will be included in our production code.
 
-## Installing webpack and configuring local development server
+## Installing webpack and configuring the local development server
 
 ### Installing webpack
 
