@@ -187,7 +187,7 @@ To check if the VM uses a custom DNS setting:
 Try to access the DNS server from the virtual machine. If the DNS server isn't accessible, make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
 
 > [!NOTE]
-> If you are using Private Endpoints, ensure that the VMs are able to resolve the Private DNS Records.
+> If you use private endpoints, ensure that the VMs can resolve the private DNS records.
 
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-error.":::
 
