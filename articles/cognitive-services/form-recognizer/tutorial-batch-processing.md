@@ -14,77 +14,81 @@ ms.author: pafarley
 
 # Tutorial: Create a form-processing app with AI Builder
 
-Most organizations are now aware of how valuable the data they have in different format (pdf, images, videos…) in their closets are. They are looking for best practices and most cost-effective ways and tools to digitize those assets.  By extracting the data from those forms and combining it with existing operational systems and data warehouses, they can build powerful AI and ML models to get insights from it to deliver value to their customers and business users. 
+In this tutorial, we'll look at how to use Azure services to automatically ingest a large batch of forms into digital media. 
 
-With the Form Recognizer Cognitive Service, we help organizations to harness their data, automate processes (invoice payments, tax processing …), save money and time and get better accuracy. 
+The solution we'll describe here will focus on the data ingestion from an Azure Data lake of documents to a (No)SQL database.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * 
-> * Train your model
-> * 
+> * Set up Azure Data Lake to store your forms
+> * Use Azure DB to create a parametrization table
+> * Use Azure Key Vault to store sensitive credentials
+> * Train your Form Recognizer model using Databricks notebook
+> * Extract form data using a notebook
+> * Automate form training and extraction with Azure Data Bricks
 
 ## Prerequisites
 
-* A set of at least five forms of the same type to use for training/testing data. See [Build a training data set](./build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
-* Form Recognizer resource
-* Azure Data Factory resource
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A set of at least five forms of the same type. Ideally, this workflow is meant to support very large sets of documents. See [Build a training data set](./build-training-data-set.md) for tips and options for putting together your training data set. For this tutorial, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
+* Azure Data Factory resource TBD
 * Azure Databricks resource
 * Azure SQL single database resource
 * Azure Key Vault resource
 
 ## Business need
 
-Most organizations are now aware of how valuable the data they have in different format (pdf, images, videos…) in their closets are. They are looking for best practices and most cost-effective ways and tools to digitize those assets. By extracting the data from those forms and combining it with existing operational systems and data warehouses, they can build powerful AI and ML models to get insights from it to deliver value to their customers and business users. With the Form Recognizer Cognitive Service, we help organizations to harness their data, automate processes (invoice payments, tax processing …), save money and time and get better accuracy.
+Most organizations are now aware of how valuable the data they have in different formats (pdf, images, videos) is. They are looking for the best practices and most cost-effective ways to digitize those assets. 
+
+Additionally, our customers often have different types of forms coming from their many clients and customers. Unlike the [quickstarts](./quickstarts/client-library.md), this tutorial shows you how to automatically train a model with new and different types of forms using a metadata-driven approach. If you don't have an existing model for the given form type, the system will create one for you and give you the model ID. 
+
+By extracting the data from their forms and combining it with existing operational systems and data warehouses, businesses can build powerful AI and ML models to get insights and deliver value to their customers and business users.
+
+With the Azure Form Recognizer Cognitive Service, we help organizations to harness their data, automate processes (invoice payments, tax processing, and so on), save money and time, and get better accuracy.
 
 ## Project overview 
 
-In this section, we'll describe how to dynamically ingest millions of forms, of different types using Azure Services. 
+This project stands up an Azure Data Factory account to trigger python notebooks which reference documents in an Azure Data Lake storage account.
 
-Your backlog of forms might be in your on-premise environment or in a (s)FTP server. We assume that you were able to upload them into an Azure Data Lake Store Gen 2, using Azure Data Factory, Storage Explorer or AzCopy. Therefore, the solution we'll describe here will focus on the data ingestion from the data lake to the (No)SQL database. 
+The Form Recognizer REST AP requires some parameters as input. For security reasons, some of these parameters will be stored in an Azure Key Vault and other, less sensitive parameters, like the storage blob folder name, will be stored in a parametrization table in an Azure SQL database.  
 
-Our product team published a great tutorial on how to Train a Form Recognizer model and extract form data by using the REST API with Python. The solution described here demonstrates the approach for one model and one type of forms. Often, our customers have different type of forms coming from their many clients and customers. The value-add of the post is show you how to automatically train a model with new and different type of forms using a meta-data driven approach. If you do not have an existing model, the program will create one for you and give you the model id. 
+For each form type, data engineers or data scientists will populate the parameter table. They can use Azure Data Factory to iterate over the list of detected form types and pass the relevant parameters to an Azure Databricks notebook to train or retrain the Form Recognizer models.
 
-The REST AP requires some parameters as input. For security reasons, some of these parameters will be store in Azure Key Vault and others, less sensitive, like the blob folder name, will be in a parametrization table in an Azure SQL DB.  
+The Azure Databricks notebook then exports the extracted form data to an Azure SQL database
 
-For each form type, Data engineers or data scientists will populate the param table. Will use Azure data factory to iterate over the list of forms type and pass the relevant parameters to an Azure Databricks notebook to (re)train the model. 
+## Set up Azure Data Lake
 
+Your backlog of forms might be in your on-premise environment or in a (s)FTP server. This tutorial sources forms from an Azure Data Lake Store Gen 2. You can transfer your files there using Azure Data Factory, Azure Storage Explorer, or AzCopy.
 
-## Azure data lake need
-To implement this solution, you will need to create the below services:
+The training and scoring datasets can be in different containers, but the training dataset must be in the same container for all form types.
 
-Azure Data Lake Gen 2: 
-To store the training dataset and the forms we want to extract the key-values pairs from. The training and the scoring datasets can be in different containers but, as mentioned above, the training dataset must be in the same container for all form types.
+## Create a parametrization table
 
+Next, we will create a metadata table in an Azure SQL Database. This table will contain the non-sensitive data required by the Form Recognizer REST API. Whenever there is a new type of form in our dataset, we'll just insert a new record in this table and trigger the training and scoring pipeline (to be implemented later).
 
+The following fields will be used in the table:
 
-## Create formre resource
+* **form_description**: This field is not required as part of the training. It provides a description of the type of forms we are training the model for (for example, "client A forms," "Hotel B forms").
+* **training_container_name**: This is the storage account container name where we have stored the training dataset. It can be the same container as **scoring_container_name**.
+* **training_blob_root_folder**: The folder within the storage account where we'll store the files for the training of the model.
+* **scoring_container_name**: This is the storage account container name where we have stored the files we want to extract the key value pairs from. It can be the same container as **training_container_name**.
+* **scoring_input_blob_folder**: The folder in the storage account where we'll store the files to extract data from.
+* **model_id**: The ID of model we want to retrain. For the first run, the value must be set to -1, which will cause training notebook to create a new custom model to train. The training notebook will return the newly created model ID to the Azure Data Factory instance and, using a stored procedure activity, we'll update this value in the Azure SQL database.
 
-Form Recognizer resource: 
-Form Recognizer resource to setup and configure the form recognizer cognitive service, get the API key and endpoint URI.
+  Whenever you want to ingest a new form type, you'll need to manually reset the model ID to -1 before training the model.
 
-## Create parametrization table
+* **file_type**: The supported form types are `application/pdf`, `image/jpeg`, `image/png`, and `image/tif`.
 
-We will create a metadata table in an Azure SQL Database. This table will contain the non-sensitive data required by the Form Recognizer Rest API. Whenever there is a new type of form, we just insert a new record in this table and trigger the training and scoring pipeline.
+  If you have forms of different file types, you'll need to change this value as well as **model_id** when training a new form type.
+* **form_batch_group_id**: Over time, you might have multiple form types you train against the same model. The **form_batch_group_id** will allow you to specify all the form types that have been training using a specific model.
 
-The required attributes of this table are:
+### Create the parametrization table
 
-* **form_description**: This field is not required as part of the training of the model the inference. It just to provide a description of the type of forms we are training the model for (example client A forms, Hotel B forms,...)
-* **training_container_name**: This is the storage account container name where we store the training dataset. It can be the same as scoring_container_name
-* **training_blob_root_folder**: The folder in the storage account where we'll store the files for the training of the model.
-* **scoring_container_name**: This is the storage account container name where we store the files we want to extract the key value pairs from.  It can be the same as the training_container_name
-* **scoring_input_blob_folder**: The folder in the storage account where we'll store the files to extract key-value pair from.
-* **model_id**: The identify of model we want to retrain. For the first run, the value must be set to -1 to create a new custom model to train. The training notebook will return the newly created model id to the data factory and, using a stored procedure activity, we'll update the meta data table with in the Azure SQL database.
-
-Whenever you had a new form type, you need to reset the model id to -1 and retrain the model.
-
-file_type: The supported types are application/pdf, image/jpeg, image/png, image/tif.
-form_batch_group_id : Over time, you might have multiple forms type you train against different models. The form_batch_group_id will allow you to specify all the form types that have been training using a specific model.
-
-### Create 
-
-Create a table in your Azure SQL DB using the below script
+Use the following SQL script to create the tabe in your Azure SQL database.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -100,8 +104,7 @@ CREATE TABLE dbo.ParamFormRecogniser(
 GO
 ```
 
-
-For the first run, the model id is set to -1. This value is updated using a stored procedure.
+Run the following script to create the procedure for automatically updating **model_id** once it is trained.
 
 ```SQL
 CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
@@ -113,48 +116,47 @@ BEGIN
 END
 ```
 
-## Create a key Vault
+## Use Azure Key Vault to store sensitive credentials
 
-Azure Key Vault:
-For security reasons, we don't want to store certain sensitive information in the parametrization table in the Azure SQL database. We store those parameters in Azure Key Vault secrets.
+For security reasons, we don't want to store certain sensitive information in the parametrization table in the Azure SQL database. We store these parameters as Azure Key Vault secrets.
 
+### Create an Azure Key Vault
 
+Navigate to the [Azure portal](https://portal.azure.com) and create a Key Vault resource. Fill out the form and click **Create**.
 
-### Create
+Navigate to the Key Vault resource after it is created and, in the **settings** section, select **secrets** to add the parameters.
 
-Create an Azure key vault to host the sensitive parameters: **StorageAccountSasKey**, **StorageAccountName**, **CognitiveServiceEndpoint** and **CognitiveserviceSubscriptionKey**. Navigate to the [Azure portal](https://portal.azure.com) and create a Key Vault resource. Fill out the form with the usual information for the creation of an azure resource and click **Create**.
+A new window will appear, select **Generate/import**. Enter the name of the parameter and its value and click create. Do this for the following parameters:
 
-Navigate to the Key Vault resource after it is created and, in the settings section select **secrets** to add the parameters.
-
-A new window will appear, select **Generate/import**. Enter the name of the parameter and its value and click create. Repeat this process for the SAS URL and the endpoint.
-
-Below are the parameters we store in the key vault:
-
-* **CognitiveServiceEndpoint**: The endpoint of the form recognizer cognitive service. This value will be stored in Azure Key Vault for security reasons.
-* **CognitiveServiceSubscriptionKey**: The access key of the cognitive service. This value will be stored in Azure Key Vault for security reasons. The below screenshot shows how to get the key and endpoint of the cognitive service
+* **CognitiveServiceEndpoint**: The endpoint of your Form Recognizer API.
+* **CognitiveServiceSubscriptionKey**: The access key for your Form Recognizer service. 
 * **StorageAccountName**: The storage account where the training dataset and forms we want to extract the key value pairs from are stored. The two storage accounts can be different. The training dataset must be in the same container for all form types. They can be in different folders.
 * **StorageAccountSasKey** : the shared access signature of the storage account
 The below screen shows the key vault after you create all the secrets
 
-## Train the model
+## Train your Form Recognizer model using Databricks notebook
 
-Azure Databricks:
-To implement the python script to train and score the model. we could have alternatively used Azure functions.
+You'll use Azure Databricks to store and run the Python code that interacts with the Form Recognizer service.
 
 ### Create a notebook in Databricks
-Create an Azure Databricks service the same way you created the Cognitive service and the key vault. Navigate to the Databricks after it has been created and launch the workspace.
+
+[Create an Azure Databricks resource](https://ms.portal.azure.com/#create/Microsoft.Databricks) in the Azure portal. Navigate to the Databricks after it has been created and launch the workspace.
 
 ### Create a secret scope backed by Azure Key Vault
-To reference the secrets in the Azure Key Vault we created above, you will need to create a secret scope in Azure Databricks. You can create a secret scope back by Azure Key Vault or backed by Azure Databricks. In the post, we used a secret backed by Azure Key Vault. The steps to create a secret scope are detailed here.
 
-### Create Databricks notebooks
-This is where the magic happens. First, we'll create a notebook to called Settings to assign the values in the Param table to variables. We could have two settings files, one for the training and another one for the inference but, in this blog, we'll only have one for simplify the process. The values will be passed as parameters by Azure Data Factory. We'll detail the approach in the orchestration section. We'll also assign variables values read from the secrets the Key Vault. To create the Settings notebook, click on the workspace button, in the new tab, click on the dropdown list and select create and then notebook.
+To reference the secrets in the Azure Key Vault we created above, you'll need to create a secret scope in Azure Databricks. Follow the steps under [Create an Azure Key Vault-backed secret scope](https://docs.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
-In the popup, enter the name you want to give to the notebook and select Python as default language. If you have a Databricks cluster running you can select it otherwise, leave it empty for now. We'll create one later. Click Create.
+### Write a settings notebook
 
-In the first cell, we'll retrieve the parameters passed by Azure Data Factory
+Now you're ready to add Python notebooks. First, create a notebook called **Settings**; this notebook will assign the values in your parametrization table to variables in the script. The values will be passed as parameters by Azure Data Factory (TBD). We'll detail the approach in the orchestration section. 
 
-```PYTHON 
+We'll also assign variables values from the secrets in the Key Vault. To create the **Settings** notebook, click on the **workspace** button, in the new tab, click on the dropdown list and select **create** and then **notebook**.
+
+In the pop-up window, enter the name you want to give to the notebook and select **Python** as default language. If you already have a Databricks cluster running you can select it. Otherwise, leave it empty for now. We'll create one later. Click **Create**.
+
+In the first notebook cell, we retrieve the parameters passed by Azure Data Factory.
+
+```python 
 dbutils.widgets.text("form_batch_group_id", "","")
 dbutils.widgets.get("form_batch_group_id")
 form_batch_group_id = getArgument("form_batch_group_id")
@@ -189,7 +191,7 @@ dbutils.widgets.get("file_to_score_name")
 file_to_score_name=  getArgument("file_to_score_name")
 ```
 
-In the second cell, we retrieve secrets from Key Vault and assign them to some variables.
+In the second cell, we retrieve secrets from Key Vault and assign them to variables.
 
 ```python 
 cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
@@ -202,13 +204,17 @@ ScoredFile = file_to_score_name+ "_output.json"
 training_storage_account_url="https://"+training_storage_account_name+".blob.core.windows.net/"+training_container_name+storage_account_sas_key 
 ```
 
-Now that we completed the Settings notebook, let's create a notebook to train the model. As mentioned above, we will use files stored in a folder in an Azure Data Lake Gen 2 storage account (training_blob_root_folder). The folder name is passed as a variable. Each set of form types will be in the same folder and, as we loop over the parameter table, we'll train the model using all of the form types. Let's create a new notebook and call it TrainFormRecognizer for example. The first step is to execute the Settings notebook.
+Now that we've completed the **Settings** notebook, we can create a notebook to train the model. As mentioned above, we will use files stored in a folder in an Azure Data Lake Gen 2 storage account (**training_blob_root_folder**). The folder name has been passed in as a variable. Each set of form types will be in the same folder and, as we loop over the parameter table, we'll train the model using all of the form types. 
 
-```
+### Write a training notebook
+
+Next, create a new notebook called **TrainFormRecognizer**. The first step is to execute the Settings notebook:
+
+```python
 %run "./Settings"
 ```
 
-In the next cell, well assign variables from the Settings file, and dynamically train the model for each form type leveraging the code in the [REST quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract?tabs=v2-0#get-training-results%20).
+In the next cell, assign variables from the **Settings** file, and dynamically train the model for each form type, leveraging the code in the [REST quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md#get-training-results%20).
 
 ```python
 import json
@@ -294,19 +300,22 @@ print("Train operation did not complete within the allocated time.")
 
 ```
 
-## Extract key-value pairs in batch mode
+## Extract form data using a notebook
 
-Now that we've trained the model for all of our forms, the next steps are to score the different forms you have using the trained model. Your form can be on premise or in a storage account in Azure (ADLS or blob storage). In this post, we'll use a data lake gen2 storage account. We'll mount the storage account in Databricks and refer to the mount during the inferencing process.
+### Mount the Azure Data Lake storage
 
-Just like for the training of the forms, we'll use Azure Data Factory to invoke the extraction of the key-value pairs from the forms. We'll loop over the forms in the folders specified in the param table. We'll also specify the degree of parallelism during the scoring.
+Now that we've trained the model for all of our forms, the next step is to score the different forms we have using the trained model. We'll mount the Azure Data Lake storage account in Databricks and refer to the mount during the ingesting process.
 
-Let's create the create the notebook to mount the storage account in Databricks. We'll call it MountAdls 😉. You will need to call the settings notebook in the mount Adls notebook as well, to set the variable.
+Just like in the training stage, we'll use Azure Data Factory to invoke the extraction of the key-value pairs from the forms. We'll loop over the forms in the folders specified in the parameter table. We'll also specify the degree of parallelism during the scoring.
+
+
+Let's create the notebook to mount the storage account in Databricks. We'll call it **MountDataLake**. You will need to call the **Settings** notebook first.
 
 ```
 %run "./Settings"
 ```
 
-In the second cell, we'll define variables (storage account, SAS key…). As this is sensitive information, we'll retrieve them from our Key Vault secrets.
+In the second cell, we'll define variables for the sensitive parameters, which we'll retrieve from our Key Vault secrets.
 
 ```python
 cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
@@ -347,12 +356,18 @@ except Exception as e:
 
 ```
 
-Note that we only mounted the training storage account as, in this case, the training and the files we want to extract key-value pairs are in the same storage account. If your scoring and training storage accounts are different, you will have to mount the two storage accounts. Now, we can create a scoring notebook. Similarly, to the training notebook, we will use files stored in folders in the Azure Data Lake Gen 2 storage account we just mounted. The folder name is passed as a variable. We will loop over all the forms in the specified folder and extract the key-value pairs from its content. Let's create a new notebook and call it ScoreFormRecognizer for example. The first step is to execute the Settings and the MountAdls.
+Note that we only mounted the training storage account&mdash;in this case, the training files and the files we want to extract key-value pairs are in the same storage account. If your scoring and training storage accounts are different, you will have to mount both storage accounts. 
 
-```
+### Write the scoring notebook
+
+Now we can create a scoring notebook. Similarly to the training notebook, we'll use files stored in folders in the Azure Data Lake Gen 2 storage account we just mounted. The folder name is passed as a variable. We'll loop over all the forms in the specified folder and extract the key-value pairs from them. Create a new notebook and call it **ScoreFormRecognizer**. The first step is to execute the **Settings** and the **MountDataLake** notebooks.
+
+```python
 %run "./Settings"
 %run "./00_MountAdls"
 ```
+
+Then add the following code, which calls the Analyze API.
 
 ```python
 ########### Python Form Recognizer Async Analyze #############
@@ -389,10 +404,10 @@ try:
 except Exception as e:
     print("POST analyze failed:\n%s" % str(e))
     quit() 
-
 ```
 
-In the next cell, we'll get the results of the key-value pair extraction. The first cell will output the result in the Databricks notebook but, as we want the result in a json file to process further into Azure SQL Database, or Cosmos DB, we'll write the result in a file. The output file name will be the name of the scored file concatenated with "_output.json". The file will be stored in the same folder as the source file.
+In the next cell, we'll get the results of the key-value pair extraction. This cell will output the result in the Databricks notebook. Because we want the result in a JSON file to process further into Azure SQL Database or Cosmos DB, we'll write the result to a file. The output file name will be the name of the scored file, concatenated with "_output.json". The file will be stored in the same folder as the source file.
+
 
 ```python
 n_tries = 10
@@ -428,8 +443,9 @@ while n_try < n_tries:
        quit()
 
 ```
+Do the file writing procedure in a new cell:
 
-```
+```python
 import requests
 file = open(output, "w")
 file.write(str(resp_json))
@@ -438,46 +454,43 @@ file.close()
 
 ## Automate training and scoring with Azure Data Factory
 
-At this point, the only remaining part is the Data Factory for the orchestration of the training and the scoring of cognitive service model. The steps to create a Data Factory are described here. After you create the ADF resource, you will need to create three pipelines: one for the training and two for the scoring. We'll explain later why we need two pipelines for the scoring.
-
-
-To orchestrate the training and scoring of the model. Using a look up activity, we'll retrieve the parameters in the Azure SQL Database and orchestrate the training and scoring of the model using Databricks notebooks. All the sensitive parameters stored in Key vault will be retrieve in the notebooks.
+The only remaining step is to set up the Azure Data Factory (ADF) service to automate the training and scoring processes. First, follow the steps under [Create a data factory](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). After you create the ADF resource, you'll need to create three pipelines: one for training and two for the scoring (explained below).
 
 ### Training pipeline
 
-The first activity in the training pipeline is a Lookup to read and return the values in the parametrization table in the Azure SQL database. As all the training datasets will be in the same storage account and container, potentially different folders, we'll keep the default value First row only attribute in the lookup activity settings. For each type of form to train the model against, we'll train the model using all the files in the training_blob_root_folder.
+The first activity in the training pipeline is a Lookup to read and return the values in the parametrization table in the Azure SQL database. As all the training datasets will be in the same storage account and container, but potentially different folders, we'll keep the default value **First row only** attribute in the lookup activity settings. For each type of form to train the model against, we'll train the model using all the files in **training_blob_root_folder**.
 
-:::img:::
+:::image type="content" source="./media/tutorial-batch-processing/training-pipeline.png" alt-text="training pipeline in data factory":::
 
-The stored procedure takes two parameters : model_id and the form_batch_group_id. The code to return the model id from the databricks notebook is dbutils.notebook.exit(model_id) and the code to read the code in stored procedure activity in data factory is @activity('GetParametersFromMetadaTable').output.firstRow.form_batch_group_id
+The stored procedure takes two parameters : **model_id** and the **form_batch_group_id**. The code to return the model ID from the Databricks notebook is `dbutils.notebook.exit(model_id)`, and the code to read the code in stored procedure activity in data factory is `@activity('GetParametersFromMetadaTable').output.firstRow.form_batch_group_id`.
 
 ### Scoring pipelines
 
-To extract the key value pairs, we'll scan all the folders in the parametrization table and, for each folder, we'll extract the key-value pairs of all the files in it. As of today, ADF does not support nested ForEach Loops. The workaround is to create two pipelines. The first will do the Lookup from the parametrization table and pass the folders list as parameter to the second pipeline.
+To extract the key-value pairs, we'll scan all the folders in the parametrization table and, for each folder, we'll extract the key-value pairs of all the files in it. As of today, ADF does not support nested ForEach loops. So instead, we'll create two pipelines. The first pipeline will do the lookup from the parametrization table and pass the folders list as a parameter to the second pipeline.
 
-:::img:::
+:::image type="content" source="./media/tutorial-batch-processing/scoring-pipeline.png" alt-text="scoring pipeline in data factory":::
 
 The second pipeline will use a GetMeta activity to get the list of the files in the folder and pass it as a parameter to the scoring Databricks notebook we created earlier.
 
-:::img:::
+:::image type="content" source="./media/tutorial-batch-processing/scoring-pipeline-2.png" alt-text="second scoring pipeline in data factory":::
 
 ### Specify a degree of parallelism
 
-In both the training and scoring pipelines, specify the degree of parallelism to process multiple forms simultaneously.
+In both the training and scoring pipelines, you can specify the degree of parallelism to process multiple forms simultaneously.
 
-To set the degree of parallelism in the ADF pipeline :
+To set the degree of parallelism in the ADF pipeline:
 
-* select the Foreach activity
-* uncheck the "sequential box
-* set the degree of parallelism in the batch count text box.
+* Select the Foreach activity.
+* Uncheck the **Sequential** box.
+* Set the degree of parallelism in the **Batch count** text box. We recommend a maximum batch count of 15 for the scoring.
 
-We recommend a maximum batch count of 15 for the scoring.
+:::image type="content" source="./media/tutorial-batch-processing/parallelism.png" alt-text="parallelism configuration for scoring activity in ADF":::
 
-You can now digitize all your backlog of form and run some analytics on top of it.
+
+You now have an automated pipeline to digitize your backlog of forms and run some analytics on top of it.
 
 ## Next steps
 
-asdf
+In this tutorial, you set up Azure Data Factory activities to trigger the training and running of Form Recognizer models for the purpose of digitizing a large backlog of files. Next, explore the Form Recognizer API to see what else you can do with it.
 
-* [Use the form-processor component in Power Apps](/ai-builder/form-processor-component-in-powerapps)
-* [Use a form-processing model in Power Automate](/ai-builder/form-processing-model-in-flow)
+* [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
