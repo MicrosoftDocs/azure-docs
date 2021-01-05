@@ -155,7 +155,7 @@ Microsoft found the following types of illegitimate SAML trust relationship regi
 
     The impersonated users later took actions consistent with detected attacker patterns.
 
-- **Token forgeries** consistent with the [patterns described above](#forged-saml-tokens). 
+- **Token forgeries** consistent with the [patterns described above](#attack-pattern-forged-saml-tokens). 
 
 Calls generally came from different IP addresses for each call and impersonated user, but usually tracked back to anonymous VPN servers.
 
@@ -176,7 +176,7 @@ Look for any anomalous administrative sessions that are associated with modifica
 If you think you've found an illegitimate SAML trust relationship registration, we recommend that you perform the following steps to secure your environment:
 
 - Review all federation trust relationships to ensure that they are all valid.
-- Determine how the administrative account was impersonated. For more information, see [below](#queries-that-impersonate-existing-applications).
+- Determine how the administrative account was impersonated. For more information, see [below](#attack-pattern-queries-that-impersonate-existing-applications).
 - Revert any illegitimate administrative account credentials found.
 
 ## Attack pattern: Added credentials to existing applications
@@ -204,7 +204,7 @@ Microsoft found the following types of added credentials in tenants affected by 
 
 - Reconnaissance to identify existing applications that have application roles with permissions to call Microsoft Graph.
 
-- Token forgeries consistent with the patterns described [above](#forged-saml-tokens)
+- Token forgeries consistent with the patterns described [above](#attack-pattern-forged-saml-tokens)
 
 The impersonated applications or service principals were different across different customers, and the actor did not have a default type of target. Impersonated applications and service principals included both customer-developed and vendor-developed software. 
 
@@ -279,7 +279,7 @@ If you think you've found impersonating queries in your environment, we recommen
 
 - Review all federation trust relationships, ensure all are valid.
 
-- Determine how the administrative account was impersonated. For more information, see [below](#queries-that-impersonate-existing-applications).
+- Determine how the administrative account was impersonated. For more information, see [below](#attack-pattern-queries-that-impersonate-existing-applications).
 
 - Renew administrative account credentials.
 
@@ -289,7 +289,7 @@ Microsoft also found the following types of attacker behaviors in tenants affect
 
 |Behavior  |Details  |
 |---------|---------|
-|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), to detect other anomalies.     |
+|**Attacker access to on premises resources**     | While Microsoft has a limited ability to view on-premises behavior, we have the following indications as to how on-premises access was gained. <br><br> - **Compromised network management software** was used as command and control software, and placed malicious binaries that exfiltrated SAML token-signing certificates.<br><br>- **Vendor networks were compromised**, including vendor credentials with existing administrative access.<br><br>- **Service account credentials, associated with compromised vendor software**, were also compromised.<br><br>- **Non-MFA service accounts** were used.  <br><br>**Important**: We recommend using on-premises tools, such as [Microsoft Defender for Identity](identity-compromise-defender.md) alone or together with [Azure Sentinel](identity-compromise-azure-sentinel.md), to detect other anomalies.     |
 |**Attacker access to cloud resources**     |   For administrative access to the Microsoft 365 cloud, Microsoft found evidence of the following indicators: <br><br>    - **Forged SAML tokens**, which impersonated accounts with cloud administrative privileges. <br><br>- **Accounts with no MFA required**. Such accounts are [easily compromised](https://aka.ms/yourpassworddoesntmatter).     <br><br>- Access allowed from **trusted, but compromised vendor accounts**.      |
 |   |         |
 

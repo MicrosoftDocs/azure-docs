@@ -1,6 +1,6 @@
 ---
-title: Using Microsoft resources to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
-description: Learn how to use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
+title: Using Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+description: Learn how to use Azure Active Directory resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -22,16 +22,14 @@ ms.author: bagol
 
 Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any Identity-related indicators of compromise (IOCs) related to the attacks. 
 
-- [Access the Azure AD Solorigate workbook](#access-the-microsoft-azure-ad-solorigate-workbook)
-- [Data shown in the Azure AD Solorigate workbook](#data-shown-in-the-microsoft-azure-ad-solorigate-workbook)
+- [Access the Azure AD Solorigate workbook](#access-the-azure-ad-solorigate-workbook)
+- [Data shown in the Azure AD Solorigate workbook](#data-shown-in-the-azure-ad-solorigate-workbook)
 
 > [!NOTE]
 > The information in this workbook is also available in Azure AD audit and sign-in logs. The workbook helps to collect and visualize the information in a single view.
 >
 >This workbook includes an overview of some of the common attack patterns in Azure AD, not only in Solorigate, and can generally be useful as an investigation aid to ensure that your environment is safe from malicious actors.
 >
-
-For more information, see [Solorigate indicators of compromise (IOCs)](#solorigate-indicators-of-compromise-iocs).
 
 ## Access the Azure AD Solorigate workbook
 
@@ -51,7 +49,7 @@ For more information, see [How to integrate activity logs with Log Analytics](/a
 
 ## Data shown in the Azure AD Solorigate workbook
 
-In your [workbook](#access-the-microsoft-azure-ad-solorigate-workbook), expand each of the following areas to learn more about activity detected in your tenant:
+In your [workbook](#access-the-azure-ad-solorigate-workbook), expand each of the following areas to learn more about activity detected in your tenant:
 
 |Area  |Description  |
 |---------|---------|

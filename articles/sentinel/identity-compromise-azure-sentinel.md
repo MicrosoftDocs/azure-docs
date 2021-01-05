@@ -148,7 +148,6 @@ For more information, see:
 
 - [Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel)- **Detections** and **Hunting Queries** sections for AuditLogs and SecurityEvents
 - [Microsoft 365 Defender advanced hunting portal](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
-- [Use Microsoft Defender to respond to supply-chain attacks and systemic identity threats](#use-microsoft-defender-to-respond-to-supply-chain-attacks-and-systemic-identity-threats), below
 
 ## Step 3: Find exported certificates
 
@@ -902,8 +901,8 @@ DeviceInfo
 
 If you want to dive deeper directly with Azure Defender for Endpoint and Azure Active Directory, see:
 
-- [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md)
-- [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)
+- [Using Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
+- [Using Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
 
 **See also**:
 - [Using Microsoft resources to respond to supply-chain attacks and systemic identity compromise](solarwinds.md)

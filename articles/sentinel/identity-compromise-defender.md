@@ -27,7 +27,7 @@ Microsoft Defender solutions provide the following coverage and visibility to he
 |---------|---------|
 |**Microsoft Defender for Endpoint**     | Has comprehensive detection coverage across the Solorigate attack chain. These detections raise alerts that inform security operations teams about activities and artifacts related to the attack. <br><br>Since the attack compromised legitimate software that should not be interrupted, automatic remediation is not enabled. However, the detections provide visibility into the attack activity and can be used to investigate and hunt further.        |
 |**Microsoft 365 Defender**     |  Provides visibility *beyond* endpoints, by consolidating threat data from across domains, including identities, data, cloud apps, as well as endpoints. Cross-domain visibility enables Microsoft 365 Defender to correlate signals and comprehensively resolve whole attack chains. <br><br>    Security operations teams can then hunt using rich threat data and gain insights for protecting networks from compromise.       |
-|**Microsoft Defender Antivirus**     |  The default anti-malware solution on Windows 10, detects and blocks the malicious DLL and its behaviors. It quarantines malware, even if the process is running.  <br><br>For more information, see [Microsoft Defender Antivirus detections for Solorigate](#microsoft-defender-antivirus-detections-for-solarigate).     |
+|**Microsoft Defender Antivirus**     |  The default anti-malware solution on Windows 10, detects and blocks the malicious DLL and its behaviors. It quarantines malware, even if the process is running.  <br><br>For more information, see [Microsoft Defender Antivirus detections for Solorigate](#microsoft-defender-antivirus-detections-for-solorigate).     |
 |     |         |
 
 We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#microsoft-defender-for-threat-analytics-reports) created by Microsoft specifically for Solorigate. 
@@ -100,7 +100,7 @@ For more information, see the [threat analytics](#microsoft-defender-for-threat-
 - [Microsoft Defender alerts by attack stage](#microsoft-defender-alerts-by-attack-stage)
 - [Microsoft Defender alerts by threat type](#microsoft-defender-alerts-by-threat-type)
 
-Each alert provides a full description and recommended actions. For more information, see [Microsoft Defender Antivirus detections for Solorigate](#microsoft-defender-antivirus-detections-for-solarigate).
+Each alert provides a full description and recommended actions. For more information, see [Microsoft Defender Antivirus detections for Solorigate](#microsoft-defender-antivirus-detections-for-solorigate).
 
 ### Microsoft Defender alerts by attack stage
 
