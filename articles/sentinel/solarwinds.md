@@ -44,6 +44,10 @@ The global administrator account or certificates enabled the attackers to forge 
 > The SolarWinds attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
 > 
 
+> [!NOTE]
+> If you are not sure whether your organization has been infected, review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack: 
+>
+> [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
 ## Securing your network after a system compromise
 
 If you suspect that your organization has been affected by Solorigate or another similar attack, you will need to use Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and evidence of compromise, and then isolate resources and harden your system against attacks.
@@ -56,6 +60,7 @@ You can also use Microsoft Defender and Azure Active Directory directly to perfo
 
 - [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
 - [Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
+
 
 ## Microsoft references for Solorigate
 
