@@ -23,7 +23,7 @@ Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled.
 Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. List of unsupported characters on Azure Files on this [link](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Colon is one of the unsupported characters. 
 
 ### Workaround
-Make sure that idmapping is indeed disabled and there is nothing known that is re-enabling it, perform the following steps below
+Check that idmapping is disabled and nothing is re-enabling it, then perform the following:
 
 - Unmount the share
 - Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
