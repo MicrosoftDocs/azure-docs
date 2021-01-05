@@ -234,7 +234,7 @@ To work with [Azure Functions triggers and bindings](functions-triggers-bindings
 
 You've created a Kotlin function app with a simple HTTP trigger and deployed it to Azure Functions.
 
-- Review the [Java functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
+- Review the [Java function developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Write and debug functions locally with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
 - Debug functions deployed in Azure with Visual Studio Code. See the Visual Studio Code [serverless Java applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.
