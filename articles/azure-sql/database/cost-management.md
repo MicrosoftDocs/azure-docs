@@ -6,7 +6,7 @@ ms.author: sstein
 ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 12/17/2020
 ---
 
 
@@ -14,11 +14,27 @@ ms.date: 11/10/2020
 
 This article describes how you plan for and manage costs for Azure SQL Database. First, you use the Azure pricing calculator to help plan for Azure SQL Database costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs (if applicable to Azure SQL Database). After you've started using Azure SQL Database resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure SQL Database are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure SQL Database, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
+When working with Azure SQL Database, there are several cost-saving features to consider:
+
+- [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md)
+- [Reserved capacity](reserved-capacity-overview.md)
+- Elastic pools
+- 
+
 ## Prerequisites
 
-Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Cost analysis supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. 
+
+For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+### vCore or DTU purchasing models 
+
+Azure SQL Database supports two purchasing models: vCore and DTU. The way you get charged for your SQL Database varies between these two models, so it's important to understand the model that works best for your workload when planning and considering costs. For information about vCore and DTU purchasing models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
 
 
+### Provisioned or serverless
+
+In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for your SQL Database varies between these two tiers, so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-vcore.md#compute-tiers).
 
 ## Estimate Azure SQL Database costs
 
@@ -133,12 +149,8 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 ## Other ways to manage and reduce costs for Azure SQL Database
 
-<!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here. 
 
-Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
-
-If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
--->
+Azure SQL Database also enables you to scale-down resources when they are not needed to lower costs. For details, see [Dynamically scale database resources](scale-resources.md).
 
 ## Next steps
 
