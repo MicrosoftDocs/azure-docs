@@ -1,5 +1,5 @@
 ---
-title: Using customer-managed storage accounts in Azure Monitor Log Analytics
+title: Using customer managed storage accounts in Azure Monitor Log Analytics
 description: Use your own storage account for Log Analytics scenarios
 ms.subservice: logs
 ms.topic: conceptual
@@ -8,17 +8,17 @@ ms.author: noakuper
 ms.date: 09/03/2020
 ---
 
-# Using customer-managed storage accounts in Azure Monitor Log Analytics
+# Using customer managed storage accounts in Azure Monitor Log Analytics
 
-Log Analytics relies on Azure Storage in various scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document covers the use of customer-managed storage for WAD/LAD logs, Private Link, and customer-managed key (CMK) encryption. 
+Log Analytics relies on Azure Storage in various scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer managed storage account. This document covers the use of customer managed storage for WAD/LAD logs, Private Link, and customer-managed key (CMK) encryption. 
 
 > [!NOTE]
-> We recommend that you don’t take a dependency on the contents Log Analytics uploads to customer-managed storage, given that formatting and content may change.
+> We recommend that you don’t take a dependency on the contents Log Analytics uploads to customer managed storage, given that formatting and content may change.
 
 ## Ingesting Azure Diagnostics extension logs (WAD/LAD)
-The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
+The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
 ### How to collect Azure Diagnostics extension logs from your storage account
-Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
 
 Supported data types:
 * Syslog
@@ -30,7 +30,7 @@ Supported data types:
 ## Using Private links
 Customer managed storage accounts are used to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
 
-### Using a customer-managed storage account over a Private Link
+### Using a customer managed storage account over a Private Link
 #### Workspace requirements
 When connecting to Azure Monitor over a private link, Log Analytics agents are only able to send logs to workspaces accessible over a private link. This requirement means you should:
 * Configure an Azure Monitor Private Link Scope (AMPLS) object
@@ -47,22 +47,22 @@ For the storage account to successfully connect to your private link, it must:
 ![Storage account trust MS services image](./media/private-storage/storage-trust.png)
 * If your workspace handles traffic from other networks as well, you should configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
-### Using a customer-managed storage account for CMK data encryption
-Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMK) to encrypt the data; However, Azure Storage also allows you use a Customer-managed key (CMK) from Azure Key vault to encrypt your storage data. You can either import your own keys into Azure Key Vault, or you can use the Azure Key Vault APIs to generate keys.
-#### CMK scenarios that require a customer-managed storage account
+### Using a customer managed storage account for CMK data encryption
+Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMK) to encrypt the data; However, Azure Storage also allows you to use CMK from Azure Key vault to encrypt your storage data. You can either import your own keys into Azure Key Vault, or you can use the Azure Key Vault APIs to generate keys.
+#### CMK scenarios that require a customer managed storage account
 * Encrypting log-alert queries with CMK
 * Encrypting saved queries with CMK
 
-#### How to apply CMK to customer-managed storage accounts
+#### How to apply CMK to customer managed storage accounts
 ##### Storage account requirements
 The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
 ##### Apply CMK to your storage accounts
-To configure your Azure Storage account to use customer-managed keys with Azure Key Vault, use the [Azure Portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+To configure your Azure Storage account to use CMK with Azure Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
 ## Link storage accounts to your Log Analytics workspace
-### Using the Azure Portal
-On the Azure Portal, open your Workspace' menu and select *Linked storage accounts*. A blade will open, showing the linked storage accounts by the use cases mentioned above (Ingestion over Private Link, applying CMK to saved queries or to alerts).
+### Using the Azure portal
+On the Azure portal, open your Workspace' menu and select *Linked storage accounts*. A blade will open, showing the linked storage accounts by the use cases mentioned above (Ingestion over Private Link, applying CMK to saved queries or to alerts).
 ![Linked storage accounts blade image](./media/private-storage/all-linked-storage-accounts.png)
 Selecting an item on the table will open its storage account details, where you can set or update the linked storage account for this type. 
 ![Link a storage account blade image](./media/private-storage/link-a-storage-account-blade.png)
@@ -98,7 +98,7 @@ To replace a storage account used for ingestion,
 When using your own storage account, retention is up to you. Log Analytics won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
-Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure Portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
+Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### Related charges
 Storage accounts are charged by the volume of stored data, the type of the storage, and the type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).
