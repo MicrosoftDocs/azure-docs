@@ -28,11 +28,7 @@ Supported data types:
 * IIS Logs
 
 ## Using Private links
-Customer managed storage accounts are required in some use cases, when private links are used to connect to Azure Monitor resources. One such case is the ingestion of Custom logs or IIS logs. These data types are first uploaded as blobs to an intermediary Azure Storage account and only then ingested to a workspace. Similarly, some Azure Monitor solutions may use storage accounts to store large files, such as Azure Security Center (ASC) which may need to upload files. 
-
-##### Private Link scenarios that require a customer-managed storage
-* Ingestion of Custom logs and IIS logs
-* Allowing ASC solution to upload files
+Customer managed storage accounts are required in order to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs as blobs to an intermediary Azure Storage account and only then ingests them to a workspace. 
 
 ### Using a customer-managed storage account over a Private Link
 #### Workspace requirements
@@ -69,13 +65,13 @@ You can use the same account for different use cases if you prefer.
 ### Using the Azure CLI or REST API
 You can also link a storage account to your workspace via the [Azure CLI](/cli/azure/monitor/log-analytics/workspace/linked-storage) or [REST API](/rest/api/loganalytics/linkedstorageaccounts).
 
-For these APIs, the applicable dataSourceType values are:
-* CustomLogs – to use the storage for custom logs and IIS logs during ingestion.
-* AzureWatson – use the storage for files uploaded by the ASC (Azure Security Center) solution. 
-For more information on managing retention, replacing a linked storage account, and monitoring your storage account activity, see [Managing linked storage accounts](#managing-linked-storage-accounts). 
+The applicable dataSourceType values are:
+* CustomLogs – to use the storage account for custom logs and IIS logs ingestion
+* Query - to use the storage account to store saved queries (required for CMK encryption)
+* Alerts - to use the storage account to store log-based alerts (required for CMK encryption)
+
 
 ## Managing linked storage accounts
-To link or unlink storage accounts to your workspace use the [Azure CLI](/cli/azure/monitor/log-analytics/workspace/linked-storage) or [REST API](/rest/api/loganalytics/linkedstorageaccounts).
 
 ### Create or modify a link
 When you link a storage account to a workspace, Log Analytics will start using it instead of the storage account owned by the service. You can 
