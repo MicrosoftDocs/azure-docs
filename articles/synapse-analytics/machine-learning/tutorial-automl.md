@@ -112,6 +112,6 @@ After you have successfully submitted the run, you see a link to the experiment 
 
 ## Next steps
 
-- [Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md).
+- [Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md)
 - [Machine learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
