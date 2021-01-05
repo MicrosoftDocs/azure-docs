@@ -13,11 +13,12 @@ ms.date: 11/27/2020
 
 # Compare Machine Learning Studio(classic) and Azure Machine Learning 
 
-Azure Machine Learning Studio(classic) will start retire from Feb 28, 2021 retire on Feb 29,2024. During the retirement period, customer will have access to their existing Machine Learning Studio(classic) workspace. The experiments and web services can still run. But new resource (workspace, commitment plan) creation will be stopped after May 31 2021. 
+Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. But new resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
 
-Customer should move to use Azure Machine Learning, the new modern machine learning platform for enterprise. 
+Azure Machine Learning provides a modern machine learning platform with a fully managed experience. Customer should migrate their Studio(classic) projects to Azure Machine Learning before Feb 29,2024. We encourage customers to make the switch sooner to gain the richer benefit of the new platform.
 
-The migration from ML Studio(classic) to Azure Machine Learning will be manual at this moment. There is plan to offer migration tool and we will further announce when it's ready. This document details the guidance on how to rebuild the Machine Learning Studio(classic) project in Azure Machine Learning.
+
+This is an introductory guide of the difference of Machine Learning Studio(classic) and Azure Machine Learning.  
 
 
 ## Learn the difference of Machine Learning Studio(classic) and Azure Machine Learning
@@ -28,7 +29,7 @@ Azure Machine Learning is a separate and modernized service. It can be used for 
 
 Compare to Machine Learning Studio(classic), Azure Machine Learning provides following values adds:
 
-- Scalable compute cluster for large-scale training.
+- Scalable compute clusters for large-scale training.
 - Enterprise security and governance.
 - Open and interoperable with popular open-source tools.
 - End-to-end MLOps capability.
@@ -62,7 +63,7 @@ Many ML Studio(classic) concepts also exist in Azure Machine Learning, below tab
 |---| --- |
 |Workspace|Workspace|
 |Projects|NA|
-|Experiment (the drag-n-drop graph)|Pipeline draft. <br/>           Experiment in AML refers to a grouping of many runs|
+|Experiment (the drag-n-drop graph)|Pipeline draft. <br/>           Experiment in Azure Machine Learning refers to a grouping of many runs|
 |Run|Pipeline run|
 |Web service - batch|Pipeline endpoint|
 |Web service - real-time|Real-time endpoint|
@@ -70,18 +71,20 @@ Many ML Studio(classic) concepts also exist in Azure Machine Learning, below tab
 |Datasets|Datasets|
 |Trained models|Models|
 |Settings - user management|RBAC|
-|Settings - data gateway|It's recommended to move data from on-premises to cloud storage using [Azure data factory integration runtime](../../data-factory/create-self-hosted-integration-runtime.md).|
+|Settings - data gateway|Not supported. It's recommended to move data from on-premises to cloud storage using [Azure data factory integration runtime](../../data-factory/create-self-hosted-integration-runtime.md).|
 |AI gallery|NA|
 
-Learn more about the Azure Machine Learning concepts in [this article](../concept-azure-machine-learning-architecture.md). 
+Learn more about the Azure Machine Learning concepts and architecture in [this article](../concept-azure-machine-learning-architecture.md). 
 
+
+[**to-do: is it necessary to add AML architecture overview here?** ]
 
 
 ## Migration path
 
-Machine Learning Studio(classic) provides pure UI based tool to train and deploy model. However Azure Machine Learning provides much richer tools for different skill level. 
+Machine Learning Studio(classic) provides pure UI based tool to train and deploy model. Azure Machine Learning provides much richer tools for different skill levels customer. 
 
-If your company already have the training code or want to use the open-source frameworks, it's suggested to rebuild the project using code first approach. Get started of Azure Machine Learning SDK and CLI with following tutorials.
+If your company already have the training code, it's suggested to rebuild the project using code first approach. Get started of Azure Machine Learning SDK and CLI with following tutorials.
 
 - [Python get started](../tutorial-1st-experiment-sdk-setup-local.md)
 - [Jupyter Notebooks tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup.md)
@@ -89,4 +92,4 @@ If your company already have the training code or want to use the open-source fr
 - [R SDK first experiment](../tutorial-1st-r-experiment.md)
 - [Train and deploy with CLI](../tutorial-train-deploy-model-cli.md)
 
-If you prefer to use the no code/low code experience similar to ML Studio(classic), it's suggested to rebuild the project with Azure Machine Learning designer. Check [migrate to designer](./migrate-to-designer.md) to learn how.
+If you prefer to use the drag-n-drop experience similar to Studio(classic), it's suggested to rebuild the project with Azure Machine Learning designer. Check [migrate to designer](./migrate-to-designer.md) to learn how.

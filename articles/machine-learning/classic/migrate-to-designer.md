@@ -13,17 +13,17 @@ ms.date: 11/27/2020
 
 # Migrate to Azure Machine Learning designer
 
-Azure Machine Learning Studio(classic) will start retire on Feb 29,2024. Before this date, customers have access to their existing Machine Learning Studio(classic) workspace. The experiments and web services can still run. But new resource (workspace, commitment plan) creation will be stopped after May 31 2021. 
+Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. But new resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
 
-Customer should move to use Azure Machine Learning, the new modern machine learning platform for enterprise. 
+Azure Machine Learning provides a modern machine learning platform with a fully managed experience. Customer should migrate their Studio(classic) projects to Azure Machine Learning before Feb 29,2024. We encourage customers to make the switch sooner to gain the richer benefit of the new platform.
 
-For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer. 
+For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project at this time. We will further notice when there is migration tool available. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step by step guidance. 
 
 ## Key steps for the migration
 
 This section aims to give you an overview of the key steps of the migration.
 
-- 1. [Create Azure Machine Learning resources](#1-create-azure-machine-learning-resource)
+- 1. [Create Azure Machine Learning resources](#create-azure-machine-learning-resource)
 
         Create resources that will be used in later steps of the migration, include:
         - Workspace
@@ -48,18 +48,18 @@ This section aims to give you an overview of the key steps of the migration.
     |Retraining web service (for retraining purpose)|Pipeline endpoint| 
     
     This article will cover how to recreate the web service by:
-    - 3.1 [Deploy realtime endpoint for realtime prediction](#3.1-deploy-realtime-endpoint-for-realtime-prediction) 
-    - 3.2 [Publish pipeline endpoint for batch prediction or retraining](#3.2-publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
+    - [Deploy realtime endpoint for realtime prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
+    - [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
 
-- 4. [Integrate with client app](#4-integrate-with-client-app).
+- 4. [Integrate with client app](#integrate-with-client-app).
     
     The last step is to integrate the new created endpoint in step 3 with client app to make prediction. 
 
 
 
-### 1. Create Azure Machine Learning resource
+## Create Azure Machine Learning resource
 
-#### 1.1 Workspace
+### Workspace
 
 The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning.
 
@@ -67,7 +67,7 @@ Follow [this article](../how-to-manage-workspace.md) to create Azure Machine Lea
 
 
 
-#### 1.2 Compute for training
+### Compute for training
 
 Machine Learning Studio(classic) runs on proprietary compute resource that is transparent to customers. Every customer has a fix size of compute resource to run their experiment and it only support CPU compute. 
 
@@ -85,9 +85,9 @@ Azure Machine Learning designer supports following compute target types.
 Customer can easily create compute clusters in the **Compute** tab in Azure Machine Learning Studio. Follow [this article](../how-to-create-attach-compute-studio.md) to check step-by-step guidance.
 ![create-compute](./media/migrate-to-AML/create-compute.png)
 
-#### 1.3 AKS for inference
+### AKS for inference
 
-## 2. Rebuild the experiment to train a model
+## Rebuild the experiment to train a model
 
 This section will describe how to rebuild ML Studio(classic) experiment in Azure Machine Learning designer. Designer provides a similar drag and drop experience. If you have never use designer before, it's recommended to go through [designer tutorial](../tutorial-designer-automobile-price-train-score.md) to get familiar with it.
 
@@ -101,7 +101,7 @@ Usually you will repeat 2-3 many times to build the training pipeline iterativel
 
 
 
-### 2.1. Migrate the dataset
+### Migrate the dataset
 
 In short, there are two steps to migrate dataset from ML Studio(classic) to Azure Machine Learning:
 
@@ -110,7 +110,7 @@ In short, there are two steps to migrate dataset from ML Studio(classic) to Azur
 
 #### Download the dataset
 
-Studio(classic) support several data types. for following data types, you can directly download them in DATASETS tab as shown in below image shows how.
+Studio(classic) support several data types. for data types listed below, you can directly download them in DATASETS tab as shown in below screenshot.
 
 * Plain text (.txt)
 * Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
@@ -156,9 +156,9 @@ After create a dataset, you will be able to see the dataset in designer module p
 
 ![dataset in module tree](./media/migrate-to-AML/dataset-module-tree.png)
 
-### 2.2 Rebuild the graph by drag and drop
+### Rebuild the graph by drag and drop
 
-ML Studio(classic) allows customer visually connect dataset and modules to create an experiment to train a model. Azure Machine Learning designer provides similar experience. In Azure Machine Learning, the visual graph is called pipeline draft. Customer can submit a run from pipeline draft, which turns into a pipeline run and the record of each run will be tracked in Azure Machine Learning Studio.  
+ML Studio(classic) allows customer visually connect dataset and modules to create an experiment to train a model. Azure Machine Learning designer provides similar experience. In Azure Machine Learning, the visual graph is called pipeline draft. Customer can submit a run from a pipeline draft, which turns into a pipeline run and the record of each run will be tracked in Azure Machine Learning Studio.  
 
 Go through the [designer-tutorial](../tutorial-designer-automobile-price-train-score.md) before you start rebuild the ML Studio(classic) experiments in designer. The tutorial will give you a good walk-through on how to use designer. 
 
@@ -179,7 +179,7 @@ The process of rebuild the graph can be summarized as following steps:
         To set a default compute for the entire pipeline, select the **Gear icon** ![gear-icon](../media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name to open the run setting panel. Select **Select compute target** in the panel, then select an existing compute or create a new compute following the **Set up compute target** pop up window. You only need to set the default compute target before you run the pipeline for the first time. Later runs will use the default compute target. 
         ![run-setting](./media/migrate-to-AML/run-setting.png) 
 
-### 2.3 Submit a run and check result
+### Submit a run and check result
 
 1. At the top of the canvas, select **Submit**.
     ![submit](./media/migrate-to-AML/submit.png)
@@ -211,7 +211,7 @@ After the run finish, you can check the output of each module. Here are a few he
 
 
 
-So far we have gone through the key steps to rebuild the training experiment in designer. Following sections will highlight the difference of ML Studio(classic) and designer, which you need pay special attention in migration.
+So far we have walked through the key steps to rebuild the training experiment in designer. Following sections will highlight the difference of ML Studio(classic) and designer, which you need pay special attention in migration.
 
 #### Import Data
 
@@ -362,7 +362,7 @@ In the Azure Machine Learning, it’s allowed to install the packages from CRAN 
 ```
 
 
-## 3.1 Deploy realtime endpoint for realtime prediction
+## Deploy realtime endpoint for realtime prediction
 
 In ML Studio(classic), the REQUEST/RESPOND endpoint is used for real-time inference. In Azure Machine Learning, it's done by real-time endpoint. 
 
@@ -411,7 +411,7 @@ In short, deploy real-time endpoint in designer have following steps:
 
 
 
-## 3.2 Publish pipeline endpoint for batch prediction or retraining
+## Publish pipeline endpoint for batch prediction or retraining
 
 In ML Studio(classic), the web service has two REST endpoints -  batch execution endpoint and request/respond endpoint. Batch execution endpoint is for batch prediction purpose. It takes path of a file as input, make prediction for all data in the file, then write the prediction to the output file. 
 
@@ -447,14 +447,14 @@ In previous section, you already migrated the ML Studio(classic) experiment as p
 Check [how to run batch prediction in designer](../how-to-run-batch-predictions-designer.md) and [how to retrain in designer](../how-to-retrain-designer.md) with more detailed guidance.
 
 
-## 4. Integrate with client app
+## Integrate with client app
 
-### Realtime endpoint 
+**Realtime endpoint** 
 
-#### Sample code
+-  Sample code
 
 
-### Pipeline endpoint
+**Pipeline endpoint**
 
-#### Sample code
-#### Integrate with Azure Data Factory
+- Sample code
+- Integrate with Azure Data Factory
