@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
+> [!IMPORTANT]
+>**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+
 ## Create an API connector
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
@@ -220,7 +223,7 @@ A blocking response exits the user flow. It can be purposely issued by the API t
 See an example of a [blocking response](#example-of-a-blocking-response).
 
 ### Validation-error response
- When the API responds with a validation-error response , the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+ When the API responds with a validation-error response, the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 

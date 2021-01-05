@@ -1,6 +1,6 @@
 ---
-title: Copy data to/from Azure Synapse Analytics (formerly SQL Data Warehouse) 
-description: Learn how to copy data to/from Azure Synapse Analytics (formerly SQL Data Warehouse) using Azure Data Factory
+title: Copy data to/from Azure Synapse Analytics 
+description: Learn how to copy data to/from Azure Synapse Analytics using Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to and from Azure Synapse Analytics (formerly SQL Data Warehouse) using Azure Data Factory
+# Copy data to and from Azure Synapse Analytics using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version 2 (current version)](../connector-azure-sql-data-warehouse.md)
@@ -41,7 +41,7 @@ You can copy data from the following data stores **to Azure Synapse Analytics**:
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> When copying data from SQL Server or Azure SQL Database to Azure Synapse Analytics, if the table does not exist in the destination store, Data Factory can automatically create the table in Synapse Analytics by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details.
+> When copying data from SQL Server or Azure SQL Database to Azure Synapse Analytics, if the table does not exist in the destination store, Data Factory can automatically create the table in Azure Synapse Analytics by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details.
 
 ## Supported authentication type
 Azure Synapse Analytics connector support basic authentication.
@@ -49,7 +49,7 @@ Azure Synapse Analytics connector support basic authentication.
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Synapse Analytics by using different tools/APIs.
 
-The easiest way to create a pipeline that copies data to/from Azure Synapse Analytics is to use the Copy data wizard. See [Tutorial: Load data into Synapse Analytics with Data Factory](../load-azure-sql-data-warehouse.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+The easiest way to create a pipeline that copies data to/from Azure Synapse Analytics is to use the Copy data wizard. See [Tutorial: Load data into Azure Synapse Analytics with Data Factory](../load-azure-sql-data-warehouse.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
 You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 

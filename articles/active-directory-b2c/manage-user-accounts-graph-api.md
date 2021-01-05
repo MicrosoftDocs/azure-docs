@@ -110,7 +110,7 @@ In user migration scenarios, if the accounts you want to migrate have weaker pas
 
 ### Extension properties
 
-Every customer-facing application has unique requirements for the information to be collected. Your Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, City, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information on defining custom attributes, see [custom attributes (user flows)](user-flow-custom-attributes.md) and [custom attributes (custom policies)](custom-policy-custom-attributes.md).
+Every customer-facing application has unique requirements for the information to be collected. Your Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, City, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information on defining custom attributes, see [custom attributes](user-flow-custom-attributes.md).
 
 Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application (found in **App registrations** > **All Applications** in the Azure portal). Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
 

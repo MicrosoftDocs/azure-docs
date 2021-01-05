@@ -119,7 +119,7 @@ For more information on consuming your web service, see [Consume a model deploye
 
 ## Next steps
 
-In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
+In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer see the following links:
 
-> [!div class="nextstepaction"]
-> [Designer samples](samples-designer.md)
++ [Designer samples](samples-designer.md): Learn how to use the designer to solve other types of problems.
++ [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).

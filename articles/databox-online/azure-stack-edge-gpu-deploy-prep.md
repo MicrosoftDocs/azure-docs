@@ -61,7 +61,7 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you begin, make sure that:
 
-- Your Microsoft Azure subscription is enabled for a Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported. To identify the type of Azure subscription you have, see [What is an Azure offer?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
+- Your Microsoft Azure subscription is enabled for a Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported. To identify the type of Azure subscription you have, see [What is an Azure offer?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
@@ -69,7 +69,7 @@ Before you begin, make sure that:
         - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. 
         - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 
 ### For the Azure Stack Edge Pro device
@@ -121,7 +121,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 7. Enter or select the following **Instance details**.
 
@@ -202,6 +202,3 @@ Advance to the next tutorial to learn how to install Azure Stack Edge Pro.
 
 > [!div class="nextstepaction"]
 > [Install Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

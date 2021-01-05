@@ -3,8 +3,8 @@ title: Scheduling and Execution with Data Factory
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

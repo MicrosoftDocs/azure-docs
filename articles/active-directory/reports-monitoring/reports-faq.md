@@ -46,7 +46,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How soon should I see activities data after getting a premium license?**
 
-**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take one or two days for the data to show up in the reports.
+**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take up to 3 days for the data to show up in the reports.
 
 ---
 

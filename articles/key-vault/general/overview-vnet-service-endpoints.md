@@ -65,7 +65,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Exchange Online & SharePoint Online|Allow access to customer key for Azure Storage Service Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Deploy Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
 |Azure Databricks|[Fast, easy, and collaborative Apache Spark–based analytics service](/azure/databricks/scenarios/what-is-azure-databricks)|
@@ -74,7 +74,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Event Hubs|[Allow access to a key vault for customer-managed keys scenario](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[Allow access to a key vault for customer-managed keys scenario](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](../../storage/common/storage-import-export-encryption-key-portal.md)
-|Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transfer artifacts to another registry](../../container-registry/container-registry-transfer-images.md)
+|Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > You must set up the relevant Key Vault access policies to allow the corresponding services to get access to Key Vault.

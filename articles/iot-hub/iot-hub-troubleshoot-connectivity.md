@@ -48,7 +48,7 @@ Explore the following topics to learn more about monitoring device connection ev
 
 * For a tutorial about ordering device connection events, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* For a tutorial about sending Email notifications, see [Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) in the Event Grid documentation.
+* For a tutorial about sending Email notifications, see [Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) in the Event Grid documentation.
 
 ## Azure Monitor: Route connection events to logs
 

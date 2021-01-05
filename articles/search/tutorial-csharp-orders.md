@@ -961,7 +961,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 ### Resources
 
-For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](/azure/search/index-add-scoring-profiles).
+For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](./index-add-scoring-profiles.md).
 
 ## Takeaways
 

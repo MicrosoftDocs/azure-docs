@@ -40,7 +40,7 @@ An example of a virtual machine resource ID is:
 For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (for example, [ITAR](/microsoft-365/compliance/offering-itar), [CJIS](/microsoft-365/compliance/offering-cjis), and so on), as applicable.
 
 >[!NOTE]
->Also consider naming of resource tags when reviewing the [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252f%253eazure-resource-manager%252fmanagement%252ftoc.json).
+>Also consider naming of resource tags when reviewing the [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2f%253eazure-resource-manager%2fmanagement%2ftoc.json).
 >
 
 Customers should understand and take into account the resource naming convention to help ensure  operational security, as Microsoft personnel could use the full resource ID in the following example scenarios:
