@@ -141,6 +141,8 @@
       href: howto-firewall.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
+    - name: Manage access to resources - Spoke VNet P2S
+      href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
     - name: Logs and metrics

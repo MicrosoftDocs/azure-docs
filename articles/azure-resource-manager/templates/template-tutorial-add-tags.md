@@ -38,7 +38,7 @@ The following example highlights the changes to the template. Copy the whole fil
 
 It's time to deploy the template and look at the results.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 

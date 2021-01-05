@@ -50,6 +50,17 @@ Azure Digital Twins provides several metrics to give you an overview of the heal
 
 The following tables describe the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
+#### Metrics for tracking service limits
+
+You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
+
+To set this up, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
+
 #### API request metrics
 
 Metrics having to do with API requests:

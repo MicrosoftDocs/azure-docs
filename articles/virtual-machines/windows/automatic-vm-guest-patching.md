@@ -5,7 +5,7 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
 
 ---
@@ -29,11 +29,11 @@ Automatic VM guest patching has the following characteristics:
 
 If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released through Windows Update. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
-The VM is assessed periodically to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
+The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly Windows Update release, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on.
+Patches are installed within 30 days of the monthly Windows Update release, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* will not be installed through the automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](tutorial-config-management.md#manage-windows-updates).
 
 ### Availability-first patching
 
@@ -64,11 +64,11 @@ The following platform SKUs are currently supported (and more are added periodic
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 
 ## Patch orchestration modes
 Windows VMs on Azure now support the following patch orchestration modes:
@@ -78,7 +78,7 @@ Windows VMs on Azure now support the following patch orchestration modes:
 - This mode is required for availability-first patching.
 - Setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
-- To use this mode, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` in the VM template.
+- To use this mode, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
 
 **AutomaticByOS:**
 - This mode enables Automatic Updates on the Windows virtual machine, and patches are installed on the VM through Automatic Updates.
@@ -102,7 +102,7 @@ Windows VMs on Azure now support the following patch orchestration modes:
 - The virtual machine must be able to access Windows Update endpoints. If your virtual machine is configured to use Windows Server Update Services (WSUS), the relevant WSUS server endpoints must be accessible.
 - Use Compute API version 2020-06-01 or higher.
 
-Enabling the preview functionality requires a one-time opt-in for the feature *InGuestAutoPatchVMPreview* per subscription, as detailed below.
+Enabling the preview functionality requires a one-time opt-in for the feature **InGuestAutoPatchVMPreview** per subscription, as detailed below.
 
 ### REST API
 The following example describes how to enable the preview for your subscription:
@@ -249,10 +249,10 @@ The patch installation results for your VM can be reviewed under the `lastPatchI
 ## On-demand patch assessment
 If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
 
-Enabling the preview functionality requires a one-time opt-in for the feature *InGuestPatchVMPreview* per subscription. The feature preview for on-demand patch assessment can be enabled following the [preview enablement process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) described earlier for automatic VM guest patching.
+Enabling the preview functionality requires a one-time opt-in for the feature **InGuestPatchVMPreview** per subscription. This feature preview is different from the automatic VM guest patching feature enrollment done earlier for **InGuestAutoPatchVMPreview**. Enabling the additional feature preview is a separate and additional requirement. The feature preview for on-demand patch assessment can be enabled following the [preview enablement process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) described earlier for automatic VM guest patching.
 
 > [!NOTE]
->On-demand patch assessment does not automatically trigger patch installation. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
+>On-demand patch assessment does not automatically trigger patch installation. If you have enabled automatic VM guest patching then the assessed and applicable patches for the VM will be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
 
 ### REST API
 ```

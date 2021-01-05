@@ -200,6 +200,6 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 ## Next steps
 See the following documentation and samples: 
 
-- [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Azure Service Bus client library for JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
 - [azure-servicebus reference documentation](/javascript/api/overview/azure/service-bus)

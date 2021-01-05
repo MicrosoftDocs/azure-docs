@@ -10,7 +10,7 @@ ms.date: 4/9/2019
 ms.topic: article
 # Use ms.service for services or ms.prod for on-premises products. Remove the # before the relevant field.
 ms.service: azure-government
-# ms.prod: product-name-from-white-list
+# ms.prod: product-name-from-allow-list
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

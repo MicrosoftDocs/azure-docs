@@ -107,8 +107,33 @@ The difference between the following control script and the one that you used to
 
 Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/04-run-pytorch.py":::
+```python
+# 04-run-pytorch.py
+from azureml.core import Workspace
+from azureml.core import Experiment
+from azureml.core import Environment
+from azureml.core import ScriptRunConfig
 
+if __name__ == "__main__":
+    ws = Workspace.from_config()
+    experiment = Experiment(workspace=ws, name='day1-experiment-train')
+    config = ScriptRunConfig(source_directory='./src',
+                             script='train.py',
+                             compute_target='cpu-cluster')
+
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='./.azureml/pytorch-env.yml'
+    )
+    config.run_config.environment = env
+
+    run = experiment.submit(config)
+
+    aml_url = run.get_portal_url()
+    print(aml_url)
+```    
+    
 ### Understand the code changes
 
 :::row:::
@@ -129,7 +154,7 @@ Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit) [I ran into an issue](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [I created the control script](?success=control-script#submit) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
@@ -182,7 +207,7 @@ Azure Machine Learning also maintains a collection of curated environments. Thes
 In short, using registered environments can save you time! Read [How to use environments](./how-to-use-environments.md) for more information.
 
 > [!div class="nextstepaction"]
-> [I submitted the run](?success=test-w-environment#log) [I ran into an issue](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> [I submitted the run](?success=test-w-environment#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log"></a> Log training metrics
 
@@ -218,7 +243,7 @@ compare metrics.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
 
 > [!div class="nextstepaction"]
-> [I modified train.py ](?success=modify-train#log) [I ran into an issue](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [I modified train.py ](?success=modify-train#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### Update the Conda environment file
 
@@ -227,7 +252,7 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [I updated the environment file](?success=update-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [I updated the environment file](?success=update-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 Submit this script once more:
@@ -241,7 +266,7 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
 > [!div class="nextstepaction"]
-> [I resubmitted the run](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> [I resubmitted the run](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## Next steps
 
