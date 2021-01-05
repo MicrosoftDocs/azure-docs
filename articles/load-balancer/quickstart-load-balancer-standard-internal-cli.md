@@ -48,6 +48,8 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 ## Configure virtual network - Standard
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
@@ -78,7 +80,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
-* In **CCreateIntLBQS-rg **.
+* In **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -93,7 +95,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.1.1.0/24**.
 * In virtual network **myVNet**.
-* In resource group **CreateIntLBQS-rg **.
+* In resource group **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -108,7 +110,7 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
 
 * Named **myBastionHost**.
-* In **CreateIntLBQS-rg **.
+* In **CreateIntLBQS-rg**.
 * Associated with public IP **myBastionIP**.
 * Associated with virtual network **myVNet**.
 * In **eastus** location.
@@ -342,6 +344,8 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUS, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 ## Configure virtual network - Basic
 
