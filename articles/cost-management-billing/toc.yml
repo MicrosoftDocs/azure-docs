@@ -132,6 +132,8 @@
         href: manage/azure-plan-subscription-transfer-partners.md
       - name: Azure Enterprise transfers
         href: manage/ea-transfers.md
+      - name: Transfer MOSP subscription to EA
+        href: manage/mosp-ea-migration.md
       - name: Transfer EA subscriptions to a partner
         href: manage/transfer-enterprise-subscription-partner.md
   - name: Security
