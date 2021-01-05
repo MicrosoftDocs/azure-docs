@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Connect Azure Functions apps for processing data
+# Connect function apps in Azure for processing data
 
-Updating digital twins based on data is handled using [**event routes**](concepts-route-events.md) through compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). Functions can be used to update a digital twin in response to:
+Updating digital twins based on data is handled using [**event routes**](concepts-route-events.md) through compute resources, such as a function that's made by using [Azure Functions](../azure-functions/functions-overview.md). Functions can be used to update a digital twin in response to:
 * device telemetry data coming from IoT Hub
 * property change or other data coming from another digital twin within the twin graph
 
@@ -35,7 +35,7 @@ Here is an overview of the steps it contains:
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## Create an Azure Functions app in Visual Studio
+## Create a function app in Visual Studio
 
 In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template, select _Next_.
 
@@ -79,7 +79,7 @@ dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
-Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your Azure Function. 
+Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your function. 
 
 ```csharp
 using Azure.DigitalTwins.Core;
@@ -180,7 +180,7 @@ Select **Azure** as the publishing target and select **Next**.
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publish function dialog, Select your function app from the list, and finish":::
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
-For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
+For your function app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
 
 Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
 
