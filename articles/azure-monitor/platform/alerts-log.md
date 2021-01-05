@@ -27,7 +27,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 
 Here the steps to get started writing queries for alerts:
 
-1. Go to the resource you would like to alert on.
+1. Go to the resource you would like to alert on. It is recommended to setup alert rules on multiple resources by selecting a subscripition or resource group scope.
 1. Under **Monitor**, select **Logs**.
 1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../log-query/example-queries.md) to understand what you can discover or [get started on writing your own query](../log-query/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
