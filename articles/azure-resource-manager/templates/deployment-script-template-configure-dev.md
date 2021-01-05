@@ -33,9 +33,13 @@ For an Azure CLI container image you can create a **hello.sh** file with the fol
 ```bash
 firstname=$1
 lastname=$2
-output="Hello $firstname $lastname"
-echo $output
+output="{\"name\":{\"displayName\":\"$firstname $lastname\",\"firstName\":\"$firstname\",\"lastName\":\"$lastname\"}}"
+echo -n "Hello "
+echo $output | jq -r '.name.displayName'
 ```
+
+> [!NOTE]
+> When running Azure CLI deployment scripts there is an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides, this environment variable is not available in the development environment container. For details on how to work with Azure CLI outputs see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script)
 
 ## Use Azure PowerShell container instance
 
