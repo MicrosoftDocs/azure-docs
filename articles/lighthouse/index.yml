@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 12/03/2020
+  ms.date: 12/17/2020
   
 landingContent:
   - title: About Azure Lighthouse
@@ -39,12 +39,14 @@ landingContent:
         links:
           - text: Recommended security practices
             url: ./concepts/recommended-security-practices.md
+          - text: Tenants, roles, and users
+            url: ./concepts/tenants-users-roles.md
           - text: Cloud Solution Provider program considerations
             url: ./concepts/cloud-solution-provider.md
           - text: Enterprise scenarios
             url: ./concepts/enterprise.md
-          - text: Tenants, roles, and users
-            url: ./concepts/tenants-users-roles.md
+          - text: ISV scenarios
+            url: ./concepts/isv-scenarios.md
 
   - title: Marketplace offers
     linkLists:

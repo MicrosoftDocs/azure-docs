@@ -95,8 +95,8 @@ For Java Server Page (JSP) source files:
     import="com.twilio.rest.api.*"
     import="com.twilio.type.*"
     import="com.twilio.twiml.*"
- ```
- 
+```
+
 Depending on which Twilio packages or classes you want to use, your **import** statements may be different.
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call

@@ -27,28 +27,28 @@ An example query from the queries used for the usage and diagnostics data collec
 ```sql
 select 
 count(*) as [count], sum(inputs) as inputs, sum(outputs) as outputs, sum(linked_to_job) 
-as linked_to_job, data_source_type 	
+as linked_to_job, data_source_type
 from ( 
-select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job 	
+select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job
 from 
-	( 
-		select 
-		convert(sysname, lower(substring(ds.location, 0, charindex('://', ds.location))), 1) as data_source_type, 
-		isnull(inputs, 0) as inputs, isnull(outputs, 0) as outputs, isnull(js.stream_id/js.stream_id, 0) as linked_to_job 
-		from sys.external_streams es 	          
-		join sys.external_data_sources ds 
-			 on es.data_source_id = ds.data_source_id 	          
-		left join 
-			( 
-			select stream_id, max(cast(is_input as int)) inputs, max(cast(is_output as int)) outputs 
-			from sys.external_job_streams group by stream_id 
-			) js 	            
-			 on js.stream_id = es.object_id 
-    ) ds 	        
+    ( 
+        select 
+        convert(sysname, lower(substring(ds.location, 0, charindex('://', ds.location))), 1) as data_source_type, 
+        isnull(inputs, 0) as inputs, isnull(outputs, 0) as outputs, isnull(js.stream_id/js.stream_id, 0) as linked_to_job 
+        from sys.external_streams es
+        join sys.external_data_sources ds 
+             on es.data_source_id = ds.data_source_id
+        left join 
+            ( 
+            select stream_id, max(cast(is_input as int)) inputs, max(cast(is_output as int)) outputs 
+            from sys.external_job_streams group by stream_id 
+            ) js
+             on js.stream_id = es.object_id 
+    ) ds
 left join 
-	(
-		select value from string_split('edgehub,sqlserver,kafka', ',')) as known_ep on data_source_type = value 
-	) known_ds 	      
+    (
+        select value from string_split('edgehub,sqlserver,kafka', ',')) as known_ep on data_source_type = value 
+    ) known_ds
 group by data_source_type
 ```
 

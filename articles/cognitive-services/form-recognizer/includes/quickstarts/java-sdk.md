@@ -53,7 +53,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
 In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -69,6 +69,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+
+> [!NOTE]
+> The Form Recognizer 3.0.0 SDK reflects API version 2.0
+
 #### [version 3.1 preview](#tab/preview)
 ```kotlin
 plugins {
@@ -85,6 +89,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
+
 ---
 
 ### Create a Java file
@@ -116,14 +124,16 @@ In the application's **FormRecognizer** class, create variables for your resourc
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later. You'll also need to add references to the URLs for your training and testing data.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
@@ -160,14 +170,14 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Java:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
@@ -254,11 +264,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-#### [version 3.0](#tab/ga)
-
-#### [version 3.1 preview](#tab/preview)
-
 ## Recognize business cards
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model.
 
@@ -273,7 +286,16 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## Recognize invoices
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model.
 

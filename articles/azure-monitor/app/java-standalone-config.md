@@ -167,6 +167,10 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> Starting from version 3.0.1-BETA, if you add a custom dimension named `service.version`, the value will be stored
+> in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
 This feature is in preview.
@@ -183,9 +187,10 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-By default, logging is only collected when that logging is performed at the `INFO` level or above.
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
 
-If you want to change this collection level:
+The default Application Insights threshold is `INFO`. If you want to change this level:
 
 ```json
 {

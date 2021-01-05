@@ -78,9 +78,7 @@ The above error occurs if:
 
 * The username does not exists
 * The user username was deleted
-* its password is changed or reset
-
-The resolution for the error is 
+* its password is changed or reset.
 
 **Resolution**: 
 * Validate if "username" exists as a valid user in the server or is accidentally deleted. You can execute the following query by logging into the Azure Database for MySQL user:
