@@ -123,7 +123,7 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 
 For Azure DNS resolution, there are two options available:
 
--   Use the Azure Active Directory (Azure AD) domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
+-   Use the domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
 
 -   Deploy and configure an Azure DNS private zone.
 
@@ -139,7 +139,7 @@ On-premises and Azure VMware Solution servers can be configured with conditional
 
 ## Identity considerations
 
-For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub. Use two shared service subnets in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
+For identity purposes, the best approach is to deploy at least one domain controller on the Hub. Use two shared service subnets in zone-distributed fashion or a VM availability set. For more information on extending your on-premises Active Directory (AD) domain to Azure, see [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
