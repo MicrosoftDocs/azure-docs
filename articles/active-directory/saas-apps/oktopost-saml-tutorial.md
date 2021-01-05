@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Oktopost SAML SSO
 
-1. Login to the Oktopost SAML as an administrator.
+1. Log in to the Oktopost SAML as an administrator.
 
 1. Click on the **User Icon > Settings > Security > Single Sign-on**.
 
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Oktopost SAML test user
 
-1. Login to the Oktopost SAML as an administrator.
+1. Log in to the Oktopost SAML as an administrator.
 
 1. Click on the **User Icon > Settings > User Management > Users**.
 
