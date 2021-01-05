@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+title: Use Microsoft services to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
 description: Learn how to use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: bagol
 
 ---
 
-# Use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises
+# Use Microsoft services to respond to supply-chain attacks and systemic-identity compromises
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
@@ -48,11 +48,11 @@ The global administrator account or certificates enabled the attackers to forge 
 > If you are not sure whether your organization has been infected, review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack: 
 >
 > [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
-## Securing your network after a system compromise
+## Securing your network after a systemic identity compromise
 
-If you suspect that your organization has been affected by Solorigate or another similar attack, you will need to use Azure Sentinel, Microsoft Defender, and Azure Active Directory to identify risks and evidence of compromise, and then isolate resources and harden your system against attacks.
+If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender, Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Cloud App Security, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
 
-If you have Azure Sentinel, make sure that you set up connectors to both Microsoft Defender and Azure Active Directory, and start responding to threats by querying all the data in Azure Sentinel. 
+If you have Azure Sentinel, make sure that you set up relevant connectors to other services so that you can respond to threats by querying all the data directly in Azure Sentinel. 
 
 For more information, see [Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md).
 

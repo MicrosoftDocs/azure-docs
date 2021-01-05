@@ -33,6 +33,9 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
     - [Microsoft Defender for Endpoint](connect-microsoft-365-defender.md)
     - [Microsoft Defender for Identity](connect-azure-atp.md)
     - [Azure Active Directory](connect-azure-active-directory.md)
+
+    > [!NOTE]
+    > The Azure Sentinel connectors for Microsoft Defender for Endpoint and Microsoft Defender for Identity are also known by their legacy names: Microsoft Defender Advanced Threat Protection and Azure Advanced Threat Protection, respectively.
     
 1. Use Azure Sentinel to [hunt](hunting.md) for attack activity, especially  with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For more information, see:
     
@@ -58,7 +61,7 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
 
 After the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md) is running, run the following query to run a software inventory to identify any hosts that have run the SolarWinds process in the last 30 days.
 
-The script will return hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoint.
+The script will return hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoints.
 
 This query uses the Sysmon logs that were collected by many Microsoft customers to help identify machines that have SolarWinds software installed.
 
@@ -103,10 +106,10 @@ Event
 
 The Solorigate attackers used a hardcoded pipe named **583da945-62af-10e8-4902-a8f205c72b2e** to verify that only one instance of the backdoor they created was running.
 
-If you are collecting Sysmon logs (Event ID 17/18) or Security Events (ID 5145) to your Azure Sentinel workspace, run the following query to find evidence of this hardcoded pipe in your systems.
+If you are collecting Sysmon logs (Event ID 17/18) or Security Events (ID 5145) to your Azure Sentinel workspace, run the following query in the Sentinel **Logs** page to find evidence of this hardcoded pipe in your systems.
 
 > [!IMPORTANT]
-> This query should not be considered sufficient evidence of an attack on its own. The creation of the hardcoded named pipe alone does not indicate that the malicious code was completely triggered, and the machine may have beaconed out or received additional commands. 
+> This query should not be considered sufficient evidence of an attack on its own. The creation of the hardcoded named pipe alone does not indicate that the malicious code was completely triggered. 
 >
 > However, the presence of this named pipe is suspicious and should warrant a further, more in-depth investigation.
 
@@ -140,16 +143,16 @@ SecurityEvent
 
 ## Identify privilege escalations in your system
 
-After an attacker has system account level access, they will attempt to access domain administrator levels.
+Having gained system account level access, an attacker will then attempt to access domain administrator permissions.
 
-Use any of the following linked queries to identify unusual sign-in activities or additions to privileged groups:
+To identify unusual sign-in activities or additions to privileged groups, use any of the following linked queries:
 
 - [Check for hosts with new sign-ins to identify potential lateral movement by the attacker](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/HostsWithNewLogons.yaml).
 - [Check for new accounts created and added to a built-in administrators group](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/UserCreatedAddedToBuiltinAdmins_1d.yaml).
 - [Check for user accounts added to privileged, built-in domain local or global groups](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/UserAccountAddedToPrivlegeGroup_1h.yaml). This query includes accounts added to domain-privileged groups, such as Enterprise Admins, Cert Publisher, or DnsAdmins. 
 - [Check for unusual activity performed by a high-value account on a system or service](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/TrackingPrivAccounts.yaml).
 
-In some affected environments, service account credentials were granted administrative privileges. If needed, modify any of the queries listed above to remove the *user* focus by commenting out the following line where relevant:
+In some affected environments, service account credentials were granted administrative privileges. If needed, modify any of the queries listed above to remove the *user* focus by commenting out the following line where it appear:
 
 ```kusto
 //| where AccountType == "User"
@@ -428,7 +431,7 @@ AuditLogs
 
 ## Find reconnaissance and remote process execution
 
-An attacker might attempt to access on-premises systems to gain further insight about the environment mapping. For example, in the Solorigate attack, the attackers renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
+An attacker might attempt to access on-premises systems to gain further insight and map the environment. For example, in the Solorigate attack, the attackers renamed the **adfind.exe** Windows administrative tool and then used it to enumerate domains in the system.
 
 Search for such process executions, which may look like this:
 
@@ -457,7 +460,7 @@ SecurityEvent
 | where Count > threshold
 ```
 
-If you have the [Windows Event 4648](/windows/security/threat-protection/auditing/event-4648) collected to Azure Sentinel, you can also use the following query to find instances where the execution runs via multiple, explicit credentials against remote targets:
+If you have the [Windows Event 4648](/windows/security/threat-protection/auditing/event-4648) collected to your Azure Sentinel workspace, you can also use the following query to find instances where the execution runs via multiple, explicit credentials against remote targets:
 
 For more information, see the [MultipleExplicitCredentialUsage4648Events](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SecurityEvent/MultipleExplicitCredentialUsage4648Events.yaml) query on GitHub.
 
@@ -504,7 +507,7 @@ Use the following Sentinel queries to find evidence of illicit data access in yo
 - [Find instances of MFA sign-ins using tokens](#find-instances-of-mfa-sign-ins-using-tokens)
 - [Find sign-ins from Virtual Private Servers (VPS)](#find-sign-ins-from-virtual-private-servers-vps)
 
-### Find instances of sign-ins used to access non-AD resources
+### Find sign-ins used to access non-AD resources
 
 Use the following Sentinel queries to find instances of user or application sign-ins that use Azure AD PowerShell to access non-AD resources.
 
@@ -698,15 +701,15 @@ OfficeActivity
 | extend timestamp = min_TimeGenerated, AccountCustomEntity = UserId
 ``` 
 
-## Find suspicious domain-related activity
+## Find suspicious domain-related activities
 
 Use the following queries to find suspicious domain activity related to the Solorigate attack:
 
-- [Find suspicious domain-specific activity](#find-suspicious-domain-specific-activity)
-- [Find suspicious domain DGA activity](#find-suspicious-domain-dga-activity)
-- [Find suspicious encoded domain activity](#find-suspicious-encoded-domain-activity)
+- [Find suspicious domain-specific activities](#find-suspicious-domain-specific-activities)
+- [Find suspicious domain DGA activities](#find-suspicious-domain-dga-activities)
+- [Find suspicious encoded domain activities](#find-suspicious-encoded-domain-activities)
 
-### Find suspicious domain-specific activity
+### Find suspicious domain-specific activities
 
 Use the following Sentinel query to find IOCs collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
 
@@ -747,7 +750,7 @@ let timeframe = 6h;
 )
 ```
 
-### Find suspicious domain DGA activity
+### Find suspicious domain DGA activities
 
 The Solorigate attackers made several DGA-like subdomain queries as part of command and control activities.
 
@@ -778,7 +781,7 @@ DnsEvents
 | order by count_ asc
 ```
 
-### Find suspicious encoded domain activity
+### Find suspicious encoded domain activities
 
 Use the following Sentinel query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. Results from this query can help identify other command and control domains that use the same encoding scheme.
 

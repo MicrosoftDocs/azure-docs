@@ -20,7 +20,7 @@ ms.author: bagol
 
 # Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises
 
-Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any Identity-related indicators of compromise (IOCs) related to the attacks. 
+Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any identity-related indicators of compromise (IOCs) related to the attacks. 
 
 - [Access the Azure AD Solorigate workbook](#access-the-azure-ad-solorigate-workbook)
 - [Data shown in the Azure AD Solorigate workbook](#data-shown-in-the-azure-ad-solorigate-workbook)
@@ -35,7 +35,7 @@ Microsoft has published a specific Azure AD workbook in the Azure administration
 
 **Prerequisite**: Your Azure AD sign-in and audit logs must be integrated with Azure Monitor.
 
-Integrating your logs with Azure Monitor enables you to store, query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after the integration are stored, so this workbook will not contain any insights prior to the date of integration.
+Integrating your logs with Azure Monitor enables you to store, query, and visualize your logs using workbooks for up to two years. Sign-in and audit events are only stored if they're created after the integration, so this workbook will not contain any insights prior to the date of integration.
 
 For more information, see [How to integrate activity logs with Log Analytics](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
