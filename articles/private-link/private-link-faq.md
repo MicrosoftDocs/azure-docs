@@ -40,7 +40,7 @@ Yes. You can have multiple private endpoints in same VNet or subnet. They can co
 No. You don't require a dedicated subnet for private endpoints. You can choose a private endpoint IP from any subnet from the VNet where your service is deployed.  
  
 ### Can Private Endpoint connect to Private Link service across Azure Active Directory Tenants? 
-Yes. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  
+Yes. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  Private endpoints connecting across tenants will require a manual request approval. 
  
 ### Can private endpoint connect to Azure PaaS resources across Azure regions?
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
