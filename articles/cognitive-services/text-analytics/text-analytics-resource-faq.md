@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2020
 ms.author: aahi
 ---
 # Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
@@ -41,6 +41,16 @@ Generally, output consists of nouns and objects of the sentence. Output is liste
 ## Why does output vary, given identical inputs?
 
 Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase output. This is a normal and intentional consequence of using managed machine learning resources in the cloud.
+
+## Service availability and redundancy
+
+### Is Text Analytics service zone resilient?
+
+Yes. The Text Analytics service is zone-resilient by default.
+
+### How do I configure the Text Analytics service to be zone-resilient?
+
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Text Analytics resources is available by default and managed by the service itself.
 
 ## Next steps
 
