@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **User Icon > Settings > Security > Single Sign-on**.
 
-    ![Oktopost SAML configuration](./media/oktopost-saml-tutorial/settings.png)
+    ![Oktopost SAML Settings](./media/oktopost-saml-tutorial/settings.png)
 
 1. Perform the following steps in the below page.
 
