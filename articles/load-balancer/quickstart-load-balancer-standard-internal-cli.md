@@ -48,6 +48,8 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 ## Configure virtual network - Standard
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
@@ -342,6 +344,8 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUS, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 ## Configure virtual network - Basic
 
