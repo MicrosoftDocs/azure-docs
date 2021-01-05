@@ -26,7 +26,7 @@ To run code snippets without using Azure Functions, learn how to [add and run in
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An function app, which is a container for Azure Functions, along with the function you create. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
+* An function app, which is a container for a function that's created in Azure Functions, along with the function you create. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
 
 * When working with logic apps, the same requirements apply to function apps and functions whether they are existing or new:
 
@@ -99,7 +99,7 @@ Now that you've created your function in Azure, follow the steps to [add functio
 
 You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
-However, before you can create any Azure Function, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+However, before you can create function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -111,7 +111,7 @@ However, before you can create any Azure Function, you must already have a funct
 
 1. In the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action, for example:
 
-   ![Find "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+   ![Find functions in the Azure portal.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 1. From the function apps list, select your function app. After the actions list opens, select this action: **Create New Function**.
 
@@ -166,7 +166,7 @@ To call existing functions from your logic apps, you can add functions like any 
 
 1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action.
 
-   ![Find "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+   ![Find a function in Azure.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 1. From the function apps list, select your function app. After the functions list appears, select your function.
 
@@ -174,7 +174,7 @@ To call existing functions from your logic apps, you can add functions like any 
 
    For functions that have API definitions (Swagger descriptions) and are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**.
 
-   ![Select your function app, "Swagger actions", and your Azure Function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   ![Select your function app, "Swagger actions", and your function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
 
