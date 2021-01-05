@@ -10,10 +10,10 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: yelevin
 
 ---
@@ -53,7 +53,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 1. While the script is running, check to make sure you don't get any error or warning messages.
     - You may get a message directing you to run a command to correct an issue with the mapping of the *Computer* field. See the [explanation in the deployment script](#mapping-command) for details.
 
-1. Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
+1. Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md).
 
 
 > [!NOTE]
@@ -185,8 +185,7 @@ Choose a syslog daemon to see the appropriate description.
         Contents of the `security-config-omsagent.conf` file:
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
