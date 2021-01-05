@@ -109,7 +109,7 @@ The schema for the event is as follows.
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
     "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
     "entityType": "subscriber",
     "queueName": "QUEUE NAME IF QUEUE",
     "topicName": "TOPIC NAME IF TOPIC",

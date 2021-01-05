@@ -12965,6 +12965,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
@@ -54217,6 +54222,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-15five-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/15five-tutorial",
       "redirect_document_id": true
@@ -58664,6 +58674,36 @@
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-business-cards.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-invoices.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-labeled-data.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-layout.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-receipts.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-train-extract.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md",
       "redirect_document_id": false
     },
     {

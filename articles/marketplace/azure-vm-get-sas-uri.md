@@ -65,7 +65,6 @@ There are two common tools used to create a SAS address (URL):
 
     - account-name – Your Azure storage account name.
     - account-key – Your Azure storage account key.
-    - vhd-name – Your VHD name.
     - start-date – Permission start date for VHD access. Provide a date one day before the current date.
     - expiry-date – Permission expiration date for VHD access. Provide a date at least three weeks after the current date.
 
@@ -85,7 +84,7 @@ There are two common tools used to create a SAS address (URL):
 
 6. Copy the SAS connection string and save it to a text file in a secure location. Edit this string to add the VHD location information to create the final SAS URI.
 7. In the Azure portal, go to the blob storage that includes the VHD associated with the new URI.
-8. Copy the URL of thebBlob service endpoint:
+8. Copy the URL of the blob service endpoint:
 
     ![Copying the URL of the blob service endpoint.](media/vm/create-sas-uri-blob-endpoint.png)
 

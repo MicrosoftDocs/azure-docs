@@ -12,7 +12,7 @@ ms.subservice: files
 # Understanding Azure Files billing
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work in order to help you understand your monthly Azure Files bill.
 
-The current pricing for Azure Files can be found on the [Azure Files pricing page](https://azure.microsoft.com/en-us/details/storage/files/).
+The current pricing for Azure Files can be found on the [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Provisioned billing
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
