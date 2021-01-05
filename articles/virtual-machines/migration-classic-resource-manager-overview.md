@@ -19,6 +19,8 @@ ms.author: tagore
 
 This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) aka Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
 
+ASM supports two different compute products, Azure Virtual Machines (classic) aka IaaS VMs & [Azure Cloud Services (classic)](https://docs.microsoft.com/azure/cloud-services/) aka PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
+
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
 
