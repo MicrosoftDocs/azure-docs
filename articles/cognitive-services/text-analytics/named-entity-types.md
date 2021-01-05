@@ -15,7 +15,9 @@ ms.author: aahi
 
 # Supported entity categories in the Text Analytics API v3
 
-Use this article to find the entity categories that can be returned by [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER). A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information. Additionally, click on the **Health** tab to see a list of supported categories in Text Analytics for health.
+Use this article to find the entity categories that can be returned by [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
+
+A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information. Additionally, click on the **Health** tab to see a list of supported categories in Text Analytics for health.
 
 ## Entity categories
 

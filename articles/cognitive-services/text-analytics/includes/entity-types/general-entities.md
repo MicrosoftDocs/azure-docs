@@ -11,18 +11,30 @@ ms.date: 05/13/2020
 ms.author: aahi
 ---
 
-## General NER categories, entities and subcategories
+## NER categories
 
-The following entity categories are returned when sending requests to the `/entities/recognition/general` endpoint.
+The NER feature for Text Analytics returns the following general (non identifying) entity categories. for example when sending requests to the `/entities/recognition/general` endpoint.
 
-Each category may include two concept groups:
+| Category   | Description                          |
+|------------|-------------|
+| Person     |  Names of people.  | 
+| PersonType | Job types or roles held by a person. | 
+|Location    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities     |
+|Organization | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  |
+| Event  | Historical, social, and naturally occurring events. |
+| Product | Physical objects of various categories. | 
+| Skill | A capability, skill, or expertise. | 
+| Address | Full mailing addresses.  | 
+| PhoneNumber | Phone numbers (US and EU phone numbers only). |
+| Email | Email addresses. | 
+| URL |  URLs to websites. | 
+| IP | Network IP addresses. | 
+| DateTime | Dates and times of day. |
 
-* **Entities** - TBD.
-* **Subcategories** - TBD.
 
 ## Person
 
-### Entities
+### Entities in this category
 
 **PERSON** - names of people.
 
@@ -30,9 +42,13 @@ Each category may include two concept groups:
 
 **PersonType** - Job types or roles held by a person.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Location
 
-### Entities
+### Entities in this category
 
 **Location** - Natural and human-made landmarks, structures, geographical features, and geopolitical entities.
 
@@ -43,6 +59,10 @@ Each category may include two concept groups:
 **Structural** - Manmade structures.
 
 **Geographical** - Geographic and natural features such as rivers, oceans, and deserts.
+
+### Available languages
+
+Available in the following languages: `en-us`
 
 ## Organization
 
@@ -58,7 +78,13 @@ Each category may include two concept groups:
 
 **Sports** - Sports-related organizations.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Event
+
+### Entities
 
 **event** - Historical, social, and naturally occurring events.
 
@@ -70,7 +96,13 @@ Each category may include two concept groups:
 
 **Sports** - Sporting events.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Product
+
+### Entities
 
 **Product** - Physical objects of various categories.
 
@@ -78,29 +110,69 @@ Each category may include two concept groups:
 
 **Computing products** - Computing products.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Skill
+
+### Entities
+
 
 **Skill** - A capability, skill, or expertise.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Address
+
+### Entities
+
 
 **Address** - Full mailing addresses.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## PhoneNumber
+
+### Entities
+
 
  Phone numbers (US and EU phone numbers only). Also returned by NER v2.1.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Email
 
+### Entities
+
+
 Email addresses. Also returned by NER v2.1.
+
+### Available languages
+
+Available in the following languages: `en-us`
 
 ## URL
 
 URLs to websites. Also returned by NER v2.1  
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## IP 
 
 Network IP addresses. Also returned by NER v2.1 
+
+### Available languages
+
+Available in the following languages: `en-us`
 
 ## DateTime
 
@@ -120,6 +192,10 @@ Dates and times of day. Also returned by NER v2.1
 
 **Set** -  Set, repeated times. Also returned by NER v2.1.
 
+### Available languages
+
+Available in the following languages: `en-us`
+
 ## Quantity 
 
  Numbers and numeric quantities. Also returned by NER v2.1  
@@ -131,7 +207,15 @@ Dates and times of day. Also returned by NER v2.1
 **Percentage** Percentages.  Also returned by NER v2.1 
 
 **Ordinal** - Ordinal numbers. Also returned by NER v2.1.
+
 **Age** - Ages.  Also returned by NER v2.1 
+
 **Currency** - Currencies. Also returned by NER v2.1 
+
 **Dimension** - Dimensions and measurements. Also returned by NER v2.1 
+
 **Temperature** - Temperatures.  Also returned by NER v2.1 
+
+### Available languages
+
+Available in the following languages: `en-us`
