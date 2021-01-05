@@ -1,6 +1,6 @@
 ---
-title: Create a function app in Azure Functions with Java and IntelliJ 
-description: Learn how to create and publish a simple HTTP-triggered, serverless function app in Azure Functions with Java and IntelliJ.
+title: Create a Java function in Azure Functions using IntelliJ 
+description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
 author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
@@ -8,11 +8,11 @@ ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
 ---
 
-# Create your first function app in Azure with Java and IntelliJ
+# Create your first Java function in Azure using IntelliJ
 
 This article shows you:
-- How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) Azure Functions function app with IntelliJ IDEA
-- Steps for testing and debugging the function app in the integrated development environment (IDE) on your own computer
+- How to create an HTTP-triggered Java function in an IntelliJ IDEA project.
+- Steps for testing and debugging the project in the integrated development environment (IDE) on your own computer.
 - Instructions for deploying the function project to Azure Functions
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
@@ -21,7 +21,7 @@ This article shows you:
 
 ## Set up your development environment
 
-To develop a function app with Java and IntelliJ, install the following software:
+To create and publish Java functions to Azure using IntelliJ, install the following software:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 + An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) for Java 8
@@ -67,25 +67,25 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Create function project finish](media/functions-create-first-java-intellij/create-functions-project-finish.png)
 
-## Run the function app locally
+## Run the project locally
 
 1. Navigate to `src/main/java/org/example/functions/HttpTriggerFunction.java` to see the code generated. Beside the line *17*, you will notice that there is a green *Run* button, click it and select *Run 'azure-function-exam...'*, you will see that your function app is running locally with a few logs.
 
-    ![Local run function app](media/functions-create-first-java-intellij/local-run-functions-project.png)
+    ![Local run project](media/functions-create-first-java-intellij/local-run-functions-project.png)
 
-    ![Local run function app output](media/functions-create-first-java-intellij/local-run-functions-output.png)
+    ![Local run project output](media/functions-create-first-java-intellij/local-run-functions-output.png)
 
 1. You can try the function by accessing the printed endpoint from browser, like `http://localhost:7071/api/HttpTrigger-Java?name=Azure`.
 
-    ![Local run function app test result](media/functions-create-first-java-intellij/local-run-functions-test.png)
+    ![Local run function test result](media/functions-create-first-java-intellij/local-run-functions-test.png)
 
 1. The log is also printed out in your IDEA, now, stop the function app by clicking the *stop* button.
 
-    ![Local run function app test log](media/functions-create-first-java-intellij/local-run-functions-log.png)
+    ![Local run function test log](media/functions-create-first-java-intellij/local-run-functions-log.png)
 
-## Debug the function app locally
+## Debug the project locally
 
-1. Now let's try to debug your function app locally, click the *Debug* button in the toolbar (if you don't see it, click *View -> Appearance -> Toolbar* to enable Toolbar).
+1. To debug the function code in your project locally, select the *Debug* button in the toolbar. If you don't see the toolbar, enable it by choosing **View** > **Appearance** > **Toolbar**.
 
     ![Local debug function app button](media/functions-create-first-java-intellij/local-debug-functions-button.png)
 
@@ -93,15 +93,15 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Local debug function app break](media/functions-create-first-java-intellij/local-debug-functions-break.png)
 
-## Deploy your function app to Azure
+## Deploy your project to Azure
 
 1. Right click your project in IntelliJ Project explorer, select *Azure -> Deploy to Azure Functions*
 
-    ![Deploy function app to Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
+    ![Deploy project to Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
 1. If you don't have any Function App yet, click *No available function, click to create a new one*.
 
-    ![Deploy function app to Azure create app](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
+    ![Create function app in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
 
 1. Type in the function app name and choose proper subscription/platform/resource group/App Service plan, you can also create resource group/App Service plan here. Then, keep app settings unchanged, click *OK* and wait some minutes for the new function app to be created. After *Creating New Function App...* progress bar disappears.
 
@@ -148,7 +148,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Next steps
 
-You've created a Java function project with an HTTP triggered function app, run it on your local machine, and deployed it to Azure. Now, extend your function by...
+You've created a Java project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
 
 > [!div class="nextstepaction"]
 > [Adding an Azure Storage queue output binding](./functions-add-output-binding-storage-queue-java.md)
