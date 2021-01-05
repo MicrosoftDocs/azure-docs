@@ -14,7 +14,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/05/2020
+ms.date: 01/05/2021
 ms.author: radeltch
 
 ---
@@ -372,7 +372,7 @@ Configure and prepare your OS by doing the following steps:
     </code></pre>
 
 > [!TIP]
-> Avoid setting up net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent manage the configuration. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+> Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 5. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
 
