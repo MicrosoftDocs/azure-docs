@@ -277,13 +277,15 @@ After you install the appropriate agent *setup.exe* file, you can register the a
     Register-AzureADConnectHealthSyncAgent
 
 ```
+
 > [!NOTE]
->Note:
->To register against sovereign clouds, please use the following command lines:
+> To register against sovereign clouds, use the following command lines:
 >
->Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
->Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
->Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
 >
 
 
