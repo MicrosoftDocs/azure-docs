@@ -213,7 +213,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     3. If the listed version is not a supported version, `pip uninstall PyJWT` in the command shell and enter y for confirmation.
     4. Install using `pip install 'PyJWT<2.0.0'`
     
-    If you are submitting a user-created environment with your run, consider using the latest version of azureml-core in that environment. azureml-core versions >= 1.18.0 already pin PyJWT < 2.0.0. If you need to use a version of azureml-core older than 1.18.0 in your environment, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
+    If you are submitting a user-created environment with your run, consider using the latest version of azureml-core in that environment. azureml-core versions >= 1.18.0 already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in your environment, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
 
 ## Next steps
 
