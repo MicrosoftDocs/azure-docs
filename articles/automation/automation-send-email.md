@@ -138,7 +138,7 @@ If you don't initially see your test email, check your **Junk** and **Spam** fol
 
 1. When the runbook is no longer needed, select it in the runbook list and click **Delete**.
 
-2. Delete the Key Vault by using the [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet.
+2. Delete the Key Vault by using the [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault) cmdlet.
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
