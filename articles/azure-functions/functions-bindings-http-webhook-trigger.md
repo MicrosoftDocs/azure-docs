@@ -737,6 +737,12 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 }
 ```
 
+When you use a set of route parameters, an `invoke_URL_template` is automatically created for your function. This template includes the route parameters so that callers can see what they need to provide. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
+
+![View function `invoke_URL_template` in the portal.](./media/functions-bindings-http-webhook/get-function-url.png)
+
+You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) or [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+
 ## Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims).
@@ -834,11 +840,21 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 ## Obtaining keys
 
-Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Manage**.
+Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Function Keys**.
 
 ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+You can also manage host keys. Navigate to the function app in the [Azure portal](https://portal.azure.com) and select **App keys**.
+
+![Manage host keys in the portal.](./media/functions-bindings-http-webhook/manage-host-keys.png)
+
+You can obtain function and host keys programmatically by using the Azure Resource Manager APIs. There are APIs to [List Function Keys](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctionkeys) and [List Host Keys](https://docs.microsoft.com/rest/api/appservice/webapps/listhostkeys), and when using deployment slots the equivalent APIs are [List Function Keys Slot](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctionkeysslot) and [List Host Keys Slot](https://docs.microsoft.com/rest/api/appservice/webapps/listhostkeysslot).
+
+You can also create new function and host keys programmatically by using the [Create Or Update Function Secret](https://docs.microsoft.com/rest/api/appservice/webapps/createorupdatefunctionsecret), [Create Or Update Function Secret Slot](https://docs.microsoft.com/rest/api/appservice/webapps/createorupdatefunctionsecretslot), [Create Or Update Host Secret](https://docs.microsoft.com/rest/api/appservice/webapps/createorupdatehostsecret) and [Create Or Update Host Secret Slot] (https://docs.microsoft.com/rest/api/appservice/webapps/createorupdatehostsecretslot) APIs.
+
+Function and host keys can be deleted programmatically by using the [Delete Function Secret](https://docs.microsoft.com/rest/api/appservice/webapps/deletefunctionsecret), [Delete Function Secret Slot](https://docs.microsoft.com/rest/api/appservice/webapps/deletefunctionsecretslot), [Delete Host Secret](https://docs.microsoft.com/rest/api/appservice/webapps/deletehostsecret), and [Delete Host Secret Slot](https://docs.microsoft.com/rest/api/appservice/webapps/deletehostsecretslot) APIs.
+
+You can also use the [legacy key management APIs to obtain function keys](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), but we recommend you use the Azure Resource Manager APIs instead.
 
 ## API key authorization
 
