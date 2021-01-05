@@ -1,5 +1,5 @@
 ---
-title: Using Microsoft resources to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+title: Use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
 description: Learn how to use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: bagol
 
 ---
 
-# Using Microsoft resources to respond to supply-chain attacks and systemic-identity compromises
+# Use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
@@ -50,21 +50,18 @@ If you suspect that your organization has been affected by Solorigate or another
 
 If you have Azure Sentinel, make sure that you set up connectors to both Microsoft Defender and Azure Active Directory, and start responding to threats by querying all the data in Azure Sentinel. 
 
-For more information, see [Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md).
+For more information, see [Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md).
 
-You can also use Microsoft Defender and Azure Active Directory directly to perform similar checks and hardening activities. For more information, see the procedures and queries detailed for [Microsoft Defender](identity-compromise-defender.md) and [Azure Active Directory](identity-compromise-aad.md).
+You can also use Microsoft Defender and Azure Active Directory directly to perform similar checks and hardening activities. For more information, see:
+
+- [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
+- [Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
 
 Review the following articles to understand more about the Solorigate attack and how to identify similar threats in your environment.
 
 - [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
 - [MITRE ATT&CK techniques observed in Solorigate](solarwinds-ioc-mitigate.md#mitre-attck-techniques-observed-in-solorigate)
 - [Solorigate attacker behaviors](solarwinds-ioc-mitigate.md#more-solorigate-attacker-behaviors)
-
-> [!NOTE]
-> Depending on your configurations and identified risk, there may be steps described in this section that are not relevant for your organization, or that should be performed in a different order than listed. 
->
-> We recommend performing as many checks as possible with an informed understanding of your network estate.
->
 
 ## Microsoft references for Solorigate
 

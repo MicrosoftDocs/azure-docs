@@ -1,5 +1,5 @@
 ---
-title: Using Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
+title: Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
 description: Learn how to use Azure Active Directory resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: bagol
 
 ---
 
-# Using Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises
+# Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises
 
 Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any Identity-related indicators of compromise (IOCs) related to the attacks. 
 
@@ -66,6 +66,6 @@ We recommend that you also review Microsoft Defender data to investigate further
 
 For more information, see:
 
-- [Using Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md)
-- [Using Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
+- [Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md)
+- [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
 - [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)

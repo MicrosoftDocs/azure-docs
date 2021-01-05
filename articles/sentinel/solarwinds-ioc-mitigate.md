@@ -316,8 +316,8 @@ If you think that your organization has been affected by a supply chain attack a
 
 For more information, see:
 
-- [Using Azure Sentinel to respond to supply-chain attacks and systemic identity compromise](identity-compromise-azure-sentinel.md).
+- [Use Azure Sentinel to respond to supply-chain attacks and systemic identity compromise](identity-compromise-azure-sentinel.md).
 
-- [Using Azure Defender to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md) 
+- [Use Azure Defender to respond to supply-chain attacks and systemic identity compromise](identity-compromise-defender.md) 
 
-- [Using Azure Active Directory to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)
+- [Use Azure Active Directory to respond to supply-chain attacks and systemic identity compromise](identity-compromise-aad.md)
