@@ -425,7 +425,7 @@ Access the output event by using `context.bindings.<name>` where `<name>` is the
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+To write to table data, use the `Push-OutputBinding` cmdlet, set the `-Name TableBinding` parameter and `-Value` parameter equal to the row data. See the [PowerShell example](#example) for more detail.
 
 # [Python](#tab/python)
 

@@ -638,7 +638,7 @@ Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Ac
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. See the [PowerShell example](#example) for more detail.
 
 # [Python](#tab/python)
 
