@@ -63,8 +63,6 @@ ms.custom: H1Hack27Feb2017
 
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 
-
-
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
 [sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
@@ -170,7 +168,6 @@ There are no special considerations when different DBMS services interact with a
 > [!IMPORTANT]
 > If you use SIOS to present shared disk, don't place your page file on the SIOS DataKeeper mirrored volumes. You can leave your page file on the temporary drive D of an Azure virtual machine, which is the default. If it's not already there, move the Windows page file to drive D of your Azure virtual machine.  
 
-
 Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
 * Create a virtual host name for the clustered SAP ASCS/SCS instance.
@@ -186,7 +183,6 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
    > [!IMPORTANT]
    > The IP address that you assign to the virtual host name of the ASCS/SCS instance must be the same as the IP address that you assigned to Azure Load Balancer.  
 
-
    ![Figure 1: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
 
    _Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
@@ -196,11 +192,9 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
    > [!IMPORTANT]
    > The IP address that you assign to the virtual host name of the ERS2 instance must be the second the IP address that you assigned to Azure Load Balancer.    
 
-
    ![Figure 1A: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046-ers2]
 
    _Define the DNS entry for the SAP ERS2 cluster virtual name and TCP/IP address_
-
 
 3. To define the IP address that's assigned to the virtual host name, select **DNS Manager** > **Domain**.
 
@@ -216,7 +210,6 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
    * **Java system**: **SCS** instance number **01**
    * **ABAP+Java system**: **ASCS** instance number **00** and **SCS** instance number **01**
 
-
    > [!IMPORTANT]
    > Keep in mind that the configuration in the Azure internal load balancer load balancing rules(if using Basic SKU)  and the selected SAP instance numbers must match.
 
@@ -224,8 +217,6 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
 > [!TIP]
 > The SAP installation documentation describes how to install the first ASCS/SCS cluster node.
-
-
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modify the SAP profile of the ASCS/SCS instance
 
@@ -292,7 +283,6 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
     .PARAMETER IsSAPERSClusteredInstance 
     Optional parameter.Default value is '$False'.
     If set to $True , then handle clsutered new SAP ERS2 instance.
-
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.

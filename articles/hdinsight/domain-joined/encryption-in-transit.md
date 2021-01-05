@@ -65,7 +65,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 # Create resource group
 az group create --name <RESOURCEGROUPNAME> --location eastus2
 
-az group deployment create --name HDInsightEnterpriseSecDeployment \
+az deployment group create --name HDInsightEnterpriseSecDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-enterprise-security.json \
     --parameters parameters.json

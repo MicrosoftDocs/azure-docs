@@ -18,7 +18,7 @@ ITSM gives you the option to send the alerts to external ticketing system such a
 
 ## Visualize and analyze the incident and change request data
 
-Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#additional-information) of this article.
+Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](./itsmc-overview.md) of this article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
 
@@ -34,7 +34,27 @@ If you're using Service Map, you can view the service desk items created in ITSM
 
 ![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## How to manually fix ServiceNow sync problems
+## Troubleshoot ITSM connections
+
+- If a connection fails to connect to the ITSM system and you get an **Error in saving connection** message, take the following steps:
+   - For ServiceNow, Cherwell, and Provance connections:  
+     - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
+     - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
+   - For Service Manager connections:  
+     - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
+
+- If data from ServiceNow isn't getting synced to Log Analytics, ensure that the ServiceNow instance isn't sleeping. ServiceNow dev instances sometimes go to sleep when they're idle for a long time. If that isn't what's happening, report the problem.
+- If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
+   -  ITSMC: The solution shows a summary of connections, work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
+   - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
+
+### Troubleshoot Service Manager web app deployment
+
+-	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
+-	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
+-	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
+
+### How to manually fix sync problems
 
 Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers.
 
@@ -69,28 +89,4 @@ Use the following synchronization process to reactivate the connection and refre
 
         ![New connection](media/itsmc-resync-servicenow/save-8bit.png)
 
-f.    Review the notifications to see if the process finished with success
-
-## Troubleshoot ITSM connections
-
-- If a connection fails from the connected source's UI and you get an **Error in saving connection** message, take the following steps:
-   - For ServiceNow, Cherwell, and Provance connections:  
-     - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
-     - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
-   - For Service Manager connections:  
-     - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- If data from ServiceNow isn't getting synced to Log Analytics, ensure that the ServiceNow instance isn't sleeping. ServiceNow dev instances sometimes go to sleep when they're idle for a long time. If that isn't what's happening, report the problem.
-- If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
-   -  ITSMC: The solution shows a summary of connections, work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
-   - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
-
-## Troubleshoot Service Manager web app deployment
-
--	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
--	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
--	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection) in the Azure portal.
-
-## Next Steps
-
-Learn more about [IT Service Management Connections](itsmc-connections.md)
+f.    Review the notifications to see if the process started.

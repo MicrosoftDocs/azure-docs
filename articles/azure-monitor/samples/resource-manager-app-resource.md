@@ -28,31 +28,31 @@ The following sample creates a [classic Application Insights resource](../app/cr
     "parameters": {
         "name": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Name of Application Insights resource."
           }
         },
         "type": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy."
           }
         },
         "regionId": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Which Azure Region to deploy the resource to. This must be a valid Azure regionId."
           }
         },
         "tagsArray": {
             "type": "object",
-			"metadata": {
+            "metadata": {
             "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
-		  }
+          }
         },
         "requestSource": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Source of Azure Resource Manager deployment"
         }
         }
@@ -115,37 +115,37 @@ The following sample creates a [workspace-based Application Insights resource](.
     "parameters": {
         "name": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Name of Application Insights resource."
           }
         },
         "type": {
             "type": "string",
-	        "metadata": {
+            "metadata": {
             "description": "Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy."
           }
         },
         "regionId": {
             "type": "string",
-		    "metadata": {
+            "metadata": {
             "description": "Which Azure Region to deploy the resource to. This must be a valid Azure regionId."
           }
         },
         "tagsArray": {
             "type": "object",
-			"metadata": {
+            "metadata": {
             "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
-			}
+            }
         },
         "requestSource": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Source of Azure Resource Manager deployment"
         }
         },
         "workspaceResourceId": {
             "type": "string",
-			"metadata": {
+            "metadata": {
             "description": "Log Analytics workspace ID to associate with your Application Insights resource."
         }
         }

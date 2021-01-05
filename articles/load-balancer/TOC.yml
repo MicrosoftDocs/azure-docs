@@ -93,6 +93,8 @@
     href: manage.md
   - name: Virtual machine scale sets
     items:
+    - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
+      href: update-load-balancer-with-vm-scale-set.md
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - PowerShell

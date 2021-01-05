@@ -123,7 +123,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
       	. . . . . . .
         ├───wp-content
         │   ├───plugins
-     	  . . . . . . .
+        . . . . . . .
         └───wp-includes
         . . . . . . .
         ├───wp-config-sample.php

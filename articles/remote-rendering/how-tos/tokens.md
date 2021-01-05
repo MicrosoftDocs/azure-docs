@@ -20,7 +20,7 @@ This article describes how to create such access token.
 
 ## Token service REST API
 
-To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the ARR STS service is https:\//sts.mixedreality.azure.com.
+To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the STS service depends on the account domain of the remote rendering account. It is in the form https://sts.[account domain], e.g. `https://sts.southcentralus.mixedreality.azure.com`
 
 ### 'Get token' request
 
@@ -51,9 +51,10 @@ The PowerShell code below demonstrates how to send the necessary REST request to
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"
