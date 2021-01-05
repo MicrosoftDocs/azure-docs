@@ -75,7 +75,7 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 You can set token lifetime policies for refresh tokens and session tokens.
 
 > [!IMPORTANT]
-> After May 2020, tenants will no longer be able to configure refresh and session token lifetimes.  Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
+> After May 2020, new tenants will no longer be able to configure refresh and session token lifetimes.  Tenants with existing configuration can with refresh and session token policies until January 30, 2021.   Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
 >
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
@@ -194,12 +194,14 @@ Refresh and session token configuration are affected by the following properties
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|
-|Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
+|Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |
 |Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
 |Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
 |Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
 |Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
 |Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |180 days |
+
+You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps and service principals are linked to a specific policy.
 
 ## Policy evaluation and prioritization
 You can create and then assign a token lifetime policy to a specific application, to your organization, and to service principals. Multiple policies might apply to a specific application. The token lifetime policy that takes effect follows these rules:
