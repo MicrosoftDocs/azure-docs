@@ -47,9 +47,6 @@ Investigating a Microsoft Defender-sourced incident in Sentinel enables you to q
     - [Find evidence of security service tampering](#find-evidence-of-security-service-tampering)
     - [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
 
-For more information, see:
-- [Use Microsoft resources to respond to supply-chain attacks and systemic identity compromise](solarwinds.md)
-- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
 
 > [!TIP]
 > Azure Sentinel and the Microsoft 365 advanced threat-hunting tools share the same query language and similar data types. Therefore, all the referenced queries can be used as-is or slightly modified to work in both products.

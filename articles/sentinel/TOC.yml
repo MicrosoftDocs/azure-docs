@@ -215,8 +215,6 @@
       href: identity-compromise-defender.md
     - name: Respond with Azure Active Directory
       href: identity-compromise-aad.md
-    - name: Solorigate indicators of compromise
-      href: solarwinds-ioc-mitigate.md
 - name: Reference (New!)
   items:
   - name: REST APIs

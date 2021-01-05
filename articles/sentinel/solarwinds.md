@@ -57,12 +57,6 @@ You can also use Microsoft Defender and Azure Active Directory directly to perfo
 - [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
 - [Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
 
-Review the following articles to understand more about the Solorigate attack and how to identify similar threats in your environment.
-
-- [Solorigate indicators of compromise (IOCs)](solarwinds-ioc-mitigate.md)
-- [MITRE ATT&CK techniques observed in Solorigate](solarwinds-ioc-mitigate.md#mitre-attck-techniques-observed-in-solorigate)
-- [Solorigate attacker behaviors](solarwinds-ioc-mitigate.md#more-solorigate-attacker-behaviors)
-
 ## Microsoft references for Solorigate
 
 The following links were used in building this section of the documentation, and can be used to learn more about the Solorigate attack and mitigation activities:
