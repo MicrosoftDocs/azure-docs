@@ -417,6 +417,8 @@
           href: functions-recover-storage-account.md
         - name: Troubleshoot Python functions
           href: recover-python-functions.md
+        - name: Scale and performance for Python functions
+          href: python-scale-performance-reference.md
 - name: Reference
   items:
     - name: API references
