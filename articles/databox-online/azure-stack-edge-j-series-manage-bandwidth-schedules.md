@@ -35,7 +35,7 @@ Do the following steps in the Azure portal to add a schedule.
 
     ![Select Bandwidth](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. In the **Add schedule**: 
+3. In the **Add schedule**:
 
    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule.
    2. Check the **All day** option if this schedule should run all day.
@@ -53,7 +53,7 @@ Do the following steps in the Azure portal to add a schedule.
 
 Do the following steps to edit a bandwidth schedule.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**. 
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**.
 2. From the list of bandwidth schedules, select a schedule that you want to modify.
 
    ![Select bandwidth schedule](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)

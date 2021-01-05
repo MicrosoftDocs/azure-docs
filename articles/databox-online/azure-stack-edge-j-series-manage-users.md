@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro
@@ -54,7 +54,7 @@ Do the following steps in the Azure portal to add a user.
 ## Modify user
 
 You can change the password associated with a user once the user is created. Select from the list of users. Enter and confirm the new password. Save the changes.
- 
+
 ![Modify user](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
