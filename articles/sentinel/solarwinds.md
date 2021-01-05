@@ -30,7 +30,7 @@ The SolarWinds attack provided the attackers with a foothold into affected netwo
 
 The global administrator account or certificates enabled the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
-Microsoft swiftly took the following steps against the SolarWinds attack:
+**Microsoft swiftly took the following steps against the SolarWinds attack**:
 
 1. **Disclosed the set of complex techniques** used by the advanced threat actor in the attack, affecting several key customers.
 

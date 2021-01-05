@@ -219,6 +219,47 @@ To use this query, you must be collecting Sysmon Event IDs 17 and 18 into your A
 
 For more information, see the [ADFSKeyExportSysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityEvent/ADFSKeyExportSysmon.yaml) query on GitHub.
 
+```Kusto
+// Adjust this to use a longer timeframe to identify ADFS servers
+let lookback = 6d;
+// Adjust this to adjust the key export detection timeframe
+let timeframe = 1d;
+// Start be identifying ADFS servers to reduce FP chance
+let ADFS_Servers = (
+Event
+| where TimeGenerated > ago(timeframe+lookback)
+| where Source == "Microsoft-Windows-Sysmon"
+| extend EventData = parse_xml(EventData).DataItem.EventData.Data
+| mv-expand bagexpansion=array EventData
+| evaluate bag_unpack(EventData)
+| extend Key=tostring(['@Name']), Value=['#text']
+| evaluate pivot(Key, any(Value), TimeGenerated, Source, EventLog, Computer, EventLevel, EventLevelName, EventID, UserName, RenderedDescription, MG, ManagementGroupName, Type, _ResourceId)
+| extend process = split(Image, '\\', -1)[-1]
+| where process =~ "Microsoft.IdentityServer.ServiceHost.exe"
+| summarize by Computer);
+// Look for ADFS servers where Named Pipes event are present
+Event
+| where TimeGenerated > ago(timeframe)
+| where Source == "Microsoft-Windows-Sysmon"
+| where Computer in~ (ADFS_Servers)
+| extend RenderedDescription = tostring(split(RenderedDescription, ":")[0])
+| extend EventData = parse_xml(EventData).DataItem.EventData.Data
+| mv-expand bagexpansion=array EventData
+| evaluate bag_unpack(EventData)
+| extend Key=tostring(['@Name']), Value=['#text']
+| evaluate pivot(Key, any(Value), TimeGenerated, Source, EventLog, Computer, EventLevel, EventLevelName, EventID, UserName, RenderedDescription, MG, ManagementGroupName, Type, _ResourceId)
+| extend RuleName = column_ifexists("RuleName", ""), TechniqueId = column_ifexists("TechniqueId", ""), TechniqueName = column_ifexists("TechniqueName", "")
+| parse RuleName with * 'technique_id=' TechniqueId ',' * 'technique_name=' TechniqueName
+| where EventID in (17,18)
+// Look for Pipe related to querying the WID
+| where PipeName == "\\MICROSOFT##WID\\tsql\\query"
+| extend process = split(Image, '\\', -1)[-1]
+// Exclude expected processes
+| where process !in ("Microsoft.IdentityServer.ServiceHost.exe", "Microsoft.Identity.Health.Adfs.PshSurrogate.exe", "AzureADConnect.exe", "Microsoft.Tri.Sensor.exe", "wsmprovhost.exe","mmc.exe", "sqlservr.exe")
+| extend Operation = RenderedDescription
+| project-reorder TimeGenerated, EventType, Operation, process, Image, Computer, UserName
+| extend HostCustomEntity = Computer, AccountCustomEntity = UserName
+```
 
 ## Step 4: Hunt through Azure Active Directory logs
 
