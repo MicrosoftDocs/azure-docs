@@ -255,7 +255,7 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 ## Next steps
 
 * [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](cassandra-kafka-connect.md)
-* [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](event-hubs-kafka-connect-debezium.md)
+* [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](../event-hubs/event-hubs-kafka-connect-debezium.md)
 * [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz](oracle-migrate-cosmos-db-blitzz.md)
 * [Provision throughput on containers and databases](set-throughput.md) 
 * [Partition key best practices](partitioning-overview.md#choose-partitionkey)
