@@ -3,7 +3,7 @@ title: Manage server - Azure CLI - Azure Database for PostgreSQL
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure CLI.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
 ---
