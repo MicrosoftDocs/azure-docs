@@ -24172,11 +24172,6 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/security-recommendations.md",
       "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
