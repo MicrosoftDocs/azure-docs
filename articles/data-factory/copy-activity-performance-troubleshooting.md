@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/05/2021
+ms.date: 01/06/2021
 ---
 
 # Troubleshoot copy activity performance
@@ -167,6 +167,18 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
   - Consider to gradually tune the [parallel copies](copy-activity-performance-features.md), note that too many parallel copies may even hurt the performance.
 
+
+## Troubleshoot copy activity on Managed VNet IR
+
+- **Symptoms**:
+
+Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more than 2 minutes on average to complete the run, but it takes approximately 20 seconds to complete when based on the Default Integration Runtime.
+
+- **Cause**:
+
+Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per data factory, so there is a warm up around 2 minutes for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR.
+
+
 ## Timeout or slow performance when parsing large Excel file
 
 - **Symptoms**:
@@ -189,7 +201,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
-## Low performance when load data into Azure SQL
+## Low performance when loading data into Azure SQL
 
 - **Symptoms**: Copying data in to Azure SQL turns to be slow.
 
