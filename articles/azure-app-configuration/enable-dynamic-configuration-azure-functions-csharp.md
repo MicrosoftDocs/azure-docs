@@ -40,9 +40,9 @@ In this tutorial, you learn how to:
 
 1. Open *Startup.cs*, and update the `ConfigureAppConfiguration` method. 
 
-   The `ConfigureRefresh` method registers a setting to be checked for changes whenever a refresh is triggered within the application. This is seen in the later step when we add `_configurationRefresher.TryRefreshAsync()`. The `refreshAll` parameter instructs the App Configuration provider to reload the entire configuration whenever a change is detected in the registered setting.
+   The `ConfigureRefresh` method registers a setting to be checked for changes whenever a refresh is triggered within the application, which you will do in the later step when adding `_configurationRefresher.TryRefreshAsync()`. The `refreshAll` parameter instructs the App Configuration provider to reload the entire configuration whenever a change is detected in the registered setting.
 
-    All settings registered for refresh have a default cache expiration of 30 seconds. This can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
+    All settings registered for refresh have a default cache expiration of 30 seconds. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -62,7 +62,7 @@ In this tutorial, you learn how to:
    > [!TIP]
    > When you are updating multiple key-values in App Configuration, you would normally don't want your application to reload configuration before all changes are made. You can register a **sentinel** key and only update it when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
 
-2. Update the `Configure` method to make Azure App Configuration services are available through dependency injection.
+2. Update the `Configure` method to make Azure App Configuration services available through dependency injection.
 
     ```csharp
     public override void Configure(IFunctionsHostBuilder builder)
@@ -91,7 +91,7 @@ In this tutorial, you learn how to:
     }
     ```
 
-4. Update the `Run` method and signal to refresh the configuration using the `TryRefreshAsync` method at the beginning of the Functions call. This will be a no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking the current Functions call. In that case, subsequent Functions calls will get updated value.
+4. Update the `Run` method and signal to refresh the configuration using the `TryRefreshAsync` method at the beginning of the Functions call. It will be a no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking the current Functions call. In that case, later Functions calls will get updated value.
 
     ```csharp
     public async Task<IActionResult> Run(
