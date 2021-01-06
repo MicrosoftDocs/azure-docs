@@ -87,6 +87,8 @@ All metrics for Azure Machine Learning are in the namespace **Machine Learning S
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
+> [!TIP]
+> Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 ### Filtering and splitting
 
 For metrics that support dimensions, you can apply filters using a dimension value. For example, filtering **Active Cores** for a **Cluster Name** of `cpu-cluster`. 
@@ -94,9 +96,6 @@ For metrics that support dimensions, you can apply filters using a dimension val
 You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For example, splitting out the **Pipeline Step Type** to see a count of the types of steps used in the pipeline.
 
 For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/platform/metrics-charts.md).
-
-> [!TIP]
-> Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 
 <a id="analyzing-log-data"></a>
 ## Analyzing logs
