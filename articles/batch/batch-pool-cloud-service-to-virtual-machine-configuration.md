@@ -9,7 +9,9 @@ ms.date: 1/4/2021
 
 Batch pools can be created using either [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
 
-If you use 'cloudServiceConfiguration' pools, it is highly recommended that you move to use 'virtualMachineConfiguration' pools. This article describes how to migrate to the recommended 'virtualMachineConfiguration' configuration.
+If you use 'cloudServiceConfiguration' pools, it is highly recommended that you move to use 'virtualMachineConfiguration' pools. This will enable you to benefit from all Batch capabilities, such as an expanded [selection of VM series](batch-pool-vm-sizes.md), Linux VMs, [containers](batch-docker-container-workloads.md), [Azure Resource Manager virtual networks](batch-virtual-network.md), and [node disk encryption](disk-encryption.md).
+
+This article describes how to migrate to 'virtualMachineConfiguration'.
 
 ## New pools are required
 
