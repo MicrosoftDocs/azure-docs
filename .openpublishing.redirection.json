@@ -1,5 +1,11 @@
 {
   "redirections": [
+    
+    {
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
+      "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/azure-classic-rm.md",
       "redirect_url": "./azure-resource-manager/management/deployment-models",
@@ -24022,7 +24028,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/best-practices",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24117,7 +24128,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/overview-security.md",
-      "redirect_url": "/azure/key-vault/general/overview-security",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/overview-security.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24167,7 +24183,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-recommendations",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -27683,6 +27704,11 @@
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-consulting-service-offer.md",
       "redirect_url": "/azure/marketplace/create-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-managed-service-offer.md",
+      "redirect_url": "/azure/marketplace/plan-managed-service-offer",
       "redirect_document_id": true
     },
     {
@@ -54222,6 +54248,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-15five-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/15five-tutorial",
       "redirect_document_id": true
@@ -55128,7 +55159,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-google-apps-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/google-apps-provisioning-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/g-suite-provisioning-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/google-apps-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/g-suite-provisioning-tutorial",
       "redirect_document_id": true
     },
     {
@@ -58672,6 +58708,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-business-cards.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-invoices.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-labeled-data.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-layout.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-receipts.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-train-extract.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/How-To/business-continuity.md",
       "redirect_url": "/azure/cognitive-services/how-to/set-up-qnamaker-service-azure#business-continuity-with-traffic-manager",
       "redirect_document_id": false
@@ -61016,7 +61082,7 @@
       "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
-    {
+        {
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false

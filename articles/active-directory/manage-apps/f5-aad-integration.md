@@ -68,7 +68,7 @@ Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange be
 |:------|:-----------|
 | 1. | User selects an application icon in the portal, resolving URL to the SAML SP (BIG-IP) |
 | 2. | The BIG-IP redirects user to SAML IDP (Azure AD) for pre-authentication|
-| 3. | Azure AD processes CA policies and [session controls](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) for authorization|
+| 3. | Azure AD processes Conditional Access policies and [session controls](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) for authorization|
 | 4. | User redirects back to BIG-IP presenting the SAML claims issued by Azure AD |
 | 5. | BIG-IP requests any additional session information to include in [SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) and [Role based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to the published service |
 | 6. | BIG-IP forwards the client request to the backend service
