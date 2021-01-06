@@ -8,6 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 12/26/2020
 ms.author: alexeyo
 ---
