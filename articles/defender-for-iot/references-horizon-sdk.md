@@ -307,7 +307,7 @@ This article describes the JSON configuration fields you will be defining. The f
 
 This article describes basic parameters.
 
-| Paramater Label | Description | Type |
+| Parameter Label | Description | Type |
 |--|--|--|
 | **id** | The name of the protocol. Delete the default and add the name of your protocol as it appears. | String |
 | **endianess** | Defines how the multi byte data is encoded. Use the term “little” or “big” only. This should be taken from the protocol specification or traffic recording | String |
@@ -1140,15 +1140,15 @@ The properties that can be configured in this file are:
 
 ### Fields
 
-| Field           | Description                                                                                        | Possible Values |
-| --------------- | -------------------------------------------------------------------------------------------------- | --------------- |
-| key             | Indicates the key.                                                                                 |                 |
-| value           | Indicates the implementation field to use in order to provide the data.                            |                 |
-| is_static_key | Indicates whether the “key” field is derived as a value from the packet or is it predefined value. |                 |
+| Field | Description |
+|--|--|
+| key | Indicates the key. |
+| value | Indicates the implementation field to use in order to provide the data. |
+| is_static_key | Indicates whether the `key` field is derived as a value from the packet or is it a predefined value. |
 
 ### Working with static keys only
 
-If you are working with static keys, there is no requirement to configure the config.file. You can configure the JSON file only.
+If you are working with static keys, then you don't have to configure the `config.file`. You can configure the JSON file only.
 
 ## JSON sample with properties 
 
@@ -1289,35 +1289,35 @@ If you are working with static keys, there is no requirement to configure the co
 
 You can customize plugin output text to meet the needs of your enterprise environment by defining and update mapping files. Changes can easily be implemented to text without changing or impacting the code. Each file can map one or many fields.
 
-  - Mapping of field values to names, for example 1:Reset, 2:Start, 3:Stop.
+- Mapping of field values to names, for example 1:Reset, 2:Start, 3:Stop.
 
-  - Mapping text to support multiple languages.
+- Mapping text to support multiple languages.
 
 Two types of mapping files can be defined.
 
-  - [Simple Mapping File](#simple-mapping-file)
+  - [Simple mapping file](#simple-mapping-file).
 
-  - [Dependency Mapping File](#dependency-mapping-file)
+  - [Dependency mapping file](#dependency-mapping-file).
 
     :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="ether net":::
 
-    :::image type="content" source="media/references-horizon-sdk/image14.png" alt-text="unhandlled alerts":::
+    :::image type="content" source="media/references-horizon-sdk/unhandled.png" alt-text="A view of the unhandled alerts.":::
 
-    :::image type="content" source="media/references-horizon-sdk/image15.png" alt-text="policy violation":::
+    :::image type="content" source="media/references-horizon-sdk/policy-violation.png" alt-text="A list of known policy violations.":::
 
 ## File naming and storage requirements 
 
 Mapping files should be saved under the metadata folder.
 
-The name of the file should match the JSON config file “id”.
+The name of the file should match the JSON config file ID.
 
-:::image type="content" source="media/references-horizon-sdk/image16.png" alt-text="JSON config file":::
+:::image type="content" source="media/references-horizon-sdk/json-config.png" alt-text="A sample of a JSON config file.":::
 
 ## Simple mapping file 
 
 The following sample presents a basic JSON file as a key value.
 
-When you create a whitelist, and it contains one or more of the mapped fields. The value will be converted from a number/string/any type to formatted text presented in the mapping file.
+When you create a whitelist, and it contains one or more of the mapped fields. The value will be converted from a number, string, or any type, in to formatted text presented in the mapping file.
 
 ```json
 {
@@ -1342,7 +1342,7 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 ```
 
-The file contains a mapping between the dependency field and the function field - for example, between the function and sub function, the sub function changes according to the function supplied.
+The file contains a mapping between the dependency field and the function field. For example, between the function, and sub function. The sub function changes according to the function supplied.
 
 In the whitelist previously configured there is no dependency configuration, as shown below.
 
@@ -1393,7 +1393,7 @@ For example, in the sub function 5, the meaning is changed based on the function
        “6”, “Register”
       }
     }
-    
+
     ```
 
 ### Sample file
@@ -1551,31 +1551,31 @@ For example, in the sub function 5, the meaning is changed based on the function
 
 This article describes how to
 
-  - Package your plugin
+  - Package your plugin.
 
-  - Upload your plugin
+  - Upload your plugin.
 
-  - Monitor and debug the plugin to evaluate how well it is performing
+  - Monitor and debug the plugin to evaluate how well it is performing.
 
-**To package the plugin:**
+To package the plugin:
 
-1.  Add the artifac**t** (library, config.json, metadata) to a tar.gz file, and change the file extension to XXX.hdp, where is XXX is the name of the plugin.
+1.  Add the **artifact** (can be, library, config.json, or metadata) to a `tar.gz` file, and change the file extension to \<XXX.hdp>, where is \<XXX> is the name of the plugin.
 
-**To Log in to the Horizon Console:**
+To Log in to the Horizon Console:
 
-1.  Log in your sensor CLI  as an administrator, CyberX or Support user.
+1.  Log in your sensor CLI as an administrator, CyberX or Support user.
 
-2.  In the file: /var/cyberx/properties/horizon.properties change the **ui.enabled** property to **true** (horizon.properties:ui.enabled=true)
+2.  In the file: `/var/cyberx/properties/horizon.properties` change the **ui.enabled** property to **true** (`horizon.properties:ui.enabled=true`).
 
 3.  Log in to the sensor console.
 
-4.  Select the Horizon option from the main menu.
+4.  Select the **Horizon** option from the main menu.
 
-    :::image type="content" source="media/references-horizon-sdk/image17.png" alt-text="horizon":::
+    :::image type="content" source="media/references-horizon-sdk/horizon.png" alt-text="Select the horizon option from the left side pane.":::
 
 The Horizon Console opens. This article describes Horizon Console tools.
 
-  :::image type="content" source="media/references-horizon-sdk/image18.png" alt-text="horizon console":::
+  :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="A view of the Horizon console and all of its plugins.":::
 
 ## Plugins pane
 
@@ -1583,11 +1583,11 @@ The plugin pane lists:
 
   - Infrastructure plugins: Infrastructure plugins installed by default with Defender for IoT.
 
-  - Application plugins: Application plugins installed by default with Defender for IoT and additional plugins developed by Defender for IoT or external developers.
+  - Application plugins: Application plugins installed by default with Defender for IoT and additional plugins developed by Defender for IoT, or external developers.
     
 Enable and disable plugins that have been uploaded using the toggle.
 
-:::image type="content" source="media/references-horizon-sdk/image19.png" alt-text="cip":::
+:::image type="content" source="media/references-horizon-sdk/toggle.png" alt-text="The CIP toggle.":::
 
 ### Uploading a plugin
 
@@ -1595,41 +1595,39 @@ After creating and packaging your plugin, you can upload it to the Defender for 
 
 To upload:
 
-1.  Log into your sensor.
+1.  Sign in to your sensor.
 
 
 2. Select **Upload**.
 
-    :::image type="content" source="media/references-horizon-sdk/image20.png" alt-text="upload your plugins":::
+    :::image type="content" source="media/references-horizon-sdk/upload.png" alt-text="Upload your plugins.":::
 
-3. Browse to your plugin and drag it to the plugin dialog box. Verify that the prefix is .hdp. The plugin loads.
+3. Browse to your plugin and drag it to the plugin dialog box. Verify that the prefix is `.hdp`. The plugin loads.
 
 ## Plugin status overview 
 
-The Horizon console Overview window provides information about the plugin you uploaded and lets you disable and enable them.
+The Horizon console **Overview** window provides information about the plugin you uploaded and lets you disable and enable them.
 
-:::image type="content" source="media/references-horizon-sdk/image21.png" alt-text="overview":::
+:::image type="content" source="media/references-horizon-sdk/overview.png" alt-text="The overview of the Horizon console.":::
 
-                    |  |
---------------------|--|
- Application        | The name of the plugin you uploaded\. |
- :::image type="content" source="media/references-horizon-sdk/image22.png" alt-text="On/Off"::: | Toggle on/off the plugin\. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle the plugin off\. |
- Time               | The time the data was last analyzed\. Updated every 5 seconds\. |
- PPS                | The number of packets per second\. |
- Bandwidth          | The average bandwidth detected within the last 5 seconds\. |
- Malforms           | Malformed validations are used after the protocol has been positively validated\. If there is a failure to process the packets based on the protocol, a failure response is returned\.   <br><br>This column indicates the number of malform errors in the past 5 seconds\. See [Malformed Code Validations](./prepare-implementation-code-validations.md#malformed-code-validations) for details\. |
- Warnings           | Packets match the structure and specification but there is unexpected behavior based on the plugin warning configuration\. |
- Errors             | Number of packets that failed basic protocol validations Validates that the packet matches the protocol definitions\.  The Number displayed here indicates that number of errors detected in the past 5 seconds\. See [Sanity Code Validations](./prepare-implementation-code-validations.md#sanity-code-validations) for details\. |
- :::image type="content" source="media/references-horizon-sdk/image23.png" alt-text="toggle"::: | Review details about Malform and Warnings detected for your plugin\. |
-
-
+| Field | Description |
+|--|--|
+| Application | The name of the plugin you uploaded. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on and off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle the plugin off. |
+| Time | The time the data was last analyzed. Updated every 5 seconds. |
+| PPS | The number of packets per second. |
+| Bandwidth | The average bandwidth detected within the last 5 seconds. |
+| Malforms | Malformed validations are used after the protocol has been positively validated. If there is a failure to process the packets based on the protocol, a failure response is returned.   <br><br>This column indicates the number of malform errors in the past 5 seconds. For nore information, see [Malformed code validations](#malformed-code-validations) for details. |
+| Warnings | Packets match the structure and specification but there is unexpected behavior based on the plugin warning configuration. |
+| Errors | The number of packets that failed basic protocol validations. Validates that the packet matches the protocol definitions. The Number displayed here indicates that number of errors detected in the past 5 seconds. For more information, see [Sanity code validations](#sanity-code-validations) for details. |
+| :::image type="content" source="media/references-horizon-sdk/monitor.png" alt-text="The monitor icon."::: | Review details about malform and warnings detected for your plugin. |
 
 ## Plugin details
 
 You can monitor real-time plugin behavior by analyzing the number of *Malform* and *Warnings* detected for your plugin. An option is available to freeze the screen and export for further investigation
 
-:::image type="content" source="media/references-horizon-sdk/image24.png" alt-text="SNMP monitor":::
+:::image type="content" source="media/references-horizon-sdk/snmp.png" alt-text="The SNMP monitor screen.":::
 
-**To Monitor:**
+To Monitor:
 
 1.  Select the Monitor button for your plugin from the Overview.
