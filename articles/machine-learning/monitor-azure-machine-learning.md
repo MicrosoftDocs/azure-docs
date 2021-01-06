@@ -95,6 +95,9 @@ You can also split a metric by dimension to visualize how different segments of 
 
 For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/platform/metrics-charts.md).
 
+> [!TIP]
+> Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
+
 <a id="analyzing-log-data"></a>
 ## Analyzing logs
 
