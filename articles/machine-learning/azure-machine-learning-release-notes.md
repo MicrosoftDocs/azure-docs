@@ -27,6 +27,36 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + Improved performance 
   + Improved speed and kernel reliability
   
+ 
+ ## 2021-01-11
+
+### Azure Machine Learning SDK for Python v1.20.0
++ **Bug fixes and improvements**
++ **azure-cli-ml**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-automl-core**
+    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
+  + **azureml-automl-runtime**
+    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
+  + **azureml-contrib-optimization**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-core**
+    + Now workspace creation supports user assigned identity. Adding the uai support from SDK/CLI
+    + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
+    + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
+    + Edited Model.register method documentation to mention how to register model from run directly
+  + **azureml-pipeline-core**
+    + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
+  + **azureml-pipeline-steps**
+    + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
+  + **azureml-synapse**
+    + Customers can now specify under which environment they want to run the Synapse Spark job with synapse magic.
+  + **azureml-train-automl-client**
+    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
+  + **azureml-train-automl-runtime**
+    + n/a
+
+  
 ## 2020-12-07
 
 ### Azure Machine Learning SDK for Python v1.19.0
