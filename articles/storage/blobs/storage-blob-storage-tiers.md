@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/11/2020
+ms.date: 01/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -61,7 +61,7 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. Data in the archive tier can take several hours to retrieve depending on the priority of the rehydration. For small objects, a high priority rehydrate may retrieve the object from archive in under 1 hour. See [Rehydrate blob data from the archive tier](storage-blob-rehydration.md) to learn more.
 
-While a blob is in archive storage, the blob data is offline and can't be read, overwritten, or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob, its properties, metadata, and blob index tags. Setting or modifying the blob metadata while in archive is not allowed; however you may set and modify the blob index tags. For blobs in archive, the only valid operations are GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob, and DeleteBlob.
+While a blob is in archive storage, the blob data is offline and can't be read, overwritten, or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob, its properties, metadata, and blob index tags. Setting or modifying the blob metadata while in archive is not allowed; however you may set and modify the blob index tags. For blobs in archive, the only valid operations are [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), [Set Blob Tags](/rest/api/storageservices/set-blob-tags), [Get Blob Tags](/rest/api/storageservices/get-blob-tags), [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags), [List Blobs](/rest/api/storageservices/list-blobs), [Set Blob Tier](/rest/api/storageservices/set-blob-tier), [Copy Blob](/rest/api/storageservices/copy-blob), and [Delete Blob](/rest/api/storageservices/delete-blob).
 
 Example usage scenarios for the archive access tier include:
 
@@ -70,13 +70,15 @@ Example usage scenarios for the archive access tier include:
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed.
 
 > [!NOTE]
-> The archive tier is not currently supported for ZRS, GZRS, or RA-GZRS accounts.
+> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
 
 ## Account-level tiering
 
 Blobs in all three access tiers can coexist within the same account. Any blob that doesn't have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier comes from the account, you see the **Access Tier Inferred** blob property set to "true", and the **Access Tier** blob property matches the account tier. In the Azure portal, the _access tier inferred_ property is displayed with the blob access tier as **Hot (inferred)** or **Cool (inferred)**.
 
 Changing the account access tier applies to all _access tier inferred_ objects stored in the account that don't have an explicit tier set. If you toggle the account tier from hot to cool, you'll be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There's no charge for this change in Blob Storage accounts. You'll be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in Blob Storage or GPv2 accounts.
+
+Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level. On blob upload, you specify the access tier of your choice to be hot, cool, or archive regardless of the default account tier. This functionality allows you to write data directly into the archive tier to realize cost-savings from the moment you create data in blob storage.
 
 ## Blob-level tiering
 
@@ -104,7 +106,7 @@ When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive
 
 When a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool or archive tier may apply as well. [Rehydrating data from archive](storage-blob-rehydration.md) takes time and data will be charged archive prices until the data is restored online and blob tier changes to hot or cool. The following table summarizes how tier changes are billed:
 
-| | **Write Charges (Operation + Access)** | **Read Charges (Operation + Access)**
+| | **Write Charges (Operation + Access)** | **Read Charges (Operation + Access)** |
 | ---- | ----- | ----- |
 | **SetBlobTier Direction** | hot->cool,<br> hot->archive,<br> cool->archive | archive->cool,<br> archive->hot,<br> cool->hot
 
@@ -155,23 +157,11 @@ All storage accounts use a pricing model for Block blob storage based on the tie
 > [!NOTE]
 > For more information about pricing for Block blobs, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
+## Availability
+
+The hot and cool access tiers along with blob-level tiering are available in all regions. Archive storage is available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/regions/services/).
+
 ## FAQ
-
-**Can I store objects in all three (hot, cool, and archive) access tiers in the same account?**
-
-Yes. The **Access Tier** attribute set at the account level is the default account tier that applies to all objects in that account without an explicit set tier. Blob-level tiering allows you to set the access tier on at the object level regardless of what the access tier setting on the account is. Blobs in any of the three access tiers (hot, cool, or archive) may exist within the same account.
-
-**Can I change the default access tier of my Blob or GPv2 storage account?**
-
-Yes, you can change the default account tier by setting the **Access tier** attribute on the storage account. Changing the account tier applies to all objects stored in the account that don't have an explicit tier set (for example, **Hot (inferred)** or **Cool (inferred)**). Toggling the account tier from hot to cool incurs write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only and toggling from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for all blobs in Blob Storage and GPv2 accounts.
-
-**Can I set my default account access tier to archive?**
-
-No. Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level. On blob upload, You specify the access tier of your choice to be hot, cool, or archive regardless of the default account tier. This functionality allows you to write data directly into the archive tier to realize cost-savings from the moment you create data in blob storage.
-
-**In which regions are the hot, cool, and archive access tiers available in?**
-
-The hot and cool access tiers along with blob-level tiering are available in all regions. Archive storage will initially only be available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/regions/services/).
 
 **Which redundancy options are supported for the hot, cool, and archive access tiers?**
 

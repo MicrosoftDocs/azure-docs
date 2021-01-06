@@ -4,7 +4,7 @@ description: Learn how to change the default access tier of a GPv2 or Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/11/2020
+ms.date: 01/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -13,9 +13,13 @@ ms.reviewer: klaasl
 
 # Manage the default access tier of an Azure Storage account
 
-Each Azure Storage account has a default access tier, either hot, cool, or archive. You assign the access tier when you create a storage account. The default access tier is hot. You can change the default access tier after a storage account has been created by following the steps below.
+Each Azure Storage account has a default access tier, either hot, cool, or archive. You assign the access tier when you create a storage account. The default access tier is hot.
 
-Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute allows you to specify the default access tier for any blob that doesn't have it explicit set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between these access tiers at any time.
+You can change the default account tier by setting the **Access tier** attribute on the storage account. Changing the account tier applies to all objects stored in the account that don't have an explicit tier set (for example, **Hot (inferred)** or **Cool (inferred)**). Toggling the account tier from hot to cool incurs write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only and toggling from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for all blobs in Blob Storage and GPv2 accounts.
+
+For blobs with the tier set at the object level, the account tier doesn't apply. The archive tier can only be applied at the object level. You can switch between these access tiers at any time.
+
+You can change the default access tier after a storage account has been created by following the steps below.
 
 ## Change the default account access tier of a GPv2 or Blob Storage account
 
@@ -54,5 +58,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ## Next steps
 
+- [How to manage the tier of a blob in an Azure Storage account](manage-blob-access-tier.md)
 - [Determine if premium performance would benefit your app](../blobs/storage-blob-performance-tiers.md)
 - [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../blobs/monitor-blob-storage.md)

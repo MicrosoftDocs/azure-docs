@@ -4,7 +4,7 @@ description: Learn how to change the tier of a blob in a GPv2 or Blob Storage ac
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/11/2020
+ms.date: 01/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -63,5 +63,6 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 ## Next steps
 
+- [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
 - [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
 - [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
