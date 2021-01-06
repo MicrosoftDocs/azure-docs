@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 11/06/2020
 ms.author: aahi
 ---
 
@@ -287,7 +287,7 @@ Install the 1.0.9 release:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06&preserve-view=true).
+Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
@@ -306,33 +306,31 @@ Deploy the spatial analysis container as an IoT Module on the host computer, eit
 
 Use the below steps to deploy the container using the Azure CLI.
 
-#### [Set Up an Azure VM with a GPU](#tab/virtual-machine)
+---
 
-An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
+#### [Azure VM with GPU](#tab/virtual-machine)
+
+An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
 
 #### Create the VM
 
-Open the Azure portal and navigate to the `Create a virtual machine` wizard, shown below:
-
-[VM Image 1]
+Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
 
 Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size.
 
-[VM Image 2]
+![VM configuration details](media/spatial-analysis/virtual-machine-instance-details.png)
 
 To locate the VM size, select "See all sizes" and then view the list for "Non-premium storage VM sizes", shown below.
 
-[VM Image 3]
+![VM sizes](media/spatial-analysis/virtual-machine-sizes.png)
 
 Then, select either "NC6" or NC6_Promo" if it is available for a discounted price.
 
-[VM Image 4]
+![NC6 and NC6_Promo](media/spatial-analysis/promo-selection.png)
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure Portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
-[VM Image 5]
-
-Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 
@@ -342,9 +340,9 @@ Run the following command to verify that the graphics drivers have been successf
 nvidia-smi
 ```
 
-You should see the following output:
+You should see the following output.
 
-[VM Image 6]
+![NVIDIA driver output](media/spatial-analysis/nvidia-driver-output.png)
 
 ### Install Docker CE and nvidia-docker2 on the VM
 
