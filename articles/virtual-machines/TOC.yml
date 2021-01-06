@@ -803,7 +803,11 @@
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
     - name: Secure web server with SSL
-      href: ./linux/tutorial-secure-web-server.md
+      items: 
+      - name: Linux
+        href: ./linux/tutorial-secure-web-server.md
+      - name: Windows
+        href: ./windows/tutorial-secure-web-server.md
   - name: Connect to Linux VMs
     items:
     - name: SSH for Linux VMs
@@ -1126,8 +1130,16 @@
     href: ../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
   - name: High availability
     href: manage-availability.md
-  - name: Change availability set
-    href: ./windows/change-availability-set.md
+  - name: Availability sets
+    items: 
+    - name: Linux
+      href: ./linux/tutorial-availability-sets.md
+    - name: Windows
+      items:
+      - name: Create an availability set
+        href: ./windows/tutorial-availability-sets.md
+      - name: Change availability set
+        href: ./windows/change-availability-set.md
   - name: Create a proximity placement group
     displayName: PPG aligned colocation co-location
     items:
@@ -1169,6 +1181,12 @@
         href: maintenance-control-portal.md
     - name: Scheduled events
       href: ./linux/scheduled-events.md
+    - name: Track and update VMs
+      items:
+      - name: Linux
+        href: ./linux/tutorial-config-management.md
+      - name: Windows
+        href: ./windows/tutorial-config-management.md
     - name: Virtual machine scale set OS image upgrades
       items:
       - name: Automatic OS upgrades
@@ -1564,64 +1582,66 @@
   - name: Overview
     href: ../azure-monitor/insights/monitor-vm-azure.md
   - name: Monitoring VMs
-    href: ./linux/tutorial-monitor.md
-  - name: Monitor VMs
     items:
-    - name: Agents
+    - name: Linux
+      href: ./linux/tutorial-monitor.md
+    - name: Windows
+      href: ./windows/tutorial-monitor.md
+  - name: Agents
+    items:
+    - name: Agents overview
+      href: ../azure-monitor/platform/agents-overview.md
+    - name: FAQ
+      href: ../azure-monitor/faq.md#agents
+    - name: Azure Diagnostics extension
       items:
-      - name: Agents overview
-        href: ../azure-monitor/platform/agents-overview.md
-      - name: FAQ
-        href: ../azure-monitor/faq.md#agents
-      - name: Azure Diagnostics extension
+      - name: Overview
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md
+      - name: Linux diagnostics extension
         items:
         - name: Overview
-          href: ../azure-monitor/platform/diagnostics-extension-overview.md
-        - name: Linux diagnostics extension
-          items:
-          - name: Overview
-            href: ../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Collect metrics with Telegraf
-            href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md
+          href: ../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Collect metrics with Telegraf
+          href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md
           displayname: diagnostics extension
-      - name: Log Analytics agent
+    - name: Log Analytics agent
+      items:
+      - name: Overview
+        href: ../azure-monitor/platform/log-analytics-agent.md
+      - name: Linux agents
+        href: ../azure-monitor/platform/agent-linux.md
+      - name: Log Analytics gateway
+        href: ../azure-monitor/platform/gateway.md
+      - name: Agent management
+        href: ../azure-monitor/platform/agent-manage.md
+      - name: Agent Health
+        href: ../azure-monitor/insights/solution-agenthealth.md
+      - name: Data sources
         items:
         - name: Overview
-          href: ../azure-monitor/platform/log-analytics-agent.md
-        - name: Linux agents
-          href: ../azure-monitor/platform/agent-linux.md
-        - name: Log Analytics gateway
-          href: ../azure-monitor/platform/gateway.md
-        - name: Agent management
-          href: ../azure-monitor/platform/agent-manage.md
-        - name: Agent Health
-          href: ../azure-monitor/insights/solution-agenthealth.md
-        - name: Data sources
-          items:
-          - name: Overview
-            href: ../azure-monitor/platform/agent-data-sources.md
-          - name: Custom JSON data
-            href: ../azure-monitor/platform/data-sources-json.md
-          - name: collectd performance data
-            href: ../azure-monitor/platform/data-sources-collectd.md
-          - name: Syslog
-            href: ../azure-monitor/platform/data-sources-syslog.md
-          - name: Performance counters
-            href: ../azure-monitor/platform/data-sources-performance-counters.md
-          - name: Linux application performance
-            href: ../azure-monitor/platform/data-sources-linux-applications.md
-          - name: Custom logs
-            href: ../azure-monitor/platform/data-sources-custom-logs.md
-          - name: Custom fields
-            href: ../azure-monitor/platform/custom-fields.md
-      - name: Troubleshoot
-        items:
-        - name: Log Analytics VM Extension
-          href: ../azure-monitor/platform/vmext-troubleshoot.md
-          displayname: troubleshoot, troubleshooting
-        - name: Log Analytics Linux agent
-          href: ../azure-monitor/platform/agent-linux-troubleshoot.md
-          displayname: troubleshoot, troubleshooting
+          href: ../azure-monitor/platform/agent-data-sources.md
+        - name: Custom JSON data
+          href: ../azure-monitor/platform/data-sources-json.md
+        - name: collectd performance data
+          href: ../azure-monitor/platform/data-sources-collectd.md
+        - name: Syslog
+          href: ../azure-monitor/platform/data-sources-syslog.md
+        - name: Performance counters
+          href: ../azure-monitor/platform/data-sources-performance-counters.md
+        - name: Linux application performance
+          href: ../azure-monitor/platform/data-sources-linux-applications.md
+        - name: Custom logs
+          href: ../azure-monitor/platform/data-sources-custom-logs.md
+        - name: Custom fields
+          href: ../azure-monitor/platform/custom-fields.md
+    - name: Troubleshoot
+      items:
+      - name: Log Analytics VM Extension
+        href: ../azure-monitor/platform/vmext-troubleshoot.md
+        displayname: troubleshoot, troubleshooting
+      - name: Log Analytics Linux agent
+        href: ../azure-monitor/platform/agent-linux-troubleshoot.md
+        displayname: troubleshoot, troubleshooting
     - name: Azure Monitor for VMs
       items:
       - name: Overview
@@ -1712,6 +1732,12 @@
     items:
     - name: Overview
       href: ../site-recovery/site-recovery-overview.md
+    - name: Enable disaster recovery
+      items: 
+      - name: Linux
+        href: ./linux/tutorial-disaster-recovery.md
+      - name: Windows
+        href: ./windows/tutorial-disaster-recovery.md
     - name: Enable disaster recovery for a VM
       href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill for a VM
