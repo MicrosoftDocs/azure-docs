@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurecli
-ms.date: 12/18/2020
+ms.date: 01/06/2021
 ms.custom: devx-track-azurecli
 ---
 
@@ -48,9 +48,9 @@ az dedicated-hsm create \
    --location "westus" \
    --network-profile-network-interfaces private-ip-address="1.0.0.1" \
    --subnet id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet" \
-   --stamp-id "stamp1"
-   --sku name="SafeNet Luna Network HSM A790"
-   --tags resourceType="hsm" Environment="test"
+   --stamp-id "stamp1" \
+   --sku name="SafeNet Luna Network HSM A790" \
+   --tags resourceType="hsm" Environment="test" \
    --zones "AZ1"
 ```
 
