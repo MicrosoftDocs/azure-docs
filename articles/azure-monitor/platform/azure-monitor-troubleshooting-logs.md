@@ -15,7 +15,6 @@ Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoo
 
 ## Troubleshoot and query your code or configuration issues
 Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheaper way using KQL. Troubleshooting logs decrees your charges buy also give you less capabilities that are enough for you to do troubleshooting, please note that you can decide if a table is in troubleshooting mode or not.
-
 The service allows you to join analytics docs on supported tables with a free retention period.
 
 > [!NOTE]
