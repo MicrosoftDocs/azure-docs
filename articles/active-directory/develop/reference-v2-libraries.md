@@ -48,6 +48,26 @@ Description of app type here - make it as short as possible but as long as requi
 | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | [MSAL Node.js](./msal-js-initializing-client-applications.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
 
+
+## Web apps
+
+Web apps have a server component, which renders and serves content.
+
+| Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|--|:-:|:-:|:-:|:-:|
+| .NET | [MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+| ASP.NET Core | [Microsoft.Identity.Web](https://aka.ms/ms-id-web/conceptual-doc) | [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| ASP.NET Core | [ASP.NET Security](https://docs.microsoft.com/en-us/aspnet/core/security/) | [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) | ![Green check mark.][y] | ![Green check mark.][y] | ![X indicating no.][n] | Generally available (GA) |
+| Node.js | [MSAL.js for Node](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-nodejs-webapp-msal) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
+| Node.js | [Azure AD Passport](https://github.com/AzureAD/passport-azure-ad) | [passport-azure-ad](https://www.npmjs.com/package/passport-azure-ad) | ![Green check mark.][y] | ![Green check mark.][y] | ![X indicating no.][n] | Public Preview |
+| Java | [MSAL4J](https://aka.ms/msaljavadocs) | [msal4j](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
+| Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [msal](https://pypi.org/project/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
+| Java | [ScribeJava](https://github.com/scribejava/scribejava) | [ScribeJava 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | General availability (GA) |
+| Java | [Gluu oxAuth](https://github.com/GluuFederation/oxAuth) | [oxAuth 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
+| Node.js| [openid-client](https://github.com/panva/node-openid-client/) | [openid-client 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
+| PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [oauth2-client 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | General availability (GA) |
+| Ruby | [OmniAuth](https://github.com/omniauth/omniauth) | [omniauth 1.3.1](https://github.com/omniauth/omniauth/releases/tag/v1.3.1)<br/>[omniauth-oauth2 1.4.0](https://github.com/intridea/omniauth-oauth2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | General availability (GA) |
+
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
 ## :warning: CURRENT DOC CONTENT BELOW THIS HEADING :warning:
