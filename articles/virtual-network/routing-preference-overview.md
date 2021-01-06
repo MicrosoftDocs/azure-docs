@@ -68,11 +68,6 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 ## Pricing
 The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information. 
 
-## Availability
-
-Routing Preference support is available in the following regions for services such as virtual machine and internet-facing load balancer that use a public IP for internet egress - North Europe, West Europe, France South, UK South, East US, North Central US, South Central US, West US,  West Central US, Southeast Asia, Germany West Central, Switzerland West, Japan East, and Japan West.
-
-Routing Preference support for storage account is available in the following Azure regions - North Central US, West Central US, South Central US, East US, West US,  North Europe, France South, Germany West Central, Switzerland West, South East Asia, Japan East, and Japan West.
 ## Limitations
 
 * Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.

@@ -67,8 +67,7 @@ landingContent:
         links:
             - text: Train using the sample labeling tool
               url: quickstarts/label-tool.md
-            - text: Train with labels using the REST API and Python
-              url: quickstarts/python-labeled-data.md
+
 
   - title: Extract data from receipts
     linkLists:
@@ -93,8 +92,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Using the REST API
-            url: quickstarts/python-business-cards.md?
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api
       - linkListType: concept
         links:
           - text: Business card concepts
@@ -118,8 +125,7 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api
-          - text: Using the REST API (Python)
-            url: quickstarts/python-layout.md
+
 
   - title: Use containers
     linkLists:

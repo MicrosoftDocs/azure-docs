@@ -99,6 +99,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 Admin
 
 **Remarks**
 

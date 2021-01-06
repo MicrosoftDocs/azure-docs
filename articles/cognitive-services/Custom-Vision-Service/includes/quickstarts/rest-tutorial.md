@@ -9,7 +9,7 @@ ms.topic: include
 Get started with the Custom Vision REST API. Follow these steps to call the API and build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
 
 > [!NOTE]
-> If you want to build and train a classification model _without_ writing code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
+> Custom Vision is most easily used through a client library SDK or through the [browser-based guidance](../../get-started-build-detector.md).
 
 Use the Custom Vision client library for .NET to:
 

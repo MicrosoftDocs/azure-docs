@@ -46,7 +46,7 @@ After the Customer-managed key configuration, new ingested data to workspaces li
 3. Dedicated Log Analytics cluster
 4. Workspaces linked to *Cluster* resource 
 
-## Encryption keys operation
+### Encryption keys operation
 
 There are 3 types of keys involved in Storage data encryption:
 
@@ -62,12 +62,13 @@ The following rules apply:
 - Your KEK never leaves your Key Vault and in the case of an HSM key, it never leaves the hardware.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
-## Customer-Managed key provisioning
+### Customer-Managed key provisioning steps
 
 1. Registering your subscription to allow cluster creation
 1. Creating Azure Key Vault and storing key
 1. Creating cluster
 1. Granting permissions to your Key Vault
+1. Updating cluster with key identifier details
 1. Linking Log Analytics workspaces
 
 Customer-Managed key configuration isn't supported in Azure portal currently and provisioning can be performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
@@ -107,7 +108,7 @@ Authorization: Bearer <token>
 
 Use your contacts into Microsoft or open support request in Log Analytics to provide your subscriptions IDs.
 
-### Storing encryption key (KEK)
+## Storing encryption key (KEK)
 
 Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
@@ -118,11 +119,11 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
 - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
-### Create cluster
+## Create cluster
 
 Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
-### Grant Key Vault permissions
+## Grant Key Vault permissions
 
 Create access policy in Key Vault to grants permissions to your cluster. These permissions are used by the underlay Azure Monitor storage. Open your Key Vault in Azure portal and click *"Access Policies"* then *"+ Add Access Policy"* to create a policy with these settings:
 
@@ -133,7 +134,7 @@ Create access policy in Key Vault to grants permissions to your cluster. These p
 
 The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
-### Update cluster with Key identifier details
+## Update cluster with key identifier details
 
 All operations on the cluster require the `Microsoft.OperationalInsights/clusters/write` action permission. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action.
 
@@ -222,14 +223,14 @@ A response to GET request should look like this when the key update is complete:
 
 ---
 
-### Link workspace to cluster
+## Link workspace to cluster
 
 > [!IMPORTANT]
 > This step should be performed only after the completion of the Log Analytics cluster provisioning. If you link workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## Key revocation
 
@@ -361,25 +362,14 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
 ## Customer-Managed key operations
 
-Customer-Managed key is provided on dedicated cluster and these operations are referred in dedicated cluster
+Customer-Managed key is provided on dedicated cluster and these operations are referred in [dedicated cluster article](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
 
-- [Check cluster provisioning status](../log-query/logs-dedicated-clusters.md#check-cluster-provisioning-status)
-
-- [Check workspace link status](../log-query/logs-dedicated-clusters.md#check-workspace-link-status)
-
-- [Get all clusters in a resource group](../log-query/logs-dedicated-clusters.md#get-all-clusters-in-a-resource-group)
-  
-- [Get all clusters in a subscription](../log-query/logs-dedicated-clusters.md#get-all-clusters-in-a-subscription)
-
-- [Update *capacity reservation* in cluster](../log-query/logs-dedicated-clusters.md#update-capacity-reservation-in-cluster)
-
-- [Update *billingType* in cluster](../log-query/logs-dedicated-clusters.md#update-billingtype-in-cluster)
-
-- [Link a workspace to the cluster](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster)
-
-- [Unlink a workspace from a dedicated cluster](../log-query/logs-dedicated-clusters.md#unlink-a-workspace-from-a-dedicated-cluster)
-
-- [Update cluster properties](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
+- Get all clusters in resource group  
+- Get all clusters in subscription
+- Update *capacity reservation* in cluster
+- Update *billingType* in cluster
+- Unlink a workspace from cluster
+- Delete cluster
 
 ## Limitations and constraints
 
@@ -410,6 +400,44 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` property in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
+
+- Error messages
+  
+  **Cluster Create**
+  -  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
+  -  400 -- The body of the request is null or in bad format.
+  -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
+  -  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
+  -  400 -- Missing Capacity in SKU. Set Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Capacity in SKU is not in range. Should be minimum 1000 and up to the max allowed capacity which is available under ‘Usage and estimated cost’ in your workspace.
+  -  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
+  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Identity is null or empty. Set Identity with systemAssigned type.
+  -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
+  -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
+
+  **Cluster Update**
+  -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
+  -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
+  -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
+  -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
+
+  **Cluster Get**
+    -  404 -- Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+
+  **Cluster Delete**
+    -  409 -- Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+
+  **Workspace link**
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace link or unlink operation in process.
+  -  400 -- Cluster not found, the cluster you specified doesn’t exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+
+  **Workspace unlink**
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace link or unlink operation in process.
 
 ## Troubleshooting
 

@@ -147,7 +147,7 @@ For details on PAYG VM pricing, see [Red Hat Enterprise Linux pricing](https://a
 To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy the RHEL OS with the BYOS model:
 
 1. Ensure that you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
-2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/indexazure_cloud-access) to complete the process, which includes these steps:
+2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/red_hat_subscription_management/1/) to complete the process, which includes these steps:
 
    1. Enable Microsoft Azure as a provider in your Red Hat Cloud Access Dashboard.
 

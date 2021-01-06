@@ -113,7 +113,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 + __Azure Virtual Networks__. For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
-+ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
++ __MLFlow__. For more information, see [MLflow to track metrics](how-to-use-mlflow.md)  and [Deploy Mlflow models as a web service](how-to-deploy-mlflow-models.md) 
 + __Kubeflow__. For more information, see [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 ### Secure communications

@@ -217,6 +217,8 @@
     href: entities-reference.md
   - name: Network normalization schema
     href: normalization-schema.md
+  - name: UEBA enrichments
+    href: ueba-enrichments.md
 - name: Resources
   items:
   - name: Useful resources
