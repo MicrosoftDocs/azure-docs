@@ -18,6 +18,14 @@ Follow these steps to run the sample code:
     `"topologyName" : "MotionDetection"`
     
 1. Start a debugging session by selecting the F5 key. The **TERMINAL** window will display some messages.
+
+    Starting a debugging session with F5 will prompt you for environment type and project the first time. This is creating and configuring the launch.json file in your folder. Use the following for the purposes of this demo:
+    * Envrionment - .Net Core
+    * Project - c2d-console-app
+    
+    Edit the launch.json file after it is created. Change the console configuration to 'integratedTeminal'.
+    
+    `"console": "integratedTerminal"`
 1. The *operations.json* file starts off with calls to `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after you finished previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     ```
