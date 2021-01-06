@@ -11,7 +11,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -30,12 +30,14 @@ The customer isolation within the infrastructure stamp is performed in tenants, 
 
 These bare-metal server units are supported to run SAP HANA only. The SAP application layer or workload middle-ware layer runs in virtual machines. The infrastructure stamps that run the SAP HANA on Azure (Large Instances) units are connected to the Azure network services backbones. In this way, low-latency connectivity between SAP HANA on Azure (Large Instances) units and virtual machines is provided.
 
-As of July 2019, we differentiate between two different revisions of HANA Large Instance stamps and location of deployments:
+As of January 2021, we differentiate between two different revisions of HANA Large Instance stamps and location of deployments:
 
 - "Revision 3" (Rev 3): Are the stamps that were made available for customer to deploy before July 2019
 - "Revision 4" (Rev 4): New stamp design that is deployed in close proximity to Azure VM hosts and which so far are released in the Azure regions of:
 	-  West US2 
-	-  East US 
+	-  East US
+	-  East US2 (across two Availability Zones)
+	-  South Central US (across two Availability Zones)
 	-  West Europe
 	-  North Europe
 

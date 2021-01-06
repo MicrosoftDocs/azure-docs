@@ -112,6 +112,9 @@
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
     href: security-center-compliance-dashboard.md
+  - name: Manage security policies
+    href: tutorial-security-policy.md
+
 
 - name: Concepts
   items:
@@ -123,11 +126,6 @@
       href: secure-score-security-controls.md
     - name: Overview of security recommendations
       href: security-center-recommendations.md
-    - name: Overview of security policies
-      href: tutorial-security-policy.md
-    - name: Built-in security policies
-      displayName: samples, policy
-      href: ./policy-reference.md
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
     - name: Security baseline
@@ -300,6 +298,9 @@
       href: faq-vms.md
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md
+  - name: Built-in security policies
+    displayName: samples, policy
+    href: policy-reference.md
   - name: Azure roadmap blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations
