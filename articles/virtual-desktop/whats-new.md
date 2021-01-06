@@ -40,7 +40,7 @@ MSIX app attach is another service that began its public preview this month. MSI
 
 This month also marked the beginning of the public preview for screen capture protection. You can use this feature to prevent sensitive information from being captured on the client endpoints. Give screen capture protection a try by going to [this page](https://aka.ms/WVDScreenCaptureProtection).  
 
-### Built-in Roles
+### Built-in roles
 
 We've added new built-in roles for Windows Virtual Desktop for admin permissions. For more information, see [Built-in roles for Windows Virtual Desktop](rbac.md). 
 
@@ -57,10 +57,6 @@ We've released new versions of the following clients:
 - Windows
 
 For more information about client updates, see [Client updates](whats-new.md#client-updates).
-
-### Microsoft Endpoint Manager private preview
-
-Microsoft Endpoint Manager is currently in private preview.
 
 ## November 2020
 
