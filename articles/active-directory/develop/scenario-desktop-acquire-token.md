@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
@@ -946,7 +946,7 @@ This method takes as parameters:
 
   ![DeviceCodeResult properties](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-The following sample code presents the most current case, with explanations of the kind of exceptions you can get and their mitigation.
+The following sample code presents the synopsis of most current cases, with explanations of the kind of exceptions you can get and their mitigation. For a fully functional code sample, see https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2
 
 ```csharp
 private const string ClientId = "<client_guid>";
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     }
 }
 
-private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
+private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
 {
     try
     {
@@ -1002,6 +1002,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
         Console.WriteLine(result.Account.Username);
         return result;
     }
+
     // TODO: handle or throw all these exceptions depending on your app
     catch (MsalServiceException ex)
     {
@@ -1035,6 +1036,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
     }
 }
 ```
+
 # [Java](#tab/java)
 
 This extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
