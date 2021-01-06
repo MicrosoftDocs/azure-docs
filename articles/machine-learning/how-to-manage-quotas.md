@@ -24,7 +24,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Requesting quota increases.
 > + Private endpoint and DNS quotas.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## Special considerations
 
@@ -48,7 +48,9 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
+> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### Azure Machine Learning assets
 The following limits on assets apply on a per-workspace basis. 
@@ -205,3 +207,4 @@ To request an allowance for these scenarios, use the following steps:
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
++ [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
