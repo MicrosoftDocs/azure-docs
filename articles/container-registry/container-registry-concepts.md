@@ -2,38 +2,26 @@
 title: About repositories & images
 description: Introduction to key concepts of Azure container registries, repositories, and container images.
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 01/05/2021
 ---
 
 # About registries, repositories, and images
 
 This article introduces the key concepts of container registries, repositories, and container images and related artifacts. 
 
+:::image type="content" source="media/container-registry-concepts/registry-elements.png" alt-text="Registry, repositories, and images":::
+
 ## Registry
 
-A container *registry* is a service that stores and distributes container images. Docker Hub is a public container registry that supports the open source community and serves as a general catalog of images. Azure Container Registry provides users with direct control of their images, with integrated authentication, [geo-replication](container-registry-geo-replication.md) supporting global distribution and reliability for network-close deployments, [virtual network and firewall configuration](container-registry-vnet.md), [tag locking](container-registry-image-lock.md), and many other enhanced features. 
+A container *registry* is a service that stores and distributes container images. Docker Hub is an example of a public container registry that serves as a general catalog of images. Azure Container Registry provides users with direct control of their images, with integrated authentication, [geo-replication](container-registry-geo-replication.md) supporting global distribution and reliability for network-close deployments, [virtual network configuration with Private Link](container-registry-private-link.md), [tag locking](container-registry-image-lock.md), and many other enhanced features. 
 
 In addition to Docker container images, Azure Container Registry supports related [content artifacts](container-registry-image-formats.md) including Open Container Initiative (OCI) image formats.
 
-## Content addressable elements of an artifact
+When using Docker or other client tools to pull or push artifacts to an Azure container registry, use the registry's fully qualified name, also called the *login server* name. In the Azure cloud, the fully qualified name of an Azure container registry is in the format `myregistry.azurecr.io` (all lowercase).
+ 
+## Repository
 
-The address of an artifact in an Azure container registry includes the following elements. 
-
-`[loginUrl]/[repository:][tag]`
-
-* **loginUrl** - The fully qualified name of the registry host. The registry host in an Azure container registry is in the format *myregistry*.azurecr.io (all lowercase). You must specify the loginUrl when using Docker or other client tools to pull or push artifacts to an Azure container registry. 
-* **repository** - Name of a logical grouping of one or more related images or artifacts - for example, the images for an application or a base operating system. May include *namespace* path. 
-* **tag** -  Identifier of a specific version of an image or artifact stored in a repository.
-
-For example, the full name of an image in an Azure container registry might look like:
-
-*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
-
-See the following sections for details about these elements.
-
-## Repository name
-
-A *repository* is a collection of container images or other artifacts with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
+A *repository* is a collection of container images or other artifacts in a registry that have the same name, but different tags. For example, the following three images are in the `acr-helloworld` repository:
 
 
 - *acr-helloworld:latest*
@@ -68,9 +56,11 @@ For tag naming rules, see the [Docker documentation](https://docs.docker.com/eng
 
 ### Layer
 
-Container images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a registry share common layers, increasing storage efficiency. For example, several images in different repositories might share the same Alpine Linux base layer, but only one copy of that layer is stored in the registry.
+Container images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a registry share common layers, increasing storage efficiency. For example, several images in different repositories might have a common ASP.NET Core base layer, but only one copy of that layer is stored in the registry.
 
-Layer sharing also optimizes layer distribution to nodes with multiple images sharing common layers. For example, if an image already on a node includes the Alpine Linux layer as its base, the subsequent pull of a different image referencing the same layer doesn't transfer the layer to the node. Instead, it references the layer already existing on the node.
+:::image type="content" source="media/container-registry-concepts/container-image-layers.png" alt-text="Layers of a container image":::
+
+Layer sharing also optimizes layer distribution to nodes, with multiple images sharing common layers. For example, if an image already on a node includes the ASP.NET Core layer as its base, the subsequent pull of a different image referencing the same layer doesn't transfer the layer to the node. Instead, it references the layer already existing on the node.
 
 To provide secure isolation and protection from potential layer manipulation, layers are not shared across registries.
 
@@ -119,18 +109,47 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 Manifests are identified by a unique SHA-256 hash, or *manifest digest*. Each image or artifact--whether tagged or not--is identified by its digest. The digest value is unique even if the image's layer data is identical to that of another image. This mechanism is what allows you to repeatedly push identically tagged images to a registry. For example, you can repeatedly push `myimage:latest` to your registry without error because each image is identified by its unique digest.
 
-You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
-
-For example, pull an image from the "acr-helloworld" repository by manifest digest:
-
-`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is pushed later to the registry.
 
 > [!IMPORTANT]
 > If you repeatedly push modified images with identical tags, you might create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. Deleting an untagged image frees registry space when the manifest is the only one, or the last one, pointing to a particular layer. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
+## Addressing an artifact
+
+To address a registry artifact for push and pull operations with Docker or other client tools, combine the fully qualified registry name, repository name (including namespace path if applicable), and an image tag or manifest digest. See previous sections for explanations of these terms.
+
+> [!NOTE]
+> The tag `latest` is used by default if you don't provide a tag in your command.     
+
+### Push
+
+`[loginServerUrl]/[repository][:tag]`
+
+Examples: 
+
+`docker push myregistry.azurecr.io/samples/myimage:20210106`
+
+`docker push myregistry.azurecr.io/marketing/email-sender`
+
+### Pull
+
+`[loginServerUrl]/[repository][:tag]` or
+
+`[loginServerUrl]/[repository@sha256][:digest]`
+
+Examples: 
+
+`docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
+
+
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+
+
 ## Next steps
 
 Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats.md) in Azure Container Registry.
+
+Learn how to [push and pull images](container-registry-docker-cli.md) with Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
