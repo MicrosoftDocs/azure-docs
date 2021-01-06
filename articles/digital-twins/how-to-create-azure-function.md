@@ -81,82 +81,31 @@ dotnet add package Azure.Core.Pipeline
 ```
 Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your Azure function. 
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
+
 ## Add authentication code to the Azure function
 
 You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your Azure function in the {your function name}.cs file.
 
 * Read ADT service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
-```csharp     
-private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
 * A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
-```csharp
-private static readonly HttpClient httpClient = new HttpClient();
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
 * You can use the managed identity credentials in Azure function.
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-```
+    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
 * Add a local variable _DigitalTwinsClient_ inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this variable static inside your class.
-```csharp
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-```
+    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
 * Add a null check for _adtInstanceUrl_ and wrap your function logic in a try catch block to catch any exceptions.
 
 After these changes, your function code will be similar to the following:
 
-```csharp
-// Default URL for triggering event grid function in the local environment.
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-
-namespace adtIngestFunctionSample
-{
-    public class Function1
-    {
-        //Your Digital Twin URL is stored in an application setting in Azure Functions
-        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("TwinsFunction")]
-        public void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
-            try
-            {
-                //Authenticate with Digital Twins
-                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-                DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                log.LogInformation($"ADT service client connection created.");
-                /*
-                * Add your business logic here
-                */
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.Message);
-            }
-
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs":::
 
 ## Publish the function app to Azure
 

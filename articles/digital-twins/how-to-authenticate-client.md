@@ -54,10 +54,7 @@ First, include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity
 
 You'll also need to add the following using statements to your project code:
 
-```csharp
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
 
 Then, add code to obtain credentials using one of the methods in `Azure.Identity`.
 
@@ -69,23 +66,7 @@ To use the default Azure credentials, you'll need the Azure Digital Twins instan
 
 Here is a code sample to add a `DefaultAzureCredential` to your project:
 
-```csharp
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new DefaultAzureCredential();
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential":::
 
 #### Set up local Azure credentials
 
