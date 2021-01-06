@@ -96,7 +96,7 @@ Endpoints may support required and/or optional parameters. See [Schema](#schema)
 
 IMDS endpoints support HTTP query string parameters. For example: 
 
-```bash
+```text
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
 ```
 
@@ -113,7 +113,7 @@ Requests with duplicate query parameter names will be rejected.
 
 For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
 
-```bash
+```text
 http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
 ```
 The parameters correspond to the indexes/keys that would be used to walk down the json object were you interacting with a parsed representation.
@@ -148,12 +148,12 @@ For example, `/metatadata/instance` returns the json object:
 ```
 
 If we want to filter the response down to just the compute property, we would send the request: 
-```bash
+```text
 http://169.254.169.254/metadata/instance/compute?api-version=<version>
 ```
 
 Similarly, if we want to filter to a nested property or specific array element we keep appending keys: 
-```bash
+```
 http://169.254.169.254/metadata/instance/network/interface/0?api-version=<version>
 ```
 would filter to the first element from the `Network.interface` property and return:
