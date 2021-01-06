@@ -64,8 +64,8 @@ Python Azure Functions require version 2.x of [Azure Functions extension bundles
 
     ```json
     "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[2.*, 3.0.0)"
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
     }
     ```
 
