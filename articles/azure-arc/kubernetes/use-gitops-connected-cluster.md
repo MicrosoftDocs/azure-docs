@@ -241,7 +241,7 @@ While the provisioning process happens, the `sourceControlConfiguration` will mo
 
 ## Apply configuration from a private Git repository
 
-If you are using a private Git repo, then you need to configure the SSH public key in your repo. You can configure the public key either on the Git repo or the Git user that has access to the repo. The SSH public key will be either the one you provide or the one that Flux generates.
+If you are using a private Git repo, then you need to configure the SSH public key in your repo. You can configure the public key either on the specific Git repo or on the Git user that has access to the repo. The SSH public key will be either the one you provide or the one that Flux generates.
 
 **Get your own public key**
 
@@ -250,7 +250,7 @@ If you generated your own SSH keys, then you already have the private and public
 **Get the public key using Azure CLI (useful if Flux generates the keys)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
