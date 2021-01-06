@@ -1,6 +1,6 @@
 ---
 title: Connect ServiceNow with IT Service Management Connector
-description: This article provides information about how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
+description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
@@ -11,12 +11,10 @@ ms.date: 12/21/2020
 
 # Connect ServiceNow with IT Service Management Connector
 
-This article provides information about how to configure the connection between a ServiceNow instance and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your IT Service Management (ITSM) work items.
-
-The following sections provide details about how to connect your ServiceNow product to ITSMC in Azure.
+This article shows you how to configure the connection between a ServiceNow instance and the IT Service Management Connector (ITSMC) in Log Analytics, so you can centrally manage your IT Service Management (ITSM) work items.
 
 ## Prerequisites
-Ensure that you meet the following prerequisites.
+Ensure that you meet the following prerequisites for the connection.
 
 ### ITSMC installation
 
@@ -27,7 +25,7 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+ServiceNow supported versions include Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
@@ -40,8 +38,6 @@ ServiceNow admins must generate a client ID and client secret for their ServiceN
 - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-
-For more information, see the [ServiceNow documentation for setting up OAuth](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html).
 
 As a part of setting up OAuth, we recommend:
 
