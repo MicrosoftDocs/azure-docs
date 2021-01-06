@@ -1177,7 +1177,7 @@ The customization of token cache serialization to share the SSO state between AD
 
 ### Simple token cache serialization (MSAL only)
 
-The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a local storage, in the case where the app is a [packaged desktop application](https://developer.microsoft.com/windows/bridges/desktop/). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a per user per app folder in the case where the app is a [packaged desktop application](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` and passing the application `UserTokenCache`.
 
@@ -1198,16 +1198,16 @@ static class TokenCacheHelper
    tokenCache.SetAfterAccess(AfterAccessNotification);
    try
    {
-    // For packaged desktop apps (MSIX packages, also called desktop bridge) the executing assembly folder is read-only. 
+    // For packaged desktop apps (MSIX packages) the executing assembly folder is read-only. 
     // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
     // which is a per-app read/write folder for packaged apps.
-    // See https://developer.microsoft.com/windows/bridges/desktop/
-    CacheFilePath = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + ".msalcache.bin3";
+    // See https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes
+    CacheFilePath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "msalcache.bin3");
    }
    catch (System.InvalidOperationException)
    {
     // Fall back for an un-packaged desktop app
-    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin";
    }
   }
 
