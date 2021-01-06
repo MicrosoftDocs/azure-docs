@@ -14,7 +14,7 @@ ms.author: aahi
 ---
 # Frequently Asked Questions (FAQ) about the Text Analytics API
 
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Azure Cognitive Services.
+ Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API in Azure Cognitive Services.
 
 ## Can Text Analytics identify sarcasm?
 
