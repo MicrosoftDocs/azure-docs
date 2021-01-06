@@ -7,7 +7,7 @@ ms.date: 11/24/2020
 
 # Outputs in ARM templates
 
-This article describes how to define output values in your Azure Resource Manager template (ARM template). You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in your Azure Resource Manager template (ARM template). You use `outputs` when you need to return values from the deployed resources.
 
 The format of each output value must match one of the [data types](template-syntax.md#data-types).
 
@@ -26,7 +26,7 @@ The following example shows how to return the resource ID for a public IP addres
 
 ## Conditional output
 
-In the outputs section, you can conditionally return a value. Typically, you use condition in the outputs when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+In the `outputs` section, you can conditionally return a value. Typically, you use `condition` in the `outputs` when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
 
 ```json
 "outputs": {

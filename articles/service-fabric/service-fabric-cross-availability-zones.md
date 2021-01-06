@@ -339,7 +339,7 @@ Full sample template is present [here](https://github.com/Azure-Samples/service-
 To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 
 * The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
-* The second value is the "singlePlacementGroup" property, which must be set to true.
+* The second value is the "singlePlacementGroup" property, which must be set to true. **The scale set spanned across 3 AZ's can scale upto 300 VMs even with "singlePlacementGroup = true".**
 * The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * The FaultDomain and UpgradeDomain overrides are not required to be configured.
 
