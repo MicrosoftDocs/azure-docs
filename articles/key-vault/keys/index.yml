@@ -75,10 +75,11 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
+          - text: Security overview
+            url: ../general/security-overview.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
-          - text: Security overview
-            url: ../general/overview-security.md
+
 
   # Card
   - title: Microsoft Learn

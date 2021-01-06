@@ -42,7 +42,7 @@ For a simple example of conditional output, see [conditional output template](ht
 
 ## Dynamic number of outputs
 
-In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the **copy** element.
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the `copy` element.
 
 ```json
 "outputs": {
@@ -56,7 +56,7 @@ In some scenarios, you don't know the number of instances of a value you need to
 }
 ```
 
-For more information, see [Outputs iteration in Azure Resource Manager templates](copy-outputs.md).
+For more information, see [Output iteration in ARM templates](copy-outputs.md).
 
 ## Linked templates
 
