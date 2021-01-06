@@ -226,7 +226,14 @@ The chart allows customers to troubleshoot the deployment on their own without h
 
 ## <a name = "ResourceHealth"></a>Resource health status
 
-Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**.
+Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**. It is evaluated every **two minutes** by measuring Data Path Availability which determines whether your Frontend Load Balancing endpoints are available.
+
+| Resource health status | Description |
+| --- | --- |
+| Available | Your standard load balancer resource is healthy and available. |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting RHC guide](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) to determine whether there are user initiated events causing impacting your availability.
+| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting RHC guide](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) to determine whether there are user initiated events impacting your availability. |
+| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 To view the health of your public Standard Load Balancer resources:
 1. Select  **Monitor** > **Service Health**.
@@ -249,12 +256,6 @@ To view the health of your public Standard Load Balancer resources:
  
 Generic resource health status description are available in the [RHC documentation](../service-health/resource-health-overview.md). For specific statuses for the Azure Load Balancer are listed in the below table: 
 
-| Resource health status | Description |
-| --- | --- |
-| Available | Your standard load balancer resource is healthy and available. |
-| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing impacting your availability.
-| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events impacting your availability. |
-| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 ## Next steps
 

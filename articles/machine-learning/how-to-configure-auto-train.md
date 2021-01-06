@@ -462,20 +462,22 @@ For general information on how model explanations and feature importance can be 
 
 * **`import numpy` fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
 
-* **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13. You may check the version of TensorFlow and uninstall as follows -
+* **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13. You may check the version of TensorFlow and uninstall as follows:
   1. Start a command shell, activate conda environment where automated ml packages are installed.
   2. Enter `pip freeze` and look for `tensorflow`, if found, the version listed should be < 1.13
   3. If the listed version is not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
   
- * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
- 
-    Consider upgrading to the latest version of AutoML SDK: `pip install -U azureml-sdk[automl]`. 
-    
-    If that is not viable, check the version of PyJWT. Supported versions are < 2.0.0. Uninstall PyJWT from the environment if the version is >= 2.0.0. You may check the version of PyJWT, uninstall and install the right version as follows:
+ * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`.
+
+    For versions <= 1.17.0 of the SDK, installation might result in an unsupported version of PyJWT. Check PyJWT version in the automated ml conda environment. Supported versions are < 2.0.0. You may check the version of PyJWT as follows:
     1. Start a command shell, activate conda environment where automated ml packages are installed.
     2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
-    3. If the listed version is not a supported version, `pip uninstall PyJWT` in the command shell and enter y for confirmation.
-    4. Install using `pip install 'PyJWT<2.0.0'`.
+
+    If the listed version is not a supported version:
+    1. Consider upgrading to the latest version of AutoML SDK: `pip install -U azureml-sdk[automl]`.
+    2. If that is not viable, uninstall PyJWT from the environment and install the right version as follows:
+        - `pip uninstall PyJWT` in the command shell and enter `y` for confirmation.
+        - Install using `pip install 'PyJWT<2.0.0'`.
 
 ## Next steps
 
