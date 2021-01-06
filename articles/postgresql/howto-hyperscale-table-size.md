@@ -80,14 +80,16 @@ SELECT logicalrelid AS name,
 
 Output:
 
-    ┌───────────────┬───────┐
-    │     name      │ size  │
-    ├───────────────┼───────┤
-    │ github_users  │ 39 MB │
-    │ github_events │ 37 MB │
-    └───────────────┴───────┘
+```
+┌───────────────┬───────┐
+│     name      │ size  │
+├───────────────┼───────┤
+│ github_users  │ 39 MB │
+│ github_events │ 37 MB │
+└───────────────┴───────┘
+```
 
 ## Next steps
 
 * Learn to [scale a server group](howto-hyperscale-scale-grow.md) to hold more data.
-* Distinguish [table types](concepts-hyperscale-nodes) in a Hyperscale (Citus) server group.
+* Distinguish [table types](concepts-hyperscale-nodes.md) in a Hyperscale (Citus) server group.

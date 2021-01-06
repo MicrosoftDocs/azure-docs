@@ -641,7 +641,7 @@
     - name: Distributed data
       items:
       - name: Determine table size
-      - href: howto-hyperscale-table-size.md
+        href: howto-hyperscale-table-size.md
       - name: Distribute and modify tables
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
