@@ -43,6 +43,11 @@ The **Training** table displays a new entry that corresponds to the new model. T
 
 See the [how-to](how-to-custom-speech-evaluate-data.md) on evaluating and improving Custom Speech model accuracy. If you choose to test accuracy, it's important to select an acoustic dataset that's different from the one you used with your model to get a realistic sense of the model's performance.
 
+> [!NOTE]
+> Both base models and custom  models can be used only up to a certain date (see [Model lifecycle](custom-speech-overview.md#model-lifecycle)). Speech Studio shows this date in the **Expiration** column for each model and endpoint. After that date request to an endpoint or to batch transcription  might fail or fall back to base model.
+>
+> Retrain your model using the then most recent base model to benefit from accuracy improvements and to avoid that your model expires.
+
 ## Deploy a custom model
 
 After you upload and inspect data, evaluate accuracy, and train a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. 
@@ -58,7 +63,7 @@ Next, select **Add endpoint** and enter a **Name** and **Description** for your 
 
 Next, select **Create**. This action returns you to the **Deployment** page. The table now includes an entry that corresponds to your custom endpoint. The endpoint’s status shows its current state. It can take up to 30 minutes to instantiate a new endpoint using your custom models. When the status of the deployment changes to **Complete**, the endpoint is ready to use.
 
-After your endpoint is deployed, the endpoint name appears as a link. Select the link to see information specific to your endpoint, like the endpoint key, endpoint URL, and sample code.
+After your endpoint is deployed, the endpoint name appears as a link. Select the link to see information specific to your endpoint, like the endpoint key, endpoint URL, and sample code. Take a note of the expiration date and update the endpoint's model before that date to ensure uninterrupted service.
 
 ## View logging data
 

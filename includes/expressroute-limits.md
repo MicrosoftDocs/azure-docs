@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: expressroute
- author: cherylmc
+ author: duongau
  ms.service: expressroute
  ms.topic: include
  ms.date: 07/25/2019
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 | Resource | Limit |
