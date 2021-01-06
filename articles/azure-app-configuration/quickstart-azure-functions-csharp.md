@@ -48,7 +48,7 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
 
 2. Add a new file *Startup.cs* with following code. It created a new `Startup` class that implements the `FunctionsStartup` abstract and an assembly attribute is added to specify the type name used during Azure Functions startup.
 
-    The `ConfigureAppConfiguration` method is overridden and Azure App Configuration provider is added as an extra configuration source by calling `AddAzureAppConfiguration()`. No services need to be registered at this point, so the `Configure` method is left empty.
+    The `ConfigureAppConfiguration` method is overridden and Azure App Configuration provider is added as an extra configuration source by calling `AddAzureAppConfiguration()`. The `Configure` method is left empty as you don't need to register any services at this point.
     
     ```csharp
     using System;
@@ -146,7 +146,7 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with an Azure Functions app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to update your Azure Functions app to dynamically refresh onfiguration, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with an Azure Functions app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to update your Azure Functions app to dynamically refresh configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable dynamic configuration](./enable-dynamic-configuration-azure-functions-csharp.md)
+> [Enable dynamic configuration in Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)

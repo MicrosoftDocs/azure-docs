@@ -158,7 +158,7 @@ In this tutorial, you learn how to:
     ![Quickstart Function refresh local](./media/quickstarts/dotnet-core-function-refresh-local.png)
 
 > [!NOTE]
-> The example code used in this tutorial can be downloaded from [App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
+> The example code used in this tutorial can be downloaded from [App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## Clean up resources
 
