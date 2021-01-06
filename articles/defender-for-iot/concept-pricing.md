@@ -1,5 +1,5 @@
 ---
-title: Agent-based pricing and associated costs
+title: Agent-based pricing and associated costs for Defender for IoT
 description: Learn about the costs associated with agent-based Defender for IoT, and how to control them.
 services: defender-for-iot
 ms.service: defender-for-iot
