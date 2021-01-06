@@ -28,6 +28,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Global virtual network peering** - Global peering (connecting virtual networks across Azure regions) is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
+* **Virtual Network NAT** - Using a NAT gateway resource isn't currently supported with container groups deployed into virtual networks.
 
 ## Other limitations
 
