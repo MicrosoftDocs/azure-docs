@@ -25,9 +25,7 @@ Branding and customizing the user interface that Azure Active Directory B2C (Azu
 > [!TIP]
 > If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
 
-
 ## Custom HTML and CSS overview
-
 
 Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At runtime, content is loaded from a URL you specify in your user flow or custom policy. Each page in the user experience loads its content from the URL you specify for that page. After content is loaded from your URL, it's merged with an HTML fragment inserted by Azure AD B2C, and then the page is displayed to your customer.
 
@@ -117,7 +115,6 @@ Here's an overview of the process:
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### 1. Create your HTML content
 
@@ -231,7 +228,6 @@ Validate that you're ready by performing the following steps:
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -387,10 +383,7 @@ To use the sample:
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
 1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
 
-
 ## Next steps
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).
-
-
 

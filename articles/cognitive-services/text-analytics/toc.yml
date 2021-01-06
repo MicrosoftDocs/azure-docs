@@ -80,7 +80,8 @@
       - name: Configure containers
         href: text-analytics-resource-container-config.md
       - name: Use container instances
-        href: how-tos/text-analytics-how-to-use-container-instances.md
+        maintainContext: true
+        href: ../containers/azure-container-instance-recipe.md
       - name: Use kubernetes service (AKS)
         href: how-tos/text-analytics-how-to-use-kubernetes-service.md
       - name: Cognitive Services containers documentation

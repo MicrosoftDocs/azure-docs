@@ -167,11 +167,40 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+If the resource has required properties, those must also be returned by `Get-TargetResource`
+in parallel with the `reasons` class. If `reasons` isn't included, the service includes a
+"catch-all" behavior that compares the values input to `Get-TargetResource` and the values
+returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
+
 ### Configuration requirements
 
 The name of the custom configuration must be consistent everywhere. The name of the .zip file for
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
+
+### Policy requirements
+
+The policy definition `metadata` section must include two properties for the Guest Configuration
+service to automate provisioning and reporting of Guest Configuration assignments. The `category` property must
+be set to "Guest Configuration" and a section named `Guest Configuration` must contain information about the
+Guest Configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text automatically.
+See the step-by-step instructions on this page.
+
+The following example demonstrates the `metadata` section.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### Scaffolding a Guest Configuration project
 
@@ -591,12 +620,21 @@ New-GuestConfigurationPackage `
 
 ## Policy lifecycle
 
-If you would like to release an update to the policy, there are three fields that require attention.
+If you would like to release an update to the policy, make the change for both the Guest Configuration
+package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
 > are hosted by Microsoft. The best practice for versioning custom content is to include
 > the version in the file name.
+
+First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
+unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
+The number in this example is only used to make the package unique, not to specify that the package
+should be considered newer or older than other packages.
+
+Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
+the explanations below.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.
