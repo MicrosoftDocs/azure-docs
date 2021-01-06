@@ -402,7 +402,7 @@ Now that you have set up and configured your VM, follow the steps below to deplo
 
 ### IoT Deployment manifest
 
-To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a deployment manifest [for Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) and  [other desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) on Github.
+To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a deployment manifest [for Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179),  [other desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), and [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) on Github.
 
 The following table shows the various Environment Variables used by the IoT Edge Module. You can also set them in the deployment manifest linked above, using the `env` attribute in `spatialanalysis`:
 
@@ -426,7 +426,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or [a desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with your own settings and selection of operations, you can use the below [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), [a desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) with your own settings and selection of operations, you can use the below [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
 sudo az login
@@ -476,7 +476,7 @@ Navigate to the **Container** section, and either create a new container or use 
 
 Click on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
 
-Replace `VIDEO_URL` in the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or another [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with the URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
+Replace `VIDEO_URL` in the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) with the URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
 
 The spatial analysis module will start consuming video file and will continuously auto replay as well.
 
