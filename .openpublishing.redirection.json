@@ -24022,7 +24022,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/best-practices",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24117,7 +24122,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/overview-security.md",
-      "redirect_url": "/azure/key-vault/general/overview-security",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/overview-security.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24167,7 +24177,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-recommendations",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
