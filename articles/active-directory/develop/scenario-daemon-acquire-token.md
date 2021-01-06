@@ -233,7 +233,7 @@ Content: {
 
 If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API? 
 
-For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients)
+For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## Next steps
 
