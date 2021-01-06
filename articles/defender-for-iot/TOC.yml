@@ -42,7 +42,7 @@
     items:
     - name: Key concepts
       href: concept-key-concepts.md
-    - name: Pricing
+    - name: Pricing model
       href: concepts-pricing-diot.md
   - name: Agent-based Solution for Device Builders
     items: 

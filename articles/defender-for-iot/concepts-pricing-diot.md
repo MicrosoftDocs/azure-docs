@@ -1,6 +1,6 @@
 ---
-title: Pricing
-description: Learn about the costs associated with Defender for IoT, and how to control them.
+title: Pricing model
+description: Understand the costs associated with Defender for IoT, and how to control them.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,11 +9,11 @@ ms.service: azure
 ms.topic: conceptual
 ---
 
-# Pricing
+# Pricing model
 
 This article explains Defender for IoT pricing model, summarizes all associated costs and explains how to manage them.
 
-## Pricing
+## Defender for IoT pricing model
 
 The Defender for IoT pricing model is comprised of two parts, and is billed once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in Defender for IoT:
 
