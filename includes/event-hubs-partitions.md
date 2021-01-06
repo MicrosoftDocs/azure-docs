@@ -102,7 +102,7 @@ interrelationship of the events.
 A sequence of events identified by a partition key is a *stream*. A partition is
 a multiplexed log store for many such streams. 
 
-The partition count for an event hub in a [dedicated Event Hubs cluster](event-hubs-dedicated-overview.md) can be [increased](dynamically-add-partitions.md) after the event hub has
+The partition count for an event hub in a [dedicated Event Hubs cluster](../articles/event-hubs/event-hubs-dedicated-overview.md) can be [increased](../articles/event-hubs/dynamically-add-partitions.md) after the event hub has
 been created, but the distribution of streams across partitions will change when
 it's done as the mapping of partition keys to partitions changes, so you
 should try hard to avoid such changes if the relative order of events matters in
