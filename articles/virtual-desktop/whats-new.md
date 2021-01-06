@@ -226,9 +226,9 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 ## Windows Virtual Desktop agent updates
 
-You can find more detailed information about the Windows Virtual Desktop agent in the [Get started with the Windows Virtual Desktop agent](agent-overview.md) article. You’ll find the latest updates to the agent and what the updates entail in this section. 
+Check out the [Get started with the Windows Virtual Desktop agent](agent-overview.md) article to learn about the Windows Virtual Desktop agent. You’ll find the latest update to the agent and what the update entails in this section. 
 
-### Updates for Version 1.0.2627
+### Updates for Version 1.0.2682
 
 Date published: 12/08/2020
 

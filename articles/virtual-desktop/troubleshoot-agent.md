@@ -18,23 +18,23 @@ This article will guide you through solutions to these common scenarios and how 
 
 ## Restart the BootLoader
 
-Follow these instructions if you're having issues with the agent bootloader not running or if you are receiving an INVALID_REGISTRATION_TOKEN error.
+Follow these instructions if you're having issues with the agent bootloader not running or if you're receiving an INVALID_REGISTRATION_TOKEN error.
 
 ### Error: The RDAgentBootLoader has stopped running.
 
-**Cause:** If you are seeing that *RDAgentBootLoader* is either stopped or not running, this means that the bootloader, which loads the agent, was unable to properly install the agent and the agent service is not running.
+**Cause:** If you're seeing that *RDAgentBootLoader* is either stopped or not running, this means that the bootloader, which loads the agent, was unable to install the agent properly and the agent service isn't running.
 
 **Fix:** Start the RDAgent BootLoader.
 
 1. In the Services window, right-click *Remote Desktop Agent Loader*.
-2. Select *Start*. Note that if this option is greyed out for you, you do not have administrator permissions and will need that in order to start the service.
+2. Select *Start*. If this option is greyed out for you, you don't have administrator permissions and will need that to start the service.
 3. Wait 10 seconds, and then right-click *Remote Desktop Agent Loader*.
 4. Select *Refresh*.
-5. If the service stops after you started and refreshed it, you may have a registration failure. See [INVALID_REGISTRATION_TOKEN](#error-invalidregistrationtoken).
+5. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalidregistrationtoken).
 
 ### Error: INVALID_REGISTRATION_TOKEN
 
-**Cause:** The registration token that you have is not recognized as valid.
+**Cause:** The registration token that you have isn't recognized as valid.
 
 **Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgent BootLoader, and check that IsRegistered is 1.
 
@@ -69,9 +69,9 @@ Follow these instructions if you're having issues with the agent bootloader not 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 1](media/isregistered.PNG)
 
-## Ensure that your VMs are able to connect to the broker and gateway
+## Ensure that your VMs can connect to the broker and gateway
 
-Follow these instructions if you're having issues with service connectivity because you cannot connect to the broker, you are receiving an INVALID_FORM error, or you are receiving any 3019, 3703, or 3702 event.
+Follow these instructions if you're having issues with service connectivity because you cannot connect to the broker, you're receiving an INVALID_FORM error, or you're receiving any 3019, 3703, or 3702 event.
 
 ### Error: *Agent cannot connect to broker with error NOT_FOUND. URL:* or INVALID_FORM.
 
@@ -87,10 +87,10 @@ Follow these instructions if you're having issues with service connectivity beca
 
  
 4. Open a browser and go to *\<BrokerURI\>api/health*. 
-   - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. In this case it would be https://rdbroker-g-us-r0.wvd.microsoft.com/api/health.
+   - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. In this case, it would be https://rdbroker-g-us-r0.wvd.microsoft.com/api/health.
 5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
-   - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. In this case it would be https://rdbroker.wvd.microsoft.com/api/health.
-6. If the network is not blocking broker connection, both pages will load successfully and will show *RDBroker is Healthy*, as shown below. 
+   - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. In this case, it would be https://rdbroker.wvd.microsoft.com/api/health.
+6. If the network isn't blocking broker connection, both pages will load successfully and will show *RDBroker is Healthy*, as shown below. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker uri access](media/brokuri.PNG)
@@ -107,49 +107,49 @@ Follow these instructions if you're having issues with service connectivity beca
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokerglobal.PNG)
 
-8. If the network is blocking these URLs, you will need to unblock the required URLs. See [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list) for more detailed information.
+8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list).
 
-### Error: Any 3703 error (i.e. RDGateway URL is not accessible), 3702 warning, or 3019 error.
+### Error: Any 3703 error (that is, RDGateway URL isn't accessible), 3702 warning, or 3019 error.
 
-**Cause:** This error is raised when the WebSocket Transport URLs or RDGateway URLs cannot be reached. To ensure connectivity on your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list). You should also ensure that your firewall or proxy settings do not block these URLs. Doing this is a prerequisite to using WVD.
+**Cause:** This error is raised when the WebSocket Transport URLs or RDGateway URLs cannot be reached. To ensure connectivity on your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list). Also, ensure that your firewall or proxy settings don't block these URLs. Unblocking these URLs is a prerequisite to using WVD.
 
 **Fix:** Verify that your firewall and/or DNS settings are not blocking these URLs.
 1. [Use Azure Firewall to protect WVD deployments.](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop)
 2. Configure your [Azure Firewall DNS settings](https://docs.microsoft.com/azure/firewall/dns-settings).
 
-## Ensure that you do not have any conflicting group policies enabled
+## Ensure that you don't have any conflicting group policies enabled
 
 Follow these instructions if you have any group policies enabled. Some group policies, disable the installation of the agent through Windows installer or the command prompt. If this installation is disabled, you will receive an InstallMsiException or a Win32Exception.
 
 ### Error: InstallMsiException.
 
-**Cause:** This exception is thrown when the installer is already running for another application and you are trying to install the agent at the same time, or the msiexec.exe is blocked. To ensure that agent updates get installed on your session host, you cannot enable any policies or configurations that block Windows Installer or msiexec.exe, this will also block the agent installation and cause it to fail.
+**Cause:** This exception is thrown when the installer is already running for another application and you're trying to install the agent at the same time, or the msiexec.exe is blocked. To ensure that agent updates get installed on your session host, don't enable any policies or configurations that block Windows Installer or msiexec.exe; this will also block the agent installation and cause it to fail.
 
 **Fix:** Disable the following policies:
    - Turn off Windows Installer  
       - Category Path: Computer Configuration\Administrative Templates\Windows Component\Windows Installer\ 
     
 >[!NOTE]
->This is not a comprehensive list of policies, just the ones that we have come across, and generally you should not enable any policy that blocks the installation of msiexec.exe files.
+>This isn't a comprehensive list of policies, just the ones that we have come across.
 
 ### Error: Win32Exception.
 
-**Cause:** This exception is thrown when there is a policy enabled that blocks cmd.exe from launching. This blocks the ability to run the console window, which is what is used to restart the service when there is an agent update.
+**Cause:** This exception is thrown when there is a policy enabled that blocks cmd.exe from launching. Enabling such policies blocks the ability to run the console window, which is what is used to restart the service when there is an agent update.
 
 **Fix:** Disable the following policies:
    - Prevent access to the command prompt   
       - Category Path: User Configuration\Administrative Templates\System\ 
     
 >[!NOTE]
->This is not a comprehensive list of policies, just the ones that we have come across, and generally you should not enable any policy that blocks cmd.exe from launching.
+>This isn't a comprehensive list of policies, just the ones that we have come across.
 
 ## Make Regkey changes
 
 Follow these instructions if you're having issues with the stack listener not working, your VMs show as Unavailable, or your VMs are missing a heartbeat to the service.
 
-### Error: Stack listener is not working or your VM shows as Unavailable, and you are running on Windows 10 2004.
+### Error: Stack listener isn't working or your VM shows as Unavailable, and you're running on Windows 10 2004.
 
-**Cause:** Run *qwinsta* in your Command Prompt and make note of the version number that is shown next to *rdp-sxs*. If you are not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the WVD listener will not work.
+**Cause:** Run *qwinsta* in your Command Prompt and make note of the version number that is shown next to *rdp-sxs*. If you're not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the WVD listener will not work.
 
 **Fix:** Change fEnableWinStation and fReverseConnectMode to 1.
 1. Open the Registry Editor (in Start menu, type *regedit*).
@@ -160,15 +160,15 @@ Follow these instructions if you're having issues with the stack listener not wo
    > [!div class="mx-imgBorder"]
    > ![Screenshot of fReverseConnectMode](media/fenable2.PNG)
 
-5. If *fReverseConnectMode* is not set to 1, double-click on *fReverseConnectMode* and enter the value 1 for its field. 
-6. If *fEnableWinStation* is not set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field.  
+5. If *fReverseConnectMode* isn't set to 1, double-click on *fReverseConnectMode* and enter the value 1 for its field. 
+6. If *fEnableWinStation* isn't set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field.  
 
 >[!NOTE]
 >To change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at one time, you can either 1) export the registry key from the machine that you already have working and import it into all the other machines that need this change, or 2) create a GPO to set the registry key value for the machines that need the change.
 
 7. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings.
 8. Under *ClusterSettings*, scroll to find *SessionDirectoryListener* and verify that its data value is *rdp-sxs...*. 
-9. If *SessionDirectoryListener* is not set to *rdp-sxs...*, you need to follow steps to [reinstall the agent and bootloader](#re-register-your-vm-and-reinstall-the-agent-and-bootloader), and this will reinstall the side-by-side stack.
+9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you need to follow steps to [reinstall the agent and bootloader](#re-register-your-vm-and-reinstall-the-agent-and-bootloader), and this will reinstall the side-by-side stack.
 
 ### Error: *CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy.*
 
@@ -194,17 +194,17 @@ Follow these instructions if you're having capacity issues on your VM. This may 
 
 ### Error: DownloadMsiException.
 
-**Cause:** This exception is thrown when there is not enough space on the disk for the RDAgent to be downloaded.
+**Cause:** This exception is thrown when there isn't enough space on the disk for the RDAgent to be downloaded.
 
 **Fix:** Make space on your disk by:
    - Deleting files that are no longer in user
    - Increasing the storage capacity of your VM
 
-### Error: VMs are showing as Unavailable or you are receiving *Connection not found: RDAgent does not have an active connection to the broker* error.
+### Error: VMs are showing as Unavailable or you're receiving *Connection not found: RDAgent does not have an active connection to the broker* error.
 
 **Cause:** It is possible that your machines have exceeded or are at the memory/storage/resource utilization limit so the VM is unable to accept new connections.
 
-**Fix:** You can resolve this by:
+**Fix:** You can resolve this issue by:
    - Decreasing the max session limit; this will ensure that the resource utilization is more evenly distributed across session hosts and will decrease the likelihood of resource depletion
    - Increasing the resource capacity of the VMs.
 
@@ -212,9 +212,9 @@ Follow these instructions if you're having capacity issues on your VM. This may 
 
 Follow these instructions if one or more of the following apply to you:
 - Your VM is stuck in upgrading or unavailable
-- Your stack listener is not working and you are running on Windows 10 1809, 1903, or 1904
-- You are receiving an EXPIRED_REGISTRATION_TOKEN error
-- You are not seeing your VMs show up in the session hosts list
+- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
+- You're receiving an EXPIRED_REGISTRATION_TOKEN error
+- You're not seeing your VMs show up in the session hosts list
 
 ### Uninstall all agent, bootloader, and stack component programs.
 
@@ -234,7 +234,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Remove the session host from the host pool.
 
-1. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com). 
+1. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
 2. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 3. Select the VM from the list of session hosts that is having issues.
 4. Select *Remove* from the options along the top.  
@@ -244,7 +244,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Generate a new registration key for the VM.
 
-1. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com).
+1. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com).
 2. Select *Registration key*, just to the right of the search bar.
 
    > [!div class="mx-imgBorder"]
@@ -256,7 +256,7 @@ Follow these instructions if one or more of the following apply to you:
 >[!NOTE]
 >The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. It is best practice to set the expiration date to be 27 days from now.
 
-5. Copy the newly generated key to your clipboard; you will need this later.
+5. Copy the newly generated key to your clipboard; you will need this key later.
 
 ### Reinstall the agent and bootloader.
 
@@ -277,7 +277,7 @@ Follow these instructions if one or more of the following apply to you:
    > ![Screenshot of pasted registration token](media/pasted-registration-token.PNG)
 
 9. Run the bootloader installer by double-clicking it.
-10. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com).
+10. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com).
 11. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 12. You should now see the session host registered in the host pool with the status *Available*. 
 
@@ -286,11 +286,11 @@ Follow these instructions if one or more of the following apply to you:
 
 ## Recreate the VM.
 
-Follow these instructions if you're operating an unsupported VM OS or if you are receiving a NAME_ALREADY_REGISTERED error.
+Follow these instructions if you're operating an unsupported VM OS or if you're receiving a NAME_ALREADY_REGISTERED error.
 
 ### Error: Operating an Unsupported VM OS.
 
-**Cause:** The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs (that is, Pro VM is not supported). If you do not have an Enterprise or Server SKU, the stack will be installed on your VM, but will not be activated, so you will not see it show up when you run *qwinsta* in your command line.
+**Cause:** The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs (that is, Pro VM isn't supported). If you don't have an Enterprise or Server SKU, the stack will be installed on your VM, but won't be activated, so you won't see it show up when you run *qwinsta* in your command line.
 
 **Fix:** Create a VM that is Windows Enterprise or Windows Server.
 1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). The recommended images for your VM are:
@@ -308,7 +308,7 @@ Follow these instructions if you're operating an unsupported VM OS or if you are
 **Fix:** Remove the session host from the host pool and create another one.
 1. Follow steps 1-4 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
 2. [Create another VM](https://docs.microsoft.com/azure/virtual-desktop/expand-existing-host-pool#add-virtual-machines-with-the-azure-portal). Make sure to choose a name for this VM that is different from all the other names in the host pool.
-1. Go to the *Overview* page for the host pool that your VM was in in the [Azure Portal](https://portal.azure.com). 
+1. Go to the *Overview* page for the host pool that your VM was in, in the [Azure portal](https://portal.azure.com). 
 1. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 1. Wait for 5-10 minutes for the session host to show *Available*.
 
@@ -317,7 +317,7 @@ Follow these instructions if you're operating an unsupported VM OS or if you are
 
 ## Next steps
 
-If any of the above steps did not resolve your issue, please create a support case and include detailed information about the problem you are having, in addition to the steps you have taken to resolve it. Below is a list of additional resources that you can use to troubleshoot issues that you may have with your Windows Virtual Desktop deployment.
+If any of the above steps did not resolve your issue, create a support case and include detailed information about the problem you're having, in addition to the steps you have taken to resolve it. Below is a list of other resources that you can use to troubleshoot issues that you may have with your Windows Virtual Desktop deployment.
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while creating a host pool in a Windows Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
