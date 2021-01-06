@@ -14,10 +14,11 @@ ms.date: 12/29/2020
 Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 
 ## Troubleshoot and query your code or configuration issues
-Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheaper way using KQL. Troubleshooting logs decrees your charges buy also give you fewer capabilities that are enough for you to do troubleshooting, you can decide if a table is in troubleshooting mode or not.
-The service allows you to join analytics docs on supported tables with a free retention period.
+Use Azure Monitor Troubleshooting Logs to fetch your records and investigate problems and issues in a simpler and cheaper way using KQL.
+Troubleshooting Logs decrees your charges by giving you fewer and basic capabilities for troubleshooting.
 
 > [!NOTE]
+>* The decision for troubleshooting mode is configurable.
 >* Troubleshooting logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
 >* There is a 4 days free retention period, can be extended in addition cost.
 >* By default, the tables inherent the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
