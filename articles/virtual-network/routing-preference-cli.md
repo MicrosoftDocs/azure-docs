@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak 
 ms.custom: devx-track-azurecli
 
@@ -48,7 +48,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 ```
 ## Create a public IP address
 
-Create a Public IP Address with routing preference of "Internet" type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 

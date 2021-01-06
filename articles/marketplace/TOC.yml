@@ -50,7 +50,9 @@
     - name: Co-sell partner engagement
       href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
-      href: partner-center-portal/commercial-marketplace-co-sell.md 
+      href: commercial-marketplace-co-sell.md 
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -203,8 +205,16 @@
       href: partner-center-portal/create-iot-edge-module-asset.md
   - name: Managed Service offers
     items:
+    - name: Plan a Managed Service offer
+      href: plan-managed-service-offer.md
     - name: Create a Managed Service offer
-      href: partner-center-portal/create-new-managed-service-offer.md
+      href: create-managed-service-offer.md
+    - name: Configure Managed Service listing
+      href: create-managed-service-offer-listing.md
+    - name: Add a preview audience
+      href: create-managed-service-offer-preview.md
+    - name: Create plans
+      href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
     - name: Plan a Power BI app offer
@@ -382,9 +392,9 @@
   - name: Supported countries and regions
     href: sell-from-countries.md  
   - name: Co-sell country and region codes
-    href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
+    href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
-    href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    href: commercial-marketplace-co-sell-states.md
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags

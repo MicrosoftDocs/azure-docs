@@ -19,6 +19,7 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 * [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 * [How to configure your app to login using an OpenID Connect provider (Preview)](configure-authentication-provider-openid-connect.md)
+* [How to configure your app to login using an Sign in with Apple (Preview)](configure-authentication-provider-apple.md)
 
 ## Use multiple sign-in providers
 
@@ -36,6 +37,7 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
@@ -310,7 +312,6 @@ The following exhausts possible configuration options within the file:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -344,13 +345,13 @@ The following exhausts possible configuration options within the file:
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -432,13 +433,26 @@ The following exhausts possible configuration options within the file:
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -450,7 +464,7 @@ The following exhausts possible configuration options within the file:
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
@@ -481,7 +495,7 @@ You can change the runtime version used by your app. The new runtime version sho
 
 #### View the current runtime version
 
-You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built0-in version HTTP endpoints in your app.
+You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built-in version HTTP endpoints in your app.
 
 ##### From the Azure CLI
 

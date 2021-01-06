@@ -16,7 +16,11 @@ By default, all the disks in your VMs are automatically encrypted-at-rest using 
 
 ## Encryption using customer-managed keys
 
-When you encrypt disks with custom-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. For more information about encryption of managed disks with customer-managed keys, see [this article](../virtual-machines/disk-encryption.md#customer-managed-keys).
+When you encrypt disks with customer-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs.
+
+You don't need to perform any explicit actions for backup or restore of VMs that use customer-managed keys for encrypting their disks. The backup data for these VMs stored in the vault will be encrypted with the same methods as the [encryption used on the vault](encryption-at-rest-with-cmk.md).
+
+For more information about encryption of managed disks with customer-managed keys, see [this article](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## Encryption support using ADE
 

@@ -9,7 +9,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python, data4ml
+ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
 # As a data scientist using Python, I want to get data into my pipeline and flowing between steps
 ---
 

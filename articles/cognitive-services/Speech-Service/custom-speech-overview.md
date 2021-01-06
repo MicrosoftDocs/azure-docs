@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
+ms.custom: contperf-fy21q2
 ---
 
 # What is Custom Speech?
@@ -37,6 +38,23 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 ## Set up your Azure account
 
 You need to have an Azure account and Speech service subscription before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
+
+If you plan to train a custom model with audio data, pick one of the following regions that have dedicated hardware available for training. This will reduce the time it takes to train a model.
+
+* Australia East
+* Canada Central
+* Central India
+* East US
+* East US 2
+* North Central US
+* North Europe
+* South Central US
+* Southeast Asia
+* UK South
+* US Gov Arizona
+* US Gov Virginia
+* West Europe
+* West US 2
 
 > [!NOTE]
 > Please be sure to create a standard (S0) subscription. Free (F0) subscriptions aren't supported.

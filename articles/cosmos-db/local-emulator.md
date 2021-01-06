@@ -6,7 +6,7 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperfq1
+ms.custom: devx-track-csharp, contperf-fy21q1
 ---
 
 # Install and use the Azure Cosmos DB Emulator for local development and testing
@@ -55,7 +55,7 @@ Because the Azure Cosmos DB Emulator provides an emulated environment that runs 
 Before you install the emulator, make sure you have the following hardware and software requirements:
 
 * Software requirements:
-  * Currently Windows Server 2012 R2, Windows Server 2016, 2019 or Windows 8, 10 host OS are supported. The host OS with Active Directory enabled is currently not supported.
+  * Currently Windows Server 2016, 2019 or Windows 10 host OS are supported. The host OS with Active Directory enabled is currently not supported.
   * 64-bit operating system
 
 * Minimum hardware requirements:

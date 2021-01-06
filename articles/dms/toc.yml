@@ -31,7 +31,10 @@
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
-
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
 - name: Tutorials
   expanded: true
   items:

@@ -36,6 +36,13 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## Dec 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Stored procedure sp_rename for columns (preview)**|Renaming a column without a [CTAS](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) just became simpler. Azure Synapse SQL has now added support for the system stored procedure sp_rename (preview) to rename a non-distribution column in a user table. This feature is currently in Preview and will be supported in tooling at GA. For details, see [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Additional parameter for T-SQL Predict**|With this new release, a required additional parameter called 'RUNTIME' is added for the existing T-SQL PREDICT statement. For updating your existing scripts, see examples in [T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
+
 ## Oct 2020
 
 | Service improvements | Details |
@@ -48,7 +55,7 @@ For tooling improvements, make sure you have the correct version installed speci
 | Service improvements | Details |
 | --- | --- |
 |**Workload Management – Portal Experience**|Users can configure and manage their workload management settings via the Azure portal. The ability to configure [workload groups](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) and [workload classifiers](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) with importance is possible.|
-|**Improved table mappings catalog view**|The new catalog view [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) maps **object_ids** of permanent user tables to their physical table names.|
+|**Improved table mappings catalog view**|The new catalog view [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) maps **object_ids** of permanent user tables to their physical table names.|
 
 ## July 2020
 

@@ -15,6 +15,8 @@
     href: cognitive-services-custom-subdomains.md
   - name: Language support
     href: language-support.md
+  - name: Plan and manage costs 
+    href: plan-manage-costs.md
 - name: Quickstarts
   items:
   - name: Create a new resource using the Azure portal

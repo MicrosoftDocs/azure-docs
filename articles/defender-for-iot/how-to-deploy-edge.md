@@ -49,7 +49,7 @@ Use the following steps to deploy an Defender for IoT security module for IoT Ed
 
 1. Select **Internet of Things**, then search for **Defender for IoT** and select it.
 
-   ![Select Defender for IoT](media/howto/edge-onboarding-8.png)
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Select Defender for IoT":::
 
 1. Click **Create** to configure the deployment.
 

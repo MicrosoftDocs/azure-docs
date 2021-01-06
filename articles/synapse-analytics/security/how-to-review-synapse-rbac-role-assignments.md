@@ -16,7 +16,10 @@ Synapse RBAC roles are used to assign permissions to users, groups, and other se
 
 This article explains how to review the current role assignments for a workspace.
 
-With any Synapse RBAC role, you can list Synapse RBAC role assignments for all scopes, including assignments for objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.   
+With any Synapse RBAC role, you can list Synapse RBAC role assignments for all scopes, including assignments for objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.  
+
+>[!Note]
+>Guest users (users from a different AD tenant) cannot see or manage role assignments, even if assigned the Synapse Administrator role.    
 
 ## Open Synapse Studio  
 

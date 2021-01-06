@@ -3,7 +3,7 @@ title: 'Tutorial: Migrate web services from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,9 +11,16 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Tutorial - Migrate web service from Bing Maps
+# Tutorial: Migrate web service from Bing Maps
 
-Both Azure and Bing Maps provide access to spatial APIs through REST web services. The API interfaces for these platforms perform similar functionalities but use different naming conventions and response objects.
+Both Azure and Bing Maps provide access to spatial APIs through REST web services. The API interfaces for these platforms perform similar functionalities but use different naming conventions and response objects. In this tutorial, you will learn how to:
+
+> * Forward and reverse geocoding
+> * Search for points of interest
+> * Calculate routes and directions
+> * Retrieve a map image
+> * Calculate a distance matrix
+> * Get time zone details
 
 The following table provides the Azure Maps service APIs that provide similar functionality to the listed Bing Maps service APIs.
 
@@ -32,27 +39,33 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search](/rest/api/maps/search) + [Route](/rest/api/maps/route) + other Azure Services |
 | Time Zone                             | [Time Zone](/rest/api/maps/timezone)  |
 | Traffic Incidents                     | [Traffic Incident Details](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Elevation                             | [Elevation (Preview)](/rest/api/maps/elevation)
 
 The following service APIs are not currently available in Azure Maps:
 
--   Elevation - Planned
 -   Optimized Itinerary Routes - Planned. Azure Maps Route API does support traveling salesmen optimization for a single vehicle.
 -   Imagery Metadata – Primarily used for getting tile URLs in Bing Maps. Azure Maps has a standalone service for directly accessing map tiles.
 
 Azure Maps has several additional REST web services that may be of interest;
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
+-   [Azure Maps Creator (Preview) ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
 -   [Spatial operations](/rest/api/maps/spatial) – Offload complex spatial calculations and operations, such as geofencing, to a service.
 -   [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 -   [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
 -   [Traffic](/rest/api/maps/traffic) Flow – Access real-time traffic flow data as both raster and vector tiles.
--   [Geolocation API](/rest/api/maps/geolocation/getiptolocationpreview) – Get the location of an IP address.
+-   [Geolocation API (Preview)](/rest/api/maps/geolocation/getiptolocationpreview) – Get the location of an IP address.
 -   [Weather Services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
 
 Be sure to also review the following best practices guides:
 
 -   [Best practices for search](./how-to-use-best-practices-for-search.md)
 -   [Best practices for routing](./how-to-use-best-practices-for-routing.md)
+
+## Prerequisites
+
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Geocoding addresses
 
@@ -86,9 +99,9 @@ The following tables cross-reference the Bing Maps API parameters with the compa
 
 Azure Maps also supports;
 
--   `countrySecondarySubdivision` – County, districts
--   `countryTertiarySubdivision` - Named areas; boroughs, cantons, communes
--   `ofs` - Page through the results in combination with `maxResults` parameter.
+* `countrySecondarySubdivision` – County, districts
+* `countryTertiarySubdivision` - Named areas; boroughs, cantons, communes
+* `ofs` - Page through the results in combination with `maxResults` parameter.
 
 **Location by Query (free-form address string)**
 
@@ -104,10 +117,10 @@ Azure Maps also supports;
 
 Azure Maps also supports;
 
--   `typeahead` - Species if the query will be interpreted as a partial input and the search will enter predictive mode (autosuggest/autocomplete).
--   `countrySet` – A comma-separated list of ISO2 countries codes in which to limit the search to.
--   `lat`/`lon`, `topLeft`/`btmRight`, `radius` – Specify user location and area to make the results more locally relevant.
--   `ofs` - Page through the results in combination with `maxResults` parameter.
+* `typeahead` - Species if the query will be interpreted as a partial input and the search will enter predictive mode (autosuggest/autocomplete).
+* `countrySet` – A comma-separated list of ISO2 countries codes in which to limit the search to.
+* `lat`/`lon`, `topLeft`/`btmRight`, `radius` – Specify user location and area to make the results more locally relevant.
+* `ofs` - Page through the results in combination with `maxResults` parameter.
 
 An example of how to use the search service is documented [here](./how-to-search-for-address.md). Be sure to review the [best practices for search](./how-to-use-best-practices-for-search.md) documentation.
 
@@ -137,9 +150,9 @@ Be sure to review the [best practices for search](./how-to-use-best-practices-fo
 
 The Azure Maps reverse geocoding API has some additional features not available in Bing Maps that might be useful to integrate when migrating your app:
 
--   Retrieve speed limit data.
--   Retrieve road use information; local road, arterial, limited access, ramp, etc.
--   The side of street the coordinate falls on.
+* Retrieve speed limit data.
+* Retrieve road use information; local road, arterial, limited access, ramp, etc.
+* The side of street the coordinate falls on.
 
 **Entity type comparison table**
 
@@ -169,10 +182,10 @@ Several of the Azure Maps search API’s support predictive mode that can be use
 
 Azure Maps can be used to calculate routes and directions. Azure Maps has many of the same functionalities as the Bing Maps routing service, such as;
 
--   arrival and departure times
--   real-time and predictive based traffic routes
--   different modes of transportation; driving, walking, truck
--   waypoint order optimization (traveling salesmen)
+* arrival and departure times
+* real-time and predictive based traffic routes
+* different modes of transportation; driving, walking, truck
+* waypoint order optimization (traveling salesmen)
 
 > [!NOTE]
 > Azure Maps requires all waypoints to be coordinates. Addresses will need to be geocoded first.
@@ -181,7 +194,7 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 -   [Calculate route](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn’t become too long and cause issues.
 -   [Batch route](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
--   [Mobility services](/rest/api/maps/mobility): Calculate routes and directions using public transit.
+-   [Mobility services (Preview) ](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -232,21 +245,21 @@ Be sure to also review the [Best practices for routing](./how-to-use-best-practi
 
 The Azure Maps routing API has many additional features not available in Bing Maps that might be useful to integrate when migrating your app:
 
--   Support for route type: shortest, fastest, trilling, and most fuel efficient.
--   Support for additional travel modes: bicycle, bus, motorcycle, taxi, truck, and van.
--   Support for 150 waypoints.
--   Compute multiple travel times in a single request; historic traffic, live traffic, no traffic.
--   Avoid additional road types: carpool roads, unpaved roads, already used roads.
--   Engine specification-based routing. Calculate routes for combustion or electric vehicles based on their remaining fuel/charge and engine specifications.
--   Specify maximum vehicle speed.
+* Support for route type: shortest, fastest, trilling, and most fuel efficient.
+* Support for additional travel modes: bicycle, bus, motorcycle, taxi, truck, and van.
+* Support for 150 waypoints.
+* Compute multiple travel times in a single request; historic traffic, live traffic, no traffic.
+* Avoid additional road types: carpool roads, unpaved roads, already used roads.
+* Engine specification-based routing. Calculate routes for combustion or electric vehicles based on their remaining fuel/charge and engine specifications.
+* Specify maximum vehicle speed.
 
 ## Snap coordinates to Road
 
 There are several ways to snap coordinates to roads in Azure Maps.
 
--   Use the route directions API to snap coordinates to a logical route along the road network.
--   Use the Azure Maps Web SDK to snap individual coordinates to the nearest road in the vector tiles.
--   Use the Azure Maps vector tiles directly to snap individual coordinates.
+* Use the route directions API to snap coordinates to a logical route along the road network.
+* Use the Azure Maps Web SDK to snap individual coordinates to the nearest road in the vector tiles.
+* Use the Azure Maps vector tiles directly to snap individual coordinates.
 
 **Using the route direction API to snap coordinates**
 
@@ -254,8 +267,8 @@ Azure Maps can snap coordinates to roads by using the [route directions](/rest/a
 
 There are two different ways to use the route directions API to snap coordinates to roads.
 
--   If there are 150 coordinates or less, they can be passed as waypoints in the GET route directions API. Using this approach two different types of snapped data can be retrieved; route instructions will contain the individual snapped waypoints, while the route path will have an interpolated set of coordinates that fill the full path between the coordinates.
--   If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) of this approach using the services module in the Azure Maps Web SDK.
+* If there are 150 coordinates or less, they can be passed as waypoints in the GET route directions API. Using this approach two different types of snapped data can be retrieved; route instructions will contain the individual snapped waypoints, while the route path will have an interpolated set of coordinates that fill the full path between the coordinates.
+* If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) of this approach using the services module in the Azure Maps Web SDK.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -363,9 +376,7 @@ For example, in Bing Maps, a red pushpin with the label "AB" can be added to the
 
 > `&pushpin=45,-110;7;AB`
 
-<center>
-
-![Bing Maps static map pin](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)</center>
+![Bing Maps static map pin](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)
 
 **After: Azure Maps**
 
@@ -379,21 +390,21 @@ When it comes to pin locations, Azure Maps requires the coordinates to be in `lo
 
 The `iconType` value specifies the type of pin to create and can have the following values:
 
--   `default` – The default pin icon.
--   `none` – No icon is displayed, only labels will be rendered.
--   `custom` – Specifies a custom icon is to be used. A URL pointing to the icon image can be added to the end of the `pins` parameter after the pin location information.
--   `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure Maps Data Storage platform.
+* `default` – The default pin icon.
+* `none` – No icon is displayed, only labels will be rendered.
+* `custom` – Specifies a custom icon is to be used. A URL pointing to the icon image can be added to the end of the `pins` parameter after the pin location information.
+* `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure Maps Data Storage platform.
 
 Pin styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `iconType|optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style pushpins in Azure Maps:
 
--   `al` – Specifies the opacity (alpha) of the pushpins. Can be a number between 0 and 1.
--   `an` – Specifies the pin anchor. X and y pixel values specified in the format `x y`.
--   `co` – The color of the pin. Must be a 24-bit hex color: `000000` to `FFFFFF`.
--   `la` – Specifies the label anchor. X and y pixel values specified in the format `x y`.
--   `lc` – The color of the label. Must be a 24-but hex color: `000000` to `FFFFFF`.
--   `ls` – The size of the label in pixels. Can be a number greater than 0.
--   `ro` – A value in degrees to rotate the icon. Can be a number between -360 and 360.
--   `sc` – A scale value for the pin icon. Can be a number greater than 0.
+* `al` – Specifies the opacity (alpha) of the pushpins. Can be a number between 0 and 1.
+* `an` – Specifies the pin anchor. X and y pixel values specified in the format `x y`.
+* `co` – The color of the pin. Must be a 24-bit hex color: `000000` to `FFFFFF`.
+* `la` – Specifies the label anchor. X and y pixel values specified in the format `x y`.
+* `lc` – The color of the label. Must be a 24-but hex color: `000000` to `FFFFFF`.
+* `ls` – The size of the label in pixels. Can be a number greater than 0.
+* `ro` – A value in degrees to rotate the icon. Can be a number between -360 and 360.
+* `sc` – A scale value for the pin icon. Can be a number greater than 0.
 
 Label values are specified for each pin location rather than having a single label value that applies to all pushpins in the list of locations. The label value can be string of multiple characters and be wrapped with single quotes to ensure that it isn’t mistaken as a style or location value.
 
@@ -401,17 +412,13 @@ For example, in Azure Maps, adding a red (`FF0000`) default icon with the label 
 
 > `&pins=default|coFF0000|la15 50||'Space Needle'-122.349300 47.620180`
 
-<center>
-
-![Azure Maps static map pin](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)</center>
+![Azure Maps static map pin](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)
 
 The following example adds three pins with the label values '1', '2', and '3':
 
 > `&pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12`
 
-<center>
-
-![Azure Maps static map multiple pins](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)</center>
+![Azure Maps static map multiple pins](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)
 
 ### Draw curve URL parameter format comparison
 
@@ -431,9 +438,7 @@ For example, in Bing Maps, a blue line with 50% opacity and a thickness of four 
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
-<center>
-
-![Bing Maps static map line](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)</center>
+![Bing Maps static map line](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)
 
 **After: Azure Maps**
 
@@ -445,21 +450,19 @@ When it comes to path locations, Azure Maps requires the coordinates to be in `l
 
 Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style paths in Azure Maps:
 
--   `fa` – The fill color opacity (alpha) used when rendering polygons. Can be a number between 0 and 1.
--   `fc` – The fill color used to render the area of a polygon.
--   `la` – The line color opacity (alpha) used when rendering lines
+* `fa` – The fill color opacity (alpha) used when rendering polygons. Can be a number between 0 and 1.
+* `fc` – The fill color used to render the area of a polygon.
+* `la` – The line color opacity (alpha) used when rendering lines
 and the outline of polygons. Can be a number between 0 and 1.
--   `lc` – The line color used to render lines and the outline of polygons.
--   `lw` – The width of the line in pixels.
--   `ra` – Specifies a circles radius in meters.
+* `lc` – The line color used to render lines and the outline of polygons.
+* `lw` – The width of the line in pixels.
+* `ra` – Specifies a circles radius in meters.
 
 For example, in Azure Maps, a blue line with 50% opacity and a thickness of four pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
-<center>
-
-![Azure Maps static map line](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)</center>
+![Azure Maps static map line](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)
 
 ## Calculate a distance matrix
 
@@ -543,8 +546,8 @@ Be sure to review the [best practices for search](./how-to-use-best-practices-fo
 
 Azure Maps provides several APIs for retrieving traffic data. There are two types of traffic data available;
 
--   **Flow data** – provides metrics on the flow of traffic on sections of roads. This is often used to color code roads. This data is updated every 2 minutes.
--   **Incident data** – provides data on construction, road closures, accidents, and other incidents that may affect traffic. This data is updated every minute.
+* **Flow data** – provides metrics on the flow of traffic on sections of roads. This is often used to color code roads. This data is updated every 2 minutes.
+* **Incident data** – provides data on construction, road closures, accidents, and other incidents that may affect traffic. This data is updated every minute.
 
 Bing Maps provides traffic flow and incident data in its interactive map controls, and also make incident data available as a service.
 
@@ -599,9 +602,9 @@ In addition to this the Azure Maps platform also provides a number of additional
 
 The spatial data services in Bing Maps provide three key functionalities:
 
--   Batch geocoding – Process a large batch of address geocodes with a single request.
--   Retrieve administrative boundary data – Use a coordinate and get an intersecting boundary for a specified entity type.
--   Host and query spatial business data – Upload a simple 2D table of data and access it using a few simple spatial queries.
+* Batch geocoding – Process a large batch of address geocodes with a single request.
+* Retrieve administrative boundary data – Use a coordinate and get an intersecting boundary for a specified entity type.
+* Host and query spatial business data – Upload a simple 2D table of data and access it using a few simple spatial queries.
 
 ### Batch geocode data
 
@@ -611,7 +614,7 @@ Bing Maps allows up to 200,000 addresses to be passed in a single batch geocode 
 
 Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction. In Azure Maps, the batch geocoding service is only available the S1 tier.
 
-Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit thes to stay within that limit, it is possible to geocode upwards of 180,000 address an hour. The S1 tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service will help reduce the total amount of data transferred and will drastically reduce the network traffic.
+Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit these to stay within that limit, it is possible to geocode upwards of 180,000 address an hour. The S1 tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service will help reduce the total amount of data transferred and will drastically reduce the network traffic.
 
 -   [Free-form address geocoding](/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
 -   [Structured address geocoding](/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
@@ -657,7 +660,11 @@ Azure Maps provides client libraries for the following programming languages;
 
 Open-source client libraries for other programming languages;
 
--   .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## Clean up resources
+
+No resources to be cleaned up.
 
 ## Next steps
 
@@ -665,15 +672,3 @@ Learn more about the Azure Maps REST services.
 
 > [!div class="nextstepaction"]
 > [Best practices for using the search service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps REST Service API reference documentation](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Code samples](/samples/browse/?products=azure-maps)

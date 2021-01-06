@@ -5,9 +5,10 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta

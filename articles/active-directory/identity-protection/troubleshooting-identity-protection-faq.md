@@ -79,9 +79,11 @@ All risk detections are documented in the article [What is risk](concept-identit
 
 - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
 
-- In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
+- In addition, we provide the information to our machine learning systems for future improvements in risk assessment. 
 
     > [!NOTE]
+    >Today, selecting confirm safe on a sign-in does not by itself prevent future sign-ins with the same properties from being flagged as risky. The best way to train the system to learn a user's properties is to use the risky sign-in policy with MFA. When a risky sign-ins is prompted for MFA and the user successfully responds to the request, the sign-in can succeed and help to train the system on the legitimate user's behavior.
+    >
     > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk detections.
 
 ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?

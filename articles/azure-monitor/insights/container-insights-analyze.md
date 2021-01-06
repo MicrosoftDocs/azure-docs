@@ -223,7 +223,7 @@ The row hierarchy starts with a controller. When you expand a controller, you vi
 
 Select the value under the **Node** column for the specific controller.
 
-![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
+![Example drill-down from controller to node in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view controllers is described in the following table.
 
@@ -292,31 +292,8 @@ Azure Network Policy Manager includes informative Prometheus metrics that allow 
 
 ## Workbooks
 
-Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Azure Monitor for containers](container-insights-reports.md) for a description of the workbooks available for Azure Monitor for containers.
 
-Azure Monitor for containers includes four workbooks to get you started:
-
-- **Disk capacity**: Presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
-
-    - Disk percent usage for all disks.
-    - Free disk space for all disks.
-    - A grid that shows each node's disk, its percentage of used space, trend of percentage of used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, the percentage of used space and free disk space (GiB) is shown underneath the row.
-
-- **Disk IO**: Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
-
-    - Disk I/O summarized across all disks by read bytes/sec, writes bytes/sec, and read and write bytes/sec trends.
-    - Eight performance charts show key performance indicators to help measure and identify disk I/O bottlenecks.
-
-- **Kubelet**: Includes two grids that show key node operating statistics:
-
-    - Overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
-    - Overview by operation type summarizes for each operation the total operation, total errors, and successful operations by percent and trend.
-
-- **Network**: Presents interactive network utilization charts for each node's network adapter, and a grid presents the key performance indicators to help measure the performance of your network adapters.
-
-You access these workbooks by selecting each one from the **View Workbooks** drop-down list.
-
-![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## Next steps
 

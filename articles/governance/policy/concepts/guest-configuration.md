@@ -1,6 +1,6 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
+description: Learn how Azure Policy uses the Guest Configuration client to audit settings inside virtual machines.
 ms.date: 10/14/2020
 ms.topic: conceptual
 ---
@@ -82,12 +82,12 @@ of the configuration within the machine.
 ## Supported client types
 
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
-systems available in Azure Marketplace are excluded if the Guest Configuration agent isn't
+systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 and later|
+|Canonical|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 and later|
 |Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
@@ -117,8 +117,8 @@ outbound traffic, configure exceptions with Network Security Group rules. The se
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
 communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
-and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
-policy definitions are applied to the machine.
+(with no "t" in Network) and value `TRUE` to enable this feature. The tag can be applied before
+or after Guest Configuration policy definitions are applied to the machine.
 
 Traffic is routed using the Azure
 [virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md) to

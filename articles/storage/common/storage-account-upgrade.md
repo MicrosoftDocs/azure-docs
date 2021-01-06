@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 12/11/2020
 ms.author: tamram   
 ms.custom: devx-track-azurepowershell
 ---
@@ -164,4 +164,7 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Next steps
 
+* [Storage account overview](storage-account-overview.md)
 * [Create a storage account](storage-account-create.md)
+* [Move an Azure Storage account to another region](storage-account-move.md)
+* [Recover a deleted storage account](storage-account-recover.md)

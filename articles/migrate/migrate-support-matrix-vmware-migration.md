@@ -1,6 +1,9 @@
 ---
 title: Support for VMware migration in Azure Migrate
 description: Learn about support for VMware VM migration in Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---
@@ -51,7 +54,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs. 
-**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 32 TB for data disks.
+**Disk size** | 2 TB OS disk;  32 TB for data disks.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -65,7 +68,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
-
+**Automatic installation of Azure VM agent (Windows Agent)** | Supported for Windows Server 2008 R2 onwards.
 
 ### Appliance requirements (agentless)
 
@@ -114,7 +117,7 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs. 
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 8 TB for data disks.
+**Disk size** | 2 TB OS disk; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.

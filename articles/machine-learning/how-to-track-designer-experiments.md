@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: designer
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines

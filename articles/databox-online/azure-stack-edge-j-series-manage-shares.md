@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
 # Use Azure portal to manage shares on your Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to manage shares on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
+This article describes how to manage shares on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
 ## About shares
 
@@ -28,7 +28,7 @@ To transfer data to Azure, you need to create shares on your Azure Stack Edge Pr
 
 Do the following steps in the Azure portal to create a share.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. Select **+ Add share** on the command bar.
 
     ![Select add share](media/azure-stack-edge-j-series-manage-shares/add-share-1.png)
 
@@ -58,7 +58,7 @@ Do the following steps in the Azure portal to create a share.
 
 ## Add a local share
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. Select **+ Add share** on the command bar.
 
     ![Select add share 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
@@ -94,7 +94,7 @@ Do the following steps in the Azure portal to create a share.
 If you created a share before you configured compute on your Azure Stack Edge Pro device, you will need to mount the share. Take the following steps to mount a share.
 
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
 
     ![Select share](media/azure-stack-edge-j-series-manage-shares/mount-share-1.png)
 
@@ -118,11 +118,11 @@ If you created a share before you configured compute on your Azure Stack Edge Pr
 
 Do the following steps in the Azure portal to unmount a share.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Cloud storage gateway > Shares**. From the list of the shares, select the share that you want to unmount. You want to make sure that the share you unmount is not used by any modules. If the share is used by a module, then you will see issues with the corresponding module.
 
     ![Select share 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
-2. From the list of the shares, select the share that you want to unmount. You want to make sure that the share you unmount is not used by any modules. If the share is used by a module, then you will see issues with the corresponding module. Select **Unmount**.
+2.  Select **Unmount**.
 
     ![Select unmount](media/azure-stack-edge-j-series-manage-shares/unmount-share-2.png)
 

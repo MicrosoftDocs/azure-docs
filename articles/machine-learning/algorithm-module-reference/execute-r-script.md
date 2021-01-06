@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ---
 
 # Execute R Script module
@@ -46,6 +46,9 @@ To install additional R packages, use the `install.packages()` method. Packages 
 
 > [!NOTE]
 > Specify the CRAN repository when you're installing packages, such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+
+> [!WARNING]
+> Excute R Script module does not support installing packages that require native compilation, like `qdap` package which requires JAVA and `drc` package which requires C++. This is because this module is executed in a pre-installed environment with non-admin permission.
 
 This sample shows how to install Zoo:
 ```R

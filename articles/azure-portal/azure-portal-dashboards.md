@@ -1,22 +1,11 @@
 ---
 title: Create and share dashboards in the Azure portal
 description: This article describes how to create, customize, publish, and share dashboards in the Azure portal.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
-
-
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-
 ---
+
 # Create and share dashboards in the Azure portal
 
 Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources. Build custom dashboards based on projects, tasks, or user roles, for example.

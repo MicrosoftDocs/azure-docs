@@ -189,9 +189,6 @@ conceptualContent:
         - url: ../iot-accelerators/about-iot-accelerators.md
           itemType: overview
           text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-          itemType: quickstart
-          text: Try a remote monitoring solution
         - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
           itemType: quickstart
           text: Try a connected factory solution

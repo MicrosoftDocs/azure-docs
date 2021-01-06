@@ -3,14 +3,17 @@ title: Windows Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Windows Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
 ---
 
 # Required URL list
 
-In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock.
+In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Windows Virtual Desktop to function properly. 
+
+>[!IMPORTANT]
+>Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 ## Virtual machines
 
