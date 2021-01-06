@@ -759,7 +759,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/functions-scale.md#app-service-plan) or [**Premium**](../azure-functions/functions-scale.md#premium-plan). This example selects **App Service Plan**.
+   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md). This example selects **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
