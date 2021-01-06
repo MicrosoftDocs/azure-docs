@@ -95,21 +95,11 @@ Different devices may structure their messages differently, so the code for **th
 
 The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
 
-```csharp
-JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-string deviceId = (string)deviceMessage["systemProperties"]["iothub-connection-device-id"];
-var temperature = deviceMessage["body"]["Temperature"];
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
 
 The next code sample takes the ID and temperature value and uses them to "patch" (make updates to) that twin.
 
-```csharp
-//Update twin using device temperature
-var updateTwinData = new JsonPatchDocument();
-updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
-...
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
 
 ### Update your Azure function code
 
@@ -117,66 +107,8 @@ Now that you understand the code from the earlier samples, open your Azure funct
 
 Replace your Azure function's code with this sample code.
 
-```csharp
-using System;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-using Azure.DigitalTwins.Core;
-using Azure.DigitalTwins.Core.Serialization;
-using Azure.Identity;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs":::
 
-namespace IotHubtoTwins
-{
-    public class IoTHubtoTwins
-    {
-        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("IoTHubtoTwins")]
-        public async void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
-        {
-            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
-
-            try
-            {
-                //Authenticate with Digital Twins
-                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-                DigitalTwinsClient client = new DigitalTwinsClient(
-                    new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions 
-                    { Transport = new HttpClientTransport(httpClient) });
-                log.LogInformation($"ADT service client connection created.");
-            
-                if (eventGridEvent != null && eventGridEvent.Data != null)
-                {
-                    log.LogInformation(eventGridEvent.Data.ToString());
-
-                    // Reading deviceId and temperature for IoT Hub JSON
-                    JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-                    string deviceId = (string)deviceMessage["systemProperties"]["iothub-connection-device-id"];
-                    var temperature = deviceMessage["body"]["Temperature"];
-                    
-                    log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
-
-                    //Update twin using device temperature
-                    var updateTwinData = new JsonPatchDocument();
-                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
-                }
-            }
-            catch (Exception e)
-            {
-                log.LogError($"Error in ingest function: {e.Message}");
-            }
-        }
-    }
-}
-```
 Save your function code and publish the function App to Azure. 
 You can do this by referring to [*Publish the Function App*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
