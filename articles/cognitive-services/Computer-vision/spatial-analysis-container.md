@@ -58,6 +58,11 @@ In this article, you will download and install the following software packages. 
 
 ---
 
+#### [Azure VM with GPU](#tab/virtual-machine)
+In our example, we will utilize an [NC series VM](https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) that has one K80 GPU.
+
+---
+
 | Requirement | Description |
 |--|--|
 | Camera | The spatial analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
