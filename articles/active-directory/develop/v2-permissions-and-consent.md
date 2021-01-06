@@ -54,13 +54,15 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 ## Permission types
 
-Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
+Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests, and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated permission to act as the signed-in user when it makes calls to the target resource. 
 
-* **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](#requesting-consent-for-an-entire-tenant).
+    Some delegated permissions can be consented to by nonadministrators. But some high-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure Active Directory (Azure AD)](../roles/permissions-reference.md).
 
-_Effective permissions_ are the permissions that your app will have when making requests to the target resource. It's important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to the target resource.
+* **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Only [an administrator can consent to](#requesting-consent-for-an-entire-tenant) application permissions.
+
+_Effective permissions_ are the permissions that your app has when it makes requests to the target resource. It's important to understand the difference between the delegated permissions and application permissions that your app is granted and its effective permissions when making calls to the target resource.
 
 - For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
