@@ -408,8 +408,8 @@
           displayName: log, monitor, deploy, metrics, databricks
           href: how-to-use-mlflow-azure-databricks.md              
         - name: Deploy MLflow models
-          displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-deploy-models-with-mlflow.md              
+          displayName: log, monitor, deploy, metrics, databricks, aci, aks
+          href: how-to-deploy-mlflow-models.md              
     - name: Automated machine learning
       displayName: automl, auto ml
       items: 
