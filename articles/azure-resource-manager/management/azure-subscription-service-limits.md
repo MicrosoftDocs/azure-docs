@@ -337,7 +337,7 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 ## Azure role-based access control limits
 
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
 ## Service Bus limits
 
