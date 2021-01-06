@@ -43,13 +43,13 @@ As a part of setting up OAuth, we recommend:
 
 1. [Create an endpoint for clients to access the instance](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
 
-1. Update the refresh token lifespan:
+1. Update the lifespan of the refresh token:
 
    1. On the **ServiceNow** pane, search for **System OAuth**, and then select **Application Registry**. 
-   1. Select the name of the OAuth that was defined, and change **Refresh token Lifespan** to **7,776,000 seconds** (90 days). 
+   1. Select the name of the OAuth that was defined, and change **Refresh Token Lifespan** to **7,776,000 seconds** (90 days). 
    1. Select **Update**. 
 
-1. Establish an internal procedure to ensure that the connection remains alive. A couple of days before the expected expiration time of the refresh token lifespan, perform the following operations:
+1. Establish an internal procedure to ensure that the connection remains alive. A couple of days before the expected expiration of the refresh token lifespan, perform the following operations:
 
    1. [Complete a manual sync process for ITSM connector configuration](./itsmc-resync-servicenow.md).
 
@@ -133,7 +133,7 @@ When you're successfully connected and synced:
 
 - Selected work items from the ServiceNow instance are imported into Log Analytics. You can view the summary of these work items on the **IT Service Management Connector** tile.
 
-- You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this ServiceNow instance.
+- You can create incidents from Log Analytics alerts or log records, or from Azure alerts in this ServiceNow instance.
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
