@@ -1,22 +1,22 @@
 ---
 title: Azure customer usage attribution
-description: Get an overview of tracking customer usage for Commercial Marketplace Azure applications and other deployable IP developed by partners.
+description: Get an overview of tracking customer usage for Commercial Marketplace Azure Applications and other deployable IP developed by partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 1/4/2021
+ms.date: 1/6/2021
 ms.custom: devx-track-terraform
 ---
 
 # Azure customer usage attribution
 
-Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure application offers in Commercial Marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution is a method to associate usage from Azure resources running in customer subscriptions, created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in Commercial Marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
-- Azure Resource Manager templates (the common underpinnings of Commercial Marketplace Azure applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent and repeatable state.
+- Azure Resource Manager templates (the common underpinnings of Commercial Marketplace Azure Applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent and repeatable state.
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 - Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
@@ -27,13 +27,13 @@ There are secondary use cases for customer usage attribution outside of Commerci
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
 
-## Commercial Marketplace Azure applications
-Starting January 2021, tracking Azure usage from Commercial Marketplace Azure applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure Application's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+## Commercial Marketplace Azure Applications
+Starting January 2021, tracking Azure usage from Commercial Marketplace Azure Applications is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure Application's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
 
 > [!NOTE]
-> For existing marketplace Azure applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
+> For existing marketplace Azure Applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
 
 ## Other use cases 
 
@@ -42,11 +42,11 @@ You may use customer usage attribution to track Azure usage of solutions not ava
 There are several manual steps required:
 1. Create one or more GUIDs to use as your tracking IDs
 1. Register those GUIDs in Partner Center
-1. Add your registered GUIDs to your Azure application and/or user agent strings.
+1. Add your registered GUIDs to your Azure Application and/or user agent strings.
 
 ### Create GUIDs
 
-Unlike the tracking IDs that Partner Center creates on your behalf for Azure applications in Commercial Marketplace, other uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell:
+Unlike the tracking IDs that Partner Center creates on your behalf for Azure Applications in Commercial Marketplace, other uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell:
 
 ```powershell
 [guid]::NewGuid()
@@ -164,7 +164,7 @@ In some cases, you may make calls directly against the Resource Manager REST API
 To enable customer usage attribution, when you design your API calls, include your tracking ID in the user agent header in the request. Format the string with the `pid-` prefix. Here are examples:
 
 ```xml
-//Commercial Marketplace Azure application
+//Commercial Marketplace Azure Application
 pid-contoso-myoffer-partnercenter //copy your ID exactly as it appears from Partner Center
 
 //Other use cases
@@ -266,7 +266,7 @@ You will be contacted by a Microsoft Partner Technical Consultant to set up a ca
 
 **After a tracking ID is added, can it be changed?**
 
-Tracking IDs for Commercial Marketplace Azure applications are managed automatically by Partner Center.
+Tracking IDs for Commercial Marketplace Azure Applications are managed automatically by Partner Center.
 
 It is possible for a customer to download the a template and change or remove the tracking ID. We suggest that partners proactively describe the role of the tracking ID to their customers to prevent removal or edits. Changing the tracking ID affects only new, not existing, deployments and resources.
 
