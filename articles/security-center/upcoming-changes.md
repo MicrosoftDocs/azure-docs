@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.author: memildin
 
 ---
@@ -40,7 +40,7 @@ The only impact will be seen in Azure Policy where the number of compliant resou
 
 ### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
 
-**Estimated date for change:** December 2020
+**Estimated date for change:** January 2021
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
