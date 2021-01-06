@@ -46,7 +46,7 @@ This guide uses the following NuGet package:
 
 |Library|Description|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|The Microsoft Authentication Library|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Microsoft Authentication Library|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph Client Library|
 
 ## Set up your project
@@ -78,7 +78,7 @@ This guide creates an application that displays a button that queries the Micros
     ```
 
    > [!NOTE]
-   > The first command installs [The Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET acquires, caches, and refreshes user tokens that access APIs that are protected by the Microsoft identity platform. The second command installs [Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to authenticate requests to Microsoft Graph and make calls to the service.
+   > The first command installs the [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET acquires, caches, and refreshes user tokens that access APIs that are protected by the Microsoft identity platform. The second command installs [Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to authenticate requests to Microsoft Graph and make calls to the service.
 
 ### Create your application's UI
 

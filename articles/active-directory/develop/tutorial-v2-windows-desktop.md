@@ -55,7 +55,7 @@ This guide uses the following NuGet packages:
 
 |Library|Description|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|The Microsoft Authentication Library (MSAL.NET)|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
 
 ## Set up your project
 
