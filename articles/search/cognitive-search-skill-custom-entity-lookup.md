@@ -12,10 +12,6 @@ ms.date: 06/17/2020
 ---
 
 #     Custom Entity Lookup cognitive skill
-
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
-
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
 This skill is not bound to a Cognitive Services API and can be used free of charge during the preview period. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
