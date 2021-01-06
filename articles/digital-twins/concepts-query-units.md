@@ -36,7 +36,7 @@ The Azure Digital Twins [SDKs](how-to-use-apis-sdks.md) allow you to extract the
 
 The following code snippet demonstrates how you can extract the query charges incurred when calling the query API. It iterates over the response pages first to access the query-charge header, and then iterates over the digital twin results within each page. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/getQueryCharges.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/getQueryCharges.cs":::
 
 ## Next steps
 

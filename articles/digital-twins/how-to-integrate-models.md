@@ -57,7 +57,7 @@ The following table is an example of how RDFS and OWL constructs can be mapped t
 
 The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [**dotNetRDF**](https://www.dotnetrdf.org/) library. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/convertRDF.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
 ### Sample converter application 
 

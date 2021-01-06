@@ -70,7 +70,7 @@ Next, start Visual Studio (or another code editor of your choice), and open the 
 
 1. Replace the contents of the class file with the following code:
     
-    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/signalRFunction.cs":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
 1. In Visual Studio's *Package Manager Console* window, or any command window on your machine in the *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp* folder, run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd

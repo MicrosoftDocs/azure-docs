@@ -81,7 +81,7 @@ dotnet add package Azure.Core.Pipeline
 ```
 Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your Azure function. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## Add authentication code to the Azure function
 
@@ -89,23 +89,23 @@ You will now declare class level variables and add authentication code that will
 
 * Read ADT service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
 
-    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
 * A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
 
-    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
 
 * You can use the managed identity credentials in Azure function.
-    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
 * Add a local variable _DigitalTwinsClient_ inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this variable static inside your class.
-    :::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
 * Add a null check for _adtInstanceUrl_ and wrap your function logic in a try catch block to catch any exceptions.
 
 After these changes, your function code will be similar to the following:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/adtIngestFunctionSample.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
 ## Publish the function app to Azure
 

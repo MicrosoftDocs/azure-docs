@@ -95,11 +95,11 @@ Different devices may structure their messages differently, so the code for **th
 
 The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
 
 The next code sample takes the ID and temperature value and uses them to "patch" (make updates to) that twin.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
 
 ### Update your Azure function code
 
@@ -107,7 +107,7 @@ Now that you understand the code from the earlier samples, open your Azure funct
 
 Replace your Azure function's code with this sample code.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/IoTHubToTwins.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
 Save your function code and publish the function App to Azure. 
 You can do this by referring to [*Publish the Function App*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).

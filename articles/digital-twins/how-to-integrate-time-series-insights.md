@@ -95,7 +95,7 @@ For more information about using Event Hubs with Azure functions, see [*Azure Ev
 
 Inside your published function app, replace the function code with the following code.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/updateTSI.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
 From here, the function will then send the JSON objects it creates to a second event hub, which you will connect to Time Series Insights.
 

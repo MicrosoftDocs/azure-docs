@@ -89,7 +89,7 @@ To begin, open the file *Program.cs* in any code editor. You will see a minimal 
 
 First, add some `using` lines at the top of the code to pull in necessary dependencies.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Azure_Digital_Twins_dependencies":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Azure_Digital_Twins_dependencies":::
 
 Next, you'll add code to this file to fill out some functionality. 
 
@@ -102,7 +102,7 @@ In order to authenticate, you need the *hostName* of your Azure Digital Twins in
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
 Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Authentication_code":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
 Save the file. 
 
@@ -136,11 +136,11 @@ Next, add some more code to *Program.cs* to upload the model you've just created
 
 First, add a few `using` statements to the top of the file:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Model_dependencies":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_dependencies":::
 
 Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Async_signature":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Async_signature":::
 
 > [!NOTE]
 > Using `async` is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using `async`.
@@ -149,7 +149,7 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
 
 In your command window, run the program with this command: 
 
@@ -160,7 +160,7 @@ dotnet run
 
 To add a print statement showing all models that have been successfully uploaded to the instance, add the following code right after the previous section:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Print_model":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Print_model":::
 
 **Before you run the program again to test this new code**, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
 
@@ -178,7 +178,7 @@ The next section talks about exceptions like this and how to handle them in your
 
 To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `await client.CreateModelsAsync(typeList)` in a try/catch handler, like this:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Model_try_catch":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_try_catch":::
 
 Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
@@ -192,7 +192,7 @@ Now that you have uploaded a model to Azure Digital Twins, you can use this mode
 
 Add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Initialize_twins":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
 In your command window, run the program with `dotnet run`. In the output, look for the print messages that *sampleTwin-0*, *sampleTwin-1*, and *sampleTwin-2* were created. 
 
@@ -206,11 +206,11 @@ Next, you can create **relationships** between the twins you've created, to conn
 
 Add a **new static method** to the `Program` class, underneath the `Main` method (the code now has two methods):
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Create_relationship":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Create_relationship":::
 
 Next, add the following code to the end of the `Main` method, to call the `CreateRelationship` method and use the code you just wrote:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Use_create_relationship":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_create_relationship":::
 
 In your command window, run the program with `dotnet run`. In the output, look for print statements saying that the two relationships were created successfully.
 
@@ -222,11 +222,11 @@ The next code you'll add allows you to see the list of relationships you've crea
 
 Add the following **new method** to the `Program` class:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="List_relationships":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="List_relationships":::
 
 Then, add the following code to the end of the `Main` method to call the `ListRelationships` code:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Use_list_relationships":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_list_relationships":::
 
 In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created in an output statement that looks like this:
 
@@ -240,11 +240,11 @@ The last section of code to add in this tutorial runs a query against the Azure 
 
 Add this `using` statement to enable use of the `JsonSerializer` class to help present the digital twin information:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Query_dependencies":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_dependencies":::
 
 Then, add the following code to the end of the `Main` method:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs" id="Query_twins":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_twins":::
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
@@ -252,7 +252,7 @@ In your command window, run the program with `dotnet run`. You should see all th
 
 At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/samples/csharp/fullClientApp.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## Clean up resources
  
