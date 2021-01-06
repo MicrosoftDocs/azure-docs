@@ -1,8 +1,10 @@
 ---
 title: Active learning suggestions - QnA Maker
-description: Active learning suggestions allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
+description: Active learning suggestions allow you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 11/09/2020
 ---
 # Active learning suggestions
 
@@ -21,11 +23,26 @@ Both methods provide the ranker with similar queries that are clustered.
 
 ## How active learning works
 
-Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences between QnA sets that match the query lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
+Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences between QnA pairs that match the query lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
 
 Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 
 Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. There isn't an API to manage suggestions.
+
+## Turn on active learning
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+By default, active learning is **off**.
+To use active learning:
+* You need to [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) so that QnA Maker collects alternate questions for your knowledge base.
+* To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+---
 
 ## How QnA Maker's implicit feedback works
 
@@ -114,7 +131,7 @@ QnA Maker needs explicit feedback about which of the answers was the best answer
 * Business logic, such as determining an acceptable score range.
 * A combination of both user feedback and business logic.
 
-Use the [Train API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
+Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
 
 ## Next step
 

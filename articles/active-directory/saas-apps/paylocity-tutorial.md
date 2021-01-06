@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Paylocity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f5e5a71f-ea04-4533-ba58-0ec85fdf0982
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Paylocity with Azure Active Dire
 * Enable your users to be automatically signed-in to Paylocity with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,6 +35,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Paylocity supports **SP and IDP** initiated SSO
+
+* Once you configure the Paylocity you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 ## Adding Paylocity from the gallery
 
@@ -79,8 +74,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![Paylocity Domain and URLs single sign-on information](common/preintegrated.png)
-
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
@@ -96,13 +89,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name |  Source Attribute|
 	| ---------------| --------------- |
-	| PartnerID | <"PartnerID"> |
-	| PaylocityUser | <"PaylocityUser"> |
-	| PaylocityEntity | <"PaylocityEntity"> |
+	| PartnerID | `P8000010` |
+	| PaylocityUser | `user.mail`|
+	| PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > The PaylocityEntity is Paylocity Company ID.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Edit Icon**.
+
+	![Screenshot that shows the "S A M L Signing Certificate" with the "Download" action for "Federation Metadata X M L" selected.](./media/paylocity-tutorial/edit-samlassertion.png)
+
+1. Select **Signing Option** as **Sign SAML response and assertion** and click **Save**.
+
+    ![The SAML Signing Certificate Edit](./media/paylocity-tutorial/saml-assertion.png)
 
 1. On the **Set up Paylocity** section, copy the appropriate URL(s) based on your requirement.
 
@@ -140,7 +144,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Paylocity SSO
 
-To configure single sign-on on **Paylocity** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Paylocity support team](mailto:service@paylocity.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Paylocity** side,
+
+1. Download the **Federation Metadata XML**.
+1. In Paylocity, navigate to **HR & Payroll** > **User Access** > **SSO Configuration**.
+1. Select **Add SSO Integration** under **SSO Integrations**. A new drawer opens.
+1. Select **Microsoft Azure** as the SSO Provider from dropdown.
+1. Select **Status** from dropdown.
+1. Drag and drop metadata file in the drop area. Paylocity attempts to parse the Issuer, Post Redirect and Binding URLs and Security Certificate(s).
+1. Select **Save** to confirm the changes. The integration should display under **SSO Integrations**.
 
 ### Create Paylocity test user
 
@@ -150,14 +162,18 @@ In this section, you create a user called B.Simon in Paylocity. Work with [Payl
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Paylocity tile in the Access Panel, you should be automatically signed in to the Paylocity for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Paylocity tile in the Access Panel, you should be automatically signed in to the Paylocity for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Paylocity with Azure AD](https://aad.portal.azure.com/)
+
+* [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+
+* [How to protect Paylocity with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

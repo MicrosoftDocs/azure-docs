@@ -1,6 +1,6 @@
 ---
 title: Cloud Services and management certificates | Microsoft Docs
-description: Learn how to create and use certificates with Microsoft Azure
+description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -15,7 +15,7 @@ Certificates are used in Azure for cloud services ([service certificates](#what-
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, therefore it is not trusted by default. Most browsers can ignore this problem. You should only use self-signed certificates when developing and testing your cloud services. 
 
-Certificates used by Azure can contain a private or a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate-portal.md) to identify which certificate a cloud service should use. 
+Certificates used by Azure can contains a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate-portal.md) to identify which certificate a cloud service should use. 
 
 >[!Note]
 >Azure Cloud Services does not accept AES256-SHA256 encrypted certificate.
@@ -46,11 +46,11 @@ There is a limit of 100 management certificates per subscription. There is also 
 You can use any tool available to create a self-signed certificate as long as they adhere to these settings:
 
 * An X.509 certificate.
-* Contains a private key.
+* Contains a public key.
 * Created for key exchange (.pfx file).
 * Subject name must match the domain used to access the cloud service.
 
-    > You cannot acquire an SSL certificate for the cloudapp.net (or for any Azure-related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
+    > You cannot acquire a TLS/SSL certificate for the cloudapp.net (or for any Azure-related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
 
 * Minimum of 2048-bit encryption.
 * **Service Certificate Only**: Client-side certificate must reside in the *Personal* certificate store.
@@ -71,7 +71,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
 
-If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+If you want to use this [certificate with the management portal](/previous-versions/azure/azure-api-management-certs), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -86,8 +86,4 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
-
-
-
-
+Upload a [management API certificate](/previous-versions/azure/azure-api-management-certs) to the Azure portal.

@@ -2,7 +2,6 @@
 title: Schemas for the Azure Security Center alerts
 description: This article describes the different schemas used by Azure Security Center for security alerts.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,28 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2020
+ms.date: 03/19/2020
 ms.author: memildin
 
 ---
 
 # Security alerts schemas
 
-Azure Security Center's advanced threat protection mechanisms generate security alerts when they detect threats to your resources.
+If your subscription has Azure Defender enabled, you'll receive security alerts when Security Center detects threats to their resources.
 
-These alerts are only available to users of the standard tier.  
+You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
 
-Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be accessed from:
+- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Azure Security Center and sends them to the [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md) for Azure Sentinel.
+- Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
+- [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md) for integrations with third-party SIEMs
-
-- [The REST API](https://docs.microsoft.com/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](https://docs.microsoft.com/rest/api/securitycenter/alerts)
-
-- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-
-If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
+If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. Also, if you're exporting to an Event Hub or trying to trigger Workflow Automation with generic HTTP connectors, use the schemas to properly parse the JSON objects.
 
 >[!IMPORTANT]
 > The schema is slightly different for each of these scenarios, so make sure you select the relevant tab below.
@@ -44,13 +37,14 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 ### Sample JSON for alerts sent to Logic Apps, Event Hub, and third-party SIEMs
 
-This is the schema of the alert events passed to:
+Below you'll find the schema of the alert events passed to:
 
 - Azure Logic App instances that were configured in Security Center's workflow automation
 - Azure Event Hub using Security Center's continuous export feature
 
-For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
-For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
+For more information about the workflow automation feature, see [Automate responses to Security Center triggers](workflow-automation.md).
+
+For more information about continuous export, see [Continuously export Security Center data](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -63,7 +57,7 @@ The Sentinel Connector gets alerts from Azure Security Center and sends them to 
 
 To create a Sentinel case or incident using Security Center alerts, you'll need the schema for those alerts shown below. 
 
-For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
+For more information about Azure Sentinel, see [the documentation](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -148,19 +142,19 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**correlationId**|The Azure Security Center alert ID|
 |**description**|Description of the alert|
 |**eventDataId**|See correlationId|
-|**eventName**|The value and localizedValue sub-fields contain the alert display name|
-|**category**|The value and localizedValue sub-fields are constant - "Security"|
+|**eventName**|The value and localizedValue subfields contain the alert display name|
+|**category**|The value and localizedValue subfields are constant - "Security"|
 |**eventTimestamp**|UTC timestamp for when the alert was generated|
 |**id**|The fully qualified alert ID|
 |**level**|Constant, "Informational"|
 |**operationId**|See correlationId|
 |**operationName**|The value field is constant - "Microsoft.Security/locations/alerts/activate/action", and the localized value will be "Activate Alert" (can potentially be localized par the user locale)|
 |**resourceGroupName**|Will include the resource group name|
-|**resourceProviderName**|The value and localizedValue sub-fields are constant - "Microsoft.Security"|
-|**resourceType**|The value and localizedValue sub-fields are constant - "Microsoft.Security/locations/alerts"|
+|**resourceProviderName**|The value and localizedValue subfields are constant - "Microsoft.Security"|
+|**resourceType**|The value and localizedValue subfields are constant - "Microsoft.Security/locations/alerts"|
 |**resourceId**|The fully qualified Azure resource ID|
-|**status**|The value and localizedValue sub-fields are constant - "Active"|
-|**subStatus**|The value and localizedValue sub-fields are empty|
+|**status**|The value and localizedValue subfields are constant - "Active"|
+|**subStatus**|The value and localizedValue subfields are empty|
 |**submissionTimestamp**|The UTC timestamp of event submission to Activity Log|
 |**subscriptionId**|The subscription ID of the compromised resource|
 |**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
@@ -173,9 +167,9 @@ You can view the security alerts events in Activity Log by searching for the Act
 
 ### [MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
+Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Microsoft 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
-The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
 
 ---
 
@@ -184,10 +178,9 @@ The schema and a JSON representation for security alerts sent to MS Graph, are a
 
 This article described the schemas that Azure Security Center's threat protection tools use when sending security alert information.
 
-For more information on the ways to access security alerts from outside Security Center, see the following:
+For more information on the ways to access security alerts from outside Security Center, see the following pages:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - Microsoft's cloud-native SIEM
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) - Microsoft's fully managed, real-time data ingestion service
-- Security Center's [continuous export feature](continuous-export.md)
-
-- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information
+- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
+- [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
+- [Continuously export Security Center data](continuous-export.md)
+- [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information

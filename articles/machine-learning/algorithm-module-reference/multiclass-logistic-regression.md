@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Logistic Regression: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict multiple values.
+description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning designer to predict multiple values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 04/22/2020
 ---
 # Multiclass Logistic Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a logistic regression model that can be used to predict multiple values.
 
@@ -49,9 +49,19 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 6. **Random number seed**: Type an integer value to use as the seed for the algorithm if you want the results to be repeatable over runs. Otherwise, a system clock value is used as the seed, which can produce slightly different results in runs of the same pipeline.
 
-8. Connect a labeled dataset, and one of the train modules:
+8. Connect a labeled dataset, and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
 9. Submit the pipeline.
 

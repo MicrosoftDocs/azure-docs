@@ -5,8 +5,8 @@ description: This article provides information on how to configure Application G
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 01/30/2020
+ms.topic: how-to
+ms.date: 04/16/2020
 ms.author: victorh
 ---
 
@@ -14,7 +14,7 @@ ms.author: victorh
 
 Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
 
-Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
+Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
 This article guides you through the steps to configure an application gateway with a frontend private IP address using the Azure portal.
 
@@ -90,8 +90,8 @@ To do this, you:
    - select *myResourceGroupAG* for **Resource group**.
    - *myVM* - for **Virtual machine name**.
    - Select **Windows Server 2019 Datacenter** for **Image**.
-   - *azureadmin* - for the **Username**.
-   - *Azure123456!* for the **Password**.
+   - a valid **Username**.
+   - a valid **Password**.
 5. Accept the remaining defaults and select **Next : Disks**.
 6. Accept the defaults and select **Next : Networking**.
 7. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.
@@ -105,7 +105,7 @@ To do this, you:
 ### Install IIS
 
 1. Open the Cloud Shell and ensure that it's set to **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Screenshot shows an open Azure Cloud Shell console window that uses PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Run the following command to install IIS on the virtual machine:
 
    ```azurepowershell
@@ -139,13 +139,13 @@ To do this, you:
 2. Select **Backend pools**. Select **appGatewayBackendPool**.
 3. Under **Target type** select **Virtual machine**  and under **Target**, select the vNIC associated with myVM.
 4. Repeat to add MyVM2.
-   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Screenshot shows the Edit backend pool pane with Target types and Targets highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. select **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** page in the portal.
-    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Screenshot shows the Frontend IP configurations pane with the Private type highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the browser address bar in a VM in the same VNet or on-premises that has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

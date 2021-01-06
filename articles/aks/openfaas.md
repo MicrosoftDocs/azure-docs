@@ -1,12 +1,12 @@
 ---
 title: Use OpenFaaS with Azure Kubernetes Service (AKS)
-description: Deploy and use OpenFaaS with Azure Kubernetes Service (AKS)
+description: Learn how to deploy and use OpenFaaS on an Azure Kubernetes Service (AKS) cluster to build serverless functions with containers.
 author: justindavies
 
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Using OpenFaaS on AKS
@@ -87,7 +87,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 A public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service][kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
@@ -129,7 +130,7 @@ Now that OpenFaaS is operational, create a function using the OpenFaas portal.
 
 Click on **Deploy New Function** and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Screenshot shows the Deploy A New Function dialog box with the text figlet on the search line.](media/container-service-serverless/figlet.png)
 
 Use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
 

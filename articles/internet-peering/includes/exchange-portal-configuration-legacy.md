@@ -10,33 +10,33 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
+1. On the **Create a Peering** page, on the **Configuration** tab, fill in the boxes as shown here.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Configuration - Exchange](../media/setup-exchange-conf-tab.png)
+    > ![Create a Peering page Exchange peering type](../media/setup-exchange-conf-tab.png)
 
-    * For **Peering type**, select *Exchange*.
-    * Select **SKU** as *Basic Free*.
-    * Choose the **Metro** location for where you want to convert peering to Azure resource. If you have peering connections with Microsoft in the selected **Metro** location that are not converted to Azure resource, then such connections will be listed in the **Peering connections** section as shown below. You can now convert these peering connections to Azure resource.
+    * For **Peering type**, select **Exchange**.
+    * Select **SKU** as **Basic Free**.
+    * Select the **Metro** location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected **Metro** location that aren't converted to an Azure resource, these connections will be listed in the **Peering connections** section as shown. You can now convert these peering connections to an Azure resource.
 
         > [!div class="mx-imgBorder"]
-        > ![Peering Configuration - Exchange - Legacy Connections](../media/setup-exchange-legacy-conf-tab.png)
+        > ![Peering connections list](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > You cannot modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify an Exchange peering using the portal](../howto-exchange-portal.md) for more info.
+        > You can't modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify an Exchange peering by using the portal](../howto-exchange-portal.md).
         >
 
-1. Click on **Review + create**. Observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Select **Review + create**. Notice that the portal runs basic validation of the information you entered. A ribbon at the top displays the message *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Validation Tab](../media/setup-direct-review-tab-validation.png)
+    > ![Peering Validation tab](../media/setup-direct-review-tab-validation.png)
 
-1. After it turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If you need to modify your request, click on **Previous** and repeat the steps above.
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering Submit](../media/setup-exchange-review-tab-submit.png)
-
-1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. After the message changes to *Validation passed*, verify your information. Submit the request by selecting **Create**. If you need to modify your request, select **Previous** and repeat the steps.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Success](../media/setup-direct-success.png)
+    > ![Peering submission](../media/setup-exchange-review-tab-submit.png)
+
+1. After you submit the request, wait for the deployment to finish. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment appears as shown.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering success](../media/setup-direct-success.png)

@@ -2,16 +2,12 @@
 title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -95,6 +91,11 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
+### AcquireTokenForClient uses the application token cache
+
+In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
+Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
+
 # [Python](#tab/python)
 
 ```Python
@@ -176,7 +177,7 @@ If you don't yet have a library for your chosen language, you might want to use 
 
 #### First case: Access the token request by using a shared secret
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -189,7 +190,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### Second case: Access the token request by using a certificate
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -203,11 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 For more information, see the protocol documentation: [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
-## Application token cache
-
-In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
-Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
-
 ## Troubleshooting
 
 ### Did you use the resource/.default scope?
@@ -219,7 +215,7 @@ If you get an error message telling you that you used an invalid scope, you prob
 If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
 You'll typically see an error that looks like this error:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {
@@ -233,21 +229,27 @@ Content: {
 }
 ```
 
+### Are you calling your own API?
+
+If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API?
+
+For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+
 ## Next steps
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=java).
 
 ---

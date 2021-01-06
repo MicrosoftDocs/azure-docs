@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Azure Blob storage bindings for Azure Functions overview
 
-Azure Functions integrates with [Azure Storage](https://docs.microsoft.com/azure/storage/) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Blob storage allows you to build functions that react to changes in blob data as well as read and write values.
+Azure Functions integrates with [Azure Storage](../storage/index.yml) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Blob storage allows you to build functions that react to changes in blob data as well as read and write values.
 
 | Action | Type |
 |---------|---------|
@@ -33,7 +33,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Update your extensions]: ./install-update-binding-extensions-manual.md
+[Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x

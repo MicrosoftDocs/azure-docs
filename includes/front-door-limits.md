@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: frontdoor
- author: sharad4u
+ author: duongau
  ms.service: frontdoor
  ms.topic: include
  ms.date: 05/09/2019
@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
 | Front-end hosts, which includes custom domains per resource | 500 |

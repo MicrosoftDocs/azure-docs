@@ -11,11 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: kaanan
+ms.author: kaanan 
+ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI
@@ -82,6 +83,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
       --query id \
       --out tsv)
       ```
+
    - Create the virtual network TAP using the ID of the frontend IP configuration as the destination and an optional port property. The port specifies the destination port on front end IP configuration where the TAP traffic will be received :  
 
       ```azurecli-interactive
@@ -136,7 +138,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
 
 ## Delete the TAP configuration on a network interface
 
-   ```azure-cli-interactive
+   ```azurecli-interactive
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \

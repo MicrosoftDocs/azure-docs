@@ -57,7 +57,7 @@ Type `dotnet run` to run the application. The first time you run `dotnet` it pop
 dotnet run
 ```
 
-The application creates five randomly named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) to 100 to ensure that a large number of concurrent connections are allowed when running the application.
+The application creates five randomly named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the [DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) to 100 to ensure that a large number of concurrent connections are allowed when running the application.
 
 In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) for the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method are configured to use parallelism and disable MD5 hash validation. The files are uploaded in 100-mb blocks, this configuration provides better performance but can be costly if using a poorly performing network as if there is a failure the entire 100-mb block is retried.
 

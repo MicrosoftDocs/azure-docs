@@ -1,25 +1,27 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Learn how you can read and troubleshoot automated module error codes in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
+ms.date: 11/25/2020
 ---
-# Exceptions and error codes for the designer (preview)
+# Exceptions and error codes for the designer
 
-This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
 
-There are two ways to get the full text of an error message in the designer:  
+You can find the error message in the designer following these steps:  
 
-- Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
-  
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
+- Select the failed module, go to the **Outputs+logs** tab, you can find the detailed log in the **70_driver_log.txt** file under the **azureml-logs** category.
+
+- For detailed module error, you can check it in the error_info.json under **module_statistics** category.
+
+Following are error codes of modules in the designer.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
@@ -35,6 +37,9 @@ There are two ways to get the full text of an error message in the designer:
 |Column with name or index "{column_id}" not found.|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}".|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
+|Columns with name or index "{column_names}" not found.|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}".|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
 
 
 ## Error 0002  
@@ -140,6 +145,7 @@ There are two ways to get the full text of an error message in the designer:
 |Parameter "{arg_name}" value should be less than or equal to parameter "{upper_boundary_parameter_name}" value.|
 |Parameter "{arg_name}" has value "{actual_value}" which should be less than or equal to {upper_boundary}.|
 |Parameter "{arg_name}" value {actual_value} should be less than or equal to parameter "{upper_boundary_parameter_name}" value {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to {upper_boundary_meaning} value {upper_boundary}.|
 
 
 ## Error 0008  
@@ -270,18 +276,28 @@ If the model was trained using any of the specialized training modules, connect 
 |Learner of invalid type is passed.|
 |Learner "{arg_name}" has invalid type.|
 |Learner "{arg_name}" has invalid type "{learner_type}".|
+|Learner of invalid type is passed. Exception message: {exception_message}|
 
 
 ## Error 0014  
  Exception occurs if the count of column unique values is greater than allowed.  
 
- This error occurs when a column contains too many unique values.  For example, you might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
+ This error occurs when a column contains too many unique values, like an ID column or text column. You might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
+
+The error of unique values is greater than allowed will occur if meeting **both** following conditions:
+
+- More than 97% instances of one column are unique values, which means nearly all categories are different from each other.
+- One column has more than than 1000 unique values.
 
 **Resolution:**
 
 Open the module that generated the error, and identify the columns used as inputs. For some modules, you can right-click the dataset input and select **Visualize** to get statistics on individual columns, including the number of unique values and their distribution.
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
+
+For ID columns which is not meaningful features during training a model, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
+
+For text columns, you can use [Feature Hashing](../algorithm-module-reference/feature-hashing.md) or [Extract N-Gram Features from Text module](../algorithm-module-reference/extract-n-gram-features-from-text.md) to preprocess text columns.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -380,6 +396,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |{dataset1} and {dataset2} should be consistent columnwise.|
 |{dataset1} contains invalid data, {reason}.|
 |{dataset1} contains {invalid_data_category}. {troubleshoot_hint}|
+|{dataset1} is not valid, {reason}. {troubleshoot_hint}|
 
 
 ## Error 0019  
@@ -395,6 +412,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Values in column are not sorted.|
 |Values in column "{col_index}" are not sorted.|
 |Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -647,6 +665,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |------------------------|
 |Argument must be finite.|
 |"{arg_name}" is not finite.|
+|Column "{column_name}" contains infinite values.|
 
 
 ## Error 0034  
@@ -726,7 +745,7 @@ For general information about how the Matchbox recommendation algorithm works, a
  This error is caused by many conditions and there is no specific remedy.  
  The following table contains generic messages for this error, which are followed by a specific description of the condition. 
 
- If no details are available, [send feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) and provide information about the modules that generated the error and related conditions.
+ If no details are available, [Microsoft Q&A question page for send feedback](/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
 
 |Exception Messages|
 |------------------------|
@@ -881,7 +900,7 @@ Another reason you might get this error if you try to use a column containing fl
 
  This error in Azure Machine Learning occurs if the key used to access the Azure storage account is incorrect. For example, you might see this error if the Azure storage key was truncated when copied and pasted, or if the wrong key was used.  
 
- For more information about how to get the key for an Azure storage account, see [View, copy, and regenerate storage access keys](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ For more information about how to get the key for an Azure storage account, see [View, copy, and regenerate storage access keys](../../storage/common/storage-account-create.md).  
 
 **Resolution:**
  Revisit the module and verify that the Azure storage key is correct for the account; copy the key again from the Azure classic portal if necessary.  
@@ -1113,9 +1132,9 @@ The error message from Hive is normally reported back in the Error Log so that y
 
 See the following articles for help with Hive queries for machine learning:
 
-+ [Create Hive tables and load data from Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explore data in tables with Hive queries](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Create features for data in an Hadoop cluster using Hive queries](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Create Hive tables and load data from Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Explore data in tables with Hive queries](../team-data-science-process/explore-data-hive-tables.md)
++ [Create features for data in an Hadoop cluster using Hive queries](../team-data-science-process/create-features-hive.md)
 + [Hive for SQL Users Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1198,7 +1217,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Exception Messages|
 |------------------------|
@@ -1300,6 +1319,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |{data_name} contains invalid data for training.|
 |{data_name} contains invalid data for training. Learner type: {learner_type}.|
 |{data_name} contains invalid data for training. Learner type: {learner_type}. Reason: {reason}.|
+|Failed to apply "{action_name}" action on training data {data_name}. Reason: {reason}.|
 
 
 ## Error 0084  
@@ -1449,9 +1469,10 @@ This error can also occur when a previous operation changes the dataset such tha
 
 Resolution: 
 
- If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
+ If you include a label column in the column selection but it isn't recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
 
  Check your input datasets to make sure that they contain valid data, and enough rows to satisfy the requirements of the operation. Many algorithms will generate an error message if they require some minimum number rows of data, but the data contains only a few rows, or only a header.
 
@@ -1514,8 +1535,8 @@ Resolution:
 
 |Exception Messages|
 |------------------------|
-|Column names are not string.|
-|Column names: {column_names} are not string.|
+|The dataframe column name must be string type. Column names are not string.|
+|The dataframe column name must be string type. Column names {column_names} are not string.|
 
 
 ## Error 0156  
@@ -1536,16 +1557,36 @@ Resolution:
 |Datastore information is invalid. Failed to get AzureML datastore '{datastore_name}' in workspace '{workspace_name}'.|
 
 
+## Error 0158
+ Thrown when a transformation directory is invalid.
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given TransformationDirectory is invalid.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
+## Error 0159
+ Exception occurs if module model directory is invalid. 
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given ModelDirectory is invalid.|
+|ModelDirectory "{arg_name}" is invalid.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
 ## Error 1000  
 Internal library exception.  
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|
 |Library exception.|
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
-

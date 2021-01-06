@@ -22,7 +22,7 @@ This article provides steps to resolve the issues of "Restarting", “Shutting d
 
 ## Symptoms
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you may see that the screenshot displays the message "Restarting", “Shutting down”, or “Stopping services”.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you may see that the screenshot displays the message "Restarting", “Shutting down”, or “Stopping services”.
 
 ![Restarting, Shutting Down, and Stopping Services Screens](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -38,27 +38,27 @@ Windows uses the shutdown process to perform system maintenance operations, and 
 
 2. Detach the disk containing the files needed from the working VM and attach the disk to your broken VM. We are calling this disk the **Utility disk**.
 
-Use [Serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) to complete the following steps:
+Use [Serial Console](./serial-console-windows.md) to complete the following steps:
 
-1. Open an administrative Powershell and check the service that is hung upon stopping.
+1. Open an administrative PowerShell and check the service that stops responding upon stopping.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. On an administrative CMD, get the PID of the hung service.
+2. On an administrative CMD, get the PID of the unresponsive service.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Get a memory dump sample from the hung process <STOPPING SERVICE>.
+3. Get a memory dump sample from the unresponsive process <STOPPING SERVICE>.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Now kill the hung process to unlock the shutdown process.
+4. Now kill the unresponsive process to unlock the shutdown process.
 
    ``
    taskkill /PID <PID> /t /f
@@ -78,13 +78,13 @@ If the issue does not resolve after waiting for the changes to process, you woul
 
 **Attach the OS disk to a recovery VM**
 
-1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-2. [Attach the OS disk to a recovery VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Remote desktop to the recovery VM.
 
-4. If the OS disk is encrypted, you must turn off the encryption before you move to the next step. For more information, see [Decrypt the encrypted OS disk in the VM that cannot boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. If the OS disk is encrypted, you must turn off the encryption before you move to the next step. For more information, see [Decrypt the encrypted OS disk in the VM that cannot boot](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Locate dump file and submit a support ticket**
 
@@ -139,7 +139,7 @@ To enable dump log and Serial Console, run the following script.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Detach the OS disk and then reattach the OS disk to the affected VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Detach the OS disk and then reattach the OS disk to the affected VM](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Start the VM and access the Serial Console.
 

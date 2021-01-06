@@ -1,34 +1,35 @@
-﻿---
-title: Convert a legacy Direct peering to Azure resource using PowerShell
+---
+title: Convert a legacy Direct peering to an Azure resource by using PowerShell
 titleSuffix: Azure
-description: Convert a legacy Direct peering to Azure resource using PowerShell
+description: Convert a legacy Direct peering to an Azure resource by using PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Convert a legacy Direct peering to Azure resource using PowerShell
+# Convert a legacy Direct peering to an Azure resource by using PowerShell
 
-This article describes how to convert an existing legacy Direct peering to Azure resource using PowerShell cmdlets.
+This article describes how to convert an existing legacy Direct peering to an Azure resource by using PowerShell cmdlets.
 
-If you prefer, you can complete this guide using the [portal](howto-legacy-direct-portal.md).
+If you prefer, you can complete this guide by using the Azure [portal](howto-legacy-direct-portal.md).
 
 ## Before you begin
-* Review [Prerequisites](prerequisites.md) and [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
+* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
 
-### Working with Azure PowerShell
+### Work with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## Convert legacy Direct peering to Azure resource
+## Convert a legacy Direct peering to an Azure resource
 
 ### Sign in to your Azure account and select your subscription
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Get legacy Direct peering for Conversion
-Below is an example to get legacy Direct peering at Seattle peering location
+### <a name= get></a>Get a legacy Direct peering for conversion
+This example shows how to get a legacy Direct peering at the Seattle peering location.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -36,7 +37,7 @@ $legacyPeering = Get-AzLegacyPeering `
 $legacyPeering
 ```
 
-Below is an example response:
+Here's an example response:
 ```powershell
 Name                       :
 Sku                        : Basic_Direct_Free
@@ -74,14 +75,14 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### Convert legacy Direct peering
+### Convert a legacy Direct peering
 
 &nbsp;
 > [!IMPORTANT]
-> Note that when converting legacy peering to azure resource, modifications are not supported. 
+> When you convert a legacy peering to an Azure resource, modifications aren't supported. 
 &nbsp;
 
-Use below command to convert legacy Direct peering to Azure resource:
+Use this command to convert a legacy Direct peering to an Azure resource:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -90,7 +91,7 @@ $legacyPeering[0] | New-AzPeering `
 
 ```
 
-Below is an example response:
+Here's an example response:
 
 ```powershell
 Name                 : SeattleDirectPeering
@@ -108,14 +109,14 @@ Tags                 : {}
 ```
 
 ## Additional resources
-You can get detailed descriptions of all the parameters by running the following command:
+You can get detailed descriptions of all the parameters by running this command:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, visit [Internet peering FAQs](faqs.md)
+For more information, see [Internet peering FAQs](faqs.md).
 
 ## Next steps
 
-* [Create or modify a Direct peering using PowerShell](howto-direct-powershell.md).
+* [Create or modify a Direct peering by using PowerShell](howto-direct-powershell.md)

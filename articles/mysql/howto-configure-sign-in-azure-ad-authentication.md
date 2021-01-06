@@ -4,22 +4,20 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 01/22/2019
+ms.topic: how-to
+ms.date: 07/23/2020
 ---
 
-# Use Azure Active Directory for authenticating with MySQL
+# Use Azure Active Directory for authentication with MySQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
 > [!IMPORTANT]
-> Azure AD authentication for Azure Database for MySQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Active Directory authentication is only available for MySQL 5.7 and newer.
 
 ## Setting the Azure AD Admin user
 
-Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create and Azure AD Admin user, please follow the following steps
+Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create an Azure AD Admin user, please follow the following steps
 
 1. In the Azure portal, select the instance of Azure Database for MySQL that you want to enable for Azure AD.
 2. Under Settings, select Active Directory Admin:
@@ -54,21 +52,19 @@ We have also tested most common application drivers, you can see details at the 
 
 These are the steps that a user/application will need to do authenticate with Azure AD described below:
 
+### Prerequisites
+
+You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine. Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 ### Step 1: Authenticate with Azure AD
 
-Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
-
-Invoke the Azure CLI tool to authenticate with Azure AD. It requires you to give your Azure AD user ID and the password.
+Start by authenticating with Azure AD using the Azure CLI tool. This step is not required in Azure Cloud Shell.
 
 ```
 az login
 ```
 
-This command will launch a browser window to the Azure AD authentication page.
-
-> [!NOTE]
-> You can also use Azure Cloud Shell to perform these steps.
-> Please be aware that when retrieving Azure AD access token in the Azure Cloud Shell you will need to explicitly call `az login` and sign in again (in the separate window with a code). After that sign in the `get-access-token` command will work as expected.
+The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and the password.
 
 ### Step 2: Retrieve Azure AD access token
 
@@ -76,19 +72,19 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 
 Example (for Public Cloud):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 For Azure CLI version 2.0.71 and later, the command can be specified in the following more convenient version for all clouds:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -122,6 +118,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Important considerations when connecting:
+
+* `user@tenant.onmicrosoft.com` is the name of the Azure AD user or group you are trying to connect as
+* Always append the server name after the Azure AD user/group name (e.g. `@mydb`)
+* Make sure to use the exact way the Azure AD user or group name is spelled
+* Azure AD user and group names are case sensitive
+* When connecting as a group, use only the group name (e.g. `GroupName@mydb`)
+* If the name contains spaces, use `\` before each space to escape it
 
 Note the “enable-cleartext-plugin” setting – you need to use a similar configuration with other clients to make sure the token gets sent to the server without being hashed.
 

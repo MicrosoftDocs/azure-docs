@@ -2,14 +2,14 @@
  title: include file
  description: include file
  services: expressroute
- author: cherylmc
+ author: duongau
  ms.service: expressroute
  ms.topic: include
  ms.date: 07/25/2019
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |

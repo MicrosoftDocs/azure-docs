@@ -31,15 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To follow this tutorial, you need a deployed instance of Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, you should complete the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
-
-## Open Device Simulation
-
-To run Device Simulation in your browser, first navigate to [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com).
-
-You may be asked to sign in using your Azure subscription credentials.
-
-Then click **Launch** on the tile for Device Simulation that you deployed in the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
 
 ## View your device models
 
@@ -85,7 +77,7 @@ Cloning a device model lets you create a copy of an existing device model. You c
 
 To clone a device model, check the box next to the model and then click **Clone** in the action bar:
 
-![Delete device model](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Screenshot that highlights the selected model and the Clone button.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## Delete a device model
 

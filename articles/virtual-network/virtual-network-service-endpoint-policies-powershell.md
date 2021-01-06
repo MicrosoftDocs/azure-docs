@@ -12,7 +12,7 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020

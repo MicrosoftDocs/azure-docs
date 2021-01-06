@@ -18,7 +18,7 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -56,7 +56,7 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 * [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
-* The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –version` to validate.
+* The Azure CLI. If you need to install it, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –version` to validate.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -66,13 +66,13 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 Sign in to your Azure account by running the following command:
 
-```bash
+```azurecli
 az login
 ```
 
 ## Direct methods
 
-```bash
+```azurecli
 az iot hub invoke-device-method --device-id <your device id> \
   --hub-name <your hub name> \
   --method-name <the method name> \
@@ -83,7 +83,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 Set a desired property interval = 3000 by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
@@ -94,7 +94,7 @@ This property can be read from your device.
 
 Get the reported properties of the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
@@ -104,13 +104,13 @@ One of the twin reported properties is $metadata.$lastUpdated, which shows the l
 
 Display the tags and properties of the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
 Add a field role = temperature&humidity to the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
@@ -121,14 +121,14 @@ az iot hub device-twin update \
 
 Query devices with a tag of role = 'temperature&humidity' by running the following command:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Query all devices except those with a tag of role = 'temperature&humidity' by running the following command:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```

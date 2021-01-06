@@ -1,8 +1,8 @@
 ---
 author: brjohnstmsft
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
-ms.date: 06/13/2018	
+ms.date: 06/13/2018    
 ms.author: brjohnst
 ---
 

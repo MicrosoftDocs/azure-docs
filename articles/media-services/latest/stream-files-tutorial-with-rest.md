@@ -3,7 +3,7 @@ title: Encode a remote file and stream using Azure Media Services v3
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,11 +11,13 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2020
-ms.author: juliako
+ms.date: 10/12/2020
+ms.author: inhenkel
 ---
 
 # Tutorial: Encode a remote file based on URL and stream the video - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
@@ -38,7 +40,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md).
+- [Create a Media Services account](./create-account-howto.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name
 
@@ -111,7 +113,7 @@ In this section, we send requests that are relevant to encoding and creating URL
     The following **POST** operation is sent.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
@@ -121,7 +123,7 @@ In this section, we send requests that are relevant to encoding and creating URL
 
 ### Start a Streaming Endpoint
 
-To enable streaming, you first have to start the [Streaming Endpoint](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) from which you want to stream the video.
+To enable streaming, you first have to start the [Streaming Endpoint](./streaming-endpoint-concept.md) from which you want to stream the video.
 
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in the running state.
@@ -143,11 +145,11 @@ To enable streaming, you first have to start the [Streaming Endpoint](https://do
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        The [track asynchronous Azure operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
+        The [track asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
 
 ### Create an output asset
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. 
+The output [Asset](/rest/api/media/assets) stores the result of your encoding job. 
 
 1. In the left window of the Postman app, select "Assets".
 2. Then, select "Create or update an Asset".
@@ -171,14 +173,14 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 
 ### Create a transform
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new [Transform](/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
 You can use a built-in EncoderNamedPreset or use custom presets. 
 
 > [!Note]
-> When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
+> When creating a [Transform](/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
 
 1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create Transform".
@@ -211,7 +213,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
 ### Create a job
 
-A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
+A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
 In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
@@ -252,18 +254,18 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 #### Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
 The process of creating a streaming locator is called publishing. By default, the streaming locator is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
+When creating a [StreamingLocator](/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
+> When using a custom [StreamingPolicy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
 Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each streaming locator.
 
@@ -293,7 +295,7 @@ Your Media Service account has a quota for the number of **Streaming Policy** en
 
 #### List paths
 
-Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
+Now that the [Streaming Locator](/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
 1. In the left window of the Postman app, select "Streaming Policies".
 2. Then, select "List Paths".

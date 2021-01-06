@@ -4,6 +4,7 @@ description: Create your first Linux container application on Azure Service Fabr
 
 ms.topic: conceptual
 ms.date: 1/4/2019
+ms.custom: devx-track-python
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -11,7 +12,7 @@ ms.date: 1/4/2019
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](../container-registry/index.yml). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > This article applies to a Linux development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Linux containers on a Windows cluster.
@@ -21,6 +22,8 @@ Running an existing application in a Linux container on a Service Fabric cluster
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
+
+* A Linux cluster with three or more nodes.
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -80,10 +83,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
+## Login to Docker and build the image
 
-```bash
+Next we'll create the image that runs your web application. When pulling public images from Docker (like `python:2.7-slim` in our Dockerfile), it's a best practice to authenticate with your Docker Hub account instead of making an anonymous pull request.
+
+> [!NOTE]
+> When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors. See [Manage public content with Azure Container Registry](../container-registry/buffer-gate-public-content.md) for more info.
+
+Open a PowerShell window and navigate to the directory containing the Dockerfile. Then run the following commands:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -208,7 +218,7 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][1]
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 
@@ -406,7 +416,7 @@ You can configure the Service Fabric cluster to remove unused container images f
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

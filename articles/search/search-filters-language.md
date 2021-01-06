@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/22/2020
+ms.custom: devx-track-csharp
 ---
 
 # How to filter by language in Azure Cognitive Search 
@@ -28,16 +29,16 @@ The success of this technique hinges on the integrity of field contents. Azure C
 
 In Azure Cognitive Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
 
-In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. Notice how this example shows the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
+The following example is from the [real-estate sample](search-get-started-portal.md) which has several string fields containing content in different languages. Notice the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Screenshot showing the Fields screen of the real-estate sample. A group of fields are highlighted to point out how the language analyzer assignments correspond to the languages for the highlighted fields.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](search-create-index-rest-api.md).
+> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](./search-get-started-dotnet.md) and [Define an index (REST)](./search-get-started-powershell.md).
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](./search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 
@@ -54,12 +55,11 @@ parameters =
     };
 ```
 > [!Note]
-> Although there is no $filter argument on the query, this use case is strongly affiliated with filter concepts, so we present it as a filtering scenario.
+> Although there is no $filter argument on the query, this use case is strongly affiliated with filter concepts, so it's presented as a filtering scenario.
 
 ## See also
 
 + [Filters in Azure Cognitive Search](search-filters.md)
-+ [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Language analyzers](/rest/api/searchservice/language-support)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [Search Documents REST API](/rest/api/searchservice/search-documents)

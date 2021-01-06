@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Datahug | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Datahug.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Datahug
 
@@ -28,7 +21,7 @@ Integrating Datahug with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Datahug (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Datahug Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier", "Reply URL", and "Save" button highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://apps.datahug.com/identity/<uniqueID>`
@@ -116,7 +109,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
     `https://apps.datahug.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Datahug Client support team](https://datahug.com/about/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Datahug Client support team](https://www.sap.com/corporate/en/company/office-locations.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -146,7 +139,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
 
 ### Configure Datahug Single Sign-On
 
-To configure single sign-on on **Datahug** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datahug support team](https://datahug.com/about/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Datahug** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datahug support team](https://www.sap.com/corporate/en/company/office-locations.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -210,11 +203,11 @@ When Datahug, provisioning is a manual task.
 
 2. Hover over the **cog** in the top right-hand corner and click **Settings**
    
-	![Add Employee](./media/datahug-tutorial/1.png)
+	![Screenshot that shows the "Datahug" homepage with "Cog" icon selected and "Settings" selected in the drop-down menu.](./media/datahug-tutorial/1.png)
 
 3. Choose **People** and click the **Add Users** tab
 
-	![Add Employee](./media/datahug-tutorial/2.png)
+	![Screenshot that shows the "Settings" page with the "People" tab and "Add Users" selected.](./media/datahug-tutorial/2.png)
 
 4. Type the email of the person you would like to create an account for and click **Add**.
 
@@ -228,13 +221,12 @@ When Datahug, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Datahug tile in the Access Panel, you should be automatically signed in to the Datahug for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Datahug tile in the Access Panel, you should be automatically signed in to the Datahug for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

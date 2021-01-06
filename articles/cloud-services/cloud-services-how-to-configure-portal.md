@@ -43,7 +43,7 @@ If you need to target a specific OS version, you can set it in **Configuration**
 
 You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Screenshot of the Settings pan with the Alert rules option highlighted and outlined in red and the Add alert option outlined in red.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 From here, you can set up an alert. With the **Metric** drop-down box, you can set up an alert for the following types of data.
 
@@ -53,7 +53,7 @@ From here, you can set up an alert. With the **Metric** drop-down box, you can s
 * Network out
 * CPU percentage
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Screenshot of the Add an alert rule pane with all the configuration options set.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### Configure monitoring from a metric tile
 
@@ -98,7 +98,7 @@ You may need to reconfigure your cloud service through the [service config (cscf
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

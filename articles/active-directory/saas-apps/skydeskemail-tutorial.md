@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SkyDesk Email | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SkyDesk Email.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a9d0bbcb-ddb5-473f-a4aa-028ae88ced1a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SkyDesk Email
 
@@ -27,7 +21,7 @@ Integrating SkyDesk Email with Azure AD provides you with the following benefits
 * You can enable your users to be automatically signed-in to SkyDesk Email (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -127,32 +121,32 @@ To configure Azure AD single sign-on with SkyDesk Email, perform the following s
 
 1. In the menu on the top, click **Setup**, and select **Org**.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![Screenshot shows Org selected from the Setup menu.](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. Click on **Domains** from the left panel.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![Screenshot shows Domains selected from Control Panel.](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. Click on **Add Domain**.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![Screenshot shows Add Domain selected.](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. Enter your Domain name, and then verify the Domain.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![Screenshot shows the Add Domain tab where you can enter your domain.](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. Click on **SAML Authentication** from the left panel.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![Screenshot shows SAML Authentication selected from Control Panel.](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. On the **SAML Authentication** dialog page, perform the following steps:
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![Screenshot shows the SAML Authentication Details dialog box where you can enter the values described.](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
     > To use SAML based authentication, you should either have **verified domain** or **portal URL** setup. You can set the portal URL with the unique name.
 
-    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![Screenshot shows the Portal U R L where you enter the name.](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. In the **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -223,7 +217,7 @@ In this section, you create a user called Britta Simon in SkyDesk Email.
 
 Click on **User Access** from the left panel in SkyDesk Email and then enter your username.
 
-![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![Screenshot shows User Access selected from Control Panel.](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
@@ -232,13 +226,12 @@ Click on **User Access** from the left panel in SkyDesk Email and then enter you
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SkyDesk Email tile in the Access Panel, you should be automatically signed in to the SkyDesk Email for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SkyDesk Email tile in the Access Panel, you should be automatically signed in to the SkyDesk Email for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

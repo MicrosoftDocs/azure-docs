@@ -1,29 +1,31 @@
 ---
-title: "Quickstart Build a classifier - Custom Vision Service"
+title: "Quickstart: Build a classifier with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an image classification model.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
+ms.date: 09/29/2020
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: How to build a classifier with Custom Vision
+# Quickstart: Build a classifier with the Custom Vision website
 
-In this quickstart, you'll learn how to build a classifier through the Custom Vision website. Once you build a classifier model, you can use the Custom Vision service for image classification.
+In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 - A set of images with which to train your classifier. See below for tips on choosing images.
 
-## Create Custom Vision resources in the Azure portal
+## Create Custom Vision resources
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -41,7 +43,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
    > [!NOTE]
-   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
 1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You'll be able to change the classification type later if you want to.
 
@@ -116,3 +118,4 @@ In this quickstart, you learned how to create and train an image classification 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)
 
+* [What is Custom Vision?](./overview.md)

@@ -43,7 +43,7 @@ If you're new to logic apps, review
 * An Azure subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [Office 365 account](https://www.office.com/) 
+* A [work or school account](https://www.office.com/) 
 for your work account or personal Microsoft account
 
   Your Excel data can exist as a comma-separated 
@@ -73,7 +73,7 @@ select the action you want.
    > If possible, reduce the number of columns in the selected table so that 
    > the designer can load the table.
 
-1. If prompted, sign in to your Office 365 account.
+1. If prompted, sign in to your work or school account.
 
    Your credentials authorize your logic app to create a 
    connection to Excel Online and access your data.

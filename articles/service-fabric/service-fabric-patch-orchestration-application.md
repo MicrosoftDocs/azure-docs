@@ -25,7 +25,7 @@ ms.author: atsenthi
 > As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
 
 > [!NOTE]
-> Getting [automatic OS image upgrades on your virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
+> Getting [automatic OS image upgrades on your virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
 >
 
  Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
@@ -79,9 +79,9 @@ You can enable Repair Manager from the Azure portal when you set up the cluster.
 ![Image of enabling Repair Manager from the Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### The Azure Resource Manager deployment model
-Alternatively, you can use the [Azure Resource Manager deployment model](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the Repair Manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Azure Resource Manager deployment model template. 
+Alternatively, you can use the [Azure Resource Manager deployment model](./service-fabric-cluster-creation-via-arm.md) to enable the Repair Manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Azure Resource Manager deployment model template. 
 
-To enable the Repair Manager service by using the [Azure Resource Manager deployment model template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm), do the following:
+To enable the Repair Manager service by using the [Azure Resource Manager deployment model template](./service-fabric-cluster-creation-via-arm.md), do the following:
 
 1. Check to ensure that `apiVersion` is set to *2017-07-01-preview* for the *Microsoft.ServiceFabric/clusters* resource. If it's different, you need to update `apiVersion` to *2017-07-01-preview* or later:
 
@@ -110,11 +110,11 @@ To enable the Repair Manager service by using the [Azure Resource Manager deploy
 
 ### Standalone on-premises clusters
 
-To enable the Repair Manager service on a new or existing Service Fabric cluster, you can use the [Configuration settings for standalone Windows cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+To enable the Repair Manager service on a new or existing Service Fabric cluster, you can use the [Configuration settings for standalone Windows cluster](./service-fabric-cluster-manifest.md).
 
 To enable the Repair Manager service:
 
-1. Check to ensure that `apiVersion` in [General cluster configurations](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) is set to *04-2017* or later, as shown here:
+1. Check to ensure that `apiVersion` in [General cluster configurations](./service-fabric-cluster-manifest.md#general-cluster-configurations) is set to *04-2017* or later, as shown here:
 
     ```json
     {
@@ -136,7 +136,7 @@ To enable the Repair Manager service:
     ],
     ```
 
-1. Update your cluster manifest with these changes by using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). 
+1. Update your cluster manifest with these changes by using the updated cluster manifest [create a new cluster](./service-fabric-cluster-creation-for-windows-server.md) or [upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md). 
 
    After the cluster is running with an updated cluster manifest, you can see the Repair Manager service running in your cluster. It's called *fabric:/System/RepairManagerService*, and it's in the system services section in Service Fabric Explorer.
 
@@ -157,12 +157,12 @@ You can configure POA behavior to meet your needs. Override the default values b
 |MaxResultsToCache    |Long                              | The maximum number of Windows Update results that should be cached. <br><br>The default value is 3000, assuming that: <br> &nbsp;&nbsp;- The number of nodes is 20. <br> &nbsp;&nbsp;- The number of updates to a node per month is 5. <br> &nbsp;&nbsp;- The number of results per operation can be 10. <br> &nbsp;&nbsp;- The results for the past three months should be stored. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br><br>The allowed values are: <br>*NodeWise*: Windows updates are installed one node at a time. <br> *UpgradeDomainWise*: Windows updates are installed one update domain at a time. (At the most, all the nodes belonging to an update domain can go for a Windows update.)<br><br> To help decide which policy is best suited for your cluster, see the [FAQ](#frequently-asked-questions) section.
 |LogsDiskQuotaInMB   |Long  <br> (Default: *1024*)               | The maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
-| WUQuery               | string<br>(Default: *IsInstalled=0*)                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | string<br>(Default: *IsInstalled=0*)                | Query to get Windows updates. For more information, see [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
 | InstallWindowsOSOnlyUpdates | *Boolean* <br> (default: false)                 | Use this flag to control which updates should be downloaded and installed. Following values are allowed <br>true - Installs only Windows operating system updates.<br>false - Installs all the available updates on the machine.          |
 | WUOperationTimeOutInMinutes | Int <br>(Default: *90*)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: *5*)                  | The maximum number of times the service reschedules the Windows update if an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: *30*) | The interval at which the service reschedules the Windows updates if failure persists. |
-| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>&nbsp;&nbsp;- Monthly: DD, HH:MM:SS (for example, *Monthly, 5,12:22:32*)<br>Permitted values for field DD (day) are numbers from 1 through 28 and "last". <br> &nbsp;&nbsp;- Weekly, DAY, HH:MM:SS (for example, *Weekly, Tuesday, 12:22:32*)  <br> &nbsp;&nbsp;- Daily, HH:MM:SS (for example, *Daily, 12:22:32*)  <br> &nbsp;&nbsp;-  *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
+| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- Week, Day, HH:MM:SS (example: *2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Default: *true*) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]
@@ -171,7 +171,7 @@ You can configure POA behavior to meet your needs. Override the default values b
 ## Deploy POA
 
 1. Finish all the prerequisite steps to prepare the cluster.
-1. Deploy POA like any other Service Fabric app. To deploy it by using PowerShell, see [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+1. Deploy POA like any other Service Fabric app. To deploy it by using PowerShell, see [Deploy and remove applications using PowerShell](./service-fabric-deploy-remove-applications.md).
 1. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
 
     - Connect to a Service Fabric cluster by using `Connect-ServiceFabricCluster`.
@@ -182,11 +182,11 @@ You can configure POA behavior to meet your needs. Override the default values b
 
 ## Upgrade POA
 
-To upgrade your POA version by using PowerShell, follow the instructions in [Service Fabric application upgrade using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+To upgrade your POA version by using PowerShell, follow the instructions in [Service Fabric application upgrade using PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md).
 
 ## Remove POA
 
-To remove the application, follow the instructions in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+To remove the application, follow the instructions in [Deploy and remove applications using PowerShell](./service-fabric-deploy-remove-applications.md).
 
 For your convenience, we've provided the Undeploy.ps1 script along with the application. To use the script:
 
@@ -237,7 +237,7 @@ Field | Values | Details
 OperationResult | 0 - Succeeded<br> 1 - Succeeded With Errors<br> 2 - Failed<br> 3 - Aborted<br> 4 - Aborted With Timeout | Indicates the result of the overall operation, which ordinarily involves the installation of one or more updates.
 ResultCode | Same as OperationResult | This field indicates the result of the installation operation for an individual update.
 OperationType | 1 - Installation<br> 0 - Search and Download| By default, Installation is the only OperationType that's shown in the results.
-WindowsUpdateQuery | Default is "IsInstalled=0" | The Windows Update query that was used to search for updates. For more information, see [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+WindowsUpdateQuery | Default is "IsInstalled=0" | The Windows Update query that was used to search for updates. For more information, see [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
 RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates whether a reboot was required to complete the installation of updates.
 OperationStartTime | DateTime | Indicates the time at which operation(Download/Installation) started.
 OperationTime | DateTime | Indicates the time at which operation(Download/Installation) was completed.
@@ -258,7 +258,7 @@ If the reverse proxy is enabled on the cluster, you can access the URL from outs
 The endpoint that you need to hit is
 *http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
 
-To enable the reverse proxy on the cluster, follow the instructions in [Reverse proxy in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+To enable the reverse proxy on the cluster, follow the instructions in [Reverse proxy in Azure Service Fabric](./service-fabric-reverseproxy.md). 
 
 > 
 > [!WARNING]
@@ -271,17 +271,17 @@ This section discusses how to debug or diagnose issues with patch updates throug
 > [!NOTE]
 > To get many of the following called-out, self-diagnostic improvements, you should have POA version 1.4.0 or later installed.
 
-The Node Agent NTService creates [repair tasks](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) for installing updates on the nodes. Each task is then prepared by the Coordinator Service according to the task approval policy. Finally, the prepared tasks are approved by Repair Manager, which doesn't approve any task if the cluster is in an unhealthy state. 
+The Node Agent NTService creates [repair tasks](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) for installing updates on the nodes. Each task is then prepared by the Coordinator Service according to the task approval policy. Finally, the prepared tasks are approved by Repair Manager, which doesn't approve any task if the cluster is in an unhealthy state. 
 
 To help you understand how updates proceed on a node, let's go step by step:
 
 1. NodeAgentNTService, running on every node, looks for available Windows updates at the scheduled time. If updates are available, it downloads them on the node.
 
-1. After the updates are downloaded, the Node Agent NTService creates a corresponding repair task for the node with the name *POS___\<unique_id>*. You can view these repair tasks by using the [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet or using SFX in the node details section. After the repair task is created, it quickly moves to [*Claimed* state](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. After the updates are downloaded, the Node Agent NTService creates a corresponding repair task for the node with the name *POS___\<unique_id>*. You can view these repair tasks by using the [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet or using SFX in the node details section. After the repair task is created, it quickly moves to [*Claimed* state](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. The Coordinator Service periodically looks for repair tasks in *Claimed* state and then updates them to *Preparing* state based on TaskApprovalPolicy. If TaskApprovalPolicy is configured to be NodeWise, a repair task that corresponds to a node is prepared only if no other repair task is currently in *Preparing*, *Approved*, *Executing*, or *Restoring* state. 
 
-   Similarly, in the case of UpgradeWise TaskApprovalPolicy, there are tasks in the preceding states only for nodes that belong to the same update domain. After a repair task is moved to *Preparing* state, the corresponding Service Fabric node is [disabled](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) with the intent set to *Restart*.
+   Similarly, in the case of UpgradeWise TaskApprovalPolicy, there are tasks in the preceding states only for nodes that belong to the same update domain. After a repair task is moved to *Preparing* state, the corresponding Service Fabric node is [disabled](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) with the intent set to *Restart*.
 
    POA versions 1.4.0 and later post events with the ClusterPatchingStatus property on CoordinatorService to display the nodes that are being patched. The updates are installed on _poanode_0, as shown in the following image:
 
@@ -296,11 +296,11 @@ To help you understand how updates proceed on a node, let's go step by step:
 
    In POA versions 1.4.0 and later, you can find the status of the update by viewing the health events on NodeAgentService with the WUOperationStatus-\<NodeName> property. The highlighted sections in the following images show the status of Windows updates on nodes *poanode_0* and *poanode_2*:
 
-   [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Screenshot shows console window of Windows Update operation status with poanode_0 highlighted.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Screenshot shows console window of Windows Update operation status with poanode_1 highlighted.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   You can also get the details by using PowerShell. To do so, you connect to the cluster and fetch the state of the repair task by using [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   You can also get the details by using PowerShell. To do so, you connect to the cluster and fetch the state of the repair task by using [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
    In the following example, the "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in *DownloadComplete* state. It means that updates have been downloaded on the *poanode_2* node, and the installation will be attempted when the task moves to *Executing* state.
 
@@ -328,13 +328,13 @@ To help you understand how updates proceed on a node, let's go step by step:
 
 1. In POA versions 1.4.0 and later, when a node update attempt finishes, an event with the "WUOperationStatus-[NodeName]" property is posted on NodeAgentService to notify you when the next attempt to download and install the Windows updates will begin. This is displayed in the following image:
 
-     [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Screenshot shows console window of Windows Update operation status with the NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### Diagnostics logs
 
 Patch orchestration application logs are collected as part of the Service Fabric runtime logs.
 
-You can capture logs by using the diagnostic tool or pipeline of your choice. POA uses the following fixed provider IDs to log events via [event source](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+You can capture logs by using the diagnostic tool or pipeline of your choice. POA uses the following fixed provider IDs to log events via [event source](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A: POA does not install updates while the cluster is unhealthy. Try to bring you
 
 **Q: Should I set TaskApprovalPolicy as "NodeWise" or "UpgradeDomainWise" for my cluster?**
 
-A: The "UpgradeDomainWise" setting speeds up overall cluster repair by patching in parallel all the nodes that belong to an update domain. During the process, nodes that belong to an entire update domain are unavailable (in [*Disabled* state](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A: The "UpgradeDomainWise" setting speeds up overall cluster repair by patching in parallel all the nodes that belong to an update domain. During the process, nodes that belong to an entire update domain are unavailable (in [*Disabled* state](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 In contrast, the "NodeWise" setting patches only one node at a time, which would imply that overall cluster patching might take longer. However, only one node at most would be unavailable (in *Disabled* state) during the patching process.
 
@@ -405,9 +405,9 @@ A: The time that's required to patch an entire cluster depends on:
     - For "NodeWise": ~20 hours.
     - For "UpgradeDomainWise": ~5 hours.
 
-- The cluster load. Each patching operation requires relocating the customer workload to other available nodes in the cluster. A node that's being patched would be in [*Disabling* state](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) during this time. If the cluster is running near peak load, the disabling process would take longer. Therefore, the overall patching process might appear to be slow in such stressed conditions.
+- The cluster load. Each patching operation requires relocating the customer workload to other available nodes in the cluster. A node that's being patched would be in [*Disabling* state](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) during this time. If the cluster is running near peak load, the disabling process would take longer. Therefore, the overall patching process might appear to be slow in such stressed conditions.
 
-- Cluster health failures during patching. Any [degradation](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in the [health of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) would interrupt the patching process. This issue would add to the overall time required to patch the entire cluster.
+- Cluster health failures during patching. Any [degradation](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in the [health of the cluster](./service-fabric-health-introduction.md) would interrupt the patching process. This issue would add to the overall time required to patch the entire cluster.
 
 **Q: Why do I see some updates in the Windows Update results that are obtained via REST API, but not under the Windows Update history on the machine?**
 
@@ -415,11 +415,11 @@ A: Some product updates appear only in their own update or patch history. For ex
 
 **Q: Can POA be used to patch my dev cluster (one-node cluster)?**
 
-A: No, POA can't be used to patch a one-node cluster. This limitation is by design, because [Service Fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or other customer apps would incur downtime. Therefore, patching repair jobs would never get approved by Repair Manager.
+A: No, POA can't be used to patch a one-node cluster. This limitation is by design, because [Service Fabric system services](./service-fabric-technical-overview.md#system-services) or other customer apps would incur downtime. Therefore, patching repair jobs would never get approved by Repair Manager.
 
 **Q: How do I patch cluster nodes on Linux?**
 
-A: To learn about orchestrating updates on Linux, see [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+A: To learn about orchestrating updates on Linux, see [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 **Q: Why is the update cycle taking so long?**
 
@@ -432,6 +432,10 @@ It might also be possible that node patching is blocked because it's stuck in *D
 **Q: Why must the node be disabled when POA is patching it?**
 
 A: POA disables the node with a *Restart* intent, which stops or reallocates all the Service Fabric services that are running on the node. POA does this to ensure that applications don't end up using a mix of new and old DLLs, so we recommend not patching a node without disabling it.
+
+**Q: What is the maximum number of nodes that can be updated by using POA?**
+
+A: POA uses Service Fabric Repair Manager to create repair tasks for nodes for updates. However, no more than 250 repair tasks can be present at the same time. Currently, POA creates repair tasks for each node at the same time, so POA can update no more than 250 nodes in a cluster. 
 
 ## Disclaimers
 

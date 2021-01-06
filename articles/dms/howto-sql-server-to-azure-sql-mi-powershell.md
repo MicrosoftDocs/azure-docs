@@ -1,7 +1,7 @@
 ---
-title: "PowerShell: Migrate SQL Server to SQL managed instance"
+title: "PowerShell: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from on-premises SQL Server to Azure SQL Database managed instance by using Azure PowerShell and the Azure Database Migration Service.
+description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -9,14 +9,14 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
+ms.topic: how-to
 ms.date: 02/20/2020
 ---
 
-# Migrate SQL Server to SQL Database managed instance with PowerShell & Azure Database Migration Service
+# Migrate SQL Server to SQL Managed Instance with PowerShell & Azure Database Migration Service
 
-In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database managed instance by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to an Azure SQL Database managed instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL SQL Managed Instance by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to an SQL Managed Instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -35,30 +35,30 @@ This article includes detail on how to perform both online and offline migration
 To complete these steps, you need:
 
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
-* A local copy of the **AdventureWorks2016** database, which is available for download [here](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017).
-* To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* A local copy of the **AdventureWorks2016** database, which is available for download [here](/sql/samples/adventureworks-install-configure?view=sql-server-2017).
+* To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure SQL Database managed instance. You can create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-* A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-* To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
-* To ensure that the credentials used to connect to target Azure SQL Database managed instance has the CONTROL DATABASE permission on the target Azure SQL Database managed instance databases.
+* A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem).
+* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+* To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
+* To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
     > [!IMPORTANT]
-    > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Sign in to your Microsoft Azure subscription
 
-Sign in to your Azure subscription by using PowerShell. For more information, see the article [Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Sign in to your Azure subscription by using PowerShell. For more information, see the article [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Create a resource group
 
 An Azure resource group is a logical container in which Azure resources are deployed and managed.
 
-Create a resource group by using the [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command.
+Create a resource group by using the [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) command.
 
 The following example creates a resource group named *myResourceGroup* in the *East US* region.
 
@@ -71,11 +71,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 You can create new instance of Azure Database Migration Service by using the `New-AzDataMigrationService` cmdlet.
 This cmdlet expects the following required parameters:
 
-* *Azure Resource Group name*. You can use [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command to create an Azure Resource group as previously shown and provide its name as a parameter.
+* *Azure Resource Group name*. You can use [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) command to create an Azure Resource group as previously shown and provide its name as a parameter.
 * *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service.
 * *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia.
 * *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
-* *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
+* *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and a subnet named *MySubnet*.
 
@@ -116,13 +116,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for an Azure SQL Database managed instance server named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
+The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance’:
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### Provide databases for the migration project
@@ -158,7 +156,7 @@ Next, create and start an Azure Database Migration Service task. This task requi
 
 ### Create credential parameters for source and target
 
-Create connection security credentials as a [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object.
+Create connection security credentials as a [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object.
 
 The following example shows the creation of *PSCredential* objects for both the source and target connections, providing passwords as string variables *$sourcePassword* and *$targetPassword*.
 
@@ -185,7 +183,7 @@ $backupFileShare = New-AzDmsFileShare -Path $backupFileSharePath -Credential $ba
 
 The next step is to select the source and target databases by using the `New-AzDmsSelectedDB` cmdlet.
 
-The following example is for migrating a single database from SQL Server to an Azure SQL Database managed instance:
+The following example is for migrating a single database from SQL Server to a Azure SQL Managed Instance:
 
 ```powershell
 $selectedDbs = @()
@@ -195,7 +193,7 @@ $selectedDbs += New-AzDmsSelectedDB -MigrateSqlServerSqlDbMi `
   -BackupFileShare $backupFileShare `
 ```
 
-If an entire SQL Server instance needs a lift-and-shift into an Azure SQL Database managed instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
+If an entire SQL Server instance needs a lift-and-shift into a Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
 
 ```powershell
 $Query = "(select name as Database_Name from master.sys.databases where Database_id>4)";
@@ -221,6 +219,9 @@ Create variable containing the SAS URI that provides the Azure Database Migratio
 ```powershell
 $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
 ```
+
+> [!NOTE]
+> Azure Database Migration Service does not support using an account level SAS token. You must use a SAS URI for the storage account container. [Learn how to get the SAS URI for blob container](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
 
 ### Additional configuration requirements
 
@@ -277,15 +278,15 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 Regardless of whether you're performing an offline or online migration, the `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
-* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
 * *ServiceName*. Azure Database Migration Service instance in which to create the task.
 * *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
-* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Database Managed Instance connection.
-* *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to source server.
-* *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to target server.
+* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to source server.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
 * *BackupFileShare*. FileShare object representing the local network share that the Azure Database Migration Service can take the source database backups to.
 * *BackupBlobSasUri*. The SAS URI that provides the Azure Database Migration Service with access to the storage account container to which the service uploads the backup files. Learn how to get the SAS URI for blob container.
@@ -389,7 +390,7 @@ To monitor the migration, perform the following tasks.
 
 With an online migration, a full backup and restore of databases is performed, and then work proceeds on restoring the Transaction Logs stored in the BackupFileShare.
 
-When the database in an Azure SQL Database managed instance is updated with latest data and is in sync with the source database, you can perform a cutover.
+When the database in a Azure SQL Managed Instance is updated with latest data and is in sync with the source database, you can perform a cutover.
 
 The following example will complete the cutover\migration. Users invoke this command at their discretion.
 
@@ -416,4 +417,4 @@ For information about additional migrating scenarios (source/target pairs), see 
 
 ## Next steps
 
-Find out more about Azure Database Migration Service in the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+Find out more about Azure Database Migration Service in the article [What is the Azure Database Migration Service?](./dms-overview.md).

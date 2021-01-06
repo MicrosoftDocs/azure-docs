@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
 ---
 
@@ -32,7 +32,7 @@ In your browser, go to the [Azure portal](https://portal.azure.com/). Enter your
 
 ## Create an Azure Database for MariaDB server
 
-You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](concepts-pricing-tiers.md). The server is created in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](concepts-pricing-tiers.md). The server is created in an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
@@ -40,7 +40,7 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
 
    ![Go to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Select the **Azure Database for MariaDB** tile, and then select **Create**. Enter or select the required information.
+3. Select the **Azure Database for MariaDB** tile. Enter or select the required information.
 
    ![Create form](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -62,7 +62,7 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
    > [!TIP]
    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
-4. Select **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. To monitor the deployment process, select **Notifications** on the toolbar.
+4. Click **Review + create**. You can click on the **Notifications** button on the toolbar to monitor the deployment process. Deployment can take up to 20 minutes.
 
 ## Configure the firewall
 
@@ -189,4 +189,4 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Restore data
 
 > [!div class="nextstepaction"]
-> [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)
+> [How to connect applications to Azure Database for MariaDB](howto-connection-string.md)

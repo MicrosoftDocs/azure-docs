@@ -2,10 +2,10 @@
 title: Source map support for JavaScript applications - Azure Monitor Application Insights
 description: Learn how to upload source maps to your own storage account Blob container using Application Insights.
 ms.topic: conceptual
-author: markwolff
-ms.author: marwolff
-ms.date: 03/04/2020
-
+author: DavidCBerry13
+ms.author: daberry
+ms.date: 06/23/2020
+ms.custom: devx-track-js
 ---
 
 # Source map support for JavaScript applications
@@ -27,7 +27,9 @@ If you already have an existing storage account or blob container, you can skip 
 
 ## Push your source maps to your Blob container
 
-You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured Blob container. You should not upload your source maps to a subfolder in the Blob container; currently the source map will only be fetched from the root folder.
+You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured Blob container.
+
+Source maps can be uploaded to your Blob Storage Container with the same folder structure they were compiled & deployed with. A common use case is to prefix a deployment folder with its version, e.g. `1.2.3/static/js/main.js`. When unminifying via an Azure Blob container called `sourcemaps`, it will try to fetch a source map located at `sourcemaps/1.2.3/static/js/main.js.map`.
 
 ### Upload source maps via Azure Pipelines (recommended)
 
@@ -60,7 +62,7 @@ If you would like to configure or change the storage account or Blob container t
 
 ## Troubleshooting
 
-### Required role-based access control (RBAC) settings on your Blob container
+### Required Azure role-based access control (Azure RBAC) settings on your Blob container
 
 Any user on the Portal using this feature must be at least assigned as a [Storage Blob Data Reader][storage blob data reader] to your Blob container. You must assign this role to anyone else that will be using the source maps through this feature.
 
@@ -76,13 +78,13 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 
 ## Next Steps
 
-* [Azure File Copy task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->
-[create storage account]: https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
-[create blob container]: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal
-[storage blob data reader]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader
+[create storage account]: ../../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
+[create blob container]: ../../storage/blobs/storage-quickstart-blobs-portal.md
+[storage blob data reader]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-reader
 [ApplicationInsights-JS]: https://github.com/microsoft/applicationinsights-js
 [ApplicationInsights-Node.js]: https://github.com/microsoft/applicationinsights-node.js
 [azure file copy]: https://aka.ms/azurefilecopyreadme

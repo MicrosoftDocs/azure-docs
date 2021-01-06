@@ -1,8 +1,8 @@
 ---
 title: Management stored procedures - Azure Database for MariaDB
 description: Learn which stored procedures in Azure Database for MariaDB are useful to help you configure data-in replication, set the timezone, and kill queries.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
@@ -16,17 +16,17 @@ Stored procedures are available on Azure Database for MariaDB servers to help ma
 
 Data-in Replication allows you to synchronize data from a MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into the Azure Database for MariaDB service.
 
-The following stored procedures are used to set up or remove Data-in Replication between a master and replica.
+The following stored procedures are used to set up or remove Data-in Replication between a source and replica.
 
 |**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|To transfer data with SSL mode, pass in the CA certificate's context into the master_ssl_ca parameter. </br><br>To transfer data without SSL, pass in an empty string into the master_ssl_ca parameter.|
 |*mysql.az_replication _start*|N/A|N/A|Starts replication.|
 |*mysql.az_replication _stop*|N/A|N/A|Stops replication.|
-|*mysql.az_replication _remove_master*|N/A|N/A|Removes the replication relationship between the master and replica.|
+|*mysql.az_replication _remove_master*|N/A|N/A|Removes the replication relationship between the source and replica.|
 |*mysql.az_replication_skip_counter*|N/A|N/A|Skips one replication error.|
 
-To set up Data-in Replication between a master and a replica in Azure Database for MariaDB, refer to [how to configure Data-in Replication](howto-data-in-replication.md).
+To set up Data-in Replication between a source and a replica in Azure Database for MariaDB, refer to [how to configure Data-in Replication](howto-data-in-replication.md).
 
 ## Other stored procedures
 

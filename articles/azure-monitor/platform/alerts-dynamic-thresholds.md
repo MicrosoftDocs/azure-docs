@@ -4,7 +4,7 @@ description: Create Alerts with machine learning based Dynamic Thresholds
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 01/04/2021
 ---
 
 # Metric Alerts with Dynamic Thresholds in Azure Monitor
@@ -34,7 +34,7 @@ Dynamic Thresholds continuously learns the data of the metric series and tries t
 The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
 > [!NOTE]
-> Seasonal pattern detection is set to a hour, day, or week interval. This means other patterns like bihourly pattern or semiweekly might not be detected.
+> Dynamic Thresholds can detect seasonality for hourly, daily, or weekly patterns. Other patterns like bi-hourly or semi-weekly seasonality might not be detected. To detect weekly seasonality, at least three weeks of historical data are required. 
 
 ## What does 'Sensitivity' setting in Dynamic Thresholds mean?
 
@@ -88,11 +88,12 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 
 ## How much data is needed to trigger an alert?
 
-If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days or 30 samples of metric data are available to ensure accurate thresholds.
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
+For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
 ## Dynamic Thresholds best practices
 
-Dynamic Thresholds can be applied to any platform or custom metric in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
+Dynamic Thresholds can be applied to most platform and custom metrics in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
 The following items are best practices on how to configure alerts on some of these metrics using Dynamic Thresholds.
 
 ### Dynamic Thresholds on virtual machine CPU percentage metrics

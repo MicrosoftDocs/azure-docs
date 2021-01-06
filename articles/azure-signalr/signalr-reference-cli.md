@@ -11,7 +11,7 @@ ms.author: zhshang
 
 The following table includes links to bash scripts for the Azure SignalR Service using the Azure CLI.
 
-| | |
+| Script | Descriptions |
 |-|-|
 |**Create**||
 | [Create a new SignalR Service and resource group](scripts/signalr-cli-create-service.md) | Creates a new Azure SignalR Service resource in a new resource group with a random name.  |

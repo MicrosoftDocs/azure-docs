@@ -12,6 +12,7 @@ ms.custom: seodec18
 ms.reviewer: sngun
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Node.js Express app
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
@@ -141,11 +142,11 @@ This tutorial also requires:
 
 7. Save all your modified files. 
 
-8. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), click the Gear button ![Gear button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). The new launch.json file opens in Visual Studio Code.
+8. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::, click the Gear button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. The new launch.json file opens in Visual Studio Code. 
 
 8. On line 11 of the launch.json file, change `"${workspaceFolder}\\server"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
 
-9. Click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) to run the app.
+9. Click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: to run the app.
 
     The app should run without errors.
 
@@ -157,7 +158,7 @@ This tutorial also requires:
 
     This response shows the app is up and running locally. 
 
-    ![Postman showing the request and the response](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Postman showing the request and the response":::
 
 
 ## Next steps

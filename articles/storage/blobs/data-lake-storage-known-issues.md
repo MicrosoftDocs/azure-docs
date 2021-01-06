@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -19,7 +19,7 @@ An increasing number of Blob storage features now work with accounts that hav
 
 ## Supported Azure service integrations
 
-Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Azure Data Lake Storage Gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
@@ -35,72 +35,50 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
+* You cannot use blob API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
 
-* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
+* When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
-* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
+* If you use the [Delete Blob](/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
 
 These Blob REST APIs aren't supported:
 
-* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Put Blob (Page)](/rest/api/storageservices/put-blob)
+* [Put Page](/rest/api/storageservices/put-page)
+* [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
+* [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
+* [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+* [Append Block](/rest/api/storageservices/append-block)
+* [Append Block from URL](/rest/api/storageservices/append-block-from-url)
+
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
-## File system support in SDKs
+## Support for setting access control lists (ACLs) recursively
 
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
-- Get and set ACL operations are not currently recursive.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal, or Azure Storage Explorer.
 
-## File system support in PowerShell and Azure CLI
-
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
-- Get and set ACL operations are not currently recursive.
-
-## Lifecycle management policies
-
-* The deletion of blob snapshots is not yet supported.  
-
-* There are currently some bugs affecting lifecycle management policies and the archive access tier. 
-
-## Diagnostic logs
-
-Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
-
-## Blobfuse
-
-Blobfuse is not supported.
-
-
-
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## Azure Storage Explorer
 
-Use only versions `1.6.0` or higher.There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.
+Use only versions `1.6.0` or higher.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## Storage Explorer in the Azure portal
 
 ACLs are not yet supported.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## Third party applications
 
@@ -109,13 +87,22 @@ Applications that call Blob APIs will likely work.
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Windows Azure Storage Blob (WASB) driver
+## Diagnostic logs
 
-Currently, there are several issues associated with using the WASB driver along with accounts that have a hierarchical namespace. We recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your workloads. 
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
+## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
+You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
 
+## Dremio support with premium-performance BlockBlobStorage storage accounts
 
+Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
 
+## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
+
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
+
+For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.

@@ -2,12 +2,12 @@
 title: Fail back Hyper-V VMs from Azure with Azure Site Recovery 
 description: How to fail back Hyper-V VMs to an on-premises site from Azure with Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: rajanaki
+ms.author: ramamill
 
 ---
 

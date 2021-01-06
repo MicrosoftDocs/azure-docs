@@ -4,11 +4,14 @@ description: Learn how to set time to live value for documents using Azure Cosmo
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 12/26/2018
+ms.custom: devx-track-js, devx-track-csharp
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Cosmos DB's API for MongoDB is the [same as in Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
@@ -68,7 +71,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 The per-document TTL feature can be activated with Azure Cosmos DB's API for MongoDB.
 
-![Screenshot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot of the Per-document TTL feature activation in Portal":::
 
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

@@ -1,0 +1,39 @@
+---
+title: PowerShell - Add a marketplace image to a lab in Azure DevTest Labs
+description: This PowerShell script adds a marketplace image to a lab in Azure DevTest Labs.
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+---
+
+# Use PowerShell to add a marketplace image to a lab in Azure DevTest Labs
+
+This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+## Prerequisites
+* **A lab**. The script requires you to have an existing lab. 
+
+## Sample script
+
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
+
+## Script explanation
+
+This script uses the following commands: 
+
+| Command | Notes |
+|---|---|
+| Find-AzResource | Searches for resources based on specified parameters. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
+
+## Next steps
+
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
+
+Additional Azure Lab Services PowerShell script samples can be found in the [Azure Lab Services PowerShell samples](../samples-powershell.md).

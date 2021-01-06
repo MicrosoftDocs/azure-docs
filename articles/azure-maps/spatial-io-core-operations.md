@@ -1,13 +1,14 @@
 ---
 title:  Core IO operations | Microsoft Azure Maps
 description: Learn how to efficiently read and write XML and delimited data using core libraries from the spatial IO module.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 ---
 
 # Core IO operations
@@ -25,30 +26,13 @@ The `atlas.io.core.CsvReader` class reads strings that contain delimited data se
 
 By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
-| | |
+| Delimiter | Character |
 | :-- | :-- |
 | Comma | `,` |
 | Tab | `\t` |
 | Pipe | `|` |
 
 This reader also supports text qualifiers that are used to handle cells that contain the delimiter character. The quote (`'"'`) character is the default text qualifier, but it can be changed to any single character.
-
-> [!NOTE]
-> The delimited reader and writer functionality  interprets column names that contain forward slashes "/" as property paths. This allows for complex JSON objects to be flattened into a two-dimensional table. If this is not your intention, download the file outside of the reader and replace the forward slash character with the escaped hex code `&#x2F;` or html code `&#47;`. 
->
-> ```JavaScript
-> fetch('<URL to a delimited file to read>').then((response) => {
-> 	return response.text();
-> }).then((data) => { 
-> 	//Replace all forward slash charcters with the escaped hex code "&#x2F;" or html code "&#47;"
-> 	data = data.replace(/\//g, '&#x2F;');
-> 	
-> 	//Pass the delimited data into the reader.
-> 	var csvTable = atlas.io.core.CsvReader.read(data);
-> 
->   //Do something with the parsed data.
-> });
-> ```
 
 ## Write delimited files
 
@@ -142,19 +126,14 @@ The generated XML from the above code would look like the following.
 
 Learn more about the classes and methods used in this article:
 
-> [!div class="nextstepaction"]
-> [CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
+[CsvReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
 
-> [!div class="nextstepaction"]
-> [CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
+[CsvWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
+[SimpleXmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
+[SimpleXmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+[Supported data format details](spatial-io-supported-data-format-details.md)

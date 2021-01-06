@@ -24,7 +24,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 ![Screenshot conversion by browsers](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
+> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](./javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
 >
 >
 
@@ -32,7 +32,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 
 To begin answering questions with the Impact tool, choose an initial page view, custom event, or request.
 
-![Impact tool](./media/usage-impact/0002-dropdown.png)
+![Screenshot that shows where to choose an initial page view, custom event, or request.](./media/usage-impact/0002-dropdown.png)
 
 1. Select a page view from the **For the page view** dropdown.
 2. Leave the **analyze how its** dropdown on the default selection of **Duration** (In this context **Duration** is an alias for **Page Load Time**.)
@@ -77,10 +77,11 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
 
 ## Next steps
 
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)
+

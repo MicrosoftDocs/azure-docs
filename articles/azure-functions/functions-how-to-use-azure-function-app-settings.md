@@ -3,8 +3,8 @@ title: Configure function app settings in Azure
 description: Learn how to configure Azure function app settings.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.custom: cc996988-fb4f-47
+ms.date: 04/13/2020
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ---
 
 # Manage your function app 
@@ -22,15 +22,17 @@ This article describes how to configure and manage your function apps.
 
 ## Get started in the Azure portal
 
-To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
+1. To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
 
-![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. Under **Settings** in the left pane, select **Configuration**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Function app overview in the Azure portal":::
 
 You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#settings)** and **[Platform features](#platform-features)**.
 
-## <a name="settings"></a>Application settings
+## <a name="settings"></a>Work with application settings
 
-The **Application Settings** tab maintains settings that are used by your function app. These settings are stored encrypted, and you must select **Show values** to see the values in the portal. You can also access application settings by using the Azure CLI.
+The **Application settings** tab maintains settings that are used by your function app. These settings are stored encrypted, and you must select **Show values** to see the values in the portal. You can also access application settings by using the Azure CLI.
 
 ### Portal
 
@@ -62,11 +64,59 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-run-local.md#local-settings-file).
 
+## Hosting plan type
+
+When you create a function app, you also create an App Service hosting plan in which the app runs. A plan can have one or more function apps. The functionality, scaling, and pricing of your functions depend on the type of plan. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+
+You can determine the type of plan being used by your function app from the Azure portal, or by using the Azure CLI or Azure PowerShell APIs. 
+
+The following values indicate the plan type:
+
+| Plan type | Portal | Azure CLI/PowerShell |
+| --- | --- | --- |
+| [Consumption](consumption-plan.md) | **Consumption** | `Dynamic` |
+| [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
+| [Dedicated (App Service)](dedicated-plan.md) | Various | Various |
+
+# [Portal](#tab/portal)
+
+To determine the type of plan used by your function app, see **App Service plan** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). To see the pricing tier, select the name of the **App Service Plan**, and then select **Properties** from the left pane.
+
+![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
+
+# [Azure CLI](#tab/azurecli)
+
+Run the following Azure CLI command to get your hosting plan type:
+
+```azurecli-interactive
+functionApp=<FUNCTION_APP_NAME>
+resourceGroup=FunctionMonitoringExamples
+appServicePlanId=$(az functionapp show --name $functionApp --resource-group $resourceGroup --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+
+```  
+
+In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
+
+# [Azure PowerShell](#tab/powershell)
+
+Run the following Azure PowerShell command to get your hosting plan type:
+
+```azurepowershell-interactive
+$FunctionApp = '<FUNCTION_APP_NAME>'
+$ResourceGroup = '<RESOURCE_GROUP>'
+
+$PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionApp).AppServicePlan
+(Get-AzFunctionAppPlan -Name $PlanID -ResourceGroupName $ResourceGroup).SkuTier
+```
+In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
+
+---
+
+
 ## Platform features
 
-![Function app platform features tab.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Function apps run in, and are maintained, by the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The **Platform features** tab is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
 > [!NOTE]
 > Not all App Service features are available when a function app runs on the Consumption hosting plan.
@@ -82,7 +132,7 @@ The rest of this article focuses on the following App Service features in the Az
 
 For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
-### <a name="editor"></a>App Service Editor
+### <a name="editor"></a>App Service editor
 
 ![The App Service editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 

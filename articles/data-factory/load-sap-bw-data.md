@@ -14,6 +14,7 @@ ms.date: 05/22/2019
 ---
 
 # Copy data from SAP Business Warehouse by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows how to use Azure Data Factory to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -211,7 +212,7 @@ If you need both historical copy and incremental copy or only incremental copy, 
 
    You might increase the number of parallel running SAP work processes for the DTP:
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Screenshot shows Settings for Parallel Processing where you can select the number of parallel processes for the D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Schedule the DTP in process chains.
 
@@ -263,7 +264,7 @@ After this, all subsequent delta DTPs and Data Factory delta extractions work as
 
 To set the status of the delta DTP to **Fetched**, you can use the following option to run the delta DTP manually:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*No Data Transfer; Delta Status in Source: Fetched*
 
 ## Next steps
 

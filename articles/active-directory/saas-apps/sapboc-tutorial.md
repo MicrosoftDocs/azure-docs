@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SAP Analytics Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Analytics Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate SAP Analytics Cloud with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate SAP Analytics Cloud with Azure A
 * Enable your users to be automatically signed-in to SAP Analytics Cloud with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -82,17 +75,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<sub-domain>.sapanalytics.cloud/` |
-	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	
-    | |
-	|-|-|
-	| `<sub-domain>.sapbusinessobjects.cloud` |
-	| `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.
@@ -185,37 +174,36 @@ To provision a user account:
 
 3. On the **Users** page, to add new user details, select **+**. 
 
-	![Add Users page](./media/sapboc-tutorial/user4.png)
+    ![Add Users page](./media/sapboc-tutorial/user4.png)
 
-	Then, complete the following steps:
+    Then, complete the following steps:
 
-	a. In the **USER ID** box, enter the user ID of the user, like **B**.
+    1. In the **USER ID** box, enter the user ID of the user, like **B**.
 
-	b. In the **FIRST NAME** box, enter the first name of the user, like **B**.
+    1. In the **FIRST NAME** box, enter the first name of the user, like **B**.
 
-	c. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
+    1. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
 
-	d. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
+    1. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
+    1. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
 
-	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
+    1. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
-	  ![Select role](./media/sapboc-tutorial/user3.png)
+        ![Select role](./media/sapboc-tutorial/user3.png)
 
-	g. Select the **Save** icon.
+    1. Select the **Save** icon.
 
 ### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SAP Analytics Cloud tile in the Access Panel, you should be automatically signed in to the SAP Analytics Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SAP Analytics Cloud tile in the Access Panel, you should be automatically signed in to the SAP Analytics Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

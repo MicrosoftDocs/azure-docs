@@ -1,11 +1,12 @@
 ---
 title: View your billing accounts in Azure portal 
-description: Learn how to view your billing accounts in Azure portal.
+description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 11/30/2020
 ms.author: banders
 ---
 
@@ -17,24 +18,30 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure.
+- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. You can have a maximum of 2000 subscriptions in an Enterprise Agreement.
 
-- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md).
+- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. You can have a maximum of 20 subscriptions in a Microsoft Customer Agreement for an individual. A Microsoft Customer Agreement for an enterprise doesn't have a limit on the number of subscriptions. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md).
 
-- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
+- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
 
 To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-account).
 
 ## Scopes for billing accounts
 A scope is a node within a billing account that you use to view and manage billing. It is where you manage billing data, payments, invoices, and conduct general account management.
 
+If you don't have access to view or manage billing accounts, you probably don't have permission to access. You can ask your billing account administrator to grant you access. For more information, see the following articles:
+
+- [Microsoft Online Services Program access](manage-billing-access.md)
+- [Microsoft Customer Agreement access](understand-mca-roles.md)
+- [Enterprise Agreement access](understand-ea-roles.md)
+
 ### Microsoft Online Services Program
 
- ![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
+![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
 
 |Scope  |Definition  |
 |---------|---------|
-|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one ore more subscriptions.  |
+|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one or more subscriptions.  |
 |Subscription     |  Represents a grouping of Azure resources. Invoice is generated at this scope. Other billing information such as payment methods and usage address is associated to this scope.|
 
 ### Enterprise Agreement
@@ -66,7 +73,7 @@ A scope is a node within a billing account that you use to view and manage billi
 |Billing account     |   Represents a partner agreement to manage customers' Microsoft products and services in the new commerce experience. It contains one or more billing profiles and customers.   |
 |Billing profile     |   Represents an invoice for a currency.     |
 |Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner.  Azure subscriptions and other purchases such as Azure Marketplace and App source products are associated to this scope.  |
-|Reseller    |   Reseller that provides services to a customer. It is an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
+|Reseller    |   Reseller that provides services to a customer. It's an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
 
 ## Switch billing scope in the Azure portal
 
@@ -74,11 +81,11 @@ A scope is a node within a billing account that you use to view and manage billi
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/overview-select-scopes.png)
+   ![Screenshot that shows billing scopes.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -86,7 +93,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/list-of-scopes.png)
+   ![Screenshot that shows billing scopes, which you can select for details.](./media/view-all-accounts/list-of-scopes.png)
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

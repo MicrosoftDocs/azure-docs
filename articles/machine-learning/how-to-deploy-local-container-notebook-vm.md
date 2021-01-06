@@ -1,11 +1,12 @@
 ---
-title: How to deploy models to compute instances
+title: Deploy models to compute instances
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using compute instances.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to, deploy
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
@@ -14,7 +15,7 @@ ms.date: 03/05/2020
 
 # Deploy a model to Azure Machine Learning compute instances
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
@@ -34,7 +35,7 @@ An example notebook that demonstrates local deployments is included on your comp
 
 1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning compute instances.
 
-1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
+1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
 
     ![Screenshot of the running local service on notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
@@ -57,7 +58,7 @@ To submit sample data to the running service, use the following code. Replace th
 > [!NOTE]
 > When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you using AAD, and returns a header that can then be used to authenticate to the service on the compute instance. For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#interactive-authentication).
 >
-> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#web-service-authentication).
+> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Configure authentication for Azure Machine models deployed as web services](how-to-authenticate-web-service.md).
 
 ```python
 import requests
@@ -91,7 +92,7 @@ print("prediction:", resp.text)
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

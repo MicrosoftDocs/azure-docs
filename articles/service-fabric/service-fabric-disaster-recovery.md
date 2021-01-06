@@ -167,7 +167,7 @@ The following actions might result in data loss. Check before you follow them.
 >
 
 - Use the `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API. This API allows specifying the ID of the partition to move out of quorum loss and into potential data loss.
-- If your cluster encounters frequent failures that cause services to go into a quorum-loss state and potential _data loss is acceptable_, specifying an appropriate [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) value can help your service automatically recover. Service Fabric will wait for the provided `QuorumLossWaitDuration` value (default is infinite) before performing recovery. We *don't* recommend this method because it can cause unexpected data losses.
+- If your cluster encounters frequent failures that cause services to go into a quorum-loss state and potential _data loss is acceptable_, specifying an appropriate [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) value can help your service automatically recover. Service Fabric will wait for the provided `QuorumLossWaitDuration` value (default is infinite) before performing recovery. We *don't* recommend this method because it can cause unexpected data losses.
 
 ## Availability of the Service Fabric cluster
 In general, the Service Fabric cluster is a highly distributed environment with no single points of failure. A failure of any one node will not cause availability or reliability issues for the cluster, primarily because the Service Fabric system services follow the same guidelines provided earlier. That is, they always run with three or more replicas by default, and system services that are stateless run on all nodes. 
@@ -203,17 +203,17 @@ In both standalone Service Fabric clusters and Azure, the primary node type is t
 - Learn how to simulate various failures by using the [testability framework](service-fabric-testability-overview.md).
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. Although some of these resources refer to specific techniques for use in other products, they contain many general best practices that you can apply in the Service Fabric context:
   - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
-  - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Performing a disaster recovery drill](../azure-sql/database/disaster-recovery-drills.md)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md).
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

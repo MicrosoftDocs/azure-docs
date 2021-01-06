@@ -1,22 +1,15 @@
 ---
 title: Create Azure Service Bus resources using templates
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 09/11/2018
-ms.author: spelluru
-
+ms.date: 06/23/2020
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Create Service Bus resources using Azure Resource Manager templates
 
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.

@@ -8,16 +8,20 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/25/2020
 ---
 
 # Design patterns for multitenant SaaS applications and Azure Cognitive Search
+
 A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Cognitive Search.
 
 ## Azure Cognitive Search concepts
-As a search-as-a-service solution, Azure Cognitive Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in information retrieval. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Cognitive Search API, the data can then be modified and searched. An overview of the service can be found in [this article](https://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Cognitive Search.
+As a search-as-a-service solution, [Azure Cognitive Search](search-what-is-azure-search.md) allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in information retrieval. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Cognitive Search API, the data can then be modified and searched. 
 
 ### Search services, indexes, fields, and documents
+
+Before discussing design patterns, it is important to understand a few basic concepts.
+
 When using Azure Cognitive Search, one subscribes to a *search service*. As data is uploaded to Azure Cognitive Search, it is stored in an *index* within the search service. There can be a number of indexes within a single service. To use the familiar concepts of databases, the search service can be likened to a database while the indexes within a service can be likened to tables within a database.
 
 Each index within a search service has its own schema, which is defined by a number of customizable *fields*. Data is added to an Azure Cognitive Search index in the form of individual *documents*. Each document must be uploaded to a particular index and must fit that index's schema. When searching data using Azure Cognitive Search, the full-text search queries are issued against a particular index.  To compare these concepts to those of a database, fields can be likened to columns in a table and documents can be likened to rows.
@@ -35,19 +39,19 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Maximum Replicas per Service |3 |12 |12 |12 |12 |
-| Maximum Partitions per Service |1 |12 |12 |12 |3 |
-| Maximum Search Units (Replicas*Partitions) per Service |3 |36 |36 |36 |36 (max 3 partitions) |
-| Maximum Storage per Service |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| Maximum Storage per Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maximum Indexes per Service |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
+| **Maximum Replicas per Service** |3 |12 |12 |12 |12 |
+| **Maximum Partitions per Service** |1 |12 |12 |12 |3 |
+| **Maximum Search Units (Replicas*Partitions) per Service** |3 |36 |36 |36 |36 (max 3 partitions) |
+| **Maximum Storage per Service** |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
+| **Maximum Storage per Partition** |2 GB |25 GB |100 GB |200 GB |200 GB |
+| **Maximum Indexes per Service** |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
 
 #### S3 High Density'
 In Azure Cognitive Search’s S3 pricing tier, there is an option for the High Density (HD) mode designed specifically for multitenant scenarios. In many cases, it is necessary to support a large number of smaller tenants under a single service to achieve the benefits of simplicity and cost efficiency.
 
 S3 HD allows for the many small indexes to be packed under the management of a single search service by trading the ability to scale out indexes using partitions for the ability to host more indexes in a single service.
 
-Concretely, an S3 service could have between 1 and 200 indexes that together could host up to 1.4 billion documents. An S3 HD on the other hand would allow individual indexes to only go up to 1 million documents, but it can handle up to 1000 indexes per partition (up to 3000 per service) with a total document count of 200 million per partition (up to 600 million per service).
+An S3 service is designed to host a fixed number of indexes (maximum 200) and allow each index to scale in size horizontally as new partitions are added to the service. Adding partitions to S3 HD services increases the maximum number of indexes that the service can host. The ideal maximum size for an individual S3HD index is around 50 - 80 GB, although there is no hard size limit on each index imposed by the system.
 
 ## Considerations for multitenant applications
 Multitenant applications must effectively distribute resources among the tenants while preserving some level of privacy between the various tenants. There are a few considerations when designing the architecture for such an application:
@@ -68,7 +72,8 @@ In the case of a multitenant scenario, the application developer consumes one or
 3. *Mix of both:* Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
 
 ## 1. Index per tenant
-![A portrayal of the index-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="A portrayal of the index-per-tenant model" border="false":::
 
 In an index-per-tenant model, multiple tenants occupy a single Azure Cognitive Search service where each tenant has their own index.
 
@@ -85,7 +90,8 @@ Azure Cognitive Search allows for the scale of both the individual indexes and t
 If the total number of indexes grows too large for a single service, another service has to be provisioned to accommodate the new tenants. If indexes have to be moved between search services as new services are added, the data from the index has to be manually copied from one index to the other as Azure Cognitive Search does not allow for an index to be moved.
 
 ## 2. Service per tenant
-![A portrayal of the service-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="A portrayal of the service-per-tenant model" border="false":::
 
 In a service-per-tenant architecture, each tenant has its own search service.
 
@@ -111,7 +117,7 @@ The above design patterns to model multitenant scenarios in Azure Cognitive Sear
 
 If service-per-tenant and index-per-tenant models are not sufficiently small scopes, it is possible to model an index to achieve an even finer degree of granularity.
 
-To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Cognitive Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Cognitive Search's [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) capability at query time.
+To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Cognitive Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Cognitive Search's [filter](./query-odata-filter-orderby-syntax.md) capability at query time.
 
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 
@@ -124,4 +130,3 @@ This method can be used to achieve functionality of separate user accounts, sepa
 Azure Cognitive Search is a compelling choice for many applications. When evaluating the various design patterns for multitenant applications, consider the [various pricing tiers](https://azure.microsoft.com/pricing/details/search/) and the respective [service limits](search-limits-quotas-capacity.md) to best tailor Azure Cognitive Search to fit application workloads and architectures of all sizes.
 
 Any questions about Azure Cognitive Search and multitenant scenarios can be directed to azuresearch_contact@microsoft.com.
-

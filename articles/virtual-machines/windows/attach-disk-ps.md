@@ -3,7 +3,7 @@ title: Attach a data disk to a Windows VM in Azure by using PowerShell
 description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
@@ -15,10 +15,10 @@ This article shows you how to attach both new and existing disks to a Windows vi
 
 First, review these tips:
 
-* The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use premium SSDs, you'll need a [premium storage-enabled VM type](sizes-memory.md), like the DS-series or GS-series virtual machine.
+* The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use premium SSDs, you'll need a [premium storage-enabled VM type](../sizes-memory.md), like the DS-series or GS-series virtual machine.
 
-This article uses PowerShell within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This article uses PowerShell within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 ## Add an empty data disk to a virtual machine
 
@@ -44,7 +44,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### Using managed disks in an Availability Zone
 
-To create a disk in an Availability Zone, use [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
+To create a disk in an Availability Zone, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -64,7 +64,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### Initialize the disk
 
-After you add an empty disk, you'll need to initialize it. To initialize the disk, you can sign in to a VM and use disk management. If you enabled [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension:
+After you add an empty disk, you'll need to initialize it. To initialize the disk, you can sign in to a VM and use disk management. If you enabled [WinRM](/windows/desktop/winrm/portal) and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -112,4 +112,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## Next steps
 
-You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.
+You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](../using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.

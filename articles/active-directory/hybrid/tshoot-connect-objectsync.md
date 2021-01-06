@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -57,11 +57,6 @@ The rest of this section describes specific results that are returned by the tas
 When UserPrincipalName (UPN)/Alternate Login ID suffix is not verified with the Azure AD Tenant, then Azure Active Directory replaces the UPN suffixes with the default domain name "onmicrosoft.com".
 
 ![Azure AD replaces UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### Changing UPN Suffix from one federated domain to another federated domain
-Azure Active Directory does not allow the synchronization of UserPrincipalName (UPN)/Alternate Login ID suffix change from one federated domain to another federated domain. This applies to domains, that are verified with the Azure AD Tenant and have the Authentication Type as Federated.
-
-![No UPN synch from one federated domain to another](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### Azure AD Tenant DirSync Feature ‘SynchronizeUpnForManagedUsers’ is disabled
 When the Azure AD Tenant DirSync Feature ‘SynchronizeUpnForManagedUsers’ is disabled, Azure Active Directory does not allow synchronization updates to UserPrincipalName/Alternate Login ID for licensed user accounts with managed authentication.

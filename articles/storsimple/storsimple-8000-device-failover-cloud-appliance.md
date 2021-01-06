@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
@@ -42,15 +42,15 @@ Perform the following steps to restore the device to a target StorSimple Cloud A
     ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Select and click your source device. The source device has the volume containers that you want to fail over. Go to **Settings > Volume Containers**.
 
-    ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Select device 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume, right-click, and click **Take Offline** to take the volume offline.
 
-    ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Select device 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Repeat this process for all the volumes in the volume container.
 
-     ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Select device 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Repeat the previous step for all the volume containers you would like to fail over to another device.
 
@@ -77,7 +77,7 @@ Perform the following steps to restore the device to a target StorSimple Cloud A
 
     1. Select the device that was used as the target for the failover.
 
-       ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Select device 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Click **Volume Containers**. All the volume containers, along with the volumes from the old device, should be listed.
 

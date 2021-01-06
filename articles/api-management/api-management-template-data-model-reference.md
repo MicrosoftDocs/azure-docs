@@ -18,7 +18,7 @@ ms.author: apimpm
 # Azure API Management template data model reference
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  
   
- For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -62,7 +62,7 @@ This topic describes the entity and type representations for common items used i
 |`serviceUrl`|string|Absolute URL of the backend service implementing this API.|  
 |`path`|string|Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.|  
 |`protocols`|array of number|Describes on which protocols the operations in this API can be invoked. Allowed values are `1 - http` and `2 - https`, or both.|  
-|`authenticationSettings`|[Authorization server authentication settings](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection of authentication settings included in this API.|  
+|`authenticationSettings`|[Authorization server authentication settings](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection of authentication settings included in this API.|  
 |`subscriptionKeyParameterNames`|object|Optional property that can be used to specify custom names for query and/or header parameters containing the subscription key. When this property is present, it must contain at least one of the two following properties.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API summary  

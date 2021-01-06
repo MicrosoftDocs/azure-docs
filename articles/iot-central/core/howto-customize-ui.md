@@ -4,7 +4,7 @@ description: How to customize the theme and help links for your Azure IoT centra
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
@@ -16,8 +16,6 @@ manager: philmea
 # Customize the Azure IoT Central UI
 
 This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
-
-
 
 The following screenshot shows a page using the standard theme:
 

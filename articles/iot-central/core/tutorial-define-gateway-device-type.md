@@ -1,5 +1,5 @@
 ---
-title: Define a new gateway device type in Azure IoT Central | Microsoft Docs
+title: Tutorial - Define a new gateway device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: rangv
 ms.author: rangv
@@ -11,9 +11,11 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Define a new IoT gateway device type in your Azure IoT Central application
+# Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
 
-This tutorial shows you, as a builder, how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
+*This article applies to solution builders and device developers.*
+
+This tutorial shows you, as a solution builder, how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
@@ -24,6 +26,12 @@ As well as enabling downstream devices to communicate with your IoT Central appl
 * Send its own telemetry, such as temperature.
 * Respond to writeable property updates made by an operator. For example, an operator could changes the telemetry send interval.
 * Respond to commands, such as rebooting the device.
+
+> [!div class="checklist"]
+> Create downstream device templates
+> Create a gateway device template
+> Publish the device template
+> Create the simulated devices
 
 ## Prerequisites
 
@@ -132,7 +140,7 @@ To publish the gateway device template:
 
 3. In the **Publish a Device Template** dialog box, choose **Publish**.
 
-After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
+After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
 
 ## Create the simulated devices
 
@@ -202,7 +210,7 @@ In this tutorial, you learned how to:
 > [!NOTE]
 > VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
 
-Next, you can:
+Next, as a device developer, you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-device.md)
+> [Add an Azure IoT Edge device to your Azure IoT Central application](tutorial-add-edge-as-leaf-device.md)

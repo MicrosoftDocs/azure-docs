@@ -2,14 +2,16 @@
 title: Connect Qlik Sense to Azure Cosmos DB and visualize your data
 description: This article describes the steps required to connect Azure Cosmos DB to Qlik Sense and visualize your data. 
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ---
 
 # Connect Qlik Sense to Azure Cosmos DB and visualize your data
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense is a data visualization tool that combines data from different sources into a single view. Qlik Sense indexes every possible relationship in your data so that you can gain immediate insights to the data. You can visualize Azure Cosmos DB data by using Qlik Sense. This article describes the steps required to connect Azure Cosmos DB to Qlik Sense and visualize your data. 
 
@@ -49,7 +51,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 1. Open Qlik Sense and select **Create new app**. Provide a name for your app and select **Create**.
 
-   ![Create a new Qlik Sense app](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Create a new Qlik Sense app":::
 
 2. After the new app is created successfully, select **Open app** and choose **Add data from files and other sources**. 
 
@@ -57,15 +59,15 @@ Before following the instructions in this article, ensure that you have the foll
 
 4. Switch to **User DSN** and choose the ODBC connection you created earlier. Provide a name for the connection and select **Create**. 
 
-   ![Create a new connection](./media/visualize-qlik-sense/create-new-connection.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Create a new connection":::
 
 5. After you create the connection, you can choose the database, collection where the video game data is located and then preview it.
 
-   ![Choose the database and collection](./media/visualize-qlik-sense/choose-database-and-collection.png) 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Choose the database and collection"::: 
 
 6. Next select **Add data** to load the data to Qlik Sense. After you load data to Qlik Sense, you can generate insights and perform analysis on the data. You can either use the insights or build your own app exploring the video games sales. The following image shows 
 
-   ![Visualize data](./media/visualize-qlik-sense/visualize-data.png)
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualize data":::
 
 ### Limitations when connecting with ODBC 
 

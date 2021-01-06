@@ -105,8 +105,8 @@ landingContent:
         links:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/256299-site-recovery
-          - text: Ask a forum question
-            url: https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr
+          - text: Ask a Microsoft Q&A question
+            url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
 

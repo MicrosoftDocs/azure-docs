@@ -3,7 +3,6 @@ title: Azure Service Fabric application resource model
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
 ms.date: 10/21/2019
-ms.custom: sfrev
 ---
 
 # Service Fabric application resource model
@@ -50,8 +49,8 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
-* Delegate access by using a [shared access signature](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
 
@@ -86,6 +85,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 >
 >
 
+
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
@@ -94,7 +94,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 | applicationTypeVersion | The version of the application type         | 1.0.0                                                        | Must match ApplicationManifest.xml                 |
 | serviceName            | The name of the service         | Voting~VotingWeb                                             | Must be in the format ApplicationName~ServiceType            |
 | serviceTypeName        | The type name of the service                | VotingWeb                                                    | Must match ServiceManifest.xml                 |
-| appPackageUrl          | The blob storage URL of the application     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
+| appPackageUrl          | The blob storage URL of the application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
 
 ```json
 {
@@ -133,6 +133,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## Upgrade the Service Fabric application by using Resource Manager
 
+
+> [!IMPORTANT]
+> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+
+
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
 * A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
@@ -161,13 +166,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
 
 To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1. Use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
+1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

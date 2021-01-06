@@ -3,13 +3,11 @@ title: "Features: Action and context - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
 ---
 
 # Features are information about actions and context
@@ -149,10 +147,10 @@ For example:
 
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../entitylinking/home.md)
+* [Entity Linking](../text-analytics/index.yml)
 * [Text Analytics](../text-analytics/overview.md)
-* [Emotion](../emotion/home.md)
-* [Computer Vision](../computer-vision/home.md)
+* [Emotion](../face/overview.md)
+* [Computer Vision](../computer-vision/overview.md)
 
 ## Actions represent a list of options
 
@@ -319,4 +317,4 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 
 ## Next steps
 
-[Reinforcement learning](concepts-reinforcement-learning.md) 
+[Reinforcement learning](concepts-reinforcement-learning.md)

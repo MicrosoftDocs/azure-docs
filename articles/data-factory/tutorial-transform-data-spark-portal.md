@@ -13,6 +13,9 @@ ms.author: abnarain
 manager: anandsub
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline. This pipeline transforms data by using a Spark activity and an on-demand Azure HDInsight linked service. 
 
 You perform the following steps in this tutorial:

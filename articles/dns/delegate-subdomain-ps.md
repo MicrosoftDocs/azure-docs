@@ -4,7 +4,7 @@ description: With this learning path, get started delegating an Azure DNS subdom
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ---

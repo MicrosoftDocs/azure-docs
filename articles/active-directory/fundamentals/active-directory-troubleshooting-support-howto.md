@@ -3,11 +3,11 @@ title: Find help and open a support ticket - Azure Active Directory | Microsoft 
 description: Instructions about how to get help and open a support ticket for Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
@@ -24,7 +24,7 @@ Microsoft provides global technical, pre-sales, billing, and subscription suppor
 
 Before creating a support ticket, check out the following resources for answers and information. 
 
-* For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation at docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation at docs.microsoft.com](../index.yml).
 
 * The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
@@ -41,19 +41,29 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
    
-2. Scroll down to **Troubleshooting + Support** and select **New support request**.
+1. Scroll down to **Troubleshooting + Support** and select **New support request**.
    
-3. On the **Basics** blade, for **Issue type**, select **Technical**.
-   
-4. For **Service**, select **Azure Active Directory**, and then select **Next**.
+1. On the **Basics** blade, for **Issue type**, select **Technical**.
 
-5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/).
+1. Select your **Subscription**.
+
+1. For **Service**, select **Azure Active Directory**.
+
+1. Create a **Summary** for the request. The summary must be under 140 characters.
   
-6. Select a **Problem type**, and then select a **Category** for that type. At this point, you are also offered self-help information for your problem category.
+1. Select a **Problem type**, and then select a category for that type. At this point, you are also offered self-help information for your problem category.
   
-7. Add the rest of your problem information and click **Next**.
-  
-8. Provide your contact information and select **Create**.
+1. Add the rest of your problem information and click **Next**. 
+
+1. At this point, you are offered self-help solutions and documentation in the **Solutions** blade. If none of the solutions there resolve your problem, click **Next**. 
+
+1. On the **Details** blade, fill out the required details and select a [Severity](https://azure.microsoft.com/support/plans/response/). 
+ 
+    ![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+ 
+1. Provide your contact information and select **Next**. 
+
+1. Provide your contact information and select **Create**.
   ![Problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
 ### How to open a support ticket for Azure AD in the Microsoft 365 admin center
@@ -63,19 +73,19 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that has an Enterprise Mobility + Security (EMS) license.
 
-2. On the **Support** tile, select **New service request**:
+1. On the **Support** tile, select **New service request**:
 
-3. On the **Support Overview** page, select **Identity management** or **User and domain management**:
+1. On the **Support Overview** page, select **Identity management** or **User and domain management**:
 
-4. For **Feature**, select the Azure AD feature for which you want support.
+1. For **Feature**, select the Azure AD feature for which you want support.
 
-5. For **Symptom**, select an appropriate symptom, summarize your issue and provide relevant details, and then select **Next**.
+1. For **Symptom**, select an appropriate symptom, summarize your issue and provide relevant details, and then select **Next**.
 
-6. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
+1. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
 
-7. If you continue, you are asked for more details. You can attach any files you have that represent the problem, and then select **Next**.
+1. If you continue, you are asked for more details. You can attach any files you have that represent the problem, and then select **Next**.
 
-8. Provide your contact information and select **Submit request**.
+1. Provide your contact information and select **Submit request**.
 
 ## Get phone support
 
@@ -85,4 +95,4 @@ See the [Contact Microsoft for support](https://portal.office.com/Support/Contac
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Technical documentation at docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Technical documentation at docs.microsoft.com](../index.yml)

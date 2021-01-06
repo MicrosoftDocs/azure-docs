@@ -2,12 +2,12 @@
 title: 'Troubleshoot Azure Bastion | Microsoft Docs'
 description: In this article, learn how to troubleshoot Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
-ms.author: cherylmc
+ms.author: charwen
 
 ---
 
@@ -25,7 +25,7 @@ This article shows you how to troubleshoot Azure Bastion.
 2. Diagnostics logging and others – Outbound on 443 to AzureCloud (Regional tags within this service tag are not supported yet.)
 3. Target VM – Outbound for 3389 and 22 to VirtualNetwork
 
-An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="sshkey"></a>Unable to use my SSH key with Azure Bastion
@@ -78,7 +78,7 @@ The key's randomart image is:
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 
-**Q:** When I try to connect using Azure Bastion, I get a black screen in the Azure portal.
+**Q:** When I try to connect using Azure Bastion, I can't connnect to the target VM and I get a black screen in the Azure portal.
 
 **A:** This happens when there is either a network connectivity issue between your web browser and Azure Bastion (your client Internet firewall may be blocking WebSockets traffic or similar), or between the Azure Bastion and your target VM. Most cases include an NSG applied either to AzureBastionSubnet, or on your target VM subnet that is blocking the RDP/SSH traffic in your virtual network. Allow WebSockets traffic on your client internet firewall, and check the NSGs on your target VM subnet.
 

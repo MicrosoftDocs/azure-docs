@@ -3,7 +3,7 @@ title: Update your StorSimple device | Microsoft Docs
 description: Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: twooley
+ms.author: alkohli
 
 ---
 # Update your StorSimple 8000 Series device
 > [!NOTE]
-> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](./index.yml).
 
 ## Overview
 The StorSimple updates features allow you to easily keep your StorSimple device up-to-date. Depending on the update type, you can apply updates to the device via the Azure classic portal or via the Windows PowerShell interface. This tutorial describes the update types and how to install each of them.
@@ -80,22 +80,22 @@ If you need to apply Maintenance mode updates, you will receive an alert through
 > 
 > 
 
-### Step 1: Connect to the serial console <a name="step1">
+### Step 1: Connect to the serial console <a name="step1"></a>
 First, use an application such as PuTTY to access the serial console. The following procedure explains how to use PuTTY to connect to the serial console.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### Step 2: Enter Maintenance mode <a name="step2">
+### Step 2: Enter Maintenance mode <a name="step2"></a>
 After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### Step 3: Install your updates <a name="step3">
+### Step 3: Install your updates <a name="step3"></a>
 Next, install your updates.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### Step 4: Exit Maintenance mode <a name="step4">
+### Step 4: Exit Maintenance mode <a name="step4"></a>
 Finally, exit Maintenance mode.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]
@@ -116,6 +116,5 @@ The following procedures explain how to use Windows PowerShell for StorSimple to
 If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Azure classic portal and/or Windows PowerShell for StorSimple. For more information about factory reset, see [Reset the device to factory default settings](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## Next steps
-* Learn more about [using Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
-* Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-
+* Learn more about [using Windows PowerShell for StorSimple to administer your StorSimple device](./storsimple-8000-windows-powershell-administration.md).
+* Learn more about [using the StorSimple Manager service to administer your StorSimple device](./storsimple-8000-manager-service-administration.md).

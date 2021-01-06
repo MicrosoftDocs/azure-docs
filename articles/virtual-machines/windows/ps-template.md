@@ -1,19 +1,9 @@
-﻿---
+---
 title: Create a Windows VM from a template in Azure 
 description: Use a Resource Manager template and PowerShell to easily create a new Windows VM.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
@@ -23,6 +13,10 @@ ms.custom: H1Hack27Feb2017
 # Create a Windows virtual machine from a Resource Manager template
 
 Learn how to create a Windows virtual machine by using an Azure Resource Manager template and Azure PowerShell from the Azure Cloud shell. The template used in this article deploys a single virtual machine running Windows Server in a new virtual network with a single subnet. For creating a Linux virtual machine, see [How to create a Linux virtual machine with Azure Resource Manager templates](../linux/create-ssh-secured-vm-from-template.md).
+
+An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
+
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 ## Create a virtual machine
 
@@ -62,7 +56,7 @@ In the previous example, you specified a template stored in GitHub. You can also
 
 Here are some additional resources:
 
-- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
 - To see the Azure virtual machine schemas, see [Azure template reference](/azure/templates/microsoft.compute/allversions).
 - To see more virtual machine template samples, see [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -72,7 +66,7 @@ The last PowerShell command from the previous script shows the virtual machine n
 
 ## Next Steps
 
-- If there were issues with the deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- If there were issues with the deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Learn how to create and manage a virtual machine in [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:

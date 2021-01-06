@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by CloudSimple - Nodes overview 
-description: Learn about CloudSimple nodes and concepts. 
+description: Learn about CloudSimple concepts, including nodes, provisioned nodes, a Private Cloud, and VMware Solution by CloudSimple nodes SKUs.
 author: sharaths-cs
 ms.author: dikamath 
 ms.date: 08/20/2019

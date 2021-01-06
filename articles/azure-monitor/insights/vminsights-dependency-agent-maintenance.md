@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 04/16/2020
 
 ---
 
@@ -56,7 +56,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
 
-You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentlinux).
+You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
 1. Sign on to the computer with an account that has administrative rights.
 

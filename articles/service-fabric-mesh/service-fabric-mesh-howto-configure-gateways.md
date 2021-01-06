@@ -1,11 +1,11 @@
 ---
 title: Configure a Gateway to route requests 
 description: Learn how to configure the gateway that handles incoming traffic for your application(s) running on Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 ---
 

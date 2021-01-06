@@ -1,19 +1,8 @@
 ---
-title: Manage your account- Azure Batch | Microsoft Docs
+title: Manage your account
 description: Learn what comprises an Azure Batch account 
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 03/05/2020
-ms.author: labrenne
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -30,13 +19,13 @@ You can run multiple Batch workloads in a single Batch account, or distribute yo
 
 The Batch account enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Within the account you manage:
 
-- the applications you are running
+- The applications you are running
 
-- the allocation of pools and nodes within pools
+- The allocation of pools and nodes within pools
 
-- the number and types of tasks 
+- The number and types of tasks 
 
-- the input and output of data. You don't need to install additional software to manage tasks.
+- The input and output of data. You don't need to install additional software to manage tasks.
 
 - When you create the Batch account, you are asked to assign a name to it. This name is its ID and once assigned cannot be changed.
 

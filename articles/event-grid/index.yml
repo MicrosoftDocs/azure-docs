@@ -32,7 +32,7 @@ landingContent:
           - text: Event Grid concepts
             url: concepts.md
           - text: Event sources
-            url: event-sources.md
+            url: overview.md#event-sources
           - text: Event handlers
             url: event-handlers.md
           - text: Event filters
@@ -89,7 +89,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Reference architecture for queues and events
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
+            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card
   - title: Customizations

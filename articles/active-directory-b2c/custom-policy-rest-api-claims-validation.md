@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/16/2020
+ms.topic: how-to
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,28 +18,16 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.
-
-At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
-
-IEF can send data that has been stored in a claims bag during a user journey to your REST API. It can also parse JSON responses received from the REST API into the Azure AD B2C claim bag. The interaction with the API:
-
-- Can be designed as a REST API claims exchange called from an orchestration step, or as a [validation technical profile](validation-technical-profile.md) called from within a [self asserted technical profile](self-asserted-technical-profile.md).
-- Typically validates input from the user. If the value from the user is rejected, the user can try again to enter a valid value with the opportunity to return an error message.
-
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
-
-For the validation profile example, we will use the profile edit user journey in the starter pack file ProfileEdit.xml.
-
-We can verify that the name provided by the user in the profile edit is not part of an exclusion list.
-
-## Scenario
+The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you'll be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md) to validate user input.
 
 In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. We'll validate whether this combination of email and loyalty number is mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
 ## Prepare a REST API endpoint
 
@@ -73,7 +61,7 @@ If the validation failed, the REST API must return an HTTP 409 (Conflict), with 
 }
 ```
 
-The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](../azure-functions/functions-reference.md) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## Define claims
 
@@ -101,7 +89,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 </ClaimType>
 ```
 
-## Configure the RESTful API technical profile 
+## Add the RESTful API technical profile 
 
 A [Restful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element and add a new claims provider as follows:
 
@@ -110,9 +98,10 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="REST-ValidateProfile">
-      <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -138,7 +127,18 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
 
 In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
+### Configure the RESTful API technical profile 
+
+After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to reflect your own REST API, including:
+
+- **ServiceUrl**. Set the URL of the REST API endpoint.
+- **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.
+- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider. 
+- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `true`
+	
+See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
+
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
 ## Validate the user input
 
@@ -253,7 +253,7 @@ To return the promo code claim back to the relying party application, add an out
   "iat": 1584292103,
   "auth_time": 1584292103,
   "name": "Emily Smith",
-  "email": "joe@outlook.com",
+  "email": "emily@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
   "promoCode": "84362"
@@ -263,10 +263,8 @@ To return the promo code claim back to the relying party application, add an out
 
 ## Next steps
 
-
 To learn how to secure your APIs, see the following articles:
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
-- [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
-- [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Secure your RESTful API](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)

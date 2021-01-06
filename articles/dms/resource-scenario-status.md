@@ -10,8 +10,8 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
-ms.date: 09/05/2019
+ms.topic: troubleshooting
+ms.date: 07/08/2020
 ---
 
 # Status of migration scenarios supported by Azure Database Migration Service
@@ -43,18 +43,20 @@ The following table shows Azure Database Migration Service support for offline m
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |  |
+|   | RDS SQL | X |  |
+|   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |   |
+|   | RDS SQL | X |  |
+|   | Oracle | X |   |
 | **Azure SQL VM** | SQL Server | ✔ | GA |
-|   | Oracle |   |   |
+|   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL |   |   |
-|   | RDS MySQL |   |   |
-| **Azure DB for PostgreSQL** | PostgreSQL |  |
-|  | RDS PostgreSQL |   |   |
+| **Azure DB for MySQL** | MySQL | X |   |
+|   | RDS MySQL | X |   |
+| **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
+| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
 
 ### Online (continuous sync) migration support
 
@@ -64,18 +66,22 @@ The following table shows Azure Database Migration Service support for online mi
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle |  |  |
+|   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle | ✔ | Private preview |
-| **Azure SQL VM** | SQL Server |   |   |
-|   | Oracle  |  |  |
+|   | Oracle | X |  |
+| **Azure SQL VM** | SQL Server | X |   |
+|   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
-| **Azure DB for PostgreSQL** | PostgreSQL | ✔ | GA |
+| **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
+|   | Azure DB for PostgreSQL - Single server | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Public preview |
+| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
+
 
 ## Next steps
 

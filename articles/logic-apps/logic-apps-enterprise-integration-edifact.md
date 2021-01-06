@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 04/22/2020
 ---
 
 # Exchange EDIFACT messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -90,6 +90,10 @@ Select the **Host Partner**, **Host Identity**,
 Now that you've set the agreement properties, 
 you can configure how this agreement identifies and 
 handles incoming messages received from your partner through this agreement.
+
+> [!IMPORTANT]
+> The EDIFACT connector supports only UTF-8 characters.
+> If your output contains unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
 
 1. Under **Add**, select **Receive Settings**.
 Configure these properties based on your agreement 
@@ -275,15 +279,15 @@ and return to your integration account.
 2.	You can also view your agreements in your integration account overview. 
 On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	![Screenshot that shows the Agreements tile.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Connector reference
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/edifact/).
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/edifact/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.date: 11/21/2019
 The IP address prefixes of IoT Hub public endpoints are published periodically under the _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md).
 
 > [!NOTE]
-> For devices that are deployed inside of on-premises networks, Azure IoT Hub supports VNET  connectivity integration with private endpoints. See [IoT Hub support for VNET's](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) for more information.
+> For devices that are deployed inside of on-premises networks, Azure IoT Hub supports VNET  connectivity integration with private endpoints. See [IoT Hub support for VNet](./virtual-network-support.md) for more information.
 
 
 You may use these IP address prefixes to control connectivity between IoT Hub and your devices or network assets in order to implement a variety of network isolation goals:

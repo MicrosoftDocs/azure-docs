@@ -1,22 +1,16 @@
 ---
 title: .NET Programming guide - Azure Event Hubs (legacy) | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-
-ms.service: event-hubs
-ms.custom: seodec18
 ms.topic: article
-ms.date: 01/15/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
+
 # .NET Programming guide for Azure Event Hubs (legacy Microsoft.Azure.EventHubs package)
-This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
+This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](./event-hubs-about.md).
 
 > [!WARNING]
-> This guide is for the old **Microsoft.Azure.EventHubs** package. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) your code to use the latest [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md) package.  
+> This guide is for the old **Microsoft.Azure.EventHubs** package. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) your code to use the latest [Azure.Messaging.EventHubs](event-hubs-dotnet-standard-getstarted-send.md) package.  
 
 
 ## Event publishers
@@ -98,7 +92,7 @@ A single batch must not exceed the 1 MB limit of an event. Additionally, each me
 
 ## Send asynchronously and send at scale
 
-You send events to an event hub asynchronously. Sending asynchronously increases the rate at which a client is able to send events. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returns a [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) object. You can use the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) class on the client to control client retry options.
+You send events to an event hub asynchronously. Sending asynchronously increases the rate at which a client is able to send events. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returns a [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) object. You can use the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) class on the client to control client retry options.
 
 ## Event consumers
 The [EventProcessorHost][] class processes data from Event Hubs. You should use this implementation when building event readers on the .NET platform. [EventProcessorHost][] provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
@@ -151,8 +145,8 @@ For more information about publisher revocation and how to send to Event Hubs as
 
 To learn more about Event Hubs scenarios, visit these links:
 
-* [Event Hubs API overview](event-hubs-api-overview.md)
-* [What is Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Event Hubs API overview](./event-hubs-samples.md)
+* [What is Event Hubs](./event-hubs-about.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event processor host API reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

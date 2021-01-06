@@ -46,7 +46,7 @@ The Azure Kinect device consists of the following size and weight dimensions.
 
 Azure Kinect DK is intended for developers and commercial businesses operating under the following ambient conditions:
 
-- **Temperature**: 10-25⁰C
+- **Temperature**: 10-25<sup>0</sup>C
 - **Humidity**: 8-90% (non-condensing) Relative Humidity
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Refer to additional product [safety information](https://support.microsoft.com/h
 
 ## Depth camera supported operating modes
 
-Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
+Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
 
  | Mode            | Resolution | FoI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
@@ -81,7 +81,7 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 |       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74.3°                            |
 |       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74.3°                            |
 
-The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. 
+The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. The MJPEG [chroma sub-sampling](https://en.wikipedia.org/wiki/Chroma_subsampling) is 4:2:2.
 
 > [!NOTE]
 > The Sensor SDK can provide color images in the BGRA pixel format. This is not a native mode supported by the device and causes additional CPU load when used. The host CPU is used to convert from MJPEG images received from the device.
@@ -164,7 +164,7 @@ The status LED behind the device indicates device state:
 | When the light is     | It means                                                   |
 |-----------------------|------------------------------------------------------------|
 | Solid white           | Device is on and working properly.                         |
-| Flashing white        | Device is on but doesn’t have a USB 3.0 data connection.   |
+| Flashing white        | Device is on but doesn't have a USB 3.0 data connection.   |
 | Flashing amber        | Device doesn't have enough power to operate.               |
 | Amber flashing white  | Firmware update or recovery in progress                    |
 
@@ -172,7 +172,7 @@ The status LED behind the device indicates device state:
 
 The device can be powered in two ways:
 
-1. Using the in-box power supply. Data is connected by a separate USB Type-C to Type-A cable.
+1. Using the in-box power supply. The power connector is a 4.5mm OD with 3.0mm ID and a pin diameter of 0.6mm.
 2. Using a Type-C to Type-C cable for both power and data.
 
 A Type-C to Type-C cable isn't included with the Azure Kinect DK.

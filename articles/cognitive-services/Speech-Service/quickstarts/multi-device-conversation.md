@@ -8,9 +8,10 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/16/2020
+ms.date: 06/25/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Multi-device Conversation

@@ -9,16 +9,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 
 # Quickstart: Perform a news search using Ruby and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and processes the results.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-While this application is written in Python, the API is a RESTful Web service compatible most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Use this quickstart to make your first call to the Bing News Search API. This simple Ruby application sends a search query to the API and processes the JSON response.
+
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. 
+
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## Prerequisites
 
@@ -28,7 +35,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Create and initialize the application
 
-1. import the following packages into your code file.
+1. Import the following packages into your code file:
 
     ```ruby
     require 'net/https'
@@ -36,7 +43,7 @@ While this application is written in Python, the API is a RESTful Web service co
     require 'json'
     ```
 
-2. Create variables for the API endpoint, News search URL, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, news search URL, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     accessKey = "enter key here"
@@ -47,7 +54,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Format and make an API request
 
-Use the variables from the last step to format a search URL for the API request. Then send the request.
+Use the variables from the previous step to format a search URL for the API request. Then, send the request.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -60,7 +67,7 @@ end
 
 ## Process and print the JSON response
 
-After the response is received, you can parse the JSON, and print both the response body, and its headers:
+After the response is received, parse the JSON, and then print both the response body and its headers.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -74,7 +81,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 
@@ -173,4 +180,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a signle-page app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
