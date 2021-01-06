@@ -498,7 +498,7 @@ Sample JSON for detections output by this operation with `zonecrossing` type SPA
             "properties": {
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Enter",
-                "side": ""
+                "side": "1"
             },
             "zone": "queuecamera"
         }
@@ -556,7 +556,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-                "duration_franes": 1000 
+                "duration_frames": 1000 
             },
             "zone": "queuecamera"
         }
