@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,44 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## December 2020
+
+Here's what changed in December 2020: 
+
+### Azure Monitor for Windows Virtual Desktop
+
+The public preview for Azure Monitor for Windows Virtual Desktop is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Windows Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
+
+### Azure Resource Manager template change 
+
+In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Windows Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you'll need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
+
+### MSIX app attach public preview 
+
+MSIX app attach is another service that began its public preview this month. MSIX app attach is a service that dynamically presents MSIX applications to your Windows Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
+
+### Screen capture protection 
+
+This month also marked the beginning of the public preview for screen capture protection. You can use this feature to prevent sensitive information from being captured on the client endpoints. Give screen capture protection a try by going to [this page](https://aka.ms/WVDScreenCaptureProtection).  
+
+### Built-in roles
+
+We've added new built-in roles for Windows Virtual Desktop for admin permissions. For more information, see [Built-in roles for Windows Virtual Desktop](rbac.md). 
+
+### Application group limit increase
+
+We've increased the default application group limit per Azure Active Directory tenant to 200 groups.
+
+### Client updates for December 2020
+
+We've released new versions of the following clients: 
+
+- Android
+- macOS
+- Windows
+
+For more information about client updates, see [Client updates](whats-new.md#client-updates).
 
 ## November 2020
 
