@@ -211,7 +211,7 @@
       href: solarwinds.md
     - name: Respond with Azure Sentinel
       href: identity-compromise-azure-sentinel.md
-    - name: Respond with Azure Defender for Endpoint
+    - name: Respond with Microsoft 365 Defender 
       href: identity-compromise-defender.md
     - name: Respond with Azure Active Directory
       href: identity-compromise-aad.md

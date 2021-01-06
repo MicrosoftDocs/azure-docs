@@ -36,7 +36,7 @@ The global administrator account or certificates enabled the attackers to forge 
 
 1. **Removed the digital certificates used by the files infected with the trojan,** causing all Windows systems to immediately stop trusting those compromised files. 
 
-1. **Updated Microsoft Defender** to detect and alert and immediately quarantine an infected file on the system.
+1. **Updated Microsoft 365 Defender** to detect and alert and immediately quarantine an infected file on the system.
 
 1. **Sinkholed one of the domains used** for the malware's command and control servers.
 
@@ -50,15 +50,15 @@ The global administrator account or certificates enabled the attackers to forge 
 > [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
 ## Securing your network after a systemic identity compromise
 
-If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender, Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Cloud App Security, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
+If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender services, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
 
 If you have Azure Sentinel, make sure that you set up relevant connectors to other services so that you can respond to threats by querying all the data directly in Azure Sentinel. 
 
 For more information, see [Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-azure-sentinel.md).
 
-You can also use Microsoft Defender and Azure Active Directory directly to perform similar checks and hardening activities. For more information, see:
+You can also use Microsoft 365 Defender and Azure Active Directory directly to perform similar checks and hardening activities. For more information, see:
 
-- [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
+- [Use Microsoft 365 Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
 - [Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
 
 
@@ -74,7 +74,7 @@ The following links were used in building related articles in the documentation,
 |**TechCommunity**     |    [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718) <br><br> [SolarWinds: Post compromise hunting with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095)      |
 |**Microsoft Security Intelligence**     |  [Malware encyclopedia definition: Solorigate](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.B!dha)       |
 |**Microsoft Security blog**     |   [Analyzing Solorigate: The compromised DLL file that started a sophisticated cyberattack and how Microsoft Defender helps protect](https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)<br><br> [Advice for incident responders on recovery from system identity compromises](https://www.microsoft.com/security/blog/2020/12/21/advice-for-incident-responders-on-recovery-from-systemic-identity-compromises/) from the Detection and Response Team (DART) <br><br>[Using Microsoft 365 Defender to coordinate protection against Solorigate](https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/)   <br><br>[Ensuring customers are protected from Solorigate](https://www.microsoft.com/security/blog/2020/12/15/ensuring-customers-are-protected-from-solorigate/)   |
-| **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced Microsoft Defender query reference](identity-compromise-defender.md#advanced-microsoft-defender-query-reference)      |
+| **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced Microsoft 365 Defender query reference](identity-compromise-defender.md#advanced-microsoft-defender-query-reference)      |
 |     |         |
 
 
