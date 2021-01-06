@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2020
+ms.date: 1/6/2020
 ms.author: shhazam
 ---
 
@@ -28,7 +28,7 @@ The Defender for IoT pricing model is comprised of two parts, and is billed once
 
 - Cost by message - enhanced security capabilities based on security messages from IoT Edge or leaf devices.
 
-For more information, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+For more information, see [Azure Defender for IoT pricing](https://azure.microsoft.com/pricing/details/azure-defender/).
 
 ## Associated costs
 
