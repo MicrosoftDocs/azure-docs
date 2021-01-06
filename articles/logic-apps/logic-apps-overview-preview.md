@@ -154,7 +154,7 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 When you create the new logic app type in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Premium](../azure-functions/functions-scale.md), for your logic app to use. This plan determines the pricing model that applies to running your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md).
 
-*Stateful* workflows use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) applies to storage transactions that the Azure Logic Apps Preview runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+*Stateful* workflows use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), so the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) applies to storage transactions that the Azure Logic Apps Preview runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
 
 > [!NOTE]
 > During public preview, running logic apps on App Service doesn't incur *additional* charges on top of your selected plan.
