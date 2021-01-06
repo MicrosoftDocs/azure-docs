@@ -798,94 +798,6 @@ ___
 Gets the year value of a date.  
 * ``year(toDate('2012-8-8')) -> 2012``  
 
-## Array functions
-### <code>array</code>
-<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
-Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  
-* ``array('Seattle', 'Washington')``
-* ``['Seattle', 'Washington']``
-* ``['Seattle', 'Washington'][1]``
-* ``'Washington'``
-___
-### <code>filter</code>
-<code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
-Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
-* ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
-* ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``  
-___
-### <code>find</code>
-<code><b>find(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Find the first item from an array that match the condition. It takes a filter function where you can address the item in the array as #item. For deeply nested maps you can refer to the parent maps using the #item_n(#item_1, #item_2...) notation.  
-* ``find([10, 20, 30], #item > 10) -> 20``
-* ``find(['azure', 'data', 'factory'], length(#item) > 4) -> 'azure'``
-* ``find([
-      @(
-         name = 'Daniel',
-         types = [
-                   @(mood = 'jovial', behavior = 'terrific'),
-                   @(mood = 'grumpy', behavior = 'bad')
-                 ]
-        ),
-      @(
-         name = 'Mark',
-         types = [
-                   @(mood = 'happy', behavior = 'awesome'),
-                   @(mood = 'calm', behavior = 'reclusive')
-                 ]
-        )
-      ],
-      contains(#item.types, #item.mood=='happy')  /*Filter out the happy kid*/
-    )``
-* ``
-   @(
-         name = 'Mark',
-         types = [
-                   @(mood = 'happy', behavior = 'awesome'),
-                   @(mood = 'calm', behavior = 'reclusive')
-                 ]
-    )
-  ``  
-___
-### <code>map</code>
-<code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item.  
-* ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
-* ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
-___
-### <code>mapIndex</code>
-<code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index.  
-* ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
-___
-### <code>reduce</code>
-<code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function.  
-* ``toString(reduce(['1', '2', '3', '4'], '0', #acc + #item, #result)) -> '01234'``  
-___
-### <code>size</code>
-<code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
-Finds the size of an array or map type  
-* ``size(['element1', 'element2']) -> 2``
-* ``size([1,2,3]) -> 3``
-___
-### <code>slice</code>
-<code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
-Extracts a subset of an array from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string.  
-* ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
-* ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``  
-* ``slice([10, 20, 30, 40], 2)[1] -> 20``  
-* ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``  
-* ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``  
-* ``slice(['a', 'b', 'c', 'd'], 8) -> []``  
-___
-### <code>sort</code>
-<code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
-Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.  
-* ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
-* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
-___
-
-
 ## Aggregate functions
 The following functions are only available in aggregate, pivot, unpivot, and window transformations.
 ___
@@ -1080,6 +992,99 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the unbiased variance of a column.  
 * ``varianceSampleIf(region == 'West', sales)``  
+
+## Array functions
+Array functions perform tranformations on data structures that are arrays. These include special keywords to address array elements and indexes:
+
+* ```#acc``` represents a value that you wish to indluce in your single output when reducing an array
+* ```#index``` represents the current array index, along with array index numbers ```#index2, #index3 ...```
+* ```#item``` represents the current element value in the array
+
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  
+* ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
+___
+### <code>filter</code>
+<code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
+Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
+* ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
+* ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``  
+___
+### <code>find</code>
+<code><b>find(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Find the first item from an array that match the condition. It takes a filter function where you can address the item in the array as #item. For deeply nested maps you can refer to the parent maps using the #item_n(#item_1, #item_2...) notation.  
+* ``find([10, 20, 30], #item > 10) -> 20``
+* ``find(['azure', 'data', 'factory'], length(#item) > 4) -> 'azure'``
+* ``find([
+      @(
+         name = 'Daniel',
+         types = [
+                   @(mood = 'jovial', behavior = 'terrific'),
+                   @(mood = 'grumpy', behavior = 'bad')
+                 ]
+        ),
+      @(
+         name = 'Mark',
+         types = [
+                   @(mood = 'happy', behavior = 'awesome'),
+                   @(mood = 'calm', behavior = 'reclusive')
+                 ]
+        )
+      ],
+      contains(#item.types, #item.mood=='happy')  /*Filter out the happy kid*/
+    )``
+* ``
+   @(
+         name = 'Mark',
+         types = [
+                   @(mood = 'happy', behavior = 'awesome'),
+                   @(mood = 'calm', behavior = 'reclusive')
+                 ]
+    )
+  ``  
+___
+### <code>map</code>
+<code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item.  
+* ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
+* ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
+___
+### <code>mapIndex</code>
+<code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index.  
+* ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
+___
+### <code>reduce</code>
+<code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function.  
+* ``toString(reduce(['1', '2', '3', '4'], '0', #acc + #item, #result)) -> '01234'``  
+___
+### <code>size</code>
+<code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
+Finds the size of an array or map type  
+* ``size(['element1', 'element2']) -> 2``
+* ``size([1,2,3]) -> 3``
+___
+### <code>slice</code>
+<code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
+Extracts a subset of an array from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string.  
+* ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
+* ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``  
+* ``slice([10, 20, 30, 40], 2)[1] -> 20``  
+* ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``  
+* ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``  
+* ``slice(['a', 'b', 'c', 'd'], 8) -> []``  
+___
+### <code>sort</code>
+<code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
+Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.  
+* ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
+* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
+
 
 ## Conversion functions
 
