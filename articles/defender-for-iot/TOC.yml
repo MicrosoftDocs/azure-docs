@@ -42,7 +42,7 @@
     items:
     - name: Key concepts
       href: concept-key-concepts.md
-    - name: Pricing model
+    - name: Agentless pricing and associated costs
       href: concepts-pricing-diot.md
   - name: Agent-based Solution for Device Builders
     items: 
@@ -75,7 +75,7 @@
       href: concept-baseline.md
     - name: Event aggregation
       href: event-aggregation.md
-    - name: Pricing and associated costs
+    - name: Agent-based pricing and associated costs
       href: concept-pricing.md
 - name: How-to guides
   items:
