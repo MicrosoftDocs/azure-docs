@@ -14,7 +14,7 @@
   items:
   - name: Database deployment
     items:
-    - name: Github Actions    
+    - name: GitHub actions    
       href: how-to-deploy-github-action.md
   - name: Migration
     items:
