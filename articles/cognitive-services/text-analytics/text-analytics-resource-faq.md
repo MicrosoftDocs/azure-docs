@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/05/2021
 ms.author: aahi
 ---
-# Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
+# Frequently Asked Questions (FAQ) about the Text Analytics API
 
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
+ Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Azure Cognitive Services.
 
 ## Can Text Analytics identify sarcasm?
 
@@ -58,5 +58,5 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
