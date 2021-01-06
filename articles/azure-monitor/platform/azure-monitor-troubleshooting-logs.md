@@ -14,7 +14,7 @@ ms.date: 12/29/2020
 Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 
 ## Troubleshoot and query your code or configuration issues
-Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheaper way using KQL. Troubleshooting logs decrees your charges buy also give you less capabilities that are enough for you to do troubleshooting, please note that you can decide if a table is in troubleshooting mode or not.
+Use Azure monitor troubleshooting logs to fetch your records and investigate problems and issues using a more simpler and cheaper way using KQL. Troubleshooting logs decrees your charges buy also give you fewer capabilities that are enough for you to do troubleshooting, you can decide if a table is in troubleshooting mode or not.
 The service allows you to join analytics docs on supported tables with a free retention period.
 
 > [!NOTE]
@@ -125,10 +125,10 @@ Response:
 >* When disabling the "isTroubleshootEnabled" flag for a specific table, re-enabling it is possible only one week after the prior enable date.
 >* Currently this is supported only for tables under PerGB2018 SKU (some other SKUs will also be supported in the future).
 
-## Qurey limitations for Troubleshooting
-There are few limitations regarding a table that is marked as "Troubleshooting logs":
-*	Will get less processing resources and therfore, will not be suitable for large dashboards, complex analytics or many concurrent API calls.
-*	Queries are limited to a time range of 2 days.
+## Query limitations for Troubleshooting
+There are few limitations for a table that is marked as "Troubleshooting logs":
+*	Will get less processing resources and therefore, will not be suitable for large dashboards, complex analytics, or many concurrent API calls.
+*	Queries are limited to a time range of two days.
 * purging will not work – [Read more about purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge).
 * Alerts will not work.
 ## Next steps
