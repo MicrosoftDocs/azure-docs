@@ -119,7 +119,7 @@
   - name: Authentication libraries
     displayName: msal, microsoft.identity.web
     items:
-    - name: The Microsoft Authentication Library (MSAL)
+    - name: Microsoft Authentication Library (MSAL)
       href: msal-overview.md
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md

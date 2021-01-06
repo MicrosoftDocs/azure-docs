@@ -16,7 +16,7 @@ ms.custom: aaddev
 ms.reviewer: shoatman
 ---
 
-# The Android Microsoft Authentication Library configuration file
+# Android Microsoft Authentication Library configuration file
 
 The Android Microsoft Authentication Library (MSAL) ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that you customize to define the behavior of your public client app for things such as the default authority, which authorities you'll use, and so on.
 
