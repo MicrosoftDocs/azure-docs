@@ -34,7 +34,7 @@ The **Name** you enter here is shown to customers as the title of the offer. Thi
 - Must be 50 characters or less.
 - Can't include emojis.
 
-Provide a short description of your offer, up to 100 characters, for the **Search results summary**. This description may be used in marketplace search results.
+Provide a short description of your offer for the **Search results summary** (up to 100 characters). This description may be used in marketplace search results.
 
 [!INCLUDE [Long description-1](includes/long-description-1.md)]
 

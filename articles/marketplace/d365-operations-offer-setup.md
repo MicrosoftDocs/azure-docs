@@ -41,7 +41,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on AppSource. It is different from the offer name and other values that are shown to customers.
+- This name isn't used <strike>in the marketplace</strike> on AppSource. It is different from the offer name and other values shown to customers.
 - This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
