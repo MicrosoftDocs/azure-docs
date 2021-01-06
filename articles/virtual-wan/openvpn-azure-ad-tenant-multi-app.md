@@ -8,7 +8,6 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-
 ---
 # Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections
 
@@ -101,21 +100,6 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. Browse to the profile xml file and select it. With the file selected, select **Open**.
 
-<<<<<<< HEAD
-    ![import 2](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
-
-3. Specify the name of the profile and select **Save**.
-
-    ![import 3](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
-
-4. Select **Connect** to connect to the VPN.
-
-    ![import 4](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
-
-5. Once connected, the icon will turn green and say **Connected**.
-
-    ![import 5](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
-=======
     ![Screenshot shows an Open dialog box where you can select a file.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. Specify the name of the profile and select **Save**.
@@ -129,7 +113,6 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 5. Once connected, the icon will turn green and say **Connected**.
 
     ![Screenshot shows the connection in a Connected status with the option to disconnect.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
->>>>>>> dd0156f1b2c94f4076a12e1ded0e59ada052d509
 
 #### <a name="delete"></a>To delete a client profile
 
@@ -139,11 +122,7 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. Select **Remove** to delete.
 
-<<<<<<< HEAD
-    ![delete 2](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
-=======
     ![Screenshot shows a confirmation dialog box with the option to Remove or Cancel.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
->>>>>>> dd0156f1b2c94f4076a12e1ded0e59ada052d509
 
 #### <a name="diagnose"></a>To diagnose connection issues
 
@@ -153,8 +132,7 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. On the **Connection Properties** page, select **Run Diagnosis**.
 
-<<<<<<< HEAD
-    ![diagnose 2](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![Screenshot shows the Run Diagnosis button for a connection.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Sign in with your credentials.
 
@@ -162,8 +140,6 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 4. View the diagnosis results.
 
-    ![diagnose 4](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
-=======
     ![Screenshot shows the Run Diagnosis button for a connection.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Sign in with your credentials.
@@ -173,7 +149,6 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 4. View the diagnosis results.
 
     ![Screenshot shows the results of the diagnosis.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
->>>>>>> dd0156f1b2c94f4076a12e1ded0e59ada052d509
 
 ## <a name="viewwan"></a>10. View your virtual WAN
 
