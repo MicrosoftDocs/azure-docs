@@ -26,42 +26,44 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) and the AKS cluster later. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
 ```
 
-> [!NOTE]
-> The location for the resource group is where resource group metadata is stored. It is also where your resources run in Azure if you don't specify another region during resource creation.
+## Create ACR instance
 
-The following example output shows the resource group created successfully:
+Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) command to create the ACR instance. The following example creates an ACR named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/java-liberty-project",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "java-liberty-project",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
+```azurecli-interactive
+az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
 ```
+
+### Connect to the ACR
+
+To push image to the ACR, you need to log into it first. Run the following commands to verify the connection:
+
+```azurecli-interactive
+REGISTRY_NAME=youruniqueacrname
+LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query loginServer | tr -d '"')
+USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query username | tr -d '"')
+PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query passwords[0].value | tr -d '"')
+
+docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
+```
+
+You should see `Login Succeeded` at the end of command output if you log into the ACR successfully.
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node, and attaches the ACR created before. This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
-
-> [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](faq.md#why-are-two-resource-groups-created-with-aks)
 
 ### Connect to the cluster
 
@@ -101,46 +103,18 @@ After creating and connecting to the cluster, install the [Open Liberty Operator
 OPERATOR_NAMESPACE=default
 WATCH_NAMESPACE='""'
 
+# Install Custom Resource Definitions (CRDs) for OpenLibertyApplication
 kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-crd.yaml
 
+# Install cluster-level role-based access
 curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-cluster-rbac.yaml \
       | sed -e "s/OPEN_LIBERTY_OPERATOR_NAMESPACE/${OPERATOR_NAMESPACE}/" \
       | kubectl apply -f -
 
+# Install the operator
 curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-operator.yaml \
       | sed -e "s/OPEN_LIBERTY_WATCH_NAMESPACE/${WATCH_NAMESPACE}/" \
       | kubectl apply -n ${OPERATOR_NAMESPACE} -f -
-```
-
-## Create Azure Container Registry
-
-Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) command to create an Azure Container Registry (ACR). The following example creates an ACR named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
-
-```azurecli-interactive
-az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
-```
-
-### Connect to the ACR
-
-To push image to the ACR, you need to log into it first. Run the following commands to verify the connection:
-
-```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
-LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query loginServer | tr -d '"')
-USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query username | tr -d '"')
-PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query passwords[0].value | tr -d '"')
-
-docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
-```
-
-You should see `Login Succeeded` at the end of command output if you log into the ACR successfully.
-
-### Attach the ACR to the AKS cluster
-
-In order to pull image from the ACR, the AKS cluster need to attach the ACR by running the [az aks update](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update) command:
-
-```azurecli-interactive
-az aks update -n myAKSCluster -g java-liberty-project --attach-acr youruniqueacrname
 ```
 
 ## Build application image
@@ -151,14 +125,14 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 1. Change directory to `javaee-app-simple-cluster` of your local clone.
 1. Run `mvn clean package` to package the application.
 1. Run one of the following commands to build the application image and push it to the ACR.
-   * Build with Open Liberty base image:
+   * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
 
      ```azurecli-interactive
      # Build and tag application image. This will cause ACR to pull the necessary Open Liberty base images.
      az acr build -t javaee-cafe-simple:1.0.0 -r $REGISTRY_NAME .
      ```
 
-   * Build with WebSphere Liberty base image:
+   * Build with WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
      ```azurecli-interactive
      # Build and tag application image. This will cause ACR to pull the necessary WebSphere Liberty base images.
