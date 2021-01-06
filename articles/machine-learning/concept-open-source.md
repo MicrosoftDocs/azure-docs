@@ -1,7 +1,7 @@
 ---
 title: Open-source machine learning integration
 titleSuffix: Azure Machine Learning
-description: Learn how to use open-source Python machine learning frameworks to train, deploy and manage end-to-end machine learning solutions in Azure Machine Learning.
+description: Learn how to use open-source Python machine learning frameworks to train, deploy, and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -47,7 +47,7 @@ Training a deep learning model from scratch often requires large amounts of time
 
 Reinforcement learning is an artificial intelligence technique that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
-The [Ray RLLib](https://github.com/ray-project/ray) project has a set features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
+The [Ray RLLib](https://github.com/ray-project/ray) project has a set of features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
 
 To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train a reinforcement learning model](how-to-use-reinforcement-learning.md).
 
@@ -96,4 +96,4 @@ Machine Learning Operations (MLOps), commonly thought of as DevOps for machine l
 
 Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
 
-Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
