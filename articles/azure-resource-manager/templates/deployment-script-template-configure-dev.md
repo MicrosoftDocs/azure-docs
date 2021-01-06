@@ -1,6 +1,6 @@
 ---
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
-description: configure development environment for deployment scripts in Azure Resource Manager templates.
+description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
@@ -9,13 +9,14 @@ ms.date: 12/14/2020
 ms.author: jgao
 
 ---
-# Configure development environment for deployment scripts in templates
+
+# Configure development environment for deployment scripts in ARM templates
 
 Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
 ## Prerequisites
 
-If you don't have a deployment script, you can create a **hello.ps1** file with the following content:
+If you don't have a deployment script, you can create a _hello.ps1_ file with the following content:
 
 ```powershell
 param([string] $name)
@@ -34,11 +35,11 @@ To author your scripts on your computer, you need to create a storage account an
 
 ### Create an Azure container instance
 
-The following ARM template creates a container instance and a file share, and then mounts the file share to the container image.
+The following Azure Resource Manager template (ARM template) creates a container instance and a file share, and then mounts the file share to the container image.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -148,12 +149,13 @@ The following ARM template creates a container instance and a file share, and th
   ]
 }
 ```
-The default value for the mount path is **deploymentScript**.  This is the path in the container instance where it is mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.   See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+The default value for the mount path is `deploymentScript`. This is the path in the container instance where it is mounted to the file share.
+
+The default container image specified in the template is `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3`. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
+  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an unsupported version is used, the error message lists the supported versions.
 
 The template suspends the container instance 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
 
@@ -191,7 +193,7 @@ You can also upload the file by using the Azure portal and Azure CLI.
 
 1. From the Azure portal, open the resource group where you deployed the container instance and the storage account.
 1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Running** state.
-1. Select **Containers** from the left menu. You shall see a container instance.  The container instance name is the project name with **container** appended.
+1. Select **Containers** from the left menu. You shall see a container instance. The container instance name is the project name with **container** appended.
 
     ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -243,7 +245,7 @@ You also need to configure file sharing to mount the directory, which contains t
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive.  It maps the folder to the **/data** folder in the container. For examples, to map D:\docker:
+    Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive. It maps the folder to the _/data_ folder in the container. For example, to map _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -257,7 +259,7 @@ You also need to configure file sharing to mount the directory, which contains t
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in the shared drive.
+1. The following screenshot shows how to run a PowerShell script, given that you have a _helloworld.ps1_ file in the shared drive.
 
     ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -268,4 +270,4 @@ After the script is tested successfully, you can use it as a deployment script i
 In this article, you learned how to use deployment scripts. To walk through a deployment script tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
+> [Tutorial: Use deployment scripts in ARM templates](./template-tutorial-deployment-script.md)
