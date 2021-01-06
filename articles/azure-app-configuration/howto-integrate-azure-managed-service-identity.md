@@ -96,7 +96,7 @@ To set up a managed identity in the portal, you first create an application and 
     using Azure.Identity;
     ```
 
-1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
 
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
