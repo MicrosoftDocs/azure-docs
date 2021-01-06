@@ -35,6 +35,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 > if your condition (in your action rules, webhooks, logic app or any other configurations) is currently based on the **"Description"** property for activity log alerts, you may need to modify it to be based on the **“Activity Log Event Description”** property instead.
 >
 > In order to fill the new **"Description"** property, you can add a description in the alert rule definition.
+> ![Fired Activity Log Alerts](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### Common
 

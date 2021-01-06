@@ -27686,6 +27686,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-managed-service-offer.md",
+      "redirect_url": "/azure/marketplace/plan-managed-service-offer",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
       "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
@@ -61051,7 +61056,7 @@
       "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
-    {
+        {
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false
