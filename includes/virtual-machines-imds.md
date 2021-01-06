@@ -96,7 +96,7 @@ Endpoints may support required and/or optional parameters. See [Schema](#schema)
 
 IMDS endpoints support HTTP query string parameters. For example: 
 
-```text
+```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
 ```
 
@@ -113,7 +113,7 @@ Requests with duplicate query parameter names will be rejected.
 
 For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
 
-```text
+```
 http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
 ```
 The parameters correspond to the indexes/keys that would be used to walk down the json object were you interacting with a parsed representation.
@@ -148,7 +148,7 @@ For example, `/metatadata/instance` returns the json object:
 ```
 
 If we want to filter the response down to just the compute property, we would send the request: 
-```text
+```
 http://169.254.169.254/metadata/instance/compute?api-version=<version>
 ```
 
@@ -281,7 +281,7 @@ The IMDS API contains multiple endpoint categories representing different data s
 
 Returns the set of supported API versions.
 
-```bash
+```
 GET /metadata/versions
 ```
 
@@ -307,7 +307,7 @@ None (this endpoint is unversioned).
 
 Exposes the important metadata for the VM instance, including compute, network, and storage. 
 
-```bash
+```
 GET /metadata/instance
 ```
 
@@ -449,7 +449,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 **Response**
 
-```text
+```
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
@@ -478,7 +478,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 **Response**
 
-```text
+```
 0
 ```
 
@@ -629,7 +629,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 **Response**
 
-```text
+```
 AzurePublicCloud
 ```
 
@@ -712,7 +712,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you are running on Azure.
 
-```bash
+```
 GET /metadata/attested/document
 ```
 
@@ -944,50 +944,6 @@ If there is a data element not found or a malformed request, the Instance Metada
 | `429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
 | `500 Service Error` | Retry after some time
 
-## Failover clustering in Windows Server
-
-When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
-
-1. Open a command prompt with administrator privileges.
-
-1. Run the following command, and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> The following example output is from a Windows Server VM with failover cluster enabled. For simplicity, the output contains only the IPv4 Route Table.
-
-```text
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`), which is (`10.0.1.10`) in this example.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
-
 ## Frequently asked questions
 
 **I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?**
@@ -1114,6 +1070,50 @@ Metadata calls must be made from the primary IP address assigned to the primary 
 1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
 
 ---
+
+**Failover clustering in Windows Server**
+
+When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
+
+1. Open a command prompt with administrator privileges.
+
+1. Run the following command, and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
+
+```bat
+route print
+```
+
+> [!NOTE]
+> The following example output is from a Windows Server VM with failover cluster enabled. For simplicity, the output contains only the IPv4 Route Table.
+
+```
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`), which is (`10.0.1.10`) in this example.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ## Support
 
