@@ -946,7 +946,7 @@ This method takes as parameters:
 
   ![DeviceCodeResult properties](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-The following sample code presents the synopsis of most current cases, with explanations of the kind of exceptions you can get and their mitigation. For a fully functional code sample, see https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2
+The following sample code presents the synopsis of most current cases, with explanations of the kind of exceptions you can get and their mitigation. For a fully functional code sample, see [active-directory-dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) on GitHub.
 
 ```csharp
 private const string ClientId = "<client_guid>";
