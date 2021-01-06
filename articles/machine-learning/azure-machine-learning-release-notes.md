@@ -49,8 +49,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
   + **azureml-pipeline-steps**
     + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
-  + **azureml-synapse**
-    + Customers can now specify under which environment they want to run the Synapse Spark job with synapse magic.
   + **azureml-train-automl-client**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-train-automl-runtime**
