@@ -46,7 +46,7 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 or later
    - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) version 1.1.0 or later 
 
-2. Add a new file *Startup.cs* with following code. It created a new `Startup` class that implements the `FunctionsStartup` abstract and an assembly attribute is added to specify the type name used during Azure Functions startup.
+2. Add a new file, *Startup.cs*, with the following code. It defines a class named `Startup` that implements the `FunctionsStartup` abstract class. An assembly attribute is used to specify the type name used during Azure Functions startup.
 
     The `ConfigureAppConfiguration` method is overridden and Azure App Configuration provider is added as an extra configuration source by calling `AddAzureAppConfiguration()`. The `Configure` method is left empty as you don't need to register any services at this point.
     
@@ -74,13 +74,13 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
     }
     ```
 
-3. Open *Function1.cs*, and add the namespaces of the .NET Core configuration
+3. Open *Function1.cs*, and add the following namespace.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     ```
 
-   and add a constructor where you obtained an instance of `IConfiguration` through dependency injection.
+   Add a constructor used to obtain an instance of `IConfiguration` through dependency injection.
 
     ```csharp
     private readonly IConfiguration _configuration;
