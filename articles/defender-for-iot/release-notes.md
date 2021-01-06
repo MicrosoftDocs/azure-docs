@@ -1,5 +1,5 @@
 ---
-title: What's new Defender for IoT 
+title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
  
 services: defender-for-iot
@@ -16,7 +16,8 @@ ms.workload: na
 ms.date: 01/03/2021
 ms.author: shhazam
 ---
-# What's New
+
+# What's new
 
 Defender for IoT 10.0 provides feature enhancements that improve security, management, and usability.
 
@@ -72,13 +73,13 @@ A new Site and Sensors portal page lets you:
 
 The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
 
-### Azure portal Permission Updates  
+### Azure portal permission updates  
 
 Security Reader and Security Administrator support has been added.
 
 ## Other updates
 
-### Access Group - zone permissions
+### Access group - zone permissions
   
 The on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones.
 
