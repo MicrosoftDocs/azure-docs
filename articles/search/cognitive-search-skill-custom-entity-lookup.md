@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ---
 
-#     Custom Entity Lookup cognitive skill (Preview)
+#     Custom Entity Lookup cognitive skill
 
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
