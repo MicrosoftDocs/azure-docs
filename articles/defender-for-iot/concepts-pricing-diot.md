@@ -1,5 +1,5 @@
 ---
-title: Agentless Pricing and associated costs
+title: Agentless pricing and associated costs
 description: Understand the costs associated with agentless Defender for IoT, and how to control them.
 author: shhazam-ms
 manager: rkarlin
