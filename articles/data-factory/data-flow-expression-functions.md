@@ -994,9 +994,9 @@ Based on a criteria, gets the unbiased variance of a column.
 * ``varianceSampleIf(region == 'West', sales)``  
 
 ## Array functions
-Array functions perform tranformations on data structures that are arrays. These include special keywords to address array elements and indexes:
+Array functions perform tranforsmations on data structures that are arrays. These include special keywords to address array elements and indexes:
 
-* ```#acc``` represents a value that you wish to indluce in your single output when reducing an array
+* ```#acc``` represents a value that you wish to inlcude in your single output when reducing an array
 * ```#index``` represents the current array index, along with array index numbers ```#index2, #index3 ...```
 * ```#item``` represents the current element value in the array
 
