@@ -207,7 +207,7 @@ When a user selects **Forgot password**, your application throws an error which 
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Password reset flow screens showed by Azure AD B2C" border="false":::
 
-    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-handling-exceptions.md).
+    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-error-handling-js.md).
 
 ## Next steps
 
@@ -215,4 +215,4 @@ Learn more about these Azure AD B2C concepts:
 
 - [User flows](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Custom policies](../../active-directory-b2c/custom-policy-get-started.md)
-- [UX customization](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [UX customization](../../active-directory-b2c/configure-user-input.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -55,7 +55,6 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
 | **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
 | **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
-| **Windows domain qualified name** | Microsoft identity platform will use WindowsDomainQualifiedName as the NameID format. |
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 

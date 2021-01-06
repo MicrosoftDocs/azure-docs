@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/08/2020
 ms.author: tisande
 
 ---
@@ -138,7 +138,7 @@ The results are:
 You can also aggregate over the result of an array iteration. For example, the following query counts the number of children among all families:
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -147,7 +147,7 @@ The results are:
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```

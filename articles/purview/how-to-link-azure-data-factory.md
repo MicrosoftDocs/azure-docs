@@ -36,6 +36,13 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 ## Create new Data Factory connection
 
+>[!Note]
+>In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>- Owner
+>- User Access Administrator
+>
+> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
+
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
 1. Select **Management Center** on the left navigation pane.
@@ -64,12 +71,6 @@ To remove a data factory connection, do the following:
 1. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
->- Owner
->- User Access Administrator
-> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”, or “Data Factory contributor”. 
 
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 

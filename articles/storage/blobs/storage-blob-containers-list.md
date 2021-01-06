@@ -56,7 +56,7 @@ The following example asynchronously lists the containers in a storage account t
 
 # [.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="ListContainers":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
 # [.NET v11](#tab/dotnet11)
 

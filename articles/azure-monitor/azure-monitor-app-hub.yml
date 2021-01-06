@@ -89,12 +89,6 @@ conceptualContent:
         
     - title: Quickstarts & tutorials
       links: 
-        - url: ./learn/quick-monitor-portal.md
-          itemType: how-to-guide
-          text: ASP.NET
-        - url: ./learn/dotnetcore-quick-start.md
-          itemType: how-to-guide
-          text: ASP.NET Core
         - url: ./learn/nodejs-quick-start.md
           itemType: how-to-guide
           text: Node.js

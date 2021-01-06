@@ -40,7 +40,7 @@ In Azure Purview, classifications are similar to subject tags, and are used to m
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
 
 > [!NOTE]
-> After you have scanned your source types, give **Classification labeling** Insights a couple of hours to reflect the new assets.
+> After you have scanned your source types, give **Classification** Insights a couple of hours to reflect the new assets.
 
 **To view classification insights:**
 

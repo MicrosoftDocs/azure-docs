@@ -1,6 +1,6 @@
 ---
 title: 'Install the Azure AD Connect cloud provisioning agent'
-description: This article describes how to install the Azure AD Connect cloud provisioning agent.
+description: Learn how to install the Azure AD Connect cloud provisioning agent and how to configure it in the Azure portal.
 services: active-directory
 author: billmath
 manager: daveba

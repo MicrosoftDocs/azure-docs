@@ -7,7 +7,7 @@ ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperfq2
+ms.custom: mvc, contperf-fy21q2
 ---
 
 # What is Azure IoT Central?

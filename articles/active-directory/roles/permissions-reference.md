@@ -1011,6 +1011,7 @@ Can read & write basic directory information. For granting access to application
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/create | Create users in Azure Active Directory. |
 | microsoft.directory/users/disable | Disable a user account in Azure Active Directory. |
 | microsoft.directory/users/enable | Enable a user account in Azure Active Directory |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory, requiring users to re-authenticate on their next sign-in |

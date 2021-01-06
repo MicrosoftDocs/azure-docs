@@ -14,7 +14,7 @@ ms.author: pafarley
 # reviews how-to for REST API
 ---
 
-# Create human reviews (REST)
+# Create human reviews (API console)
 
 [Reviews](./review-api.md#reviews) store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. In this guide, you'll learn how to set up reviews using the review REST APIs through the API console. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 

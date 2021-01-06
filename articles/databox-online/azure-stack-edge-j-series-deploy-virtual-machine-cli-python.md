@@ -24,7 +24,7 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 The high level summary of the deployment workflow are as follows:
 
@@ -40,7 +40,7 @@ The high level summary of the deployment workflow are as follows:
 10. Create a VNet
 11. Create a VNIC using the VNet subnet ID
 
-For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## Prerequisites
 

@@ -21,7 +21,7 @@ You need to SSH into your Linux VM and run the following commands in order to in
 ```bash
 sudo yum makecache fast
 sudo yum install -y gdisk cloud-utils-growpart
-sudo yum install - y cloud-init 
+sudo yum install -y cloud-init 
 ```
 
 Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the following modules:

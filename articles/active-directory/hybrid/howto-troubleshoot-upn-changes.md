@@ -1,5 +1,5 @@
 ---
-title: Plan and troubleshoot Azure User Principle name (UPN) changes
+title: Plan and troubleshoot Azure User Principal name (UPN) changes
 description: Understand known issues and mitigations for UPN changes
 
 services: active-directory
