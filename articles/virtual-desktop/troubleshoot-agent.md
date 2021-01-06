@@ -30,7 +30,7 @@ Follow these instructions if you're having issues with the agent bootloader not 
 2. Select *Start*. If this option is greyed out for you, you don't have administrator permissions and will need that to start the service.
 3. Wait 10 seconds, and then right-click *Remote Desktop Agent Loader*.
 4. Select *Refresh*.
-5. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalidregistrationtoken).
+5. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
 
 ### Error: INVALID_REGISTRATION_TOKEN
 
@@ -105,7 +105,7 @@ Follow these instructions if you're having issues with service connectivity beca
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.PNG)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokerglobal.PNG)
+   > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessfulbrokerglobal.PNG)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list).
 
