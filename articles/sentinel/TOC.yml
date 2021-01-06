@@ -82,7 +82,7 @@
         href: connect-azure-firewall.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
-      - name: Azure SQL database Logs
+      - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
       - name: Domain name server
         href: connect-dns.md
