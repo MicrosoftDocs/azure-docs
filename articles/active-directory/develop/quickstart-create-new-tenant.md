@@ -44,7 +44,7 @@ The quickstart is broken into two scenarios depending on the type of app you wan
 
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants such as Microsoft 365 or Azure subscriptions.
 
-1. To check the tenant, sign in to the [Azure portal](https://portal.azure.com) with the account you want to use to manage your application.
+1. To check the tenant, sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> with the account you want to use to manage your application.
 1. Check the upper right corner. If you have a tenant, you'll automatically be logged in and can see the tenant name directly under your account name.
    * Hover over your account name on the upper right-hand side of the Azure portal to see your name, email, directory / tenant ID (a GUID), and your domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
