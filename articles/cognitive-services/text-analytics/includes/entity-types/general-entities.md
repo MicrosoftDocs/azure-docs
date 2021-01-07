@@ -78,7 +78,7 @@ This category contains the following entities:
 
        `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
           
-    :::column-end:::
+   :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
