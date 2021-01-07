@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: migration
 
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ---

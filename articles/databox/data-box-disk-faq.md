@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 12/17/2020
 ms.author: alkohli
 ---
 

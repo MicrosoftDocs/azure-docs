@@ -9,7 +9,7 @@ manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 06/27/2018
 ms.author: twooley
 
 ---
