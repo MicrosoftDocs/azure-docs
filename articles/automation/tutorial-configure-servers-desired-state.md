@@ -6,6 +6,7 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ---
+
 # Configure machines to a desired state
 
 Azure Automation State Configuration allows you to specify configurations for your servers and ensure that those servers are in the specified state over time.
@@ -21,7 +22,7 @@ For this tutorial, we use a simple [DSC configuration](/powershell/scripting/dsc
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](./manage-runas-account.md).
+- An Azure Automation account. To learn more about an Automation account and its requirements, see [Automation Account authentication overview](./automation-security-overview.md).
 - An Azure Resource Manager VM (not classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
@@ -46,7 +47,6 @@ Connect-AzAccount
 ```
 
 ## Create and upload a configuration to Azure Automation
-
 
 In a text editor, type the following and save it locally as **TestConfig.ps1**.
 

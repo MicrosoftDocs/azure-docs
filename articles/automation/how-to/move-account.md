@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 01/07/2021
 ms.topic: conceptual
 ---
+
 # Move your Azure Automation account to another subscription
 
 Azure Automation allows you to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
@@ -98,7 +99,7 @@ You can now move your Automation account and its runbooks.
 
 ## Re-create Run As accounts
 
-[Run As accounts](../manage-runas-account.md) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account. To re-create the Run As accounts:
+[Run As accounts](../automation-security-overview.md#run-as-accounts) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account. To re-create the Run As accounts:
 
 1. Go to your Automation account in the new subscription, and select **Run as accounts** under **Account Settings**. You'll see that the Run As accounts show as incomplete now.
 

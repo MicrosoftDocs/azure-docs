@@ -16,7 +16,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 * Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [A SendGrid account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account).
 * [Automation account](./index.yml) with **Az** modules.
-* [Run As account](./manage-runas-account.md) to store and execute the runbook.
+* [Run As account](./automation-security-overview.md#run-as-accounts) to store and execute the runbook.
 
 ## Create an Azure Key Vault
 
@@ -69,7 +69,7 @@ For instructions, see [Import Az modules](shared-resources/modules.md#import-az-
 
 ## Create the runbook to send an email
 
-After you have created a Key Vault and stored your `SendGrid` API key, it's time to create the runbook that retrieves the API key and sends an email. Let's use a runbook that uses `AzureRunAsConnection` as a [Run As account](./manage-runas-account.md) to
+After you have created a Key Vault and stored your `SendGrid` API key, it's time to create the runbook that retrieves the API key and sends an email. Let's use a runbook that uses `AzureRunAsConnection` as a [Run As account](./automation-security-overview.md#run-as-accounts) to
 authenticate with Azure to retrieve the secret from Azure Key Vault. We'll call the runbook **Send-GridMailMessage**. You can modify the PowerShell script used for example purposes, and reuse it for different scenarios.
 
 1. Go to your Azure Automation account.

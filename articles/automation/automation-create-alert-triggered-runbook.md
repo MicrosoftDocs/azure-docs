@@ -39,7 +39,7 @@ As described in the preceding section, each type of alert has a different schema
 
 This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it is important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure that the runbook does not run more than once. The example in this article shows how to look for alerts with state Activated only.
 
-The runbook uses the connection asset `AzureRunAsConnection` [Run As account](./manage-runas-account.md) to authenticate with Azure to perform the management action against the VM.
+The runbook uses the connection asset `AzureRunAsConnection` [Run As account](./automation-security-overview.md) to authenticate with Azure to perform the management action against the VM.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 

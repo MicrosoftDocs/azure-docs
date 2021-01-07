@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
 ---
+
 # Enable Change Tracking and Inventory from a runbook
 
 This article describes how you can use a runbook to enable [Change Tracking and Inventory](overview.md) for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.

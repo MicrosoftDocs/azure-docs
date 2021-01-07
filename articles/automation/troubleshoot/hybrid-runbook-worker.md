@@ -2,14 +2,11 @@
 title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
 services: automation
-ms.service: automation
 ms.subservice:
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Troubleshoot Hybrid Runbook Worker issues
 
 This article provides information on troubleshooting and resolving issues with Azure Automation Hybrid Runbook Workers. For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
@@ -104,7 +101,7 @@ At line:3 char:1
 ```
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
