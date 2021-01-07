@@ -37,7 +37,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 We use Azure Machine Learning Studio to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Machine Learning project. If you have not used Jupyter and/or Azure Machine Learning Studio , here are a couple of introductory documents:
 
 * **Jupyter Notebooks:** [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
-* **Azure Machine Learning:** [Get Started with Azure Machine Learning in Jupyter Notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup)
+* **Azure Machine Learning:** [Get Started with Azure Machine Learning in Jupyter Notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
 
 
 > [!NOTE]
