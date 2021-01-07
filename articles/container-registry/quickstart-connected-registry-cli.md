@@ -38,7 +38,7 @@ az acr create --resource-group myResourceGroup \
   --sku Premium
 ```
 
-This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
+This example creates a *Premium* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 ## Create a connected registry resource for pull/push functionality
 
