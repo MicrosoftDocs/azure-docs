@@ -31,7 +31,10 @@ Use this article to find the limits for the size, and rates that you can send da
 | Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
 | Maximum size of entire request | 1 MB. Also applies to Text Analytics for health. |
 
-The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The `/analyze` endpoint will reject the entire request if any document exceeds the max size (125K characters)
+If a document has more than 5120 chars then we do not process that specific document and show invalid document as the error. If an API request has multiple documents, then we process all documents which are less than 5120 characters.
+This is different for the `/analyze` endpoint, which will reject the entire request if any document exceeds the max size (125K characters).
+
+The maximum number of documents you can send in a single request will depend on the API version and feature you're using, which is described in the table below.
 
 #### [Version 3](#tab/version-3)
 
