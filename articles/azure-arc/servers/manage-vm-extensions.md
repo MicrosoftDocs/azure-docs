@@ -45,7 +45,7 @@ To learn about the Azure Connected Machine agent package and details about the E
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
 |Azure Defender integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
-|CustomScriptExtension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
+|Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
 |PowerShell DSC |Microsoft.PowerShell |DSC |[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)|
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
@@ -57,7 +57,7 @@ To learn about the Azure Connected Machine agent package and details about the E
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
 |Azure Defender integrated vulnerability scanner |Qualys |LinuxAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
-|CustomScript |Microsoft.Azure.Extensions |CustomScript |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|Custom Script extension |Microsoft.Azure.Extensions |CustomScript |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |PowerShell DSC |Microsoft.OSTCExtensions |DSCForLinux |[PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
