@@ -171,7 +171,7 @@ The results are:
 ```
 
 > [!NOTE]
-> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you can use [JOINs](sql-query-join.md).
+> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](sql-query-join.md).
 
 ## Next steps
 
