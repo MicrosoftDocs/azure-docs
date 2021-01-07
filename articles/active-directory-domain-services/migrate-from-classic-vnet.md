@@ -259,16 +259,14 @@ At this stage, you can optionally move other existing resources from the Classic
 
 ## Test and verify connectivity after the migration
 
-It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain.
+It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain. The second domain controller should be available 1-2 hours after the migration cmdlet finishes. With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
 
-With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To learn more about what these network resources are and do, see [Network resources used by Azure AD DS][network-resources].
-
-When at least one domain controller is available, complete the following configuration steps for network connectivity with VMs:
+After the second domain controller is available, complete the following configuration steps for network connectivity with VMs:
 
 * **Update DNS server settings** To let other resources on the Resource Manager virtual network resolve and use the managed domain, update the DNS settings with the IP addresses of the new domain controllers. The Azure portal can automatically configure these settings for you.
 
     To learn more about how to configure the Resource Manager virtual network, see [Update DNS settings for the Azure virtual network][update-dns].
-* **Restart domain-joined VMs** - As the DNS server IP addresses for the Azure AD DS domain controllers change, restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal.
+* **Restart domain-joined VMs** As the DNS server IP addresses for the Azure AD DS domain controllers change, optionally restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal. Rebooting domain-joined VMs prevents connectivity issues caused by IP addresses that don’t refresh.
 
 Now test the virtual network connection and name resolution. On a VM that's connected to the Resource Manager virtual network, or peered to it, try the following network communication tests:
 
@@ -277,7 +275,7 @@ Now test the virtual network connection and name resolution. On a VM that's conn
 1. Verify name resolution of the managed domain, such as `nslookup aaddscontoso.com`
     * Specify the DNS name for your own managed domain to verify that the DNS settings are correct and resolves.
 
-The second domain controller should be available 1-2 hours after the migration cmdlet finishes. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
+To learn more about other network resources, see [Network resources used by Azure AD DS][network-resources].
 
 ## Optional post-migration configuration steps
 
