@@ -135,6 +135,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. In the **Issuer** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
     d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
+    
+    e. Click **Save**.
 
 ### Create Oktopost SAML test user
 
