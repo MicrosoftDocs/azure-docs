@@ -15,19 +15,7 @@ ms.date: 09/10/2020
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
-## 2020-12-31
-### Azure Machine Learning Studio Notebooks Experience (December Update)
-+ **New features**
-  + User Filename search. Users are now able to search all the files saved in a workspace.
-  + Markdown Side by Side support per Notebook Cell. In a notebook cell, users can now have the option to view rendered markdown and markdown syntax side-by-side.
-  + Cell Status Bar. The status bar indicates what state a code cell is in, whether a cell run was successful, and how long it took to run. 
-   
-+ **Bug fixes and improvements**
-  + Improved page load times
-  + Improved performance 
-  + Improved speed and kernel reliability
-  
- 
+
  ## 2021-01-11
 
 ### Azure Machine Learning SDK for Python v1.20.0
@@ -53,6 +41,18 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-train-automl-runtime**
     + n/a
+
+## 2020-12-31
+### Azure Machine Learning Studio Notebooks Experience (December Update)
++ **New features**
+  + User Filename search. Users are now able to search all the files saved in a workspace.
+  + Markdown Side by Side support per Notebook Cell. In a notebook cell, users can now have the option to view rendered markdown and markdown syntax side-by-side.
+  + Cell Status Bar. The status bar indicates what state a code cell is in, whether a cell run was successful, and how long it took to run. 
+   
++ **Bug fixes and improvements**
+  + Improved page load times
+  + Improved performance 
+  + Improved speed and kernel reliability
 
   
 ## 2020-12-07
