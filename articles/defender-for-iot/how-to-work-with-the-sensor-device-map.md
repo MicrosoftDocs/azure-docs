@@ -115,7 +115,7 @@ The following predefined groups are available:
 
 | Group name | Description |
 |--|--|
-| **Known applications or non-standrad ports (default)** | Devices that use reserved ports, such as TCP. Devices that use non-standard ports or ports that have not been assigned an alias. |
+| **Known applications or non-standard ports (default)** | Devices that use reserved ports, such as TCP. Devices that use non-standard ports or ports that have not been assigned an alias. |
 | **OT protocols (default)** | Devices that handle the OT traffic. |
 | **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially added to the network |
 | **Device inventory filters** | Devices grouped according to the filters save in the Device Inventory table. |
@@ -231,7 +231,7 @@ The map view displayed depends on the map zoom-level. Switching between the map 
 
 ### Enable simplified zoom views
 
-Administrators who want security analysts and RO users to access Brid’s-eye and device and type connection views, should enable the simplified view option.
+Administrators who want security analysts and RO users to access Bird’s-eye and device and type connection views, should enable the simplified view option.
 
 To enable simplified map views:
 
