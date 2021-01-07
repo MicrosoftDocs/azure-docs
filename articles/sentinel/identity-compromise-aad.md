@@ -22,9 +22,6 @@ ms.author: bagol
 
 Microsoft has published a specific Azure AD workbook in the Azure administration portal to help you assess your organization's Solorigate risk and investigate any identity-related indicators of compromise (IOCs) related to the attacks. 
 
-- [Access the Azure AD Solorigate workbook](#access-the-azure-ad-solorigate-workbook)
-- [Data shown in the Azure AD Solorigate workbook](#data-shown-in-the-azure-ad-solorigate-workbook)
-
 > [!NOTE]
 > The information in this workbook is also available in Azure AD audit and sign-in logs. The workbook helps to collect and visualize the information in a single view.
 >
@@ -48,6 +45,12 @@ For more information, see [How to integrate activity logs with Log Analytics](/a
 1. Under **Troubleshoot**, select the **Sensitive Operations Report**. 
 
 1. Expand each of the following areas to learn more about the activity detected in your tenant:
+
+    - [Modified application and service principal credentials/authentication methods](#modified-application-and-service-principal-credentialsauthentication-methods)
+    - [Modified federation settings](#modified-federation-settings)
+    - [Azure AD STS refresh token modifications by service principals and applications other than DirectorySync](#azure-ad-sts-refresh-token-modifications-by-service-principals-and-applications-other-than-directorysync)
+    - [New permissions granted to service principals](#new-permissions-granted-to-service-principals)
+    - [Directory role and group membership updates for service principals](#directory-role-and-group-membership-updates-for-service-principals)
 
 ## Modified application and service principal credentials/authentication methods
 

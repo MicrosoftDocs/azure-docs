@@ -20,17 +20,17 @@ ms.author: bagol
 
 # Use Microsoft 365 Defender to respond to supply-chain attacks and systemic-identity compromises
 
-We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#microsoft-defender-for-threat-analytics-reports) created by Microsoft specifically for Solorigate. 
+We recommend that Microsoft 365 Defender customers to start their investigations with the [threat analytics reports](#microsoft-365-defender-analytics-reports) created by Microsoft specifically for Solorigate. 
 
 Use these reports, and other alerts and queries to perform the following recommended steps:
 
-- [Use Microsoft Defender for Endpoint and Microsoft 365 Defender to find devices with the compromised SolarWinds Orion application](#use-microsoft-defender-to-find-devices-with-the-compromised-solarwinds-orion-application)
-- [Investigate related Microsoft Defender alerts and incidents](#investigate-related-microsoft-defender-alerts-and-incidents)
-- [Use Microsoft Defender to hunt for related attacker activity](#use-microsoft-defender-to-hunt-for-related-attacker-activity)
+- [Use Microsoft Defender for Endpoint to find devices with the compromised SolarWinds Orion application](#use-microsoft-defender-for-endpoint-to-find-devices-with-the-compromised-solarwinds-orion-application)
+- [Investigate related Microsoft 365 Defender alerts and incidents](#investigate-related-microsoft-365-defender-alerts-and-incidents)
+- [Use Microsoft 365 Defender to hunt for related attacker activity](#use-microsoft-365-defender-to-hunt-for-related-attacker-activity)
 
-For more information, see [Advanced Microsoft Defender query reference](#advanced-microsoft-defender-query-reference).
+For more information, see [Advanced Microsoft 365 Defender query reference](#advanced-microsoft-365-defender-query-reference).
 
-## Microsoft Defender for Endpoint and Microsoft 365 Defender threat analytics reports
+## Microsoft 365 Defender threat analytics reports
 <!--validate title here w md 365-->
 
 Run the following reports in Microsoft 365 Defender to detect Solorigate breaches on your system:

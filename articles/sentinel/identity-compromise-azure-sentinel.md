@@ -49,7 +49,7 @@ Using Sentinel to investigate incident sources from Microsoft 365 Defender enabl
     - [Find mail data exfiltration](#find-mail-data-exfiltration)
     - [Find suspicious domain-related activity](#find-suspicious-domain-related-activities)
     - [Find evidence of security service tampering](#find-evidence-of-security-service-tampering)
-    - [Find correlations between Microsoft 365 Defender and Azure Sentinel detections](#find-correlations-between-microsoft-365-defender-and-azure-sentinel-detections)
+    - [Find correlations between Microsoft Defender for Endpoint and Azure Sentinel detections](#find-correlations-between-microsoft-defender-for-endpoint-and-azure-sentinel-detections)
 
 
 > [!NOTE]
