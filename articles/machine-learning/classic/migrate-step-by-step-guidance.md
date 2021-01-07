@@ -11,7 +11,7 @@ ms.author: zhanixa
 ms.date: 11/27/2020
 ---
 
-# Migrate to Azure Machine Learning
+# Migrate to Azure Machine Learning - step by step guidance
 
 Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. But new resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
 
@@ -213,7 +213,8 @@ After the run finish, you can check the output of each module. Here are a few he
 
 
 
-
+> [!TIP]
+> The [migration reference article](./migrate-reference.md) call outs the difference of Studio(classic) and designer that you should pay attention to. For example, it includes the module mapping table, the tips to migrate R script.
 
 
 
