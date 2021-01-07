@@ -18,7 +18,7 @@ Computer Vision spatial analysis is a new feature of Azure Cognitive Services Co
 
 ## The basics of spatial analysis
 
-Today the core skills of spatial analysis are all built on a pipeline that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
+Today the core operations of spatial analysis are all built on a pipeline that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
 
 ## Spatial analysis terms
 

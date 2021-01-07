@@ -5,12 +5,12 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
 ---
 
-# Explore and manage your resources with asset inventory and management tools
+# Explore and manage your resources with asset inventory
 
 The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
 
@@ -38,7 +38,7 @@ The asset management possibilities for this tool are substantial and continue to
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
@@ -58,9 +58,9 @@ The inventory page provides the following tools:
 
     As soon as you've applied filters, the summary values are updated to relate to the query results. 
 
-- **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the KQL query.
+- **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the Kusto Query Language (KQL) query.
 
-    ![Inventory's export options](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Inventory's export options":::
 
     > [!TIP]
     > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
@@ -118,7 +118,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
 1. To further examine the results of your query, select the resources that interest you.
 
-1. To view the current selected filter options as a query in Resource Graph Explorer, select **View in resource graph explorer**.
+1. To view the current selected filter options as a query in Resource Graph Explorer, select **Open query**.
 
     ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 

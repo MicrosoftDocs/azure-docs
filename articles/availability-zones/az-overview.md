@@ -176,6 +176,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Getting Started Azure Cache for Redis Availability Zones](https://aka.ms/redis/az/getstarted)
 - [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
 - [Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones](../aks/availability-zones.md)
+- [Enable zone redundancy in Azure Container Registry](../container-registry/zone-redundancy.md)
 
 ## Next steps
 

@@ -37,8 +37,6 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Jumpstart
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
           - text: Create data controller
             url: create-data-controller.md
           - text: Install client tools
@@ -58,7 +56,6 @@ landingContent:
           - text: Restore
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
 
-
   # Card (optional)
   - title: Azure Arc enabled SQL Managed Instance (preview)
     linkLists:
@@ -72,3 +69,12 @@ landingContent:
             url: migrate-to-managed-instance.md
           - text: Restore
             url: restore-adventureworks-sample-db.md
+
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+
