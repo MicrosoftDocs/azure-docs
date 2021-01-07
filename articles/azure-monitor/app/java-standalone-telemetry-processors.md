@@ -15,6 +15,12 @@ ms.author: kryalama
 
 Java 3.0 Agent for Application Insights now has the capabilities to process telemetry data before the data is exported.
 
+The following are some use cases of telemetry processors:
+ * Mask sensitive data
+ * Conditionally add custom dimensions
+ * Update the telemetry name used for aggregation and display
+ * Drop or filter span attributes to control ingestion cost
+
 ## Terminology
 
 Before we jump into telemetry processors, it is important to understand what are traces and spans.
@@ -25,7 +31,19 @@ Traces track the progression of a single request, called a `trace`, as it is han
 
 ### Span
 
-Spans are objects that represent the work being done by individual services or components involved in a request as it flows through a system. A `span` contains a `span context`, which is a set of globally unique identifiers that represent the unique request that each span is a part of. Each `span` contains metadata about the operation, such as its name, start and end timestamps, attributes, events, and status.
+Spans are objects that represent the work being done by individual services or components involved in a request as it flows through a system. A `span` contains a `span context`, which is a set of globally unique identifiers that represent the unique request that each span is a part of. 
+
+Spans encapsulate:
+
+* The span name
+* An immutable `SpanContext` that uniquely identifies the Span
+* A parent span in the form of a `Span`, `SpanContext`, or null
+* A `SpanKind`
+* A start timestamp
+* An end timestamp
+* [`Attributes`](#Attributes)
+* A list of timestamped Events
+* A `Status`.
 
 Generally, the lifecycle of a span resembles the following:
 
@@ -36,10 +54,14 @@ Generally, the lifecycle of a span resembles the following:
 * When the service makes a remote call to another service, the current span context is serialized and forwarded to the next service by injecting the span context into the headers or message envelope.
 * The work being done by the service completes, successfully or not. The span status is appropriately set, and the span is marked finished.
 
-## Some use cases of telemetry processors:
- * Mask sensitive data
- * Conditionally add custom dimensions
- * Update the telemetry name used for aggregation and display
+### Attributes
+
+`Attributes` are a list of zero or more key-value pairs which are encapsulated in a `span`. An Attribute MUST have the following properties:
+
+The attribute key, which MUST be a non-null and non-empty string.
+The attribute value, which is either:
+* A primitive type: string, boolean, double precision floating point (IEEE 754-1985) or signed 64 bit integer.
+* An array of primitive type values. The array MUST be homogeneous, i.e. it MUST NOT contain values of different types. For protocols that do not natively support array values such values SHOULD be represented as JSON strings.
 
 ## Supported processors:
  * Attribute Processor
@@ -127,8 +149,9 @@ For more understanding, check out the [telemetry processor examples](./java-stan
 
 The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans. It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
 
-### `insert` : Inserts a new attribute in spans where the key does not already exist. 
-  
+### `insert`
+
+Inserts a new attribute in spans where the key does not already exist.   
 
 ```json
 "processors": [
@@ -144,12 +167,14 @@ The attributes processor modifies attributes of a span. It optionally supports t
   }
 ]
 ```
-For the actions `insert`
-  * `key` is required
-  * one of `value` or `fromAttribute` is required
-  * `action`:`insert` is required.
+For the `insert` action, following are required
+  * `key`
+  * one of `value` or `fromAttribute`
+  * `action`:`insert`
 
-### `update` : Updates an attribute in spans where the key does exist
+### `update`
+
+Updates an attribute in spans where the key does exist
 
 ```json
 "processors": [
@@ -165,13 +190,15 @@ For the actions `insert`
   }
 ]
 ```
-For the actions `update`
-  * `key` is required
-  * one of `value` or `fromAttribute` is required
-  * `action`:`update` is required.
+For the `update` action, following are required
+  * `key`
+  * one of `value` or `fromAttribute`
+  * `action`:`update`
 
 
-### `delete` : Deletes an attribute from a span
+### `delete` 
+
+Deletes an attribute from a span
 
 ```json
 "processors": [
@@ -186,11 +213,13 @@ For the actions `update`
   }
 ]
 ```
-For the `delete` action,
-  * `key` is required
-  * `action`: `delete` is required.
+For the `delete` action, following are required
+  * `key`
+  * `action`: `delete`
 
-### `hash`   : Hashes (SHA1) an existing attribute value
+### `hash`
+
+Hashes (SHA1) an existing attribute value
 
 ```json
 "processors": [
@@ -205,11 +234,36 @@ For the `delete` action,
   }
 ]
 ```
-For the `hash` action,
-* `key` is required
-* `action` : `hash` is required.
+For the `hash` action, following are required
+* `key`
+* `action` : `hash`
 
-The list of actions can be composed to create rich scenarios, such as back filling attribute, copying values to a new key, redacting sensitive information.
+### `extract`
+
+> [!NOTE]
+> This feature is only in 3.0.1 and later
+
+Extracts values using a regular expression rule from the input key to target keys specified in the rule. If a target key already exists, it will be overridden. It behaves similar to the [Span Processor](#Extract-attributes-from-span-name) `toAttributes` setting with the existing attribute as the source.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "pattern": "<regular pattern with named matchers>",
+        "action": "extract"
+      },
+    ]
+  }
+]
+```
+For the `extract` action, following are required
+* `key`
+* `pattern`
+* `action` : `extract`
+
 For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
 ## Span processors
@@ -280,22 +334,16 @@ Following are list of some common span attributes that can be used in the teleme
 |---|---|---|
 | `http.method` | string | HTTP request method.|
 | `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. Usually the fragment is not transmitted over HTTP, but if it is known, it should be included nevertheless.|
-| `http.target` | string | The full request target as passed in a HTTP request line or equivalent.|
-| `http.host` | string | The value of the [HTTP host header](https://tools.ietf.org/html/rfc7230#section-5.4). When the header is empty or not present, this attribute should be the same.|
-| `http.scheme` | string | The URI scheme identifying the used protocol.|
 | `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Kind of HTTP protocol used [1] |
+| `http.flavor` | string | Kind of HTTP protocol used |
 | `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
-| `http.request_content_length` | number | The size of the request payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2) header. For requests using transport encoding, this should be the compressed size. |
-| `http.request_content_length_uncompressed` | number | The size of the uncompressed request payload body after transport decoding. Not set if transport encoding not used. |
-| `http.response_content_length` | number | The size of the response payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2) header. For requests using transport encoding, this should be the compressed size.|
-| `http.response_content_length_uncompressed` | number | The size of the uncompressed response payload body after transport decoding. Not set if transport encoding not used|
-
 
 ### JDBC Spans
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | An identifier for the database management system (DBMS) product being used. See below for a list of well-known identifiers. |
-| `db.connection_string` | string | The connection string used to connect to the database. It is recommended to remove embedded credentials. |
+| `db.system` | string | An identifier for the database management system (DBMS) product being used. |
+| `db.connection_string` | string | The connection string used to connect to the database. It is recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
+| `db.name` | string | This attribute is used to report the name of the database being accessed. For commands that switch the database, this should be set to the target database (even if the command fails).|
+| `db.statement` | string | The database statement being executed.|

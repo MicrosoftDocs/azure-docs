@@ -698,7 +698,7 @@
               href: app/java-standalone-config.md
             - name: Telemetry processors
               items:
-              - name: Documentation
+              - name: Overview
                 href: app/java-standalone-telemetry-processors.md
               - name: Examples
                 href: app/java-standalone-telemetry-processors-examples.md

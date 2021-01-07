@@ -325,6 +325,35 @@ The following demonstrates hash existing attribute values.
 }
 ```
 
+### Extract
+
+The following example demonstrates using regex to create new attributes based on the value of another attribute.
+For example given http.url = http://example.com/path?queryParam1=value1,queryParam2=value2 the following attributes will be inserted:
+* httpProtocol: http
+* httpDomain: example.com
+* httpPath: path
+* httpQueryParams: queryParam1=value1,queryParam2=value2
+* http.url value does NOT change.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "^(?<httpProtocol>.*):\\/\\/(?<httpDomain>.*)\\/(?<httpPath>.*)(\\?|\\&)(?<httpQueryParams>.*)",
+            "action": "extract"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 The following example demonstrates how to process spans that have a span name that match regexp patterns.
 This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.\*" 
