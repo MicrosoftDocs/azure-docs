@@ -70,10 +70,6 @@ The script will return hosts that are on-boarded to Sentinel directly, or via Mi
 
 Returned data also includes data from Sysmon logs that were collected by many Microsoft customers to help identify machines that have SolarWinds software installed.
 
-> [!NOTE]
-> Similar queries can also be run directly in the Microsoft 365 Advanced hunting portal using raw Microsoft 365 data.
-> 
-
 For more information, see the [SolarWinds Inventory check query](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/SolarWindsInventory.yaml) on GitHub.
 
 ```kusto

@@ -231,6 +231,8 @@ IdentityLogonEvents
 
 #### Find high numbers of LDAP queries in a short time that filter for non-Domain Controller devices
 
+<!--add more why-->
+
 In Microsoft Defender for Identity, run the following query to find any instance of high-volume LDAP queries that occurred in a short period of time, that filter for non-Domain Controller devices:
 
 ```kusto
