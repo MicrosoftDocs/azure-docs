@@ -43,6 +43,9 @@ This version of this article goes through these steps manually, one by one, usin
 1. If you choose to use Azure Cloud Shell:
    1. See [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
     more information.
+   1. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
+
+      :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
 
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the
    resources should be billed. Select a specific subscription using the
@@ -135,8 +138,9 @@ Get-AzADUser -UserPrincipalName <Azure-AD-user-principal-name-of-user-to-assign>
 
 Use the following command to assign the role. It must be run by a user with
 [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription. The
-command requires you to pass in the **ObjectId** for the Azure AD account of the user that
-should be assigned the role.
+command requires you to pass in the **ObjectId** for the Azure AD account of the user that should be
+assigned the role. It also requires you to use the same subscription ID, resource group name, and
+Azure Digital Twins instance name you chose earlier.
 
 ```azurepowershell-interactive
 $Params = @{
