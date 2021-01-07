@@ -41,7 +41,7 @@ Spans encapsulate:
 * A `SpanKind`
 * A start timestamp
 * An end timestamp
-* [`Attributes`](#Attributes)
+* [`Attributes`](#attributes)
 * A list of timestamped Events
 * A `Status`.
 
@@ -243,7 +243,7 @@ For the `hash` action, following are required
 > [!NOTE]
 > This feature is only in 3.0.1 and later
 
-Extracts values using a regular expression rule from the input key to target keys specified in the rule. If a target key already exists, it will be overridden. It behaves similar to the [Span Processor](#Extract-attributes-from-span-name) `toAttributes` setting with the existing attribute as the source.
+Extracts values using a regular expression rule from the input key to target keys specified in the rule. If a target key already exists, it will be overridden. It behaves similar to the [Span Processor](#extract-attributes-from-span-name) `toAttributes` setting with the existing attribute as the source.
 
 ```json
 "processors": [

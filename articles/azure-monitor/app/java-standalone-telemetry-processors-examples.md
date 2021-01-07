@@ -65,7 +65,7 @@ The following are spans that match the exclude properties and the processor acti
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-The following span donot match the exclude properties and the processor actions are applied.
+The following span do not match the exclude properties and the processor actions are applied.
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -106,7 +106,7 @@ The following are spans that match the exclude properties and the processor acti
 * Span1 Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanA' Attributes: {env: dev, test_request: false}
 
-The following span donot match the exclude properties and the processor actions are applied.
+The following span do not match the exclude properties and the processor actions are applied.
 * Span3 Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 * Span4 Name: 'spanC' Attributes: {env: dev, dev_request: false}
 
