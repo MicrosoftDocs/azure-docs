@@ -55,7 +55,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application. 
 
-Type the commands below to create a called **ExampleKey** :
+Type the commands below to create a key called **ExampleKey** :
 
 ```azurecli
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software

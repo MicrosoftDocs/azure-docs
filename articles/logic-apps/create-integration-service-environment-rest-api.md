@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 12/30/2020
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
@@ -118,7 +118,7 @@ Here is the request body syntax, which describes the properties to use when you 
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
+      // Include `certificates` object to enable self-signed certificate and the certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -182,6 +182,7 @@ This example request body shows the sample values:
    }
 }
 ```
+
 ## Add custom root certificates
 
 You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates. To update your ISE with a custom trusted root certificate, make this HTTPS `PATCH` request:
