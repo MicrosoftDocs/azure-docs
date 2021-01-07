@@ -159,7 +159,7 @@ practices to make credentials more secure.
 * Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. While this will not
     compromise your cloud infrastructure, your cloud accounts will not protect these components from on-premises compromise.
 
-*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization#enforcecloudpasswordpolicyforpasswordsyncedusers.md).
+*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization#enforcecloudpasswordpolicyforpasswordsyncedusers).
 
 ## Provision User Access from the Cloud
 
@@ -265,7 +265,7 @@ Use Azure AD capabilities to securely manage devices.
 
 *  **Application and workload servers**
 
-   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](../domain-services/overview.md) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
+   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
 
    * Follow the guidance of the [credential tiering](https://aka.ms/TierModel). Application Servers are typically considered Tier 1 assets.
 
@@ -298,14 +298,14 @@ monitor access to your business-critical applications and resources.
 
 * **Suspicious activity**: All [Azure AD risk events](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) should be monitored for suspicious activity. [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) is natively integrated with Azure Security Center.
 
-   * Define the network [named locations](..y/reports-monitoring/quickstart-configure-named-locations.md) to avoid noisy detections on location-based signals. 
+   * Define the network [named locations](../reports-monitoring/quickstart-configure-named-locations.md) to avoid noisy detections on location-based signals. 
 *  **User Entity Behavioral Analytics (UEBA) alerts** Use UEBA
     to get insights on anomaly detection.
    * Microsoft Cloud App Discovery (MCAS) provides [UEBA in the cloud](https://docs.microsoft.com/cloud-app-security/tutorial-ueba).
 
    * You can [integrate on-premises UEBA from Azure ATP](https://docs.microsoft.com/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
 
-* **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and [alerts](../roles/security-emergency-access#monitor-sign-in-and-audit-logs) created for investigations. This monitoring must include: 
+* **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and [alerts](../roles/security-emergency-access#monitor-sign-in-and-audit-logs.md) created for investigations. This monitoring must include: 
 
    * Sign-ins. 
 
