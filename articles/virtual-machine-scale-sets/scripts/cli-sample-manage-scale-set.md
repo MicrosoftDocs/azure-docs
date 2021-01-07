@@ -16,7 +16,7 @@ Use these sample commands to prototype a virtual machine scale set by using Azur
 
 These sample commands demonstrate the following operations:
 
-* Create a virtual machine scale set
+* Create a virtual machine scale set.
 * Add and upgrade new or existing disks to a scale set or to an instance of the set.
 * Add scale set to Azure Active Directory (Azure AD) authentication.
 
@@ -34,10 +34,10 @@ az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-cou
 # Attach a new managed disk to your scale set
 az vmss disk attach --resource-group MyResourceGroup --vmss-name myScaleSet --size-gb 50
 
-# Attach an existing managed disk to a VM instance in your scale set
+# Attach an existing managed disk to a virtual machine instance in your scale set
 az vmss disk attach --resource-group MyResourceGroup --disk myDataDisk --vmss-name myScaleSet --instance-id 0
 
-# See the instances for your VM scale set
+# See the instances in your virtual machine scale set
 az vmss list-instances --resource-group MyResourceGroup --name myScaleSet --output table
 
 # See the disks for your virtual machine
