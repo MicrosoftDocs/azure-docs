@@ -34,18 +34,24 @@ In part 1 of this tutorial series, you will:
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
 - Familiarity with Python and [Machine Learning concepts](concept-azure-machine-learning-architecture.md). Examples include environments, training, and scoring.
 - Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-- Python (version 3.5 to 3.7).
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
 
 
 ## Install the Azure Machine Learning SDK
 
 Throughout this tutorial, we make use of the Azure Machine Learning SDK for Python.
 
-You can use the tools most familiar to you (for example, Conda and pip) to set up a Python environment to use throughout this tutorial. Install into your Python environment the Azure Machine Learning SDK for Python via pip:
+ In an Anaconda Prompt window, set up a Python environment to use throughout this tutorial.
 
 ```bash
+conda create -n tutorial1 python=3.7
+conda activate tutorial1
 pip install azureml-sdk
 ```
+
+> [!NOTE]
+> Wait approximately 5 minutes for the install to complete.
+
 
 > [!div class="nextstepaction"]
 > [I installed the SDK](?success=install-sdk#dir) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
@@ -99,7 +105,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
 ws.write_config(path='.azureml')
 ```
 
-Run this code from the `tutorial` directory:
+In the window that has the activated *tutorial1* conda environment, run this code from the `tutorial` directory.
 
 ```bash
 cd <path/to/tutorial>
@@ -159,7 +165,7 @@ except ComputeTargetException:
 cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Run the Python file:
+In the window that has the activated *tutorial1* conda environment, run the Python file:
 
 ```bash
 python ./02-create-compute.py
@@ -181,6 +187,19 @@ tutorial
 
 > [!div class="nextstepaction"]
 > [I created a compute cluster](?success=create-compute-cluster#next-steps) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## View in the studio
+
+Sign in to [Azure Machine Learning studio](https://ml.azure.com) to view the workspace and compute instance you created.
+
+1. Select the **Subscription** you used to create the workspace.
+1. Select the **Machine Learning workspace** you created, *tutorial-ws*.
+1. Once the workspace loads, on the left side, select **Compute**.
+1. At the top, select the **Compute clusters** tab.
+
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/compute-instance-in-studio.png" alt-text="Screenshot: View the compute instance in your workspace.":::
+
+This view shows the provisioned compute cluster, along with the number of idle nodes, busy nodes, and unprovisioned nodes.  Since you haven't used the cluster yet, all the nodes are currently unprovisioned.
 
 ## Next steps
 
