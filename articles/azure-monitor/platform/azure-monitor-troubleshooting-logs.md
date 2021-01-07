@@ -21,7 +21,7 @@ Troubleshooting Logs decrees your charges by giving you basic capabilities for t
 >* The decision for troubleshooting mode is configurable.
 >* Troubleshooting Logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
 >* There is a 4 days free retention period, can be extended in addition cost.
->* By default, the tables inherent the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
+>* By default, the tables inherits the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
 > * Troubleshooting Logs is in preview mode.
 >* Contact the [CM team](mailto:XXXXXXX@microsoft.com) with any questions or to apply the feature.
 
