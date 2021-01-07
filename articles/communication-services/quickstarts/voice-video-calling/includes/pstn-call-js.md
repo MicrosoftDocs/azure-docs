@@ -22,34 +22,40 @@ ms.author: nikuklic
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js
 ```
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-## Setting up
-
-### Add PSTN functionality to your app
-
-Extend your layout with phone dialing controls.
-
-Place this code to the end of `<body />` section of **index.html**, before `<script />` tags:
+Here's the code:
 
 ```html
-<input 
-  id="callee-phone-input"
-  type="text"
-  placeholder="Phone number you would like to dial"
-  style="margin-bottom:1em; width: 230px;"
-/>
-<div>
-  <button id="call-phone-button" type="button">
-    Start Phone Call
-  </button>
-  &nbsp;
-  <button id="hang-up-phone-button" type="button" disabled="true">
-    Hang Up Phone Call
-  </button>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Communication Client - Calling Sample</title>
+  </head>
+  <body>
+    <h4>Azure Communication Services</h4>
+    <h1>Calling Quickstart</h1>
+    <input 
+      id="callee-phone-input"
+      type="text"
+      placeholder="Phone number you would like to dial"
+      style="margin-bottom:1em; width: 230px;"
+    />
+    <div>
+      <button id="call-phone-button" type="button">
+        Start Phone Call
+      </button>
+      &nbsp;
+      <button id="hang-up-phone-button" type="button" disabled="true">
+        Hang Up Phone Call
+      </button>
+    </div>
+    <script src="./bundle.js"></script>
+  </body>
+</html>
 ```
 
-Extend your application logic with telephony functionality.
+Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
 
 Add this code to **client.js**:
 
@@ -118,4 +124,4 @@ Open your browser and navigate to `http://localhost:8080/`. You should see the f
 You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
 
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
