@@ -62,7 +62,7 @@ TBD
 
 This category contains the following entities:
 
-::row:::
+:::row:::
    :::column span="":::
       **Category or subcategory**
 
@@ -71,14 +71,16 @@ This category contains the following entities:
    :::column span="2":::
       **Details**
 
-      Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.      
+      Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. 
+      
    :::column-end:::
-   :::column span="1":::
+:::column span="1":::
       **Languages**
 
-       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
-          
+      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`    
+      
    :::column-end:::
+
 :::row-end:::
 :::row:::
    :::column span="":::
