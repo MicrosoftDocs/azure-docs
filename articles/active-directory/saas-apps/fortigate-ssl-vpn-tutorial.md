@@ -224,9 +224,9 @@ To complete these steps, you'll need the values you recorded earlier:
 
 #### Configure FortiGate for group matching
 
-In this section, you'll configure FortiGate to recognize the Object Id of the security group that includes the test user. This configuration will allow FortiGate to make access decisions based on the group membership.
+In this section, you'll configure FortiGate to recognize the Object ID of the security group that includes the test user. This configuration will allow FortiGate to make access decisions based on the group membership.
 
-To complete these steps, you'll need the Object Id of the FortiGateAccess security group that you created earlier in this tutorial.
+To complete these steps, you'll need the Object ID of the FortiGateAccess security group that you created earlier in this tutorial.
 
 1. Establish an SSH session to your FortiGate appliance, and sign in with a FortiGate Administrator account.
 1. Run these commands:
