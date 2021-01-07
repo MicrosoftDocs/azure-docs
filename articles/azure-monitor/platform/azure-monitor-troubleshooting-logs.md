@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Troubleshooting logs
-description: Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
+description: Use Azure Monitor to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
@@ -15,14 +15,14 @@ Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoo
 
 ## Troubleshoot and query your code or configuration issues
 Use Azure Monitor Troubleshooting Logs to fetch your records and investigate problems and issues in a simpler and cheaper way using KQL.
-Troubleshooting Logs decrees your charges by giving you fewer and basic capabilities for troubleshooting.
+Troubleshooting Logs decrees your charges by giving you basic capabilities for troubleshooting.
 
 > [!NOTE]
 >* The decision for troubleshooting mode is configurable.
->* Troubleshooting logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
+>* Troubleshooting Logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
 >* There is a 4 days free retention period, can be extended in addition cost.
 >* By default, the tables inherent the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
-> * Troubleshooting logs is in preview mode.
+> * Troubleshooting Logs is in preview mode.
 >* Contact the [CM team](mailto:XXXXXXX@microsoft.com) with any questions or to apply the feature.
 
 ## Turn on Troubleshooting Logs on your tables
@@ -46,7 +46,7 @@ Response:
       }
 ```
 ## Check if the Troubleshooting logs feature is enabled for a given table
-To check whether the troubleshooting log is enabled for a given table, you can use the following API call.
+To check whether the Troubleshooting Log is enabled for a given table, you can use the following API call.
 
 ```http
 GET https://PortalURL/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}
@@ -63,7 +63,7 @@ Response:
 
 ```
 ## Check if the Troubleshooting logs feature is enabled for all of the tables in a workspace
-To check which tables have the troubleshooting log enabled, you can use the following API call.
+To check which tables have the Troubleshooting Log enabled, you can use the following API call.
 
 ```http
 GET "https://PortalURL/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables"
@@ -124,14 +124,14 @@ Response:
 >* The "isTroubleshootingAllowed" flag – describes if the table is allowed in the service
 >* The "isTroubleshootEnabled" indicates if the feature is enabled for the table - can be switched on or off (true or false)
 >* When disabling the "isTroubleshootEnabled" flag for a specific table, re-enabling it is possible only one week after the prior enable date.
->* Currently this is supported only for tables under PerGB2018 SKU (some other SKUs will also be supported in the future).
+>* Currently this is supported only for tables under PerGB2018 SKU (some other SKUs will also be supported in the future) - [Read more about pricing](https://docs.microsoft.com/services-hub/health/azure_pricing).
 
 ## Query limitations for Troubleshooting
-There are few limitations for a table that is marked as "Troubleshooting logs":
+There are few limitations for a table that is marked as "Troubleshooting Logs":
 *	Will get less processing resources and therefore, will not be suitable for large dashboards, complex analytics, or many concurrent API calls.
 *	Queries are limited to a time range of two days.
 * purging will not work – [Read more about purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge).
-* Alerts will not work.
+* Alerts are not supported through this service.
 ## Next steps
 * [Write queries](https://docs.microsoft.com/azure/data-explorer/write-queries)
 
