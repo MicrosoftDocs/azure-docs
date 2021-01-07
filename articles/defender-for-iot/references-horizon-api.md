@@ -4,7 +4,7 @@ description: This guide describes commonly used Horizon methods.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 1/7/2020
 ms.topic: article
 ms.service: azure
 ---
