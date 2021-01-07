@@ -121,7 +121,7 @@ To address a registry artifact for push and pull operations with Docker or other
 > [!NOTE]
 > The tag `latest` is used by default if you don't provide a tag in your command.     
 
-### Push
+### Push by tag
 
 `[loginServerUrl]/[repository][:tag]`
 
@@ -131,25 +131,29 @@ Examples:
 
 `docker push myregistry.azurecr.io/marketing/email-sender`
 
-### Pull
+### Pull by tag
 
 `[loginServerUrl]/[repository][:tag]` or
 
-`[loginServerUrl]/[repository@sha256][:digest]`
 
-Examples: 
+
+Example: 
 
 `docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
 
+### Pull by manifest digest
+
+`[loginServerUrl]/[repository@sha256][:digest]`
+
+Example:
 
 `docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
-
 
 ## Next steps
 
 Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats.md) in Azure Container Registry.
 
-Learn how to [push and pull images](container-registry-docker-cli.md) with Azure Container Registry.
+Learn how to [push and pull images](container-registry-get-started-docker-cli.md) with Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
