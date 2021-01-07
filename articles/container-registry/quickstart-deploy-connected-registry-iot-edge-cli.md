@@ -20,7 +20,7 @@ In this quickstart, you use [Azure Container Registry][container-registry-intro]
 
 This tutorial requires an Azure IoT Edge device to be set up upfront. You can use the [Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md) quickstart guide to learn how to deploy a virtual IoT Edge device. The connected registry is deployed as a module on the IoT Edge device.
 
-Also, make sure that you have created the connected registry resource in Azure as described in the [Create connected registry using the CLI][quickstart-connected-registry-cli] quickstart guide.
+Also, make sure that you have created the connected registry resource in Azure as described in the [Create connected registry using the CLI][quickstart-connected-registry-cli] quickstart guide. Both, `registry` and `mirror` modes will work for this scenario.
 
 ## Import the connected registry image to your registry
 
@@ -31,6 +31,8 @@ az acr import \
   --name mycontainerregistry001 \
   --source mcr.microsoft.com/acr/connected-registry:0.1.0
 ```
+
+To learn more about nested IoT Edge scenarios, please visit [Tutorial: Create a hierarchy of IoT Edge devices (Preview)](../iot-edge/tutorial-nested-iot-edge.md).
 
 ## Create a client token for access to the cloud registry
 
