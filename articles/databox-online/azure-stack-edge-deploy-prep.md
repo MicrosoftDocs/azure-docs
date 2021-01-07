@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -145,11 +145,11 @@ After the order is placed, Microsoft reviews the order and reaches out to you (v
 
 After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Pro device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Select the resource that you created. Select **Overview** and then select **Device setup**.
+1. Go to the resource that you created and select **Overview**. You'll see a notification to the effect that your order is being processed.
 
-    ![Select Device setup](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. On the **Activate** tile, select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
+2. After the order is processed and the device is on your way, the **Overview** updates. Accept the default **Azure Key Vault name** or enter a new one. Select **Generate activation key**. Select the copy icon to copy the key and save it for later use.
 
     ![Get activation key](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
