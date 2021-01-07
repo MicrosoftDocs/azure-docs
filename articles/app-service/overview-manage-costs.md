@@ -25,7 +25,7 @@ This article describes how you plan for and manage costs for Azure App Service. 
 
 ## Relevant costs for App Service
 
-App Service runs on Azure infrastructure that accrues costs along with App Service. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
+App Service runs on Azure infrastructure that accrues cost. It's important to understand that additional infrastructure might accrue cost. You must manage that cost when you make changes to deployed resources.
 
 ### Costs that accrue with Azure App Service
 
@@ -41,11 +41,11 @@ Other cost resources for App Service are (see [App Service pricing](https://azur
 
 - [App Service domains](manage-custom-dns-buy-domain.md)  Your subscription is charged for the domain registration on a yearly basis, if you enable automatic renewal.
 - [App Service certificates](configure-ssl-certificate.md#import-an-app-service-certificate)  One-time charge at the time of purchase. If you have multiple subdomains to secure, you can reduce cost by purchasing one wildcard certificate instead of multiple standard certificates.
-- [IP-based certificate bindings](configure-ssl-bindings.md#create-binding)  The binding is configure on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and above, the first IP-based binding is not charged.
+- [IP-based certificate bindings](configure-ssl-bindings.md#create-binding)  The binding is configured on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and above, the first IP-based binding is not charged.
 
 ### Costs that might accrue after resource deletion
 
-When you delete all apps in an App Service plan, the plan continues to accrue charges based on it's configured pricing tier and number of instances. To avoid unwanted charges, delete the plan or scale it down to **Free** tier.
+When you delete all apps in an App Service plan, the plan continues to accrue charges based on its configured pricing tier and number of instances. To avoid unwanted charges, delete the plan or scale it down to **Free** tier.
 
 After you delete Azure App Service resources, resources from related Azure services might continue to exist. They continue to accrue costs until you delete them. For example:
 
@@ -57,7 +57,7 @@ After you delete Azure App Service resources, resources from related Azure servi
 
 ### Using Monetary Credit with Azure App Service
 
-You can pay for Azure App Service charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure App Service charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
 
 ## Estimate costs
 
@@ -73,28 +73,30 @@ When you create an App Service app or an App Service plan, you can see the estim
 
 To create an app and view the estimated price:
 
-2. On the create page, scroll down to **App Service plan** and click **Create new**.
+2. On the create page, scroll down to **App Service plan**, and click **Create new**.
 1. Specify a name and click **OK**.
 1. Next to **Sku and size**, click **Change size**.
 1. Review the estimated price shown in the summary.
 
-    ![](media/overview-manage-costs/pricing-estimates.png)
+    ![Review estimated cost for each pricing tier in the portal](media/overview-manage-costs/pricing-estimates.png)
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../billing/billing-spending-limit.md).
 
 ## Optimize costs
 
-At a basic level, App Service apps are charged by the App Service plan that hosts them. The costs associated with your App Service deployment depends on a few main factors:
+At a basic level, App Service apps are charged by the App Service plan that hosts them. The costs associated with your App Service deployment depend on a few main factors:
 
 - **Pricing tier**  Otherwise known as the SKU of the App Service plan. Higher tiers provide more CPU cores, memory, storage, or features, or combinations of them.
 - **Instance count**  dedicated tiers (Basic and above) can be scaled out, and each scaled out instance accrues costs.
 - **Stamp fee**  In the Isolated tier, a flat fee is accrued on your App Service environment, regardless of how many apps or worker instances are hosted.
 
+For details, see [App Service plan overview](overview-hosting-plans.md)
+
 ### Non-production workloads
 
 To test App Service or your solution while accruing low or minimal cost, you can begin by using the two entry-level pricing tiers, **Free** and **Shared**. To test pre-production workloads that require higher tiers (except for **Isolated**), Visual Studio subscribers can also take advantage of the [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
 
-Both the **Free** and **Shared** tier, as well as the Azure Dev/Test Pricing discounts, are designed for non-production workloads, and don't carry a financially-backed SLA.
+Both the **Free** and **Shared** tier, as well as the Azure Dev/Test Pricing discounts, are designed for non-production workloads, and don't carry a financially backed SLA.
 
 ### Production workloads
 
@@ -109,7 +111,7 @@ If you plan to utilize a known minimum number of compute instances for one year 
 - **Windows (or platform agnostic)**  Can apply to Windows or Linux instances in your subscription.
 - **Linux specific**  Applies only to Linux instances in your subscription.
 
-The reserved instance pricing applies to the applicable instances in your subscription, up to the number of instances that you reserve. The reserved instances is billing matter and is not tied to specific compute instances. If you run less instances than you reserve at any point during the reservation period, you still pay for the reserved instances. If you run more instances than you reserve at any point during the reservation period, you pay the normal accrued cost for the additional instances.
+The reserved instance pricing applies to the applicable instances in your subscription, up to the number of instances that you reserve. The reserved instances are a billing matter and are not tied to specific compute instances. If you run fewer instances than you reserve at any point during the reservation period, you still pay for the reserved instances. If you run more instances than you reserve at any point during the reservation period, you pay the normal accrued cost for the additional instances.
 
 > [!NOTE]
 > **Premium V3** supports both Windows containers and Linux containers. 
@@ -136,7 +138,7 @@ To narrow costs for a single service, like App Service, select **Add filter** an
 
 Here's an example showing costs for just App Service.
 
-![Example showing accumulated costs for ServiceName](media/overview-manage-costs/service-specific-cost.png)
+![Example showing accumulated costs for ServiceName](media/overview-manage-costs/service-specific-costs.png)
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and App Service costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -146,11 +148,11 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 You can create [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
 
-Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more information about the filter options available when you create a budget, see [Group and filter options](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you extra money. For more information about the filter options available when you create a budget, see [Group and filter options](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Export cost data
 
-You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do more data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 
