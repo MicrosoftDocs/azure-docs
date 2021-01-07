@@ -435,7 +435,7 @@ Following is an equivalent URL that uses a private endpoint enabled where the cu
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
-The DNS element for custom voice migrates from DNS URL into the path as the first element.
+The same principle as in Example 1 is applied, but the key element this time is `voice`.
 
 ##### Modify applications
 
@@ -494,7 +494,10 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithE
 ```
 
 > [!TIP]
-> The query parameters specified in the endpoint URI are not changed, even if they are set by any other APIs. For example, if the recognition language is defined in the URI as query parameter "language=en-US", and is also set to "ru-RU" via the correspondent property, the language setting in the URI is used, and the effective language is "en-US". Only parameters that are not specified in the endpoint URI can be set by other APIs.
+> The query parameters specified in the endpoint URI are not changed, even if they are set by any other APIs. For example, if the
+> recognition language is defined in the URI as query parameter "language=en-US", and is also set to "ru-RU" via the correspondent
+> property, the language setting in the URI is used, and the effective language is "en-US". Parameters set in the endpoint URI always
+> take precidence. Only parameters that are not specified in the endpoint URI can be overridden by other APIs.
 
 After this modification your application should work with the private enabled Speech resources. We are working on more seamless support of private endpoint scenario.
 
@@ -601,7 +604,7 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithA
 > [!NOTE]
 > The caller needs to ensure that the authorization token is valid.
 > Before the authorization token expires, the caller needs to refresh it by calling this setter with a new valid token.
-> As configuration values are copied when creating a new recognizer or synthesizer, the new token value will not apply to recognizers that have already been created.
+> As configuration values are copied when creating a new recognizer or synthesizer, the new token value will not apply to recognizers or synthesizers that have already been created.
 > For these, set the authorization token of the corresponding recognizer or synthesizer to refresh the token.
 > If you don't refresh the token, the the recognizer or synthesizer will encounter errors while operating.
 
@@ -611,7 +614,7 @@ After this modification your application should work with Speech resources that 
 
 For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
-## Next steps
+## Learn more
 
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
