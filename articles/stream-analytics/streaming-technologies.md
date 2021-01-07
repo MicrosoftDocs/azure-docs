@@ -1,7 +1,7 @@
 ---
 title: Choose a real-time and stream processing solution on Azure
 description: Learn about how to choose the right real-time analytics and streaming processing technology to build your application on Azure.
-author: ebnkruma
+author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Azure Cosmos DB.
-author: ebnkruma
+author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual

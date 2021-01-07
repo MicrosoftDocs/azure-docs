@@ -1,7 +1,7 @@
 ---
 title: Clean up your Azure Stream Analytics job
 description: This article shows you different methods for deleting your Azure Stream Analytics jobs.
-author: ebnkruma
+author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
