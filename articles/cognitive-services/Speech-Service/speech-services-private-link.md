@@ -575,7 +575,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 > [!TIP]
 > You can find this URL in Azure portal. On your Speech resource page, under the under the **Resource management** group, select **Keys and Endpoint**.
 
-**2. Craete a `SpeechConfig` instance using "from authorization token" / "with authorization token" method.**
+**2. Create a `SpeechConfig` instance using "from authorization token" / "with authorization token" method.**
 
 Create a `SpeechConfig` instance using the authorization token you obtained in the previous section. Suppose we have the following variables defined:
 
