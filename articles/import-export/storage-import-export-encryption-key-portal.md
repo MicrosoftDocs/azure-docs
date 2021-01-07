@@ -28,7 +28,7 @@ Before you begin, make sure:
     - [Create an import job for files](storage-import-export-data-to-files.md).
     - [Create an export job for blobs](storage-import-export-data-from-blobs.md)
 
-2. You have an existing Azure Key Vault with a key in it that you can use to protect your BitLocker key. To learn how to create a key vault using the Azure portal, see [Quickstart: Create an Azure Key Vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+2. You have an existing Azure Key Vault that contains a key you can use to protect your BitLocker key. To learn how to create a key vault using the Azure portal, see [Quickstart: Create an Azure Key Vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
     - **Soft delete** and **Do not purge** are set on your existing Key Vault. These properties are not enabled by default. To enable these properties, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
 
@@ -51,9 +51,9 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
     ![View BitLocker key](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. You have the option to specify a customer managed key. After you have selected the customer managed key, **Select key vault and a key**.
+4. You have the option to specify a customer-managed key. After you have selected the customer-managed key, **Select key vault and a key**.
 
-    ![Select customer managed key](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
+    ![Select customer-managed key](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
 5. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
 
@@ -83,14 +83,14 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
     ![New key created in key vault](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-In the **Encryption** blade, you can see the key vault and the key selected for your customer managed key.
+In the **Encryption** blade, you can see the key vault and the key selected for your customer-managed key.
 
 > [!IMPORTANT]
-> You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
+> You can only disable Microsoft managed keys and move to customer-managed keys at any stage of the import/export job. However, you cannot disable the customer-managed key once you have created it.
 
-## Troubleshoot customer managed key errors
+## Troubleshoot customer-managed key errors
 
-If you receive any errors related to your customer managed key, use the following table to troubleshoot:
+If you receive any errors related to your customer-managed key, use the following table to troubleshoot:
 
 | Error code     |Details     | Recoverable?    |
 |----------------|------------|-----------------|
