@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
+ms.date: 01/07/2021
 ---
 
 # Introduction to listing options
 
-You can use the available _listing options_ in the commercial marketplace to engage with potential customers in a variety of ways. After your offer is published, the listing option(s) you chose for your offer appear as a button in the upper-left corner of your offer’s listing page in the online store(s). For example, the following screenshot shows an offer listing page in the Microsoft AppSource online store with the **Contact Me** and **Test Drive** buttons.
+You can use the available _listing options_ in the commercial marketplace to engage with potential customers in a variety of ways. After your offer is published, the listing option(s) you chose for your offer appear as a button in the upper-left corner of your offer’s listing page in the online store(s). For example, the following screenshot shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons.
 
-:::image type="content" source="./media/listing-options.png" alt-text="Illustrates the listing page for an offer. The Contact Me and Test Drive buttons are shown.":::
+:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer. The Contact Me and Test Drive buttons are shown.":::
 
 ## Available listing options by offer type
 
@@ -95,6 +95,10 @@ This table shows which offer types support the additional pricing options that a
 
 Use this listing option to offer your application for free. Customers use the _Get It Now_ button to get your free offer.
 
+[NOTE!] Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
+
+[NOTE!] Bring Your Own License (BYOL) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
+
 #### BYOL
 
 Use the commercial marketplace to enhance discoverability, automate provisioning of your solution, and complete the financial transaction separate from the marketplace. The bring your own license (BYOL) listing option is ideal for on-premises to cloud migrations. Customers use the _Get It Now_ button to purchase your offer using a license they have pre-purchased from you.
@@ -110,8 +114,8 @@ You can charge a flat fee for these offer types:
 
 The following offer types support usage-based pricing:
 
-- Azure Application (Managed app) offer support metered billing. For more details, see [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md).
-- SaaS offers supports Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md).
+- Azure Application (Managed app) offer support metered billing. For more details, see [Managed application metered billing](partner-center-portal/azure-app-metered-billing.md).
+- SaaS offers supports Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support Per core, Per core size, and Per market and core size pricing. These pricing options are priced per hour and billed monthly.
 
 When creating a transactable offer, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
@@ -142,10 +146,14 @@ The following table shows the options that are available for different offer typ
 
 &#42;&#42; Microsoft 365 add-ins are free to install and can be monetized using a SaaS offer. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## Marketplace rewards
+## Marketplace Rewards
 
 Your Marketplace Rewards are differentiated based on the listing option you choose. To learn more, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 
+If your offer is transactable, you will earn benefits as you increase your billed sales.
+
+Non-transactable offers earn benefits based on whether or not a free trial is attached.
+
 ## Next steps
 
-- To choose an offer type to create, see [publishing guide by offer type](./publisher-guide-by-offer-type.md).
+- To choose an offer type to create, see [publishing guide by offer type](publisher-guide-by-offer-type.md).
