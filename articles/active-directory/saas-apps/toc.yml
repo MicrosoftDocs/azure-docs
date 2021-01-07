@@ -998,6 +998,8 @@
         href: kumolus-tutorial.md
     - name: L - M
       items:
+      - name: LabLog
+        href: lablog-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LaunchDarkly
