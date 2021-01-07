@@ -2,7 +2,7 @@
 title: Back up Windows machines by using the MARS agent
 description: Use the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 01/07/2021
 
 ---
 
@@ -100,7 +100,7 @@ To do an offline transfer:
 1. Write the backup data to a staging location.
 1. Use the AzureOfflineBackupDiskPrep tool to copy the data from the staging location to one or more SATA disks.
 
-    The tool creates an Azure Import job. For more information, see [What is the Azure Import/Export service](../storage/common/storage-import-export-service.md).
+    The tool creates an Azure Import job. For more information, see [What is the Azure Import/Export service](../import-export/storage-import-export-service.md).
 1. Send the SATA disks to an Azure datacenter.
 
     At the datacenter, the disk data is copied to an Azure storage account. Azure Backup copies the data from the storage account to the vault, and incremental backups are scheduled.

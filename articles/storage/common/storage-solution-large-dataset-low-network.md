@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -64,4 +64,4 @@ The following table summarizes the differences in key capabilities.
 
     - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
     - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transfer data with Import/Export](./storage-import-export-data-to-blobs.md).
+    - [Transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).

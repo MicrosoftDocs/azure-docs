@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -62,7 +62,7 @@ For example, if you wanted to move data at your location in Canada to an Azure W
 
 ### Option 1: 
 
-Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
+Ship a [supported disk](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../import-export/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
 
 ### Option 2:
 

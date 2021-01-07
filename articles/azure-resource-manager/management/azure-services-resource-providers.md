@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ---
 
 # Resource providers for Azure services
@@ -97,7 +97,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
-| Microsoft.ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
+| Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |

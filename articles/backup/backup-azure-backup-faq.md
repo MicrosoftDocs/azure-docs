@@ -2,7 +2,7 @@
 title: Answers to common questions
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 ms.topic: conceptual
-ms.date: 07/07/2019
+ms.date: 01/07/2021
 ---
 
 # Azure Backup - Frequently asked questions
@@ -55,7 +55,7 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 
 ### How can I move data from the Recovery Services vault to on-premises?
 
-Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../storage/common/storage-import-export-service.md).
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
 
 ## Azure Backup agent
 
