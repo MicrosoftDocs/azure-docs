@@ -145,7 +145,7 @@ practices to make credentials more secure.
 
    * [Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
-   * [Authenticator App](../authentication/howto-authentication-passwordless-phone)
+   * [Authenticator App](../authentication/howto-authentication-passwordless-phone.md)
 
    * [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
@@ -159,8 +159,7 @@ practices to make credentials more secure.
 * Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. While this will not
     compromise your cloud infrastructure, your cloud accounts will not protect these components from on-premises compromise.
 
-*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be
-    disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization#enforcecloudpasswordpolicyforpasswordsyncedusers.md).
+*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization#enforcecloudpasswordpolicyforpasswordsyncedusers.md).
 
 ## Provision User Access from the Cloud
 
@@ -177,7 +176,7 @@ Provisioning refers to the creation of user accounts and groups in applications 
     profiles due to on-premises breaches. 
 
 * **External Identities:** Use [Azure AD B2B
-    collaboration](../external-identities/what-is-b2b).
+    collaboration](../external-identities/what-is-b2b.md).
     This will reduce the dependency on on-premises accounts for external
     collaboration with partners, customers, and suppliers. Carefully
     evaluate any direct federation with other identity providers. We
@@ -190,7 +189,7 @@ Provisioning refers to the creation of user accounts and groups in applications 
     *   Block access to the Azure portal. You can make rare necessary
         exceptions.  Create a Conditional Access policy that includes all guests
             and external users and then [implement a policy to block
-            access](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management). 
+            access](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
 
 * **Disconnected Forests:** Use [Azure AD Cloud
     Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
@@ -266,7 +265,7 @@ Use Azure AD capabilities to securely manage devices.
 
 *  **Application and workload servers**
 
-   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](..-domain-services/overview) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
+   * Applications or resources that required servers can be migrated to Azure IaaS and use [Azure AD Domain Services](../domain-services/overview.md) (Azure AD DS) to decouple trust and dependency on AD on-premises. To achieve this decoupling, virtual networks used for Azure AD DS should not have connection to corporate networks.
 
    * Follow the guidance of the [credential tiering](https://aka.ms/TierModel). Application Servers are typically considered Tier 1 assets.
 
@@ -297,17 +296,16 @@ Monitor the following key scenarios, in addition to any scenarios
 specific to your organization. For example, you should proactively
 monitor access to your business-critical applications and resources.
 
-* **Suspicious activity**: All [Azure AD risk events](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) should be monitored for suspicious activity. [Azure AD Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection) is natively integrated with Azure Security Center.
+* **Suspicious activity**: All [Azure AD risk events](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) should be monitored for suspicious activity. [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) is natively integrated with Azure Security Center.
 
-   * Define the network [named locations](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) to avoid noisy detections on location-based signals. 
+   * Define the network [named locations](..y/reports-monitoring/quickstart-configure-named-locations.md) to avoid noisy detections on location-based signals. 
 *  **User Entity Behavioral Analytics (UEBA) alerts** Use UEBA
     to get insights on anomaly detection.
-   * Microsoft Cloud App Discovery (MCAS) provides [UEBA in the cloud](https://docs.microsoft.com/en-us/cloud-app-security/tutorial-ueba).
+   * Microsoft Cloud App Discovery (MCAS) provides [UEBA in the cloud](https://docs.microsoft.com/cloud-app-security/tutorial-ueba).
 
    * You can [integrate on-premises UEBA from Azure ATP](https://docs.microsoft.com/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
 
-* **Emergency access accounts activity**: Any access
-    using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and [alerts](../users-groups-roles/directory-emergency-access#monitor-sign-in-and-audit-logs.md) created for investigations. This monitoring must include: 
+* **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and [alerts](../roles/security-emergency-access#monitor-sign-in-and-audit-logs) created for investigations. This monitoring must include: 
 
    * Sign-ins. 
 
@@ -317,7 +315,7 @@ monitor access to your business-critical applications and resources.
 
    *    Application Assignments. 
 * **Privileged role activity**: Configure and review
-    security [alerts generated by Azure AD PIM](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new#security-alerts).
+    security [alerts generated by Azure AD PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new#security-alerts).
     Monitor direct assignment of privileged roles outside PIM by
     generating alerts whenever a user is assigned directly.
 * **Azure AD tenant-wide configurations**: Any change to tenant-wide configurations should generate alerts in the system. These include but are not limited to
@@ -350,7 +348,7 @@ Define a log storage and retention strategy, design, and implementation to facil
    * Risk events 
 
 Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](https://aka.ms/AzureADSecuredAzure/32b). You can [stream Azure AD logs to Azure monitor
-logs](..y/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Hybrid Infrastructure OS Security Logs.** All hybrid identity infrastructure OS logs should be archived and carefully monitored as a <br>Tier 0 system, given the surface area implications. This includes: 
 
