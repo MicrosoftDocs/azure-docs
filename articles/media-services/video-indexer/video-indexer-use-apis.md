@@ -28,6 +28,8 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	
 	![Sign in to Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api01.png)
 
+   See a release note regarding [login information](release-notes.md#october-2020).
+
    > [!Important]
    > * You must use the same provider you used when you signed up for Video Indexer.
    > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
