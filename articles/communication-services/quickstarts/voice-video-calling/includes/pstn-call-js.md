@@ -30,16 +30,16 @@ Here's the code:
     <input 
       id="callee-phone-input"
       type="text"
-      placeholder="Phone number you would like to dial"
+      placeholder="Who would you like to call?"
       style="margin-bottom:1em; width: 230px;"
     />
     <div>
       <button id="call-phone-button" type="button">
-        Start call
+        Start Call
       </button>
       &nbsp;
       <button id="hang-up-phone-button" type="button" disabled="true">
-        Hang up
+        Hang Up
       </button>
     </div>
     <script src="./bundle.js"></script>
@@ -108,8 +108,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
 
-
-![Screenshot of the completed JavaScript Application.](../media/javascript/pstn-calling-javascript-app.png)
+:::image type="content" source="../media/javascript/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
 
