@@ -215,8 +215,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ```console
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
-> [!NOTE]
-> If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg`.
+    > [!NOTE]
+    > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg`.
 
 1. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
@@ -406,8 +406,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-> [!NOTE]
-> If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg`.
+    > [!NOTE]
+    > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg`.
 
 1. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
