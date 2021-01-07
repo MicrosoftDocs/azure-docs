@@ -10,7 +10,7 @@ ms.custom:
 
 # Quickstart: Create a connected registry using Azure Container Registry CLI commands
 
-In this quickstart, you use [Azure Container Registry][container-registry-intro] commands to create a connected registry resource in Azure. You can review the [ACR connected registry introduction](intro-connected-registry.md) for details about the connected registry feature of Azure Container Registry. 
+In this quickstart, you use [Azure Container Registry][container-registry-intro] (ACR) commands to create a connected registry resource in Azure. The connected registry feature of ACR allows you to deploy a registry on your premises and synchronize images between the ACR and your premises. It brings the container images and OCI artifacts closer to your container workloads on premises and increases their acquisition performance. You can review the [ACR connected registry introduction](intro-connected-registry.md) for details about the connected registry feature of Azure Container Registry. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
