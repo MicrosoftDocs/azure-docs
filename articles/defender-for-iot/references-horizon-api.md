@@ -19,7 +19,7 @@ For more information about working with Horizon and the CyberX Platform, refer t
 
 - For the Horizon Open Development Environment (ODE) SDK, contact your CyberX representative.
 - For support and troubleshooting information, contact <support@cyberx-labs.com>.
-- To access the Cyberx User Guide from CyberX Console, select :::image type="icon" source="media/references-horizon-api//image3.png"::: and then select **Download User Guide**.
+- To access the Cyberx User Guide from CyberX Console, select :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: and then select **Download User Guide**.
 
 ## `horizon::protocol::BaseParser`
 
