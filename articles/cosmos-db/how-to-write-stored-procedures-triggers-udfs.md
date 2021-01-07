@@ -279,7 +279,7 @@ function async_sample() {
 
 ## <a id="triggers"></a>How to write triggers
 
-Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item and post-triggers are executed after modifying a database item.
+Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item and post-triggers are executed after modifying a database item.Triggers are not automatic. They must be specified for each database operation where you want them executed.
 
 ### <a id="pre-triggers"></a>Pre-triggers
 
