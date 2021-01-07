@@ -100,14 +100,14 @@ Add an event listener to end the current call when the `hangUpPhoneButton` is cl
 
 ```javascript
 hangUpPhoneButton.addEventListener("click", () => {
-  // start a call to phone
-  const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
-    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
+  // end the current call
+  call.hangUp({
+    forEveryone: true
   });
+
   // toggle button states
-  hangUpPhoneButton.disabled = false;
-  callPhoneButton.disabled = true;
+  hangUpPhoneButton.disabled = true;
+  callPhoneButton.disabled = false;
 });
 ```
 
