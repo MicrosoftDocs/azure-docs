@@ -54,7 +54,7 @@ Each subnet is presented as a single entity on the device map, including an inte
 
 The figure below shows a collapsed IT subnet with 27 IT network elements.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="collapsed IT subnet with 27 IT network elements":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="collapsed IT subnet with 27 IT network elements":::
 
 To enable the IT networks collapsing capability:
 
