@@ -95,9 +95,11 @@ This table shows which offer types support the additional pricing options that a
 
 Use this listing option to offer your application for free. Customers use the _Get It Now_ button to get your free offer.
 
-[NOTE!] Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
+> [!NOTE]
+> Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
 
-[NOTE!] Bring Your Own License (BYOL) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
+> [!NOTE]
+> Bring Your Own License (BYOL) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
 
 #### BYOL
 
