@@ -7,6 +7,7 @@ ms.subservice: process-automation
 ms.date: 01/06/2021
 ms.topic: conceptual
 ---
+
 # Automation account authentication overview
 
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
@@ -70,10 +71,10 @@ The service principal for a Run As account does not have permissions to read Azu
 
 This section defines permissions for both regular Run As accounts and Classic Run As accounts.
 
-* To create or update a Run As account, you must have specific privileges and permissions.
+* To create or update a Run As account, an Application administrator in Azure Active Directory and an Owner in the subscription can complete all the tasks.
 * To configure or renew Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
-An Application administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet, and permissions needed:
+In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet, and permissions needed:
 
 |Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
 |---|---------|---------|---|
