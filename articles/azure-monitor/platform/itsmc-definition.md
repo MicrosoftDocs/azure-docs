@@ -136,16 +136,16 @@ Use the following procedure to create action groups:
             For example:
             1) Alert 1 with 3 Configuration Items: A, B, C - will create 3 work items.
             2) Alert 2 with 1 Configuration Item: A - will create 1 work item.
+       >[!NOTE]
+        > In this case some of the fired alert will not generate new work items in the ITSM tool.
 
         * If you clear the **"Create individual work items for each Configuration Item"** check box,
         ITSM connector will create a single work item for each alert rule and append to it all impacted configuration items. A new work item will be created if the previous one is closed.
-        >[!NOTE]
-        > In this case some of the fired alert will not generate new work items in the ITSM tool.
 
             For example:
-            1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
-            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
-            3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
+             1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
+             2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
+             3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
 
        ![Screenshot that shows the ITSM Incident window.](media/itsmc-overview/itsm-action-configuration.png)
 
