@@ -86,6 +86,8 @@ You will need the `username` and one of the `passwords` values for the IoT Edge 
   > [!IMPORTANT]
   > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved.
 
+More details about tokens and scope maps are available in [Create a token with repository-scoped permissions](container-registry-repository-scoped-permissions.md).
+
 ## Retrieve connected registry configuration information
 
 Before deploying the connected registry to the IoT Edge device, you will need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install][az-acr-connected-registry-install] command to retrieve the configuration.
