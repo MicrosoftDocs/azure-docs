@@ -43,11 +43,11 @@ Here's the code:
     />
     <div>
       <button id="call-phone-button" type="button">
-        Start Phone Call
+        Start call
       </button>
       &nbsp;
       <button id="hang-up-phone-button" type="button" disabled="true">
-        Hang Up Phone Call
+        Hang up
       </button>
     </div>
     <script src="./bundle.js"></script>
@@ -69,7 +69,7 @@ const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 
 Specify phone number you acquired in Communication Services resource, that will be used to start the call:
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
 Add an event handler to initiate a call to the phone number you provided when the `callPhoneButton` is clicked:
 
