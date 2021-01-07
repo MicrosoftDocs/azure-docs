@@ -32,7 +32,9 @@ The NER feature for Text Analytics returns the following general (non identifyin
 | DateTime | Dates and times of day. |
 
 
-## Person entities
+## Category: Person 
+
+### Entities
 
 **PERSON** - the names of people.
 
@@ -44,7 +46,9 @@ The NER feature for Text Analytics returns the following general (non identifyin
 
 Available in the following languages: `en-us`
 
-## Location entities
+## Category: Location
+
+### Entities
 
 **Location** - Natural and human-made landmarks, structures, geographical features, and geopolitical entities.
 
@@ -60,7 +64,9 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## Organization entities
+## Category: Organization
+
+### Entities
 
 **Organization** - Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
 
@@ -76,7 +82,9 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## Event entities
+## Category: Event
+
+### Entities
 
 **event** - Historical, social, and naturally occurring events.
 
@@ -92,7 +100,9 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## Product entities
+## Category: Product 
+
+### Entities
 
 **Product** - Physical objects of various categories.
 
@@ -104,8 +114,9 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## Skill entities
+## Category: Skill
 
+### Entities
 
 **Skill** - A capability, skill, or expertise.
 
@@ -113,8 +124,7 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## Address entities
-
+## Category: Address
 
 **Address** - Full mailing addresses.
 
@@ -122,17 +132,19 @@ Available in the following languages: `en-us`
 
 Available in the following languages: `en-us`
 
-## PhoneNumber entities
+## Category: PhoneNumber
 
+### Entities
 
- Phone numbers (US and EU phone numbers only). Also returned by NER v2.1.
+Phone numbers (US and EU phone numbers only). Also returned by NER v2.1.
 
 ### Available languages
 
 Available in the following languages: `en-us`
 
-## Email entities
+## Category: Email 
 
+### Entities
 
 Email addresses. Also returned by NER v2.1.
 
@@ -140,7 +152,9 @@ Email addresses. Also returned by NER v2.1.
 
 Available in the following languages: `en-us`
 
-## URL entities
+## Category: URL 
+
+## Entities
 
 URLs to websites. Also returned by NER v2.1  
 
@@ -148,7 +162,9 @@ URLs to websites. Also returned by NER v2.1
 
 Available in the following languages: `en-us`
 
-## IP entities
+## Category: IP 
+
+### Entities
 
 Network IP addresses. Also returned by NER v2.1 
 
@@ -156,7 +172,9 @@ Network IP addresses. Also returned by NER v2.1
 
 Available in the following languages: `en-us`
 
-## DateTime entities
+## Category: DateTime 
+
+### Entities
 
 Dates and times of day. Also returned by NER v2.1 
 
@@ -178,9 +196,11 @@ Dates and times of day. Also returned by NER v2.1
 
 Available in the following languages: `en-us`
 
-## Quantity entities
+## Category: Quantity 
 
- Numbers and numeric quantities. Also returned by NER v2.1  
+### Entities
+
+Numbers and numeric quantities. Also returned by NER v2.1  
 
 ### Subcategories
 
