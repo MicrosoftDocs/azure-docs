@@ -99,7 +99,7 @@ callPhoneButton.addEventListener("click", () => {
 Add an event listener to end the current call when the `hangUpPhoneButton` is clicked:
 
 ```javascript
-callPhoneButton.addEventListener("click", () => {
+hangUpPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
   call = callAgent.call(
