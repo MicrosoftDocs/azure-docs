@@ -172,6 +172,7 @@ You can find the full list of supported resource types in this [article](./alert
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
+- [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#create-alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)

@@ -56,7 +56,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### Test your script locally
+
+### <a name="test"></a>Test your script locally
 
 You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.
 
@@ -65,7 +66,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## Create a control script
+> [!div class="nextstepaction"]
+> [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="control-script"></a> Create a control script
 
 A *control script* allows you to run your `hello.py` script in the cloud. You use the control script to control how and where your machine learning code is run.  
 
@@ -84,6 +88,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### Understand the code
 
@@ -130,7 +136,10 @@ Here's a description of how the control script works:
    :::column-end:::
 :::row-end:::
 
-## Submit and run your code in the cloud
+> [!div class="nextstepaction"]
+> [I created the control script](?success=create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit"></a> Submit and run your code in the cloud
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -149,7 +158,10 @@ python 03-run-hello.py
 > [!TIP]
 > If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
 
-## Monitor your code in the cloud by using the studio
+> [!div class="nextstepaction"]
+> [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor"></a>Monitor your code in the cloud by using the studio
 
 The output will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
@@ -182,6 +194,9 @@ Follow the link and go to the **Outputs + logs** tab. There you can see a
 On line 8, you see the "Hello world!" output.
 
 The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
+
+> [!div class="nextstepaction"]
+> [I saw the log in studio](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## Next steps
 

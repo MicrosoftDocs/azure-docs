@@ -68,6 +68,10 @@ Yes. The MARS agent converts the deduplicated data to normal data when it prepar
 
 Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
 
+### What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
+
+The change of Azure AD directory will have no impact on MARS Agent backups. 
+
 ## Manage backups
 
 ### What happens if I rename a Windows machine configured for backup?

@@ -12,10 +12,10 @@ manager: rkarlin
 
 # Introduction to Azure Defender for Storage
 
-**Azure Defender for Storage** detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
-This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems.
+**Azure Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It utilizes the advanced capabilities of security AI and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to provide contextual security alerts and recommendations.
 
+Security alerts are triggered when anomalies in activity occur. These  alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
 ## Availability
 
@@ -28,18 +28,29 @@ This layer of protection allows you to address threats *without* requiring you t
 |||
 
 
+## What are the benefits of Azure Defender for Storage?
+
+Azure Defender for Storage provides:
+
+- **Azure-native security** - With 1-click enablement, Defender for Storage protects data stored in Azure Blob, Azure Files, and Data Lakes. As an Azure-native service, Defender for Storage provides centralized security across all data assets managed by Azure and is integrated with other Azure security services such as Azure Sentinel.
+- **Rich detection suite** - Powered by Microsoft Threat Intelligence, the detections in Defender for Storage cover the top storage threats such as anonymous access, compromised credentials, social engineering, privilege abuse, and malicious content.
+- **Response at scale** - Security Center's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Security Center triggers](workflow-automation.md).
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="High-level overview of the features of Azure Defender for Storage":::
+
+
 ## What kind of alerts does Azure Defender for Storage provide?
 
 Security alerts are triggered when there's:
 
-- **Suspicious activity** - for example, the storage account has been accessed successfully from an IP address that is known as an active exit node of Tor
-- **Anomalous behavior** - for example, changes in the access pattern to a storage account
-- **Potential malware uploaded** - hash reputation analysis indicates that an uploaded file contains malware
+- **Suspicious access patterns** - such as successful access from a Tor exit node or from an IP considered suspicious by Microsoft Threat Intelligence
+- **Suspicious activities** - such as anomalous data extraction or unusual change of access permissions
+- **Upload of malicious content** - such as potential malware files (based on hash reputation analysis) or hosting of phishing content
 
-Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
+Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Azure Sentinel or any other third-party SIEM or any other external tool.
 
 > [!TIP]
-> You can simulate storage alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> It's a best practice to [configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
 
 
 ## What is hash reputation analysis for malware?

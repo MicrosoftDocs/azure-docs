@@ -30,8 +30,8 @@ Enabling distributed tracing across the services in an application is as simple 
 
 The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available below:
 
-* [.NET](../learn/quick-monitor-portal.md)
-* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [.NET](asp-net.md)
+* [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
 * [Node.js](../learn/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)

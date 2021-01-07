@@ -488,7 +488,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
 
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes.
 
@@ -562,7 +562,7 @@ Add your own environment variables to a function app, in both your local and clo
 
 ### In local development environment
 
-When running locally, your functions project includes a [`local.settings.json` file](/functions-run-local.md?tabs=node#local-settings-file), where you store your environment variables in the `Values` object. 
+When running locally, your functions project includes a [`local.settings.json` file](/azure/azure-functions/functions-run-local), where you store your environment variables in the `Values` object. 
 
 ```json
 {

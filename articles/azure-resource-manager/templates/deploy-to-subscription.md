@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/24/2020
 ---
 
 # Subscription deployments with ARM templates
@@ -121,25 +121,41 @@ For more detailed information about deployment commands and options for deployin
 * [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
 * [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
+## Deployment location and name
+
+For subscription level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Management group](deploy-to-management-group.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
+
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a subscription deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+
 ## Deployment scopes
 
 When deploying to a subscription, you can deploy resources to:
 
 * the target subscription from the operation
-* resource groups within the subscription
+* any subscription in the tenant
+* resource groups within the subscription or other subscriptions
+* the tenant for the subscription
 * [extension resources](scope-extension-resources.md) can be applied to resources
 
-You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
+The user deploying the template must have access to the specified scope.
 
 This section shows how to specify different scopes. You can combine these different scopes in a single template.
 
-### Scope to subscription
+### Scope to target subscription
 
 To deploy resources to the target subscription, add those resources to the resources section of the template.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
+
+### Scope to other subscription
+
+To deploy resources to a subscription that is different than the subscription from the operation, add a nested deployment. Set the `subscriptionId` property to the ID of the subscription you want to deploy to. Set the `location` property for the nested deployment.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### Scope to resource group
 
@@ -149,13 +165,17 @@ To deploy resources to a resource group within the subscription, add a nested de
 
 For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
 
-## Deployment location and name
+### Scope to tenant
 
-For subscription level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data.
+You can create resources at the tenant by setting the `scope` set to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+You can use a nested deployment with `scope` and `location` set.
 
-For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Or, you can set the scope to `/` for some resource types, like management groups.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## Resource groups
 

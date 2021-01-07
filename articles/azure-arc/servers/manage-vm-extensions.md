@@ -1,15 +1,15 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 11/06/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ---
 
 # Virtual machine extension management with Azure Arc enabled servers
 
-Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
+Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script in it, a VM extension can be used.
 
-Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
+Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
 
 - The [Azure portal](manage-vm-extensions-portal.md)
 - The [Azure CLI](manage-vm-extensions-cli.md)
@@ -22,7 +22,7 @@ Azure Arc enabled servers VM extension support provides the following key benefi
 
 - Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
-- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for performing complex analysis across data from a variety of sources.
+- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
 
 - With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 
@@ -60,15 +60,17 @@ This feature depends on the following Azure resource providers in your subscript
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+If they aren't already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+
+Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
 ### Log Analytics VM extension
 
-The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
+The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine. 
 
 ### Azure Key Vault VM extension (preview)
 
-The Key Vault VM extension (preview) does not support the following Linux operating systems:
+The Key Vault VM extension (preview) doesn't support the following Linux operating systems:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)

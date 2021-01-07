@@ -1,9 +1,9 @@
 ---
-author: rgarcia
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 09/17/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 
 Deploy the app to your device. 

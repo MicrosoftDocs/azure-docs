@@ -26,7 +26,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -66,7 +66,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
+- [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Logging and Monitoring for Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -94,7 +94,7 @@ Another option is to enable and on-board data to Azure Sentinel or a third-party
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+- [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -140,7 +140,7 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your o
 
 Also, enable Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Yes
 
@@ -187,7 +187,7 @@ Also, enable Just-In-Time / Just-Enough-Access by using Azure Active Directory (
 **Guidance**: Utilize Azure Active Directory (Azure AD) Risk Detections feature to view alerts and reports on risky user behavior. 
 Ingest Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
-- [Understanding Azure Security Center risk detections (suspicious activity)](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understanding Azure Security Center risk detections (suspicious activity)](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -221,7 +221,7 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 **Guidance**: Azure Active Directory provides logs to help discover stale accounts. Also, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -247,7 +247,7 @@ Streamline this process by creating Diagnostic Settings for Azure AD user accoun
 
 Ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -269,11 +269,11 @@ Restrict the level of access to your Azure resources with your applications and 
 
 Control access to Azure resources via Azure role-based access control (Azure RBAC).
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -347,7 +347,7 @@ Ensure you have appropriate (read) permissions in your tenant and are able to en
 
 **Guidance**: Apply tags to Azure resources using metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -359,11 +359,11 @@ Ensure you have appropriate (read) permissions in your tenant and are able to en
 
 Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -417,7 +417,7 @@ Also use the Azure Resource Graph to query/discover resources within the subscri
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 - [Azure policy sample built-ins for private link](../governance/policy/samples/built-in-policies.md)
 
@@ -633,7 +633,7 @@ The customer is responsible to prioritize the remediation of alerts based on the
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -705,5 +705,5 @@ Use Microsoft’s strategy and execution of Red Teaming and live site penetratio
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

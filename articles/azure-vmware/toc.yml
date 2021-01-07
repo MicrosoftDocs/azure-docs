@@ -6,7 +6,7 @@
     href: introduction.md
 - name: Quick start
   items:
-    - name: 0- Plan the deployment
+    - name: 0 - Plan the deployment
       href: production-ready-deployment-steps.md
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
@@ -42,7 +42,7 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
-  - name: Role-based access control
+  - name: vSphere role-based access control
     href: concepts-role-based-access-control.md
   - name: Monitor and repair private clouds
     href: concepts-monitor-repair-private-cloud.md
@@ -108,5 +108,7 @@
     href: faq.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/vmware/vmware
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.vmware/
+    href: /powershell/module/az.vmware/

@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
+ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
 ---
 
 # Set up a Python development environment for Azure Machine Learning

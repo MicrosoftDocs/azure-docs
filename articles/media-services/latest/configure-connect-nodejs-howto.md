@@ -35,6 +35,8 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 1. Create a package.json file using your favorite editor.
 1. Open the file and paste the following code:
 
+   Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
+
 ```json
 {
   "name": "media-services-node-sample",

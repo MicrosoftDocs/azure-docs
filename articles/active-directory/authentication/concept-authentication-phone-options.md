@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/18/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 
 ms.collection: M365-identity-device-management
@@ -56,7 +56,7 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 If you have problems with phone authentication for Azure AD, review the following troubleshooting steps:
 
 * “You've hit our limit on verification calls” or “You’ve hit our limit on text verification codes” error messages during sign-in
-   * Use the Microsoft Authenticator App or Verification code to complete the authentication or try again later.
+   * Microsoft may limit repeated authentication attempts that are perform by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
 * Blocked caller ID on a single device.
    * Review any blocked numbers configured on the device.
 * Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.

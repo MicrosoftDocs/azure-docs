@@ -47,7 +47,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
 ## Concepts
 
@@ -63,13 +63,13 @@ Alternatively, you can trigger recording only when an inferencing service detect
 The diagram is a pictorial representation of a [media graph](media-graph-concept.md) and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
 
 * Live Video Analytics on an IoT Edge module.
-* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
 * A custom module to count and filter objects, which is referred to as an Object Counter in the diagram. You'll build an Object Counter and deploy it in this tutorial.
 * An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
     
 As the diagram shows, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video of traffic on a highway and send that video to two paths:
 
-* The first path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node. The node then relays the frames, as images, to the AI module YOLO v3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
+* The first path is to a an HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
 * The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
 
 ## Set up your development environment
@@ -419,4 +419,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

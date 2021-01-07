@@ -32,8 +32,8 @@ This document provides guidance on strategies an organization should adopt to pr
 There are four key takeaways in this document:
 
 * Avoid administrator lockout by using emergency access accounts.
-* Implement MFA using Conditional Access (CA) rather than per-user MFA.
-* Mitigate user lockout by using multiple Conditional Access (CA) controls.
+* Implement MFA using Conditional Access rather than per-user MFA.
+* Mitigate user lockout by using multiple Conditional Access controls.
 * Mitigate user lockout by provisioning multiple authentication methods or equivalents for each user.
 
 ## Before a disruption
@@ -132,9 +132,9 @@ This naming standard for the contingency policies will be as follows:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure AD MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
+The following example: **Example A - Contingency Conditional Access policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure AD MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 
-**Example A - Contingency CA policies to restore Access to mission-critical Collaboration Apps:**
+**Example A - Contingency Conditional Access policies to restore Access to mission-critical Collaboration Apps:**
 
 * Policy 1: Require Domain Joined devices for Exchange and SharePoint
   * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
@@ -174,9 +174,9 @@ Order of activation:
 5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
 6. Disable the existing MFA policy for SharePoint Online and Exchange Online.
 
-In this next example, **Example B - Contingency CA policies to allow mobile access to Salesforce**, a business app’s access is restored. In this scenario, the customer typically requires their sales employees access to Salesforce (configured for single-sign on with Azure AD) from mobile devices to only be allowed from compliant devices. The disruption in this case is that there is an issue with evaluating device compliance and the outage is happening at a sensitive time where the sales team needs access to Salesforce to close deals. These contingency policies will grant critical users access to Salesforce from a mobile device so that they can continue to close deals and not disrupt the business. In this example, **SalesforceContingency** contains all the Sales employees who need to retain access and **SalesAdmins** contains necessary admins of Salesforce.
+In this next example, **Example B - Contingency Conditional Access policies to allow mobile access to Salesforce**, a business app’s access is restored. In this scenario, the customer typically requires their sales employees access to Salesforce (configured for single-sign on with Azure AD) from mobile devices to only be allowed from compliant devices. The disruption in this case is that there is an issue with evaluating device compliance and the outage is happening at a sensitive time where the sales team needs access to Salesforce to close deals. These contingency policies will grant critical users access to Salesforce from a mobile device so that they can continue to close deals and not disrupt the business. In this example, **SalesforceContingency** contains all the Sales employees who need to retain access and **SalesAdmins** contains necessary admins of Salesforce.
 
-**Example B - Contingency CA policies:**
+**Example B - Contingency Conditional Access policies:**
 
 * Policy 1: Block everyone not in the SalesContingency team
   * Name: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block All users except SalesforceContingency
@@ -260,7 +260,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 3. Roll back any other changes you made and documented during the disruption.
 4. If you used an emergency access account, remember to regenerate credentials and physically secure the new credentials details as part of your emergency access account procedures.
 5. Continue to [Triage all risk detections reported](../reports-monitoring/concept-sign-ins.md) after the disruption for suspicious activity.
-6. Revoke all refresh tokens that were issued [using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) to target a set of users. Revoking all refresh tokens is important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
+6. Revoke all refresh tokens that were issued [using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to target a set of users. Revoking all refresh tokens is important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
 
 ## Emergency options
 
@@ -281,7 +281,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

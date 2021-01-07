@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -108,7 +108,12 @@ When a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot
 
 Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days. Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
-You may calculate the early deletion by using the blob property, **Last-Modified**, if there has been no access tier changes. Otherwise you can use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
+There are some details when moving between the cool and archive tiers:
+
+1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
+1. If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+
+You may calculate the early deletion by using the blob property, **Last-Modified**, if there has been no access tier changes. Otherwise you can use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## Comparing block blob storage options
 
@@ -287,6 +292,6 @@ Evaluate hot, cool, and archive in GPv2 and Blob Storage accounts
 - [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
 - [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
 - [Determine if premium performance would benefit your app](storage-blob-performance-tiers.md)
-- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
+- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
 - [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
 - [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)

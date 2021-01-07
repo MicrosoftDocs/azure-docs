@@ -16,7 +16,7 @@ Use one of the following links to get started with your chosen local development
 
 | Visual Studio Code | Terminal/command prompt | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Get started with C#](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Get started with C#](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,7 +56,7 @@ Next, create a function in the new function app.
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 
@@ -75,4 +75,3 @@ Next, create a function in the new function app.
 ## Next steps
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

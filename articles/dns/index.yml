@@ -56,7 +56,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create an Azure DNS private zone using the Azure portal
-            url: private-dns-portal.md
+            url: ./private-dns-getstarted-portal.md
 
 # Card
   - title: Use alias records

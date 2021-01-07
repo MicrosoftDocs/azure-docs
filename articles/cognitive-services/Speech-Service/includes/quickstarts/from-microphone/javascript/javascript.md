@@ -1,8 +1,8 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/03/2020
+ms.date: 12/29/2020
 ms.author: trbye
 ---
 

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/18/2020
 ms.author: cherylmc
 
 ---
@@ -220,7 +220,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   To specify **two** RADIUS servers **(Preview)** use the following syntax. Modify the **-VpnClientProtocol** value as needed
+   To specify **two** RADIUS servers use the following syntax. Modify the **-VpnClientProtocol** value as needed
 
     ```azurepowershell-interactive
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30

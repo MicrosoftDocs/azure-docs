@@ -13,9 +13,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# Machine Learning capabilities in Azure Synapse Analytics
 
 Azure Synapse Analytics offers various machine learning capabilities. This article provides an overview of how you can apply Machine Learning in the context of Azure Synapse.
 
@@ -45,11 +43,11 @@ Thanks to [Azure Data Factory](/azure/data-factory/introduction), a natively int
 
 An important part of the machine learning process is to understand the data by exploration and visualizations.
 
-Depending on where the data is stored, Synapse offers a set of different tools to explore and prepare it for analytics and machine learning. One of the quickest ways to get started with data exploration is using Apache Spark or Synapse SQL serverless pools directly over data in the data lake.
+Depending on where the data is stored, Synapse offers a set of different tools to explore and prepare it for analytics and machine learning. One of the quickest ways to get started with data exploration is using Apache Spark or serverless SQL pools directly over data in the data lake.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offers capabilities to transform, prepare, and explore your data at scale. These spark pools offer tools like PySpark/Python, Scala, and .NET for data processing at scale. Using powerful visualization libraries, the data exploration experience can be enhanced to help understand the data better. [Learn more about how to explore and visualize data in Synapse using Spark](../get-started-analyze-spark.md).
 
-* [Synapse SQL serverless pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Synapse SQL serverless pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with Synapse SQL serverless pools](../get-started-analyze-sql-on-demand.md).
+* [Serverless SQL pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Serverless SQL pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with serverless SQL pools](../get-started-analyze-sql-on-demand.md).
 
 ### Modeling
 
@@ -61,9 +59,9 @@ Machine learning models can be trained with help from various algorithms and lib
 
 In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-learn.org/stable/) can also be used to develop models. See [Manage libraries for Apache Spark in Azure Synapse Analytics](../spark/apache-spark-azure-portal-add-libraries.md) for details on how to install libraries on Synapse Spark Pools.
 
-#### Train models with Azure Machine Learning AutoML
+#### Train models with Azure Machine Learning automated ML
 
-Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use AutoML. [AutoML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage AutoML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [AutoML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning AutoML on Synapse Spark Pools.
+Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [automated ML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
 
 ### Model deployment and scoring
 
