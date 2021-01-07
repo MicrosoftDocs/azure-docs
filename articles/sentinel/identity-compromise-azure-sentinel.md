@@ -776,7 +776,7 @@ let timeframe = 6h;
 
 As part of command-and-control activities, the Solorigate attackers made several queries to Domain Generation Algorithm (DGA)-like subdomains.
 
-After the [domain name server connector](connect-dns.md) is running, run the following query to find similar patterns of activity from other domains. These patterns can help identify other potential command and control sources.
+After the [domain name server connector](connect-dns.md) is running, run the following query to find similar patterns of activity from other domains. These patterns can help identify other potential command-and-control sources.
 
 For more information, see the [Solorigate-DNS-Pattern](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/DnsEvents/Solorigate-DNS-Pattern.yaml) query on GitHub.
 
@@ -807,7 +807,7 @@ DnsEvents
 
 After the [domain name server](connect-dns.md) and [Azure AD](connect-azure-active-directory.md) connectors are running, run the following query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. 
 
-Results from this query can help identify other command and control domains that use the same encoding scheme.
+Results from this query can help identify other command-and-control domains that use the same encoding scheme.
 
 For more information, see the [Solorigate-Encoded-Domain-URL](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/DnsEvents/Solorigate-Encoded-Domain-URL.yaml) query on GitHub.
 
