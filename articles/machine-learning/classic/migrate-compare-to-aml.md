@@ -34,6 +34,8 @@ Compare to Machine Learning Studio(classic), Azure Machine Learning provides fol
 - Open and interoperable with popular open-source tools.
 - End-to-end MLOps capability.
  
+[!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
 ### Feature comparison
 
 The following table summarizes the key differences between ML Studio (classic) and Azure Machine Learning.
@@ -59,6 +61,8 @@ The following table summarizes the key differences between ML Studio (classic) a
 
 Many ML Studio(classic) concepts also exist in Azure Machine Learning, below table summarized the concept mapping of the two products.
 
+[**to-do: use an image to do the concept mapping instead of table**]
+
 |ML Studio(classic) concept|Corresponding concept in Azure Machine Learning|
 |---| --- |
 |Workspace|Workspace|
@@ -70,8 +74,7 @@ Many ML Studio(classic) concepts also exist in Azure Machine Learning, below tab
 |Web service plan|NA|
 |Datasets|Datasets|
 |Trained models|Models|
-|Settings - user management|RBAC|
-|Settings - data gateway|Not supported. It's recommended to move data from on-premises to cloud storage using [Azure data factory integration runtime](../../data-factory/create-self-hosted-integration-runtime.md).|
+|Settings|RBAC|
 |AI gallery|NA|
 
 Learn more about the Azure Machine Learning concepts and architecture in [this article](../concept-azure-machine-learning-architecture.md). 
@@ -92,4 +95,4 @@ If your company already have the training code, it's suggested to rebuild the pr
 - [R SDK first experiment](../tutorial-1st-r-experiment.md)
 - [Train and deploy with CLI](../tutorial-train-deploy-model-cli.md)
 
-If you prefer to use the drag-n-drop experience similar to Studio(classic), it's suggested to rebuild the project with Azure Machine Learning designer. Check [migrate to designer](./migrate-to-designer.md) to learn how.
+If you prefer to use the drag-n-drop experience similar to Studio(classic), it's suggested to rebuild the project with Azure Machine Learning designer. Check [this article](./migrate-to-designer.md) to learn how.

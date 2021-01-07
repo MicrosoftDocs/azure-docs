@@ -11,7 +11,7 @@ ms.author: zhanixa
 ms.date: 11/27/2020
 ---
 
-# Migrate to Azure Machine Learning designer
+# Migrate to Azure Machine Learning
 
 Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. But new resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
 
@@ -19,9 +19,10 @@ Azure Machine Learning provides a modern machine learning platform with a fully 
 
 For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project at this time. We will further notice when there is migration tool available. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step-by-step guidance. 
 
-## Key steps for the migration
 
-This section aims to give you an overview of the key steps of the migration.
+## Steps for the migration
+
+This section aims to give you an overview of the steps of the migration.
 
 - 1. [Create Azure Machine Learning resources](#create-azure-machine-learning-resource)
 
@@ -57,6 +58,7 @@ This section aims to give you an overview of the key steps of the migration.
 
 
 
+
 ## Create Azure Machine Learning resource
 
 ### Workspace
@@ -73,14 +75,7 @@ Machine Learning Studio(classic) runs on proprietary compute resource that is tr
 
 However, Azure Machine Learning enables more scalable training by bringing variety type and size of Azure VMs as compute target. Customer can choose compute target based on their needs. 
  
-Azure Machine Learning designer supports following compute target types.
-
-|Compute target type|Brief description|When to use|
-|------|------|------|
-|Compute Instance|A fully managed single node cloud-base machine learning workstation. |test/small date size|
-|Azure Machine Learning Compute|Single or multi-node cluster, fully managed by Azure Machine Learning. Autoscale when you submit a run.|big data size? |
-
-**[?? compute instance not released for 3P]**
+Azure Machine Learning designer supports to do training in compute clusters..
 
 Customer can easily create compute clusters in the **Compute -> Compute clusters** tab in Azure Machine Learning Studio. Follow [this article](../how-to-create-attach-compute-studio.md) to check step-by-step guidance.
 ![create-compute](./media/migrate-to-AML/create-compute.png)
@@ -220,157 +215,6 @@ After the run finish, you can check the output of each module. Here are a few he
 
 
 
-### Designer and Studio(classic) difference that need special attention
-
-So far we have walked through the key steps to rebuild the training experiment in designer. Following sections will highlight the difference of ML Studio(classic) and designer, which you need pay special attention in migration.
-
-#### Import Data
-
-In Studio(classic), ingest data from cloud storage is done through Import Data module. In designer, there are two options:
-
-|Option|Description|When to use|
-|---| --- | --- |
-|AML dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLs Gen2, File share, SQL DB). It will register the data as a dataset asset to the workspace. And advanced data features like data versioning and data monitoring are enabled.|Recommended|
-|Import Data Module in designer|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB).  It will not create a dataset asset to the workspace. |When customer does not want to register a dataset to workspace.|
-
-[!Note]
-There are four cloud data sources (Hive Query, Azure Table, Azure Cosmos DB, On-premises SQL Database) that supported in ML Studio(classic) but not supported in AML. It's recommended to move your data to supported storages using Azure Data Factory.  
-
-To ingest data from cloud storage, there are two steps:
-1. Create datastore, which links the cloud storage service to your Azure Machine Learning workspace. 
-
-    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores) has step-by-step guidance on how to create datastore.
-2. (Option 1) Create dataset and drop it in designer. 
-
-    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datasets) has the step-by-step guidance on how to create datasets in AML Studio. Remember to choose **Tabular** for dataset type since ML Studio(classic) supported data are essentially tabular format.   
-    
-    After create the dataset, you can find the dataset in designer left palette, under **Datasets** category. Then drop the dataset in canvas to use it. 
-
-    ![registered-dataset](./media/migrate-to-AML/registered-dataset.png)
-
-1.  (Option 2) Use Import Data Module in designer 
-
-    After create datastore, you can use Import Data module in designer to ingest data from created datastore. This module will not create a dataset asset to your workspace. Follow the settings in right panel to set up this module. First, select datastore to import data from. Then select path or edit SQL query to identify the needed data from datastore. 
-    ![import-data](./media/migrate-to-AML/import-data.png)
-    
- 
-
-
-#### Build-in module mapping
-
-Module for same functionality has the same name in AML designer and ML Studio(classic).  See below table for the module mapping. 
-
->![Important]
-> The machine learning modules in designer are implemented with Python, using open-source packages like sklearn. The Studio(classic) machine learning modules are implemented with C# and using a Microsoft internal machine learning package. The result of the same module might have slight difference deu to the difference of underlying technology.
-
-
-|Category|ML Studio(classic) module|AML designer module|
-|--------------|----------------|--------------------------------------|
-|Data input and output|- Enter Data Manually </br> - Export Data </br> - Import Data </br> - Load Trained Model </br> - Unpack Zipped Datasets|- Enter Data Manually </br> - Export Data </br> - Import Data|
-|Data Format Conversions|- Convert to CSV </br> - Convert to Dataset </br> - Convert to ARFF </br> - Convert to SVMLight </br> - Convert to TSV|- Convert to CSV </br> - Convert to Dataset|
-|Data Transformation - Manipulation|- Add Columns</br> - Add Rows </br> - Apply SQL Transformation </br> - Cleaning Missing Data </br> - Convert to Indicator Values </br> - Edit Metadata </br> - Join Data </br> - Remove Duplicate Rows </br> - Select Columns in Dataset </br> - Select Columns Transform </br> - SMOTE </br> - Group Categorical Values|- Add Columns</br> - Add Rows </br> - Apply SQL Transformation </br> - Cleaning Missing Data </br> - Convert to Indicator Values </br> - Edit Metadata </br> - Join Data </br> - Remove Duplicate Rows </br> - Select Columns in Dataset </br> - Select Columns Transform </br> - SMOTE|
-|Data Transformation – Scale and Reduce |- Clip Values </br> - Group Data into Bins </br> - Normalize Data </br>- Principal Component Analysis |- Clip Values </br> - Group Data into Bins </br> - Normalize Data|
-|Data Transformation – Sample and Split|- Partition and Sample </br> - Split Data|- Partition and Sample </br> - Split Data|
-|Data Transformation – Filter |- Apply Filter </br> - FIR Filter </br> - IIR Filter </br> - Median Filter </br> - Moving Average Filter </br> - Threshold Filter </br> - User Defined Filter||
-|Data Transformation – Learning with Counts |- Build Counting Transform </br> - Export Count Table </br> - Import Count Table </br> - Merge Count Transform</br>  - Modify Count Table Parameters||
-|Feature Selection |- Filter Based Feature Selection </br> - Fisher Linear Discriminant Analysis  </br> - Permutation Feature Importance |- Filter Based Feature Selection </br>  - Permutation Feature Importance|
-| Model - Classification| - Multiclass Decision Forest </br> - Multiclass Decision Jungle  </br> - Multiclass Logistic Regression  </br>- Multiclass Neural Network  </br>- One-vs-All Multiclass </br>- Two-Class Averaged Perceptron </br>- Two-Class Bayes Point Machine </br>- Two-Class Boosted Decision Tree  </br> - Two-Class Decision Forest  </br> - Two-Class Decision Jungle  </br> - Two-Class Locally-Deep SVM </br> - Two-Class Logistic Regression  </br> - Two-Class Neural Network </br> - Two-Class Support Vector Machine  | - Multiclass Decision Forest </br>  - Multiclass Boost Decision Tree  </br> - Multiclass Logistic Regression </br> - Multiclass Neural Network </br> - One-vs-All Multiclass  </br> - Two-Class Averaged Perceptron  </br> - Two-Class Boosted Decision Tree  </br> - Two-Class Decision Forest </br>-  Two-Class Logistic Regression </br> - Two-Class Neural Network </br>-   Two-Class Support Vector Machine  |
-| Model - Clustering| - K-means clustering| - K-means clustering|
-| Model - Regression| - Bayesian Linear Regression  </br> - Boosted Decision Tree Regression  </br>- Decision Forest Regression  </br> - Fast Forest Quantile Regression  </br> - Linear Regression </br> - Neural Network Regression </br> - Ordinal Regression  Poisson Regression| - Boosted Decision Tree Regression  </br>- Decision Forest Regression  </br> - Fast Forest Quantile Regression </br> - Linear Regression  </br> - Neural Network Regression </br> - Poisson Regression|
-| Model – Anomaly Detection| - One-Class SVM  </br> - PCA-Based Anomaly Detection | - PCA-Based Anomaly Detection|
-| Machine Learning – Evaluate  | - Cross Validate Model  </br>- Evaluate Model  </br>- Evaluate Recommender | - Cross Validate Model  </br>- Evaluate Model </br> - Evaluate Recommender|
-| Machine Learning – Train| - Sweep Clustering  </br> - Train Anomaly Detection Model </br>- Train Clustering Model  </br> - Train Matchbox Recommender  -</br> Train Model  </br>- Tune Model Hyperparameters| - Train Anomaly Detection Model  </br> - Train Clustering Model </br> -  Train Model  -</br> - Train PyTorch Model  </br>- Train SVD Recommender  </br>- Train Wide and Deep Recommender </br>- Tune Model Hyperparameters|
-| Machine Learning – Score| - Apply Transformation  </br>- Assign Data to clusters  </br>- Score Matchbox Recommender </br> - Score Model|-  Apply Transformation  </br> - Assign Data to clusters </br> - Score Image Model  </br> - Score Model </br>- Score SVD Recommender </br> -Score Wide and Deep Recommender|
-| OpenCV Library Modules| - Import Images </br>- Pre-trained Cascade Image Classification | |
-| Python Language Modules| - Execute Python Script| - Execute Python Script  </br> - Create Python Model |
-| R Language Modules  | - Execute R Script  </br> - Create R Model| - Execute R Script|
-| Statistical Functions | - Apply Math Operation </br>-  Compute Elementary Statistics  </br>- Compute Linear Correlation  </br>- Evaluate Probability Function  </br>- Replace Discrete Values  </br>- Summarize Data  </br>- Test Hypothesis using t-Test| - Apply Math Operation  </br>- Summarize Data|
-| Text Analytics| - Detect Languages  </br>- Extract Key Phrases from Text  </br>- Extract N-Gram Features from Text  </br>- Feature Hashing </br>- Latent Dirichlet Allocation  </br>- Named Entity Recognition </br>-  Preprocess Text  </br>- Score Vowpal Wabbit Version 7-10 Model  </br>- Score Vowpal Wabbit Version 8 Model </br>- Train Vowpal Wabbit Version 7-10 Model  </br>- Train Vowpal Wabbit Version 8 Model |-  Convert Word to Vector </br> - Extract N-Gram Features from Text </br>-  Feature Hashing  </br>- Latent Dirichlet Allocation </br>- Preprocess Text  </br>- Score Vowpal Wabbit Model </br> - Train Vowpal Wabbit Model|
-| Time Series| - Time Series Anomaly Detection | |
-| Web Service | - Input </br> -   Output | - Input </br>  - Output|
-| Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
-
-Find more about how to use designer modules in [module reference](../algorithm-module-reference/module-reference.md) 
- 
-#### What if the wanted module is not in designer? 
-
-Azure Machine Learning designer builds the most popular modules in ML Studio(classic). It also added some new modules leveraging the state of art machine learning technology (for example DenseNet for image classification). We expect designer supported module will cover most of the migration scenario. If your migration is blocked by missing modules in designer, contact us by [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-    
-#### Notes for Execute R Script
-
-Execute R Script module is a popular module in ML Studio(classic), which allows customer to do customized task using R script. Given that ML Studio(classic) is hosted on Windows platform and the Azure Machine Learning designer is running on Linux platform, it would be slightly different to install an R package in designer.
-||ML Studio(classic)|Azure Machine Learning designer|
-|---|---|---|
-|Script Interface|maml.mapInputPort and maml.mapOutputPort|Function interface|
-|Platform|Windows|Linux|
-|Internet Accessible |No|Yes|
-|Memory|14G|Depend on Compute SKU|
-
-Below are the migration steps for R script.
-
-**Change the R script interface**
-
-Here is a quick sample of R script in Azure Machine Learning Studio (classic). 
-```r
-# Map 1-based optional input ports to variables 
-dataset1 <- maml.mapInputPort(1) # class: data.frame 
-dataset2 <- maml.mapInputPort(2) # class: data.frame 
-
-# Contents of optional Zip port are in ./src/ 
-# source("src/yourfile.R"); 
-# load("src/yourData.rdata"); 
-
-# Sample operation 
-data.set = rbind(dataset1, dataset2); 
-
- 
-# You'll see this output in the R Device port. 
-# It'll have your stdout, stderr and PNG graphics device(s). 
-
-plot(data.set); 
-
-# Select data.frame to be sent to the output Dataset port 
-maml.mapOutputPort("data.set"); 
-```
-
-Here is the upgraded version in Azure Machine Learning designer. Basically, the main change is replacing the maml.mapInputPort and maml.mapOutputPort with a normal function interface with name “azureml_main”. 
-```r
-azureml_main <- function(dataframe1, dataframe2){ 
-    # Use the parameters dataframe1 and dataframe2 directly 
-    dataset1 <- dataframe1 
-    dataset2 <- dataframe2 
-
-    # Contents of optional Zip port are in ./src/ 
-    # source("src/yourfile.R"); 
-    # load("src/yourData.rdata"); 
-
-    # Sample operation 
-    data.set = rbind(dataset1, dataset2); 
-
-
-    # You'll see this output in the R Device port. 
-    # It'll have your stdout, stderr and PNG graphics device(s). 
-    plot(data.set); 
-
-  # Return datasets as a Named List 
-
-  return(list(dataset1=data.set)) 
-} 
-```
-
-Learn more in designer [Execute R Script reference](../algorithm-module-reference/execute-r-script.md/).
-
- **Install R packages from Internet**
-
-ML Studio(classic) runs on a sandbox environment with no internet access. To install a new R package that not in pre-installed list, customer needs to upload the package in a zip bundle and load them in script.
-
-In the Azure Machine Learning, it’s allowed to install the packages from CRAN directly. Customer can install the R package with the code below.
-```r
-  if(!require(zoo)) { 
-      install.packages("zoo",repos = "http://cran.us.r-project.org") 
-  } 
-  library(zoo) 
-```
 
 
 ## Deploy real time endpoint for real time prediction
@@ -476,163 +320,6 @@ You can call the real-time endpoint to make real time predictions. In Azure Mach
 
 ![realtime-endpoint-sample-code](./media/migrate-to-AML/realtime-sample-code.png)  
 
-Below code snippet also shows how to call the real time REST endpoint. It basically loads the model needed input data into HTTP result, then send request to the real time endpoint. 
-
-# [Python](#tab/python)
-
-```python
-import urllib.request
-import json
-import os
-import ssl
-
-def allowSelfSignedHttps(allowed):
-    # bypass the server certificate verification on client side
-    if allowed and not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None):
-        ssl._create_default_https_context = ssl._create_unverified_context
-
-allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service.
-
-data = {
-    "Inputs": {
-          "WebServiceInput0":
-          [
-              {
-                    'symboling': "3",
-                    'normalized-losses': "1",
-                    'make': "alfa-romero",
-                    'fuel-type': "gas",
-                    'aspiration': "std",
-                    'num-of-doors': "two",
-                    'body-style': "convertible",
-                    'drive-wheels': "rwd",
-                    'engine-location': "front",
-                    'wheel-base': "88.6",
-                    'length': "168.8",
-                    'width': "64.1",
-                    'height': "48.8",
-                    'curb-weight': "2548",
-                    'engine-type': "dohc",
-                    'num-of-cylinders': "four",
-                    'engine-size': "130",
-                    'fuel-system': "mpfi",
-                    'bore': "3.47",
-                    'stroke': "2.68",
-                    'compression-ratio': "9",
-                    'horsepower': "111",
-                    'peak-rpm': "5000",
-                    'city-mpg': "21",
-                    'highway-mpg': "27",
-                    'price': "13495",
-              },
-          ],
-    },
-    "GlobalParameters":  {
-    }
-}
-
-body = str.encode(json.dumps(data))
-
-url = 'http://52.142.51.154:80/api/v1/service/migration-example-endpoint-aks/score'
-api_key = 'YjDhYj3OLV5AH7PpT3a0cgv1dsBY4uyA' # Replace this with the API key for the web service
-headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-
-req = urllib.request.Request(url, body, headers)
-
-try:
-    response = urllib.request.urlopen(req)
-
-    result = response.read()
-    print(result)
-except urllib.error.HTTPError as error:
-    print("The request failed with status code: " + str(error.code))
-
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
-    print(error.info())
-    print(json.loads(error.read().decode("utf8", 'ignore')))
-```
-
-# [R](#tab/R)
-```r
-library("RCurl")
-library("rjson")
-
-# Accept SSL certificates issued by public Certificate Authorities
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"), ssl.verifypeer = FALSE))
-
-h = basicTextGatherer()
-hdr = basicHeaderGatherer()
-
-req =  list(
-    Inputs = list(
-            "WebServiceInput0"= list(
-                list(
-                        'symboling' = "3",
-                        'normalized-losses' = "1",
-                        'make' = "alfa-romero",
-                        'fuel-type' = "gas",
-                        'aspiration' = "std",
-                        'num-of-doors' = "two",
-                        'body-style' = "convertible",
-                        'drive-wheels' = "rwd",
-                        'engine-location' = "front",
-                        'wheel-base' = "88.6",
-                        'length' = "168.8",
-                        'width' = "64.1",
-                        'height' = "48.8",
-                        'curb-weight' = "2548",
-                        'engine-type' = "dohc",
-                        'num-of-cylinders' = "four",
-                        'engine-size' = "130",
-                        'fuel-system' = "mpfi",
-                        'bore' = "3.47",
-                        'stroke' = "2.68",
-                        'compression-ratio' = "9",
-                        'horsepower' = "111",
-                        'peak-rpm' = "5000",
-                        'city-mpg' = "21",
-                        'highway-mpg' = "27",
-                        'price' = "13495"
-                    )
-            )
-        ),
-        
-        GlobalParameters = setNames(fromJSON('{}'), character(0))
-        
-        
-)
-
-body = enc2utf8(toJSON(req))
-api_key = "YjDhYj3OLV5AH7PpT3a0cgv1dsBY4uyA" # Replace this with the API key for the web service
-authz_hdr = paste('Bearer', api_key, sep=' ')
-
-h$reset()
-curlPerform(url = "http://52.142.51.154:80/api/v1/service/migration-example-endpoint-aks/score",
-httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
-postfields=body,
-writefunction = h$update,
-headerfunction = hdr$update,
-verbose = TRUE
-)
-
-headers = hdr$value()
-httpStatus = headers["status"]
-if (httpStatus >= 400)
-{
-print(paste("The request failed with status code:", httpStatus, sep=" "))
-
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
-print(headers)
-}
-
-print("Result:")
-result = h$value()
-print(fromJSON(result))
-
-```
-
----
-
 
 There is Swagger URI for the real time endpoint in the **Endpoints -> Details** tab. You can refer to the swagger to understand the endpoint schema.
 
@@ -644,5 +331,11 @@ There is Swagger URI for the real time endpoint in the **Endpoints -> Details** 
 
 You can consume the pipeline endpoint for retraining or batch prediction purpose. There are two possible approaches to consume the pipeline endpoint - through REST call or through integration with Azure Data Factory.
 
-- Sample code (to be updated)
-- Integrate with Azure Data Factory(to be updated)
+**REST call**
+
+After publish the pipeline, there will be a swagger as the endpoint documentation. Check the swagger to learn how to call the endpoint.
+![pipeline-endpoint-swagger](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
+
+**Integrate with Azure Data Factory**
+
+You can run your machine learning pipeline as a step in Azure Data Factory pipeline for batch prediction scenarios.Check [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md) to learn how. 
