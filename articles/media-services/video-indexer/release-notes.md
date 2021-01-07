@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
 ---
 
@@ -40,7 +40,7 @@ Video Indexer supports detection, grouping, and recognition of characters in ani
 
 ### Planned Video Indexer website authenticatication changes
 
-Starting January 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer](https://www.videoindexer.ai/) website (trial offering) using Facebook or LinkedIn.
+Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer](https://www.videoindexer.ai/) website (trial offering) using Facebook or LinkedIn.
 
 You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
 
