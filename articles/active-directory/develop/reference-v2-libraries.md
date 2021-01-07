@@ -39,19 +39,24 @@ Libraries come in two support categories:
 
 For a list of libraries that work with the Microsoft identity platform endpoint, see the following sections.
 
-## App type 1
+## Single-page application (SPA)
 
-Description of app type here - make it as short as possible but as long as required. Practice **ruthless concision**. Less words good.
+:warning: DESCRIPTION HERE :warning:
 
-| Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
-|--|--|:-:|:-:|:-:|:-:|
-| Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
-| [MSAL Node.js](./msal-js-initializing-client-applications.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+| Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|--|:-:|:-:|:-:|:-:|
+| JavaScript | [MSAL.js 2.0]( https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | [@azure/msal-browser]( https://www.npmjs.com/package/@azure/msal-browser) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| React | [MSAL for React v1.x (Alpha)]( https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) | [@azure/msal-react]( https://www.npmjs.com/package/@azure/msal-react) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| Angular | [MSAL for Angular v2.x (Alpha)]( https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| Angular | [MSAL for Angular]( https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/msal-angular-v1/lib/msal-angular) | [@azure/msal-angular]( https://www.npmjs.com/package/@azure/msal-angular) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| AngularJS | [MSAL for AngularJS]( https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs) | [@azure/msal-angularjs]( https://www.npmjs.com/package/@azure/msal-angularjs) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | |
 
+<sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
-## Web apps
+## Web application
 
-Web apps have a server component, which renders and serves content.
+:warning: DESCRIPTION HERE :warning:
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -69,6 +74,40 @@ Web apps have a server component, which renders and serves content.
 | Ruby | [OmniAuth](https://github.com/omniauth/omniauth) | [omniauth 1.3.1](https://github.com/omniauth/omniauth/releases/tag/v1.3.1)<br/>[omniauth-oauth2 1.4.0](https://github.com/intridea/omniauth-oauth2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | General availability (GA) |
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
+
+## Desktop
+
+Use the following libraries to build applications that run on the desktop. Desktop apps include Universal Windows Platform (UWP), Windows Presentation Foundation (WPF), macOS, and Electron apps.
+
+|Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|--|:-:|:-:|:-:|:-:|
+|Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
+| Electron |[MSAL Node.js](./msal-js-initializing-client-applications.md) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
+| WPF |[MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-desktop) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| UWP |[MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Java |[MSAL4J](https://github.com/Azure-Samples/ms-identity-java-desktop/) | [Msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Java |Scribe | [Scribe Java](https://mvnrepository.com/artifact/org.scribe/scribe) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| MacOS (Swift/Obj-C) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+
+<sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
+
+## Mobile
+
+Use the following libraries to build mobile applications that run on Android and iOS.
+
+|Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|--|:-:|:-:|:-:|:-:|
+|Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
+| Xamarin (.NET) |[MSAL.NET](https://github.com/azure-samples/active-directory-xamarin-native-v2) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| iOS (Swift/Obj-C) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Android (Java) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Android (Kotlin) | |[MSAL](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+
+<sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
+
+___
 
 ## :warning: CURRENT DOC CONTENT BELOW THIS HEADING :warning:
 
