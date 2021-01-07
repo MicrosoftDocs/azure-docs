@@ -21,7 +21,7 @@ This article covers a true disaster recovery scenario, when a whole region exper
 To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines in the case of a service disruption of the entire region where your Azure virtual machine application is deployed.
 
 ## Option 1: Initiate a failover by using Azure Site Recovery
-You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to Azure region of your choice and not restricted to paired regions. You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). You can [create a recovery plan](../site-recovery/site-recovery-create-recovery-plans.md) so that you can automate the entire failover process for your application. You can [test your failovers](../site-recovery/site-recovery-test-failover-to-azure.md) beforehand without impacting production application or the ongoing replication. In the event of a primary region disruption, you just [initiate a failover](../site-recovery/site-recovery-failover.md) and bring your application in target region.
+You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to Azure region of your choice and not restricted to paired regions. You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md). You can [create a recovery plan](../site-recovery/site-recovery-create-recovery-plans.md) so that you can automate the entire failover process for your application. You can [test your failovers](../site-recovery/site-recovery-test-failover-to-azure.md) beforehand without impacting production application or the ongoing replication. In the event of a primary region disruption, you just [initiate a failover](../site-recovery/site-recovery-failover.md) and bring your application in target region.
 
 
 ## Option 2: Wait for recovery
@@ -37,7 +37,7 @@ This is the best option if you have not set up Azure Site Recovery, read-access 
 
 ## Next steps
 
-- Start [protecting your applications running on Azure virtual machines](https://aka.ms/a2a-getting-started) using Azure Site Recovery
+- Start [protecting your applications running on Azure virtual machines](../site-recovery/azure-to-azure-quickstart.md) using Azure Site Recovery
 
 - To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
 

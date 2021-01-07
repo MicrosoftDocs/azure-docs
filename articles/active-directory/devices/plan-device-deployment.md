@@ -43,7 +43,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 * Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](./azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
 
-* Increase security – Azure AD devices enable you to apply [Conditional Access (CA) policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. CA policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
+* Increase security – Azure AD devices enable you to apply [Conditional Access policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. Conditional Access policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
 
 * Improve user experience – With device identities in Azure AD, you can provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
 
@@ -61,7 +61,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood. 
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood. 
 
 For this plan, add the following stakeholders to your list:
 
@@ -128,7 +128,7 @@ Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![Checkmark
 
 Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in a number of ways, depending on the operating system. 
 
-Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [CA policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
+Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [Conditional Access policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
 
 ### Registering devices
 

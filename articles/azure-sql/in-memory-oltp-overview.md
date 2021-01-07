@@ -31,7 +31,7 @@ In-memory technologies can improve performance of these workloads by keeping the
 
 Azure SQL Database and Azure SQL Managed Instance have the following in-memory technologies:
 
-- *[In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* increases number of transactions per second and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
+- *[In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* increases number of transactions per second and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
 - *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, you can use it with historical data in your operational database to archive and be able to query up to 10 times more data.
 - *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive extract, transform, and load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
 - *Memory-optimized clustered columnstore indexes* for HTAP enables you to perform fast transaction processing, and to *concurrently* run analytics queries very quickly on the same data.
@@ -87,7 +87,7 @@ A quick primer on In-Memory OLTP: [Quickstart 1: In-Memory OLTP Technologies for
 In-depth videos about the technologies:
 
 - [In-Memory OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (which contains a demo of performance benefits and steps to reproduce these results yourself)
-- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [In-Memory OLTP Videos: What it is and When/How to use it](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 
@@ -158,13 +158,13 @@ There are two types of columnstore models that you can use to organize your data
 
 In-depth video about the technology:
 
-- [Columnstore Index: In-memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Columnstore Index: In-memory Analytics Videos from Ignite 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016)
 
 ### Data size and storage for columnstore indexes
 
 Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [DTU-based purchasing model](database/service-tiers-dtu.md) and [vCore-based purchasing model](database/service-tiers-vcore.md) articles.
 
-When you use clustered columnstore indexes, columnar compression is used for the base table storage. This compression can significantly reduce the storage footprint of your user data, which means that you can fit more data in the database. And the compression can be further increased with [columnar archival compression](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). The amount of compression that you can achieve depends on the nature of the data, but 10 times the compression is not uncommon.
+When you use clustered columnstore indexes, columnar compression is used for the base table storage. This compression can significantly reduce the storage footprint of your user data, which means that you can fit more data in the database. And the compression can be further increased with [columnar archival compression](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression). The amount of compression that you can achieve depends on the nature of the data, but 10 times the compression is not uncommon.
 
 For example, if you have a database with a maximum size of 1 terabyte (TB) and you achieve 10 times the compression by using columnstore indexes, you can fit a total of 10 TB of user data in the database.
 
@@ -183,7 +183,7 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 
 ## Next steps
 
-- [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 - [Monitor In-Memory OLTP storage](in-memory-oltp-monitor-space.md) for In-Memory OLTP
 - [Try in-memory features](in-memory-sample.md)
@@ -194,18 +194,18 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 
 - [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [In-Memory OLTP Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [Learn about In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Learn about columnstore indexes](https://msdn.microsoft.com/library/gg492088.aspx)
-- [Learn about real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
-- See [Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) (which describes workload patterns where In-Memory OLTP commonly provides significant performance gains)
+- [Learn about In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Learn about columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Learn about real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- See [Common Workload Patterns and Migration Considerations](/previous-versions/dn673538(v=msdn.10)) (which describes workload patterns where In-Memory OLTP commonly provides significant performance gains)
 
 ### Application design
 
-- [In-Memory OLTP (in-memory optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP (in-memory optimization)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
 ### Tools
 
 - [Azure portal](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

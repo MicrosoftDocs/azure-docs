@@ -21,7 +21,7 @@ Integrating Periscope Data with Azure AD provides you with the following benefit
 * You can enable your users to be automatically signed-in to Periscope Data (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 2. Open the gear menu in the bottom left and open the **Billing** > **Security** menu and perform the following steps. Only admins have access to these settings.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure01.png)
+    ![Screenshot that shows the "Security" dialog with selected settings.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copy the **App Federation Metadata URL** from step #5 **SAML Signing Certificate** and open it in a browser. This will open up an XML document.
 
@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     i. Finally, click **Save** and **confirm** the SSO settings change by typing **Logout**.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure02.png)
+    ![Screenshot that shows the "Update S S O Configuration" dialog with "logout" typed in the textbox and the "Confirm" button selected.](./media/periscope-data-tutorial/configure02.png)
 
 ### Create an Azure AD test user 
 
@@ -201,7 +201,7 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
 2. Click on the **Settings** icon on the left bottom of the menu and navigate to **Permissions**.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure03.png)
+    ![Screenshot that shows the "Settings" menu with "Permissions" selected.](./media/periscope-data-tutorial/configure03.png)
 
 3. Click on the **ADD USER** and perform the following steps:
 
@@ -219,13 +219,12 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Periscope Data tile in the Access Panel, you should be automatically signed in to the Periscope Data for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Periscope Data tile in the Access Panel, you should be automatically signed in to the Periscope Data for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

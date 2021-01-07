@@ -141,7 +141,7 @@ Your dashboard displays the various settings that are required to configure and 
 
     4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
 
-        ![Local web UI "Cloud settings" page updated](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Local web UI "Cloud settings" page updated 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 The device setup is complete. You can now add shares on your device.
 

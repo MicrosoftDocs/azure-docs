@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -55,7 +55,6 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
 | **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
 | **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
-| **Windows domain qualified name** | Microsoft identity platform will use WindowsDomainQualifiedName as the NameID format. |
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
@@ -131,7 +130,7 @@ You can use the following functions to transform claims.
 | **StartWith()** | Outputs an attribute or constant if the input starts with the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s employee ID if the country/region starts with "US", otherwise you want to output an extension attribute. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.country<br/>*Value*: "US"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
 | **Extract() - After matching** | Returns the substring after it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon", the matching value is "Finance_", then the claim's output is "BSimon". |
 | **Extract() - Before matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "BSimon_US", the matching value is "_US", then the claim's output is "BSimon". |
-| **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon_US", the first matching value is "Finance_", the second matching value is "_US", then the claim's output is "BSimon". |
+| **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon_US", the first matching value is "Finance\_", the second matching value is "\_US", then the claim's output is "BSimon". |
 | **ExtractAlpha() - Prefix** | Returns the prefix alphabetical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "BSimon". |
 | **ExtractAlpha() - Suffix** | Returns the suffix alphabetical part of the string.<br/>For example, if the input's value is "123_Simon", then it returns "Simon". |
 | **ExtractNumeric() - Prefix** | Returns the prefix numerical part of the string.<br/>For example, if the input's value is "123_BSimon", then it returns "123". |
@@ -162,7 +161,7 @@ To add a claim condition:
 3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
+The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. The last value which matches the expression will be emitted in the claim.
 
 For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Microsoft identity platform will evaluate the conditions as follow.
 
@@ -173,5 +172,5 @@ First, Microsoft identity platform verifies if Britta's user type is `All guests
 ## Next steps
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Troubleshoot SAML-based single sign-on](../manage-apps/debug-saml-sso-issues.md)

@@ -2,14 +2,10 @@
 title: Azure Monitor Workbooks and Azure Resource Manager Templates 
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks deployed via Azure Resource Manager Templates
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
 ---
 
 # Programmatically manage workbooks

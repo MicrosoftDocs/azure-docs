@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Consider your organizational needs to determine the strategy for deploying Acces
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that project roles are clear.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
 
 For Access Reviews, you'll likely include representatives from the following teams within your organization:
 
@@ -181,7 +181,7 @@ Typical targets for review include:
 
 * Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams).
 
-* [Access Package](/azure/active-directory/governance/entitlement-management-overview) that group resources (groups, apps, and sites) into a single package to manage access.
+* [Access Package](./entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
 
 * [Azure AD roles​ and Azure Resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in Privileged Identity Management.
 
@@ -197,7 +197,7 @@ The administrative role required to create, manage, or read an Access Review dep
 | Access package| Global Administrator<p>Creator of Access Package| Global Administrator only |
 
 
-For more information, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+For more information, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
 ### Who will review the access to the resource?
 
@@ -332,9 +332,9 @@ Groups that are synchronized from on-premises Active Directory cannot have an ow
 > [!NOTE]
 > We recommend defining business policies that define how groups are created to ensure clear group ownership and accountability for regular review of membership. 
 
-### Review membership of exclusion groups in CA policies 
+### Review membership of exclusion groups in Conditional Access policies 
 
-There are times when Conditional Access (CA) policies designed to keep your network secure shouldn't apply to all users. For example, a CA policy that only allows users to sign in while on the corporate network may not apply to the Sales team, which travels extensively. In that case, the Sales team members would be put into a group and that group would be excluded from the CA policy. 
+There are times when Conditional Access policies designed to keep your network secure shouldn't apply to all users. For example, a Conditional Access policy that only allows users to sign in while on the corporate network may not apply to the Sales team, which travels extensively. In that case, the Sales team members would be put into a group and that group would be excluded from the Conditional Access policy. 
 
 Review such a group membership regularly as the exclusion represents a potential risk if the wrong members are excluded from the requirement.
 
@@ -342,7 +342,7 @@ You can [use Azure AD access reviews to manage users excluded from Conditional A
 
 ### Review external user’s group memberships
 
-To minimize manual work and associated potential errors, consider using [Dynamic Groups](../users-groups-roles/groups-create-rule.md) to assign group membership based on a user’s attributes. You may want to create one or more Dynamic Groups for external users. The internal sponsor can act as a reviewer for membership in the group. 
+To minimize manual work and associated potential errors, consider using [Dynamic Groups](../enterprise-users/groups-create-rule.md) to assign group membership based on a user’s attributes. You may want to create one or more Dynamic Groups for external users. The internal sponsor can act as a reviewer for membership in the group. 
 
 Note: External users who are removed from a group as the result of an Access Review aren't deleted from the tenant. 
 
@@ -388,7 +388,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
 
 Access Reviews allows reviewers to attest whether users still need to be in a role. Just like Access Reviews for Access Packages, reviews for Azure AD roles and Azure resource are integrated into the PIM admin user experience. We recommend you review the following role assignments regularly:
 
@@ -517,4 +517,3 @@ Learn about the below related technologies.
 * [What is Azure AD Entitlement Management?](entitlement-management-overview.md)
 
 * [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

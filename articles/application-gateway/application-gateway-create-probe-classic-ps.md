@@ -195,7 +195,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## Next steps
 
-If you want to configure Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL) offload, see [Configure an application gateway for TLS offload](application-gateway-ssl.md).
+If you want to configure Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL) offload, see [Configure an application gateway for TLS offload](./tutorial-ssl-powershell.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
-
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb-arm.md).

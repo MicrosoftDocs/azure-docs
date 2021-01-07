@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 10/25/2020
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
@@ -13,7 +13,9 @@ ms.date: 04/29/2020
 This article shows how to perform management tasks for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), for example:
 
 * Manage the resources such as logic apps, connections, integration accounts, and connectors in your ISE.
+
 * Check your ISE's network health.
+
 * Add capacity, restart your ISE, or delete your ISE, follow the steps in this topic. To add these artifacts to your ISE, see [Add artifacts to your integration service environment](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## View your ISE
@@ -37,6 +39,17 @@ This article shows how to perform management tasks for your [integration service
 On your ISE menu, under **Settings**, select **Network health**. This pane shows the health status for your subnets and outbound dependencies on other services.
 
 ![Check network health](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
+
+> [!CAUTION]
+> If your ISE's network becomes unhealthy, the internal App Service Environment (ASE) that's used by your ISE can also become unhealthy. 
+> If the ASE is unhealthy for more than seven days, the ASE is suspended. To resolve this state, check your virtual network setup. 
+> Resolve any problems that you find, and then restart your ISE. Otherwise, after 90 days, the suspended ASE is deleted, and your 
+> ISE becomes unusable. So, make sure that you keep your ISE healthy to permit the necessary traffic.
+> 
+> For more information, see these topics:
+>
+> * [Azure App Service diagnostics overview](../app-service/overview-diagnostics.md)
+> * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
 
 <a name="find-logic-apps"></a>
 

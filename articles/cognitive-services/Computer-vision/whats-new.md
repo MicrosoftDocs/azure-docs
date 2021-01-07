@@ -8,13 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ---
 
 # What's new in Computer Vision
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
+
+## October 2020
+
+### Computer Vision API v3.1 GA
+
+The Computer Vision API in General Availability has been upgraded to v3.1.
 
 ## September 2020
 
@@ -69,7 +75,7 @@ You now have the option to use version 3.0 of the Read API to extract printed or
 * Confidence score for each extracted word
 * Support for both Spanish and English languages with the additional language parameter
 
-Follow an [Extract text quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) to get starting using the 3.0 API.
+Follow an [Extract text quickstart](./quickstarts/csharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
 
 ## Cognitive Service updates
 

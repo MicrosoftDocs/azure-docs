@@ -42,7 +42,7 @@ If you want to use Azure portal instead to complete this tutorial, see [Tutorial
 
 ## Prerequisites
 
-This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 
@@ -62,7 +62,7 @@ See the [Create Routes](#create-the-routes) section in this article to see how t
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
 
-To review the related Azure PowerShell reference documentation, see [Azure PowerShell Reference](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
+To review the related Azure PowerShell reference documentation, see [Azure PowerShell Reference](/powershell/module/az.network/new-azfirewall).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -491,4 +491,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 Next, you can monitor the Azure Firewall logs.
 
-[Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

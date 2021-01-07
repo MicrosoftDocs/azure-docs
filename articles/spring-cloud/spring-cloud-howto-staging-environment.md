@@ -17,7 +17,7 @@ This article discusses how to set up a staging deployment by using the blue-gree
 
 ## Prerequisites
 
-This article assumes that you've already deployed the PiggyMetrics application from our [tutorial about launching an Azure Spring Cloud application](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprises three applications: "gateway," "account-service," and "auth-service."  
+This article assumes that you've already deployed the PiggyMetrics application from our [tutorial about launching an Azure Spring Cloud application](./spring-cloud-quickstart.md). PiggyMetrics comprises three applications: "gateway," "account-service," and "auth-service."  
 
 If you want to use a different application for this example, you need to make a simple change in a public-facing portion of the application.  This change differentiates your staging deployment from production.
 

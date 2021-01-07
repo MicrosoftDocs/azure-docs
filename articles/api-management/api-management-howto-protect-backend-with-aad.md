@@ -1,22 +1,19 @@
 ---
-title: Protect an API by using OAuth 2.0 with AAD and API Management
+title: Protect API backend in API Management using OAuth 2.0 and Azure AD 
 titleSuffix: Azure API Management
-description: Learn how to protect a web API backend with Azure Active Directory and API Management.
+description: Learn how to secure access to a web API backend in Azure API Management with OAuth 2.0 user authorization and Azure Active Directory
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
+ms.custom: contperf-fy21q1
 ---
 
-# Protect an API by using OAuth 2.0 with Azure Active Directory and API Management
+# Protect a web API backend in Azure API Management by using OAuth 2.0 authorization with Azure AD 
 
-This guide shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
+This guide shows you how to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > This feature is available in **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.
@@ -41,9 +38,9 @@ The following is a quick overview of the steps:
 
 ## Register an application in Azure AD to represent the API
 
-To protect an API with Azure AD, first register an application in Azure AD that represents the API. 
+To protect an API with Azure AD, first register an application in Azure AD that represents the API. The following steps use the Azure portal to register the application. For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **APP registrations**.
+1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **App registrations**.
 
 1. Select **New registration**. 
 
@@ -74,7 +71,7 @@ To register another application in Azure AD to represent the Developer Console:
 
 1. Go to the [Azure portal](https://portal.azure.com) to register your application.
 
-1.  Search for and select **APP registrations**.
+1. Search for and select **App registrations**.
 
 1. Select **New registration**.
 
@@ -101,7 +98,7 @@ When the secret is created, note the key value for use in a subsequent step.
 
 Now that you have registered two applications to represent the API and the Developer Console, grant permissions to allow the client-app to call the backend-app.  
 
-1. Go to the [Azure portal](https://portal.azure.com) to grant permissions to your client application. Search for and select **APP registrations**.
+1. Go to the [Azure portal](https://portal.azure.com) to grant permissions to your client application. Search for and select **App registrations**.
 
 1. Choose your client app. Then in the list of pages for the app, select **API permissions**.
 

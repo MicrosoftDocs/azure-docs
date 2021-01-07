@@ -22,8 +22,8 @@ If you want to run the command-line tool on another platform, download Azure Cac
 
 You can gather the information needed to access the cache using three methods:
 
-1. Azure CLI using [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell using [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. Azure CLI using [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Using the Azure portal.
 
 In this section, you will retrieve the keys from the Azure portal.
@@ -67,7 +67,7 @@ When using stunnel, run *redis-cli.exe*, and pass only your *port*, and *access 
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Screenshot that shows that your connection to the cache is successful.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 If you're using a test cache with the **unsecure** non-TLS port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
 
@@ -83,4 +83,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## Next steps
 
 Learn more about using the [Redis Console](cache-configure.md#redis-console) to issue commands.
-

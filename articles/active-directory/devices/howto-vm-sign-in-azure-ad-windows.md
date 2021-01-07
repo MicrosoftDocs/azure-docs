@@ -12,7 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
 ---
 # Sign in to Windows virtual machine in Azure using Azure Active Directory authentication (Preview)
@@ -153,6 +153,9 @@ There are multiple ways you can configure role assignments for VM:
 - Using the Azure AD Portal experience
 - Using the Azure Cloud Shell experience
 
+> [!NOTE]
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group or resource scope.
+
 ### Using Azure AD Portal experience
 
 To configure role assignments for your Azure AD enabled Windows Server 2019 Datacenter VMs:
@@ -173,8 +176,8 @@ After a few moments, the security principal is assigned the role at the selected
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
-username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$username=$(az account show --query user.name --output tsv)
+$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \
@@ -200,7 +203,7 @@ require multi-factor authentication as a grant access control.
 > If you use "Require multi-factor authentication" as a grant access control for requesting access to the "Azure Windows VM Sign-In" app, then you must supply multi-factor authentication claim as part of the client that initiates the RDP session to the target Windows VM in Azure. The only way to achieve this on a Windows 10 client is to use Windows Hello for Business PIN or biometric authentication with the RDP client. Support for biometric authentication was added to the RDP client in Windows 10 version 1809. Remote desktop using Windows Hello for Business authentication is only available for deployments that use cert trust model and currently not available for key trust model.
 
 > [!WARNING]
-> Per-user Enabled/Enforced Azure Multi-Factor Authentication is not supported for VM sign-in.
+> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM sign-in.
 
 ## Log in using Azure AD credentials to a Windows VM
 
@@ -234,7 +237,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as CommandExecution_YYYYMMDDHHMMSSSSS.log. 
 "
-1. Open a command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |
@@ -328,6 +331,9 @@ If you see the following error message when you initiate a remote desktop connec
 ![Your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Verify that you have [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role:
+
+> [!NOTE]
+> If you are running into issues with Azure role assignments, see [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### Unauthorized client
 

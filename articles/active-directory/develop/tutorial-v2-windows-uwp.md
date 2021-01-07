@@ -1,6 +1,7 @@
 ---
-title: Get started with the Microsoft identity platform UWP | Azure
-description: How Universal Windows Platform (UWP) applications can call an API that requires access tokens by the Microsoft identity platform endpoint.
+title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication | Azure"
+titleSuffix: Microsoft identity platform
+description: In this tutorial, you build a UWP application that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,19 +15,24 @@ ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
-# Call the Microsoft Graph API from a Universal Windows Platform application (XAML)
+# Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-> [!div renderon="docs"]
-
-This guide explains how a native Universal Windows Platform (UWP) application can request an access token. The application then calls the Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Microsoft identity platform endpoint.
+In this tutorial, you build a native Universal Windows Platform (UWP) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
 
->[!NOTE]
-> This guide requires Visual Studio with Universal Windows Platform development installed. For instructions to download and configure Visual Studio to develop Universal Windows Platform apps, see [Get set up](/windows/uwp/get-started/get-set-up).
+In this tutorial:
 
->[!NOTE]
-> If you're new to the Microsoft identity platform, start with the [Call the Microsoft Graph API from a Universal Windows Platform (UWP) application quickstart](quickstart-v2-uwp.md).
+> [!div class="checklist"]
+> * Create a *Universal Windows Platform (UWP)* project in Visual Studio
+> * Register the application in the Azure portal
+> * Add code to support user sign-in and sign-out
+> * Add code to call Microsoft Graph API
+> * Test the app
+
+## Prerequisites
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
 
 ## How this guide works
 
@@ -111,7 +117,7 @@ This section shows how to use Microsoft Authentication Library to get a token fo
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -337,21 +343,23 @@ private async Task DisplayMessageAsync(string message)
 Now you need to register your application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Azure Active Directory** > **App registrations**.
-1. Select **New registration**. Enter a meaningful application name that will be displayed to users of the app, for example, *UWP-App-calling-MSGraph*.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**. Then select **Register** to continue.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `UWP-App-calling-MSGraph`. Users of your app might see this name, and you can change it later.
+1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. 
+1. Select **Register**.
 1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` with this value.
 
 Configure authentication for your application:
 
-1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check https://login.microsoftonline.com/common/oauth2/nativeclient.
-1. Select **Save**.
+1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
+1. In the **Redirect URIs** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+1. Select **Configure**.
 
 Configure API permissions for your application:
 
-1. Under **Manage**, select **API permissions**.
-1. Select **Add a permission**, and then make sure that you've selected **Microsoft APIs**.
+1. Under **Manage**, select **API permissions** > **Add a permission**.
 1. Select **Microsoft Graph**.
 1. Select **Delegated permissions**, search for *User.Read*, and verify that **User.Read** is selected.
 1. If you made any changes, select **Add permissions** to save them.
@@ -423,16 +431,16 @@ In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/c
             }
            ...
     }
-  
+
     ```
 
-    Run the app, and then copy the value of `redirectUri` when the breakpoint is hit. The value should look something similar to the following value:  
+    Run the app, and then copy the value of `redirectUri` when the breakpoint is hit. The value should look something similar to the following value:
     `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    You can then remove the line of code because it's required only once, to fetch the value. 
+    You can then remove the line of code because it's required only once, to fetch the value.
 
 3. In the app registration portal, add the returned value in **RedirectUri** in the **Authentication** pane.
-   
+
 ## Test your code
 
 To test your application, select the **F5** key to run your project in Visual Studio. Your main window appears:
@@ -492,3 +500,10 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## Next steps
+
+Learn more about using the Microsoft Authentication Library (MSAL) for authorization and authentication in .NET applications:
+
+> [!div class="nextstepaction"]
+> [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md)

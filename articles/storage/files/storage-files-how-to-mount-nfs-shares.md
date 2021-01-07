@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System share.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -53,6 +53,10 @@ ms.custom: references_regions
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade":::
 
 You have now mounted your NFS share.
+
+### Validate connectivity
+
+If your mount failed, it's possible that your private endpoint was not setup correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
 
 ## Next steps
 

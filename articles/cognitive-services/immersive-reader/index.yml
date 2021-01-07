@@ -80,3 +80,12 @@ landingContent:
         links:
           - text: JavaScript SDK
             url: reference.md
+          - text: Release notes
+            url: release-notes.md
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context

@@ -131,7 +131,7 @@ The function app resource is defined by using a resource of type **Microsoft.Web
 > [!IMPORTANT]
 > If you are explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
-A function app must include these application settings：
+A function app must include these application settings:
 
 | Setting name                 | Description                                                                               | Example values                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
@@ -171,7 +171,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ## Deploy on Consumption plan
 
-The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](functions-scale.md#consumption-plan).
+The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](consumption-plan.md).
 
 For a sample Azure Resource Manager template, see [Function app on Consumption plan].
 
@@ -295,8 +295,6 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## Deploy on Premium plan
@@ -376,7 +374,6 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 
@@ -512,7 +509,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 }
 ```
 
-If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/containers/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 ```json
 {

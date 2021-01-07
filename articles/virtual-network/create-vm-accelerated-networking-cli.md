@@ -44,17 +44,17 @@ The following distributions are supported out of the box from the Azure Gallery:
 * **RHEL 7.4 or later**
 * **CentOS 7.4 or later**
 * **CoreOS Linux**
-* **Debian "Stretch" with backports kernel**
+* **Debian "Stretch" with backports kernel, Debian "Buster" or later**
 * **Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)**
 * **Oracle Linux 7.5 and later with UEK version 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **FreeBSD 10.4, 11.1 & 12.0 or later**
 
 ## Limitations and Constraints
 
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
+On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
 
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

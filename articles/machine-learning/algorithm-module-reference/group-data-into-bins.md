@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
+ms.date: 10/13/2020
 ---
 # Group Data into Bins module
 
@@ -39,7 +39,8 @@ The Group Data into Bins module supports multiple options for binning data. You 
 
 The following diagram shows the distribution of numeric values before and after binning with the *quantiles* method. Notice that compared to the raw data at left, the data has been binned and transformed to a unit-normal scale.  
 
-You can find an [example from the result of this pipeline run](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Result visualization](media/module/group-data-into-bins-result-example.png)
 
 Because there are so many ways to group data, all customizable, we recommend that you experiment with different methods and values. 
 
@@ -60,6 +61,9 @@ Because there are so many ways to group data, all customizable, we recommend tha
     - **Custom Edges**: You can specify the values that begin each bin. The edge value is always the lower boundary of the bin. 
     
       For example, assume you want to group values into two bins. One will have values greater than 0, and one will have values less than or equal to 0. In this case, for bin edges, you enter **0** in **Comma-separated list of bin edges**. The output of the module will be 1 and 2, indicating the bin index for each row value. Note that the comma-separated value list must be in an ascending order, such as 1, 3, 5, 7.
+    
+    > [!Note]
+    > *Entropy MDL* mode is defined in Studio (classic) and there's no corresponding open source package which can be leveraged to support in Designer yet.        
 
 4. If you're using the **Quantiles** and **Equal Width** binning modes, use the **Number of bins** option to specify how many bins, or *quantiles*, you want to create.
 

@@ -97,18 +97,19 @@ Flexible servers that are configured with high availability, replicate data in r
 -   High availability is supported only in regions where multiple zones are available.
 -   Due to synchronous replication to another availability zone, applications can experience elevated write and commit latency.
 
--   Standby replica cannot be used for read-only queries.
+-   Standby replica cannot be used for read queries.
 
--   Depending on the activity on the primary server at the time of failover, it might take up to two minutes or longer for the failover
-    to complete.
+-   Depending on the workload and activity on the primary server, the failover process might take longer than 120 seconds.
 
--   Restarting the primary database server to pick up static parameter changes also restarts standby replica.
+-   Restarting the primary database server also restarts standby replica. 
 
 -   Configuring additional read replicas are not supported.
 
 -   Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
--   Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. The service is not failed over. 
+-   Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. The server does not failed over for these planned operations. 
+
+-  If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
 
 ## Next steps
 

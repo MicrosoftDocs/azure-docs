@@ -83,10 +83,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
+## Login to Docker and build the image
 
-```bash
+Next we'll create the image that runs your web application. When pulling public images from Docker (like `python:2.7-slim` in our Dockerfile), it's a best practice to authenticate with your Docker Hub account instead of making an anonymous pull request.
+
+> [!NOTE]
+> When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors. See [Manage public content with Azure Container Registry](../container-registry/buffer-gate-public-content.md) for more info.
+
+Open a PowerShell window and navigate to the directory containing the Dockerfile. Then run the following commands:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -409,7 +416,7 @@ You can configure the Service Fabric cluster to remove unused container images f
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

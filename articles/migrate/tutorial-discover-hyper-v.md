@@ -1,6 +1,9 @@
 ---
 title: Discover Hyper-V VMs with Azure Migrate Server Assessment 
 description: Learn how to discover on-premises Hyper-V VMs with the Azure Migrate Server Assessment tool.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
@@ -35,7 +38,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Requirement** | **Details**
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which VMs are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull VM metadata and performance data, using a Common Information Model (CIM) session.
-**Appliance deployment** | vCenter Server needs resources to allocate a VM for the appliance:<br/><br/> - Windows Server 2016<br/><br/> -32 GB of RAM<br/><br/> - Eight vCPUs<br/><br/> - Around 80 GB of disk storage.<br/><br/> - An external virtual switch.<br/><br/> - Internet access on for the VM, directly or via a proxy.
+**Appliance deployment** | Hyper-V host needs resources to allocate a VM for the appliance:<br/><br/> - Windows Server 2016<br/><br/> -16 GB of RAM<br/><br/> - Eight vCPUs<br/><br/> - Around 80 GB of disk storage.<br/><br/> - An external virtual switch.<br/><br/> - Internet access on for the VM, directly or via a proxy.
 **VMs** | VMs can be running any Windows or Linux operating system. 
 
 Before you start, you can [review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
@@ -69,6 +72,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-hyper-v/register-apps.png)
 
+9. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App(s). [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 ## Prepare Hyper-V hosts
 
 Set up an account with Administrator access on the Hyper-V hosts. The appliance uses this account for discovery.
@@ -79,7 +84,7 @@ Set up an account with Administrator access on the Hyper-V hosts. The appliance 
 
 ## Set up a project
 
-et up a new Azure Migrate project.
+Set up a new Azure Migrate project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -131,7 +136,7 @@ Check that the zipped file is secure, before you deploy it.
 
 2. Run the following PowerShell command to generate the hash for the ZIP file
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Verify the latest appliance versions and hash values:
 
@@ -139,13 +144,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (10.4 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### Create the appliance VM
 
@@ -193,12 +198,17 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, sign in by using your Azure username and password.
+1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+
+    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+
+1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, paste the device code and sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
-3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-hyper-v.md#prepare-azure) on the Azure resources created during key generation, the appliance registration will be initiated.
+3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
+4. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 
@@ -210,7 +220,7 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 1. On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Alternatively, do this in the Local Group Policy Editor on the appliance:

@@ -158,7 +158,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     ```
 
     This code adds three additional string variables to your **RemoteRenderingCoordinator** component.
-    ![Linked Model](./media/storage-account-linked-model.png)
+    ![Screenshot that highlights the Storage Account Name, Blob Container Name, and Model Path of the RemoteRenderingCoordinator component.](./media/storage-account-linked-model.png)
 
 1. Add your values to the **RemoteRenderingCoordinator** component. Having followed the [Quickstart for model conversion](../../../quickstarts/convert-model.md), your values should be:
 
@@ -183,11 +183,11 @@ We have one more "password", the AccountKey, to remove from the local applicatio
 
 ## Azure Active Directory (Azure AD) authentication
 
-AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
+AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](../../../../active-directory/develop/access-tokens.md) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
@@ -253,6 +253,14 @@ With the Azure side of things in place, we now need to modify how your code conn
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -260,7 +268,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -277,7 +285,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -359,7 +367,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
 The code first tries to get the token silently using **AquireTokenSilent**. This will be successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
 
-For this code, we're using the [device code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
+For this code, we're using the [device code flow](../../../../active-directory/develop/v2-oauth2-device-code.md) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
 
 The most important part of this class from an ARR perspective is this line:
 
@@ -367,7 +375,7 @@ The most important part of this class from an ARR perspective is this line:
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Here, we create a new **AzureFrontendAccountInfo** object using the account domain, account ID, and access token. This token is then used by the ARR service to query, create, and join remote rendering sessions as long as the user is authorized based on the role-based permissions configured earlier.
+Here, we create a new **AzureFrontendAccountInfo** object using the account domain, account ID, account authentication domain, and access token. This token is then used by the ARR service to query, create, and join remote rendering sessions as long as the user is authorized based on the role-based permissions configured earlier.
 
 With this change, the current state of the application and its access to your Azure resources looks like this:
 
@@ -389,14 +397,15 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     * **Active Directory Application Client ID** is the *Application (client) ID* found in your AAD app registration (see image below).
     * **Azure Tenant ID** is the *Directory (tenant) ID* found in your AAD app registration ( see image below).
     * **Azure Remote Rendering Account ID** is the same **Account ID** you've been using for **RemoteRenderingCoordinator**.
+    * **Account Authentication Domain** is the same **Account Authentication Domain** you've been using in the **RemoteRenderingCoordinator**.
 
-    ![AAD auth component](./media/app-overview-data.png)
+    ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
 
 1. Press Play in the Unity Editor and consent to running a session.
     Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
-    ![AAD auth component](./media/device-flow-instructions.png)
+    ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)
     After entering the provided coded on your secondary device (or browser on the same device) and logging in using your credentials, an Access Token will be returned to the requesting application, in this case, the Unity Editor.
 1. After this point, everything in the application should proceed normally. Check the Unity Console for any errors if you're not progressing through the stages as expected.
 

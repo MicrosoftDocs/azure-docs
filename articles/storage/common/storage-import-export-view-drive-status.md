@@ -73,5 +73,5 @@ In addition to the status posted on Azure portal, you can use REST APIs to track
 
 ## Next steps
 
-* [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
+* [Transfer data with AzCopy command-line utility](./storage-use-azcopy-v10.md)
 * [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

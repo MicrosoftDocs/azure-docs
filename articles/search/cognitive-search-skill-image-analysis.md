@@ -12,7 +12,7 @@ ms.date: 06/17/2020
 ---
 # Image Analysis cognitive skill
 
-The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/home.md) in Cognitive Services. 
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. 
 
 > [!NOTE]
 > Small volumes (under 20 transactions) can be executed for free in Azure Cognitive Search, but larger workloads require [attaching a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.

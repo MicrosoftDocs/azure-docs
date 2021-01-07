@@ -6,7 +6,7 @@ author: radwiv
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
 ---
 
@@ -27,6 +27,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - You can't run multiple gateway-wide packet captures at the same time.
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
+- The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
 
 ### Example JSON
 ```JSON-interactive
@@ -314,7 +315,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 
 ## Set up packet capture by using PowerShell
 
-The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [this PowerShell document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### Start packet capture for a VPN gateway
 
@@ -350,6 +351,9 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 - Packet captures aren't supported on policy-based gateways.
+- If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
+
 
 ## Next steps
 

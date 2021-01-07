@@ -96,6 +96,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 The following example shows the Event Grid output binding data in the *function.json* file.
@@ -156,6 +160,70 @@ module.exports = function(context) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+The following example demonstrates how to configure a function to output an Event Grid event message. The section where `type` is set to `eventGrid` configures the values needed to establish an Event Grid output binding.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+In your function, use the `Push-OutputBinding` to send an event to a custom topic through the Event Grid output binding.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
 # [Python](#tab/python)
 
 The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
@@ -190,7 +258,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -205,10 +272,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 
@@ -235,17 +298,21 @@ For a complete example, see [example](#example).
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 The Event Grid output binding is not available for Python.
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 
@@ -278,17 +345,21 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 Send messages by using a method parameter such as `out EventGridEvent paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridEvent>` or
 `IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 
+# [PowerShell](#tab/powershell)
+
+Access the output event by using the `Push-OutputBinding` commandlet to send an event to the Event Grid output binding.
+
 # [Python](#tab/python)
 
 The Event Grid output binding is not available for Python.
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 

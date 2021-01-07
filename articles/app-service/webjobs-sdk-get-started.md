@@ -261,13 +261,13 @@ In this section, you build and run the project locally and trigger the function 
 
 1. Enter *queue* as the name for the queue, and then select **OK**.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot that shows where you create the queue and name it "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Right-click the node for the new queue, and then select **View Queue**.
 
 1. Select the **Add Message** icon.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot that highlights the Add Message icon.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**. There is now a message in the queue.
 

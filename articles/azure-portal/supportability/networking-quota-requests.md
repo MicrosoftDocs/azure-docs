@@ -1,13 +1,11 @@
 ---
-title: Networking limit increase | Microsoft Docs
+title: Networking limit increase
 description: Networking limit increase
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-
 ---
 
 # Networking limit increase

@@ -30,7 +30,7 @@ Listed below are the platform requirements for NPM's various capabilities:
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
-The capability to monitor networks using Linux-based nodes is currently in preview. Reach out to your Account Manager to know more. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
+The capability to monitor networks using Linux-based nodes is currently in preview. Acccess the agent [here](../../virtual-machines/extensions/oms-linux.md). Reach out to your Account Manager to know more. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
 For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You don't need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process if it uses more than 5% CPU.
@@ -91,7 +91,7 @@ If a hop is red, it signifies that it is part of at-least one unhealthy path. NP
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
 
 ### How can I create alerts in NPM?
-Creating alerts from NPM UI is currently failing due to a issue. Please create alerts manually.
+Currently, creating alerts from the NPM UI is failing due to a known issue. Please [create alerts manually](../platform/alerts-log.md).
 
 ### What are the default Log Analytics queries for alerts
 Performance monitor query

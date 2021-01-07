@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/09/2020
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
@@ -36,13 +36,19 @@ If any of these situations apply to you, then you may need to change your code a
 
 ## Upgrade to 2020-06-30
 
-Version 2020-06-30 is the new generally available release of the REST API. There are no breaking changes, but there are a few behavioral differences. 
+Version 2020-06-30 is the new generally available release of the REST API. There is one breaking change and several behavioral differences. 
 
 Features are now generally available in this API version include:
 
 * [Knowledge store](knowledge-store-concept-intro.md), persistent storage of enriched content created through skillsets, created for downstream analysis and processing through other applications. With this capability, an indexer-driven AI enrichment pipeline can populate a knowledge store in addition to a search index. If you used the preview version of this feature, it is equivalent to the generally available version. The only code change required is modifying the api-version.
 
-Behavior changes include the following:
+### Breaking change
+
+Existing code written against earlier API versions will break on api-version=2020-06-30 and later if code contains the following functionality:
+
+* Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the Edm.DateTimeOffset format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
+
+### Behavior changes
 
 * [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 

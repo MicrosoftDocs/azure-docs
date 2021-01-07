@@ -9,13 +9,16 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/29/2020
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
 
-This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+> [!CAUTION]
+> This is a Gen1 article.
+
+This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
 > View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -25,8 +28,8 @@ This article demonstrates how to combine C#, [MSAL.NET](https://github.com/Azure
 The sample code below demonstrates the following features:
 
 * Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sequential CREATE, READ, UPDATE, and DELETE operations against the Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
-* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+* Sequential CREATE, READ, UPDATE, and DELETE operations against the Gen 1 [Reference Data Management API](/rest/api/time-series-insights/gen1-reference-data-api).
+* Common response codes including [common error codes](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
 
     The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
 
@@ -34,7 +37,7 @@ The sample code below demonstrates the following features:
 
 Complete the following steps before you compile and run the sample code:
 
-1. [Provision a Gen 1 Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Provision a Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md
 ) environment.
 
 1. [Create a Reference Data set](time-series-insights-add-reference-data-set.md) within your environment. Use the following Reference Data scheme:
@@ -305,4 +308,4 @@ namespace CsharpTsiMsalGaSample
 
 ## Next steps
 
-* Read the Gen 1 [Reference Data  Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) reference documentation.
+* Read the Gen 1 [Reference Data  Management API](/rest/api/time-series-insights/gen1-reference-data-api) reference documentation.

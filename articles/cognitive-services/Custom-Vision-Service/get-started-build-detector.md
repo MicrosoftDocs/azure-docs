@@ -1,7 +1,7 @@
 ---
-title: "Quickstart Build an object detector - Custom Vision Service"
+title: "Quickstart: Build an object detector with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Custom Vision website to create an object detector model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an object detector model.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: How to build an object detector with Custom Vision
+# Quickstart: Build an object detector with the Custom Vision website
 
-In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a model, you can test in with new images and eventually integrate it into your own image recognition software.
+In this quickstart, you'll learn how to use the Custom Vision website to create an object detector model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -94,6 +96,7 @@ After training has completed, the model's performance is calculated and displaye
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
+- **Mean average precision** is the average value of the average precision (AP). AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 

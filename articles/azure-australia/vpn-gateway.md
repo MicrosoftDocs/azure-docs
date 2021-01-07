@@ -36,7 +36,7 @@ The Australian Cyber Security Centre's [Consumer Guide for Azure](https://servic
 
 ### Encryption and integrity
 
-By default, the VPN negotiates the encryption and integrity algorithms and parameters during the connection establishment as part of the IKE handshakes. During the IKE handshake, the configuration and order of preference depends on whether the VPN gateway is the initiator or the responder. This designation is controlled via the VPN device. The final configuration of the connection is controlled by the configuration of the VPN device. For more information on validated VPN devices and their configuration, see [About VPN services](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+By default, the VPN negotiates the encryption and integrity algorithms and parameters during the connection establishment as part of the IKE handshakes. During the IKE handshake, the configuration and order of preference depends on whether the VPN gateway is the initiator or the responder. This designation is controlled via the VPN device. The final configuration of the connection is controlled by the configuration of the VPN device. For more information on validated VPN devices and their configuration, see [About VPN services](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 VPN gateways can control encryption and integrity by configuring a custom IPsec/IKE policy on the connection.
 
@@ -52,7 +52,7 @@ Azure VPN gateways can have multiple connections and support multiple on-premise
 
 Virtual networks in Azure can have multiple VPN gateways that can be deployed in independent, active-passive, or active-active configurations.
 
-We recommend that you deploy all VPN gateways in a [highly available configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable). An example is two on-premises VPN devices connected to two VPN gateways in either active-passive or active-active mode. See Diagram 2.
+We recommend that you deploy all VPN gateways in a [highly available configuration](../vpn-gateway/vpn-gateway-highlyavailable.md). An example is two on-premises VPN devices connected to two VPN gateways in either active-passive or active-active mode. See Diagram 2.
 
 ![VPN gateway redundant connections](media/dual-redundancy.png)
 
@@ -81,7 +81,7 @@ Attribute settings required to comply with the ISM controls for PROTECTED are:
 |vpnClientConfiguration/vpnClientProtocols | "IkeV2"|
 |
 
-Azure VPN gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards. The default policy sets maximum interoperability with a wide range of third-party VPN devices. As a result, it's possible that during the IKE handshake a noncompliant configuration might be negotiated. We highly recommend that you apply [custom IPsec/IKE policy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters to vpnClientConfiguration in VPN gateways to ensure the connections meet the ISM controls for on-premises environment connections to Azure. The key attributes are shown in the following table.
+Azure VPN gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards. The default policy sets maximum interoperability with a wide range of third-party VPN devices. As a result, it's possible that during the IKE handshake a noncompliant configuration might be negotiated. We highly recommend that you apply [custom IPsec/IKE policy](../vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md) parameters to vpnClientConfiguration in VPN gateways to ensure the connections meet the ISM controls for on-premises environment connections to Azure. The key attributes are shown in the following table.
 
 |Attribute|Should|Must|
 |---|---|---|
@@ -110,7 +110,7 @@ When you design and configure an Azure VPN gateway, a number of related services
 
 ## Implementation steps using PowerShell
 
-### Role-based access control
+### Azure role-based access control
 
 1. Create a custom role. An example is virtualNetworkGateway Contributor. Create a role to be assigned to users who will be allowed to create and modify VPN gateways. The custom role should allow the following operations:
 
@@ -197,7 +197,7 @@ New-AzVirtualNetworkGatewayConnection `
 
 This article covered the specific configuration of VPN Gateway to meet the requirements specified in the Information Security Manual for securing Australian Government PROTECTED data while in transit. For steps on how to configure your VPN gateway, see:
 
-- [Azure virtual network gateway overview](https://docs.microsoft.com/azure/vpn-gateway/)  
-- [What is VPN Gateway?](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
-- [Create a virtual network with a site-to-site VPN connection by using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
-- [Create and manage a VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
+- [Azure virtual network gateway overview](../vpn-gateway/index.yml)  
+- [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md)  
+- [Create a virtual network with a site-to-site VPN connection by using PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  
+- [Create and manage a VPN gateway](../vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md)

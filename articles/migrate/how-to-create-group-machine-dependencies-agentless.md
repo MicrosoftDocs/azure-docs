@@ -1,6 +1,9 @@
 ---
 title: Set up agentless dependency analysis in Azure Migrate Server Assessment
 description:  Set up agentless dependency analysis in Azure Migrate Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
 ---
@@ -21,13 +24,13 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 
 - In the dependency analysis view, you can't currently add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
-- Dependency data collection can be set up concurrently for 1000 servers. You can analyze a higher number of servers by sequencing in batches of 1000.
+- In an Azure Migrate project, dependency data collection can be set up concurrently for 1000 servers. You can analyze a higher number of servers by sequencing in batches of 1000.
 
 ## Before you start
 
 - [Review](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) supported operating systems, and required permissions.
 - Make sure you:
-    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
     - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
     - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. [Set up an appliance](how-to-set-up-appliance-vmware.md) for VMware VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
 - Check that VMware Tools (later than 10.2) is installed on each VM you want to analyze.
@@ -133,12 +136,12 @@ Choose the machines on which you want to stop dependency discovery.
 If you want to stop dependency on several machines, you may use [PowerShell](#start-or-stop-dependency-discovery-using-powershell) to do so.
 
 
-### Start or stop dependency discovery using PowerShell
+## Start or stop dependency discovery using PowerShell
 
 Download the PowerShell module from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
 
 
-#### Log in to Azure
+### Log in to Azure
 
 1. Log into your Azure subscription using the Connect-AzAccount cmdlet.
 
@@ -162,7 +165,7 @@ Download the PowerShell module from [Azure PowerShell Samples](https://github.co
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### Enable or disable dependency data collection
+### Enable or disable dependency data collection
 
 1. Get the list of discovered VMware VMs in your Azure Migrate project using the following commands. In the example below, the project name is FabrikamDemoProject, and the resource group it belongs to is FabrikamDemoRG. The list of machines will be saved in FabrikamDemo_VMs.csv
 

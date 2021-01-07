@@ -7,7 +7,7 @@ ms.date: 09/21/2020
 
 # Azure VMware Solution networking and interconnectivity concepts
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 A useful perspective on interconnectivity is to consider the two types of Azure VMware Solution private cloud implementations:
 
