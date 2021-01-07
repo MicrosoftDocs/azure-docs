@@ -1,6 +1,6 @@
 ---
 title: Registry service tiers and features
-description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
+description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
 ---
@@ -20,9 +20,6 @@ The Basic, Standard, and Premium tiers all provide the same programmatic capabil
 ## Service tier features and limits
 
 The following table details the features and registry limits of the Basic, Standard, and Premium service tiers.
-
-> [!IMPORTANT]
-> The service tiers provide different amounts of *included* storage - that is, the amount of registry storage included in the tier's standard daily billing rate. Each tier allows you to store beyond this amount, up to the registry *storage limit*, for an additonal daily rate. If you require additional storage beyond the registry limit, please contact Azure Support.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
