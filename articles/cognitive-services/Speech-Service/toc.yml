@@ -507,7 +507,8 @@
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
           href: speech-container-faq.md
         - name: Cognitive Services containers documentation

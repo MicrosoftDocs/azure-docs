@@ -15,7 +15,10 @@ ms.custom: how-to, devx-track-python
 
 # Use workspace behind a Firewall for Azure Machine Learning
 
-In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md)
+In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
+
+> [!WARNING]
+> Access to data storage behind a firewall is only supported in code first experiences. Using the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) to access data behind a firewall is not supported. To work with data storage on a private network with the studio, you must first [set up a virtual network](../virtual-network/quick-create-portal.md) and [give the studio access to data stored inside of a virtual network](how-to-enable-studio-virtual-network.md).
 
 ## Azure Firewall
 

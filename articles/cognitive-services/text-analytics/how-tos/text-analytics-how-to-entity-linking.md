@@ -48,7 +48,7 @@ Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v
 * An optional `domain=phi` parameter to detect confidential health information (`PHI`).
 * [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
-For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. 
+For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. For more information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Sending a REST API request
 

@@ -306,7 +306,7 @@ You can also use Azure Resource Manager CLI with [templates](./alerts-log-create
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

@@ -20,6 +20,8 @@ November 23, 2020: Released for download
 * Support for PHS filtering only for objects in scope (Originally, we were syncing password hashes for all objects)
 * Fixed the memory leak issue in the agent
 * Improved provisioning logs
+* Support for configuring [LDAP connection timeout](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Support for configuring [referral chasing](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## 1.1.96.0

@@ -70,7 +70,7 @@ const callStateElement = document.getElementById('call-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential);
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();
@@ -85,11 +85,7 @@ hangUpButton.addEventListener("click", async () => {
     callStateElement.innerText = '-';
   });
 
-teamsMeetingJoinButton.addEventListener("click", () => {
-    
-    // set display name in the meeting
-    callAgent.updateDisplayName('ACS user');
-    
+teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
