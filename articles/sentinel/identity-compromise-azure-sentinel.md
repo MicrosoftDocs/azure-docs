@@ -768,7 +768,7 @@ let timeframe = 6h;
 )
 ```
 
-### Find suspicious domain DGA activities
+### Find suspicious domain DGA activity
 
 As part of command-and-control activities, the Solorigate attackers made several queries to Domain Generation Algorithm (DGA)-like subdomains.
 
@@ -799,7 +799,7 @@ DnsEvents
 | order by count_ asc
 ```
 
-### Find suspicious encoded domain activities
+### Find suspicious encoded domain activity
 
 After the [domain name server](connect-dns.md) and [Azure AD](connect-azure-active-directory.md) connectors are running, run the following query to search DNS logs for a pattern that includes the encoding pattern used by the DGA and encoded domains seen in sign-in logs. 
 
