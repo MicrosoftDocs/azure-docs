@@ -2,7 +2,7 @@
 title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Run As account with PowerShell or from the Azure portal.
 services: automation
-ms.subservice: shared-capabilities
+ms.subservice:
 ms.date: 01/06/2021
 ms.topic: conceptual
 ---
@@ -31,7 +31,7 @@ Use the following steps to renew the self-signed certificate.
 
 1. Select **Run As Accounts** in the account settings section.
 
-        :::image type="content" source="manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
+    :::image type="content" source="manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
 
 1. On the Run As Accounts properties page, select either the Run As account or the Classic Run As account for which to renew the certificate.
 

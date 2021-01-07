@@ -2,7 +2,7 @@
 title: Create an Azure Automation Run As account
 description: This article tells how to create a Run As account with PowerShell or from the Azure portal.
 services: automation
-ms.subservice: shared-capabilities
+ms.subservice:
 ms.date: 01/06/2021
 ms.topic: conceptual
 ---
