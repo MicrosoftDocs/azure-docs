@@ -47,7 +47,7 @@ Using Sentinel to investigate incident sources from Microsoft 365 Defender enabl
     - [Find reconnaissance and remote process execution](#find-reconnaissance-and-remote-process-execution)
     - [Find illicit data access](#find-illicit-data-access)
     - [Find mail data exfiltration](#find-mail-data-exfiltration)
-    - [Find suspicious domain-related activity](#find-suspicious-domain-related-activities)
+    - [Find suspicious domain-related activity](#find-suspicious-domain-related-activity)
     - [Find evidence of security service tampering](#find-evidence-of-security-service-tampering)
     - [Find correlations between Microsoft Defender for Endpoint and Azure Sentinel detections](#find-correlations-between-microsoft-defender-for-endpoint-and-azure-sentinel-detections)
 
