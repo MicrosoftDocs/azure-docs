@@ -1,9 +1,9 @@
 ---
 title: How to use device commands in an Azure IoT Central solution
 description: How to use device commands in Azure IoT Central solution. This tutorial shows you how, as a device developer, to use device commands in client app to your Azure IoT Central application. 
-author: TheRealJasonAndrew
-ms.author: v-anjaso
-ms.date: 12/20/2020 
+author: dominicbetts
+ms.author: dobett
+ms.date: 01/07/2021 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -11,218 +11,241 @@ services: iot-central
 
 # How to use commands in an Azure IoT Central solution
 
-This how-to guide shows you how, as a device developer, to implement commands that are defined in a device template in your Azure IoT Central application. 
+This how-to guide shows you how, as a device developer, to use commands that are defined in a device template.
 
-## Use custom templates in an Azure IoT Central solution
+An operator can use the IoT Central UI to call a command on a device. Commands control the behavior of a device. For example, an operator might call a command to reboot a device or collect diagnostics data.
 
-To complete the steps in this article, you need the following:
+A device can:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 07/14/2020.
-* A development machine with [Node.js](https://nodejs.org/) version 10.0.0 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
+* Respond to a command immediately.
+* Respond to IoT Central when it receives the command and then later notify IoT Central when the *long-running command* is complete.
 
-## Define device commands
+By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
 
-These commands have the following header properties:
+## Define your commands
 
-* `iothub-command-name` : the command name, for example `UpdateFirmware`.
+Standard commands are sent to a device to instruct the device to do something. A command can include parameters with additional information. For example, a command to open a valve on a device could have a parameter that specifies how much to open the valve. Commands can also receive a return value when the device completes the command. For example, a command that asks a device to run some diagnostics could receive a diagnostics report as a return value.
 
-* `iothub-command-request-id` : the request ID generated on the server side and sent to the device in the initial call.
+Commands are defined as part of a device template. The following screenshot shows the **Get Max-Min report** command definition in the **Thermostat** device template. This command has both request and response parameters: 
 
-* `iothub-interface-id` :  The ID of the interface this command is defined on, for example `urn:example:AssetTracker:1`.
+:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template":::
 
-* `iothub-interface-name` : the instance name of this interface, for example `myAssetTracker`.
-
-* `iothub-command-statuscode` : the status code returned from the device, for example `202`.
-
-The following screenshot shows a command definition in an Azure IoT Central application. The commands are defined as part of the device template.
-
-![Define Command](./media/howto-use-commands/command-definition.png)
-
-## Configuration setting
 The following table shows the configuration settings for a command capability:
 
 | Field             |Description|
 |-------------------|-----------|
 |Display Name       |The command value used on dashboards and forms.|
-| Name            | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. The code in the device will use this Name value.|
+| Name            | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. The device code uses this **Name** value.|
 | Capability Type | Command.|
+| Queue if offline | Whether to make this command an *offline* command. |
 | Description     | A description of the command capability.|
+| Comment     | Any comments about the command capability.|
 | Request     | The payload for the device command.|
-| Response     | The payload of the device command response.|                                                                                                                                   The The following snippet shows the JSON representation of the command in the device model. You can export the device model from the device template page.
+| Response     | The payload of the device command response.|
 
-``` jsonf
+The following snippet shows the JSON representation of the command in the device model. In this example, the response value is a complex **Object** type with multiple fields:
+
+```json
 {
- "@id": "turnon",
- "@type": "Command",
- "comment": "This Commands will turn-on the LED light on the device.",
- "name": "turnon"
-},
-{
- "@id": "turnoff",
- "@type": "Command",
- "comment": "This Commands will turn-off the LED light on the device.",
- "name": "turnoff"
-},
-{
- "@id": "rundiagnostics",
- "@type": "Command",
- "comment": "This command initiates a diagnostics run.  This will take time and is implemented as a command", "name": "rundiagnostics"
+  "@type": "Command",
+  "name": "getMaxMinReport",
+  "displayName": "Get Max-Min report.",
+  "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+  "request": {
+    "name": "since",
+    "displayName": "Since",
+    "description": "Period to return the max-min report.",
+    "schema": "dateTime"
+  },
+  "response": {
+    "name" : "tempReport",
+    "displayName": "Temperature Report",
+    "schema": {
+      "@type": "Object",
+      "fields": [
+        {
+          "name": "maxTemp",
+          "displayName": "Max temperature",
+          "schema": "double"
+        },
+        {
+          "name": "minTemp",
+          "displayName": "Min temperature",
+          "schema": "double"
+        },
+        {
+          "name" : "avgTemp",
+          "displayName": "Average Temperature",
+          "schema": "double"
+        },
+        {
+          "name" : "startTime",
+          "displayName": "Start Time",
+          "schema": "dateTime"
+        },
+        {
+          "name" : "endTime",
+          "displayName": "End Time",
+          "schema": "dateTime"
+        }
+      ]
+    }
+  }
 }
-
 ```
 
-This example shows three commands, these can be related to the command definition in the UI as below:
+> [!TIP]
+> You can export a device model from the device template page.
+
+You can relate this command definition to the screenshot of the UI using the following fields:
 
 * `@type` to specify the type of capability: `Command`
 * `name` for the command value.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
-In the above example, device receives an empty payload in the request and will return an empty payload in the response with a `200` HTTP response code to indicate success.
+## Standard commands
 
-## Run command example
+This section shows you how a device sends a response value as soon as it receives the command.
 
-. To send device twin properties to your Azure IoT Central application, add the following function to your file:
+The following code snippet shows how a device can respond to a command immediately sending a success code:
+
+> [!NOTE]
+> This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 ```javascript
-    // Send device twin reported properties.
-    function sendDeviceProperties(twin, properties) {
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
-        (err ? `error: ${err.toString()}` : `status: success`)));
-    }
+client.onDeviceMethod('getMaxMinReport', commandHandler);
+
+// ...
+
+const commandHandler = async (request, response) => {
+  switch (request.methodName) {
+  case 'getMaxMinReport': {
+    console.log('MaxMinReport ' + request.payload);
+    await sendCommandResponse(request, response, 200, deviceTemperatureSensor.getMaxMinReportObject());
+    break;
+  }
+  default:
+    await sendCommandResponse(request, response, 404, 'unknown method');
+    break;
+  }
+};
+
+const sendCommandResponse = async (request, response, status, payload) => {
+  try {
+    await response.send(status, payload);
+    console.log('Response to method \'' + request.methodName +
+              '\' sent successfully.' );
+  } catch (err) {
+    console.error('An error ocurred when sending a method response:\n' +
+              err.toString());
+  }
+};
 ```
 
-IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties. Writeable properties use both device twin reported and desired properties.
+The call to `onDeviceMethod` sets up the `commandHandler` method. This command handler:
 
-1. To define and handle the writeable properties your device responds to, add the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
+1. Checks the name of the command.
+1. For the `getMaxMinReport` command, it calls `getMaxMinReportObject` to retrieve the values to include in the return object.
+1. Calls `sendCommandResponse` to send the response back to IoT Central. This response includes the `200` response code to indicate success.
+
+The following screenshot shows how the successful command response displays in the IoT Central UI:
+
+:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command":::
+
+## Long-running commands
+
+This section shows you how a device can delay sending a confirmation that the command competed.
+
+The following code snippet shows how a device can implement a long-running command:
+
+> [!NOTE]
+> This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 ```javascript
-    // Add any writeable properties your device supports,
-    // mapped to a function that's called when the writeable property
-    // is updated in the IoT Central application.
-    var writeableProperties = {
-      'name': (newValue, callback) => {
-          setTimeout(() => {
-            callback(newValue, 'completed', 200);
-          }, 1000);
-      },
-      'brightness': (newValue, callback) => {
-        setTimeout(() => {
-            callback(newValue, 'completed', 200);
-        }, 5000);
+client.onDeviceMethod('rundiagnostics', commandHandler);
+
+// ...
+
+const commandHandler = async (request, response) => {
+  switch (request.methodName) {
+  case 'rundiagnostics': {
+    console.log('Starting long-running diagnostics run ' + request.payload);
+    await sendCommandResponse(request, response, 202, 'Diagnostics run started');
+
+    // Long-running operation here
+    // ...
+
+    const patch = {
+      rundiagnostics: {
+        value: 'Diagnostics run complete at ' + new Date().toLocaleString()
       }
     };
 
-    // Handle writeable property updates that come from IoT Central via the device twin.
-    function handleWriteablePropertyUpdates(twin) {
-      twin.on('properties.desired', function (desiredChange) {
-        for (let setting in desiredChange) {
-          if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
-            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
-              var patch = {
-                [setting]: {
-                  value: newValue,
-                  ad: status,
-                  ac: code,
-                  av: desiredChange.$version
-                }
-              }
-              sendDeviceProperties(twin, patch);
-            });
-          }
-        } 
-      });
-    }
+    deviceTwin.properties.reported.update(patch, function (err) {
+      if (err) throw err;
+      console.log('Properties have been reported for component');
+    });
+    break;
+  }
+  default:
+    await sendCommandResponse(request, response, 404, 'unknown method');
+    break;
+  }
+};
 ```
-When the operator sets a writeable property in the IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds using a device twin reported property. When IoT Central receives the reported property value, it updates the property view with a status of **synced**.
 
-The names of the properties (`name` and `brightness`) must match the names used in the device template.
+The call to `onDeviceMethod` sets up the `commandHandler` method. This command handler:
 
-1. Add the following code to handle the commands sent from the IoT Central application:
+1. Checks the name of the command.
+1. Calls `sendCommandResponse` to send the response back to IoT Central. This response includes the `202` response code to indicate pending results.
+1. Completes the long-running operation.
+1. Uses a reported property with the same name as the command to tell IoT Central that the command completed.
 
-    ```javascript
-    // Setup command handlers
-    function setupCommandHandlers(twin) {
-        response.send(200, responsePayload, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            console.log('Blinking LED every ' + request.payload  + ' seconds');
-          }
-        });
-      }
+The following screenshot shows how the command response displays in the IoT Central UI when it receives the 202 response code:
 
-      // Handle LED turn on command
-      function turnOn(request, response) {
-        console.log('Received synchronous call to turn on LED');
-        if(!ledOn){
-          console.log('Turning on the LED');
-          ledOn = true;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
+:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="Screenshot that shows immediate response from device":::
 
-      // Handle LED turn off command
-      function turnOff(request, response) {
-        console.log('Received synchronous call to turn off LED');
-        if(ledOn){
-          console.log('Turning off the LED');
-          ledOn = false;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
+The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 
-      // Handle sensor diagnostics command with response payload.
-      function diagnostics(request, response) {
-        console.log('Starting asynchronous diagnostics run...');
-        response.send(202, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            var repetitions = 3;
-            var intervalID = setInterval(() => {
-              console.log('Generating diagnostics...');
-              if (--repetitions === 0) {
-                clearInterval(intervalID);
-                var properties = {
-                  rundiagnostics: {
-                    value: 'Diagnostics run complete at ' + new Date().toLocaleString()
-                  }
-                };
-                sendDeviceProperties(twin, properties);
-              }
-            }, 2000);
-          }
-        });
-      }
+:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished":::
 
-      hubClient.onDeviceMethod('blink', onBlink);
-      hubClient.onDeviceMethod('turnon', turnOn);
-      hubClient.onDeviceMethod('turnoff', turnOff);
-      hubClient.onDeviceMethod('rundiagnostics', diagnostics);
+## Offline commands
+
+This section shows you how a device handles an offline command. If a device is online, it can handle the offline command as soon it's received. If a device is offline, it handles the offline command when it next connects to IoT Central. Devices can't send a return value in response to an offline command.
+
+The following code snippet shows how a device can implement an offline command:
+
+> [!NOTE]
+> This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
+
+The following screenshot shows an offline command called **GenerateDiagnostics**. The request parameter is an object with datetime property called **StartTime** and an integer enumeration property called **Bank**:
+
+:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command":::
+
+The following code snippet shows how a client can listen for offline commands and display the message contents:
+
+```javascript
+client.on('message', function (msg) {
+  console.log('Body: ' + msg.data);
+  console.log('Properties: ' + JSON.stringify(msg.properties));
+  client.complete(msg, function (err) {
+    if (err) {
+      console.error('complete error: ' + err.toString());
+    } else {
+      console.log('complete sent');
     }
-    ```
+  });
+});
+```
 
-    The names of the commands (`blink`, `turnon`, `turnoff`, and `rundiagnostics`) must match the names used in the device template.
+The output from the previous code snippet shows the payload with the **StartTime** and **Bank** values. The property list includes the command name in the **method-name** list item:
 
-    Currently, IoT Central doesn't use the response schema defined in the device capability model. For a synchronous command, the response payload can be any valid JSON. For an asynchronous command, the device should return a 202 response immediately, followed by reported property update when the work is finished. The format of the reported property update is:
-
-    ```json
-    {
-      [command name] : {
-        value: 'response message'
-      }
-    }
+```output
+Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
+Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
+```
 
 ## Next steps
 
-Now that you've learned how to use commands in your Azure IoT Central application, you can see [Payloads](concepts-telemetry-properties-commands.md) and [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md).
+Now that you've learned how to use commands in your Azure IoT Central application, see [Payloads](concepts-telemetry-properties-commands.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.
