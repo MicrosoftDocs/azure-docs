@@ -113,6 +113,7 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ---
 
+
 ## Plan Migration
 
 Migration between Windows Consumption and Premium plans is supported and can be done through the CLI. 
