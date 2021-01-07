@@ -64,7 +64,7 @@
           href: quickstart-create-automation-account-template.md
         - name: Run As account
           items:
-            - name: Create Automation Run As account
+            - name: Create Run As account
               href: create-runas-account.md
             - name: Delete Run As account
               href: delete-runas-account.md
