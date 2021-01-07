@@ -194,7 +194,7 @@ To automate the creation of the account is a two steps process:
 
 ## Video Indexer on Azure Government
 
-### Prerequisits on Azure Government
+### Prerequisites for connecting to Azure Government
 
 -	An Azure subscription in [Azure Government](https://docs.microsoft.com/azure/azure-government/).
 - An Azure AD account in Azure Government.
@@ -230,7 +230,7 @@ To create a paid account in Azure government, follow the instructions in https:/
 
 After you are done with this tutorial, delete resources that you are not planning to use.
 
-## Delete a Video Indexer account
+### Delete a Video Indexer account
 
 If you want to delete a Video Indexer account, you can delete the account from the Video Indexer website. To delete the account, you must be the owner.
 
