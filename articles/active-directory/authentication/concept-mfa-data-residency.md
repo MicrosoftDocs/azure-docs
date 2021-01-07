@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 01/07/2021
 
 ms.author: justinha
 author: justinha
@@ -96,6 +96,26 @@ And for Azure Multi-Factor Authentication Server, the following Azure portal pag
 * Multi-Factor Authentication Server status
 
 ## Service logs location
+
+The following table shows the location for service logs for public clouds.
+
+| Public cloud| Sign-in logs | Activity report (Includes PII)| MFA Service logs |
+|-------------|--------------|-------------------------------|------------------|
+| US          | US           | US                            | US               |
+| Europe      | Europe       | US                            | Europe 2         |
+| Australia   | Australia    | US 1                          | Australia 2      |
+
+<sup>1</sup>OATH Code logs are stored in Australia
+
+<sup>2</sup>Voice calls MFA service logs are stored in the US
+
+The following table shows the location for service logs for sovereign clouds.
+
+| Sovereign cloud                      | Sign-in logs                         | Activity report (Includes PII)| MFA Service logs |
+|--------------------------------------|--------------------------------------|-------------------------------|------------------|
+| Microsoft Azure Germany              | Germany                              | US                            | US               |
+| Microsoft Azure Operated by 21Vianet | Microsoft Azure Operated by 21Vianet | US                            | US               |
+| Microsoft Government Cloud           | US                                   | US                            | US               |
 
 Location for service logs depends on which region they're processed in. Most geographies have native Azure AD Multi-Factor Authentication capabilities, so log data is stored in the same region that processes the Multi-Factor Authentication request. Geographies without native Azure AD Multi-Factor Authentication support are serviced by either the United States or Europe geographies, and log data is stored in the same region that processes the Multi-Factor Authentication request.
 
