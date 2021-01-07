@@ -127,13 +127,13 @@ Create and query twins:
 
 ```csharp
 // Initialize twin metadata
-BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
+BasicDigitalTwin twinData = new BasicDigitalTwin();
 
 twinData.Id = $"firstTwin";
 twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
 twinData.Contents.Add("data", "Hello World!");
 try {
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", updateTwinData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", twinData);
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
