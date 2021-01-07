@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 01/07/2020
+ms.date: 01/07/2021
 ms.author: duau
 
 
