@@ -75,11 +75,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_SUBDOMAIN>.labnotebook.app/lablog/login/sso/`
-
-	b. In the **Reply URL** text box, type the URL:
-    `https://auth.labnotebook.app/__/auth/handler`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [LabLog Client support team](mailto:support@labnotebook.app) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
