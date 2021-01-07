@@ -44,7 +44,7 @@ When you create an Automation account, the Run As account is created by default 
 
 When you create a Run As account, it performs the following tasks:
 
-* Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role for the account in your current subscription. You can change the certificate setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
+* Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role for the account in your current subscription. You can change the certificate setting to [Reader](../role-based-access-control/built-in-roles.md#reader) or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
 
 * Creates an Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
 
