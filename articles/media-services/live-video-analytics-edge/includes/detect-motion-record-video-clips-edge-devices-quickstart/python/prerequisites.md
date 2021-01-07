@@ -12,4 +12,4 @@
      1. [Prepare to monitor events](../../../detect-motion-emit-events-quickstart.md#prepare-to-monitor-events)
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
