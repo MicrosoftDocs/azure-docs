@@ -4,7 +4,7 @@ description: The Device Map provides a graphical representation of network devic
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
 ---
