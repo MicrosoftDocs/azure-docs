@@ -31,13 +31,13 @@ Use the following steps to renew the self-signed certificate.
 
 1. Select **Run As Accounts** in the account settings section.
 
-    ![Automation account properties pane](media/manage-runas-account/automation-account-properties-pane.png)
+        :::image type="content" source="manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
 
 1. On the Run As Accounts properties page, select either the Run As account or the Classic Run As account for which to renew the certificate.
 
 1. On the properties pane for the selected account, click **Renew certificate**.
 
-    ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
+    :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renew certificate for Run As account.":::
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
@@ -86,7 +86,7 @@ Some configuration items necessary for a Run As or Classic Run As account might 
 
 For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
 
-![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-config-incomplete.png)
+:::image type="content" source="media/manage-runas-account/automation-account-runas-config-incomplete.png" alt-text="Incomplete Run As account configuration.":::
 
 When you select the Run As account, the account properties pane displays the following error message:
 
@@ -94,9 +94,11 @@ When you select the Run As account, the account properties pane displays the fol
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-You can quickly resolve these Run As account issues by deleting and re-creating the Run As account.
+You can quickly resolve these Run As account issues by [deleting](delete-runas-account.md) and [re-creating](create-runas-account.md) the Run As account.
 
 ## Next steps
 
 * [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+* To create or re-create a Run As account, see [Create a Run As account](create-runas-account.md).
+* If you no longer need to use a Run As account, see [Delete a Run As account](delete-runas-account.md).
