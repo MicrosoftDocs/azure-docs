@@ -3,7 +3,7 @@ title: Install the Connect Health agents in Azure Active Directory
 description: This Azure AD Connect Health article describes agent installation for Active Directory Federation Services (AD FS) and for Sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
