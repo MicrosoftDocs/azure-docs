@@ -119,7 +119,8 @@ You can pull an image from a registry by specifying its digest in the pull opera
 To address a registry artifact for push and pull operations with Docker or other client tools, combine the fully qualified registry name, repository name (including namespace path if applicable), and an image tag or manifest digest. See previous sections for explanations of these terms.
 
 > [!NOTE]
-> The tag `latest` is used by default if you don't provide a tag in your command.     
+> * The tag `latest` is used by default if you don't provide a tag in your command.  
+> * You can't specify a port number in the registry login server URL, such as `myregistry.azurecr.io:443`.    
 
 ### Push by tag
 
@@ -136,7 +137,6 @@ Examples:
 `[loginServerUrl]/[repository][:tag]` or
 
 
-
 Example: 
 
 `docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
@@ -148,6 +148,8 @@ Example:
 Example:
 
 `docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+
+
 
 ## Next steps
 
