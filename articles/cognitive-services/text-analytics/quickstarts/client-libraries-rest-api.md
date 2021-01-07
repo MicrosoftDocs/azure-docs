@@ -12,7 +12,7 @@ ms.date: 12/02/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-text-analytics
+zone_pivot_groups: programming-languages-text-analytics       
 ---
 
 # Quickstart: Use the Text Analytics client library and REST API
