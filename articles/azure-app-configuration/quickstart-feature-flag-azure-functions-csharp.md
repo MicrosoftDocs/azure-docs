@@ -14,7 +14,7 @@ ms.author: alkemper
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
-In this quickstart, you create an implementation of feature management in an Azure Functions app using Azure App Configuration. You will use the App Configuration service to centrally store all your feature flags and control their states. 
+In this quickstart, you create an Azure Functions app and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
@@ -43,7 +43,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Connect to an App Configuration store
 
-This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) and add Azure App Configuration as an extra configuration source, which gives you access to feature flags in your App Configuration store.
+This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection). It adds Azure App Configuration as an extra configuration source where your feature flags are stored.
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 or later
@@ -195,6 +195,6 @@ In this quickstart, you created a feature flag and used it with an Azure Functio
 
 - Learn more about [feature management](./concept-feature-management.md)
 - [Manage feature flags](./manage-feature-flags.md)
-- [Use conditional feature flags](./howto-feature-filters-aspnet-core)
-- [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core)
+- [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)
+- [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
 - [Use dynamic configuration in an Azure Functions app](./enable-dynamic-configuration-azure-functions-csharp.md)
