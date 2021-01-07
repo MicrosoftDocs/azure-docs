@@ -185,7 +185,7 @@ Some common delegation scenarios:
 
 ---
 
-### Azure AD Application Proxy natively supports single sign-on access to applications that use headers for authentication
+### Public preview - Azure AD Application Proxy natively supports single sign-on access to applications that use headers for authentication
 
 **Type:** New feature  
 **Service category:** App Proxy  
