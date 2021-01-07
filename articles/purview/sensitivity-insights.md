@@ -50,7 +50,7 @@ Sensitivity labels enable you to state how sensitive certain data is in your org
 
 Classifications are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
 
-In contrast, sensitivity labels are applied when one or more classifications and scenarios are found together. In this context, scenarios refers to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
+In contrast, sensitivity labels are applied when one or more classifications and scenarios are found together. In this context, scenarios refers to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. In this context, scenarios refers to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**.
 
 Purview uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
