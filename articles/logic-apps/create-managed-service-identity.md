@@ -10,13 +10,13 @@ ms.date: 01/15/2021
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
 
-To easily access other resources that are protected by Azure Active Directory (Azure AD) and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
+To easily access other resources that are protected by Azure Active Directory (Azure AD) and authenticate your identity, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps secure your credentials because you don't have to manage secrets or directly use Azure AD tokens.
 
-Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md) managed identities. Your logic app can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both.
+Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md) managed identities. Your logic app or individual connections can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both.
 
 ## Where can logic apps use managed identities?
 
-Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) that support Azure AD OAuth support using managed identities for authentication, for example, here is a selection:
+Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) that support Azure AD OAuth can use a managed identity for authentication, for example, here is a selection:
 
 * Azure API Management
 * Azure App Services
@@ -28,7 +28,7 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * Azure Resource Manager
 * HTTP, HTTP + Webhook, and HTTP with Azure AD
 
-For the complete list, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Support for more connectors are coming in the future. For the current list, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 This article shows how to set up both kinds of managed identities for your logic app. For more information, see these topics:
 
@@ -78,7 +78,7 @@ Unlike user-assigned identities, you don't have to manually create the system-as
    > associated with the user-assigned identity. Before you can add the system-assigned identity, 
    > you must first *remove* the user-assigned identity from your logic app.
 
-   Your logic app can now use the system-assigned identity, which is registered with Azure Active Directory and is represented by an object ID.
+   Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
 
    ![Object ID for system-assigned identity](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
@@ -304,6 +304,8 @@ Before you can use your logic app's managed identity for authentication, set up 
 
 ### Assign access in the Azure portal
 
+On the target Azure resource where you want the managed identity to have access, give that identity role-based access to the target resource.
+
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
 
 1. From the resource's menu, select **Access control (IAM)** > **Role assignments** where you can review the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
@@ -369,38 +371,61 @@ These steps show how to use the managed identity with a trigger or action throug
 
 1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-   For example, the HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
+   > [!NOTE]
+   > Not all triggers and actions support letting you add an authentication type. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Method** | Yes | The HTTP method that's used by the operation that you want to run |
-   | **URI** | Yes | The endpoint URL for accessing the target Azure resource or entity. The URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. |
-   | **Headers** | No | Any header values that you need or want to include in the outgoing request, such as the content type |
-   | **Queries** | No | Any query parameters that you need or want to include in the request, such as the parameter for a specific operation or the API version for the operation that you want to run |
-   | **Authentication** | Yes | The authentication type to use for authenticating access to the target resource or entity |
-   ||||
+   * **Supported built-in triggers and actions**
 
-   As a specific example, suppose that you want to run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity. However, the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can run this operation by using the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) or another [Blob Service REST API operation](/rest/api/storageservices/operations-on-blobs).
+     1. Add the **Authentication** property if the property doesn't already appear.
 
-   > [!IMPORTANT]
-   > To access Azure storage accounts behind firewalls by using HTTP requests and managed identities, 
-   > make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+     1. Under **Authentication Type**, select **Managed Identity**.
 
-   To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
+     For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
+ 
+   * **Supported managed connector triggers and actions**
 
-   | Property | Required | Example value | Description |
-   |----------|----------|---------------|-------------|
-   | **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
-   | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
-   | **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your logic app fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Queries** | Only for the Snapshot Blob operation | `comp` = `snapshot` | The query parameter name and value for the operation. |
-   |||||
+     1. On the Azure AD tenant selection page, select **Connect with managed identity**.
 
-   Here is the example HTTP action that shows all these property values:
+     1. When the connection name page appears, from the managed identity list, select the type for the managed identity that you want to use.
 
-   ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
+     For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
-1. Now add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
+<a name="authenticate-built-in-managed-identity"></a>
+
+#### Example: Authenticate built-in trigger or action with a managed identity
+
+The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| **Method** | Yes | The HTTP method that's used by the operation that you want to run |
+| **URI** | Yes | The endpoint URL for accessing the target Azure resource or entity. The URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. |
+| **Headers** | No | Any header values that you need or want to include in the outgoing request, such as the content type |
+| **Queries** | No | Any query parameters that you need or want to include in the request, such as the parameter for a specific operation or the API version for the operation that you want to run |
+| **Authentication** | Yes | The authentication type to use for authenticating access to the target resource or entity |
+||||
+
+As a specific example, suppose that you want to run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity. However, the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can run this operation by using the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) or another [Blob Service REST API operation](/rest/api/storageservices/operations-on-blobs).
+
+> [!IMPORTANT]
+> To access Azure storage accounts behind firewalls by using HTTP requests and managed identities, 
+> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+
+To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
+
+| Property | Required | Example value | Description |
+|----------|----------|---------------|-------------|
+| **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
+| **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
+| **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your logic app fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Queries** | Only for the Snapshot Blob operation | `comp` = `snapshot` | The query parameter name and value for the operation. |
+|||||
+
+Here is the example HTTP action that shows all these property values:
+
+![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
+
+1. After you add the HTTP action, add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
 
    ![Add "Authentication" property to HTTP action](./media/create-managed-service-identity/add-authentication-property.png)
 
@@ -439,6 +464,32 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/common/storage-auth-aad.md)
    * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+
+1. Continue building the logic app the way that you want.
+
+<a name="authenticate-built-in-managed-identity"></a>
+
+#### Example: Authenticate managed connector trigger or action with a managed identity
+
+The Azure Resource Manager action, **Read a resource**, can use the system-assigned managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
+
+1. After you add the action to your workflow, on the tenant selection page, select **Connect with managed identity**.
+
+   ![Screenshot that shows Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity.png)
+
+   The action now shows the connection name page with the managed identity list, which includes the managed identity type that's currently enabled on the logic app.
+
+1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity type, which is **System-assigned managed identity** in this example, and select **Create**.
+
+   ![Screenshot that shows Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+
+   If the managed identity isn't enabled, the following error appears when you try to create the connection:
+
+   *You must enable managed identity for your logic app and then grant required access to the identity in the target resource.*
+
+   ![Screenshot that shows Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+
+1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
 1. Continue building the logic app the way that you want.
 
