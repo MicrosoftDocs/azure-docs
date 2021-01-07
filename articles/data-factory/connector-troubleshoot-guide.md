@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -455,6 +455,15 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: Azure Synapse Analytics hit issue querying the external table in Azure Storage.
 
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your Azure Synapse Analytics server and database name to further troubleshoot.
+
+
+### Performance tier is low and leads to copy failure
+
+- **Symptoms**: Below error message occurred when copying data into Azure SQL Database: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+
+- **Cause**: Azure SQL Database s1 is being used, which hit IO limits in such case.
+
+- **Resolution**: Upgrade the Azure SQL Database performance tier to fix the issue. 
 
 
 ### SQL Table cannot be found 
