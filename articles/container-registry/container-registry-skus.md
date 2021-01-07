@@ -21,11 +21,16 @@ The Basic, Standard, and Premium tiers all provide the same programmatic capabil
 
 The following table details the features and registry limits of the Basic, Standard, and Premium service tiers.
 
+> [!IMPORTANT]
+> The service tiers provide different amounts of *included* storage - that is, the amount of registry storage included in the tier's standard daily billing rate. Each tier allows you to store beyond this amount, up to the registry *storage limit*, for an additonal daily rate. If you require additional storage beyond the registry limit, please contact Azure Support.
+
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## Changing tiers
 
-You can change a registry's service tier with the Azure CLI or in the Azure portal. You can move freely between tier as long as the tier you're switching to has the required maximum storage capacity. 
+You can change a registry's service tier with the Azure CLI or in the Azure portal. You can move freely between tiers as long as the tier you're switching to has the required maximum storage capacity. 
+
+There is no registry downtime or impact on registry operations when you move between service tiers.
 
 ### Azure CLI
 
