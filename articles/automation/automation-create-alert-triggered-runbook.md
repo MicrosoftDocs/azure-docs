@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ---
+
 # Use an alert to trigger an Azure Automation runbook
 
 You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or by using classic alerts to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
@@ -189,4 +190,4 @@ Alerts use action groups, which are collections of actions that are triggered by
 * To discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
 * To create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

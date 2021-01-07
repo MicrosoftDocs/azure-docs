@@ -31,7 +31,7 @@ Use the following steps to renew the self-signed certificate.
 
 1. Select **Run As Accounts** in the account settings section.
 
-    :::image type="content" source="manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
 
 1. On the Run As Accounts properties page, select either the Run As account or the Classic Run As account for which to renew the certificate.
 
