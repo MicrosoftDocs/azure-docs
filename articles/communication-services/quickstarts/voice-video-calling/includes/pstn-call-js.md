@@ -13,14 +13,7 @@ ms.author: nikuklic
 - A phone number acquired in your Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 
-### Prerequisite check
 
-- To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
-- You can build and run your app with Azure Communication Services Calling client library for JavaScript:
-
-```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
-```
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
 Here's the code:
