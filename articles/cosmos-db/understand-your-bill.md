@@ -214,6 +214,9 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 400 RU/s and 5 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 400 Ru/s and 5 GB, only the RU/s and storage beyond what is covered by free tier. 
 The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale, and multi-region writes.  
 
+> [!NOTE]
+> Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
+
 ### Billing example - container or database with provisioned throughput
 - Let's suppose we create a database or container in a free tier account with 400 RU/s and 5 GB of storage.
 - Your bill will not show any charge for this resource. Your hourly and monthly cost will be $0.
