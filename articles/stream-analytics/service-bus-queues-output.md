@@ -1,9 +1,8 @@
 ---
 title: Service Bus queues output from Azure Stream Analytics
 description: This article describes Service Bus queues as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
