@@ -159,7 +159,7 @@ After the [Windows security events](connect-windows-security-events.md) and [Azu
 | | |
 
 
-In some affected environments, service account credentials were granted administrative privileges. If needed, modify any of the queries listed above to remove the *user* focus by commenting out the following line where it appear:
+In some affected environments, service account credentials were granted administrative privileges. If needed, modify any of the queries listed above to remove the *user* focus by commenting out the following line where it appears:
 
 ```kusto
 //| where AccountType == "User"
@@ -277,15 +277,15 @@ Since domain federation setting modifications should be rare, this would be a hi
 
 Use the following queries to hunt for other unusual activity:
 
-- [Find modifications made to STS refresh tokens](#find-modifications-made-to-sts-refresh-tokens)
+- [Find modifications made to Security Token Service (STS) refresh tokens](#find-modifications-made-to-sts-refresh-tokens)
 - [Find extra credentials added to applications or service principals](#find-extra-credentials-added-to-applications-or-service-principals)
 - [Find first credentials added to applications or service principals](#find-first-credentials-added-to-applications-or-service-principals)
 - [Find applications with permissions to read mailbox contents](#find-applications-with-permissions-to-read-mailbox-contents)
 
 > [!TIP]
-> You can also monitor Azure AD for sign-ins that attempt to use invalid key material. For example, this may occur when an attacker attempts to use a stolen key after the key material has already been rotated. 
+> You can also monitor Azure AD for sign-ins that attempt to use invalid key material. For example, such sign-ins may occur when an attacker attempts to use a stolen key after the key material has already been rotated. 
 >
-> To do this, use Azure Sentinel to query **SignInLogs**, where the **ResultType**=**5000811**. 
+> To search for sign-ins that attempt to use invalid key material, use Azure Sentinel to query **SignInLogs**, where the **ResultType**=**5000811**. 
 >
 > Note that if you renew your token-signing certificate, there will be expected activity for this query.
 >
@@ -399,7 +399,7 @@ AuditLogs
 
 The Solorigate attackers used applications with access to users' mailboxes to read through privileged information.
 
-AFter the [Azure AD connector](connect-azure-active-directory.md) is running, run the following query to find such applications, and then verify that their access is legitimate and genuinely required:
+After the [Azure AD connector](connect-azure-active-directory.md) is running, run the following query to find such applications, and then verify that their access is legitimate and genuinely required:
 
 ```kusto
 AuditLogs
@@ -730,7 +730,7 @@ Run the following queries to find suspicious domain activity related to the Solo
 
 ### Find suspicious domain-specific activities
 
-After the [domain name server](connect-dns.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to find IOCs collected from from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
+After the [domain name server](connect-dns.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to find IOCs collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
 
 This query also collects data from the common security log and VM connections.
 
