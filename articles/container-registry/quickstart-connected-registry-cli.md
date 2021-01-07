@@ -42,7 +42,7 @@ This example creates a *Premium* registry, a cost-optimized option for developer
 
 ## Create a connected registry resource for pull/push functionality
 
-Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. Name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 chars long and unique in the hierarchy for this Azure Container Registry.
+Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. Name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure Container Registry.
 
 ```azurecli
 az acr connected-registry create --registry mycontainerregistry001 \
