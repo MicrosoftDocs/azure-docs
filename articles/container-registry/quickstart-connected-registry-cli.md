@@ -24,7 +24,7 @@ If you don't already have a container registry, first create a resource group wi
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -32,7 +32,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *mycontainerregistry001* is used. Update this to a unique value.
 
-```azurecli-interactive
+```azurecli
 az acr create --resource-group myResourceGroup \
   --name mycontainerregistry001 \
   --sku Premium
@@ -44,7 +44,7 @@ This example creates a *Basic* registry, a cost-optimized option for developers 
 
 Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. Name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 chars long and unique in the hierarchy for this Azure Container Registry.
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry create --registry mycontainerregistry001 \
   --name myconnectedregistry \
   --repository "hello-world" "acr/connected-registry"
@@ -59,7 +59,7 @@ The above command will create a connected registry resource in Azure and link it
 
 You can use the connected registry [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with _pull_-only functionality. 
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry create --registry mycontainerregistry001 \
   --name myconnectedmirror \
   --repository "hello-world" "acr/connected-registry" \
@@ -72,7 +72,7 @@ The above command will create a connected registry resource in Azure and link it
 
 You can use the connected registry [az acr connected-registry list][az-acr-connected-registry-list] command to verify that the resources are created. 
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry list \
   --registry mycontainerregistry001 \
   --output table
@@ -107,7 +107,7 @@ May include one or more of the following:
 
 The data endpoint for the Azure Container Registry in the cloud should be  enabled by [az acr connected registry create][az-acr-connected-registry-create] command. If this doesn't happen, you can manually enable it by issuing the following command:
 
-```azurecli-interactive
+```azurecli
 az acr update -n mycontainerregistry001 \
   --data-endpoint-enabled
 ```

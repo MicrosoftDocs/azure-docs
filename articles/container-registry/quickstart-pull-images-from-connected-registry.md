@@ -24,7 +24,7 @@ Make sure that you have created the connected registry resource in Azure as desc
 
 Use the following CLI command to create a scope map for read access to the `hello-world` repository:
 
-```azurecli-interactive
+```azurecli
 az acr scope-map create \
   --name hello-world-scopemap \
   --registry mycontainerregistry001 \
@@ -36,7 +36,7 @@ az acr scope-map create \
 
 Use the following CLI command to create a client token and associate it with the newly created scope map:
 
-```azurecli-interactive
+```azurecli
 az acr token create \
   --name myconnectedregistry-client-token \
   --registry mycontainerregistry001 \
@@ -52,7 +52,7 @@ The command will return details about the newly generated token including passwo
 
 Use the following CLI command to update the connected registry with the newly created client token:
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry update \
   --name myconnectedregistry \
   --registry mycontainerregistry001 \

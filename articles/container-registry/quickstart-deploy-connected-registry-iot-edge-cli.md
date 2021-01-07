@@ -26,7 +26,7 @@ Also, make sure that you have created the connected registry resource in Azure a
 
 To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure Container Registry. Use the [az acr import][az-acr-import] command to import the connected registry image into your private registry.
 
-```azurecli-interactive
+```azurecli
 az acr import \
   --name mycontainerregistry001 \
   --source mcr.microsoft.com/acr/connected-registry:0.1.0
@@ -36,7 +36,7 @@ az acr import \
 
 The IoT Edge runtime will need to authenticate with the cloud registry to pull the connected registry image and deploy it. First, use the following command to create a scope map for the connected registry image repository:
 
-```azurecli-interactive
+```azurecli
 az acr scope-map create \
   --description "Connected registry repo pull scope map." \
   --name conected-registry-pull \
@@ -46,7 +46,7 @@ az acr scope-map create \
 
 Next, use the following command to create a client token for the IoT Edge device and associate it to the scope map:
 
-```azurecli-interactive
+```azurecli
 az acr token create \
   --name crimagepulltoken \
   --registry mycontainerregistry001 \
@@ -88,7 +88,7 @@ You will need the `username` and one of the `passwords` values for the IoT Edge 
 
 Before deploying the connected registry to the IoT Edge device, you will need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install][az-acr-connected-registry-install] command to retrieve the configuration.
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry install \
   --registry mycontainerregistry001 \
   --name myconnectedregistry \
@@ -233,7 +233,7 @@ You will use the file path in the next section when you run the command to apply
 
 Use the following command to deploy the connected registry module on the IoT Edge device:
 
-```azurecli-interactive
+```azurecli
 az iot edge set-modules \
   --device-id [device id] \
   --hub-name [hub name] \
@@ -244,7 +244,7 @@ For more details you can refer to the [Deploy Azure IoT Edge modules with Azure 
 
 To check the status of the connected registry, use the following CLI command:
 
-```azurecli-interactive
+```azurecli
 az acr connected-registry show \
   --registry mycontainerregistry001 \
   --name myconnectedregistry \
