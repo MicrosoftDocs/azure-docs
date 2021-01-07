@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 12/30/2020
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
