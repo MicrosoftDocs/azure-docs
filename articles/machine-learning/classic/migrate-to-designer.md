@@ -17,7 +17,7 @@ Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this 
 
 Azure Machine Learning provides a modern machine learning platform with a fully managed experience. Customer should migrate their Studio(classic) projects to Azure Machine Learning before Feb 29,2024. We encourage customers to make the switch sooner to gain the richer benefit of the new platform.
 
-For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project at this time. We will further notice when there is migration tool available. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step by step guidance. 
+For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project at this time. We will further notice when there is migration tool available. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step-by-step guidance. 
 
 ## Key steps for the migration
 
@@ -48,7 +48,7 @@ This section aims to give you an overview of the key steps of the migration.
     |Retraining web service (for retraining purpose)|Pipeline endpoint| 
     
     This article will cover how to recreate the web service by:
-    - [Deploy realtime endpoint for realtime prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
+    - [Deploy real time endpoint for real time prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
     - [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
 
 - 4. [Integrate with client app](#integrate-with-client-app).
@@ -67,9 +67,9 @@ Follow [this article](../how-to-manage-workspace.md) to create Azure Machine Lea
 
 
 
-### Compute for training
+### Compute cluster for training
 
-Machine Learning Studio(classic) runs on proprietary compute resource that is transparent to customers. Every customer has a fix size of compute resource to run their experiment and it only support CPU compute. 
+Machine Learning Studio(classic) runs on proprietary compute resource that is transparent to customers. Every customer has a fix size of compute to run their experiment and it only support CPU compute. 
 
 However, Azure Machine Learning enables more scalable training by bringing variety type and size of Azure VMs as compute target. Customer can choose compute target based on their needs. 
  
@@ -82,10 +82,17 @@ Azure Machine Learning designer supports following compute target types.
 
 **[?? compute instance not released for 3P]**
 
-Customer can easily create compute clusters in the **Compute** tab in Azure Machine Learning Studio. Follow [this article](../how-to-create-attach-compute-studio.md) to check step-by-step guidance.
+Customer can easily create compute clusters in the **Compute -> Compute clusters** tab in Azure Machine Learning Studio. Follow [this article](../how-to-create-attach-compute-studio.md) to check step-by-step guidance.
 ![create-compute](./media/migrate-to-AML/create-compute.png)
 
 ### AKS for inference
+
+Customer can create a new Azure Kubernetes Service (AKS) cluster or attach an existing AKS cluster to the workspace, then deploy the model to AKS for large-scale inferencing.
+
+Customer can easily create AKS clusters in the **Compute -> Inference clusters** tab in Azure Machine Learning Studio. Follow [this article](../how-to-create-attach-compute-studio.md) to check step-by-step guidance. 
+
+[Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md) describes how to create or attach an AKS cluster with more details on limitation and AKS version. 
+
 
 ## Rebuild the experiment to train a model
 
@@ -145,12 +152,12 @@ Follow below steps to create a dataset in Azure Machine Learning Studio.
 1. Navigate to Datasets tab under Assets
 1. Click Create dataset -> From local files
 1. Type dataset name and description following the wizard. Select Dataset type as tabular. (except .zip file, select file type for .zip file)
-1. For Datastore and file selection, select the datastore to upload your local files. By default it will select the worksapceblobstore, which is the blob storage associated to the workspace. 
-1. For Settings and preview, set settings based on your data.
-1. In Schema, you can view the schema of the data and choose columns to include.
+1. For Datastore and file selection section, select the datastore to upload your local files. By default it will select the worksapceblobstore, which is the blob storage associated to the workspace. 
+1. For Settings and preview section, set data parsing settings based on your data.
+1. For Schema section, you can view the schema of the data and choose columns to include.
 1. Confirm details to finish creating the dataset.
 
-**[to-do: add a gif of create dataset from local]**
+    ![create-dataset-from-local](./media/migrate-to-AML/create-dataset-from-local.gif)
 
 After create a dataset, you will be able to see the dataset in designer module palette on the left, under Datasets category.
 
@@ -169,6 +176,7 @@ The process of rebuild the graph can be summarized as following steps:
 
 1. Rebuild the graph by drag-n-drop the needed dataset and modules
 ![designer connect](../media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
+
 1. Set parameters
     1. Set module parameter. Click on a module the module setting panel will pop up on the right. In the setting panel, you can set parameters for the module. Check [module reference](../algorithm-module-reference/module-reference.md) to understand how to use each module. 
     ![module-setting](./media/migrate-to-AML/module-setting.png)
@@ -199,8 +207,9 @@ After submit a run, the run status will show up at the top right of the canvas a
 If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. To speed up the running time, you can keep at least one node idle. See how to create compute in [create compute section](#compute-for-training)
 
 After the run finish, you can check the output of each module. Here are a few helpful options if you right-click a module.
+
 ![right-click](./media/migrate-to-AML/right-click.png)
- - **Visualize**: Preview the result data to help you understand the result of a module.
+ - **Visualize**: Preview the result dataset to help you understand the result of a module.
 - **View Output**: Link you to the storage account that stores module's output, in which you can further explore/download the output. 
 - **View Log** : View log to understand what happens under the hood. The **70_driver_log** would be the most helpful log in most cases since in contains the information related to customer script. You can drag the right panel to expand the log area or expand into full screen as shown in below gif.
  
@@ -210,6 +219,8 @@ After the run finish, you can check the output of each module. Here are a few he
 
 
 
+
+### Designer and Studio(classic) difference that need special attention
 
 So far we have walked through the key steps to rebuild the training experiment in designer. Following sections will highlight the difference of ML Studio(classic) and designer, which you need pay special attention in migration.
 
@@ -283,7 +294,7 @@ Find more about how to use designer modules in [module reference](../algorithm-m
  
 #### What if the wanted module is not in designer? 
 
-Azure Machine Learning designer builds the most popular modules in ML Studio(classic). It also added some new modules leveraging the state of art technology (for example DenseNet for image classification). We expect designer supported module will cover most of the migration scenario. If your migration is blocked by missing modules in designer, contact us by connecting support.
+Azure Machine Learning designer builds the most popular modules in ML Studio(classic). It also added some new modules leveraging the state of art machine learning technology (for example DenseNet for image classification). We expect designer supported module will cover most of the migration scenario. If your migration is blocked by missing modules in designer, contact us by [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
     
 #### Notes for Execute R Script
 
@@ -362,7 +373,7 @@ In the Azure Machine Learning, it’s allowed to install the packages from CRAN 
 ```
 
 
-## Deploy realtime endpoint for realtime prediction
+## Deploy real time endpoint for real time prediction
 
 In ML Studio(classic), the REQUEST/RESPOND endpoint is used for real-time inference. In Azure Machine Learning, it's done by real-time endpoint. 
 
@@ -392,11 +403,11 @@ In short, deploy real-time endpoint in designer have following steps:
     - Define where the web service will accept input and where it generates the output.  
 1. Run the real-time inference pipeline to make sure it works as expected.
 
-    The steps to run a real-time inference pipeline is same with run a training pipeline, which is described in section 2.3.
+    The steps to run a real-time inference pipeline is same with run a training pipeline, which is described in section [submit a run and check result](#submit-a-run-and-check-result).
 
 1. Deploy. Choose compute target and set deployment settings.
 
-    If you choose to deploy to Azure Kubernetes Service, make sure you have an ASK cluster associated the workspace. See section 1.3 for how to create AKS cluster.
+    If you choose to deploy to Azure Kubernetes Service, make sure you have an ASK cluster in your workspace. See section [create-aks-for-inference](#aks-for-inference) for how to create AKS cluster.
 
     If you choose to deploy to ACI, just select ACI in the dialog then Azure Machine Learning will create an ACI and deploy the model on it.
     ![set up realtime endpoint](./media/migrate-to-AML/deploy-realtime-endpoint.png)
@@ -428,9 +439,12 @@ In previous section, you already migrated the ML Studio(classic) experiment as p
 1. Publish the pipeline
     
     For batch prediction purpose, publish the batch inference pipeline created in previous step. For retraining purpose, skip previous step and publish the training pipeline directly.
+
     ![publish pipeline](./media/migrate-to-AML/publish-pipeline.png)
 
+
 1. Set up published pipeline
+
     ![set-up-pipeline-endpoint](./media/migrate-to-AML/set-up-published-pipeline.png)
     
     Select create new PipelineEndpoint, which will generate a new endpoint to trigger the pipeline. You can set dataset or module parameter as pipeline parameter, then you can trigger the pipeline with new data or module parameter. Check [this article](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-retrain-designer#create-a-pipeline-parameter) to learn how to set pipeline parameter.
@@ -440,8 +454,12 @@ In previous section, you already migrated the ML Studio(classic) experiment as p
     After publish a pipeline, you can see the pipeline endpoint under **Pipelines -> Pipeline endpoints** tab in Azure Machine Learning Studio. 
     ![pipeline-endpoints](./media/migrate-to-AML/pipeline-endpoints.png)
     
-    Click a pipeline endpoint name you will enter the detail page for this pipeline endpoint, in which you can see all pipeline run history. You can also trigger a new pipeline run in UI or through REST endpoint. How to trigger through REST endpoint will be described in next section.
+    Click a pipeline endpoint name you will enter the detail page for this pipeline endpoint, below screenshot shows what a pipeline endpoint detail page looks like.
+
     ![pipeline endpoint detail](./media/migrate-to-AML/pipeline-endpoint-detail.png)
+
+    By click the **Submit** button on the top left, you can submit a new run for this pipeline in the UI. It's also possible to trigger the pipeline through a REST call. How to trigger through REST endpoint will be described in next section.
+    
 
  
 Check [how to run batch prediction in designer](../how-to-run-batch-predictions-designer.md) and [how to retrain in designer](../how-to-retrain-designer.md) with more detailed guidance.
@@ -449,12 +467,182 @@ Check [how to run batch prediction in designer](../how-to-run-batch-predictions-
 
 ## Integrate with client app
 
-**Realtime endpoint** 
-
--  Sample code
+Following previous steps, we already have the REST endpoint by deploying a model or publishing a pipeline. The last step of the migration is integrate the REST endpoint with client app, so you can consume the model/pipeline through REST call.  
 
 
-**Pipeline endpoint**
+### Realtime endpoint 
 
-- Sample code
-- Integrate with Azure Data Factory
+You can call the real-time endpoint to make real time predictions. In Azure Machine Learning Studio, there is sample consumption code Under **Endpoints -> Consume** tab.
+
+![realtime-endpoint-sample-code](./media/migrate-to-AML/realtime-sample-code.png)  
+
+Below code snippet also shows how to call the real time REST endpoint. It basically loads the model needed input data into HTTP result, then send request to the real time endpoint. 
+
+# [Python](#tab/python)
+
+```python
+import urllib.request
+import json
+import os
+import ssl
+
+def allowSelfSignedHttps(allowed):
+    # bypass the server certificate verification on client side
+    if allowed and not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None):
+        ssl._create_default_https_context = ssl._create_unverified_context
+
+allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service.
+
+data = {
+    "Inputs": {
+          "WebServiceInput0":
+          [
+              {
+                    'symboling': "3",
+                    'normalized-losses': "1",
+                    'make': "alfa-romero",
+                    'fuel-type': "gas",
+                    'aspiration': "std",
+                    'num-of-doors': "two",
+                    'body-style': "convertible",
+                    'drive-wheels': "rwd",
+                    'engine-location': "front",
+                    'wheel-base': "88.6",
+                    'length': "168.8",
+                    'width': "64.1",
+                    'height': "48.8",
+                    'curb-weight': "2548",
+                    'engine-type': "dohc",
+                    'num-of-cylinders': "four",
+                    'engine-size': "130",
+                    'fuel-system': "mpfi",
+                    'bore': "3.47",
+                    'stroke': "2.68",
+                    'compression-ratio': "9",
+                    'horsepower': "111",
+                    'peak-rpm': "5000",
+                    'city-mpg': "21",
+                    'highway-mpg': "27",
+                    'price': "13495",
+              },
+          ],
+    },
+    "GlobalParameters":  {
+    }
+}
+
+body = str.encode(json.dumps(data))
+
+url = 'http://52.142.51.154:80/api/v1/service/migration-example-endpoint-aks/score'
+api_key = 'YjDhYj3OLV5AH7PpT3a0cgv1dsBY4uyA' # Replace this with the API key for the web service
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+req = urllib.request.Request(url, body, headers)
+
+try:
+    response = urllib.request.urlopen(req)
+
+    result = response.read()
+    print(result)
+except urllib.error.HTTPError as error:
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(json.loads(error.read().decode("utf8", 'ignore')))
+```
+
+# [R](#tab/R)
+```r
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"), ssl.verifypeer = FALSE))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+req =  list(
+    Inputs = list(
+            "WebServiceInput0"= list(
+                list(
+                        'symboling' = "3",
+                        'normalized-losses' = "1",
+                        'make' = "alfa-romero",
+                        'fuel-type' = "gas",
+                        'aspiration' = "std",
+                        'num-of-doors' = "two",
+                        'body-style' = "convertible",
+                        'drive-wheels' = "rwd",
+                        'engine-location' = "front",
+                        'wheel-base' = "88.6",
+                        'length' = "168.8",
+                        'width' = "64.1",
+                        'height' = "48.8",
+                        'curb-weight' = "2548",
+                        'engine-type' = "dohc",
+                        'num-of-cylinders' = "four",
+                        'engine-size' = "130",
+                        'fuel-system' = "mpfi",
+                        'bore' = "3.47",
+                        'stroke' = "2.68",
+                        'compression-ratio' = "9",
+                        'horsepower' = "111",
+                        'peak-rpm' = "5000",
+                        'city-mpg' = "21",
+                        'highway-mpg' = "27",
+                        'price' = "13495"
+                    )
+            )
+        ),
+        
+        GlobalParameters = setNames(fromJSON('{}'), character(0))
+        
+        
+)
+
+body = enc2utf8(toJSON(req))
+api_key = "YjDhYj3OLV5AH7PpT3a0cgv1dsBY4uyA" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "http://52.142.51.154:80/api/v1/service/migration-example-endpoint-aks/score",
+httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+postfields=body,
+writefunction = h$update,
+headerfunction = hdr$update,
+verbose = TRUE
+)
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+print(headers)
+}
+
+print("Result:")
+result = h$value()
+print(fromJSON(result))
+
+```
+
+---
+
+
+There is Swagger URI for the real time endpoint in the **Endpoints -> Details** tab. You can refer to the swagger to understand the endpoint schema.
+
+![realtime-swagger](./media/migrate-to-AML/realtime-swagger.png)
+ 
+
+
+### Pipeline endpoint
+
+You can consume the pipeline endpoint for retraining or batch prediction purpose. There are two possible approaches to consume the pipeline endpoint - through REST call or through integration with Azure Data Factory.
+
+- Sample code (to be updated)
+- Integrate with Azure Data Factory(to be updated)
