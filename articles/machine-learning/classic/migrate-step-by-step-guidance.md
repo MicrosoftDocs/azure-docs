@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (classic): Migrate to Azure Machine Learning'
+title: 'ML Studio (classic): Migrate to Azure Machine Learning - Step by step guidance'
 description: describe how to migrate ML Studio classic projects to Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
