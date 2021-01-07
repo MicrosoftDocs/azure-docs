@@ -74,7 +74,7 @@ This category contains the following entities:
       Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. 
       
    :::column-end:::
-:::column span="1":::
+   :::column span="1":::
       **Languages**
 
       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`    
