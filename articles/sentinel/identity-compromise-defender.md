@@ -255,7 +255,7 @@ IdentityQueryEvents
 
 #### Find malicious changes made in domain federation settings
 
-In Microsoft 365 Defender, use the following query to hunt in Azure AD audit logs, via Microsoft Defender Cloud App Security (MCAS) data, for changes in domain federation settings. 
+In Microsoft 365 Defender, use the following query to hunt in Azure AD audit logs, via Microsoft Cloud App Security (MCAS) data, for changes in domain federation settings. 
 
 For more information, see [ADFSDomainTrustMods](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Defense%20evasion/ADFSDomainTrustMods%5BSolarigate%5D.md) on GitHub.
 
@@ -279,7 +279,7 @@ If an attacker has forged SAML tokens, they can access sensitive data without be
 
 For example, they can attempt to blend into normal activity patterns, including apps or service principals with existing **Mail.Read** or **Mail.ReadWrite** permissions to read email content. Applications that don't already have read-permissions for emails can be modified to grant those permissions.
 
-Microsoft Defender Cloud App Security (MCAS) alerts have been added to automatically detect unusual credential additions to OAuth apps, in order to warn about apps that have been compromised. For example:
+Microsoft Cloud App Security (MCAS) alerts have been added to automatically detect unusual credential additions to OAuth apps, in order to warn about apps that have been compromised. For example:
 
 :::image type="content" source="media/solarwinds/MCAS-OAutho-app.png" alt-text="MCAS alert for unusual credential additions to OAuth apps":::
  
@@ -289,11 +289,11 @@ For more information, see:
 
 - [Use Microsoft 365 Defender to find newly added credentials](#use-microsoft-365-defender-to-find-newly-added-credentials)
 - [Use Microsoft 365 Defender to find malicious access to mail items](#use-microsoft-365-defender-to-find-malicious-access-to-mail-items)
-- [Use Microsoft 365 Defender to find OAuth applications reading mail, with changed behavior patterns](#use-microsoft-365-defender-to-find-oauth-applications-reading-mail-with-changed-behavior-patterns)
+- [Use Microsoft 365 Defender to find OAuth applications reading mail with changed behavior patterns](#use-microsoft-365-defender-to-find-oauth-applications-reading-mail-with-changed-behavior-patterns)
 
 #### Use Microsoft 365 Defender to find newly added credentials
 
-In Microsoft 365 Defender, use the following query to hunt in Azure AD audit logs, via Microsoft Defender Cloud App Security (MCAS) data, for credentials recently added to a service principal or application. 
+In Microsoft 365 Defender, use the following query to hunt in Azure AD audit logs, via Microsoft Cloud App Security (MCAS) data, for credentials recently added to a service principal or application. 
 
 For more information, see [NewAppOrServicePrincipalCredential](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Persistence/NewAppOrServicePrincipalCredential%5BSolarigate%5D.md) on GitHub.
 
@@ -334,7 +334,7 @@ To increase visibility of OAuth applications or service principals that can read
 
 If more than **1,000** MailItemsAccessed audit records are generated in less than 24 hours, Exchange Online stops generating auditing records for MailItemsAccessed activity for 24 hours, and then resumes logging after this period. 
 
-In Microsoft 365 Defender, use the following query to hunt Microsoft Defender Cloud App Security (MCAS) data for this throttling behavior, and help discover potentially compromised mailboxes. 
+In Microsoft 365 Defender, use the following query to hunt Microsoft Cloud App Security (MCAS) data for this throttling behavior, and help discover potentially compromised mailboxes. 
 
 For more information, see [MailItemsAccessedThrottling](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/MailItemsAccessed%20Throttling%20%5BSolorigate%5D.md) on GitHub.
 
@@ -348,9 +348,9 @@ CloudAppEvents
 | project Timestamp, RawEventData[‘OrganizationId’],AccountObjectId,UserAgent
 ```
 
-#### Use Microsoft 365 Defender to find OAuth applications reading mail, with changed behavior patterns
+#### Use Microsoft 365 Defender to find OAuth applications reading mail with changed behavior patterns
 
-In Microsoft 365 Defender, use the following query to hunt Microsoft Defender Cloud App Security (MCAS) data for OAuth applications that can read mail, and whose behavior has recently changed when compared with a specific baseline period.
+In Microsoft 365 Defender, use the following query to hunt Microsoft Cloud App Security (MCAS) data for OAuth applications that can read mail, and whose behavior has recently changed when compared with a specific baseline period.
 
 For more information, see [OAuthGraphAPIAnomalies](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries/blob/master/Exfiltration/OAuth%20Apps%20reading%20mail%20via%20GraphAPI%20anomaly%20%5BSolorigate%5D.md) on GitHub.
 

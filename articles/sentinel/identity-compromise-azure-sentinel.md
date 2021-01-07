@@ -64,7 +64,7 @@ Using Sentinel to investigate incident sources from Microsoft 365 Defender enabl
 
 ## Detect machines with SolarWinds Orion components
 
-After the [Windows security events](connect-windows-security-events.md) and the [Microsoft 365 Defender](connect-microsoft-365-defender.md) connectors are running, run the following query to run a software inventory to identify any hosts that have run the SolarWinds process in the last 30 days.
+After the [Windows security events](connect-windows-security-events.md) and the [Microsoft 365 Defender](connect-microsoft-365-defender.md) connectors are running, run the following query to identify any hosts that have run the SolarWinds process in the last 30 days.
 
 The script will return hosts that are on-boarded to Sentinel directly, or via Microsoft Defender for Endpoints.
 
@@ -716,15 +716,15 @@ OfficeActivity
 | extend timestamp = min_TimeGenerated, AccountCustomEntity = UserId
 ``` 
 
-## Find suspicious domain-related activities
+## Find suspicious domain-related activity
 
 Run the following queries to find suspicious domain activity related to the Solorigate attack:
 
-- [Find suspicious domain-specific activities](#find-suspicious-domain-specific-activities)
-- [Find suspicious domain DGA activities](#find-suspicious-domain-dga-activities)
-- [Find suspicious encoded domain activities](#find-suspicious-encoded-domain-activities)
+- [Find suspicious domain-specific activity](#find-suspicious-domain-specific-activity)
+- [Find suspicious domain DGA activity](#find-suspicious-domain-dga-activity)
+- [Find suspicious encoded domain activity](#find-suspicious-encoded-domain-activity)
 
-### Find suspicious domain-specific activities
+### Find suspicious domain-specific activity
 
 After the [domain name server](connect-dns.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to find indications of compromise (IOCs) collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
 
@@ -934,7 +934,7 @@ DeviceInfo
 
 ## Next steps
 
-If you want to dive deeper directly with Azure Defender for Endpoint and Azure Active Directory, see:
+If you want to dive deeper directly with Microsoft 365 Defender services Azure Active Directory, see:
 
 - [Use Microsoft Defender to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-defender.md)
 - [Use Azure Active Directory to respond to supply-chain attacks and systemic-identity compromises](identity-compromise-aad.md)
