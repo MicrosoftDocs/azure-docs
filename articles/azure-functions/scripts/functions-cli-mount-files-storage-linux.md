@@ -21,7 +21,7 @@ This Azure Functions sample script creates a function app and creates a share in
 
 ## Sample script
 
-This script creates a function app in Azure Functions using the [Consumption plan](../functions-scale.md#consumption-plan).
+This script creates a function app in Azure Functions using the [Consumption plan](consumption-plan.md).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/functions-cli-mount-files-storage-linux/functions-cli-mount-files-storage-linux.sh "Create a function app on a Consumption plan")]
 
