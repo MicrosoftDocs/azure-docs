@@ -114,13 +114,8 @@ The following table shows the location for service logs for sovereign clouds.
 | Sovereign cloud                      | Sign-in logs                         | Activity report (Includes PII)| MFA Service logs |
 |--------------------------------------|--------------------------------------|-------------------------------|------------------|
 | Microsoft Azure Germany              | Germany                              | US                            | US               |
-| Microsoft Azure Operated by 21Vianet | Microsoft Azure Operated by 21Vianet | US                            | US               |
+| Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
 | Microsoft Government Cloud           | US                                   | US                            | US               |
-
-Location for service logs depends on which region they're processed in. Most geographies have native Azure AD Multi-Factor Authentication capabilities, so log data is stored in the same region that processes the Multi-Factor Authentication request. Geographies without native Azure AD Multi-Factor Authentication support are serviced by either the United States or Europe geographies, and log data is stored in the same region that processes the Multi-Factor Authentication request.
-
-Microsoft Azure Germany SAS’s logs are stored in its own region, but PFD are stored in the United States. Microsoft Azure Operated by 21Vianet service logs are always stored in its own region. Microsoft Government Cloud service logs are always stored in the United States.
-
 
 ## Next steps
 
