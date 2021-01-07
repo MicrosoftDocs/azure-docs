@@ -22,7 +22,7 @@ The spatial analysis container implements the following operations:
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for PersonCount to record an accurate total. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 All above the operations are also available in the `.debug` version, which have the capability to visualize the video frames as they are being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
@@ -31,7 +31,7 @@ All above the operations are also available in the `.debug` version, which have 
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personZoneEnterExitEvent_ event or _personZoneDwellTimeEvent_ event when the person crosses the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 Spatial analysis can also be run with [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) as their Video AI module. 
@@ -42,7 +42,7 @@ Spatial analysis can also be run with [Live Video Analytics](../../media-service
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personZoneEnterExitEvent_ event or <br>_personZoneDwellTimeEvent_ event when the person crosses the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone.  |
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of the video frames and events
@@ -355,8 +355,6 @@ Sample JSON for an event output by this operation.
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
 | `properties` | collection| Collection of values|
 | `trackinId` | string| Unique identifier of the person detected|
-| `status` | string| 'Enter' or 'Exit'|
-| `side` | int| The number of the side of the polygon that the person crossed|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 | `trigger` | string| The trigger type is 'event' or 'interval' depending on the value of `trigger` in SPACEANALYTICS_CONFIG|
 
@@ -556,7 +554,8 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-                "duration_frames": 1000 
+                "durationframes": 1000,
+		"durationMs": 7132.0
             },
             "zone": "queuecamera"
         }
@@ -597,11 +596,14 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | Event Field Name | Type| Description|
 |---------|---------|---------|
 | `id` | string| Event ID|
-| `type` | string| Event type|
+| `type` | string| Event type. The value can be either _personZoneDwellTimeEvent_ or _personZoneEnterExitEvent_|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
-| `properties` | collection| Collection of values, for `PersonZoneDwellTimeEvent`, `duration_frames` means the person stays in zone for that number of frames.|
+| `properties` | collection| Collection of values|
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
+| `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side|
+| `durationframes` | int | The number of frames processed while the person spent time from the moment they entered the zone until they exit the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
+| `durationMs` | int | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
 | Detections Field Name | Type| Description|
