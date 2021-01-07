@@ -33,7 +33,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 
 1. Under **Price Sheet**, select **Download csv**.
 
-   ![Screenshot shows the Download Usage + Charges options.](./media/ea-pricing/download-ea-price-sheet.png)
+   ![Screenshot shows the Download Usage + Charges options.](./media/ea-pricing/download-ea-price-sheet01.png)
 
 ## Download pricing for an MCA or MPA account
 
