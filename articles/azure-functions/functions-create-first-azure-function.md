@@ -56,7 +56,7 @@ Next, create a function in the new function app.
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 
