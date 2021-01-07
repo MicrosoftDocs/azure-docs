@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 01/07/2021
 ---
 
 # Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps

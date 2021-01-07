@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 01/07/2021
 tags: connectors
 ---
 
@@ -173,7 +173,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 1. To add other available properties for this trigger, open the **Add new parameter** list.
 
    This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
-   
+
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
 1. On the designer toolbar, select **Save**.
@@ -184,7 +184,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 ### Trigger recurrence shift and drift
 
-Connection-based triggers where you need to create a connection first, such as the SQL trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not adjusting for events such as when daylight saving time (DST) starts and ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SQL trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not maintaining the specified schedule when daylight saving time (DST) starts and ends. To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="add-sql-action"></a>
 

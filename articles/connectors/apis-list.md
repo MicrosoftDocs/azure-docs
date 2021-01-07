@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 01/07/2021
 ---
 
 # Connectors for Azure Logic Apps
@@ -426,17 +426,13 @@ In recurring connection-based triggers, such as SQL or SFTP-SSH, the schedule is
 
 * Latency during storage calls.
 
-* Not adjusting for events such as when daylight saving time (DST) starts and ends.
+* Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
 
 * Other factors that can affect when the next run time happens.
 
 To resolve or work around these problems, try these solutions:
 
-* Make sure that you select a time zone so that your logic app runs at your specified start time. Otherwise, DST might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
-
-  When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. By specifying a time zone, the UTC time for your logic app also shifts to counter the seasonal time change.
-
-  If this solution doesn't address your scenario, consider using the Recurrence trigger instead, as described by the next item in this list, and select the equivalent connection-based action that performs the same task as the trigger.
+* To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends.
 
 * Use the Recurrence trigger so that you can specify a time zone, a start date and time, *plus* the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
