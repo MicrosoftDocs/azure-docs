@@ -87,7 +87,7 @@ After you set up your Spark cluster and environment, we can run a short sample. 
 
 First, we can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 
-1. Create a new Databricks notebook, by choosing **New notebook** from the **Azure Databricks** menu.
+1. Create a new Databricks Notebook, by choosing **New notebook** from the **Azure Databricks** menu.
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
