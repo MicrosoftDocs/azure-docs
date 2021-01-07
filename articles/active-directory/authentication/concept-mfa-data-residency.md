@@ -99,11 +99,11 @@ And for Azure Multi-Factor Authentication Server, the following Azure portal pag
 
 The following table shows the location for service logs for public clouds.
 
-| Public cloud| Sign-in logs | Activity report (Includes PII)| MFA Service logs |
-|-------------|--------------|-------------------------------|------------------|
-| US          | US           | US                            | US               |
-| Europe      | Europe       | US                            | Europe 2         |
-| Australia   | Australia    | US 1                          | Australia 2      |
+| Public cloud| Sign-in logs | Activity report (Includes PII)         | MFA Service logs       |
+|-------------|--------------|----------------------------------------|------------------------|
+| US          | US           | US                                     | US                     |
+| Europe      | Europe       | US                                     | Europe <sup>2</sup>    |
+| Australia   | Australia    | US<sup>1</sup>                         | Australia <sup>2</sup> |
 
 <sup>1</sup>OATH Code logs are stored in Australia
 
