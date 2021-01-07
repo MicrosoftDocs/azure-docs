@@ -27,7 +27,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
    ![Screenshot that shows usage and charges under Billing](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
 1. Under **Price Sheet**, select **Download csv**.  
-    :::image type="content" source="./media/ea-pricing/download-ea-price-sheet01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
+    :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
 
 ## Download pricing for an MCA or MPA account
 
