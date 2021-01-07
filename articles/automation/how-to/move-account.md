@@ -35,7 +35,7 @@ To unlink your workspace from your Automation account, you must remove the featu
 
     ![Screenshot of deleting feature resources from the Azure portal](../media/move-account/delete-solutions.png)
 
-If you prefer, you can delete the resources by using the [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet:
+If you prefer, you can delete the resources by using the [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet:
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -74,7 +74,7 @@ For Start/Stop VMs during off-hours, you also need to remove the alert rules cre
 
     ![Screenshot of Action group page](../media/move-account/delete-action-group.png)
 
-If you prefer, you can delete your action group by using the [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet:
+If you prefer, you can delete your action group by using the [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification

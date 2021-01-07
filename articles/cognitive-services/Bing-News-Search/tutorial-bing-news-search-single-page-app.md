@@ -10,9 +10,14 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, devx-track-js
 ---
 # Tutorial: Create a single-page web app
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
@@ -37,8 +42,10 @@ The tutorial page is entirely self-contained; it does not use any external frame
 
 ## Prerequisites
 
-To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have these, you'll need to create them:
 
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
@@ -401,15 +408,18 @@ For development purposes, you can make the Bing Web Search API request through a
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 

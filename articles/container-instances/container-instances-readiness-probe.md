@@ -2,7 +2,7 @@
 title: Set up readiness probe on container instance
 description: Learn how to configure a probe to ensure containers in Azure Container Instances receive requests only when they are ready
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 07/02/2020
 ---
 
 # Configure readiness probes
@@ -21,7 +21,7 @@ Azure Container Instances also supports [liveness probes](container-instances-li
 As an example, create a `readiness-probe.yaml` file with the following snippet that includes a readiness probe. This file defines a container group that consists of a container running a small web app. The app is deployed from the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This containerized app is also demonstrated in [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md) and other quickstarts.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.date: 07/13/2020
 ---
 
 # Copy data from and to Salesforce Service Cloud by using Azure Data Factory
@@ -45,7 +45,7 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account is blocked for 24 hours.
 
-You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
 
 ## Get started
 
@@ -229,7 +229,7 @@ To copy data to Salesforce Service Cloud, the following properties are supported
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SalesforceServiceCloudSink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
-| externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External Id Field" in the Salesforce Service Cloud object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
+| externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce Service Cloud object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce Service Cloud in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 
@@ -280,13 +280,13 @@ To query the soft deleted records from the Salesforce Service Cloud Recycle Bin,
 
 ### Difference between SOQL and SQL query syntax
 
-When copying data from Salesforce Service Cloud, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query which is natively supported by Salesforce Service Cloud. The following table lists the main differences:
+When copying data from Salesforce Service Cloud, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce Service Cloud. The following table lists the main differences:
 
 | Syntax | SOQL Mode | SQL Mode |
 |:--- |:--- |:--- |
 | Column selection | Need to enumerate the fields to be copied in the query, e.g. `SELECT field1, filed2 FROM objectname` | `SELECT *` is supported in addition to column selection. |
 | Quotation marks | Filed/object names cannot be quoted. | Field/object names can be quoted, e.g. `SELECT "id" FROM "Account"` |
-| Datetime format |  Refer to details [here](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) and samples in next section. | Refer to details [here](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) and samples in next section. |
+| Datetime format |  Refer to details [here](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) and samples in next section. | Refer to details [here](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) and samples in next section. |
 | Boolean values | Represented as `False` and `True`, e.g. `SELECT … WHERE IsDeleted=True`. | Represented as 0 or 1, e.g. `SELECT … WHERE IsDeleted=1`. |
 | Column renaming | Not supported. | Supported, e.g.: `SELECT a AS b FROM …`. |
 | Relationship | Supported, e.g. `Account_vod__r.nvs_Country__c`. | Not supported. |
@@ -298,7 +298,7 @@ When you specify the SOQL or SQL query, pay attention to the DateTime format dif
 * **SOQL sample**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL sample**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### Error of MALFORMED_QUERY:Truncated
+### Error of MALFORMED_QUERY: Truncated
 
 If you hit error of "MALFORMED_QUERY: Truncated", normally it's due to you have JunctionIdList type column in data and Salesforce has limitation on supporting such data with large number of rows. To mitigate, try to exclude JunctionIdList column or limit the number of rows to copy (you can partition to multiple copy activity runs).
 
@@ -314,7 +314,7 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
-| Id |String |
+| ID |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
 | Number |Decimal |

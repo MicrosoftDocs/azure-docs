@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ContractSafe Saml2 SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ContractSafe Saml2 SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9d8c9eba-6a90-4c8f-b387-a6ead4af00af
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Azure Active Directory single sign-on (SSO) with ContractSafe Saml2 SSO
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate ContractSafe Saml2 SSO with Azur
 * Enable your users to automatically sign in to ContractSafe Saml2 SSO with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -145,14 +139,14 @@ Create a user called B.Simon in ContractSafe Saml2 SSO. Work with the [Contract
 
 ## Test SSO
 
-Test your Azure AD SSO configuration by using the Access Panel. When you select the ContractSafe Saml2 SSO tile in the Access Panel, you should be automatically signed in to the ContractSafe Saml2 SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Test your Azure AD SSO configuration by using the Access Panel. When you select the ContractSafe Saml2 SSO tile in the Access Panel, you should be automatically signed in to the ContractSafe Saml2 SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try ContractSafe Saml2 SSO with Azure AD](https://aad.portal.azure.com/)

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge security | Microsoft Docs
-description: Describes the security and privacy features that protect your Azure Stack Edge device, service, and data on-premises and in the cloud.
+title: Azure Stack Edge Pro security | Microsoft Docs
+description: Describes the security and privacy features that protect your Azure Stack Edge Pro device, service, and data on-premises and in the cloud.
 services: Data Box Edge
 author: alkohli
 
@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ---
-# Azure Stack Edge security and data protection
+# Azure Stack Edge Pro security and data protection
 
-Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge helps you ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro helps you ensure that only authorized entities can view, modify, or delete your data.
 
-This article describes the Azure Stack Edge security features that help protect each of the solution components and the data stored in them.
+This article describes the Azure Stack Edge Pro security features that help protect each of the solution components and the data stored in them.
 
-Azure Stack Edge consists of four main components that interact with each other:
+Azure Stack Edge Pro consists of four main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
-- **Azure Stack Edge device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
-- **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge device and contain data that needs to be protected.
+- **Azure Stack Edge Pro device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
+- **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge Pro device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
 ## Azure Stack Edge service protection
@@ -29,9 +29,9 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## Azure Stack Edge device protection
+## Azure Stack Edge Pro device protection
 
-The Azure Stack Edge device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
+The Azure Stack Edge Pro device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.
@@ -41,7 +41,7 @@ The Azure Stack Edge device is an on-premises device that helps transform your d
 
 ### Protect the device via activation key
 
-Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
+Only an authorized Azure Stack Edge Pro device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -49,19 +49,19 @@ For more information, see [Get an activation key](azure-stack-edge-deploy-prep.m
 
 ### Protect the device via password
 
-Passwords ensure that only authorized users can access your data. Azure Stack Edge devices boot up in a locked state.
+Passwords ensure that only authorized users can access your data. Azure Stack Edge Pro devices boot up in a locked state.
 
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](azure-stack-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ## Protect your data
 
-This section describes the Azure Stack Edge security features that protect in-transit and stored data.
+This section describes the Azure Stack Edge Pro security features that protect in-transit and stored data.
 
 ### Protect data at rest
 
@@ -84,10 +84,10 @@ The Azure Stack Edge service collects personal information in the following scen
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge Pro](azure-stack-edge-manage-shares.md).
 
 For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-deploy-prep.md)
+[Deploy your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md)

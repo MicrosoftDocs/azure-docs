@@ -4,7 +4,7 @@ description: This article is the appendix for Microsoft Azure Disk Encryption fo
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 
@@ -16,24 +16,36 @@ ms.custom: seodec18
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
+> [!NOTE]
+> All scripts refer to the latest, non-AAD version of ADE, except where noted.
+
+## Sample PowerShell scripts for Azure Disk Encryption 
+
+
+- **List all encrypted VMs in your subscription**
+
+  You can find all ADE-encrypted VMs and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
+
+  Alternatively, these cmdlets will show all ADE-encrypted VMs (but not the extension version):
+
+    ```azurepowershell-interactive
+    $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+    $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+    Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+    ```
+
+- **List all encrypted VMSS instances in your subscription**
+    
+    You can find all ADE-encrypted VMSS instances and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
  
-
-## List VMs and secrets
-
-List all encrypted VMs in your subscription:
-
-```azurepowershell-interactive
-$osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-$dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-```
-List all disk encryption secrets used for encrypting VMs in a key vault:
+- **List all disk encryption secrets used for encrypting VMs in a key vault**
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## The Azure Disk Encryption prerequisites scripts
+### Using the Azure Disk Encryption prerequisites PowerShell script
+
 If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
 
 The following table shows which parameters can be used in the PowerShell script: 
@@ -73,22 +85,30 @@ Configure the BitLocker Group Policy setting **BitLocker Drive Encryption**, whi
 ### Install BitLocker feature components
 For Windows Server 2012 and later, use the following command:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 For Windows Server 2008 R2, use the following command:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### Prepare the OS volume for BitLocker by using `bdehdcfg`
-To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
+To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
 ### Protect the OS volume by using BitLocker
-Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) command to enable encryption on the boot volume using an external key protector. Also place the external key (.bek file) on the external drive or volume. Encryption is enabled on the system/boot volume after the next reboot.
+Use the [`manage-bde`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff829849(v=ws.11)) command to enable encryption on the boot volume using an external key protector. Also place the external key (.bek file) on the external drive or volume. Encryption is enabled on the system/boot volume after the next reboot.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
@@ -139,7 +159,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/wrapkey) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

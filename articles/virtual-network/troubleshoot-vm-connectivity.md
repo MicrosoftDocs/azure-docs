@@ -33,7 +33,7 @@ To resolve these problems, follow the steps in the following section.
 3. Navigate to the folder in which you downloaded TCping.
 4. Ping the destination from the source VM by using the following command:
 
-    ![TCping](media/troubleshoot-vm-connectivity/tcping.png)
+    ![Screenshot shows a command prompt window that is pinging an I P address continuously.](media/troubleshoot-vm-connectivity/tcping.png)
 
     ```cmd
     tcping64.exe -t <destination VM address> 3389
@@ -171,7 +171,7 @@ Now, try to connect to secondary network adapter. If the connection is still uns
 
 For both the primary and secondary network adapters, check the default Inbound port rules (Allow VNet Inbound, Allow Load Balancer) to inbound on both network adapters. You should also make sure that there are no matching blocking rules that have a lower-priority rule above them.
 
-![NSG](media/troubleshoot-vm-connectivity/nsg.png)
+![Screenshot shows the Networking settings for a virtual machine where you can see Allow V net Inbound and Allow V net OutBound.](media/troubleshoot-vm-connectivity/nsg.png)
 
 #### Step 3: Run a connectivity check to the secondary network adapter.
 

@@ -2,7 +2,7 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/04/2020
+ms.date: 10/15/2020
 ms.author: trbye
 ---
 
@@ -15,32 +15,27 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Python Speech SDK package is available for these operating systems:
   - Windows: x64 and x86
   - Mac: macOS X version 10.12 or later
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 on x64
+  - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
 - Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
-  - On Ubuntu, run the following commands to install the required packages:
+  - On Ubuntu/Debian, run the following commands to install the required packages:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
 
-  - On Debian 9, run the following commands to install the required packages:
-
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+    If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
   - On RHEL/CentOS, run the following commands to install the required packages:
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib openssl python3
-        ```
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib openssl python3
+    ```
 
 > [!NOTE]
 > - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
@@ -90,7 +85,7 @@ Updates to the Speech SDK Python package are distributed via PyPI and announced 
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/speech-service/support.md).
+If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

@@ -31,7 +31,7 @@ You can use custom headers to capture several types of information. For example:
 > [!IMPORTANT]
 > Be aware that the information sent in custom headers is stored in a Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any information before adding it to custom headers. You should not pass any PHI information through customer headers.
 
-You must use the following naming convention for your HTTP headers: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+You must use the following naming convention for your HTTP headers: X-MS-AZUREFHIR-AUDIT-\<name>.
 
 These HTTP headers are included in a property bag that is added to the log. For example:
 
@@ -58,7 +58,7 @@ When added to the log, the values are combined with a comma delimited list. For 
  
 You can add a maximum of 10 unique headers (repetitions of the same header with different values are only counted as one). The total maximum length of the value for any one header is 2048 characters.
 
-If you're using the Firely C# client API library, the code looks something like this:
+If you're using the Firefly C# client API library, the code looks something like this:
 
 ```C#
 FhirClient client;

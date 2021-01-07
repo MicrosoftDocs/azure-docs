@@ -4,6 +4,7 @@ description: Learn about packaging an Azure Service Fabric application and how t
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-csharp
 ---
 # Package an application
 
@@ -210,7 +211,7 @@ With this option, the application package doesn't have to be copied to the image
 The `sfpkg` file is a zip that contains the initial application package and has the extension ".sfpkg".
 Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, config, and data package levels, as [mentioned earlier](service-fabric-package-apps.md#compress-a-package).
 
-To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

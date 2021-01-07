@@ -2,11 +2,11 @@
 title: Using private endpoints for Azure App Configuration
 description: Secure your App Configuration store using private endpoints
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
+ms.date: 07/15/2020
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
 ---
@@ -18,9 +18,6 @@ Using private endpoints for your App Configuration store enables you to:
 - Secure your application configuration details by configuring the firewall to block all connections to App Configuration on the public endpoint.
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
-
-> [!NOTE]
-> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.
 
 ## Conceptual overview
 
@@ -70,5 +67,5 @@ Learn more about creating a private endpoint for your App Configuration store, r
 
 Learn to configure your DNS server with private endpoints:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

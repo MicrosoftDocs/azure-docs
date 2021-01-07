@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Blueprints documentation
-summary: Simplify deployments by packaging artifacts, such as Resource Manager templates, role-based access controls, and policies, in a single blueprint definition.
+summary: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
 
 metadata:
   title: Azure Blueprints documentation
-  description: Simplify deployments by packaging artifacts, such as Resource Manager templates, role-based access controls, and policies, in a single blueprint definition.
+  description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/01/2019
+  ms.date: 08/27/2020
 
 landingContent:
   - title: About Azure Blueprints
@@ -33,13 +33,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a new blueprint (portal)
+          - text: Create a new blueprint (Portal)
             url: ./create-blueprint-portal.md
-          - text: Create a new blueprint (PowerShell)
-            url: ./create-blueprint-powershell.md
           - text: Create a new blueprint (Azure CLI)
             url: ./create-blueprint-azurecli.md
-          - text: Create a new blueprint (REST API)
+          - text: Create a new blueprint (Azure PowerShell)
+            url: ./create-blueprint-powershell.md
+          - text: Create a new blueprint (REST)
             url: ./create-blueprint-rest-api.md
       - linkListType: tutorial
         links:
@@ -101,9 +101,11 @@ landingContent:
             url: ./reference/blueprint-functions.md
           - text: PowerShell module (PSGallery)
             url: https://www.powershellgallery.com/packages/Az.Blueprint
+          - text: Azure CLI
+            url: /cli/azure/ext/blueprint/blueprint
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
-          - text: REST API
-            url: /rest/api/blueprints/
-          - text: .NET
+          - text: Azure SDK for .NET
             url: /dotnet/api/overview/azure/blueprints/management
+          - text: REST
+            url: /rest/api/blueprints/

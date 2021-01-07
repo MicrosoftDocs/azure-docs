@@ -8,9 +8,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
@@ -44,7 +44,7 @@ If your app was registered before May 21, 2019, your application's consent promp
 
 To set your app's publisher domain, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> using either a work or school account, or a personal Microsoft account.
 
 1. If your account is present in more than one Azure AD tenant:
    1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
@@ -72,9 +72,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
    ```json
    {
       "associatedApplications": [
-        {
-           "applicationId": "{YOUR-APP-ID-HERE}"
-        }
+         {
+            "applicationId": "{YOUR-APP-ID-HERE}"
+         },
+         {
+            "applicationId": "{YOUR-OTHER-APP-ID-HERE}"
+         }
       ]
     }
    ```

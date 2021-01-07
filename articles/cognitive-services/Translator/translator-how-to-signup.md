@@ -15,7 +15,7 @@ ms.author: swmachan
 
 ## Sign in to the Azure portal
 
-- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
+- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/cognitive-services) to experiment at no charge.
 - Already have an account? [Sign in](https://ms.portal.azure.com/)
 
 ## Create a subscription for Translator

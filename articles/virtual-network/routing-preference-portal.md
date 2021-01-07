@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
 
 ---
 # Configure routing preference for a public IP address using the Azure portal
 
-This article shows you how to configure routing preference via ISP network (**Internet** option) for a public IP address. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This article shows you how to configure [routing preference](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) via ISP network (**Internet** option) for a public IP address. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
 
 * Virtual machine
 * Virtual machine scale set
@@ -33,12 +33,6 @@ By default, the routing preference for public IP address is set to the Microsoft
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
-
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. Register the feature for your subscription using Azure PowerShell as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## Create a public IP address with a routing preference
 1. Sign in to the [Azure portal](https://preview.portal.azure.com/).

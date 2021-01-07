@@ -4,12 +4,12 @@ description: Use an Azure CLI example script to monitor and scale a single datab
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 06/25/2019
 ---
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command-specific documentation.
 
-| | |
+| Script | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
 | [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Shows the size usage information for a database. |

@@ -1,38 +1,36 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using an Azure Resource Manager template.
-description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template.
+description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
 ---
 
-# Quickstart: Create a Recovery Services vault using a Resource Manager template
+# Quickstart: Create a Recovery Services vault using an ARM template
 
 This quickstart describes how to set up a Recovery Services vault by using an Azure Resource Manager
-template. The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business
+template (ARM template). The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business
 continuity and disaster recovery (BCDR) strategy so your business applications stay online during
 planned and unplanned outages. Site Recovery manages disaster recovery of on-premises machines and
 Azure virtual machines (VM), including replication, failover, and recovery.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an active Azure subscription, you can create a
-[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
-None.
+If you don't have an active Azure subscription, you can create a
+[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a Recovery Services vault
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from
 [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -45,7 +43,7 @@ information, see [Set storage redundancy](../backup/backup-create-rs-vault.md#se
 
 For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### Deploy the template
+## Deploy the template
 
 To deploy the template, the **Subscription**, **Resource group**, and **Vault name** are required.
 

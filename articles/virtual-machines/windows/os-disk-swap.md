@@ -20,7 +20,7 @@ The VM does need to be stopped\deallocated, then the resource ID of the managed 
 Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size). Both disks must also be the same size.
 And ensure that you're not mixing an un-encrypted VM with an encrypted OS disk, this is not supported. If the VM doesn't use Azure Disk Encryption, then the OS disk being swapped in shouldn't be using Azure Disk Encryption.
 
-Get a list of disks in a resource group using [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Get a list of disks in a resource group using [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
 
 ```azurepowershell-interactive
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name

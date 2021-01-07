@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB input binding for Functions 2.x
+title: Azure Cosmos DB input binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB input binding in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
-# Azure Cosmos DB input binding for Azure Functions 2.x
+# Azure Cosmos DB input binding for Azure Functions 2.x and higher
 
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> If the collection is [partitioned](../cosmos-db/partition-data.md#logical-partitions), lookup operations need to also specify the partition key value.
+> If the collection is [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions), lookup operations need to also specify the partition key value.
 >
 
 <a id="example" name="example"></a>
@@ -38,8 +38,12 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
+        [JsonProperty("id")]
         public string Id { get; set; }
+        
+        [JsonProperty("partitionKey")]
         public string PartitionKey { get; set; }
+        
         public string Description { get; set; }
     }
 }
@@ -203,7 +207,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-reads-writes.md) than queries by ID.
 >
 
 ```cs
@@ -291,7 +295,7 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
 > [!NOTE]
-> You can also use the [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) interface to make testing easier.
+> You can also use the [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) interface to make testing easier.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -856,7 +860,7 @@ Here's the *function.json* file:
       "name": "toDoItem",
       "databaseName": "ToDoItems",
       "collectionName": "Items",
-      "connection": "CosmosDBConnection",
+      "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
       "Id": "{id}",
       "PartitionKey": "{partitionKeyValue}"
@@ -1306,7 +1310,7 @@ public class DocByIdFromRoute {
 The following example shows a Java function that retrieves a single document. The function is triggered by an HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, converting the result set to a ```ToDoItem[]```, since many documents may be returned, depending on the query criteria.
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-reads-writes.md) than queries by ID.
 >
 
 ```java
@@ -1415,7 +1419,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-From the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that write to Cosmos DB. The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that write to Cosmos DB. The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ---
 
@@ -1433,7 +1437,7 @@ The following table explains the binding configuration properties that you set i
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the `id` and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the `id` and `sqlQuery` properties. If you don't set either one, the entire collection is retrieved.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string. |
-|**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partition-data.md#logical-partitions) collections.|
+|**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions) collections.|
 |**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1458,7 +1462,7 @@ Data is made available to the function via a `DocumentList` parameter. Changes m
 
 # [Java](#tab/java)
 
-From the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), the [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotation exposes Cosmos DB data to the function. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), the [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotation exposes Cosmos DB data to the function. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ---
 

@@ -9,7 +9,8 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
-ms.date: 10/07/2019
+ms.date: 10/07/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL Managed Instance connection types
@@ -28,7 +29,7 @@ Azure SQL Managed Instance supports the following two connection types:
 
 In the redirect connection type, after the TCP session is established to the SQL engine, the client session obtains the destination virtual IP of the virtual cluster node from the load balancer. Subsequent packets flow directly to the virtual cluster node, bypassing the gateway. The following diagram illustrates this traffic flow.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Diagram shows an on-premises network with redirect-find-db connected to a gateway in an Azure virtual network and a redirect-query connected to a database primary node in the virtual network.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > The redirect connection type currently works only for a private endpoint. Regardless of the connection type setting, connections coming through the public endpoint would be through a proxy.
@@ -37,9 +38,14 @@ In the redirect connection type, after the TCP session is established to the SQL
 
 In the proxy connection type, the TCP session is established using the gateway and all subsequent packets flow through it. The following diagram illustrates this traffic flow.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Diagram shows an on-premises network with a proxy connected to a gateway in an Azure virtual network, connect next to a database primary node in the virtual network.](./media/connection-types-overview/proxy.png)
 
-## Script to change connection type settings using PowerShell
+## Changing Connection Type
+
+- **Using the Portal:**
+To change the Connection Type using the Azure portal,open the Virtual Network page and use the **Connection type** setting to change the connection type and save the changes.
+
+- **Script to change connection type settings using PowerShell:**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

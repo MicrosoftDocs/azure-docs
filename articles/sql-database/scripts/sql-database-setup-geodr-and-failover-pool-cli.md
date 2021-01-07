@@ -47,7 +47,7 @@ az group delete --name $secondaryResource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands |
 | [az sql db replica](/cli/azure/sql/db/replica) | Database replication commands. |

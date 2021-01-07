@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ---
@@ -38,9 +38,9 @@ The following table shows the different methods that can be used to create an HD
 |[Azure CLI (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[Python SDK](/python/api/overview/azure/hdinsight)||||X|
+|[Java SDK](/java/api/overview/azure/hdinsight)||||X|
 |[Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 For more information, see the article [Cluster types in HDInsight](../hadoop/apache-hadoop-introduction.md).

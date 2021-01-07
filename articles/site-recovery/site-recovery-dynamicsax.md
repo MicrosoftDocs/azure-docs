@@ -64,7 +64,7 @@ The customer has a large number of applications and is running an Active Directo
 For technical guidance on the recommended option for protecting the SQL tier, see [Replicate applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 
 ### 3. Enable protection for the Dynamics AX client and Application Object Server VMs
-Perform relevant Site Recovery configuration based on whether the VMs are deployed on [Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware](site-recovery-vmware-to-azure.md).
+Perform relevant Site Recovery configuration based on whether the VMs are deployed on [Hyper-V](./hyper-v-azure-tutorial.md) or [VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > We recommend that you configure the crash-consistent frequency to 15 minutes.
@@ -172,7 +172,7 @@ For considerations specific to SQL Server during failback, see [Replicate applic
 6. Select **✓** to start the failback process.
 
 
-For more information on doing a failback, see [Failback VMware VMs from Azure to on-premises](site-recovery-failback-azure-to-vmware.md).
+For more information on doing a failback, see [Failback VMware VMs from Azure to on-premises](./vmware-azure-failback.md).
 
 ## Summary
 By using Site Recovery, you can create a complete automated disaster recovery plan for your Dynamics AX application. In the event of a disruption, you can initiate the failover within seconds from anywhere and get the application up and running in minutes.

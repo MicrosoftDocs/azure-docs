@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## Create Apache HBase cluster
 
@@ -133,16 +133,25 @@ HBase includes several methods of loading data into tables.  For more informatio
 
 A sample data file can be found in a public blob container, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  The content of the data file is:
 
-    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
-    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
-    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
-    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+`8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
+
+`16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz`
+
+`4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta`
+
+`16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.`
+
+`3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive`
+
+`3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle`
+
+`10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street`
+
+`4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street`
+
+`4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.`
+
+`16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive`
 
 You can optionally create a text file and upload the file to your own storage account. For the instructions, see [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 
@@ -193,9 +202,51 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 
 1. To exit your ssh connection, use `exit`.
 
+### Separate Hive and Hbase Clusters
+
+The Hive query to access HBase data need not be executed from the HBase cluster. Any cluster that comes with Hive (including Spark, Hadoop, HBase, or Interactive Query) can be used to query HBase data, provided the following steps are completed:
+
+1. Both clusters must be attached to the same Virtual Network and Subnet
+2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes
+
+### Secure Clusters
+
+HBase data can also be queried from Hive using ESP-enabled HBase: 
+
+1. When following a multi-cluster pattern, both clusters must be ESP-enabled. 
+2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the Hbase Apache Ranger plugin
+3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes. 
+> [!NOTE]
+> After scaling either clusters, `/etc/hosts` must be appended again
+
 ## Use HBase REST APIs using Curl
 
 The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+
+1. To enable HBase REST APIs in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
+
+
+	```bash
+	#! /bin/bash
+
+	THIS_MACHINE=`hostname`
+
+	if [[ $THIS_MACHINE != wn* ]]
+	then
+		printf 'Script to be executed only on worker nodes'
+		exit 0
+	fi
+
+	RESULT=`pgrep -f RESTServer`
+	if [[ -z $RESULT ]]
+	then
+		echo "Applying mitigation; starting REST Server"
+		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+	else
+		echo "Rest server already running"
+		exit 0
+	fi
+	```
 
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 
@@ -257,14 +308,14 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 > Thrift is not supported by HBase in HDInsight.
 >
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
-> 
->   
->        curl -u <UserName>:<Password> \
->        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
->   
->    You should receive a response similar to the following response:
->   
->        {"status":"ok","version":"v1"}
+>
+> `curl -u <UserName>:<Password> \`
+>
+> `-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status`
+>
+> You should receive a response similar to the following response:
+>
+> `{"status":"ok","version":"v1"}`
 
 ## Check cluster status
 

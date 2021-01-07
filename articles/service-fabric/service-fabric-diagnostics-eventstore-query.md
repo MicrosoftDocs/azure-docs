@@ -6,6 +6,7 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Query EventStore APIs for cluster events
@@ -107,7 +108,7 @@ Here we can see that between `2018-04-03T18:00:00Z` and `2018-04-04T18:00:00Z`, 
 
 ## Query the EventStore programmatically
 
-You can also query the EventStore programmatically, via the [Service Fabric client library](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+You can also query the EventStore programmatically, via the [Service Fabric client library](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
 Once you have your Service Fabric Client set up, you can query for events by accessing the EventStore like this:
 `sfhttpClient.EventStore.<request>`
@@ -196,7 +197,7 @@ If you want to include health events that may have expired (gone passed their ti
 *Historical health for all services in "myApp":*
 
 Currently, health report events for services show up as `DeployedServicePackageNewHealthReport` events under the corresponding application entity. To see how your services have been doing for "App1", use the following query:
-`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Partition reconfiguration:*
 
@@ -207,4 +208,3 @@ To see all the partition movements that happened in your cluster, query for the 
 
 There is an event for when the Chaos service is started or stopped that is exposed at the cluster level. To see your recent use of the Chaos service, use the following query:
 `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
-

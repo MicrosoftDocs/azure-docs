@@ -115,7 +115,7 @@ You can create a single installation script for several computers by setting `Ma
 - **MachineFilter** is a required C# regex of the computer or VM name.
     - '.*' will match all
     - 'ComputerName' will match only computers with the exact name specified.
-- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
+- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command [get-iissite](/powershell/module/iisadministration/get-iissite).
     - '.*' will match all
     - 'SiteName' will match only the IIS Site with the exact name specified.
 - **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
@@ -131,7 +131,7 @@ The instrumentation engine adds overhead and is off by default.
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
 
 #### -IgnoreSharedConfig
-When you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+When you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 The HttpModule can't be injected into this shared configuration.
 This script will fail with the message that extra installation steps are required.
 Use this switch to ignore this check and continue installing prerequisites. 
@@ -444,8 +444,8 @@ It will also download external tools to determine if the necessary DLLs are load
 
 If this process fails for any reason, you can run these commands manually:
 - iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
+- [handle64.exe](/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
+- [listdlls64.exe](/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### -Force
@@ -549,7 +549,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ## Start-ApplicationInsightsMonitoringTrace
 
-Collects [ETW Events](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. 
+Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. 
 This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
 
 Collected events will be printed to the console in real-time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
@@ -637,21 +637,16 @@ Timeout Reached. Stopping...
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- Use [analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+ - [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+- [Search events and logs](./diagnostic-search.md) to diagnose problems.
+- Use [analytics](../log-query/log-query-overview.md) for more advanced queries.
+- [Create dashboards](./overview-dashboard.md).
  
  Add more telemetry:
  - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
+- [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
  
  Do more with Application Insights Agent:
  - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
-
-
-
-
-
 

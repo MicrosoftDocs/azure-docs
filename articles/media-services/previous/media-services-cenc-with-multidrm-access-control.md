@@ -15,9 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
+ms.custom: devx-track-csharp
 
 ---
-# Design of a content protection system with access control using Azure Media Services 
+# Design of a content protection system with access control using Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Overview
 
@@ -223,15 +226,17 @@ For more information, see [JWT token authentication in Azure Media Services and 
 For information on Azure AD:
 
 * You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/azuread-dev/v1-overview.md).
-* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
+* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### Some issues in implementation
 Use the following troubleshooting information for help with implementation issues.
 
 * The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     In the [JWT Decoder](http://jwt.calebb.net/), you see **aud** and **iss**, as shown in the JWT:
 
@@ -243,11 +248,15 @@ Use the following troubleshooting information for help with implementation issue
 
 * Use the correct issuer when you set up dynamic CENC protection.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     The following doesn't work:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     The GUID is the Azure AD tenant ID. The GUID can be found in the **Endpoints** pop-up menu in the Azure portal.
 
@@ -257,7 +266,9 @@ Use the following troubleshooting information for help with implementation issue
 
 * Set the proper TokenType when you create restriction requirements.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     Because you add support for JWT (Azure AD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set the token to TokenType.SWT.
 
@@ -284,7 +295,7 @@ Signing key rollover is an important point to take into consideration in your im
 
 Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
 
-For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
+For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Between the [public-private key pair](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -317,7 +328,7 @@ If you look at how a web app calls an API app under [Application identity with O
 * Azure AD authenticates the application and returns a JWT access token that's used to call the web API.
 * Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a "Bearer" designation in the "Authorization" header of the request to the web API. The web API then validates the JWT. If validation is successful, it returns the desired resource.
 
-In this application identity flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [authorization flow diagram](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describes how authorization-code-grant flow works.
+In this application identity flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [authorization flow diagram](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) describes how authorization-code-grant flow works.
 
 License acquisition with token restriction follows the same trusted subsystem pattern. The license delivery service in Media Services is the web API resource, or the "back-end resource" that a web application needs to access. So where is the access token?
 
@@ -406,11 +417,11 @@ The following screenshots show different sign-in pages used by different domain 
 
 **Custom Azure AD tenant domain account**: The customized sign-in page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Screenshot that shows the customized sign-in page of the custom Azure A D tenant domain.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: The sign-in page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Screenshot that shows the sign-in page customized by Microsoft corporate I T with two-factor authentication.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft account**: The sign-in page of the Microsoft account for consumers.
 

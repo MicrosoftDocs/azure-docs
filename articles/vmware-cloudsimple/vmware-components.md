@@ -1,7 +1,7 @@
 ---
 title: Private cloud VMware components 
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Describes how VMware components are installed on private cloud 
+description: Learn how the CloudSimple service allows you to deploy VMware natively in Azure locations. Private Clouds are integrated with the rest of the Azure Cloud.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019

@@ -3,6 +3,7 @@ title: Build image with Cloud Native Buildpack
 description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Build and push an image from an app using a Cloud Native Buildpack
@@ -90,7 +91,7 @@ Browse to `localhost:8080` in your favorite browser to see the sample web app. P
 
 ## Next steps
 
-After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/containers/tutorial-custom-docker-image.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
+After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/tutorial-custom-container.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
 
 For more information about ACR Tasks features, see [Automate container image builds and maintenance with ACR Tasks](container-registry-tasks-overview.md).
 

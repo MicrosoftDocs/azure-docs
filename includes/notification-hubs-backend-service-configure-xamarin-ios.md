@@ -60,6 +60,9 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetNotificationsSupportError());
 
+                if (string.isNullOrWhitespace(Token))
+                    throw new Exception("Unable to resolve token for APNS");
+
                 var installation = new DeviceInstallation
                 {
                     InstallationId = GetDeviceId(),
@@ -88,7 +91,7 @@
     ```
 
     > [!NOTE]
-    > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](https://docs.microsoft.com/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
+    > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
 
 1. Add a new folder to the **PushDemo.iOS** project called *Extensions* then add an **Empty Class** to that folder called *NSDataExtensions.cs* with the following implementation.
 
@@ -131,12 +134,6 @@
     using UIKit;
     using UserNotifications;
     using Xamarin.Essentials;
-    ```
-
-1. Add a constant for the device token cache key.
-
-    ```csharp
-    const string CachedDeviceToken = "cached_device_token";
     ```
 
 1. Add private properties and their respective backing fields to store a reference to the **IPushDemoNotificationActionService**, **INotificationRegistrationService**, and **IDeviceInstallationService** implementations.
@@ -184,22 +181,10 @@
 1. Add the **CompleteRegistrationAsync** method to set the `IDeviceInstallationService.Token` property value. Refresh the registration and cache the device token if it has been updated since it was last stored.
 
     ```csharp
-    async Task CompleteRegistrationAsync(NSData deviceToken)
+    Task CompleteRegistrationAsync(NSData deviceToken)
     {
         DeviceInstallationService.Token = deviceToken.ToHexString();
-
-        var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
-            .ConfigureAwait(false);
-
-        if (!string.IsNullOrWhiteSpace(cachedToken) &&
-            cachedToken.Equals(DeviceInstallationService.Token))
-            return;
-
-        await NotificationRegistrationService.RefreshRegistrationAsync()
-            .ConfigureAwait(false);
-
-        await SecureStorage.SetAsync(CachedDeviceToken, DeviceInstallationService.Token)
-            .ConfigureAwait(false);
+        return NotificationRegistrationService.RefreshRegistrationAsync();
     }
     ```
 

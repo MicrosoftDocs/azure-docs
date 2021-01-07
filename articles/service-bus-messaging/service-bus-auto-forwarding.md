@@ -3,6 +3,7 @@ title: Auto-forwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Chaining Service Bus entities with autoforwarding
@@ -23,11 +24,11 @@ The destination entity must exist at the time the source entity is created. If t
 
 You can use autoforwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
 
-![Auto-forwarding scenario][0]
+![Diagram of an autoforwarding scenario showing a message processed through an Orders Topic that can branch to any of three second-level Orders Topics.][0]
 
 You can also use autoforwarding to decouple message senders from receivers. For example, consider an ERP system that consists of three modules: order processing, inventory management, and customer relations management. Each of these modules generates messages that are enqueued into a corresponding topic. Alice and Bob are sales representatives that are interested in all messages that relate to their customers. To receive those messages, Alice and Bob each create a personal queue and a subscription on each of the ERP topics that automatically forward all messages to their queue.
 
-![Auto-forwarding scenario][1]
+![Diagram of an autoforwarding scenario showing three processing modules sending messages through three corresponding topics to two separate queues.][1]
 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
 
@@ -46,6 +47,8 @@ When chaining together individual topics to obtain a composite topic with many s
 Service Bus bills one operation for each forwarded message. For example, sending a message to a topic with 20 subscriptions, each of them configured to autoforward messages to another queue or topic, is billed as 21 operations if all first-level subscriptions receive a copy of the message.
 
 To create a subscription that is chained to another queue or topic, the creator of the subscription must have **Manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **Send** permissions on the source topic.
+
+Don't create a chain that exceeds 4 hops. Messages that exceed 4 hops are dead-lettered.
 
 ## Next steps
 

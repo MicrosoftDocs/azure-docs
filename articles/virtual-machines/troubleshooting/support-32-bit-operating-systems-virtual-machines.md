@@ -18,7 +18,7 @@ ms.author: v-miegge
 
 # Support for 32-bit operating systems in Azure virtual machines
 
-Microsoft Azure now allows users to bring in their 32-bit Windows Operating systems over to Azure. As some of these operating systems have already reached their end of life supportability agreement, Microsoft might not offer additional support for them. Support is also not offered for Linux-based, or Berkeley Software Distribution (BSD)-based operating systems that run on a Microsoft Azure virtual machine (VM).
+Microsoft Azure now allows users to bring in their 32-bit Windows Operating systems over to Azure. Only Specialized VHDs are supported and Generalized images won't work in Azure. As some of these operating systems have already reached their end of life supportability agreement, Microsoft might not offer additional support for them. Support is also not offered for Linux-based, or Berkeley Software Distribution (BSD)-based operating systems that run on a Microsoft Azure virtual machine (VM).
 
 ## More information
 
@@ -30,8 +30,8 @@ For more information about operating systems that are supported on Azure virtu
 ## References
 
 * [Learn more about free Extended Security Updates for Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Learn more about support for Windows Server 2008 SP2 32-bit specialized images in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Learn more about support for migration of Windows Server 2008 images to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Learn more about support for Windows Server 2008 SP2 32-bit specialized images in Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Learn more about support for migration of Windows Server 2008 images to Azure using Azure Site Recovery](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Learn more about Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Learn more about running Windows Server 2003 on Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

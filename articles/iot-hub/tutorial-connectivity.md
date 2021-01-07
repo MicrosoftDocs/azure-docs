@@ -5,7 +5,7 @@ services: iot-hub
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
-ms.custom: [mvc, amqp, mqtt]
+ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
@@ -26,15 +26,7 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Prerequisites
-
-The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -218,7 +210,7 @@ The simulated device prints a message to the console when it receives a direct m
 
 When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
 
-![Receive direct method acknowledgement](media/tutorial-connectivity/method-acknowledgement.png)
+![Receive direct method acknowledgment](media/tutorial-connectivity/method-acknowledgement.png)
 
 ## Check twin synchronization
 
@@ -263,4 +255,4 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 In this tutorial, you've seen how to check your device keys, check device-to-cloud connectivity, check cloud-to-device connectivity, and check device twin synchronization. To learn more about how to monitor your IoT hub, visit the how-to article for IoT Hub monitoring.
 
 > [!div class="nextstepaction"]
-> [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
+> [Monitor IoT Hub](monitor-iot-hub.md)

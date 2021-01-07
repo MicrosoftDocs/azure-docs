@@ -2,13 +2,14 @@
 title: Send Events to a web endpoint using Azure App Configuration
 description: Learn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 02/25/2020
-ms.author: lcozzens
+ms.date: 03/04/2020
+ms.author: alkemper 
+ms.custom: devx-track-azurecli
 
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
@@ -61,7 +62,7 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```azurecli-interactive
 $sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost

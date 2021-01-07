@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Before you begin
 
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.13` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart]. Ensure that your cluster has at least 3 nodes in the Linux node pool.
+The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.13` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart]. Ensure that your cluster has at least 3 nodes in the Linux node pool.
 
 You'll need [Helm][helm] to follow these instructions and install Consul. It's recommended that you have the latest stable version correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install]. All Consul pods must also be scheduled to run on Linux nodes.
 
@@ -179,12 +179,12 @@ You can also follow additional scenarios using:
 [consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
 [consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
 [consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
-[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
+[install-wsl]: /windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: ./concepts-clusters-workloads.md#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

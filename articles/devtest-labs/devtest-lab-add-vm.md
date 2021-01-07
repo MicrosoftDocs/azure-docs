@@ -1,22 +1,10 @@
 ---
 title: Add a VM to a lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to add a virtual machine to a lab in Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager:
-editor: ''
-
-ms.assetid:
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to use the Azure portal to add a virtual machine to a lab in Azure DevTest Labs. You can choose a base that is either a custom image or a formula.
 ms.topic: article
-ms.date: 01/25/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add a VM to a lab in Azure DevTest Labs
 If you have already [created your first VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), you likely did so from a pre-loaded [marketplace image](devtest-lab-configure-marketplace-images.md). Now, if you want to add subsequent VMs to your lab, you can also choose a *base* that is either a [custom image](devtest-lab-create-template.md) or a [formula](devtest-lab-manage-formulas.md). This tutorial walks you through using the Azure portal to add a VM to a lab in DevTest Labs.
 
@@ -37,7 +25,7 @@ This article also shows you how to manage the artifacts for a VM in your lab.
     2. Enter a **User Name** that is granted administrator privileges on the virtual machine. The **user name** for the machine is pre-filled with a unique auto-generated name. The name corresponds to the user name within your email address. This feature saves you the time to decide on a username every time you create a new machine. Again, you can override this auto-filled field with a username of your choice if you wish to. To override the auto-filled value for user name, enter a value in the **User Name** text box. This user is granted **administrator** privileges on the virtual machine.
     3. If you are creating first VM in the lab, enter a **password** for the user. To save this password as a default password in the Azure key vault associated with the lab, select **Save as default password**. The default password is saved in the key vault with the name: **VmPassword**. When you try to create subsequent VMs in the lab, **VmPassword** is automatically selected for the **password**. To override the value, clear the **Use a saved secret** check box, and enter a password.
 
-        ![Choose a base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Screenshot that shows the "Create lab resource" page with "Basic Settings" selected and the "User Settings" values entered.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
         You can also save secrets in the key vault first and then use it while creating a VM in the lab. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). To use the password stored in the key vault, select **Use a saved secret**, and specify a key value that corresponds to your secret (password).
     4. In the **More options** section, select **Change size**. Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.

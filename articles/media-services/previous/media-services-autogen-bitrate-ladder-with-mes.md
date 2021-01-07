@@ -16,7 +16,9 @@ ms.date: 03/14/2019
 ms.author: juliako
 
 ---
-#  Use Media Encoder Standard to auto-generate a bitrate ladder  
+#  Use Media Encoder Standard to auto-generate a bitrate ladder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## Overview
 

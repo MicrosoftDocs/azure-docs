@@ -85,7 +85,7 @@ The `{action}` portion of an operation string specifies the type of operations y
 
 ### Role definition example
 
-Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also assign access to resources.
+Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprint assignments.
 
 Contributor role as displayed in Azure PowerShell:
 
@@ -334,4 +334,4 @@ For information about `AssignableScopes` for custom roles, see [Azure custom rol
 
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
-* [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+* [Azure resource provider operations](resource-provider-operations.md)

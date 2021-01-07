@@ -8,11 +8,11 @@ ms.workload: data-services
 
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Transform data by running a Python activity in Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

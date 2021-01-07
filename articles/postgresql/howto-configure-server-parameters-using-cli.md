@@ -1,12 +1,13 @@
 ---
 title: Configure parameters - Azure Database for PostgreSQL - Single Server
 description: This article describes how to configure Postgres parameters in Azure Database for PostgreSQL - Single Server using the Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 06/19/2019
+ms.topic: how-to
+ms.date: 06/19/2019 
+ms.custom: devx-track-azurecli
 ---
 # Customize server configuration parameters for Azure Database for PostgreSQL - Single Server using Azure CLI
 You can list, show, and update configuration parameters for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). A subset of engine configurations is exposed at server-level and can be modified. 

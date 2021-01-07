@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with The Cloud Security Fabric | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and The Cloud Security Fabric.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 549e8810-1b3b-4351-bf4b-f07de98980d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate The Cloud Security Fabric with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate The Cloud Security Fabric with A
 * Enable your users to be automatically signed-in to The Cloud Security Fabric with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -82,17 +75,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com` |
-	| `https://app.cloudlock.com` |
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
-	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
 	> [!NOTE]
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [The Cloud Security Fabric Client support team](mailto:support@cloudlock.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -156,12 +149,12 @@ In this section, you create a user called B.Simon in The Cloud Security Fabric. 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the The Cloud Security Fabric tile in the Access Panel, you should be automatically signed in to the The Cloud Security Fabric for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the The Cloud Security Fabric tile in the Access Panel, you should be automatically signed in to the The Cloud Security Fabric for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

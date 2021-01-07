@@ -118,4 +118,4 @@ az resource delete \
 ## Next steps
 
 * To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
-* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).
+* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).

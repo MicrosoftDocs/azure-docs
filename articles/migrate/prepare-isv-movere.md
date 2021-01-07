@@ -1,6 +1,9 @@
 ---
 title: Prepare Azure Migrate to work with an ISV tool/Movere 
 description: This article describes how to prepare Azure Migrate to work with an ISV tool or Movere, and then how to start using the tool. 
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
 ---
@@ -21,7 +24,7 @@ Your Azure user account needs these permissions:
 
 1. In Azure AD, check the role for your account.
 2. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Azure AD tenant can register an app. If it's set to **No**, then only admin users can register apps.   
-3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) role, so that you can register the app.
+3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) role, so that you can register the app.
 4. After the tool is linked to Azure Migrate, the admin can remove the role from your account.
 
 ### Set permissions to assign a role to an Azure AD app
@@ -31,7 +34,7 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 1. In the Azure portal, open **Subscriptions**.
 2. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
 3. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
-4. In **Role assignments** > **View**, check the permissions. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role.
+4. In **Role assignments** > **View**, check the permissions. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role.
 
 ## Allow access to URLs
 

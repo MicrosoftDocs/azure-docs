@@ -1,6 +1,6 @@
 ---
 title: Connect Azure AD Identity Protection data to Azure Sentinel
-description: Learn how to connect Azure AD Identity Protection data to Azure Sentinel.
+description: Learn how to stream logs and alerts from Azure AD Identity Protection into Azure Sentinel to view dashboards, create custom alerts, and improve investigation.
 author: yelevin
 manager: rkarlin
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d

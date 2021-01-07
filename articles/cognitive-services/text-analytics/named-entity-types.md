@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
-# Supported entity categories in Named Entity Recognition v3
+# Supported entity categories in the Text Analytics API v3
 
-Use this article to find the entity categories that can be returned by [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER). A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information.
+Use this article to find the entity categories that can be returned by [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER). A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information. Additionally, click on the **Health** tab to see a list of supported categories in Text Analytics for health.
 
 ## Entity categories
 
@@ -23,9 +23,13 @@ Use this article to find the entity categories that can be returned by [Named En
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal and Health](#tab/personal)
+#### [PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
+
+#### [Health](#tab/health)
+
+[!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
 ***
 

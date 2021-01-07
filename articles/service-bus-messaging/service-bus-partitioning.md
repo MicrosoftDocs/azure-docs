@@ -3,6 +3,7 @@ title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Partitioned queues and topics
@@ -23,6 +24,9 @@ When a client wants to receive a message from a partitioned queue, or from a sub
 The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There is no guarantee that the returned message is the oldest one across all partitions. 
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
+
+> [!NOTE]
+> The peek operation returns the oldest message from the partition based on its sequence number. For partitioned entities, the sequence number is issued relative to the partition. For more information, see [Message sequencing and timestamps](../service-bus-messaging/message-sequencing.md).
 
 ## Enable partitioning
 
@@ -86,8 +90,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -106,8 +110,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -144,4 +148,4 @@ Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQ
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

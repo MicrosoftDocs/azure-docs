@@ -19,7 +19,7 @@ This article covers the steps to add the Log Analytics agent as a virtual machin
 
 ## Add the agent extension via Azure CLI
 
-The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Once your Cloud Shell is requested, make sure you are working in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
 
@@ -69,7 +69,7 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 3. Click **Advanced Settings**.
 
-4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Click **Save**, then click **OK**.
 
@@ -88,5 +88,5 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 ## Next steps
 
 * Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configure Azure Monitor logs to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics
 * As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

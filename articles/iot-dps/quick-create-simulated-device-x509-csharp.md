@@ -1,5 +1,5 @@
 ---
-title: Provision simulated X.509 device to Azure IoT Hub using C#
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using C#
 description: Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate an X.509 device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service.
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.

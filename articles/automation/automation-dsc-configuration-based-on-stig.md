@@ -1,6 +1,6 @@
 ---
 title: Configure data based on STIG for Azure Automation State Configuration
-description: This article tells how to configure data based on STIG for Azure Automation State Configuration.
+description: This article tells how to configure data based on DoD STIG for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -11,14 +11,12 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Configure data based on STIG
+# Configure data based on Security Technical Information Guide (STIG)
 
 > Applies To: Windows PowerShell 5.1
 
 Creating configuration content for the first time can be challenging.
-In many cases,
-the goal is to automate configuration of servers
-following a "baseline" that hopefully aligns to an industry recommendation.
+In many cases, the goal is to automate configuration of servers following a "baseline" that hopefully aligns to an industry recommendation.
 
 > [!NOTE]
 > This article refers to a solution that is maintained by the Open Source community.
@@ -47,10 +45,10 @@ you can use the
 [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
+[on-premises](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
+or [in Azure](./automation-dsc-onboarding.md#enable-azure-vms)
 to pull configurations.
 
 To try out PowerSTIG, visit the

@@ -1,14 +1,14 @@
 ---
-title: Azure Cosmos DB output binding for Functions 2.x
+title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
-# Azure Cosmos DB output binding for Azure Functions 2.x
+# Azure Cosmos DB output binding for Azure Functions 2.x and higher
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
@@ -294,6 +294,29 @@ Here's the JavaScript code:
         address: context.bindings.myQueueItem.address
       });
 
+      context.done();
+    };
+```
+
+For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
       context.done();
     };
 ```
@@ -586,7 +609,7 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 <a name="host-json"></a>
 

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ---
@@ -57,11 +57,13 @@ Not all queries using complete mode will  cause the table to grow without bounds
 
 A simple example query can summarize the temperature readings by hour-long windows. In this case, the data  is stored in JSON files in Azure Storage (attached as the default storage for the HDInsight cluster):
 
-    {"time":1469501107,"temp":"95"}
-    {"time":1469501147,"temp":"95"}
-    {"time":1469501202,"temp":"95"}
-    {"time":1469501219,"temp":"95"}
-    {"time":1469501225,"temp":"95"}
+```json
+{"time":1469501107,"temp":"95"}
+{"time":1469501147,"temp":"95"}
+{"time":1469501202,"temp":"95"}
+{"time":1469501219,"temp":"95"}
+{"time":1469501225,"temp":"95"}
+```
 
 These JSON files are stored in the `temps` subfolder underneath  the HDInsight cluster's container.
 
@@ -69,41 +71,51 @@ These JSON files are stored in the `temps` subfolder underneath  the HDInsight c
 
 First configure a DataFrame that describes the source of the data and any settings required by that source. This example draws from the JSON files in Azure Storage and applies a schema to them at read time.
 
-    import org.apache.spark.sql.types._
-    import org.apache.spark.sql.functions._
+```sql
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
 
-    //Cluster-local path to the folder containing the JSON files
-    val inputPath = "/temps/" 
+//Cluster-local path to the folder containing the JSON files
+val inputPath = "/temps/" 
 
-    //Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
-    val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
+//Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
+val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
 
-    //Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
-    val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath) 
+//Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
+val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
+``` 
 
 #### Apply the query
 
 Next,  apply a query that contains the desired operations against the Streaming DataFrame. In this case, an aggregation groups all the rows into 1-hour windows, and then computes the minimum, average, and maximum temperatures in that 1-hour window.
 
-    val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```sql
+val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```
 
 ### Define the output sink
 
 Next,  define the destination for the rows that are added to the results table within each trigger interval. This example  just outputs all  rows to an in-memory table `temps` that you can later query with SparkSQL. Complete  output mode ensures that all rows for all windows are output every time.
 
-    val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
+```sql
+val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
+``` 
 
 ### Start the query
 
 Start the streaming query and run until a termination signal is received.
 
-    val query = streamingOutDF.start()  
+```sql
+val query = streamingOutDF.start() 
+``` 
 
 ### View the results
 
 While the query is running, in the same SparkSession, you can run a SparkSQL query against the `temps` table where the query results are stored.
 
-    select * from temps
+```sql
+select * from temps
+```
 
 This query yields results similar to the following:
 

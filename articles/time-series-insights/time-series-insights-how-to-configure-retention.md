@@ -5,14 +5,17 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
-# Configuring retention in Time Series Insights
+# Configuring retention in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to configure **Data retention time** and **Storage limit exceeded behavior** in Azure Time Series Insights.
 
@@ -20,18 +23,18 @@ This article describes how to configure **Data retention time** and **Storage li
 
 Each Azure Time Series Insights environment has a setting to configure **Data retention time**. The value spans from 1 to 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
-Each Time Series Insights environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
+Each Azure Time Series Insights environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
 
 - **Purge old data** (default)
 - **Pause ingress**
 
-For detailed information to better understand these settings, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).  
+For detailed information to better understand these settings, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).  
 
 ## Configure data retention
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
+1. Locate your existing Azure Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Azure Time Series Insights environment.
 
 1. Under the **Settings** heading, select **Storage Configuration**.
 
@@ -49,8 +52,8 @@ For detailed information to better understand these settings, review [Understand
 
 ## Next steps
 
-- For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+- For more information, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+- Learn [how to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
 - Learn about [planning out your environment](time-series-insights-environment-planning.md).

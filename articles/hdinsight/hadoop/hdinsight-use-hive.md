@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ---
@@ -83,7 +83,7 @@ There are two types of tables that you can create with Hive:
     * You need a custom location, such as a non-default storage account.
     * A program other than hive manages the data format, location, and so on.
 
-For more information, see the [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) blog post.
+For more information, see the [Hive Internal and External Tables Intro](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) blog post.
 
 ## User-defined functions (UDF)
 
@@ -95,7 +95,7 @@ Hive can also be extended through **user-defined functions (UDF)**. A UDF allows
 
 * [Use a C# user-defined function with Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [How to add a custom Apache Hive user-defined function to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [How to add a custom Apache Hive user-defined function to HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [An example Apache Hive user-defined function to convert date/time formats to Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -192,11 +192,11 @@ Azure Data Factory allows you to use HDInsight as part of a Data Factory pipelin
 
 You can use SQL Server Integration Services (SSIS) to run a Hive job. The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.
 
-* [Azure HDInsight Hive Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Azure HDInsight Hive Task](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure Subscription Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Azure Subscription Connection Manager](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-For more information, see the [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) documentation.
+For more information, see the [Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) documentation.
 
 ### Apache Oozie
 

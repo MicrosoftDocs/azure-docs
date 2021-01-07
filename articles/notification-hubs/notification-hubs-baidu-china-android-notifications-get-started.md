@@ -15,6 +15,7 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
+ms.custom: "devx-track-java, devx-track-csharp"
 ---
 
 # Get started with Notification Hubs using Baidu
@@ -412,8 +413,8 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 You can quickly test receiving notifications from the [Azure portal]: use the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Screenshot of the Azure Portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+![Screenshot to the Baidu Test Send page in the Azure portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages.
 
@@ -421,10 +422,10 @@ For simplicity, this tutorial uses a console app as a demonstration on how to se
 
 Here are different approaches for sending notifications:
 
-* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](/previous-versions/azure/reference/dn223264(v=azure.100)).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push).
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## (Optional) Send notifications from a .NET console app.
@@ -433,7 +434,7 @@ In this section, we show sending a notification using a .NET console app.
 
 1. Create a new Visual C# console application:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Screenshot of the New Project dialog box with the Console Application Visual C# option highlighted.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
@@ -443,7 +444,7 @@ In this section, we show sending a notification using a .NET console app.
 
     This instruction adds a reference to the Azure Notification Hubs SDK using the [Microsoft.Azure.Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Screenshot of the Package Manager Console dialog box with the Send To Notification Hub option circled in red.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Open the file `Program.cs` and add the following using statement:
 

@@ -1,20 +1,9 @@
 ---
 title: Orchestrate implementation of Azure DevTest Labs
 description: This article provides guidance for orchestrating implementation of Azure DevTest Labs in your organization. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-
 ---
 
 # Orchestrate the implementation of Azure DevTest Labs
@@ -42,7 +31,7 @@ Once the network topology is in place, the first/pilot lab can be created by tak
 
 1. Create an initial DevTest Labs environment.
 2. Determine allowable VM images and sizes for use with lab. Decide whether custom images can be uploaded into Azure for use with DevTest Labs.
-3. Secure access to the lab by creating initial Role Base Access Controls (RBAC) for the lab (lab owners and lab users). We recommend that you use synchronized active directory accounts with Azure Active Directory for identity with DevTest Labs.
+3. Secure access to the lab by creating initial Azure role-based access control (Azure RBAC) for the lab (lab owners and lab users). We recommend that you use synchronized active directory accounts with Azure Active Directory for identity with DevTest Labs.
 4. Configure DevTest Labs to use policies such as schedules, cost management, claimable VMs, custom images, or formulas.
 5. Establish an online repository such as Azure Repos/Git.
 6. Decide on the use of public or private repositories or combination of both. Organize JSON Templates for deployments and long-term sustainment.

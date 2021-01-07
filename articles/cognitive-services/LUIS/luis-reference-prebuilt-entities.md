@@ -3,19 +3,27 @@ title: All Prebuilt entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
-ms.author: diberry
+ms.date: 07/20/2020
+
 ---
 
 # Entities per culture in your LUIS model
 
-Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) provides prebuilt entities.
+
+## Entity resolution
+When a prebuilt entity is included in your application, LUIS includes the corresponding entity resolution in the endpoint response. All example utterances are also labeled with the entity.
+
+The behavior of prebuilt entities can't be modified but you can improve resolution by [adding the prebuilt entity as a feature to a machine-learning entity or subentity](luis-concept-entity-types.md#effective-prebuilt-entities).
+
+## Availability
+Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 |Culture|Subcultures|Notes|
 |--|--|--|
@@ -39,8 +47,8 @@ The availability of a prebuilt entity in a specific language is determined by th
 
 The following entities are supported:
 
-|Prebuilt entity|```zh-CN``` |
-------|:------:|
+| Prebuilt entity | zh-CN |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -61,8 +69,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```nl-NL``` |
-------|:------:|
+| Prebuilt entity | nl-NL |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -83,8 +91,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```en-US``` |
-------|:------:|
+| Prebuilt entity | en-US |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -105,8 +113,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```fr-FR``` |
-------|:------:|
+| Prebuilt entity | fr-FR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -127,8 +135,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```fr-CA``` |
-------|:------:|
+| Prebuilt entity | fr-CA |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -149,8 +157,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```de-DE``` |
-------|:------:|
+|Prebuilt entity | de-DE |
+| -------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -173,8 +181,8 @@ Italian prebuilt age, currency, dimension, number, percentage _resolution_ chang
 
 The following entities are supported:
 
-|Prebuilt entity|```it-IT``` |
-------|:------:|
+| Prebuilt entity | it-IT |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -195,8 +203,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```ja-JP``` |
-------|:------:|
+|Prebuilt entity | ja-JP |
+| -------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, -   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -217,8 +225,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```ko-KR``` |
-------|:------:|
+| Prebuilt entity | ko-KR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -239,8 +247,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```pt-BR``` |
-------|:------:|
+| Prebuilt entity | pt-BR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -261,8 +269,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```es-ES``` |
-------|:------:|
+| Prebuilt entity | es-ES |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -283,8 +291,8 @@ The following entities are supported:
 
 The following entities are supported:
 
-|Prebuilt entity|```es-MX``` |
-------|:------:|
+| Prebuilt entity | es-MX |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
@@ -311,8 +319,8 @@ KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR`
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

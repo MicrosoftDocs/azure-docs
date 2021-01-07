@@ -1,6 +1,8 @@
 ---
 title: Apprentice mode - Personalizer
 description:
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
 ---
@@ -25,7 +27,7 @@ Apprentice mode gives you trust in the Personalizer service and its machine lear
 
 The two main reasons to use Apprentice mode are:
 
-* Mitigating **Cold Starts**: Apprentice mode helps manage and assess the cost of a "new" model's learning time -  when it is not returning the best action and not achieved a satisfactory level of effectiveness of around 75-85%.
+* Mitigating **Cold Starts**: Apprentice mode helps manage and assess the cost of a "new" model's learning time -  when it is not returning the best action and not achieved a satisfactory level of effectiveness of around 60-80%.
 * **Validating Action and Context Features**: Features sent in actions and context may be inadequate or inaccurate - too little, too much, incorrect, or too specific to train Personalizer to attain the ideal effectiveness rate. Use [feature evaluations](concept-feature-evaluation.md) to find and fix issues with features.
 
 ## When should you use Apprentice mode?
@@ -63,7 +65,7 @@ Learning when in Apprentice mode differs from Online mode in the following ways.
 A note about apprentice mode's effectiveness:
 
 * Personalizer's effectiveness in Apprentice mode will rarely achieve near 100% of the application's baseline; and never exceed it.
-* Best practices would be not to try to get to 100% attainment; but a range of 75 – 85% should be targeted depending on the use case.
+* Best practices would be not to try to get to 100% attainment; but a range of 60% – 80% should be targeted depending on the use case.
 
 ## Using Apprentice mode to train with historical data
 

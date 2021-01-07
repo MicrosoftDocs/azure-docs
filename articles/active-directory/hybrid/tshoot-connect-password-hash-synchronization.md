@@ -116,7 +116,7 @@ Each on-premises Active Directory connector has its own password hash synchroniz
 
 If the AD DS account that's used by the on-premises Active Directory connector to synchronize password hashes does not have the appropriate permissions, the following error is returned:
 
-![Incorrect credential](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Screenshot that shows the error that's returned when the AD DS account has an incorrect username or password.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### Incorrect AD DS account username or password
 
@@ -285,12 +285,15 @@ If you used custom installation, set the permissions manually by doing the follo
 6. Are the domain controllers reachable by Azure AD Connect? If the Connect server cannot connect to all domain controllers, configure **Only use preferred domain controller**.  
     
     ![Domain controller used by Active Directory connector](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Go back to **Synchronization Service Manager** and **Configure Directory Partition**. 
  
 8. Select your domain in **Select directory partitions**, select the **Only use preferred domain controllers** check box, and then click **Configure**. 
 
 9. In the list, enter the domain controllers that Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
+
+> [!NOTE]
+> To apply these changes, restart the **Microsoft Azure AD Sync** (ADSync) service.
 
 10. If the script shows that there is no heartbeat, run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
@@ -332,7 +335,7 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     i. Click **Metaverse Object Properties** to display a list of user attributes.  
 
-    ![Metaverse information](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Screenshot that shows the list of user attributes for the Metaverse Object Properties.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Verify that there is no **cloudFiltered** attribute present. Make sure that the domain attributes (domainFQDN and domainNetBios) have the expected values.
 

@@ -173,7 +173,7 @@ The following flowchart describes how Azure CDN validates a client request when 
 
    9. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, then select the response code from the **Response Code** list. **Header Name** is automatically set to **Location**. Select **Save** to implement the new response code. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
 
-3. Under **HTTP Large**, select **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
+3. Under **HTTP Large**, select **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication. 
    2. To enable token authentication on a rule, select **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** from the **Features** list, then select **Enabled**. Select **Update** if you are updating a rule or **Add** if you are creating a rule.

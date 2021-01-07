@@ -1,25 +1,25 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Heavy events| Microsoft Docs 
-description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy order.
+title: Track and log Azure Data Box, Azure Data Box Heavy events for import order| Microsoft Docs 
+description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy import order.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ---
 
-# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy
+# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order
 
-A Data Box or Data Box Heavy order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
+A Data Box or Data Box Heavy import order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-The following table shows a summary of the Data Box or Data Box Heavy order steps and the tools available to track and audit the order during each step.
+The following table shows a summary of the Data Box or Data Box Heavy import order steps and the tools available to track and audit the order during each step.
 
-| Data Box order stage       | Tool to track and audit                                                                        |
+| Data Box import order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Create order               | [Set up access control on the order via Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
@@ -27,11 +27,11 @@ The following table shows a summary of the Data Box or Data Box Heavy order step
 | Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
-This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
+This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
 
 ## Set up access control on the order
 
-You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
+You can control who can access your order when the order is first created. Set up Azure roles at various scopes to control the access to the Data Box order. An Azure role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 The two roles that can be defined for the Azure Data Box service are:
 
@@ -43,7 +43,7 @@ To restrict access to an order, you can:
 - Assign a role at an order level. The user only has those permissions as defined by the roles to interact with that specific Data Box order only and nothing else.
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
-For more information on suggested RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
+For more information on suggested Azure RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## Track the order
 

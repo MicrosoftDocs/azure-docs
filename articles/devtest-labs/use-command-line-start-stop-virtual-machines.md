@@ -1,19 +1,8 @@
 ---
 title: Use command-line tools to start and stop VMs Azure DevTest Labs
 description: Learn how to use command-line tools to start and stop virtual machines in Azure DevTest Labs. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Use command-line tools to start and stop Azure DevTest Labs virtual machines

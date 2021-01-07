@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create an application with an AS
 
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: "mvc, devx-track-js, devx-track-csharp"
 ---
 # Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
@@ -37,7 +37,7 @@ Before you begin this tutorial:
 ## Create an ASP.NET Web API service as a reliable service
 
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
-To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](/aspnet/core/).
 
 1. Launch Visual Studio as an **administrator**.
 
@@ -143,17 +143,17 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.Key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.Key)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             Remove
                         </button>

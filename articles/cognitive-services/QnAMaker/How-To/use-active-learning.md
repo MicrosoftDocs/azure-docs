@@ -1,13 +1,15 @@
 ---
-title: Improve knowledge base - QnA Maker
-description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+title: Use active learning with knowledge base - QnA Maker
+description: Learn to improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ---
 
 # Use active learning to improve your knowledge base
 
-[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions. User-submissions are taken into consideration and shows up as suggestions in the alternate questions list. You have the flexibility to either add those suggestions as alternate questions or reject them.
+[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions. User-submissions are taken into consideration and show up as suggestions in the alternate questions list. You have the flexibility to either add those suggestions as alternate questions or reject them.
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
@@ -17,6 +19,8 @@ Your knowledge base doesn't change automatically. In order for any change to tak
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
 
 ## Turn on active learning for alternate questions
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
@@ -36,6 +40,12 @@ Active learning is off by default. Turn it on to see suggested questions. After 
     > The exact version on the preceding image is shown as an example only. Your version may be different.
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
+    
+# [QnA Maker managed (preview release)](#tab/v2)
+
+By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+---
 
 ## Review suggested alternate questions
 

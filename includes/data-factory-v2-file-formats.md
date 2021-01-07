@@ -2,7 +2,7 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 07/16/2020
 ms.author: jingwang
 ---
 <!--
@@ -18,3 +18,4 @@ Azure Data Factory supports the following file formats. Refer to each article fo
 - [JSON format](../articles/data-factory/format-json.md)
 - [ORC format](../articles/data-factory/format-orc.md)
 - [Parquet format](../articles/data-factory/format-parquet.md)
+- [XML format](../articles/data-factory/format-xml.md)

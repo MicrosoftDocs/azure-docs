@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
@@ -84,20 +84,22 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
    ``` 
 6. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
 
-   ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Screenshot shows a PowerShell window with a command that creates an access token.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 7. Use the access token in your PowerShell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
 8. Query the directoryAudits endpoint to retrieve the audit logs. 
-   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+
+   ![Screenshot shows a PowerShell window with a command to query the directoryAudits endpoint using the access token from earlier in this procedure.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 9. Query the signins endpoint to retrieve the sign-in logs.
-    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+
+    ![Screenshot shows a PowerShell window with a command to query the signins endpoint using the access token from earlier in this procedure.](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
 ## Next steps
 
 * [Get a first impression of the reporting APIs](concept-reporting-api.md)
-* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)

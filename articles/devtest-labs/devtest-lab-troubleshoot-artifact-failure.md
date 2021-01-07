@@ -1,22 +1,10 @@
 ---
 title: Diagnose artifact failures in an Azure DevTest Labs virtual machine
 description: DevTest Labs provide information that you can use to diagnose an artifact failure. This article shows you how to troubleshoot artifact failures. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Diagnose artifact failures in the lab 
 After you have created an artifact, you can check to see whether it succeeded or failed. Artifact logs in Azure DevTest Labs provide information that you can use to diagnose an artifact failure. You have a couple of options for viewing the artifact log information for a Windows VM:
 

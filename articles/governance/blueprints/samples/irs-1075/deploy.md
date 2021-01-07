@@ -1,7 +1,7 @@
 ---
 title: Deploy IRS 1075 blueprint sample
 description: Deploy steps for the IRS 1075 (Rev.11-2016) blueprint sample including blueprint artifact parameter details.
-ms.date: 05/13/2020
+ms.date: 08/19/2020
 ms.topic: sample
 ---
 # Deploy the IRS 1075 blueprint sample
@@ -120,7 +120,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
 |Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Log Analytics workspace ID that VMs should be configured for|This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for.|
-|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of users that should be excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit IRS 1075 (Rev.11-2016) controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of users that should be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Log Analytics workspace for Linux VM Scale Sets (VMSS)|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|

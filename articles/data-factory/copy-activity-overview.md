@@ -6,14 +6,13 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-
 ---
+
 # Copy activity in Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
@@ -182,10 +181,11 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
 - When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
-- Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline id, or store other dynamic value from upstream activity's output.
+- Duplicate the specified source column as another column. 
+- Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.
 
-You can find the following configuration on copy activity source tab: 
+You can find the following configuration on copy activity source tab. You can also map those additional columns in copy activity [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping) as usual by using your defined column names. 
 
 ![Add additional columns in copy activity](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -196,7 +196,7 @@ To configure it programmatically, add the `additionalColumns` property in your c
 
 | Property | Description | Required |
 | --- | --- | --- |
-| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **Expression**<br>- **Static value** | No |
+| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **`$$COLUMN:<source_column_name>`** - a reserved variable pattern indicates to duplicate the specified source column as another column<br>- **Expression**<br>- **Static value** | No |
 
 **Example:**
 
@@ -214,6 +214,10 @@ To configure it programmatically, add the `additionalColumns` property in your c
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",
@@ -237,9 +241,29 @@ To configure it programmatically, add the `additionalColumns` property in your c
 ]
 ```
 
+## Auto create sink tables
+
+When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+
+This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* –> *Copy activity sink* –> *Table option* –> *Auto create table*, or via `tableOption` property in copy activity sink payload.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Create sink tables](media/copy-activity-overview/create-sink-table.png)
+
 ## Fault tolerance
 
 By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+
+## Data consistency verification
+
+When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
+
+## Session log
+You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session log in copy activity](copy-activity-log.md) for details.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

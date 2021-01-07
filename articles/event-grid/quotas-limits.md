@@ -1,17 +1,10 @@
 ---
 title: Quotas and limits - Azure Event Grid | Microsoft Docs
 description: This article provides limits and quotas for Azure Event Grid. For example, number of subscriptions for topic, number of custom topics per subscription, etc.
-services: event-grid
-author: spelluru
-editor: ''
-
-ms.service: event-grid
-ms.devlang: na
 ms.topic: reference
-ms.date: 05/12/2020
-ms.author: shvija
-
+ms.date: 07/07/2020
 ---
+
 # Azure Event Grid quotas and limits
 This article lists quotas and limits in Azure Event Grid. 
 

@@ -30,7 +30,7 @@ This article assumes that you're using Modbus TCP protocol. For more information
 
 If you want to test the Modbus gateway functionality, Microsoft has a sample module that you can use. You can access the module from the Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), or with the image URI, `mcr.microsoft.com/azureiotedge/modbus:1.0`.
 
-If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub. Follow the guidance in that project to create your own container image. To create a container image, refer to [Develop C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md) or [Develop modules in Visual Studio Code](how-to-vs-code-develop-module.md). Those articles provide instructions on creating new modules and publishing container images to a registry.
+If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub. Follow the guidance in that project to create your own container image. To create a container image, refer to [Develop C# modules in Visual Studio](./how-to-visual-studio-develop-module.md) or [Develop modules in Visual Studio Code](how-to-vs-code-develop-module.md). Those articles provide instructions on creating new modules and publishing container images to a registry.
 
 ## Try the solution
 

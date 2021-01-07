@@ -1,6 +1,8 @@
 ---
 title: Design with models - LUIS
 description: Language understanding provides several types of models. Some models can be used in more than one way.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
 ---

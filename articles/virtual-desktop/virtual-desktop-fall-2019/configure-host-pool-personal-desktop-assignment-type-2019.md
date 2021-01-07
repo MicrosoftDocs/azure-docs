@@ -1,19 +1,16 @@
 ---
-title: Windows Virtual Desktop personal desktop assignment type - Azure
-description: How to configure the assignment type for a Windows Virtual Desktop personal desktop host pool.
-services: virtual-desktop
-author: HeidiLohr
-
-ms.service: virtual-desktop
+title: Windows Virtual Desktop (classic) personal desktop assignment type - Azure
+description: How to configure the assignment type for a Windows Virtual Desktop (classic) personal desktop host pool.
+author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
 ---
-# Configure the personal desktop host pool assignment type
+# Configure the personal desktop host pool assignment type for Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../configure-host-pool-personal-desktop-assignment-type.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../configure-host-pool-personal-desktop-assignment-type.md).
 
 You can configure the assignment type of your personal desktop host pool to adjust your Windows Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
 
@@ -87,5 +84,5 @@ If you need to add the session host back into the personal desktop host pool, un
 
 Now that you've configured the personal desktop assignment type, you can sign in to a Windows Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)

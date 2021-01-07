@@ -29,7 +29,7 @@ In this tutorial, you will:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/).
 
-1. Select the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) option on the right side of the menu bar in the Azure portal.
+1. Select the [Cloud Shell](../cloud-shell/overview.md) option on the right side of the menu bar in the Azure portal.
 
 1. To create the AKS cluster, run the following commands:
 
@@ -49,9 +49,9 @@ In this tutorial, you will:
 
 1. Select the AKS cluster, and then select **Deployment Center (preview)** on the left blade. Select **Get started**.
 
-   ![settings](media/deployment-center-launcher/settings.png)
+   ![Screenshot shows the Azure portal with an arrow pointing to the Deployment center.](media/deployment-center-launcher/settings.png)
 
-1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
+1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](/azure/devops/repos/index)** or **GitHub**.
 
     Azure Repos is a set of version control tools that help you manage your code. Whether your software project is large or small, using version control as early as possible is a good idea.
 
@@ -61,7 +61,7 @@ In this tutorial, you will:
 
     - **GitHub**: Authorize and select the repository for your GitHub account.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animation shows a process in GitHub of selecting GitHub as the source and then selecting your repository.](media/deployment-center-launcher/github.gif)
 
 
 1. Deployment Center analyzes the repository and detects your Dockerfile. If you want to update the Dockerfile, you can edit the identified port number.
@@ -70,9 +70,9 @@ In this tutorial, you will:
 
     If the repository doesn't contain the Dockerfile, the system displays a message to commit one.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Screenshot shows the Deployment center with a message Could not find Dockerfile in the repository.](media/deployment-center-launcher/dockerfile.png)
 
-1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](/azure/devops/pipelines/index).
 
     Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration and continuous delivery to constantly and consistently test and build your code and ship it to any target.
 
@@ -82,7 +82,7 @@ In this tutorial, you will:
 
 1. You'll see the successful logs after deployment is complete.
 
-    ![Logs](media/deployment-center-launcher/logs.png)
+    ![Screenshot shows Deployment center with Release-1 marked with a green check mark icon.](media/deployment-center-launcher/logs.png)
 
 ## Examine the CI pipeline
 

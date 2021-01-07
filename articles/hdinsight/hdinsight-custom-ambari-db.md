@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: hrasheed
 ---
@@ -53,7 +53,7 @@ Edit the parameters in the `azuredeploy.parameters.json` to specify information 
 You can begin the deployment using the Azure CLI. Replace `<RESOURCEGROUPNAME>` with the resource group where you want to deploy your cluster.
 
 ```azurecli
-az group deployment create --name HDInsightAmbariDBDeployment \
+az deployment group create --name HDInsightAmbariDBDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json

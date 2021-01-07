@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services output metadata schema | Microsoft Docs
-description: This article gives an overview of Azure Media Services output metadata schema.
-author: Juliako
+description: This article gives an overview of Azure Media Services v3 output metadata schema.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
+ms.topic: reference
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 # Output metadata
 
-An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks. For example, encode an MP4 file to H.264 MP4 adaptive bitrate sets; create a thumbnail; create overlays. Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, and other files. The output asset also contains a file with metadata about the output asset. The name of the metadata JSON file has the following format: `<source_file_name>_manifest.json` (for example, `BigBuckBunny_manifest.json`).  
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks. For example, encode an MP4 file to H.264 MP4 adaptive bitrate sets; create a thumbnail; create overlays. Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, and other files. The output asset also contains a file with metadata about the output asset. The name of the metadata JSON file has the following format: `<source_file_name>_manifest.json` (for example, `BigBuckBunny_manifest.json`). You should scan for any *_metadata.json and query the filepath string within to find the source filename (without truncation).
 
 Media Services does not preemptively scan input assets to generate metadata. Input metadata is generated only as an artifact when an input asset is processed in a job. Hence this artifact is written to the output asset. Different tools are used to generate metadata for input assets and output assets. Therefore, the input metadata has a slightly different schema than the output metadata.
 

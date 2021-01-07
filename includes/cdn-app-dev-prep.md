@@ -20,10 +20,10 @@ Before writing CDN management code, you must do some preparation to enable the c
     ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Name your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you can click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  Pinning makes it easier to find later.  After you've made your selections, click **Create**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Screenshot of the Resource group dialog box.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  To open it, click the resource group.  Make a note of your **Subscription ID**. We need it later.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Screenshot of the C D N Console Tutorial section.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### Creating the Azure AD application and applying permissions
 There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, permissions are instead granted to the service principal.  Service principals are typically used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.

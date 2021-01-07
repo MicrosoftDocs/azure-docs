@@ -5,7 +5,7 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ---
 
@@ -32,6 +32,9 @@ Some of the operations supported by the Hive Warehouse Connector are:
 * Writing a DataFrame or Spark stream to Hive using HiveStreaming
 
 ## Hive Warehouse Connector setup
+
+> [!IMPORTANT]
+> The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
@@ -172,9 +175,9 @@ Once you build the scala/java code along with the dependencies into an assembly 
 
 For Python, add the following configuration as well. 
 
-    ```python
-    --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
-    ```
+```python
+--py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
+```
     
 ## Run queries on Enterprise Security Package (ESP) clusters
 

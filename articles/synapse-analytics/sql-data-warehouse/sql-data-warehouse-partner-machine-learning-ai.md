@@ -6,7 +6,7 @@ author: periclesrocha
 manager: charlesf
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: machine-learning
 ms.date: 06/22/2020
 ms.author: procha
 ms.reviewer: charlesf

@@ -2,12 +2,12 @@
 title: About networking in Azure VM disaster recovery with Azure Site Recovery
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
-ms.author: sutalasi
+ms.author: harshacs
 
 ---
 # About networking in Azure VM disaster recovery
@@ -24,22 +24,24 @@ Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-
 
 The following diagram depicts a typical Azure environment, for applications running on Azure VMs:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagram that depicts a typical Azure environment for applications running on Azure VMs.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Typically, networks are protected using firewalls and network security groups (NSGs). Firewalls use URL or IP-based whitelisting to control network connectivity. NSGs provide rules that use IP address ranges to control network connectivity.
+Typically, networks are protected using firewalls and network security groups (NSGs). Service tags should be used to control network connectivity. NSGs should allow several service tags to control outbound connectivity.
 
 >[!IMPORTANT]
 > Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
 
+>[!NOTE]
+>- IP address based filtering should not be performed to control outbound connectivity.
+>- Azure Site Recovery IP addresses should not be added in Azure Routing table to control outbound connectivity.
 
 ## Outbound connectivity for URLs
 
 If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
-
 
 **URL** | **Details**
 --- | ---
@@ -52,16 +54,16 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 ## Outbound connectivity using Service Tags
 
-If you are using an NSG to control outbound connectivity, these service tags need to be allowed.
+While using NSG to control outbound connectivity, these service tags need to be allowed.
 
 - For the storage accounts in source region:
-    - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
+    - Create a [Storage service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
-- Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
-- Create an EventsHub service tag based NSG rule for the target region, allowing access to Site Recovery monitoring.
-- Create an AzureSiteRecovery service tag based NSG rule for allowing access to Site Recovery service in any region.
-- Create an AzureKeyVault service tag based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
-- Create a GuestAndHybridManagement service tag based NSG rule. This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal.
+- Create a [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+- Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
+- Create an AzureSiteRecovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
+- Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
+- Create a GuestAndHybridManagement service tag-based NSG rule. This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 ## Example NSG configuration
@@ -75,13 +77,13 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Screenshot shows Add outbound security rule for a network security group for Storage dot East U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Screenshot shows Add outbound security rule for a network security group for Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
+3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that corresponds to the target location. This allows access to Site Recovery monitoring.
 
 4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
@@ -93,7 +95,7 @@ These rules are required so that replication can be enabled from the target regi
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG.
 
-3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.EastUS" on the NSG that correspond to the source location. This allows access to Site Recovery monitoring.
+3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.EastUS" on the NSG that corresponds to the source location. This allows access to Site Recovery monitoring.
 
 4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
@@ -119,6 +121,6 @@ You can create a network service endpoint in your virtual network for "Storage" 
 You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
 
 ## Next steps
-- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
+- Start protecting your workloads by [replicating Azure virtual machines](./azure-to-azure-quickstart.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
 - Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

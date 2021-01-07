@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Samples - Networking
-description: Azure PowerShell Samples
+description: Learn about Azure PowerShell samples for networking, including a sample for creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -21,7 +21,7 @@ ms.author: gwallace
 
 The following table includes links to scripts built using Azure PowerShell.
 
-| | |
+| Script | Description |
 |-|-|
 |**Connectivity between Azure resources**||
 | [Create a virtual network for multi-tier applications](./scripts/virtual-network-powershell-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP, while traffic to the back-end subnet is limited to SQL, port 1433. |

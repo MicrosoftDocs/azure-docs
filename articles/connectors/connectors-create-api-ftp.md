@@ -166,7 +166,7 @@ To check that your workflow returns the content that you expect, add another act
 
 ## Connector reference
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/ftpconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/ftpconnector/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
@@ -175,3 +175,4 @@ For more technical details about this connector, such as triggers, actions, and 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

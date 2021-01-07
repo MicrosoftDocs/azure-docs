@@ -6,7 +6,7 @@ services: storage
 author: santoshc
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram

@@ -1,14 +1,8 @@
 ---
 title: Azure Container Registry as Event Grid source
 description: Describes the properties that are provided for Container Registry events with Azure Event Grid
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure Container Registry as an Event Grid source

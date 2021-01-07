@@ -3,6 +3,7 @@ title: Reliable Actors timers and reminders
 description: Introduction to timers and reminders for Service Fabric Reliable Actors, including guidance on when to use each.
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-csharp
 ---
 # Actor timers and reminders
 Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
@@ -124,7 +125,7 @@ Reminders are a mechanism to trigger persistent callbacks on an actor at specifi
 > [!NOTE]
 > The reliability of reminders is tied to the state reliability guarantees provided by the actor state provider. This means that for actors whose state persistence is set to *None*, the reminders will not fire after a failover.
 
-To register a reminder, an actor calls the [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) method provided on the base class, as shown in the following example:
+To register a reminder, an actor calls the [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) method provided on the base class, as shown in the following example:
 
 ```csharp
 protected override async Task OnActivateAsync()

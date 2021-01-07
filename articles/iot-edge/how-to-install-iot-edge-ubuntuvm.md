@@ -8,8 +8,9 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.author: pdecarlo
+ms.date: 06/29/2020
+ms.author: pdecarlo 
+ms.custom: devx-track-azurecli
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
 
@@ -44,7 +45,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     **Admin Username**: A username, which will be provided root privileges on deployment.
 
-    **Device Connection String**: A [Device Connection string](how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
+    **Device Connection String**: A [Device Connection string](./how-to-manual-provision-symmetric-key.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
 
     **VM Size**: The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
 
@@ -107,13 +108,12 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
     To use an **authenticationType** of `password`, see the example below:
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
@@ -125,16 +125,14 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
     --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
 1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.

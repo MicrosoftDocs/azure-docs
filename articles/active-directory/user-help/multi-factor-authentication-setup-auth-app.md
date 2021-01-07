@@ -29,7 +29,7 @@ You can set up an authenticator app to send a notification to your mobile device
 
 2. Select **Receive notifications for verification** from the **How do you want to use the mobile app** area, and then select **Set up**.
 
-    ![Additional security verification page, with mobile app and notifications option](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Screenshot that shows the "Additional security verification" page, with "Mobile app" and "Receive notifications for verification" selected.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     The **Configure mobile app** page appears.
 
@@ -44,7 +44,7 @@ You can set up an authenticator app to send a notification to your mobile device
 
 5. Return to your computer and the **Additional security verification** page, make sure you get the message that says your configuration was successful, and then select **Next**.
 
-    ![Additional security verification page, with success message](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Screenshot that shows the "Additional security verification" page, with the "Mobile app has been configured..." success message highlighted.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     The authenticator app will send a notification to your mobile device as a test.
 

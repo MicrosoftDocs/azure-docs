@@ -1,20 +1,30 @@
 ---
 
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: This article helps you configure ExpressRoute Direct by using the Azure CLI
+description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
-ms.author: cherylmc
+ms.date: 12/14/2020
+ms.author: duau 
+ms.custom: devx-track-azurecli
 
 ---
 
 # Configure ExpressRoute Direct by using the Azure CLI
 
-You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+
+* Scenarios you're looking to accomplish with **ExpressRoute Direct**
+* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
+* Timeline for implementation
+* Any other questions
 
 ## <a name="resources"></a>Create the resource
 
@@ -282,9 +292,10 @@ By default, you can create 10 circuits in the subscription that contains the Exp
 
 You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli

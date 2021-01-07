@@ -7,17 +7,14 @@ author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 
 # Migrate a JavaScript single-page app from implicit grant to auth code flow
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 Microsoft Authentication Library for JavaScript (MSAL.js) v2.0 brings support for the authorization code flow with PKCE and CORS to single-page applications on the Microsoft identity platform. Follow the steps in the sections below to migrate your MSAL.js 1.x application using the implicit grant to MSAL.js 2.0+ (hereafter *2.x*) and the auth code flow.
 
@@ -39,7 +36,7 @@ If you'd like to continue using your existing app registration for your applicat
 
 Follow these steps for app registrations that are currently configured with **Web** platform redirect URIs:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your **Azure Active Directory** tenant.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and select your **Azure Active Directory** tenant.
 1. In **App registrations**, select your application, and then **Authentication**.
 1. In the **Web** platform tile under **Redirect URIs**, select the warning banner indicating that you should migrate your URIs.
 
@@ -94,4 +91,4 @@ If you'd like to dive deeper into JavaScript single-page application development
 
 <!-- LINKS - external -->
 [msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_app_publicclientapplication_.publicclientapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html

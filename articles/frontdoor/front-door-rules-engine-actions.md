@@ -1,25 +1,25 @@
 ---
-title: Azure Front Door 
+title: Azure Front Door Rules Engine actions
 description: This article provides a list of the various actions you can do with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
+ms.date: 09/29/2020
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
 # Azure Front Door Rules Engine Actions
 
-In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and actions. This article provides detailed descriptions of the actions you can use in AFD Rules Engine.
+In [AFD Rules Engine](front-door-rules-engine.md), a rule consists of zero or more match conditions and actions. This article provides detailed descriptions of the actions you can use in AFD Rules Engine.
 
-An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions, only one of which may be a route configuration override action (forward or redirect).
+An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions. Only one of which may be a route configuration override action (forward or redirect).
 
 The following actions are available to use in Azure Front Door rules engine.  
 
@@ -31,9 +31,9 @@ Use this action to modify headers that are present in requests sent to your orig
 
 Action | HTTP header name | Value
 -------|------------------|------
-Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
-Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
-Delete | When this option is selected, the rule matches, and the header specified in the rule is present, the header is deleted from the request. | String
+Append | When this option gets selected and the rule matches, the header specified in **Header name** gets added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
+Overwrite | When this option is selected and the rule matches, the header specified in **Header name** gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
+Delete | When this option gets selected with matching rules and the header specified in the rule is present, the header gets deleted from the request. | String
 
 ## Modify response header
 
@@ -43,9 +43,9 @@ Use this action to modify headers that are present in responses returned to your
 
 Action | HTTP Header name | Value
 -------|------------------|------
-Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the response by using the specified **Value**. If the header is already present, **Value** is appended to the existing value. | String
+Append | When this option gets selected and the rule matches, the header specified in **Header name** gets added to the response by using the specified **Value**. If the header is already present, **Value** is appended to the existing value. | String
 Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the response by using the specified **Value**. If the header is already present, **Value** overwrites the existing value. | String
-Delete | When this option is selected, the rule matches, and the header specified in the rule is present, the header is deleted from the response. | String
+Delete | When this option gets selected and the rule matches the header specified in the rule is present, the header gets deleted from the response. | String
 
 ## Route configuration overrides 
 
@@ -71,10 +71,10 @@ Use this action to forward clients to a new URL. This action also contains sub a
 
 Field | Description 
 ------|------------
-Backend pool | Select the backend pool to override and serve the requests from. This will show all your preconfigured Backend pools currently in your Front Door profile. 
+Backend pool | Select the backend pool to override and serve the requests, this will also show all your pre-configured backend pools currently in your Front Door profile. 
 Forwarding protocol | Match Request, HTTP, HTTPS.
-URL rewrite | Use this action to rewrite the path of a request that's en route to your origin. If enabled, see below for additional fields required
-Caching | Enabled, Disabled. See below for additional fields required if enabled. 
+URL rewrite | Use this action to rewrite the path of a request that's en route to your origin. If enabled, see following additional fields required
+Caching | Enabled, Disabled. See the following additional fields required if enabled. 
 
 #### URL rewrite
 
@@ -86,11 +86,11 @@ Custom forwarding path | Define the path to forward the requests to.
 
 #### Caching
 
-Use these settings to control how files are cached for requests that contain query strings and whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache for requests that the rules match conditions specify. To force caching as an action, set the caching field to "Enabled." When you do this, this following options appear: 
+Use these settings to control how files get cached for requests that contain query strings. Whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache. To force caching as an action, set the caching field to "Enabled." When you force caching, the following options appear: 
 
 Cache behavior |  Description              
 ---------------|----------------
-Ignore query strings | Once the asset is cached, all subsequent requests ignore the query strings until the cached asset expires.
+Ignore query strings | Once the asset is cached, all ensuing requests ignore the query strings until the cached asset expires.
 Cache every unique URL | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache.
 Ignore specified query strings | Request URL query strings listed in "Query parameters" setting are ignored for caching.
 Include specified query strings | Request URL query strings listed in "Query parameters" setting are used for caching.
@@ -98,11 +98,11 @@ Include specified query strings | Request URL query strings listed in "Query par
 Additional fields |  Description 
 ------------------|---------------
 Dynamic compression | Front Door can dynamically compress content on the edge, resulting in a smaller and faster response.
-Query parameters | A comma separated list of allowed (or disallowed) parameters to use as a basis for caching.
+Query parameters | A comma-separated list of allowed (or disallowed) parameters to use as a basis for caching.
 Cache duration | Cache expiration duration in Days, Hours, Minutes, Seconds. All values must be Int. 
 
 ## Next steps
 
-- Learn how to set up your first [Rules Engine configuration](front-door-tutorial-rules-engine.md). 
+- Learn how to configure your first [Rules Engine](front-door-tutorial-rules-engine.md). 
 - Learn more about [Rules Engine match conditions](front-door-rules-engine-match-conditions.md)
 - Learn more about [Azure Front Door Rules Engine](front-door-rules-engine.md)

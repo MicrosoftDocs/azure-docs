@@ -3,9 +3,10 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
-ms.topic: conceptual
+ms.date: 11/09/2020
+ms.topic: how-to
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: benshy
 ---
 
@@ -13,14 +14,17 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You download the app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
 
 The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
+> [!NOTE]
+> Power BI template apps don't support downloading the PBIX file.
+
 ## Prerequisites
 
-- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the app
-- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account
+- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
+- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
 
 ## Installation steps
 
@@ -38,7 +42,7 @@ To install the app:
 9. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
   ![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. The next dialog connects to Azure and gets data required for reserved instance recommendations. *Leave the default values as configured* and select **Sign in**.  
-  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![Screenshot shows the Connect to Azure Cost Management App dialog box with default values.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
   ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -79,7 +83,7 @@ The report also identifies Windows VMs where Hybrid Benefit is **enabled** but t
 
 You can apply a filter on _chargetype_ to view RI underutilization data.
 
-For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** - The report shows the savings accrued by reservations for subscription, resource group, and the resource level. It displays:
 
@@ -180,7 +184,7 @@ This error occurs if you change the authentication method for the AutoFitComboMe
 
 1. Connect to your data.
 1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
-  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![Screenshot shows the Connect to Azure Cost Management App dialog box with Anonymous and None values entered.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
 
 
@@ -195,8 +199,8 @@ The following information summarizes the data available through the app. There's
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Applicable meter rates for the provided billing profile or EA enrollment. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Charges associated to your reserved instances over the last 24 months. |
-| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7, 30, or 60 days. |
-| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7, 30, or 60 days. |
+| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7 days. |
+| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7 days. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Consumption details for your existing reserved instances over the last month. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) | Daily Azure reservation usage percentage. |
 | [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | A breakdown of consumed quantities and estimated charges for the given billing profile in the EA enrollment. |

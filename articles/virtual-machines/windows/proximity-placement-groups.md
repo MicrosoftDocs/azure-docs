@@ -19,7 +19,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Create a proximity placement group
-Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. 
+Create a proximity placement group using the [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -44,7 +44,7 @@ Get-AzProximityPlacementGroup
 
 ## Create a VM
 
-Create a VM in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) to create the VM.
+Create a VM in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -141,7 +141,7 @@ foreach ($vmId in $vmIDs){
 
 ## Scale sets
 
-You can also create a scale set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVmss](/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 
 To add or remove an existing scale set to a proximity placement group, you first need to stop the scale set. 

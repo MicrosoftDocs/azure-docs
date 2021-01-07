@@ -4,7 +4,7 @@ description: How to prepare an pre-existing Azure VM image for deployment with c
 author: danis
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
 
@@ -21,7 +21,7 @@ You need to SSH into your Linux VM and run the following commands in order to in
 ```bash
 sudo yum makecache fast
 sudo yum install -y gdisk cloud-utils-growpart
-sudo yum install - y cloud-init 
+sudo yum install -y cloud-init 
 ```
 
 Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the following modules:

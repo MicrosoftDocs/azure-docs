@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/24/2019
 ---
 # Use PowerShell to import a BACPAC file into a database in SQL Database
@@ -49,6 +49,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).

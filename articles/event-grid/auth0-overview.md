@@ -1,13 +1,8 @@
 ---
 title: Auth0 partner topics with Azure Event Grid
 description: Send events from Auth0 to Azure services with Azure Event Grid.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Auth0 partner topics
@@ -43,7 +38,7 @@ Combining security monitoring and incident response procedures is important when
 
 ## Next steps
 
-- [Partner topics overview](partner-topics-overview.md)
+- [Partner topics overview](partner-events-overview.md)
 - [How to use the Auth0 partner topic](auth0-how-to.md)
 - [Auth0 documentation](https://auth0.com/docs/azure-tutorial)
 - [Become an Event Grid partner](partner-onboarding-overview.md)

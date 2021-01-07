@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ---
@@ -83,7 +83,7 @@ You manage alerting methods, and create alert notifications from the **Actions**
 
 Finally, selecting __Manage Alert Settings__ from the __Actions__ menu allows you to set the number of times an alert must occur before a notification is sent. This setting can be used to prevent notifications for transient errors.
 
-For a tutorial of an alert notification using a free [SendGrid account](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
+For a tutorial of an alert notification using a free [SendGrid account](../sendgrid-dotnet-how-to-send-email.md), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
 
 ### Cluster
 
@@ -102,6 +102,7 @@ For more information on the nodes within the cluster, select **Hosts**. Then sel
 ### Services
 
 The **Services** sidebar on the dashboard provides quick insight into the status of the services running on the cluster. Various icons are used to indicate status or actions that should be taken. For example, a yellow recycle symbol is displayed if a service needs to be recycled.
+
 
 ![Apache Ambari services side bar](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -165,10 +166,10 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to stop and start all services.
 
-![Apache Ambari service actions list](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari service actions list." border="true":::
 
 > [!WARNING]  
-> While **Add Service** is listed in this menu, it should not be used to add services to the HDInsight cluster. New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 While the **Actions** button can restart all services, often you want to start, stop, or restart a specific service. Use the following steps to do actions on an individual service:
 

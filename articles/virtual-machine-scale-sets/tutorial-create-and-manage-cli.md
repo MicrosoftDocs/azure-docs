@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and manage an Azure virtual machine scale set
+title: 'Tutorial: Create & manage a virtual machine scale set – Azure CLI'
 description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI
@@ -21,11 +21,11 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## Create a resource group
@@ -117,7 +117,7 @@ exit
 
 
 ## Understand VM instance images
-When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. The Azure marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
+When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. Azure Marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
 ```azurecli-interactive
 az vm image list --output table
@@ -185,12 +185,12 @@ The following table categorizes common VM sizes into use cases.
 
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](../virtual-machines/linux/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| [High performance](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| [General purpose](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](../virtual-machines/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../virtual-machines/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](../virtual-machines/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 ### Find available VM instance sizes
 To see a list of VM instance sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm) command.

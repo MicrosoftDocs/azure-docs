@@ -4,14 +4,15 @@ description: Learn how to scale an Azure SignalR Service instance to add or redu
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: zhshang
+ms.date: 9/9/2020
+ms.author: zhshang 
+ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?
 This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling, scale up and scale out.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
-* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units.
+* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units. There are limited unit options to select for the scaling: 1, 2, 5, 10, 20, 50 and 100 units for a single SignalR Service instance.
 
 The scale settings take a few minutes to apply. In rare cases, it may take around 30 minutes to apply. They don't require you to change your code or redeploy your server application.
 

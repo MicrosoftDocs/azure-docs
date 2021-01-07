@@ -154,13 +154,13 @@ You can create a new security key PIN for your security key.
 
 ## Additional security info methods
 
-In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](security-info-add-update-methods-overview.md) for more information. 
+In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](./security-info-setup-auth-app.md) for more information. 
 
 ## Next steps
 
 - For more information about passwordless verification methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
 
-- For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- For more detailed info about [Microsoft-compliant security keys](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 

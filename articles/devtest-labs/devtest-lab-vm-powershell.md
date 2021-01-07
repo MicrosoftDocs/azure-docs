@@ -1,21 +1,10 @@
 ---
 title: Create a virtual machine in DevTest Labs with Azure PowerShell
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure PowerShell.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Create a virtual machine with DevTest Labs using Azure PowerShell
 This article shows you how to create a virtual machine in Azure DevTest Labs by using Azure PowerShell. You can use PowerShell scripts to automate creation of virtual machines in a lab in Azure DevTest Labs. 
 

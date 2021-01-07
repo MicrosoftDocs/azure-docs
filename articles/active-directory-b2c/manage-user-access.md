@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/24/2018
+ms.topic: how-to
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -42,7 +42,7 @@ Depending on application regulation, parental consent might need to be granted b
 
 The following is an example of a user flow for gathering parental consent:
 
-1. A [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
+1. A [Microsoft Graph API](/graph/use-the-api) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
 2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
@@ -52,7 +52,7 @@ The following is an example of a user flow for gathering parental consent:
 
 5. When either the minor or the adult revokes consent, the Microsoft Graph API can be used to change **consentProvidedForMinor** to **denied**. Alternatively, the application may choose to delete a minor whose consent has been revoked. It is optionally possible to customize the user flow so that the authenticated minor (or parent that is using the minor's account) can revoke consent. Azure AD B2C records **consentProvidedForMinor** as **denied**.
 
-For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](user-flow-custom-attributes.md). When you address extended attributes by using the Microsoft Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](/graph/api/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](user-flow-custom-attributes.md). When you address extended attributes by using the Microsoft Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## Gather date of birth and country/region data
 
@@ -110,7 +110,7 @@ The following image shows the recommended user flow:
 
 ![Flow chart diagram showing the recommended acceptance user flow](./media/manage-user-access/user-flow.png)
 
-The following is an example of a DateTime based terms of use consent in a claim:
+The following is an example of a date-based terms of use consent in a claim. If the `extension_termsOfUseConsentDateTime` claim is older than `2025-01-15T00:00:00`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen. 
 
 ```xml
 <ClaimsTransformations>
@@ -124,7 +124,7 @@ The following is an example of a DateTime based terms of use consent in a claim:
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -133,7 +133,7 @@ The following is an example of a DateTime based terms of use consent in a claim:
 </ClaimsTransformations>
 ```
 
-The following is an example of a Version based terms of use consent in a claim:
+The following is an example of a version-based terms of use consent in a claim. If the `extension_termsOfUseConsentVersion` claim is not equal to `V1`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen.
 
 ```xml
 <ClaimsTransformations>

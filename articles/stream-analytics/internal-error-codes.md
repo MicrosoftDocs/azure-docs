@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot with Azure Stream Analytics error codes
 description: Troubleshoot Azure Stream Analytics issues with internal error codes.
-ms.author: mamccrea
-author: mamccrea
-ms.topic: conceptual
+ms.author: sidram
+author: sidramadoss
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---

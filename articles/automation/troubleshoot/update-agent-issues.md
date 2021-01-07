@@ -105,7 +105,7 @@ The Crypto folder access check determines whether the local system account has a
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. Get the following script from the PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. Get the following script from the PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell).
 
 The output of this script looks like the following example:
 

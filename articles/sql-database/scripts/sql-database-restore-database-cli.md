@@ -4,7 +4,7 @@ description: Azure CLI example script to restore a database in Azure SQL Databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Restore database command. |
 

@@ -30,7 +30,7 @@ To follow this guide, you need to have an Azure API Management instance. If you 
 Before you can use Azure Application Insights, you first need to create an instance of the service.
 
 1. Open the **Azure portal** and navigate to **Application Insights**.  
-    ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+    ![Screenshot that shows how to navigate to Application Insights.](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. Click **+ Add**.  
     ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Fill the form. Select **General** as the **Application Type**.
@@ -41,14 +41,14 @@ Before you can use Azure Application Insights, you first need to create an insta
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
 2. Select **Application Insights** from the menu on the left.
 3. Click **+ Add**.  
-    ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+    ![Screenshot that shows where to add a new connection.](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Select the previously created **Application Insights** instance and provide a short description.
 5. Click **Create**.
 6. You have just created an Azure Application Insights logger with an instrumentation key. It should now appear in the list.  
-    ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![Screenshot that shows where to view the newly created Azure Application Insights logger with instrumentation key.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Behind the scene, a [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+> Behind the scene, a [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
 
 ## Enable Application Insights logging for your API
 
@@ -67,7 +67,7 @@ Before you can use Azure Application Insights, you first need to create an insta
 > Overriding the default value **0** in the **First bytes of body** field may significantly decrease the performance of your APIs.
 
 > [!NOTE]
-> Behind the scene, a [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
+> Behind the scene, a [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,5 +123,5 @@ Skipping logging of headers and body of requests and responses will also have po
 
 ## Next steps
 
-+ Learn more about [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
++ Learn more about [Azure Application Insights](/azure/application-insights/).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).

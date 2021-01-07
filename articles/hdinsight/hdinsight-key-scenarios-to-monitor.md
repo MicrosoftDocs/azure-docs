@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ---
@@ -69,7 +69,7 @@ In the Resource Manager UI, select **Scheduler** from the left-hand menu. You se
 
 A cluster's performance bottleneck can happen at the storage level. This type of bottleneck is most often because of *blocking* input/output (IO) operations, which happen when your running tasks send more IO than the storage service can handle. This blocking creates a queue of IO requests waiting to be processed until after current IOs are processed. The blocks are because of *storage throttling*, which isn't a physical limit, but rather a limit imposed by the storage service by a service level agreement (SLA). This limit ensures that no single client or tenant can monopolize the service. The SLA limits the number of IOs per second (IOPS) for Azure Storage - for details, see [Scalability and performance targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md).
 
-If you're using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+If you're using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttling is most likely because of bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
 
@@ -121,6 +121,6 @@ For more information regarding disk space issues, see [Out of disk space](./hado
 
 Visit the following links for more information about troubleshooting and monitoring your clusters:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
+* [Analyze HDInsight logs](./hdinsight-troubleshoot-guide.md)
 * [Debug apps with Apache Hadoop YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
