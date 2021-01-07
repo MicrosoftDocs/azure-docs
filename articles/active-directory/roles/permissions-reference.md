@@ -1429,6 +1429,14 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Manage app roles and request delegated permissions for applications. |
+| microsoft.directory/applications/audience/update | Update audience on all types of applications. |
+| microsoft.directory/applications/authentication/update | Update authentication on all types of applications. |
+| microsoft.directory/applications/basic/update | Update basic properties on all types of applications. |
+| microsoft.directory/applications/credentials/update | Update credentials on all types of applications. |
+| microsoft.directory/applications/owners/update | Update owners on all types of applications. |
+| microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
@@ -1462,6 +1470,14 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Manage app roles and request delegated permissions for applications. |
+| microsoft.directory/applications/audience/update | Update audience on all types of applications. |
+| microsoft.directory/applications/authentication/update | Update authentication on all types of applications. |
+| microsoft.directory/applications/basic/update | Update basic properties on all types of applications. |
+| microsoft.directory/applications/credentials/update | Update credentials on all types of applications. |
+| microsoft.directory/applications/owners/update | Update owners on all types of applications. |
+| microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |

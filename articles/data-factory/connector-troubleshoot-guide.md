@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -455,34 +455,15 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: Azure Synapse Analytics hit issue querying the external table in Azure Storage.
 
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your Azure Synapse Analytics server and database name to further troubleshoot.
-            
-
-### Low performance when load data into Azure SQL
-
-- **Symptoms**: Copying data in to Azure SQL turns to be slow.
-
-- **Cause**: The root cause of the issue is mostly triggered by the bottleneck of Azure SQL side. Following are some possible causes:
-
-    - Azure DB tier is not high enough.
-
-    - Azure DB DTU usage is close to 100%. You can [monitor the performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the DB tier.
-
-    - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
-
-    - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
-
-    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
-
-- **Resolution**: Refer to the TSG for [copy activity performance](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### Performance tier is low and leads to copy failure
 
-- **Symptoms**: Below error message occurred when copying data into Azure SQL: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **Symptoms**: Below error message occurred when copying data into Azure SQL Database: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **Cause**: Azure SQL s1 is being used, which hit IO limits in such case.
+- **Cause**: Azure SQL Database s1 is being used, which hit IO limits in such case.
 
-- **Resolution**: Upgrade the Azure SQL performance tier to fix the issue. 
+- **Resolution**: Upgrade the Azure SQL Database performance tier to fix the issue. 
 
 
 ### SQL Table cannot be found 
@@ -616,31 +597,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: The dynamics server is instable or inaccessible or the network is experiencing issues.
 
 - **Recommendation**:  Check network connectivity or check dynamics server log for more details. Contact dynamics support for further help.
-
-
-## Excel Format
-
-### Timeout or slow performance when parsing large Excel file
-
-- **Symptoms**:
-
-    - When you create Excel dataset and import schema from connection/store, preview data, list, or refresh worksheets, you may hit timeout error if the excel file is large in size.
-
-    - When you use copy activity to copy data from large Excel file (>= 100 MB) into other data store, you may experience slow performance or OOM issue.
-
-- **Cause**: 
-
-    - For operations like importing schema, previewing data, and listing worksheets on excel dataset, the timeout is 100 s and static. For large Excel file, these operations may not finish within the timeout value.
-
-    - ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
-
-- **Resolution**: 
-
-    - For importing schema, you can generate a smaller sample file, which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
-
-    - For listing worksheet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
-
-    - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
 
 ## FTP
