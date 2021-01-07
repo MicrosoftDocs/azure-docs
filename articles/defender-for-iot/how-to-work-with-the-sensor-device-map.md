@@ -221,7 +221,7 @@ The device type icon is shown with connected devices.
 
 The detailed view presents devices and device labels and indicators with the following information:
 
-:::image type="content" source="media/how-to-work-with-maps/media/how-to-work-with-maps/device-map-v2.png.png" alt-text="Detailed view":::
+:::image type="content" source="media/how-to-work-with-maps/media/how-to-work-with-maps/device-map-v2.png" alt-text="Detailed view":::
 
 ### Control the zoom view
 
