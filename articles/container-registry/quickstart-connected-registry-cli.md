@@ -40,6 +40,19 @@ az acr create --resource-group myResourceGroup \
 
 This example creates a *Premium* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
+## Import images into the container registry
+
+This and subsequent quickstart guides use two repositories:
+- `acr/connected-registry` is the repository that contains the images used to deploy the connected registry on your premises. This repository will also be synchronized to the connected registry in case you want to implement nested registries scenario.
+- `hello-world` is the repository that will be synchronized to the connected registry and pulled by the connected registry clients.
+
+The easiest way to populate those repositories is to use the `az acr import` command as follows:
+
+```azurecli
+az acr import -n mycontainerregistry001 --source mcr.microsoft.com/acr/connected-registry:0.1.0
+az acr import -n mycontainerregistry001 --source mcr.microsoft.com/hello-world:latest
+```
+
 ## Create a connected registry resource for pull/push functionality
 
 Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. Name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure Container Registry.
