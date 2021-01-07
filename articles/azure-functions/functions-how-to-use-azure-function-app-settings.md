@@ -78,6 +78,20 @@ The following values indicate the plan type:
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [Dedicated (App Service)](dedicated-plan.md) | Various | Various |
 
+## Plan Migration
+
+Migration between Windows Consumption and Premium plans is supported and can be done through the CLI. 
+
+First, create a new function app plan in the same region and resource group as your existing function app.
+
+Then, run the below CLI command where MyNewPlan is the new 'App Service Plan' id (Ex: ASP-MyNewPlan-bf74 (EP: 1)):
+
+```azurecli-interactive
+az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
+```
+
+If you no longer need your previous function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
+
 # [Portal](#tab/portal)
 
 To determine the type of plan used by your function app, see **App Service plan** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). To see the pricing tier, select the name of the **App Service Plan**, and then select **Properties** from the left pane.
