@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these
     1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Azure AD single sign-on for that user.
 1. **[Configure FortiGate SSL VPN SSO](#configure-fortigate-ssl-vpn-sso)** on the application side.
     1. **Create a FortiGate SSL VPN test user** as a counterpart to the Azure AD representation of the user.
-1. **[Test SSO](#test-single-sign-on)** to verify that the configuration works.
+1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ### Configure Azure AD SSO
 
