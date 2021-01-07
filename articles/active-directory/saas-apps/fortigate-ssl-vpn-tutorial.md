@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these
     1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Azure AD single sign-on for that user.
 1. **[Configure FortiGate SSL VPN SSO](#configure-fortigate-ssl-vpn-sso)** on the application side.
     1. **Create a FortiGate SSL VPN test user** as a counterpart to the Azure AD representation of the user.
-1. **[Test SSO](#test-sso)** to verify that the configuration works.
+1. **[Test SSO](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -98,17 +98,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
    | group | user.groups |
    
    To create these additional claims:
+
+   a. Next to **User Attributes & Claims**, select **Edit**.
+
+   b. Select **Add new claim**.
+
+   c. For **Name**, enter **username**.
+
+   d. For **Source attribute**, select **user.userprincipalname**.
+
+   e. Select **Save**.
+
+   f. Select **Add a group claim**.
+
+   g. Select **All groups**.
+
+   h. Select the **Customize the name of the group claim** check box.
+
+   i. For **Name**, enter **group**.
    
-   1. Next to **User Attributes & Claims**, select **Edit**.
-   1. Select **Add new claim**.
-   1. For **Name**, enter **username**.
-   1. For **Source attribute**, select **user.userprincipalname**.
-   1. Select **Save**.
-   1. Select **Add a group claim**.
-   1. Select **All groups**.
-   1. Seect the **Customize the name of the group claim** check box.
-   1. For **Name**, enter **group**.
-   1. Select **Save**.   
+   j. Select **Save**.   
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  select the **Download** link next to **Certificate (Base64)** to download the certificate and save it on your computer:
 
