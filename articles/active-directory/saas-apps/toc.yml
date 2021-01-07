@@ -567,6 +567,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: EPHOTO DAM
+        href: ephoto-dam-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
       - name: Elqano SSO
