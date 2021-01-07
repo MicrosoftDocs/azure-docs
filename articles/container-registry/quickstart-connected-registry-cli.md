@@ -100,25 +100,9 @@ myconnectedregistry  registry
 myconnectedmirror    mirror
 ```
 
-## Troubleshooting
+## Enable the data endpoint for the cloud registry
 
-This section helps you troubleshoot problems you might encounter when creating connected registry resource.
-
-### Symptoms
-
-May include one or more of the following:
-
-- Unable to create connected registry resource and you receive error `The registry must have data endpoint enabled.`
-
-### Causes
-
-- The data end point for the Azure Container Registry in the cloud does not have the data endpoint enabled.
-
-### Potential solutions
-
-#### Enable the data endpoint for the cloud registry
-
-The data endpoint for the Azure Container Registry in the cloud should be  enabled by [az acr connected registry create][az-acr-connected-registry-create] command. If this doesn't happen, you can manually enable it by issuing the following command:
+For the connected registries to communicate with the cloud registry, the data endpoint for the Azure Container Registry in the cloud should be enabled by using the [az acr update][az-acr-update] command as follows:
 
 ```azurecli
 az acr update -n mycontainerregistry001 \
@@ -130,7 +114,7 @@ az acr update -n mycontainerregistry001 \
 In this quickstart, you used Azure CLI to create a connected registry resources in Azure. Those new connected registry resources are tied to your Azure Container Registry and allow synchronization of artifact between the cloud registry and the on-premises registry. Continue to the connected registry deployment guides to learn how to deploy the connected registry on your on-premises infrastructure.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy connected registry on IoT Edge][quickstart-deploy-connected-registry-iot-edge]
+> [Quickstart: Deploy connected registry on IoT Edge][quickstart-deploy-connected-registry-iot-edge-cli]
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy connected registry on Azure Arc][quickstart-deploy-connected-registry-azure-arc]
@@ -139,6 +123,7 @@ In this quickstart, you used Azure CLI to create a connected registry resources 
 [az-acr-connected-registry-create]: /cli/azure/acr#az-acr-connected-registry-create
 [az-acr-connected-registry-list]: /cli/azure/acr#az-acr-connected-registry-list
 [az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [az-group-create]: /cli/azure/group#az-group-create
 [container-registry-intro]: container-registry-intro.md
 [container-registry-skus]: container-registry-skus.md
