@@ -266,7 +266,7 @@ After the second domain controller is available, complete the following configur
 * **Update DNS server settings** To let other resources on the Resource Manager virtual network resolve and use the managed domain, update the DNS settings with the IP addresses of the new domain controllers. The Azure portal can automatically configure these settings for you.
 
     To learn more about how to configure the Resource Manager virtual network, see [Update DNS settings for the Azure virtual network][update-dns].
-* **Restart domain-joined VMs** As the DNS server IP addresses for the Azure AD DS domain controllers change, optionally restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal. Rebooting domain-joined VMs prevents connectivity issues caused by IP addresses that don’t refresh.
+* **Restart domain-joined VMs (optional)** As the DNS server IP addresses for the Azure AD DS domain controllers change, you can restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal. Rebooting domain-joined VMs prevents connectivity issues caused by IP addresses that don’t refresh.
 
 Now test the virtual network connection and name resolution. On a VM that's connected to the Resource Manager virtual network, or peered to it, try the following network communication tests:
 
