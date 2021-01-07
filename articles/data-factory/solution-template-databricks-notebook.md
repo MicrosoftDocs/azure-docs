@@ -1,6 +1,6 @@
 ---
 title: Transformation with Azure Databricks
-description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
+description:  Learn how to use a solution template to transform data by using a Databricks Notebook in Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -21,9 +21,9 @@ In this tutorial, you create an end-to-end pipeline that contains the **Validati
 
 - **Validation** ensures that your source dataset is ready for downstream consumption before you trigger the copy and analytics job.
 
-- **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
+- **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks Notebook. In this way, the dataset can be directly consumed by Spark.
 
-- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics.
+- **Notebook** triggers the Databricks Notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics.
 
 For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
 
@@ -145,7 +145,7 @@ In the new pipeline, most settings are configured automatically with default val
 
        ![Notebook path](media/solution-template-Databricks-notebook/notebook-settings.png)
 
-    1. Expand the **Base Parameters** selector and verify that the parameters match what is shown in the following screenshot. These parameters are passed to the Databricks notebook from Data Factory.
+    1. Expand the **Base Parameters** selector and verify that the parameters match what is shown in the following screenshot. These parameters are passed to the Databricks Notebook from Data Factory.
 
        ![Base parameters](media/solution-template-Databricks-notebook/base-parameters.png)
 
