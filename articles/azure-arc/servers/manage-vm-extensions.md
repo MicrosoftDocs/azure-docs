@@ -64,8 +64,6 @@ To learn about the Azure Connected Machine agent package and details about the E
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/platform/azure-monitor-agent-install.md) |
 
-
-
 ## Prerequisites
 
 This feature depends on the following Azure resource providers in your subscription:
