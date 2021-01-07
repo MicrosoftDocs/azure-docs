@@ -63,7 +63,7 @@ az acr connected-registry create --registry mycontainerregistry001 \
   --repository "hello-world" "acr/connected-registry"
 ```
 
-The above command will create a connected registry resource in Azure and link it to the *mycontainerregistry001* cloud ACR. The *hello-world* and *acr/connected-registry* repositories will be synchronized between the cloud ACR and the registry on premises. Because no `--mode` option is specified for the connected registry, it will allow _pull_ and _push_ functionality by default.
+The above command will create a connected registry resource in Azure and link it to the *mycontainerregistry001* cloud ACR. The *hello-world* and *acr/connected-registry* repositories will be synchronized between the cloud ACR and the registry on premises. Because no `--mode` option is specified for the connected registry, it will allow _pull_ and _push_ functionality by default. Because there is no synchronization schedule defined for this connected registry, both repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
   > [!IMPORTANT]
   > To support nested scenarios where lower layers have no Internet access, you must always allow synchronization of the `acr/connected-registry` repository. This repository contains the image for the connected registry runtime.
@@ -79,7 +79,7 @@ az acr connected-registry create --registry mycontainerregistry001 \
   --mode mirror
 ```
 
-The above command will create a connected registry resource in Azure and link it to the *mycontainerregistry001* cloud ACR. The *hello-world* repository will be synchronized between the cloud ACR and the registry on premises. This resource will be enabled for _pull_-only functionality once deployed.
+The above command will create a connected registry resource in Azure and link it to the *mycontainerregistry001* cloud ACR. The *hello-world* repository will be synchronized between the cloud ACR and the registry on premises. This resource will be enabled for _pull_-only functionality once deployed. Because there is no synchronization schedule defined for this connected registry, both repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
 
