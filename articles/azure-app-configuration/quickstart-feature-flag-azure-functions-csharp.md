@@ -125,7 +125,7 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
     }
     ```
 
-6. Update the `Run` method to change value of the displayed message depending on the state of the feature flag.
+6. Update the `Run` method to change the value of the displayed message depending on the state of the feature flag.
 
    The `TryRefreshAsync` method is called at the beginning of the Functions call to refresh feature flags. It will be a no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the feature flags to be refreshed without blocking the current Functions call. In that case, later Functions calls will get updated value.
 
@@ -177,13 +177,16 @@ This project will use [dependency injection in .NET Azure Functions](/azure/azur
 
     ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created.
 
 1. Select **Feature manager**, and change the state of the **Beta** key to **On**.
 
 1. Refresh the browser a few times. When the cached feature flag expires after 30 seconds, the page should have changed to indicate the feature flag `Beta` is turned on, as shown in the image below.
  
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
+
+> [!NOTE]
+> The example code used in this tutorial can be downloaded from the [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## Clean up resources
 
