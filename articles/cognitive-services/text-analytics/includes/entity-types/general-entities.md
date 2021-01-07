@@ -15,7 +15,125 @@ ms.author: aahi
 
 The NER feature for Text Analytics returns the following general (non identifying) entity categories. for example when sending requests to the `/entities/recognition/general` endpoint.
 
-| Category   | Description                          |
+## Person
+
+This category contains the following entities:
+
+:::row:::
+   :::column span="":::
+      **Category or subcategory**
+
+      Person
+   :::column-end:::
+   :::column span="2":::
+      **Details**
+
+      Names of people.
+      
+   :::column-end:::
+:::column span="1":::
+      **Languages**
+
+      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`    
+      
+   :::column-end:::
+
+:::row-end:::
+:::row:::
+   :::column span="":::
+      PersonType
+   :::column-end:::
+   :::column span="2":::
+
+      Job types or roles held by a person. Subcategory of the **Person** entity.    
+   :::column-end:::
+
+    :::column span="1":::
+
+      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`       
+      
+   :::column-end:::
+:::row-end:::
+### Supported relations
+
+TBD 
+
+## Organization
+
+This category contains the following entities:
+
+::row:::
+   :::column span="":::
+      **Category or subcategory**
+
+      Organization
+   :::column-end:::
+   :::column span="2":::
+      **Details**
+
+      Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.      
+   :::column-end:::
+   :::column span="1":::
+      **Languages**
+
+       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+          
+    :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Medical
+   :::column-end:::
+   :::column span="2":::
+
+      Medical companies and groups. Subcategory of **Organization**.  
+   :::column-end:::
+    :::column span="1":::
+      **Languages**
+
+       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+          
+    :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Stock exchange
+   :::column-end:::
+   :::column span="2":::
+
+      Stock exchange groups. Subcategory of **Organization**.  
+   :::column-end:::
+    :::column span="1":::
+      **Languages**
+
+       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+          
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+      Sports
+   :::column-end:::
+   :::column span="2":::
+
+      Sports-related organizations. Subcategory of **Organization**.  
+      Available in the following languages: `en-us`
+   :::column-end:::
+    :::column span="1":::
+      **Languages**
+
+       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+          
+    :::column-end:::
+:::row-end:::
+
+### Supported relations
+
+TBD
+
+
+<!--| Category   | Description                          |
 |------------|-------------|
 | Person     |  Names of people.  | 
 | PersonType | Job types or roles held by a person. | 
@@ -220,4 +338,4 @@ Numbers and numeric quantities. Also returned by NER v2.1
 
 ### Available languages
 
-Available in the following languages: `en-us`
+Available in the following languages: `en-us`-->
