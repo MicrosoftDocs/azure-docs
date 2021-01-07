@@ -56,8 +56,6 @@ Here's the code:
 
 Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
 
-Add this code to **client.js**:
-
 ```javascript
 const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
