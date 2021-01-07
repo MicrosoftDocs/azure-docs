@@ -53,9 +53,6 @@ For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and 
 | Voice call                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported |
 | Microsoft Authenticator notification | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
 
-> [!NOTE]
-> The Multi-Factor Authentication activity report data is stored in the United States for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in the United States. These data stores contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number. 
-
 For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
 
 | Event type                           | Data store type |
@@ -95,11 +92,11 @@ And for Azure Multi-Factor Authentication Server, the following Azure portal pag
 * Caching rules
 * Multi-Factor Authentication Server status
 
-## Service logs location
+## MFA logs location
 
 The following table shows the location for service logs for public clouds.
 
-| Public cloud| Sign-in logs | Activity report (Includes PII)         | MFA Service logs       |
+| Public cloud| Sign-in logs | Multi-Factor Activity report        | Multi-Factor Service logs       |
 |-------------|--------------|----------------------------------------|------------------------|
 | US          | US           | US                                     | US                     |
 | Europe      | Europe       | US                                     | Europe <sup>2</sup>    |
@@ -116,6 +113,10 @@ The following table shows the location for service logs for sovereign clouds.
 | Microsoft Azure Germany              | Germany                              | US                            | US               |
 | Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
 | Microsoft Government Cloud           | US                                   | US                            | US               |
+
+The Multi-Factor activity report data contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number.
+
+The Multi-Factor service logs are used to operate the service.
 
 ## Next steps
 
