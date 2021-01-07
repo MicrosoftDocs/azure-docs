@@ -59,7 +59,7 @@ Here are the paths for each property from the example item described above:
 
 When an item is written, Azure Cosmos DB effectively indexes each property's path and its corresponding value.
 
-## Types of indexes
+## <a id="index-types"></a>Types of indexes
 
 Azure Cosmos DB currently supports three types of indexes. You can configure these index types when defining the indexing policy.
 
