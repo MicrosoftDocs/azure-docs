@@ -24,7 +24,7 @@ Microsoft recommends using Azure Sentinel to analyze data from across security p
 
 Microsoft 365 Defender alerts, combined with raw logs from other data sources, provide security teams with insights into the full nature and scope of the Solorigate attack on the organization. 
 
-Investigating a Microsoft 365 Defender-sourced incident in Sentinel enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
+Using Sentinel to investigate incident sources from Microsoft 365 Defender enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
 
 **To use Azure Sentinel to hunt through Microsoft 365 Defender and Azure AD data**:
 
@@ -730,7 +730,7 @@ Run the following queries to find suspicious domain activity related to the Solo
 
 ### Find suspicious domain-specific activities
 
-After the [domain name server](connect-dns.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to find IOCs collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
+After the [domain name server](connect-dns.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to find indications of compromise (IOCs) collected from [MSTIC](https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/), [FireEye](https://github.com/fireeye/sunburst_countermeasures/blob/main/indicator_release/Indicator_Release_NBIs.csv), and [Volexity](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/), using multiple network-focused data sources.
 
 This query also collects data from the common security log and VM connections.
 
@@ -774,7 +774,7 @@ let timeframe = 6h;
 
 ### Find suspicious domain DGA activities
 
-The Solorigate attackers made several DGA-like subdomain queries as part of command and control activities.
+As part of command-and-control activities, the Solorigate attackers made several queries to Domain Generation Algorithm (DGA)-like subdomains.
 
 After the [domain name server connector](connect-dns.md) is running, run the following query to find similar patterns of activity from other domains. These patterns can help identify other potential command and control sources.
 
@@ -860,7 +860,7 @@ regex_bad_domains
 
 ## Find evidence of security service tampering
 
-After the [Windows security events ](connect-windows-security-events.md)and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to detect any tampering with Microsoft Defender for Endpoint services. 
+After the [Windows security events ](connect-windows-security-events.md) and the [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) connectors are running, run the following query to detect any tampering with Microsoft Defender for Endpoint services. 
 
 > [!TIP]
 > You can also adapt this query to identify tampering with other security services. 

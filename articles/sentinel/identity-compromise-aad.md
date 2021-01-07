@@ -28,7 +28,7 @@ Microsoft has published a specific Azure AD workbook in the Azure administration
 > [!NOTE]
 > The information in this workbook is also available in Azure AD audit and sign-in logs. The workbook helps to collect and visualize the information in a single view.
 >
->This workbook includes an overview of some of the common attack patterns in Azure AD, not only in Solorigate, and can generally be useful as an investigation aid to ensure that your environment is safe from malicious actors.
+> This workbook includes an overview of some of the common attack patterns in Azure AD, not only in Solorigate, and can generally be useful as an investigation aid to ensure that your environment is safe from malicious actors.
 >
 
 ## Access the Azure AD Solorigate workbook
@@ -45,7 +45,7 @@ For more information, see [How to integrate activity logs with Log Analytics](/a
 
 1. Scroll down the menu on the left, and under **Monitoring**, select **Workbooks**.
 
-1. The **Troubleshoot** area, select the **Sensitive Operations Report**. 
+1. Under **Troubleshoot**, select the **Sensitive Operations Report**. 
 
 1. Expand each of the following areas to learn more about the activity detected in your tenant:
 

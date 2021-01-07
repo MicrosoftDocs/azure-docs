@@ -205,7 +205,7 @@
       href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
-  - name: Respond to supply chain and / or systemic identity compromise
+  - name: Respond to supply chain and / or systemic-identity compromise
     items:
     - name: Overview
       href: solarwinds.md

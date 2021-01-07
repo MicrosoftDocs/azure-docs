@@ -180,7 +180,7 @@ silentDevices
 
 ### Use Microsoft 365 Defender services to find malicious activity in an on-premises environment
 
-Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (AD FS) server, which enables federated identity and access management and stores the Security Assertion Markup Language (SAML) token-signing certificate.
+Attackers can gain access to an organization's cloud services through the Activity Directory Federation Services (AD FS) server, which enables federated identity and access management and stores the SAML token-signing certificate.
 
 To attack the AD FS server, attackers must first obtain domain permissions through on-premises activity. Use Microsoft Defender for Endpoint queries to find evidence of masked exploration tools used by an attacker to gain access to an on-premises system. For example:
 

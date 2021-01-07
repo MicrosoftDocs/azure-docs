@@ -22,9 +22,9 @@ ms.author: bagol
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack, as well as the steps that you should take to make sure that your environment is clean and follows security best practices moving forward.
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate), as well as the steps that you should take to make sure that your environment is clean and follows security best practices moving forward.
 
-You can also use these resources described in this article to understand and mitigate risks from similar supply-chain attacks and systemic-identity compromises.
+You can also use the resources described in this article to understand and mitigate risks from similar supply-chain attacks and systemic-identity compromises.
 
 The SolarWinds attack provided the attackers with a foothold into affected networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
@@ -36,9 +36,9 @@ The global administrator account or certificates enabled the attackers to forge 
 
 1. **Removed the digital certificates used by the files infected with the trojan,** causing all Windows systems to immediately stop trusting those compromised files. 
 
-1. **Updated Microsoft 365 Defender** to detect and alert and immediately quarantine an infected file on the system.
+1. **Updated Microsoft 365 Defender products** to detect, alert, and immediately quarantine an infected file on the system.
 
-1. **Sinkholed one of the domains used** for the malware's command and control servers.
+1. **Sinkholed one of the domains used** for the malware's command-and-control servers.
 
 > [!IMPORTANT]
 > The SolarWinds attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
@@ -48,7 +48,7 @@ The global administrator account or certificates enabled the attackers to forge 
 > If you are not sure whether your organization has been infected, review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack: 
 >
 > [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
-## Securing your network after a systemic identity compromise
+## Securing your network after a systemic-identity compromise
 
 If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender services, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
 
