@@ -96,7 +96,7 @@ And for Azure Multi-Factor Authentication Server, the following Azure portal pag
 
 The following table shows the location for service logs for public clouds.
 
-| Public cloud| Sign-in logs | Multi-Factor Activity report        | Multi-Factor Service logs       |
+| Public cloud| Sign-in logs | Multi-Factor Authentication activity report        | Multi-Factor Authentication service logs       |
 |-------------|--------------|----------------------------------------|------------------------|
 | US          | US           | US                                     | US                     |
 | Europe      | Europe       | US                                     | Europe <sup>2</sup>    |
@@ -114,9 +114,9 @@ The following table shows the location for service logs for sovereign clouds.
 | Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
 | Microsoft Government Cloud           | US                                   | US                            | US               |
 
-The Multi-Factor activity report data contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number.
+The Multi-Factor Authentication activity report data contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number.
 
-The Multi-Factor service logs are used to operate the service.
+The Multi-Factor Authentication service logs are used to operate the service.
 
 ## Next steps
 
