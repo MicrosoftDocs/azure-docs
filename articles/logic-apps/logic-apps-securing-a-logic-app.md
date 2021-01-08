@@ -1084,7 +1084,7 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
 
 1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-1. In the trigger or action that supports using the managed identity, provide this information:
+1. In the trigger or action that supports using a managed identity, provide this information:
 
    **Built-in triggers and actions**
 
