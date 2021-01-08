@@ -77,9 +77,33 @@ For more information about the JSON endpoint response with sentiment analysis, s
 
 ## Spelling correction
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
-
 Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
+
+Our prediction V3 API now supports the latest version of Bing API. You can now hit your published application on LUIS V3 API and provide the key to your Bing resource in the  header of the request with the below fields. You can use an existing Bing SpellCheck resoucre if you already own one or you can create a new [Bing Search Resource](https://portal.azure.com/#create/Microsoft.BingSearch) to use the feature. 
+
+|Header Key|Header Value|
+|--|--|
+|mkt-bing-spell-check-key|Keys found in **Keys and Endpoint** blade of your resource|
+
+Prediction output example for a misspelled query:
+
+{
+  **"query": "bouk me a fliht to kayro"**,
+  "prediction": {
+    **"alteredQuery": "book me a flight to cairo"**,
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+
 
 ## Speech priming
 
