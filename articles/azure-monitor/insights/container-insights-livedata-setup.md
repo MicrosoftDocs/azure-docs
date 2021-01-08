@@ -2,7 +2,7 @@
 title: Set up Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
 ---
 
@@ -24,8 +24,6 @@ This article explains how to configure authentication to control access to the L
 - Kubernetes role-based access control (Kubernetes RBAC) enabled AKS cluster
 - Azure Active Directory integrated AKS cluster.
 
->[!NOTE]
->AKS clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) are not supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic.
 
 ## Authentication model
 
