@@ -29,15 +29,15 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 
 * HDInsight 3.6 by default does not support ACID tables. If ACID tables are present, however, run 'MAJOR' compaction on them. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
-* If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), we must alter table locations by replacing prefix like `adl://${HOME}` to `adl://${DFS_ADLS_HOME_HOSTNAME}${DFS_ADLS_HOME_MOUNTPOINT}`, where
+* If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), Hive table locations are likely dependent on the cluster's HDFS configurations. Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
 
-    - `adl://${HOME}` = value of `fs.defaultFS` in `HDFS core-site`
-    - `DFS_ADLS_HOME_HOSTNAME` = value of `dfs.adls.${HOME}.hostname` in `HDFS core-site`
-    - `DFS_ADLS_HOME_MOUNTPOINT` = value of `dfs.adls.${HOME}.mountpoint` in `HDFS core-site`
+    The action is similar to replacing symlinks with their full paths.
 
-    We can check the configuration values via [Ambari](../hdinsight-hadoop-manage-ambari.md#services).
-
-    See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL) for `show create table` and `alter table` commands.
+    |Property | Value |
+    |---|---|
+    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-alter-table-location-expand-adl-path-v01.sh`|
+    |Node type(s)|Head|
+    |Parameters||
 
 ### 2. Copy the SQL database
 
