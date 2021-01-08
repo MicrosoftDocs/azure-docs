@@ -34,8 +34,8 @@ Before you begin, complete the [Create an Azure IoT Central application](./quick
 
 To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Sensor Controller** device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
-    > [!NOTE]
-    > There is a limit of 50 rules per application.
+> [!NOTE]
+> There is a limit of 50 rules per application.
 
 1. In the left pane, select **Rules**.
 
