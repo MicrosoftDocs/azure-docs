@@ -127,14 +127,14 @@ The App Service Environment(ASE) can be used to host QnA Maker app service. Plea
 
 1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](https://docs.microsoft.com/en-us/azure/app-service/environment/create-external-ase) for instructions.
 2.  Create an App service inside the App Service Environment.
-    * Check the configuration for the app service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “`<`app-name`>`-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service url is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
-    * Create an azure search service.
+    * Check the configuration for the app service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “`<`app-name`>`-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
+    * Create an Azure search service.
     * Ensure Azure Search and App Settings are appropriately configured. 
-      Please follow the [tutorial](https://docs.microsoft.com/en-us/azure/cognitiveservices/qnamaker/reference-app-service#app-service).
+      Please follow this [tutorial](https://docs.microsoft.com/en-us/azure/cognitiveservices/qnamaker/reference-app-service#app-service).
 3.  Update the Network Security Group associated with the App Service Environment
     * Update pre-created Inbound Security Rules as per your requirements.
-    * Add Inbound Security Rule with source as 'Service Tag' and Source Service tag as 'CognitiveServicesManagement'.
-4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint, e.g., https:// mywebsite.myase.p.azurewebsite.net.
+    * Add a new Inbound Security Rule with source as 'Service Tag' and Source Service tag as 'CognitiveServicesManagement'.
+4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above.
 
 ### Network isolation for App Service
 
