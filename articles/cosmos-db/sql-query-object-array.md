@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: tisande
 
 ---
@@ -49,9 +49,27 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
+The results are:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a id="Iteration"></a>Iteration
 
-The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
+The SQL API provides support for iterating over JSON arrays, with the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
 
 ```sql
 SELECT *
@@ -151,6 +169,9 @@ The results are:
   }
 ]
 ```
+
+> [!NOTE]
+> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](sql-query-join.md).
 
 ## Next steps
 
