@@ -126,7 +126,7 @@ Supported customizations include:
 |**Block transformers**| Specifies block transformers to be used in the featurization process.|
 
 >[!NOTE]
-> The **drop columns** functionality is deprecated as of SDK version 1.19.Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
+> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
 
 Create the `FeaturizationConfig` object by using API calls:
 
