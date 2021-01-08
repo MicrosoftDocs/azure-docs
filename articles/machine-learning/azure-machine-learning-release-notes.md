@@ -33,8 +33,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
     + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
     + Edited Model.register method documentation to mention how to register model from run directly
-  + **azureml-pipeline-steps**
-    + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
   + **azureml-train-automl-client**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-train-automl-runtime**
