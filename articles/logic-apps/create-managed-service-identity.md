@@ -499,7 +499,7 @@ Here is the example HTTP action that shows all these property values:
 
 1. Continue building the logic app the way that you want.
 
-<a name="authenticate-built-in-managed-identity"></a>
+<a name="authenticate-managed-connector-managed-identity"></a>
 
 #### Example: Authenticate managed connector trigger or action with a managed identity
 
