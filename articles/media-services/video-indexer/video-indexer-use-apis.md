@@ -25,8 +25,10 @@ This article shows how the developers can take advantage of the [Video Indexer A
 ## Subscribe to the API
 
 1. Sign in to [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
+    Review a release note regarding [login information](release-notes.md#october-2020).
 	
-	![Sign in to Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Sign in to Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * You must use the same provider you used when you signed up for Video Indexer.
