@@ -51,13 +51,10 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 
     For example, `<WorkerRole name="WorkerRole1" vmsize="Medium"` would become `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
-
-    To check available sizes with Cloud Services (extended support) see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters:
-    
-    ```xml
-    ResourceType = virtualMachines 
-    VMDeploymentTypes = PaaS 
-    ```
+    > [!NOTE]
+    > To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters: <br>
+    `ResourceType = virtualMachines ` <br>
+    `VMDeploymentTypes = PaaS `
 
 2. If using previous remote desktop plugins, remove the modules from the Service Definition file and any previously associated certificates. 
 
