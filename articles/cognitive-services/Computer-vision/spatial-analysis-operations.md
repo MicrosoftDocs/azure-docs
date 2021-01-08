@@ -554,7 +554,6 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-                "durationframes": 1000,
 		"durationMs": 7132.0
             },
             "zone": "queuecamera"
@@ -602,7 +601,6 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side|
-| `durationframes` | int | The number of frames processed while the person spent time from the moment they entered the zone until they exit the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `durationMs` | int | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
