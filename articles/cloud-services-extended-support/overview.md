@@ -21,11 +21,11 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 - The Azure Resource Manager templates need to be maintained and kept consistent with the cscfg and csdef files for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
 - The concept of staging and production slots do not exist for Cloud Services (extended support).
-- Assigning a DNS label to the Cloud Service is optional and the DNS label is tied to the public IP resource associated with the Cloud Service.
-- VIP Swap continues to be supported for Cloud Services (extended support). VIP Swap can be used to swap between two Cloud Service (extended support) deployments.
-- Cloud Services (extended support) requires Key Vault to manage certificates. The cscfg file and templates require referencing the Key Vault to obtain the certificate information. 
-- Virtual networks are required to deploy Cloud Services (extended support).
-- The Network Configuration File (netcfg) does not exist in Azure Resource Manager . Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
+- Assigning a [DNS label](https://docs.microsoft.com/azure/dns/dns-zones-records) to the Cloud Service is optional and the DNS label is tied to the public IP resource associated with the Cloud Service.
+- [VIP Swap](cloud-services-swap.md) continues to be supported for Cloud Services (extended support). [VIP Swap](cloud-services-swap.md) can be used to swap between two Cloud Service (extended support) deployments.
+- Cloud Services (extended support) requires [Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to manage certificates. The cscfg file and templates require referencing the Key Vault to obtain the certificate information. 
+- [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are required to deploy Cloud Services (extended support).
+- The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
 
 
 ## Prerequisites for deployment
@@ -52,17 +52,14 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     For example, `<WorkerRole name="WorkerRole1" vmsize="Medium"` would become `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 
-    To check available sizes with Cloud Services (extended support) see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 
-
-
-    To see sizes available for Cloud Service (extended support) deployments apply the following filters:
+    To check available sizes with Cloud Services (extended support) see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters:
     
     ```xml
     ResourceType = virtualMachines 
     VMDeploymentTypes = PaaS 
     ```
 
-2. If using previous remote desktop plugins, remove the modules from the Service Definition file. 
+2. If using previous remote desktop plugins, remove the modules from the Service Definition file and any previously associated certificates. 
 
     ```xml
     <Imports> 
@@ -74,9 +71,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 
 ### Required Service Configuration updates
 
-1. All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-template)
-
-    #### Example
+1. All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/azure/virtual-network/quick-create-template).
     
     ```xml
     <NetworkConfiguration> 
@@ -93,11 +88,17 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
       </NetworkConfiguration> 
     ```
  
+2. If using previous remote desktop plugins, remove the modules from the Service Definition file and any previously associated certificates. 
 
-2. If using previous remote desktop plugins, remove the modules from the Service Definition file. 
+    ```xml
+    <Imports> 
+    <Import moduleName="RemoteAccess" /> 
+    <Import moduleName="RemoteForwarder" /> 
+    </Imports> 
+    ```
 
 
-3. Remove following settings from .cscfg 
+3. Remove the following settings from the cscfg file.
 
     ```xml
     <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" /> 
@@ -112,19 +113,6 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
     ```
-
-4. Remove certificates (used for remote desktop) definition and configuration also from .cscfg and .csdef. 
-
-
-No updates required for following: 
-
-- Certificates  
-
-- No changes are required for Service Configuration. Though certificates now need to be added to a keyvautl and specified in ARM Template / Powershell / REST API objects  
-
-- Role information 
-
-- No changes are required in Role/ Role Instance information sections of Service Configuration 
 
 ## Migration
 Cloud Services (extended support) provides a path for customers to migrate from Azure Service Manager to Azure Resource Manager. This migration path utilizes a redeploy feature where the Cloud Service is deployed with Azure Resource Manager and then deleted from Azure Service Manager. 
