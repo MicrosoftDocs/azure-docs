@@ -9,6 +9,10 @@ This architecture reference is a foundation leveraging a typical enterprise hub 
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
+By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that cannot be controlled. To temper this result, Azure Spring Cloud is built using components that are scalable by design to ensure that the system is properly sized at any point in time to meet demand. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes which includes efficiencies in the operational cost of the cluster.
+
+An additional aspect to address operational cost of the architecture is in the implementation of Application Insights and Azure Monitor by design. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real-time. In addition, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
+
 ### Operational Excellence
 ### Performance Efficiency
 ### Reliability
