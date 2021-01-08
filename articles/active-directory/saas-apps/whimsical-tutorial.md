@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. To configure single sign-on on the **Whimsical** side, you need to upload the **Federation Metadata XML** you just downloaded to your [workspace settings](https://whimsical.com/workspace/settings).
 
-![Whimsical Workspace SAML setup](media/whimsical-tutorial/saml-setup.png)
+	![Whimsical Workspace SAML setup](media/whimsical-tutorial/saml-setup.png)
 
 Uploading the **Federation Metadata XML** should be the only step you need to take in Whimsical to set up the SAML SSO connection.
 
