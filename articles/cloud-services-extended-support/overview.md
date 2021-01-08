@@ -9,7 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-
+ 
 # Azure Cloud Services (extended support) overview
 
 Cloud Services (extended support) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in  Azure Resource Manager. Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as Cloud Services (classic).
