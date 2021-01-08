@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy    
 ms.topic: include
-ms.date: 12/23/2020
+ms.date: 01/08/2021
 ms.author: alkohli
 ---
 
@@ -12,4 +12,4 @@ Here are the limits on the size of the data that's copied into a storage account
 | Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|
 | Block blob and page blob                                            | Maximum limit is the same as the [Storage limit defined for Azure Subscription](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) and it includes data from all the sources including Data Box. |
-| Azure Files                                                          | Data Box supports large file shares (100 TiB) if enabled before creation of the Data Box order. <br> If not enabled before order creation, maximum file share size supported is 5 TiB. <br> Data Box supports Azure Premium File Shares with a share size of 100 TiB. <br> All folders under *StorageAccount_AzureFiles* must follow this limit. <br> For more information, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md)      |
+| Azure Files                                                          | Data Box supports large file shares (100 TiB) if enabled before creation of the Data Box order. <br> If not enabled before order creation, maximum file share size supported is 5 TiB. <br> Data Box supports Azure Premium File Shares with a share size of 100 TiB. <br> Usable space is slight less because of the space used by Azure logs and audit files. All folders under *StorageAccount_AzureFiles* must follow this limit. <br> For more information, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md)      |
