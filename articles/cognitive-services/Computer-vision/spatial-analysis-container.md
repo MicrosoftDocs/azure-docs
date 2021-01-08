@@ -56,10 +56,8 @@ In this article, you will download and install the following software packages. 
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
 * [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) runtime.
 
----
-
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we will utilize an [NC series VM](https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) that has one K80 GPU.
+In our example, we will utilize an [NC series VM](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) that has one K80 GPU.
 
 ---
 
@@ -311,11 +309,9 @@ Deploy the spatial analysis container as an IoT Module on the host computer, eit
 
 Use the below steps to deploy the container using the Azure CLI.
 
----
-
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
+An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
 
 #### Create the VM
 
@@ -335,7 +331,7 @@ Then, select either "NC6" or NC6_Promo" if it is available for a discounted pric
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure Portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
-Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 
