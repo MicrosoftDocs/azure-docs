@@ -73,12 +73,16 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 
+Alternatively, you can use the following `dotnet add` commands in a command line tool:
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
+
+Then, add two more dependencies to your project that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
+    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Add the latest version.
+    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
+
 Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your function. 
 
 ```csharp
@@ -87,6 +91,7 @@ using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
+
 ## Add authentication code to the function
 
 You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your function in the {your function name}.cs file.
