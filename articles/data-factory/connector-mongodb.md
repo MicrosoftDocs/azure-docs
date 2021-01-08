@@ -23,21 +23,25 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 >[!IMPORTANT]
 >ADF release this new version of MongoDB connector which provides better native MongoDB support. If you are using the previous MongoDB connector in your solution which is supported as-is for backward compatibility, refer to [MongoDB connector (legacy)](connector-mongodb-legacy.md) article.
 
+
 ## Supported capabilities
 
 You can copy data from MongoDB database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this MongoDB connector supports **versions up to 4.2**.
 
+
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB connector.
+
 
 ## Linked service properties
 
@@ -96,6 +100,7 @@ For a full list of sections and properties that are available for defining datas
     }
 }
 ```
+
 
 ## Copy activity properties
 
@@ -156,13 +161,16 @@ The following properties are supported in the copy activity **source** section:
 ]
 ```
 
+
 ## Export JSON documents as-is
 
 You can use this MongoDB connector to export JSON documents as-is from a MongoDB collection to various file-based stores or to Azure Cosmos DB. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 
+
 ## Schema mapping
 
 To copy data from MongoDB to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
