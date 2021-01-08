@@ -41,11 +41,7 @@ Once the `tags` property is part of a digital twin's model, you can set the mark
 
 Here is an example that populates the marker `tags` for three twins:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### Query with marker tags
 
@@ -77,11 +73,7 @@ As with marker tags, you can set the value tag in a digital twin by setting the 
 
 Here is an example that populates the value `tags` for three twins:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Note that `red` and `purple` are used as marker tags in this example.
 
