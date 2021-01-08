@@ -86,7 +86,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
 
-We recommend that you install at least two agents on each side of the ExpressRoute connection for redundancy (for example, on-premises, Azure VNETs). The agent must be installed on a Windows Server (2008 SP1 or later). Monitoring ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. Use the following steps to install agents:
+We recommend that you install at least two agents on each side of the ExpressRoute connection for redundancy (for example, on-premises, Azure VNETs). The agent must be installed on a Windows Server (2008 SP1 or later). Monitoring ExpressRoute circuits using Windows Desktop OS is not supported. Use the following steps to install agents:
    
   >[!NOTE]
   >Agents pushed by SCOM (includes [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) may not be able to consistently detect their location if they are hosted in Azure. We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
