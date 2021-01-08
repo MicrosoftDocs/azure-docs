@@ -51,13 +51,13 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
     1. In your Azure Stack Edge resource, go to **IoT Edge > Shares**.
     2. From the command bar, select **+ Add share**.
 
-        ![Add share tile](./media/azure-stack-edge-deploy-compute-module-simple/add-share-1.png) 
+        ![Add share tile](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-share-1.png) 
 
     3. On the **Add share** blade, provide the share name and select the share type.
     4. To mount the Edge share, select the check box for **Use the share with Edge compute**.
     5. Select the **Storage account**, **Storage service**, an existing user, and then select **Create**.
 
-        ![Add an Edge share](./media/azure-stack-edge-deploy-compute-module-simple/add-edge-share-1.png) 
+        ![Add an Edge share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-1.png) 
 
     If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
 
@@ -72,12 +72,12 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 2. To add an Edge local share on the device, repeat all the steps in the preceding step and select the check box for **Configure as Edge local share**. The data in the local share stays on the device.
 
-    ![Add an Edge local share](./media/azure-stack-edge-deploy-compute-module-simple/add-edge-share-2.png)
+    ![Add an Edge local share](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-2.png)
 
   
 3. Go to **IoT Edge > Shares** to see the updated list of shares.
 
-    ![Updated list of shares](./media/azure-stack-edge-deploy-compute-module-simple/add-edge-share-3.png) 
+    ![Updated list of shares](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-edge-share-3.png) 
  
 
 ## Add a module
@@ -85,6 +85,8 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 You could add a custom or a pre-built module. The device does not come with pre-built or custom modules. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge Pro device](azure-stack-edge-j-series-create-iot-edge-module.md).
 
 In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+
+To add a module, do the following steps:
 
 1. Go to **IoT Edge > Modules**. From the command bar, select **+ Add module**. 
 2. In the **Configure and add module** blade, input the following values:
@@ -101,11 +103,11 @@ In this section, you add a custom module to the IoT Edge device that you created
     |Trigger name     | A unique name for your trigger.         |
     |Environment variables| Optional information that will help define the environment in which your module will run.   |
 
-    ![Add and configure module](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-1.png)
+    ![Add and configure module](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-1.png)
 
-3. Select **Add**. The module gets added. Go to the **Overview** page. The **Modules** tile updates to indicate that the module is deployed. 
+3. Select **Add**. The module gets added. The **IoT Edge > Overview** page updates to indicate that the module is deployed.
 
-    ![Module deployed](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-2.png)
+    ![Module deployed](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-2.png)
 
 ### Verify data transform and transfer
 
@@ -115,23 +117,23 @@ To verify that the module is running, do the following:
 
 1. Select the **Add module** tile. This takes you to the **Modules** blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be *running*.
 
-    ![View deployed module](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
+    ![View deployed module](./media/azure-stack-edge-gpu-deploy-compute-module-simple/add-module-3.png)
  
 1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-2.png) 
  
 1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-3.png) 
  
    The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-4.png)  
 
    The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer.
 
-    <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
+    <!--![Verify data transform](./media/azure-stack-edge-gpu-deploy-compute-module-simple/verify-data-5.png)-->
  
 You have completed the validation process.
 
