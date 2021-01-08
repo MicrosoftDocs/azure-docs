@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience.
 
