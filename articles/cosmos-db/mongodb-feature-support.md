@@ -33,6 +33,9 @@ Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB que
 
 Azure Cosmos DB's API for MongoDB supports the following database commands:
 
+> [!NOTE]
+> This article only lists the server commands supported by Azure Cosmos DB and it excludes any client-side wrapper functions such as `deleteMany()` or `updateMany()`.
+
 ### Query and write operation commands
 
 - delete
