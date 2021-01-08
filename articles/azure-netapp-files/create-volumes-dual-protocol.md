@@ -36,7 +36,6 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 * Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
 * Ensure that a certificate authority (CA)  is created for the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 * The LDAP over TLS feature must *not* be enabled if you are creating a dual-protocol volume with Azure Active Directory Domain Services (AADDS).
-* To create dual-protocol volumes with Azure Active Directory Domain Services (AADDS), see [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md). 
 * The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
