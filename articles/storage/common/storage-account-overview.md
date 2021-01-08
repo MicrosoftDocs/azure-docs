@@ -44,6 +44,8 @@ The following table describes the types of storage accounts, the services they s
 
 <sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
+### Storage account redundancy
+
 Redundancy options for a storage account include:
 
 - **Locally redundant storage (LRS)**: A simple, low-cost redundancy strategy. Data is copied synchronously three times within a single physical location in the primary region.
