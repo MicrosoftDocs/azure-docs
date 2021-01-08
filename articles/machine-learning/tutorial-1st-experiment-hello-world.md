@@ -138,13 +138,6 @@ Here's a description of how the control script works:
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
-The very first run will take 5-10 minutes to complete. This is because the following occurs:
-
-* A docker image is built in the cloud
-* The compute cluster is resized from 0 to 1 node
-* The docker image is downloaded to the compute. 
-
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute - you can test this by resubmitting the code below after the first run has completed.
 
 ```bash
 python 03-run-hello.py
@@ -158,11 +151,18 @@ python 03-run-hello.py
 
 ## <a name="monitor"></a>Monitor your code in the cloud by using the studio
 
-The output will contain a link to the studio that looks something like this:
+The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link and go to the **Outputs + logs** tab. There you can see a 
-`70_driver_log.txt` file that looks like this:
+Follow the link.  At first, you'll see a status of **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
+
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute. 
+
+Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+
+Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
