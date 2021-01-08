@@ -8,4 +8,4 @@
     items: 
      - name: Overview
        tocHref: /azure/virtual-machines/index
-       topicHref: /azure/baremetal-infrastructure/workloads/sap/
+       topicHref: /azure/virtual-machines/workloads/sap/get-started
