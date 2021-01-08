@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
 ---
@@ -25,8 +25,10 @@ This article shows how the developers can take advantage of the [Video Indexer A
 ## Subscribe to the API
 
 1. Sign in to [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
+    Review a release note regarding [login information](release-notes.md#october-2020).
 	
-	![Sign in to Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Sign in to Video Indexer Developer Portal](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * You must use the same provider you used when you signed up for Video Indexer.
@@ -36,14 +38,14 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
 	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe.
 	
-	![Products tab in Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api02.png)
+	![Products tab in Video Indexer Developer Portal](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > New users are automatically subscribed to Authorization.
 	
 	After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
-	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api03.png)
+	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > Video Indexer user can use a single subscription key to connect to multiple Video Indexer accounts. You can then link these Video Indexer accounts to different Media Services accounts.
